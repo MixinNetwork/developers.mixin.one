@@ -1,0 +1,16 @@
+{
+  "general": {
+    "errors": {
+      "0": "Network error.",
+      "403": "Access denied.",
+      "429": "Your requests exceed the rate limit, please try again later.",
+      "500": "Internal server error.",
+      "10001": "Internal server error.",
+      "10002": "Invalid data submitted.",
+      "20110": "Invalid phone number.",
+      "20112": "Invalid invitation code.",
+      "20113": "Invalid phone verification code.",
+      "20123": "Too many apps created, them maximum is 10."
+    }
+  }
+}

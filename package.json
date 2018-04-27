@@ -1,0 +1,40 @@
+{
+  "name": "Mixin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "croppie": "^2.6.2",
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "navigo": "^5.2.0",
+    "node-forge": "^0.7.5",
+    "node-polyglot": "^2.2.2",
+    "noty": "^3.1.0",
+    "simple-line-icons": "^2.4.1",
+    "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "compression-webpack-plugin": "^1.1.11",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "favicons-webpack-plugin": "0.0.7",
+    "file-loader": "^0.11.2",
+    "handlebars-loader": "^1.7.0",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^6.0.7",
+    "script-ext-html-webpack-plugin": "^1.8.3",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack -w",
+    "dist": "NODE_ENV=production webpack -p"
+  },
+  "keywords": [],
+  "author": "Cedric Fung",
+  "license": "ISC"
+}

@@ -1,0 +1,34 @@
+<div class="form">
+  <form action="javascript:void(0);">
+    <div class="name field">
+      <label for="name">The name of your app.</label>
+      <input type="text" name="name" placeholder="2-64 characters" value="{{name}}" />
+    </div>
+
+    <div class="home field">
+      <label for="home_uri">The home uri.</label>
+      <input type="text" name="home_uri" value="{{home_uri}}" />
+    </div>
+
+    <div class="redirect field">
+      <label for="redirect_uri">The OAuth redirect uri.</label>
+      <input type="text" name="redirect_uri" value="{{redirect_uri}}" />
+    </div>
+
+    <div class="description field">
+      <label for="description">A short description of your app.</label>
+      <textarea name="description" placeholder="16-128 characters">{{description}}</textarea>
+    </div>
+
+    <div class="icon field">
+      <label for="icon_base64">Choose an icon for your app.</label>
+      <div class="icon wrapper">
+        <div class="icon chooser"><i class="icon-picture"></i></div>
+        <div class="icon croppie"></div>
+      </div>
+      <input type="submit" value="Submit" />
+      <input type="hidden" name="icon_base64" />
+    </div>
+  </form>
+  <input type="file" />
+</div>
