@@ -3,15 +3,14 @@
 
 title: Mixin
 description: Jekyll template for API documentation.
-url: https://developer.mixin.zone
+url: https://developers.mixin.one/api
 baseurl: ""
-google_analytics_key:
 permalink: pretty
 
 # -----
 # Build
 
-timezone: Etc/UTC
+timezone: Asia/Shanghai
 
 collections:
   documentation:
@@ -23,9 +22,6 @@ collections:
   app_api:
     title: APP APIs
     position: 3
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
 
 exclude:
   - readme.md
@@ -48,26 +44,14 @@ defaults:
     values:
       _hide_content: true
 
-# -----------
-# CloudCannon
-
 types:
   - get
-  - put
-  - delete
   - post
 
 languages:
   bash: Bash
-  c: C
-  css: CSS
-  html: HTML
-  java: Java
-  javascript: JavaScript
   json: JSON
-  php: PHP
-  python: Python
-  ruby: Ruby
+  golang: Golang
 
 _options:
   content_markdown:

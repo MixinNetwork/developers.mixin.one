@@ -1,7 +1,7 @@
 ---
 title: Read Users
 position: 121
-type: get
+type: post
 description: PATH /users/fetch
 parameters:
   - name: Params

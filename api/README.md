@@ -1,3 +1,3 @@
 # Mixin Develop Document
 
-Website: [https://developer.mixin.zone](https://developer.mixin.zone)
+Website: [https://developers.mixin.one/api](https://developers.mixin.one/api)
