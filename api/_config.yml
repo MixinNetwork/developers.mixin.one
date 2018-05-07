@@ -22,6 +22,9 @@ collections:
   app_api:
     title: APP APIs
     position: 3
+  websocket:
+    title: Websocket
+    position: 4
 
 exclude:
   - readme.md

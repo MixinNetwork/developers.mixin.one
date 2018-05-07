@@ -469,6 +469,14 @@ header {
       text-decoration: none;
     }
   }
+  .sidebar {
+    a {
+      &:hover {
+        color: #2196F3;
+        text-decoration: none;
+      }
+    }
+  }
 	.open-nav {
     float: left;
 		width: 25px;
