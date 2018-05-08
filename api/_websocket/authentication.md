@@ -1,5 +1,5 @@
 ---
-title: Messages
+title: Authentication
 position: 1
 parameters:
   - name:
