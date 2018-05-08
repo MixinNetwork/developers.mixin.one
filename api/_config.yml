@@ -29,6 +29,8 @@ collections:
 exclude:
   - readme.md
   - LICENSE
+  - Gemfile
+  - Gemfile.lock
 
 defaults:
   -
