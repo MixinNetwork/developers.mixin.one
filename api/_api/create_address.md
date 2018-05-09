@@ -9,7 +9,7 @@ parameters:
       String: UUID
   - name: public_key
     content: |
-      String: 0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0
+      String: Wallet address
   - name: label
     content: |
       String: "Jason's ETH Address"

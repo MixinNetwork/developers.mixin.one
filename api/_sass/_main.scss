@@ -270,8 +270,6 @@ hr {
 .error, .warning, .info, .success	{
 	border-left: 5px solid #FD0;
 	padding: 10px 15px;
-	margin-left: -20px;
-	margin-right: -15px;
 	background-color: #FAFAFA;
 	border-radius: 2px;
 }
@@ -419,13 +417,13 @@ hr {
 		float: none;
 		width: 100%;
 		background: #232323;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		padding: 20px 6px;
 	}
 
 	.left-docs {
 		float: none;
 		width: 100%;
+		padding: 20px 6px;
 	}
 
 	.doc-content {
