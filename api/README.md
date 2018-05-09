@@ -13,3 +13,9 @@ You can run api locally to view your changes. Before you run api document locall
 ## Contributing
 
 Mixin is open source. We appreciate your help! You can submit PR and issue to help us improve Mixin.
+
+1. Fork it!
+2. Create your feature branch: git checkout -b feature/new-feature
+3. Commit your changes: git commit -m 'Add some feature'
+4. Push your branch: git push origin my-new-feature
+5. Submit a PR and wait to be accepted
