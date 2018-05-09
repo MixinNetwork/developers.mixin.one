@@ -9,10 +9,10 @@ parameters:
       String: "1234"
   - name: session_secret
     content: |
-      String: base64 of isa public_key
+      String: base64 of public_key
   - name: platform
     content: |
-      String: "iOS" or "Andoird"
+      String: "iOS" or "Android"
   - name: platform_version
     content: | 
       String: "11.0"
