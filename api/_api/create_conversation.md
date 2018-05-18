@@ -29,16 +29,16 @@ content_markdown: |-
   ```golang
     func UniqueConversationId(userId, recipientId string) string {
       minId, maxId := userId, recipientId
-        if strings.Compare(userId, recipientId) > 0 {
-          maxId, minId = userId, recipientId
-        }
-  h := md5.New()
-       io.WriteString(h, minId)
-       io.WriteString(h, maxId)
-       sum := h.Sum(nil)
-       sum[6] = (sum[6] & 0x0f) | 0x30
-       sum[8] = (sum[8] & 0x3f) | 0x80
-       return uuid.FromBytesOrNil(sum).String()
+      if strings.Compare(userId, recipientId) > 0 {
+        maxId, minId = userId, recipientId
+      }
+      h := md5.New()
+      io.WriteString(h, minId)
+      io.WriteString(h, maxId)
+      sum := h.Sum(nil)
+      sum[6] = (sum[6] & 0x0f) | 0x30
+      sum[8] = (sum[8] & 0x3f) | 0x80
+      return uuid.FromBytesOrNil(sum).String()
     }
   ```
   You must use above method to generate a unique conversation_id for "CONTACT", for "GROUP" conversation_id is a normal UUID.
