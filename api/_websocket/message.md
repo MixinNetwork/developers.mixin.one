@@ -60,7 +60,7 @@ content_markdown: |-
 
   Date Format
   ```json
-    {"attachment_id": "Read From POST /attachments", "mine_type": "", "width": "100", "height": "100", "size": "1000byte", "thumbnail": "base64 encoded"}
+    {"attachment_id": "Read From POST /attachments", "mine_type": "", "width": int, "height": int, "size": int64, "thumbnail": "base64 encoded"}
   ```
 
   PLAIN_DATA
@@ -79,7 +79,7 @@ content_markdown: |-
   ```
   Data Format
   ```json
-    {"attachment_id": "Read From POST /attachments", "mine_type": "", "size": "1000byte", "name": "Share"}
+    {"attachment_id": "Read From POST /attachments", "mine_type": "", "size": int64, "name": "Share"}
   ```
 
   PLAIN_STICKER
@@ -136,7 +136,7 @@ content_markdown: |-
   ```
   Data Format
   ```json
-   {"attachment_id": "Read From POST /attachments", "mine_type": "", "width": "100", "height": "100", "size": "1000byte", "duration": "1000s", "thumbnail": "base64 encoded"}
+   {"attachment_id": "Read From POST /attachments", "mine_type": "", "width": int, "height": int, "size": int64, "duration": "int64 //milliseconds", "thumbnail": "base64 encoded"}
   ```
 
   ACKNOWLEDGE_MESSAGE_RECEIPT ack server received message
