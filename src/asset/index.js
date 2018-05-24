@@ -1,8 +1,8 @@
 import './index.scss';
 import $ from 'jquery';
+import uuid from 'uuid/v4';
 import Mixin from '../utils/mixin.js';
 import FormUtils from '../utils/form.js';
-import uuid from 'uuid/v4';
 
 function Asset(router, api) {
   this.router = router;
