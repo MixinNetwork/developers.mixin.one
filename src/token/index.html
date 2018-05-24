@@ -1,0 +1,36 @@
+<div class="container">
+  <header class="header">
+    <a class="nav back" href="javascript:history.back();"><i class="icon-arrow-left"></i></a>
+    <h1 class="title">Update Token</h1>
+    <a class="nav dashboard" href="/dashboard" data-navigo><i class="icon-layers"></i></a>
+  </header>
+  <section class="content">
+    <div class="form">
+      <form action="javascript:void(0);">
+        <div class="name field">
+          <label for="name">Client Id.</label>
+          <input type="text" name="client_id" placeholder="UUID" value="{{client_id}}" />
+        </div>
+
+        <div class="home field">
+          <label for="home_uri">Session Id.</label>
+          <input type="text" name="session_id" placeholder="UUID" value="{{session_id}}" />
+        </div>
+
+        <div class="redirect field">
+          <label for="redirect_uri">Pin Token</label>
+          <input type="text" name="pin_token" value="{{pin_token}}" />
+        </div>
+
+        <div class="description field">
+          <label for="description">Private Key</label>
+          <textarea name="private_key" placeholder="">{{private_key}}</textarea>
+        </div>
+
+        <div class="field">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

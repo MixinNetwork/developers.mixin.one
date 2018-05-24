@@ -1,0 +1,44 @@
+<div class="container">
+  <header class="header">
+    <a class="nav back" href="javascript:history.back();"><i class="icon-arrow-left"></i></a>
+    <h1 class="title">Assets</h1>
+    <a class="nav dashboard" href="/dashboard" data-navigo><i class="icon-layers"></i></a>
+  </header>
+  <section class="content">
+    <div class="form header">
+      <img src="{{icon_url}}" alt="asset icon" class="asset icon" />
+      <div class="asset info">
+        <h1>{{name}}</h1>
+        <h2>{{balance}} {{symbol}}</h2>
+      </div>
+    </div>
+
+    <div class="form body">
+      <form action="javascript:void(0);">
+        <div class="name field">
+          <label for="to">Mixin Id</label>
+          <input type="text" name="to" value="" />
+        </div>
+
+        <div class="name field">
+          <label for="amount">Amount</label>
+          <input type="text" name="amount" value="{{balance}}" />
+        </div>
+
+        <div class="field">
+          <label for="pin">Pin</label>
+          <input type="text" name="pin" value="" />
+        </div>
+
+        <div class="field">
+          <label for="pin">Iterator (default: nanosecond)</label>
+          <input type="text" name="iterator" value="" />
+        </div>
+
+        <div class="field">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
