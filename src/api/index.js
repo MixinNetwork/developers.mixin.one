@@ -2,18 +2,20 @@ import $ from 'jquery';
 import Noty from 'noty';
 import Account from './account.js';
 import App from './app.js';
+import Asset from './asset.js';
 
 function API(router, root) {
   this.router = router;
   this.root = root;
   this.account = new Account(this);
   this.app = new App(this);
+  this.asset = new Asset(this);
   this.Error404 = require('../404.html');
   this.ErrorGeneral = require('../error.html');
 }
 
 API.prototype = {
-  request: function(method, path, params, callback) {
+  requestWithToken: function(method, path, params, token, callback) {
     const self = this;
     $.ajax({
       type: method,
@@ -21,7 +23,7 @@ API.prototype = {
       contentType: "application/json",
       data: JSON.stringify(params),
       beforeSend: function(xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer " + self.account.token());
+        xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
       success: function(resp) {
         var consumed = false;
@@ -36,6 +38,10 @@ API.prototype = {
         self.error(event.responseJSON, callback);
       }
     });
+  },
+
+  request: function(method, path, params, callback) {
+    this.requestWithToken(method, path, params, this.account.token(), callback);
   },
 
   error: function(resp, callback) {

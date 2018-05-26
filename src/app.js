@@ -8,6 +8,8 @@ import Home from './home';
 import Auth from './auth';
 import App from './client';
 import Guide from './guide';
+import Token from './token';
+import Asset from './asset';
 
 const PartialLoading = require('./loading.html');
 const Error404 = require('./404.html');
@@ -44,6 +46,12 @@ router.on({
   '/apps/new': function () {
     new App(router, api).new();
   },
+  '/apps/:id': function (params) {
+    new Asset(router, api).index(params['id']);
+  },
+  '/apps/:id/assets/:asset_id': function (params) {
+    new Asset(router, api).show(params['id'], params['asset_id']);
+  },
   '/apps/:id/edit': function (params) {
     new App(router, api).edit(params['id']);
   },
@@ -55,6 +63,9 @@ router.on({
   },
   '/guides': function () {
     new Guide(router).index();
+  },
+  '/tokens/:id': function (params) {
+    new Token(router, api).index(params['id']);
   },
   '/': function () {
     new Home(router).index();

@@ -1,0 +1,20 @@
+<div class="container">
+  <header class="header">
+    <a class="nav back" href="javascript:history.back();"><i class="icon-arrow-left"></i></a>
+    <h1 class="title">Assets</h1>
+    <a class="nav dashboard" href="/dashboard" data-navigo><i class="icon-layers"></i></a>
+  </header>
+  <section class="content">
+    <ul class="assets list container">
+      {{#each data}}
+      <li class="asset item" data-asset-id="{{asset_id}}">
+        <img src="{{icon_url}}" alt="asset icon" class="asset icon" />
+        <div class="asset info">
+          <h1>{{name}}</h1>
+          <h2>{{balance}} {{symbol}}</h2>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>
