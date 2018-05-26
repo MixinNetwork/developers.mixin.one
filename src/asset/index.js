@@ -19,13 +19,13 @@ Asset.prototype = {
     let data = JSON.parse(objStr);
     if (data == undefined) {
       self.router.replace("/tokens/"+id);
-      return
+      return;
     }
 
     let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/assets', "");
     this.api.asset.index(token, function(resp) {
       if (resp.error) {
-        return
+        return;
       }
       $('body').attr('class', 'asset layout');
       $('#layout-container').html(self.templateIndex(resp));
@@ -44,13 +44,13 @@ Asset.prototype = {
     let data = JSON.parse(objStr);
     if (data == undefined) {
       self.router.replace("/tokens/"+id);
-      return
+      return;
     }
 
     let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/assets/'+assetId, '');
     this.api.asset.show(assetId, token, function(resp) {
       if (resp.error) {
-        return
+        return;
       }
 
       $('body').attr('class', 'asset layout');
@@ -62,19 +62,19 @@ Asset.prototype = {
 
         if (params['to'].trim().length < 5) {
           self.api.notify('error', 'Mixin Id Format Error');
-          return
+          return;
         }
         var pin = params['pin'].trim();
         if (pin.length !== 6) {
           self.api.notify('error', 'Pin Format Error');
-          return
+          return;
         }
         var iterator = params['iterator'].trim();
 
         let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/search/'+params['to'], '');
         self.api.account.search(function(resp) {
           if (resp.error) {
-            return
+            return;
           }
 
           pin = new Mixin().signEncryptedPin(pin, data.pin_token, data.session_id, data.private_key, iterator);
@@ -83,12 +83,12 @@ Asset.prototype = {
             "counter_user_id": resp.data.user_id,
             "amount":          params['amount'],
             "pin":             pin,
-            "trace_id":        uuid(),
+            "trace_id":        uuid()
           }
           let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'POST', '/transfers', req);
           self.api.account.transfer(function(resp) {
             if (resp.error) {
-              return
+              return;
             }
 
             self.router.replace("/apps/"+id);

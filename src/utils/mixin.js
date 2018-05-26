@@ -23,7 +23,7 @@ Mixin.prototype = {
       iat: moment.utc().unix() ,
       exp: expire,
       jti: uuid(),
-      sig: md.digest().toHex(),
+      sig: md.digest().toHex()
     };
     return jwt.sign(payload, privateKey, { algorithm: 'RS512'});
   },
@@ -36,7 +36,7 @@ Mixin.prototype = {
     privateKey = forge.pki.privateKeyFromPem(privateKey);
     let pinKey = privateKey.decrypt(pinToken, 'RSA-OAEP', {
       md: forge.md.sha256.create(),
-      label: sessionId,
+      label: sessionId
     });
     let time = new Uint64LE(moment.utc().unix());
     time = [...time.toBuffer()].reverse();
@@ -59,7 +59,7 @@ Mixin.prototype = {
     cipher.setAutoPadding(false);
     let encrypted_pin_buff = cipher.update(buf, 'utf-8');
     encrypted_pin_buff = Buffer.concat([iv16 , encrypted_pin_buff]);
-    return Buffer.from(encrypted_pin_buff).toString('base64')
+    return Buffer.from(encrypted_pin_buff).toString('base64');
   },
 
   hexToBytes: function (hex) {

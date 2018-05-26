@@ -26,15 +26,15 @@ Token.prototype = {
       var params = new FormUtils().serialize($(this));
       if (!validator.isUUID(params['client_id'], 4)) {
         self.api.notify('error', 'Client Id Format Error');
-        return
+        return;
       }
       if (!validator.isUUID(params['session_id'], 4)) {
         self.api.notify('error', 'Session Id Format Error');
-        return
+        return;
       }
       if (!validator.isBase64(params['pin_token'])) {
         self.api.notify('error', 'Pin Token Format Error');
-        return
+        return;
       }
       window.localStorage.setItem(id, JSON.stringify(params));
       self.router.replace("/apps/"+id);
