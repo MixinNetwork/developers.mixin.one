@@ -6,7 +6,7 @@ const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name]-[contentHash].css"
+    filename: "[name]-[hash].css"
 });
 
 const webRoot = function (env) {
