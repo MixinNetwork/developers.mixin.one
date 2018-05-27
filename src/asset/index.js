@@ -29,9 +29,8 @@ Asset.prototype = {
       }
       $('body').attr('class', 'asset layout');
       $('#layout-container').html(self.templateIndex(resp));
-      $('.asset.item').on('click', function() {
+      $('.asset.item').on('click', function(event) {
         event.preventDefault();
-
         self.router.replace("/apps/"+id+"/assets/"+$(this).data('asset-id'));
       });
       self.router.updatePageLinks();
