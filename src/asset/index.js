@@ -22,7 +22,7 @@ Asset.prototype = {
       return;
     }
 
-    let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/assets', "");
+    let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/assets', "");
     this.api.asset.index(token, function(resp) {
       if (resp.error) {
         return;
@@ -46,7 +46,7 @@ Asset.prototype = {
       return;
     }
 
-    let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/assets/'+assetId, '');
+    let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/assets/'+assetId, '');
     this.api.asset.show(assetId, token, function(resp) {
       if (resp.error) {
         return;
@@ -70,7 +70,7 @@ Asset.prototype = {
         }
         var iterator = params['iterator'].trim();
 
-        let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'GET', '/search/'+params['to'], '');
+        let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/search/'+params['to'], '');
         self.api.account.search(function(resp) {
           if (resp.error) {
             return;
@@ -84,7 +84,7 @@ Asset.prototype = {
             "pin":             pin,
             "trace_id":        uuid()
           }
-          let token = new Mixin().signAuthenticationToken(data.client_id, data.session_id, data.private_key, 'POST', '/transfers', req);
+          let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'POST', '/transfers', req);
           self.api.account.transfer(function(resp) {
             if (resp.error) {
               return;
