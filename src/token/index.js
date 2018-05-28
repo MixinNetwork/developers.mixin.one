@@ -24,10 +24,6 @@ Token.prototype = {
       event.preventDefault();
 
       var params = new FormUtils().serialize($(this));
-      if (!validator.isUUID(params['client_id'], 4)) {
-        self.api.notify('error', 'Client Id Format Error');
-        return;
-      }
       if (!validator.isUUID(params['session_id'], 4)) {
         self.api.notify('error', 'Session Id Format Error');
         return;
