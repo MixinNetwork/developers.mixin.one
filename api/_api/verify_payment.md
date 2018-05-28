@@ -53,7 +53,7 @@ right_code_blocks:
               "price_usd":"715.394"
             },
             "amount":"10",
-            "status":"pending"
+            "status":"pending" // "paid" OR "pending"
         }
       }
     title: Response
