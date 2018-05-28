@@ -1,6 +1,6 @@
 ---
 title: Read snapshot
-position: 220
+position: 231
 type: get
 description: PATH /network/snapshots/:id
 content_markdown: |-

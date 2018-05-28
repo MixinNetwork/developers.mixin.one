@@ -4,7 +4,7 @@ position: 230
 type: get
 description: PATH /network/snapshots?limit=10&offset=nanosecond
 content_markdown: |-
-Read Mixin network snapshots
+  Read Mixin network snapshots
 
 left_code_blocks:
   - code_block: |-
