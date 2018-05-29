@@ -2,9 +2,19 @@
 title: Read Network Snapshots
 position: 230
 type: get
-description: PATH /network/snapshots?limit=10&offset=2006-01-02T15:04:05.999999999Z07:00
+description: PATH /network/snapshots?limit=10&offset=2006-01-02T15:04:05.999999999Z07:00&asset=965e5c6e-434c-3fa9-b780-c50f43cd955c
+parameters:
+  - name: limit
+    content: |
+      Integer: Max 500
+  - name: offset
+    content: |
+      String: RFC3339Nano
+  - name: asset
+    content: |
+      UUID: OPTION, return all network snapshots or specific asset snapshots.
 content_markdown: |-
-  Read Mixin network snapshots, max limit is 500, offset is RFC3339Nano.
+  Read Mixin network snapshots.
 
 left_code_blocks:
   - code_block: |-
