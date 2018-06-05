@@ -1,6 +1,6 @@
 ---
 title: Read Users
-position: 121
+position: 122
 type: post
 description: PATH /users/fetch
 parameters:
@@ -20,7 +20,7 @@ right_code_blocks:
   - code_block: |-
       {
         "data":[
-        {  
+        {
           "type":"user",
             "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
             "identity_number":"7000",
