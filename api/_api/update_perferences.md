@@ -1,6 +1,6 @@
 ---
 title: Update Preferences
-position: 112
+position: 113
 type: post
 description: PATH /me/preferences
 parameters:
@@ -20,8 +20,8 @@ left_code_blocks:
 
 right_code_blocks:
   - code_block: |-
-      {  
-        "data":{  
+      {
+        "data":{
           "type":"user",
             "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
             "identity_number":"20034",
