@@ -10,6 +10,7 @@ import App from './client';
 import Guide from './guide';
 import Token from './token';
 import Asset from './asset';
+import Event from './event';
 
 const PartialLoading = require('./loading.html');
 const Error404 = require('./404.html');
@@ -63,6 +64,9 @@ router.on({
   },
   '/guides': function () {
     new Guide(router).index();
+  },
+  '/events': function (params) {
+    new Event(router, api).render();
   },
   '/tokens/:id': function (params) {
     new Token(router, api).index(params['id']);
