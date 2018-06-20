@@ -44,11 +44,11 @@ router.on({
   '/auth': function () {
     new Auth(router, api).render();
   },
-  '/apps/new': function () {
-    new App(router, api).new();
-  },
   '/apps/:id': function (params) {
     new Asset(router, api).index(params['id']);
+  },
+  '/apps/new': function () {
+    new App(router, api).new();
   },
   '/apps/:id/assets/:asset_id': function (params) {
     new Asset(router, api).show(params['id'], params['asset_id']);
