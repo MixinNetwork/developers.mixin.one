@@ -47,7 +47,7 @@ router.on({
   '/apps/new': function () {
     new App(router, api).new();
   },
-  '/apps/:id': function (params) {
+  '/apps/:id/assets': function (params) {
     new Asset(router, api).index(params['id']);
   },
   '/apps/:id/assets/:asset_id': function (params) {

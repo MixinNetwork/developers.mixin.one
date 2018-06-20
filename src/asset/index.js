@@ -90,7 +90,7 @@ Asset.prototype = {
               return;
             }
 
-            self.router.replace("/apps/"+id);
+            self.router.replace("/apps/"+id+"/assets");
           }, token, req);
         }, params['to'], token);
       });
