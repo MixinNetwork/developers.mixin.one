@@ -7,7 +7,7 @@ parameters:
   - name: asset_id
     content: |
       String: UUID
-  - name: counter_user_id
+  - name: opponent_id
     content: |
       String: UUID
   - name: amount
@@ -21,7 +21,7 @@ content_markdown: |-
 
 left_code_blocks:
   - code_block: |-
-      curl -i -H "Mixin-Device-Id: 00a5a4ae-dcdc-48db-ab8e-a7eef69b441d" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMxMTgyMjAsImlhdCI6MTUyNTM0MjIyMCwianRpIjoiNDg2OTU2YzYtMGVjZi00N2RlLTkwODktM2Q2N2VjNzFjNzE0Iiwic2lkIjoiYTM0YzA3YTktNzU1ZC00YjU0LTk0YzUtZTQ1ZTlhMmRkNDNlIiwic2lnIjoiYTMxMTJmYjRjMGFjZTU3MTk1N2YwZWEwODRjZjdlNDIzMGQwYmQzNzA1NDM5MTY2ODlhNzYwYjZlZWNjOTM1ZCIsInVpZCI6IjA2YWVkMWUzLWJkNzctNGE1OS05OTFhLTViYjVhZTZmYmIwOSJ9.xoW_kN-eAJXAdTnbzArXFATGU38yxVyGZA7btDqsIhZut8HNZIBFyZMNBGzHMdy0GaHH-j9_N2ZUjOVKSzQiaiebyVBh5odmPF4OiNuhiAnXgK9OcZbOZyl9gnT7uRbXN_oR-_ti0R3vq3YeLHOWeenQLgroNwcICpdo1S09L-k" "https://api.mixin.one/payments" -XPOST --data '{"amount":"10","asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","counter_user_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46","trace_id":"99f1f10f-81a0-4887-907f-c5b37f2c1bc8"}'
+      curl -i -H "Mixin-Device-Id: 00a5a4ae-dcdc-48db-ab8e-a7eef69b441d" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMxMTgyMjAsImlhdCI6MTUyNTM0MjIyMCwianRpIjoiNDg2OTU2YzYtMGVjZi00N2RlLTkwODktM2Q2N2VjNzFjNzE0Iiwic2lkIjoiYTM0YzA3YTktNzU1ZC00YjU0LTk0YzUtZTQ1ZTlhMmRkNDNlIiwic2lnIjoiYTMxMTJmYjRjMGFjZTU3MTk1N2YwZWEwODRjZjdlNDIzMGQwYmQzNzA1NDM5MTY2ODlhNzYwYjZlZWNjOTM1ZCIsInVpZCI6IjA2YWVkMWUzLWJkNzctNGE1OS05OTFhLTViYjVhZTZmYmIwOSJ9.xoW_kN-eAJXAdTnbzArXFATGU38yxVyGZA7btDqsIhZut8HNZIBFyZMNBGzHMdy0GaHH-j9_N2ZUjOVKSzQiaiebyVBh5odmPF4OiNuhiAnXgK9OcZbOZyl9gnT7uRbXN_oR-_ti0R3vq3YeLHOWeenQLgroNwcICpdo1S09L-k" "https://api.mixin.one/payments" -XPOST --data '{"amount":"10","asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46","trace_id":"99f1f10f-81a0-4887-907f-c5b37f2c1bc8"}'
     title: Curl
     language: bash
 
