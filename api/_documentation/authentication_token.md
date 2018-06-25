@@ -5,7 +5,7 @@ parameters:
   - name:
     content:
 content_markdown: |-
-  If you want to access API, you should prepare a signed authentication token, which contains all of following informations.
+  If you want to access API, you should prepare a signed authentication token, which contains all of following informations. Privatekey is generated using RSA PKCS#1 v1.5. Document from Golang: [https://golang.org/pkg/crypto/rsa/](https://golang.org/pkg/crypto/rsa/).
 
   ``` golang
     uid: ClientId
@@ -19,7 +19,6 @@ content_markdown: |-
   This will generate a JWT token, which will be used for all API as a Bearer Authorization HTTP header. An example of Signed Authentication Token:
 
   ```golang
-    
     // A Signed Authentication Token
     eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
   ```
