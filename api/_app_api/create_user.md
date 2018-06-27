@@ -11,7 +11,7 @@ parameters:
     content: |
       String: Name of An New User
 content_markdown: |-
-  Create a new none-phone user.
+  Create a new none-phone user (which is like an normal Mixin user). You should keep `PrivateKey` which is used to sign `AuthenticationToken` and encrypt `Pin` for the user.
 
 left_code_blocks:
   - code_block: |-
@@ -21,8 +21,8 @@ left_code_blocks:
 
 right_code_blocks:
   - code_block: |-
-      {  
-        "data":{  
+      {
+        "data":{
           "type":"user",
           "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
           "identity_number":"7000",
