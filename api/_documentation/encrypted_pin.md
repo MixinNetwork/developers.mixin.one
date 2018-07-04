@@ -12,7 +12,7 @@ content_markdown: |-
     pinToken: PinToken
     sessionId: SessionId
     key: PrivateKey
-    iterator: must be bigger than the previous, the first time must be greater than 0. After exiting, it will be reset to 0.
+    iterator: must be bigger than the previous, the first time must be greater than 0. After a new session created, it will be reset to 0.
   ```
 
   Notice: if you want to change you old pin, you must encrypt old pin first, then new pin in order. Following is an example of Encrypted PIN.
