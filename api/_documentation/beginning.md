@@ -5,13 +5,11 @@ parameters:
   - name:
     content:
 content_markdown: |-
-  This is the document of how to use Mixin and Mixin Network.
+  The document describe how to build a DApp base on Mixin Network or a bot base on Mixin Messeger, the APIs of Mixin Network, how to create a full currency Mixin user, and how to get user's deposits and withdrawals by scan Mixin Network transactions.
 
-  The document include how to use the API of Mixin, how to use Mixin Network to create a full currency Mixin user, and how to get user's deposits and withdrawals by scan Mixin Network transactions.
+  First of all, you need to register a App before use Mixin Network. [How to create App and get access of Mixin Messeger users?](https://developers.mixin.one/guides)
 
-  First of all, you need to register a App before use Mixin Network. All user actions will be based on the App, include create user, deposit, withdrawal etc. You can get all of the users' transactions which are created by the App.
-
-  If there are any problems or updates, you can submit Issues or PR.
+  We are appreciate you can help us to improve the document, you submit PR or issue on [our github](https://github.com/MixinMessenger/developers.mixin.one).
 
 left_code_blocks:
   - code_block:
