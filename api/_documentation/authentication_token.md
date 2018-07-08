@@ -8,8 +8,8 @@ content_markdown: |-
   If you want to access API, you should prepare a signed authentication token, which contains all of following informations. Privatekey is generated using RSA PKCS#1 v1.5. Document from Golang: [https://golang.org/pkg/crypto/rsa/](https://golang.org/pkg/crypto/rsa/).
 
   ``` golang
-    uid: ClientId
-    sid: SessionId
+    uid: ClientId or Bear User Id
+    sid: SessionId or Bear User SessionId
     privateKey: PrivateKey
     method: HTTP Request method, e.g.: GET, POST
     url: URL path without hostname, e.g.: /transfers
