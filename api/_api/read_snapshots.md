@@ -13,6 +13,9 @@ parameters:
   - name: asset
     content: |
       UUID: OPTION, return all network snapshots or specific asset snapshots.
+  - name: order
+    content: |
+      string: ASC or DESC. DEFAULT DESC
 content_markdown: |-
   Read Mixin network snapshots.
 
