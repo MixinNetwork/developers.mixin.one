@@ -15,16 +15,18 @@ left_code_blocks:
 right_code_blocks:
   - code_block: |-
       {  
-        "data":[  
-        {  
-          "type":"address",
-            "address_id":"ba3a2e33-efde-40b9-9cac-c293f0d1a3f2",
-            "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-            "public_key":"0x86Fa049857E0209aa7D9e616F7eb3b3B78ECfdb0",
-            "label":"Jason ETH Address",
-            "updated_at":"0001-01-01T00:00:00Z"
-        }
-        ]
+         "data":[  
+            {  
+               "type":"address",
+               "address_id":"e1524f3c-2e4f-411f-8a06-b5e1b1601308",
+               "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
+               "public_key":"0x86Fa049857E0209aa7D9e616F7eb3b3B78ECfdb0",
+               "label":"Eth Address",
+               "fee":"0.016",
+               "reserve":"0",
+               "updated_at":"0001-01-01T00:00:00Z"
+            }
+         ]
       }
     title: Response
     language: json
