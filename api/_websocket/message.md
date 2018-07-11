@@ -23,8 +23,6 @@ content_markdown: |-
   | PLAIN_STICKER | 
   | PLAIN_CONTACT | 
   | PLAIN_JSON | 
-  | SYSTEM_CONVERSATION | 
-  | SYSTEM_ACCOUNT_SNAPSHOT | 
   | APP_BUTTON_GROUP | 
   | APP_CARD | 
 
