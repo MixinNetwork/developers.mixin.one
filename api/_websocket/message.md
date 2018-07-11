@@ -120,6 +120,56 @@ content_markdown: |-
    { "user_id": "UUID"}
   ```
 
+  APP_BUTTON_GROUP
+  ```json
+    {
+      "id": "UUID",
+      "action": "CREATE_MESSAGE",
+      "params": {
+        "conversation_id": "UUID",
+        "category": "APP_BUTTON_GROUP",
+        "status": "SENT",
+        "message_id": "UUID",
+        "data": "Base64 encoded data"
+      }
+    }
+  ```
+  Data Format
+  ```json
+    [{"label": "Mixin Website", "color": "#ABABAB", "action": "https://mixin.one"}, ...]
+  ```
+
+  APP_CARD
+  ```json
+    {
+      "id": "UUID",
+      "action": "CREATE_MESSAGE",
+      "params": {
+        "conversation_id": "UUID",
+        "category": "APP_CARD",
+        "status": "SENT",
+        "message_id": "UUID",
+        "data": "Base64 encoded data"
+      }
+    }
+  ```
+  Data Format
+  ```json
+    {"icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png", "title": "Mixin", "description": "A free and lightning fast peer-to-peer transactional network for digital assets.", "action": "https://mixin.one"}
+  ```
+
+  ACKNOWLEDGE_MESSAGE_RECEIPT ack server received message
+  ```json
+    {
+      "id": "UUID",
+      "action": "ACKNOWLEDGE_MESSAGE_RECEIPT",
+      "params": {
+        "message_id": "UUID // message_id is you received message's message_id",
+        "status": "READ"
+      }
+    }
+  ```
+
   PLAIN_VIDEO
   ```json
     {
