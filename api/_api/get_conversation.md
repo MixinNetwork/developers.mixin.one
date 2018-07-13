@@ -8,7 +8,7 @@ content_markdown: |-
 
 left_code_blocks:
   - code_block: |-
-      curl -i -H "Mixin-Device-Id: 00a5a4ae-dcdc-48db-ab8e-a7eef69b441d" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzQyNTEwMTcsImlhdCI6MTUyNjQ3NTAxNywianRpIjoiZWVhNjE4Y2UtNmE5Zi00MWU3LTkwODQtMzVlNDdhZGFlOWEyIiwic2lkIjoiMTM4NDMyNmQtMTQzNi00NWI2LWI3NGQtY2ZhNjNkNDM2ZmRmIiwic2lnIjoiZWRhZjA2ZDA2Nzg4OWUyMDQ4NTczMmU2Y2NkODZmNTJjODA4OGRhNzdkOTI1NDEwODNiYmY1YjU0NTQ0NDVhNyIsInVpZCI6IjhkY2Y4MjNkLTllYjMtNGRhMi04NzM0LWYwYWFkNTBjMGRhNiJ9.h0ohH6oRaksdXrw2CHTjDoUva5oUbc3d8RhvjI5qAqHIcpslLC2TC8hxbwTzuRQQ6hE2bdZLGcuEvoY0O0o2fFO4OHqiRdsMih-7mPR08VIWUGbS0qRhN8qebpYSpAOXqRAt4Ox4ad85FaPWFFbyXF2Tuw4XOTs4aF7a9vqejm0" "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311" -X GET
+      curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzQyNTEwMTcsImlhdCI6MTUyNjQ3NTAxNywianRpIjoiZWVhNjE4Y2UtNmE5Zi00MWU3LTkwODQtMzVlNDdhZGFlOWEyIiwic2lkIjoiMTM4NDMyNmQtMTQzNi00NWI2LWI3NGQtY2ZhNjNkNDM2ZmRmIiwic2lnIjoiZWRhZjA2ZDA2Nzg4OWUyMDQ4NTczMmU2Y2NkODZmNTJjODA4OGRhNzdkOTI1NDEwODNiYmY1YjU0NTQ0NDVhNyIsInVpZCI6IjhkY2Y4MjNkLTllYjMtNGRhMi04NzM0LWYwYWFkNTBjMGRhNiJ9.h0ohH6oRaksdXrw2CHTjDoUva5oUbc3d8RhvjI5qAqHIcpslLC2TC8hxbwTzuRQQ6hE2bdZLGcuEvoY0O0o2fFO4OHqiRdsMih-7mPR08VIWUGbS0qRhN8qebpYSpAOXqRAt4Ox4ad85FaPWFFbyXF2Tuw4XOTs4aF7a9vqejm0" "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311" -X GET
     title: Curl
     language: bash
 
