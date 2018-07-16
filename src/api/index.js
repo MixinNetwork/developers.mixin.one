@@ -3,6 +3,7 @@ import Noty from 'noty';
 import Account from './account.js';
 import App from './app.js';
 import Asset from './asset.js';
+import Github from './github.js';
 
 function API(router, root) {
   this.router = router;
@@ -10,6 +11,7 @@ function API(router, root) {
   this.account = new Account(this);
   this.app = new App(this);
   this.asset = new Asset(this);
+  this.github = new Github(this);
   this.Error404 = require('../404.html');
   this.ErrorGeneral = require('../error.html');
 }

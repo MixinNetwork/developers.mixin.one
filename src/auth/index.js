@@ -26,6 +26,17 @@ Auth.prototype = {
       }
       self.router.replace('/dashboard');
     }, authorizationCode);
+  },
+
+  callback: function () {
+    const code = new URLUtils().getUrlParameter("code");
+    const self = this;
+    self.api.github.oauth(function (resp) {
+      if (resp.error != null && resp.error != undefined) {
+        self.api.notify('error', i18n.t('general.errors.'+resp.error.code));
+      }
+      self.router.replace('/dashboard');
+    }, code);
   }
 };
 
