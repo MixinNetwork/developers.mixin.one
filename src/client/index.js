@@ -74,7 +74,7 @@ App.prototype = {
           }, appId, pin, public_key);
         });
         self.router.updatePageLinks();
-        if (github == null && github == undefined) {
+        if (github == null || github == undefined) {
           self.api.github.user(function (resp) {
             if (resp.error) {
               $('.bonus').show();

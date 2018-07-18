@@ -44,7 +44,7 @@ router.on({
   '/auth': function () {
     new Auth(router, api).render();
   },
-  '/callback': function () {
+  '/github/callback': function () {
     new Auth(router, api).callback();
   },
   '/apps/new': function () {
