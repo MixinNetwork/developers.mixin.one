@@ -57,8 +57,9 @@ content_markdown: |-
    ```
 
   Date Format
-  ```json
-    {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": int, "height": int, "size": int64, "thumbnail": "base64 encoded"}
+  ```js
+    // width: int, height: int, size: int64
+    {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": 1024, "height": 1024, "size": 1024, "thumbnail": "base64 encoded"}
   ```
 
   PLAIN_DATA
@@ -76,8 +77,9 @@ content_markdown: |-
     }
   ```
   Data Format
-  ```json
-    {"attachment_id": "Read From POST /attachments", "mime_type": "", "size": int64, "name": "Share"}
+  ```js
+    // size int64
+    {"attachment_id": "Read From POST /attachments", "mime_type": "", "size": 1024, "name": "Share"}
   ```
 
   PLAIN_STICKER
@@ -133,7 +135,7 @@ content_markdown: |-
     }
   ```
   Data Format
-  ```json
+  ```js
     [{"label": "Mixin Website", "color": "#ABABAB", "action": "https://mixin.one"}, ...]
   ```
 
@@ -170,8 +172,9 @@ content_markdown: |-
     }
   ```
   Data Format
-  ```json
-   {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": int, "height": int, "size": int64, "duration": "int64 //milliseconds", "thumbnail": "base64 encoded"}
+  ```js
+   // width: int, height: int, size: int64, duration: int64 milliseconds
+   {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": 1024, "height": 1024, "size": 1024, "duration": 1024, "thumbnail": "base64 encoded"}
   ```
 
   `ACKNOWLEDGE_MESSAGE_RECEIPT` ack server received message
@@ -187,7 +190,7 @@ content_markdown: |-
   ```
 
   `CREATE_PLAIN_MESSAGES` send a batch of messages, max size 100.
-  ```json
+  ```js
     {
       "id": "UUID",
       "action": "CREATE_PLAIN_MESSAGES",
@@ -201,7 +204,7 @@ content_markdown: |-
             "quote_message_id": "UUID (optional, only supported text, e.g. PLAIN_TEXT)",
             "category": "Only support plain category e.g.: PLAIN_TEXT, PLAIN_STICKER etc",
             "data": "Correspond to category."
-          }
+          },
           ...
         ]
       }
