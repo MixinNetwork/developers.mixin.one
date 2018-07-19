@@ -155,19 +155,6 @@ content_markdown: |-
   ```json
     {"icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png", "title": "Mixin", "description": "A free and lightning fast peer-to-peer transactional network for digital assets.", "action": "https://mixin.one"}
   ```
-
-  ACKNOWLEDGE_MESSAGE_RECEIPT ack server received message
-  ```json
-    {
-      "id": "UUID",
-      "action": "ACKNOWLEDGE_MESSAGE_RECEIPT",
-      "params": {
-        "message_id": "UUID // message_id is you received message's message_id",
-        "status": "READ"
-      }
-    }
-  ```
-
   PLAIN_VIDEO
   ```json
     {
@@ -187,7 +174,7 @@ content_markdown: |-
    {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": int, "height": int, "size": int64, "duration": "int64 //milliseconds", "thumbnail": "base64 encoded"}
   ```
 
-  ACKNOWLEDGE_MESSAGE_RECEIPT ack server received message
+  `ACKNOWLEDGE_MESSAGE_RECEIPT` ack server received message
   ```json
     {
       "id": "UUID",
@@ -195,6 +182,28 @@ content_markdown: |-
       "params": {
         "message_id": "UUID // message_id is you received message's message_id",
         "status": "READ"
+      }
+    }
+  ```
+
+  `CREATE_PLAIN_MESSAGES` send a batch of messages, max size 100.
+  ```json
+    {
+      "id": "UUID",
+      "action": "CREATE_PLAIN_MESSAGES",
+      "params": {
+        "messages": [
+          {
+            "conversation_id": "UUID",
+            "recipient_id": "UUID",
+            "message_id": "UUID",
+            "representative_id": "UUID (optional, only supported in peer to peer conversation)",
+            "quote_message_id": "UUID (optional, only supported text, e.g. PLAIN_TEXT)",
+            "category": "Only support plain category e.g.: PLAIN_TEXT, PLAIN_STICKER etc",
+            "data": "Correspond to category."
+          }
+          ...
+        ]
       }
     }
   ```
