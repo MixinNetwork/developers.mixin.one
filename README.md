@@ -35,5 +35,5 @@ CNB 双向汇总+彩票：7000100137
 
 ## Forums
 
+Reddit: [https://www.reddit.com/r/mixin/](https://www.reddit.com/r/mixin/)  
 Non official: [http://mixin.news/](http://mixin.news/)  
-Reddit: [https://www.reddit.com/r/mixin/](https://www.reddit.com/r/mixin/)
