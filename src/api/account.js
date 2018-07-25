@@ -42,6 +42,10 @@ Account.prototype = {
     return window.localStorage.getItem('token');
   },
 
+  github: function () {
+    return window.localStorage.getItem('github');
+  },
+
   clear: function (callback) {
     window.localStorage.clear();
     if (typeof callback === 'function') {

@@ -66,6 +66,23 @@
     }
   }
 
+  .bonus {
+    display: none;
+    margin: 1rem auto;
+    width: 786px;
+    max-width: 96%;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    background: #FFFFE0;
+    border: 1px solid #FFFACD;
+    padding: .6rem 1rem;
+    box-sizing: border-box;
+    a {
+      text-decoration: underline;
+    }
+  }
+
   .apps.container {
     box-sizing: border-box;
     width: 100%;

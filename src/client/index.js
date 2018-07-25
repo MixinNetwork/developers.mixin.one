@@ -27,6 +27,10 @@ App.prototype = {
         if (resp.error) {
           return;
         }
+        var github = self.api.account.github();
+        if (github != null && github != undefined) {
+          me.github = github;
+        }
         $('body').attr('class', 'app layout');
         $('#layout-container').html(self.templateLayout({title: "Dashboard"}));
         $('#layout-container .content').html(self.templateDashboard(me));
@@ -70,6 +74,16 @@ App.prototype = {
           }, appId, pin, public_key);
         });
         self.router.updatePageLinks();
+        if (github == null || github == undefined) {
+          self.api.github.user(function (resp) {
+            if (resp.error) {
+              $('.bonus').show();
+              return;
+            }
+
+            $('.github').html(resp.data.html_url);
+          });
+        }
       });
     });
   },
