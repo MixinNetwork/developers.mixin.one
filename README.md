@@ -21,17 +21,15 @@ Mixin developer group: https://mixin.one/codes/0f2a743d-d86b-4a6c-b26c-14e320799
 3. Mixin Messager iOS [https://github.com/MixinNetwork/ios-app](https://github.com/MixinNetwork/ios-app)
 4. Nodejs Demo (non official): [https://github.com/virushuo/mixin-node](https://github.com/virushuo/mixin-node)
 5. Python Demo (non official): [https://github.com/myrual/mixin_client_demo](https://github.com/myrual/mixin_client_demo)
-6. Hancker News Demo (Golang non official): [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)
+6. Java Demo (non official): [https://github.com/qige-one/mixin_java_sdk](https://github.com/qige-one/mixin_java_sdk)
 
 ## Mixin bots demo
 
-Exin: 7000101276   
-红包来了：7000100016  
-价值红包：7000100089  
-持仓助理：7000100087  
-games：7000100168  
-CNB 双向汇总+彩票：7000100137  
-妹子图：7000100214
+Hancker News: Mixin ID 7000100124, repo [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)  
+Mixin Channel: Mixin ID 7000100150, repo [https://github.com/crossle/channel-father-mixin-bot](https://github.com/crossle/channel-father-mixin-bot)  
+Mixin Roulette: Mixin ID 7000100168, repo [https://github.com/virushuo/mixin-roulette](https://github.com/virushuo/mixin-roulette)
+Mixin super group: Mixin ID 7000101317, repo [https://github.com/MixinNetwork/supergroup.mixin.one](https://github.com/MixinNetwork/supergroup.mixin.one)
+
 
 ## Forums
 
