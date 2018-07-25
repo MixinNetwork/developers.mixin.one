@@ -9,7 +9,10 @@ parameters:
       Integer: Max 500
   - name: offset
     content: |
-      String: RFC3339Nano, e.g.: UTC time 2006-01-02T15:04:05.999999999Z, non UTC time 2006-01-02T15:04:05.999999999%2B07:00 or 2006-01-02T15:04:05.999999999%2B07:00
+      String: format RFC3339Nano, UTC or non UTC time e.g.: <br>
+      1. 2006-01-02T15:04:05.999999999Z <br>
+      2. 2006-01-02T15:04:05.999999999%2B07:00 <br>
+      3. 2006-01-02T15:04:05.999999999-07:00
   - name: asset
     content: |
       UUID: OPTION, return all network snapshots or specific asset snapshots.
