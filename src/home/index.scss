@@ -96,6 +96,23 @@
     }
   }
 
+  .contacts {
+    text-align: center;
+    margin: 20rem 0 0;
+    padding: 0;
+    .contact {
+      list-style: none;
+      display: inline-block;
+      margin: 0.6rem;
+    }
+    a {
+      color: #000;
+      &:hover {
+        color: #00B0E9;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     .header {
       .logo.small {
