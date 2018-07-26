@@ -28,6 +28,7 @@ right_code_blocks:
             "created_at":"2018-05-29T09:31:04.202186212Z",
             "data":"",
             "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
+            // Includes DEPOSIT_CONFIRMED, TRANSFER_INITIALIZED, WITHDRAWAL_INITIALIZED, WITHDRAWAL_FEE_CHARGED, WITHDRAWAL_FAILED
             "source":"TRANSFER_INITIALIZED",
             "type":"snapshot"
             // Options only for user (or App) who has access.
