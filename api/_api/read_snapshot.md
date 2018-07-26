@@ -28,9 +28,9 @@ right_code_blocks:
             "created_at":"2018-05-29T09:31:04.202186212Z",
             "data":"",
             "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
-            // Includes DEPOSIT_CONFIRMED, TRANSFER_INITIALIZED, WITHDRAWAL_INITIALIZED, WITHDRAWAL_FEE_CHARGED, WITHDRAWAL_FAILED
+            // Includes DEPOSIT_CONFIRMED, TRANSFER_INITIALIZED, WITHDRAWAL_INITIALIZED, WITHDRAWAL_FEE_CHARGED, WITHDRAWAL_FAILED 
             "source":"TRANSFER_INITIALIZED",
-            "type":"snapshot"
+            "type":"snapshot",
             // Options only for user (or App) who has access.
             "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
             "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
