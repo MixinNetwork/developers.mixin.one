@@ -13,9 +13,9 @@ Mixin developer group: https://mixin.one/codes/0f2a743d-d86b-4a6c-b26c-14e320799
 2. Block infomations: [https://mixin.one/snapshots
 ](https://mixin.one/snapshots)
 3. Twitter: [https://twitter.com/Mixin_Network](https://twitter.com/Mixin_Network)
-3. Facebook: [https://www.facebook.com/MixinNetwork](https://www.facebook.com/MixinNetwork)
-3. Youtube: [https://www.youtube.com/channel/UCg67cC-GO8wNEOdgGH5IRew](https://www.youtube.com/channel/UCg67cC-GO8wNEOdgGH5IRew)
-3. Medium: [https://medium.com/mixinnetwork](https://medium.com/mixinnetwork)
+4. Facebook: [https://www.facebook.com/MixinNetwork](https://www.facebook.com/MixinNetwork)
+5. Youtube: [https://www.youtube.com/channel/UCg67cC-GO8wNEOdgGH5IRew](https://www.youtube.com/channel/UCg67cC-GO8wNEOdgGH5IRew)
+6. Medium: [https://medium.com/mixinnetwork](https://medium.com/mixinnetwork)
 
 ## Resources
 
