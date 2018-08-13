@@ -34,6 +34,10 @@ Mixin Roulette: Mixin ID 7000100168, repo [https://github.com/virushuo/mixin-rou
 Mixin super group: Mixin ID 7000101317, repo [https://github.com/MixinNetwork/supergroup.mixin.one](https://github.com/MixinNetwork/supergroup.mixin.one)
 
 
+## Mixin app store (non official)
+
+App store address [https://app.mixin.news/](https://app.mixin.news/)
+
 ## Forums
 
 Reddit: [https://www.reddit.com/r/mixin/](https://www.reddit.com/r/mixin/)  
