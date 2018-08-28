@@ -6,6 +6,7 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 ## Communication
 
 Mixin developer group: https://mixin.one/codes/0f2a743d-d86b-4a6c-b26c-14e320799311
+Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 
 ## Mixin news
 
