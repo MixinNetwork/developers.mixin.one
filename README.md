@@ -25,7 +25,8 @@ Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 3. Mixin Messager iOS [https://github.com/MixinNetwork/ios-app](https://github.com/MixinNetwork/ios-app)
 4. Nodejs Demo (non official): [https://github.com/virushuo/mixin-node](https://github.com/virushuo/mixin-node)
 5. Python Demo (non official): [https://github.com/myrual/mixin_client_demo](https://github.com/myrual/mixin_client_demo)
-6. Java Demo (non official): [https://github.com/qige-one/mixin_java_sdk](https://github.com/qige-one/mixin_java_sdk)
+6. Java Demo (non official): [https://github.com/qige-one/mixin_java_sdk](https://github.com/qige-one/mixin_java_sdk)  
+7. Ocean ONE (blockchain exchange): [https://github.com/MixinNetwork/ocean.one](https://github.com/MixinNetwork/ocean.one)
 
 ## Mixin bots demo
 
