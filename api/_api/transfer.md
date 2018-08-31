@@ -21,7 +21,7 @@ parameters:
       String: UUID
   - name: memo
     content: |
-      String: Max 512, e.g.: "transfer to you"
+      String: Max 140 characters, e.g.: "transfer to you"
 content_markdown: |-
   Transfer coins to an user.
 
