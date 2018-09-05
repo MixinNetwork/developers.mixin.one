@@ -4,7 +4,7 @@ position: 160
 type: get
 description: PATH /assets/:id
 content_markdown: |-
-  Get a user's deposit address (public_key).
+  Get a user's deposit address (public_key). For EOS you should use `account_name` and `account_tag`.
 
 left_code_blocks:
   - code_block: |-
