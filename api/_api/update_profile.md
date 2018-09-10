@@ -9,7 +9,7 @@ parameters:
       String: "Mixin Develeper"
   - name: avatar_base64
     content: |
-      String: Base64 of image
+      String: Base64 of image, supports format png, jpeg and gif, base64 image size > 1024.
 content_markdown: |-
   Update user informations
 
