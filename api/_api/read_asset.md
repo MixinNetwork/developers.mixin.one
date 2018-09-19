@@ -4,7 +4,7 @@ position: 181
 type: get
 description: PATH /assets/:id
 content_markdown: |-
-  Get user's asset
+  Get user's asset, for EOS you should use account_name, account_tag.
 
 left_code_blocks:
   - code_block: |-
