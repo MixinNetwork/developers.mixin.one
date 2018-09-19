@@ -13,11 +13,17 @@ parameters:
   - name: label
     content: |
       String: "Jason's ETH Address"
+  - name: account_name
+    content: |
+      String: EOS account name (optional)
+  - name: account_tag
+    content: |
+      String: EOS account tag (optional)
   - name: pin
     content: |
       String: Encrypted PIN
 content_markdown: |-
-  Create an addresses, which is the target address when you make a withdrawal.
+  Create an addresses, which is the target address when you make a withdrawal. You should use account_name and account_tag instead of public_key and label for EOS.
 
 left_code_blocks:
   - code_block: |-

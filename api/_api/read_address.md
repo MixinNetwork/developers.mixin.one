@@ -23,6 +23,7 @@ right_code_blocks:
             "label":"Eth Address",
             "fee":"0.016",
             "reserve":"0",
+            "dust": "0.0001",
             "updated_at":"2018-07-10T03:58:17.5559296Z"
          }
       }
