@@ -15,6 +15,8 @@ content_markdown: |-
   | 202 | 429 | Too Many Requests. |
   | 202 | 10002 | The request data has invalid field. |
   | 202 | 10003 | Failed to deliver SMS to +8613800138000. |
+  | 202 | 10004 | Recaptcha is invalid. |
+  | 202 | 10005 | Recaptcha is required. |
   | 202 | 20110 | Invalid phone number +8613800138000|
   | 202 | 20111 | Insufficient identity numbers. | 
   | 202 | 20112 | Invalid invitation code. |
@@ -29,6 +31,10 @@ content_markdown: |-
   | 202 | 20121 | Authorization code expired. |
   | 202 | 20122 | Phone number used by someone else. |
   | 202 | 20123 | You have created too many apps, the maximum is 10. |
+  | 202 | 20124 | Insufficient fee. |
+  | 202 | 20125 | Transfer has been paid by someone else. |
+  | 202 | 20126 | Too many stickers. |
+  | 202 | 20127 | Withdraw amount too small. |
   | 202 | 30100 | Chain not in sync. |
   | 202 | 30101 | Private key for XYZ missing. |
   | 202 | 30102 | Invalid address format. |
