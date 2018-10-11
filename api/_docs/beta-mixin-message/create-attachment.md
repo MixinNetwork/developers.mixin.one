@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 9
 ---
 
-Create an attachment upload address. We use s3 as our storage, you can following s3 Browser-Based Upload using HTTP POST. https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html
+Create an attachment upload address. We use s3 as our storage, you can follow s3 Browser-Based Upload using HTTP POST. [https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html).
 
 1. `upload_url` is used to upload an attachment to S3.
 2. `view_url` is used to read your uploaded attachment.

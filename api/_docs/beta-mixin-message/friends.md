@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 8
 ---
 
-Get user’s friends
+Get user’s friends.
 
 ###### GET /friends
 

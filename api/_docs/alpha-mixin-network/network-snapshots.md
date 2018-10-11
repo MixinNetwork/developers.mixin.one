@@ -4,7 +4,7 @@ category: Mixin Network
 order: 32
 ---
 
-Read public snapshots of Mixin Network. Since you need to add Authorization Token to header to get private information, e.g.: user_id, trace_id and etc.
+Read public snapshots of Mixin Network. Since you need to add an Authorization Token to header to get private information, e.g.: user_id, trace_id and etc.
 
 ###### GET /network/snapshots?limit=10&offset=2006-01-02T15:04:05.999999999%2B07:00&asset=965e5c6e-434c-3fa9-b780-c50f43cd955c
 

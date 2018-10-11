@@ -2,17 +2,17 @@
 title: Overview
 ---
 
-Mixin is committed to blockchain research, cointains:
+Mixin blockchain research cointains the following aspects:
 
-1. Mixin Network, a free and lightning fast peer-to-peer transactional network for digital assets.
-2. Mixin Messenger, an open source cryptocurrency wallet, which support almost all popular cyptocurrencies.
-3. OceanONE, an open source decentralized exchange to trade all digital assets.
+1. Mixin Network is a free and lightning fast peer-to-peer transactional network for digital assets.
+2. Mixin Messenger is an open source cryptocurrency wallet, which supports almost all popular cyptocurrencies.
+3. OceanONEsia an open source decentralized exchange to trade all digital assets.
 
-The documentation contains APIs of how to use Mixin Messenger OAuth 2.0 for authorization for , how to use Mixin Network to receive and transfer cryptocurrencies and etc.
+The documentation contains APIs on how to use Mixin Network to receive and transfer cryptocurrencies, how to use Mixin Messenger OAuth 2.0 for authorization and commnunate with Messenger users.
 
-> [This documentation](https://github.com/MixinMessenger/developers.mixin.one) is open source and hosts in github, we are appreciate that you can help us to improve it.
+> [This documentation](https://github.com/MixinMessenger/developers.mixin.one) is open source and hosted in github, we appreciate your input to help us improve it.
 
-### Which will be contained
+### Summary
 
-1. Mixin Network, how to deposit, withdrawal, transfer base on it.
+1. Mixin Network, how to deposit, withdrawal and transfer base on it.
 2. Mixin Messenger, communicate with Messenger user through HTTP or Websocket.

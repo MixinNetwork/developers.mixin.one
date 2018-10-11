@@ -4,12 +4,12 @@ category: Mixin Messenger
 order: 12
 ---
 
-Websocket can be used to receive and handle messages. Here is things should be noticed:
+Websocket can be used to receive and handle messages. Here are the things that should be noticed:
 
 1. Use gzip to compress message data.
 2. Must send `LIST_PENDING_MESSAGES` to receive pending messages.
 
-How to connect to websocket.
+How to connect to the Websocket.
 
 ```golang
 func ConnectMixinBlaze(token string) (*websocket.Conn, error) {

@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 4
 ---
 
-Get users' information by ids
+Get users information by IDs.
 
 ###### POST /users/fetch
 

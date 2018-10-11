@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 0
 ---
 
-There are some APIs can be used to communicate with Mixin Messenger, before use it, there are some things you should know, and these are the same as develop with Mixin Network.
+There are some APIs can be used to communicate with Mixin Messenger, before using them, there are some things you should know, and these are the same as developing with Mixin Network.
 
 1. [How to register an APP?](/alpha-mixin-network/register-app/)
 2. [How to generate a authentication token?](/alpha-mixin-network/authentication-token/)

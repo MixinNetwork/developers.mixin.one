@@ -4,6 +4,8 @@ category: Mixin Network
 order: 23
 ---
 
+Transfer of assets between Mixin Network users.
+
 ###### POST /transfers
 
 | asset_id | String: UUID |

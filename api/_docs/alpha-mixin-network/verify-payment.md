@@ -4,7 +4,7 @@ category: Mixin Network
 order: 22
 ---
 
-Verify a transfer, payment status will be paid or pending.
+Verify a transfer, payment status if it is `paid` or `pending`.
 
 ###### POST /payments
 

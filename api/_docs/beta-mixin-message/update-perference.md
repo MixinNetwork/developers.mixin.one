@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 3 
 ---
 
-Update user's perference
+Update user's preferences.
 
 ###### POST /me/preferences
 

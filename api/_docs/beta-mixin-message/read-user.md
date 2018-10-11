@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 5
 ---
 
-Get user's information by ID
+Get user's information by ID.
 
 ###### GET /users/:id
 

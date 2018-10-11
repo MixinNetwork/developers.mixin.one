@@ -4,7 +4,7 @@ category: Mixin Network
 order: 24
 ---
 
-Read transfer by trace id.
+Read transfer by trace ID.
 
 ###### GET /transfers/trace/:id
 

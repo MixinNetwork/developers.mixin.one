@@ -4,7 +4,7 @@ category: Mixin Network
 order: 40
 ---
 
-Create a new Mixin Network user (like an normal Mixin user). You should keep PrivateKey which is used to sign AuthenticationToken and encrypt Pin for the user.
+Create a new Mixin Network user (like a normal Mixin Messenger user). You should keep PrivateKey which is used to sign an AuthenticationToken and encrypted PIN for the user.
 
 
 ###### POST /users

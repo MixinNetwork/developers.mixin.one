@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 2
 ---
 
-Read self profile
+Read self profile.
 
 ###### GET /me
 

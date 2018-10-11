@@ -42,7 +42,7 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | 500 | 7000 | Blaze server error. |
 | 500 | 7001 | The blaze operation timeout. |
 
-An response error example.
+A response error example.
 
 ```
 {  

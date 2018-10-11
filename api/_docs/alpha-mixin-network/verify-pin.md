@@ -4,7 +4,7 @@ category: Mixin Network
 order: 8
 ---
 
-Verify PIN is valid or not. For example, you can verify PIN before update it.
+Verify PIN if is valid or not. For example, you can verify PIN before updating it.
 
 ###### POST /pin/verify
 

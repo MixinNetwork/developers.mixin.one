@@ -4,6 +4,7 @@ category: Mixin Messenger
 order: 11
 ---
 
+Read conversation by ID.
 
 ###### GET /conversations/:id
 

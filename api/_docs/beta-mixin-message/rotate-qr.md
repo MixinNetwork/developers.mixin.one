@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 7
 ---
 
-Rotate user's code_id
+Rotate user's `code_id`.
 
 ###### GET /me/code
 

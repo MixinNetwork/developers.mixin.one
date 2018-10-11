@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 10
 ---
 
-Update user's perference
+Create a `GROUP` or `CONTACT` conversation.
 
 ###### POST /conversations
 

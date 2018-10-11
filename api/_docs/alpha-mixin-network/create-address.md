@@ -4,7 +4,7 @@ category: Mixin Network
 order: 11
 ---
 
-Create an address for withdrawal, you can only withdrawal through an existent address.
+Create an address for withdrawal, you can only withdraw through an existent address.
 
 ###### POST /addresses
 

@@ -4,7 +4,7 @@ category: Mixin Network
 order: 7
 ---
 
-PIN is used to manage user's address, assets. There's no default PIN for a Mixin Network user (except APP).
+PIN is used to manage user's addresses, assets and etc. There's no default PIN for a Mixin Network user (except APP).
 
 ###### POST /pin/update 
 

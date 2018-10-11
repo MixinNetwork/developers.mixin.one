@@ -4,7 +4,7 @@ category: Mixin Network
 order: 4
 ---
 
-Before you withdrawal or tranfer between Mixin Network. You must have an Encrypted PIN. Following is parameters which are needed to generate an encrypted pin.
+Before you withdraw or tranfer in Mixin Network. You must have an Encrypted PIN. Following are parameters which are needed to generate an encrypted pin.
 
 ``` golang
 pin: PinCode e.g.: 1234

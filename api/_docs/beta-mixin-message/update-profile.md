@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 3 
 ---
 
-Update user's profile
+Update user's profile.
 
 ###### POST /me
 

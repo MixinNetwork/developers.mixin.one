@@ -4,11 +4,11 @@ category: Mixin Network
 order: 2
 ---
 
-Since you have to register an App before you can use Mixin Network, you need to go to [https://developers.mixin.one/](https://developers.mixin.one/). You can get the following informations. All of them will be used in the future. Following is an example of the parameters.
+Since you have to register an App before you can use Mixin Network, you need to go to [https://developers.mixin.one/](https://developers.mixin.one/), to get the following information. The following is an example of the parameters.
 
-> [Create an APP](https://developers.mixin.one/dashboard) to develop base on Mixin Network.
+> [Create an APP](https://developers.mixin.one/dashboard) to develop a Dapp based on Mixin Network.
 
-After register an APP, you can get the following information, all of them will be used later.
+After registering an APP, you can get the following information, all of it will be used later.
 
 ```golang
 ClientId        = "89e0bdee-c355-47f2-945a-be48be875606"
@@ -32,3 +32,5 @@ oEf+BT6uAmRIGL6dqMPE1xTui8dfuKcIY58SjCerz0SfFCAGrhTSp95XCwJAQR1A
 tUUyTyrnVfJsARw5YUjkvzm81Sd8mvQBr5HR+IKXYco=
 -----END RSA PRIVATE KEY-----`
 ```
+
+![Register APP](/images/register-app.png)

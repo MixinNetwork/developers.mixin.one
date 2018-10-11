@@ -4,6 +4,8 @@ category: Mixin Messenger
 order: 13
 ---
 
+Following is message category supported by Websocket.
+
 PLAIN_TEXT 
 ```json
   {
