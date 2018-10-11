@@ -1,1 +1,77 @@
-baseurl: "/api"
+# ----
+# Site
+
+title: Mixin Developer
+url: "https://developers.mixin.one/api"
+baseurl:
+google_analytics_key: UA-39165210-6
+show_full_navigation: false
+
+# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+logo: /launcher.png
+description: Api documentation for Mixin Messenger and Mixin Network.
+author:
+  name:
+  email:
+  twitter: # twitter username without the @ symbol
+social:
+  name: Mixin Developer
+
+# -----
+# Build
+
+timezone: Etc/UTC
+
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENCE
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+      _options:
+        content:
+          width: 800
+          height: 2000
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      _comments:
+        type: Marks the impact of this release
+
+# -----------
+# CloudCannon
+
+types:
+  - minor
+  - major

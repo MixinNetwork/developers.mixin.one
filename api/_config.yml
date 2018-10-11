@@ -1,36 +1,41 @@
 # ----
 # Site
 
-title: Mixin
-description: Jekyll template for API documentation.
-url: https://developers.mixin.one/api
-baseurl: ""
-permalink: pretty
+title: Mixin Developer
+url: "https://developers.mixin.one/api"
+baseurl:
+google_analytics_key: UA-39165210-6
+show_full_navigation: false
+
+# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+logo: /launcher.png
+description: Api documentation for Mixin Messenger and Mixin Network.
+social:
+  name: Mixin Developer
 
 # -----
 # Build
 
 timezone: Asia/Shanghai
 
-collections:
-  documentation:
-    title: Documentation
-    position: 1
-  api:
-    title: APIs
-    position: 2
-  app_api:
-    title: APP APIs
-    position: 3
-  websocket:
-    title: Websocket
-    position: 4
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
 
 exclude:
-  - readme.md
-  - LICENSE
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - LICENCE
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
 
 defaults:
   -
@@ -40,32 +45,29 @@ defaults:
       layout: default
   -
     scope:
-      type: "documentation"
+      path: ""
+      type: "docs"
     values:
-      _hide_content: true
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+      _options:
+        content:
+          width: 800
+          height: 2000
   -
     scope:
-      type: "api"
+      path: ""
+      type: "posts"
     values:
-      _hide_content: true
+      _comments:
+        type: Marks the impact of this release
+
+# -----------
+# CloudCannon
 
 types:
-  - get
-  - post
-
-languages:
-  bash: Bash
-  json: JSON
-  golang: Golang
-
-_options:
-  content_markdown:
-    format: p h4 h5 h6
-    bold: true
-    italic: true
-    link: true
-    bulletedlist: true
-    numberedlist: true
-    image: true
-    table: true
-    styles: /css/editor.css
+  - minor
+  - major
