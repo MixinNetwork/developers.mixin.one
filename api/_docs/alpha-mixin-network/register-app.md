@@ -33,4 +33,4 @@ tUUyTyrnVfJsARw5YUjkvzm81Sd8mvQBr5HR+IKXYco=
 -----END RSA PRIVATE KEY-----`
 ```
 
-![Register APP](/images/register-app.png)
+![Register APP]({{site.baseurl}}/images/register-app.png)
