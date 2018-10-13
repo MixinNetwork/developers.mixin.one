@@ -7,11 +7,13 @@ body {
 	height: auto;
 	overflow-x: hidden;
 	background-color: $body-background-color;
-  a {
-    color: white;
-    text-decoration: none;
-    &:hover {
+  header {
+    a {
       color: white;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
     }
   }
 
