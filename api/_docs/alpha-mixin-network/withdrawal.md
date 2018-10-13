@@ -4,7 +4,7 @@ category: Mixin Network
 order: 10
 ---
 
-Get assets out of Mixin Network, neet to [create an address](/alpha-mixin-network/create-address/) for withdrawal.
+Get assets out of Mixin Network, neet to [create an address]({{site.baseurl}}/alpha-mixin-network/create-address/) for withdrawal.
 
 ###### POST /withdrawals 
 

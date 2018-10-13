@@ -6,9 +6,9 @@ order: 0
 
 There are some APIs can be used to communicate with Mixin Messenger, before using them, there are some things you should know, and these are the same as developing with Mixin Network.
 
-1. [How to register an APP?](/alpha-mixin-network/register-app/)
-2. [How to generate a authentication token?](/alpha-mixin-network/authentication-token/)
-3. [Get a signed encrypted PIN](/alpha-mixin-network/encrypted-pin/)
+1. [How to register an APP?]({{site.baseurl}}/alpha-mixin-network/register-app/)
+2. [How to generate a authentication token?]({{site.baseurl}}/alpha-mixin-network/authentication-token/)
+3. [Get a signed encrypted PIN]({{site.baseurl}}/alpha-mixin-network/encrypted-pin/)
 
 Things you will learn in this section.
 
