@@ -1,4 +1,5 @@
 node_modules/
 dist/
-.sass-cache
 api/_site
+.sass-cache
+.jekyll-cache

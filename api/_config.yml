@@ -71,3 +71,8 @@ defaults:
 types:
   - minor
   - major
+
+sass:
+  load_paths: "_assets/css"
+cdn:
+  baseurl: true
