@@ -1,2 +1,4 @@
 node_modules/
 dist/
+.sass-cache
+api/_site
