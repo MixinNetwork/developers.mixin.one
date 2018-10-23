@@ -39,7 +39,11 @@ Account.prototype = {
   },
 
   token: function () {
-    return window.localStorage.getItem('token');
+    let str = window.localStorage.getItem('token');
+    if (str == null || str == undefined) {
+      return '';
+    }
+    return str;
   },
 
   github: function () {
