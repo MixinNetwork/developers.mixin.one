@@ -6,13 +6,16 @@ order: 34
 
 Read external transactions (pending deposits) by `public_key` and `asset_id`, use `account_tag` for EOS.
 
-###### GET /external/transactions/:key?asset=43d61dcd-e413-450d-80b8-101d5e903357
+###### GET /external/transactions?asset=43d61dcd-e413-450d-80b8-101d5e903357&public_key=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK
 
-| asset_id | String: UUID |
+| asset | String: UUID (optional) |
+| public_key | String: except EOS (optional) |
+| account_tag | String: only for EOS (optional)|
+| account_name | String: only for EOS (optional)|
 
 ```
 // cURL Example
-curl -i -H "Content-Type: application/json" "https://api.mixin.one/external/transactions/1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
+curl -i -H "Content-Type: application/json" "https://api.mixin.one/external/transactions?public_key=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
 
 ```
 ```
