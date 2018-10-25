@@ -1,5 +1,5 @@
 ---
-title: User Asset 
+title: Read Asset 
 category: Mixin Network
 order: 20
 ---
