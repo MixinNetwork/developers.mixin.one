@@ -33,6 +33,7 @@ curl -i -H "Content-Type: application/json" "https://api.mixin.one/external/tran
     "account_name":"",
     "account_tag":"",
     "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
+    "chain_id":"43d61dcd-e413-450d-80b8-101d5e903357",
     "confirmations":1,
     "threshold":12,
     "created_at":"2018-05-03T10:08:34.859542588Z"
