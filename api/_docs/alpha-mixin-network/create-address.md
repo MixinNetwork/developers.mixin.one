@@ -10,7 +10,7 @@ Create an address for withdrawal, you can only withdraw through an existent addr
 
 | asset_id | String: UUID |
 | public_key | String: asset address (optional) |
-| label | String: "OceanONE" |
+| label | String: "OceanONE" (optional) |
 | account_name | String: EOS account name (optional) |
 | account_tag | String: EOS account tag (optional) |
 | pin | String: Encrypted PIN |
