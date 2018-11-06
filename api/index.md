@@ -14,5 +14,5 @@ The documentation contains APIs on how to use Mixin Network to receive and trans
 
 ### Summary
 
-1. Mixin Network, how to deposit, withdrawal and transfer base on it.
+1. Mixin Network, such as how to deposit, withdrawal and transfer base on it.
 2. Mixin Messenger, communicate with Messenger user through HTTP or Websocket.
