@@ -29,7 +29,8 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
       "change_btc": "1",
       "change_usd": "2",
       "asset_key": "",
-      "confirmations": "10"
+      "confirmations": 10,
+      "capitalization": 1000.3 
   }
 }
 ```

@@ -4,7 +4,7 @@ category: Mixin Network
 order: 21
 ---
 
-Read user's all assets.
+Read user's all assets. Deposit address maybe not return in this api, use `/assets/:id` to fetch deposit address.
 
 ###### GET /assets
 
@@ -32,7 +32,8 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
       "change_btc": "1",
       "change_usd": "2",
       "asset_key": "",
-      "confirmations": "10"
+      "confirmations": 10,
+      "capitalization": 1000.3 
   },
   ...
   ]
