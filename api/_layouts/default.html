@@ -43,7 +43,13 @@
         <ul>
           {% assign grouped = site.docs | group_by: 'category' %}
           {% for group in grouped %}
-          <li class="nav-item top-level {% if group.name == page.category %}current{% endif %}">
+          {% assign current = '' %}
+          {% if group.name == page.category %}
+          {% assign current = 'current' %}
+          {% elsif page.url == '/' and forloop.index == 1 %}
+          {% assign current = 'current' %}
+          {% endif %}
+          <li class="nav-item top-level {{current}}">
             {% assign items = group.items | sort: 'order' %}
             <a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
             <ul>
