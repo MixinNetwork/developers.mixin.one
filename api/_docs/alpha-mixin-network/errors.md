@@ -9,6 +9,7 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | Status | Code | Description |
 | --- | --- | --- |
 | 202 | 400 | The request body can’t be pasred as valid data. |
+| 202 | 401 | Unauthorized. |
 | 202 | 403 | Forbidden. |
 | 202 | 404 | The endpoint is not found. |
 | 202 | 429 | Too Many Requests. |
@@ -16,6 +17,7 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | 202 | 10003 | Failed to deliver SMS to +8613800138000. |
 | 202 | 10004 | Recaptcha is invalid. |
 | 202 | 10005 | Recaptcha is required. |
+| 202 | 10006 | Update required. |
 | 202 | 20110 | Invalid phone number +8613800138000|
 | 202 | 20111 | Insufficient identity numbers. | 
 | 202 | 20112 | Invalid invitation code. |
@@ -41,6 +43,7 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | 500 | 500 | Internal Server Error. |
 | 500 | 7000 | Blaze server error. |
 | 500 | 7001 | The blaze operation timeout. |
+| 500 | 10001 | Internal Server Error. |
 
 A response error example.
 
