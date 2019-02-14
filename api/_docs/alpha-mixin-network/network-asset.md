@@ -4,7 +4,7 @@ category: Mixin Network
 order: 31
 ---
 
-Read public asset information by ID from Mixin Network.
+Read public asset information by `asset_id` from Mixin Network.
 
 ###### GET /network/assets/:id
 

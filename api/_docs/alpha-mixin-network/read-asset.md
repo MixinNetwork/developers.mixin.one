@@ -4,7 +4,7 @@ category: Mixin Network
 order: 20
 ---
 
-Read asset by ID.
+Read asset by `asset_id`.
 
 ###### GET /assets/:id
 

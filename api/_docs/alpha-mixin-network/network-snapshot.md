@@ -4,7 +4,7 @@ category: Mixin Network
 order: 33
 ---
 
-Read public snapshots of Mixin Network by ID.
+Read public snapshots of Mixin Network by `snapshot_id`.
 
 ###### GET /network/snapshots/:id
 
