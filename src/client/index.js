@@ -143,13 +143,13 @@ App.prototype = {
     var preview = $('.icon.croppie')[0];
     var croppie = new Croppie(preview, {
       viewport: {
-        width: 256,
-        height: 256,
+        width: 128,
+        height: 128,
         type: 'circle'
       },
       boundary: {
-        width: 256,
-        height: 256
+        width: 128,
+        height: 128
       },
       enableZoom: true,
       mouseWheelZoom: false,
@@ -172,7 +172,7 @@ App.prototype = {
     });
     $('input[type=submit]').on('click', function (event) {
       event.preventDefault();
-      croppie.result('base64').then(function(base64) {
+      croppie.result({type: 'base64', size: {width: 512, height: 512}}).then(function(base64) {
         $('input[name=icon_base64]').val(base64.substring(22));
         $('form').submit();
       });
