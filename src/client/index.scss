@@ -169,21 +169,21 @@
       margin-top: 32px;
 
       .icon.croppie {
-        width: 128px;
-        height: 128px;
+        width: 256px;
+        height: 256px;
         color: transparent;
         display: none;
       }
 
       .icon.chooser {
         cursor: pointer;
-        width: 128px;
-        height: 128px;
+        width: 256px;
+        height: 256px;
         font-size: 32px;
         display: inline-block;
-        border-radius: 64px;
+        border-radius: 128px;
         border: 2px solid $color-main-foreground-dark;
-        line-height: 128px;
+        line-height: 256px;
         text-align: center;
       }
 

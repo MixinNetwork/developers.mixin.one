@@ -141,15 +141,15 @@ App.prototype = {
   loadImage: function () {
     const self = this;
     var preview = $('.icon.croppie')[0];
-    var croppie = new Croppie.Croppie(preview, {
+    var croppie = new Croppie(preview, {
       viewport: {
-        width: 128,
-        height: 128,
+        width: 256,
+        height: 256,
         type: 'circle'
       },
       boundary: {
-        width: 128,
-        height: 128
+        width: 256,
+        height: 256
       },
       enableZoom: true,
       mouseWheelZoom: false,
