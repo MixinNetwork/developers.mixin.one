@@ -20,8 +20,20 @@ Account.prototype = {
     });
   },
 
-  transfer: function (callback, token, params) {
+  transfers: function (callback, token, params) {
     this.api.requestWithToken('POST', '/transfers', params, token, function(resp) {
+      callback(resp);
+    });
+  },
+
+  transactions: function (callback, token, params) {
+    this.api.requestWithToken('POST', '/transactions', params, token, function(resp) {
+      callback(resp);
+    });
+  },
+
+  snapshots: function (callback, token, id) {
+    this.api.requestWithToken('GET', '/snapshots/'+id, undefined, token, function(resp) {
       callback(resp);
     });
   },

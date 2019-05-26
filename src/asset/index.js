@@ -9,6 +9,7 @@ function Asset(router, api) {
   this.api = api;
   this.templateIndex = require('./index.html');
   this.templateShow = require('./show.html');
+  this.templateSnapshot = require('./snapshot.html');
 }
 
 Asset.prototype = {
@@ -58,8 +59,8 @@ Asset.prototype = {
       $('form').on('submit', function (event) {
         event.preventDefault();
         let params = new FormUtils().serialize($(this));
-
-        if (params['to'].trim().length < 5) {
+        var to = params['to'].trim();
+        if (to.length < 5) {
           self.api.notify('error', 'Mixin Id Format Error');
           return;
         }
@@ -69,8 +70,27 @@ Asset.prototype = {
           return;
         }
         var iterator = params['iterator'].trim();
+        if (to.startsWith('XIN')) {
+          pin = new Mixin().signEncryptedPin(pin, data.pin_token, data.session_id, data.private_key, iterator);
+          let req = {
+            "asset_id":        assetId,
+            "opponent_key":    to,
+            "amount":          params['amount'],
+            "pin":             pin,
+            "trace_id":        uuid()
+          }
+          let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'POST', '/transactions', req);
+          self.api.account.transactions(function(resp) {
+            if (resp.error) {
+              return;
+            }
 
-        let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/search/'+params['to'], '');
+            self.router.replace('/apps/'+id+'/snapshots/'+resp.data.snapshot);
+          }, token, req);
+          return
+        }
+
+        let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/search/'+to, '');
         self.api.account.search(function(resp) {
           if (resp.error) {
             return;
@@ -79,22 +99,42 @@ Asset.prototype = {
           pin = new Mixin().signEncryptedPin(pin, data.pin_token, data.session_id, data.private_key, iterator);
           let req = {
             "asset_id":        assetId,
-            "counter_user_id": resp.data.user_id,
+            "opponent_id":     resp.data.user_id,
             "amount":          params['amount'],
             "pin":             pin,
             "trace_id":        uuid()
           }
           let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'POST', '/transfers', req);
-          self.api.account.transfer(function(resp) {
+          self.api.account.transfers(function(resp) {
             if (resp.error) {
               return;
             }
 
-            self.router.replace("/apps/"+id+"/assets");
+            self.router.replace('/apps/'+id+'/assets');
           }, token, req);
-        }, params['to'], token);
+        }, to, token);
       });
     });
+  },
+
+  snapshot: function (id, snapshotId) {
+    const self = this;
+    let objStr = window.localStorage.getItem(id);
+    let data = JSON.parse(objStr);
+    if (data == undefined) {
+      self.router.replace("/tokens/"+id);
+      return;
+    }
+
+    let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/snapshots/'+snapshotId, '');
+    self.api.account.snapshots(function(resp) {
+      if (resp.error) {
+        return;
+      }
+
+      $('body').attr('class', 'asset layout');
+      $('#layout-container').html(self.templateSnapshot(resp.data));
+    }, token, snapshotId);
   }
 };
 

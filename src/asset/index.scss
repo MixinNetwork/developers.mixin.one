@@ -263,4 +263,16 @@
       }
     }
   }
+
+  .snapshot {
+    font-size: 16px;
+    .meta.name {
+      opacity: 0.2;
+      margin-bottom: 4px;
+    }
+    .meta.value {
+      margin-bottom: 32px;
+      word-break: break-word;
+    }
+  }
 }

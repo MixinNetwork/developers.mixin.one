@@ -56,6 +56,9 @@ router.on({
   '/apps/:id/assets/:asset_id': function (params) {
     new Asset(router, api).show(params['id'], params['asset_id']);
   },
+  '/apps/:id/snapshots/:snapshot_id': function (params) {
+    new Asset(router, api).snapshot(params['id'], params['snapshot_id']);
+  },
   '/apps/:id/edit': function (params) {
     new App(router, api).edit(params['id']);
   },
