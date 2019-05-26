@@ -58,8 +58,8 @@ Asset.prototype = {
       $('form').on('submit', function (event) {
         event.preventDefault();
         let params = new FormUtils().serialize($(this));
-
-        if (params['to'].trim().length < 5) {
+        var to = params['to'].trim();
+        if (to.length < 5) {
           self.api.notify('error', 'Mixin Id Format Error');
           return;
         }
@@ -69,8 +69,28 @@ Asset.prototype = {
           return;
         }
         var iterator = params['iterator'].trim();
+        if (to.startsWith('XIN')) {
+          pin = new Mixin().signEncryptedPin(pin, data.pin_token, data.session_id, data.private_key, iterator);
+          let req = {
+            "asset_id":        assetId,
+            "opponent_key":    to,
+            "amount":          params['amount'],
+            "pin":             pin,
+            "trace_id":        uuid()
+          }
+          let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'POST', '/transactions', req);
+          self.api.account.transactions(function(resp) {
+            if (resp.error) {
+              return;
+            }
 
-        let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/search/'+params['to'], '');
+            console.log(resp);
+            self.router.replace("/apps/"+id+"/assets");
+          }, token, req);
+          return
+        }
+
+        let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/search/'+to, '');
         self.api.account.search(function(resp) {
           if (resp.error) {
             return;
@@ -79,7 +99,7 @@ Asset.prototype = {
           pin = new Mixin().signEncryptedPin(pin, data.pin_token, data.session_id, data.private_key, iterator);
           let req = {
             "asset_id":        assetId,
-            "counter_user_id": resp.data.user_id,
+            "opponent_id":     resp.data.user_id,
             "amount":          params['amount'],
             "pin":             pin,
             "trace_id":        uuid()
@@ -92,7 +112,7 @@ Asset.prototype = {
 
             self.router.replace("/apps/"+id+"/assets");
           }, token, req);
-        }, params['to'], token);
+        }, to, token);
       });
     });
   }

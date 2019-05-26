@@ -26,6 +26,12 @@ Account.prototype = {
     });
   },
 
+  transactions: function (callback, token, params) {
+    this.api.requestWithToken('POST', '/transactions', params, token, function(resp) {
+      callback(resp);
+    });
+  },
+
   search: function (callback, id, token) {
     this.api.requestWithToken('GET', '/search/'+id, undefined, token, function(resp) {
       callback(resp);
