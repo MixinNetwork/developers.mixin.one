@@ -9,6 +9,7 @@ function Asset(router, api) {
   this.api = api;
   this.templateIndex = require('./index.html');
   this.templateShow = require('./show.html');
+  this.templateSnapshot = require('./snapshot.html');
 }
 
 Asset.prototype = {
@@ -84,8 +85,7 @@ Asset.prototype = {
               return;
             }
 
-            console.log(resp);
-            self.router.replace("/apps/"+id+"/assets");
+            self.router.replace('/apps/'+id+'/snapshots/'+resp.data.snapshot);
           }, token, req);
           return
         }
@@ -105,16 +105,36 @@ Asset.prototype = {
             "trace_id":        uuid()
           }
           let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'POST', '/transfers', req);
-          self.api.account.transfer(function(resp) {
+          self.api.account.transfers(function(resp) {
             if (resp.error) {
               return;
             }
 
-            self.router.replace("/apps/"+id+"/assets");
+            self.router.replace('/apps/'+id+'/assets');
           }, token, req);
         }, to, token);
       });
     });
+  },
+
+  snapshot: function (id, snapshotId) {
+    const self = this;
+    let objStr = window.localStorage.getItem(id);
+    let data = JSON.parse(objStr);
+    if (data == undefined) {
+      self.router.replace("/tokens/"+id);
+      return;
+    }
+
+    let token = new Mixin().signAuthenticationToken(id, data.session_id, data.private_key, 'GET', '/snapshots/'+snapshotId, '');
+    self.api.account.snapshots(function(resp) {
+      if (resp.error) {
+        return;
+      }
+
+      $('body').attr('class', 'asset layout');
+      $('#layout-container').html(self.templateSnapshot(resp.data));
+    }, token, snapshotId);
   }
 };
 
