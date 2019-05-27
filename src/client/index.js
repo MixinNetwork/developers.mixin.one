@@ -158,6 +158,7 @@ App.prototype = {
     $('.icon.chooser').on('click', function () {
       $('input[type=file]').trigger('click');
     });
+    var change = false;
     $('input[type=file]').on('change', function () {
       var reader  = new FileReader();
       reader.addEventListener("load", function (event) {
@@ -167,13 +168,16 @@ App.prototype = {
       }, false);
       var file = this.files[0];
       if (file) {
+        change = true;
         reader.readAsDataURL(file);
       }
     });
     $('input[type=submit]').on('click', function (event) {
       event.preventDefault();
       croppie.result({type: 'base64', size: {width: 512, height: 512}}).then(function(base64) {
-        $('input[name=icon_base64]').val(base64.substring(22));
+        if (change) {
+          $('input[name=icon_base64]').val(base64.substring(22));
+        }
         $('form').submit();
       });
     });
