@@ -197,6 +197,5 @@ Data Format
   "id": "89e0bdee-c355-47f2-945a-be48be875606",
     "action": "CREATE_PLAIN_MESSAGES",
     "params": "mRm5rm9bkQztvpsaTyz1Rib0BEM0S1FKl",
-    "data": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9",
 }
 ```
