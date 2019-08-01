@@ -4,7 +4,7 @@ category: Mixin Messenger
 order: 6
 ---
 
-Search user by `identity_number`.
+Search user by `identity_number`, this is a limited api.
 
 ###### GET /search/:q
 
