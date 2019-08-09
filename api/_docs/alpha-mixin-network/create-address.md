@@ -4,7 +4,7 @@ category: Mixin Network
 order: 11
 ---
 
-Create an address for withdrawal, you can only withdraw through an existent address.
+Create an address for withdrawal, you can only withdraw through an existent address. (`public_key`, `lable`) or (`account_name`, `account_tag`) must be choose one of them.
 
 ###### POST /addresses
 
