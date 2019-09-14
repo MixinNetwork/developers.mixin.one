@@ -65,15 +65,29 @@ module.exports = {
         fallback: "style-loader"
       })
     }, {
-      test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-      use: [
-        'file-loader'
-      ]
+      test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+      loader: 'file-loader',
+      options: {
+        name(file) {
+          if (process.env.NODE_ENV === 'development') {
+            return '[path][name].[ext]';
+          }
+          return '[hash].[ext]';
+        },
+        emitFile: true
+      },
     }, {
-      test: /\.(png|svg|jpg|gif)$/,
-      use: [
-        'file-loader'
-      ]
+      test: /\.(png|svg|jpe?g|gif)$/i,
+      loader: 'file-loader',
+      options: {
+        name(file) {
+          if (process.env.NODE_ENV === 'development') {
+            return '[path][name].[ext]';
+          }
+          return '[hash].[ext]';
+        },
+        emitFile: true
+      },
     }]
   },
 
