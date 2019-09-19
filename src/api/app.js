@@ -16,12 +16,18 @@ App.prototype = {
   },
 
   create: function (callback, params) {
+    if (params['capabilities']) {
+      params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
+    }
     this.api.request('POST', '/apps', params, function (resp) {
       callback(resp);
     });
   },
 
   update: function (callback, id, params) {
+    if (params['capabilities']) {
+      params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
+    }
     this.api.request('POST', '/apps/' + id, params, function (resp) {
       callback(resp);
     });
