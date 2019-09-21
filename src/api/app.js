@@ -27,6 +27,8 @@ App.prototype = {
   update: function (callback, id, params) {
     if (params['capabilities']) {
       params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
+    } else {
+      params['capabilities'] = ['CONTACT', 'GROUP'];
     }
     this.api.request('POST', '/apps/' + id, params, function (resp) {
       callback(resp);
