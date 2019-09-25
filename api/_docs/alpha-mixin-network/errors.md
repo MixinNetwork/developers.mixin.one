@@ -36,6 +36,10 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | 202 | 20125 | Transfer has been paid by someone else. |
 | 202 | 20126 | Too many stickers. |
 | 202 | 20127 | Withdraw amount too small. |
+| 202 | 20128 | Too many friends. |
+| 202 | 20129 | Send verification code too frequent. |
+| 202 | 20130 | Invalid emergency contact. |
+| 202 | 20131 | Withdrawal memo format incorret. |
 | 202 | 30100 | Chain not in sync. |
 | 202 | 30101 | Private key for XYZ missing. |
 | 202 | 30102 | Invalid address format. |
@@ -43,7 +47,6 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 | 500 | 500 | Internal Server Error. |
 | 500 | 7000 | Blaze server error. |
 | 500 | 7001 | The blaze operation timeout. |
-| 500 | 10001 | Internal Server Error. |
 
 A response error example.
 

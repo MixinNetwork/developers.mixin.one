@@ -17,26 +17,5 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
 ```
 
 ```
-// Sample Response
-{
-  "data":{
-    "type":"user",
-    "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
-    "identity_number":"7000",
-    "full_name":"",
-    "avatar_url":"",
-    "relationship":"ME",
-    "mute_until":"0001-01-01T00:00:00Z",
-    "created_at":"2018-05-03T06:03:56.867971412Z",
-    "is_verified":false,
-    "session_id":"0bf54b1c-7d6f-4c6b-9e4d-6beaec131923",
-    "phone":"+8613800013800",
-    "pin_token":"m0/+Q1E6i4/S5mzMAQTxwIK8+hX6AuoiP+/yFnuiNJ3PQY5FiKQS0ELeHGJWgH6iKPUybH1pm3NqbcUZ53Y9gcGrEfHZVG/m/LbMISPXQYIBW3i/pukKdMMuw3siaQ01HMXuYmBr8uEyMY71VFJb28HWnNtJIVlzrY8rn08UeZo=",
-    "invitation_code":"",
-    "code_id":"dabcf1c2-6a5e-4ea3-ad51-6e6641a06c7c",
-    "code_url":"https://mixin.one/codes/dabcf1c2-6a5e-4ea3-ad51-6e6641a06c7c",
-    "has_pin":false,
-    "receive_message_source":"EVERYBODY"
-  }
-}
+{{ site.data.user.data }}
 ```
