@@ -69,8 +69,18 @@ App.prototype = {
             if (resp.error) {
               return;
             }
-            sessionItem.html('<textarea>' + pin + "\n" + resp.data.session_id + "\n" + resp.data.pin_token + "\n" + private_key + '</textarea>');
-            sessionItem.removeClass('action');
+            var data = {
+              "pin": pin,
+              "client_id": appId,
+              "session_id": resp.data.session_id,
+              "pin_token": resp.data.pin_token,
+              "private_key": private_key
+            }
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, ' '));
+            var anchor = document.getElementById(appId);
+            anchor.setAttribute("href", dataStr)
+            anchor.setAttribute("download", "keystore.json");
+            anchor.click();
           }, appId, pin, public_key);
         });
         self.router.updatePageLinks();
