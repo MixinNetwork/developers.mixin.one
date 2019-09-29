@@ -44,6 +44,9 @@ App.prototype = {
           $('#layout-container .content .apps.container').append(appItem);
         }
         $('.apps.container').on('click', '.secret.action', function () {
+          if (!window.confirm('Do you want to reset secret?')) {
+            return;
+          }
           var secretItem = $(this);
           var appId = secretItem.parents('.app.block').attr('data-app-id');
           self.api.app.secret(function (resp) {
@@ -58,6 +61,9 @@ App.prototype = {
           return Math.floor(Math.random() * Math.floor(max));
         };
         $('.apps.container').on('click', '.session.action', function () {
+          if (!window.confirm('Do you want to reset session?')) {
+            return;
+          }
           var sessionItem= $(this);
           var appId = sessionItem.parents('.app.block').attr('data-app-id');
           var pin = "" + (randInt(9) + 1) + randInt(10) + randInt(10) + randInt(10) + randInt(10) + randInt(10);
