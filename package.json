@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "croppie": "^2.6.4",
-    "handlebars": "^4.2.0",
+    "handlebars": "^4.4.0",
     "int64-buffer": "^0.99.1007",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
