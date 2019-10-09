@@ -9,10 +9,9 @@ Create an address for withdrawal, you can only withdraw through an existent addr
 ###### POST /addresses
 
 | asset_id | String: UUID |
-| public_key | String: asset address (optional) |
-| label | String: "OceanONE" (optional) |
-| account_name | String: EOS account name (optional) |
-| account_tag | String: EOS account tag (optional) |
+| label | String: "Mixin", can't be blank, max size 64 |
+| public_key | String: BTC address or EOS account name like 'eoswithmixin'|
+| tag | String: can be blank, EOS account tag or memo |
 | pin | String: Encrypted PIN |
 
 ```
