@@ -10,7 +10,7 @@ Create an address for withdrawal, you can only withdraw through an existent addr
 
 | asset_id | String: UUID |
 | label | String: "Mixin", can't be blank, max size 64 |
-| public_key | String: BTC address or EOS account name like 'eoswithmixin'|
+| destination | String: BTC address or EOS account name like 'eoswithmixin'|
 | tag | String: can be blank, EOS account tag or memo |
 | pin | String: Encrypted PIN |
 
