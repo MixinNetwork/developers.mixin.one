@@ -41,7 +41,8 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
         "name":"EOS",
         "icon_url":"https://images.mixin.one/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
         "balance":"0",
-        "public_key":"",
+        "destination":"",
+        "tag":"",
         "price_btc":"0.0776679",
         "price_usd":"715.394"
       },

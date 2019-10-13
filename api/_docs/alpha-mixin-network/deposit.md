@@ -4,7 +4,7 @@ category: Mixin Network
 order: 9
 ---
 
-Gant an asset's deposit address, usually it is public_key, but `account_name` and `account_tag` is used for EOS. The api same as `Read Asset`.
+Gant an asset's deposit address. The api same as `Read Asset`.
 
 ###### GET /assets/:id
 
@@ -24,9 +24,8 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
       "name":"eosDAC Community Owned EOS Block Producer ERC20 Tokens",
       "icon_url":"https://images.mixin.one/HovctUnrBkLPlDotWvWPsIuFb8qKrLddwF5-f2Fi9q9uO829YB2qGITgOd2YmTMKnGg_z9XrVYzEwFE_rD_REz9C=s128",
       "balance":"203.975",
-      "public_key":"0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
-      "account_name":"",
-      "account_tag":"",
+      "destination":"0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
+      "tag":"",
       "price_btc":"0",
       "price_usd":"0",
       "change_btc": "1",
