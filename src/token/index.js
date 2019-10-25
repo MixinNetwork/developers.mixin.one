@@ -32,7 +32,7 @@ Token.prototype = {
         self.api.notify('error', 'Pin Token Format Error');
         return;
       }
-      window.localStorage.setItem(id, JSON.stringify(params));
+      window.localStorage.setItem(id, JSON.stringify(params).replace(/\\\\/gi, '\\'));
       self.router.replace("/apps/"+id+"/assets");
     });
     self.router.updatePageLinks();

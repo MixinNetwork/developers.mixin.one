@@ -85,7 +85,7 @@ Asset.prototype = {
               return;
             }
 
-            self.router.replace('/apps/'+id+'/snapshots/'+resp.data.snapshot);
+            self.router.replace('/apps/'+id+'/snapshots/'+resp.data.snapshot_id);
           }, token, req);
           return
         }
