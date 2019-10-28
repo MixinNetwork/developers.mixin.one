@@ -66,6 +66,7 @@ App.prototype = {
           }
           var sessionItem= $(this);
           var appId = sessionItem.parents('.app.block').attr('data-app-id');
+          var appNumber = sessionItem.parents('.app.block').attr('data-app-number');
           var pin = "" + (randInt(9) + 1) + randInt(10) + randInt(10) + randInt(10) + randInt(10) + randInt(10);
           var keypair = forge.pki.rsa.generateKeyPair({bits: 1024, e: 0x10001});
           var body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes();
@@ -85,7 +86,7 @@ App.prototype = {
             var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, ' '));
             var anchor = document.getElementById(appId);
             anchor.setAttribute("href", dataStr)
-            anchor.setAttribute("download", "keystore.json");
+            anchor.setAttribute("download", `keystore-${appNumber}.json`);
             anchor.click();
           }, appId, pin, public_key);
         });
