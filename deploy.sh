@@ -1,9 +1,11 @@
 #!/bin/sh
 
 rm -r dist/*
+npm install || exit
 npm run dist || exit
 
 cd api
+bundle install
 JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config-production.yml || exit
 cd ..
 mkdir dist/api
