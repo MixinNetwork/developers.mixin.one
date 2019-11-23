@@ -116,6 +116,7 @@ APP_BUTTON_GROUP
 ```
 Data Format
 ```js
+ // The length of label field must be less than 36 bytes, and the color field must be filled in the correct format
   [{"label": "Mixin Website", "color": "#ABABAB", "action": "https://mixin.one"}, ...]
 ```
 
