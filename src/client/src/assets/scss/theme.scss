@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+button:focus,
+button:active:focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button.active.focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.f {
+    display: flex;
+}
+.f-column {
+    flex-direction: column;
+}
+.f-j-b {
+    justify-content: space-between;
+}
+.m-r-60 {
+    margin-right: 60px;
+}
+.m-t-32 {
+    margin-top: 32px;
+}
+
+.primary {
+    padding: 0 12px;
+    height: 48px;
+    background: rgba(50, 119, 255, 1);
+    border-radius: 4px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 1);
+    line-height: 26px;
+    cursor: pointer;
+    &:hover {
+        background: rgba(50, 119, 255, 0.9);
+    }
+}
+
+textarea {
+    width: 960px;
+    height: 120px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    border-radius: 4px;
+    border: 0;
+    outline: none;
+    padding: 20px;
+    resize: none;
+    &::-webkit-input-placeholder {
+        color: #a9b0bf;
+    }
+    &::-moz-input-placeholder {
+        color: #a9b0bf;
+    }
+    &::-ms-input-placeholder {
+        color: #a9b0bf;
+    }
+}

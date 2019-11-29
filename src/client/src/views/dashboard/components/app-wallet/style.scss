@@ -1,0 +1,92 @@
+.dashboard-app-wallet {
+    width: 100%;
+    height: 100%;
+    min-width: 1400px;
+    .tips {
+        color: #864836;
+        height: 81px;
+        background: rgba(255, 250, 224, 1);
+        box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+        padding: 20px 0 0 100px;
+        .tips-title {
+            font-size: 16px;
+        }
+        i {
+            margin-right: 8px;
+        }
+        .tips-content {
+            margin-left: 24px;
+            & > div:first-child {
+                font-size: 15px;
+            }
+            & > div:last-child {
+                font-size: 12px;
+                margin-top: 5px;
+                color: rgba(134, 72, 54, 0.5);
+            }
+        }
+    }
+    .edit-information {
+        padding: 50px 0 0 100px;
+        height: 100%;
+        & > div {
+            margin-bottom: 30px;
+            input {
+                width: 960px;
+            }
+            &.edit-information-PK {
+                label {
+                    display: block;
+                }
+                textarea {
+                    height: 170px;
+                }
+            }
+        }
+    }
+    .assets-list {
+        width: 100%;
+        display: flex;
+        margin-bottom: 80px;
+        flex-wrap: wrap;
+        padding-left: 60px;
+        .assets-item {
+            min-width: 460px;
+            margin-top: 16px;
+            margin-right: 40px;
+            padding: 15px 40px 0 40px;
+            height: 72px;
+            background-color: #fff;
+            width: 40%;
+            position: relative;
+            img {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                transform: translate(0, 5px);
+            }
+            .assets-item-num {
+                display: inline-block;
+                max-width: 200px;
+                min-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 16px;
+            }
+            .assets-item-symbol {
+                display: inline-block;
+                color: #b8bdc7;
+                font-size: 14px;
+                vertical-align: super;
+                transform: translate(0, 2px);
+            }
+            .assets-item-withdrawal {
+                position: absolute;
+                width: 110px;
+                height: 32px;
+                top: 20px;
+                right: 30px;
+            }
+        }
+    }
+}

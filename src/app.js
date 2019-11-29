@@ -6,7 +6,6 @@ import Locale from './locale';
 import API from './api';
 import Home from './home';
 import Auth from './auth';
-import App from './client';
 import Guide from './guide';
 import Token from './token';
 import Asset from './asset';
@@ -19,7 +18,7 @@ const api = new API(router, API_ROOT);
 
 window.i18n = new Locale(navigator.language);
 
-router.replace = function(url) {
+router.replace = function (url) {
   this.resolve(url);
   this.pause(true);
   this.navigate(url);
@@ -27,15 +26,15 @@ router.replace = function(url) {
 };
 
 router.hooks({
-  before: function(done, params) {
+  before: function (done, params) {
     $('body').attr('class', 'loading layout');
     $('#layout-container').html(PartialLoading());
-    setTimeout(function() {
+    setTimeout(function () {
       $('title').html(APP_NAME);
       done(true);
     }, 100);
   },
-  after: function(params) {
+  after: function (params) {
     router.updatePageLinks();
   }
 });
@@ -47,9 +46,6 @@ router.on({
   '/github/callback': function () {
     new Auth(router, api).callback();
   },
-  '/apps/new': function () {
-    new App(router, api).new();
-  },
   '/apps/:id/assets': function (params) {
     new Asset(router, api).index(params['id']);
   },
@@ -59,11 +55,8 @@ router.on({
   '/apps/:id/snapshots/:snapshot_id': function (params) {
     new Asset(router, api).snapshot(params['id'], params['snapshot_id']);
   },
-  '/apps/:id/edit': function (params) {
-    new App(router, api).edit(params['id']);
-  },
   '/dashboard': function () {
-    new App(router, api).index();
+    window.location.href = window.location.origin + '/dashboard'
   },
   '/guides/:id': function (params) {
     new Guide(router).show(params['id']);

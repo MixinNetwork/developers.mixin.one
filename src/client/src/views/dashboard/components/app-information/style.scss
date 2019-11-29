@@ -1,0 +1,84 @@
+.dashboard-app-information {
+    padding-left: 100px;
+    font-family: Helvetica !important;
+    font-size: 16px;
+    .app-info-content {
+        margin-top: 50px;
+        label {
+            display: block;
+            margin-bottom: 16px;
+        }
+        .app-info-edit-main {
+            .app-info-icon {
+                .app-info-upload-and-show-icon {
+                    width: 320px;
+                    position: relative;
+                    height: 320px;
+                    background: #fff;
+                    border-radius: 5px;
+                    color: #a9b0bf;
+                    text-align: center;
+                    i {
+                        display: inline-block;
+                        font-size: 40px;
+                        margin: 120px 0 16px 0;
+                    }
+                    p {
+                        width: 140px;
+                        margin: 0 auto;
+                        font-size: 14px;
+                    }
+                    &:active {
+                        background: rgba(250, 250, 250, 1);
+                    }
+                    input {
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        opacity: 0;
+                        z-index: 999;
+                        cursor: pointer;
+                    }
+                    .app-info-icon-img {
+                        width: 320px;
+                        height: 320px;
+                    }
+                }
+            }
+            .app-info-edit-list {
+                margin-left: 60px;
+            }
+        }
+        .app-info-description {
+            // textarea {
+            //     width: 960px;
+            //     height: 120px;
+            //     background: rgba(255, 255, 255, 1);
+            //     box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+            //     border-radius: 4px;
+            //     border: 0;
+            //     outline: none;
+            //     padding: 20px;
+            //     resize: none;
+            //     &::-webkit-input-placeholder {
+            //         color: #a9b0bf;
+            //     }
+            //     &::-moz-input-placeholder {
+            //         color: #a9b0bf;
+            //     }
+            //     &::-ms-input-placeholder {
+            //         color: #a9b0bf;
+            //     }
+            // }
+        }
+
+        button {
+            width: 140px;
+            height: 46px;
+            margin-bottom: 70px;
+            margin-top: 32px;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+
+.app-wallet-withdrawal-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    bottom: 0;
+    user-select: none;
+    .modal-mask {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.34);
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        .modal-container {
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            min-width: 700px;
+            min-height: 600px;
+            padding: 50px 62px 50px 40px;
+            overflow: auto;
+
+            header {
+                border: 0;
+                height: 140px;
+                text-align: center;
+                img {
+                    width: 72px;
+                    height: 72px;
+                    margin-bottom: 16px;
+                    border:0;
+                }
+                p {
+                    margin-bottom: 30px;
+                    color: #a9b0bf;
+                    user-select: text;
+                }
+            }
+            .first-row {
+                input {
+                    width: 200px;
+                }
+                & > div:last-child {
+                    label {
+                        width: 72px;
+                    }
+                }
+            }
+
+            .remenber-token {
+                margin-left: 114px;
+                color: #a9b0bf;
+                cursor: pointer;
+                i {
+                    margin-right: 13px;
+                    &.active {
+                        color: #3277ff;
+                    }
+                }
+                span {
+                    color: #a9b0bf;
+                }
+            }
+            .btns {
+                margin-top: 30px;
+                button {
+                    font-size: 14px;
+                    width: 140px;
+                    float: right;
+                    margin-left: 10px;
+                }
+                .btns-cancel {
+                    background: #e5e7ec;
+                    color: #333;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
