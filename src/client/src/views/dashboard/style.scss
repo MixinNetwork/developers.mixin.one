@@ -223,11 +223,14 @@
                     .header-item {
                         margin-right: 80px;
                         cursor: pointer;
+                        &.herader-item-active {
+                            color: #1d69ff;
+                        }
                     }
-                    .router-link-active {
-                        color: #1d69ff;
-                        position: relative;
-                    }
+                    // .router-link-active {
+                    //     color: #1d69ff;
+                    //     position: relative;
+                    // }
                     .move-slider {
                         position: absolute;
                         height: 3px;

@@ -10,17 +10,22 @@ const routes = [
         component: Dashboard,
         children: [
             {
-                path: 'information',
+                path: 'information/:app_number',
                 name: 'information',
                 component: () => import('./views/dashboard/components/app-information')
             },
             {
-                path: 'wallet',
+                path: 'new',
+                name: 'new_app',
+                component: () => import('./views/dashboard/components/app-information')
+            },
+            {
+                path: 'wallet/:app_number',
                 name: 'wallet',
                 component: () => import('./views/dashboard/components/app-wallet')
             },
             {
-                path: 'secret',
+                path: 'secret/:app_number',
                 name: 'secret',
                 component: () => import('./views/dashboard/components/app-secret')
             }

@@ -80,29 +80,16 @@
                 </div>
                 <div v-else>
                     <header>
-                        <div :class="['header-list', ('header-index-' +header_index)]">
+                        <div :class="['header-list', ('header-index-' +nav_header_index)]">
                             <template v-if="entring_status.is_new_app">
                                 <span class="header-item" style="color:#1d69ff">New App</span>
                             </template>
                             <template v-else>
-                                <router-link
-                                    tag="span"
-                                    to="/information"
-                                    class="header-item"
-                                    @click.native="change_router(0)"
-                                >Information</router-link>
-                                <router-link
-                                    @click.native="change_router(1)"
-                                    tag="span"
-                                    to="/wallet"
-                                    class="header-item"
-                                >Wallet</router-link>
-                                <router-link
-                                    @click.native="change_router(2)"
-                                    tag="span"
-                                    to="/secret"
-                                    class="header-item"
-                                >Secret</router-link>
+                                <span
+                                    v-for="(item,index) in nav_list"
+                                    :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
+                                    @click="change_router(index)"
+                                >{{item}}</span>
                                 <div class="move-slider"></div>
                             </template>
                         </div>

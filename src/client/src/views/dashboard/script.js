@@ -1,4 +1,6 @@
 
+let tmp_uri = '';
+
 export default {
     name: 'dashboard-container',
     data() {
@@ -13,7 +15,8 @@ export default {
                 full_name: ''
             },
             app_list: [],
-            header_index: 0,
+            nav_header_index: 0,
+            nav_list: ['Information', 'Wallet', 'Secret'],
             active_app: {},
             loading: false,
             all_loading: false,
@@ -26,8 +29,10 @@ export default {
         }
     },
     methods: {
-        change_router(header_index) {
-            this.header_index = header_index
+        change_router(nav_header_index) {
+            this.nav_header_index = nav_header_index
+            let uri = '/' + this.nav_list[nav_header_index].toLowerCase()
+            jump_to_uri.call(this, uri, true)
         },
         click_user() {
             this.entring_status.show_click_user = !this.entring_status.show_click_user
@@ -38,9 +43,9 @@ export default {
         click_app_list_item(index) {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = false
-            this.$router.push('/information')
-            this.header_index = 0
             this.active_app = this.app_list[index]
+            this.nav_header_index = 0
+            jump_to_uri.call(this, '/information', true)
             clearTimeout(this.timer)
             this.loading = true;
             this.timer = setTimeout(() => {
@@ -50,7 +55,7 @@ export default {
         click_new_app() {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = true
-            this.$router.push('/information')
+            jump_to_uri.call(this, '/new', false)
             this.active_app = {
                 name: '',
                 home_uri: '',
@@ -93,6 +98,8 @@ function axios_get_app_list(app_id) {
     this.$axios.get('/apps').then(res => {
         this.app_list = res
         this.all_loading = false
+        let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
+        route_active_index !== -1 && (this.active_app = this.app_list[route_active_index])
         if (!app_id) return;
         let target_index = res.findIndex(item => item.app_id === app_id)
         this.active_app = res[target_index]
@@ -101,11 +108,27 @@ function axios_get_app_list(app_id) {
 
 
 function mounted_select_active_router() {
-    const header_index = { 'information': 0, 'wallet': 1, 'secret': 2 }
-    this.header_index = header_index[this.$route.name]
+    const nav_header_index = { 'information': 0, 'wallet': 1, 'secret': 2 }
+    this.nav_header_index = nav_header_index[this.$route.name]
+
+    if (this.$route.path === '/') {
+        this.entring_status.welcome = true
+    } else if (this.$route.name === 'new_app') {
+        this.entring_status.welcome = false
+        this.entring_status.is_new_app = true
+    } else {
+        this.entring_status.welcome = false
+    }
 }
 
 
 function event_listener_to_toogle_show_click_user() {
     this.entring_status.show_click_user = false
+}
+
+function jump_to_uri(uri, has_app_number) {
+    uri = has_app_number ? (uri + '/' + this.active_app.app_number) : uri;
+    if (uri === tmp_uri) return;
+    tmp_uri = uri;
+    this.$router.push(tmp_uri);
 }
