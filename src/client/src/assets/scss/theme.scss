@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "SF Pro Text";
 }
 
 button {
@@ -68,5 +69,43 @@ textarea {
     }
     &::-ms-input-placeholder {
         color: #a9b0bf;
+    }
+}
+
+.safe-view {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.dashboard-app {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 16px;
+
+    .app-info-item {
+        & > div {
+            margin-bottom: 16px;
+            input {
+                width: 100%;
+                outline: none;
+                border: 0;
+                box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+                border-radius: 6px;
+                height: 50px;
+                padding: 0 20px;
+            }
+            textarea {
+                width: 100%;
+            }
+        }
     }
 }

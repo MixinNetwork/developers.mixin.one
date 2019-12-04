@@ -9,9 +9,7 @@ module.exports = {
             'axios': 'axios',
             'moment': 'moment',
             'axios': 'axios',
-            'crypto': 'crypto',
             'node-forge': 'forge'
-            
         }
     }
 }

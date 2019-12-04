@@ -1,0 +1,70 @@
+
+.dashboard-app-information {
+    margin-top: 44px;
+    padding: 20px;
+    .grep {
+        color: #a9b0bf;
+    }
+    .app-info-icon-and-id {
+        margin-bottom: 16px;
+        .app-info-icon {
+            width: 100px;
+            div:last-child {
+                position: relative;
+                margin-top: 16px;
+                input {
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 999;
+                    cursor: pointer;
+                }
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+                .app-info-new-icon {
+                    width: 100px;
+                    height: 100px;
+                    background-color: #fff;
+                    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+                    border-radius: 16px;
+                    text-align: center;
+                    padding-top: 40px;
+                    i {
+                        font-size: 30px;
+                        color: #a9b0bf;
+                    }
+                }
+            }
+        }
+        .app-info-id {
+            margin-left: 26px;
+        }
+        .app-info-new-icon-des {
+            margin: 64px 0 0 16px;
+            width: 137px;
+            height: 32px;
+            font-size: 14px;
+            font-family: Helvetica;
+            color: rgba(199, 201, 210, 1);
+            line-height: 17px;
+        }
+    }
+    .app-info-button-to-save {
+        width: 96px;
+        height: 42px;
+        text-align: center;
+        color: #fff;
+        line-height: 42px;
+        margin: 0 auto;
+        background: #d7d9e2;
+        border-radius: 40px;
+        &.app-info-button-to-save-active {
+            background-color: #3277ff;
+        }
+    }
+}

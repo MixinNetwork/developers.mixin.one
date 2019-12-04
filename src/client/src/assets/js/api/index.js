@@ -10,7 +10,8 @@ instance.interceptors.request.use(config => {
     return config;
 })
 
-instance.interceptors.response.use(({ data }) => {
+instance.interceptors.response.use((res) => {
+    let data = res.data
     if (data.error && data.error.description) {
         _vm.$message.error(`${data.error.description}(${data.error.code})`)
         if (Number(data.error.code) === 401) {

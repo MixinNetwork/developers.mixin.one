@@ -1,14 +1,21 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <transition :name="transition_name">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
 <script>
 export default {
     name: 'app',
+    computed: {
+        transition_name() {
+            return this.$store.state.transition_name;
+        }
+    },
     mounted() {
-        window._vm = this
+        window._vm = this;
     }
 };
 </script>
@@ -22,5 +29,41 @@ body,
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.views {
+    position: absolute;
+    width: 100%;
+    transition: all 0.8s ease;
+    top: 0;
+}
+.slide-left-enter-active {
+    transition: all 0.3s ease;
+}
+.slide-left-leave-active {
+    transition: all 0.4s ease;
+}
+.slide-left-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.slide-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-right-enter-active {
+    transition: all 0.3s ease;
+}
+.slide-right-leave-active {
+    transition: all 0.4s ease;
+}
+.slide-right-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.slide-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
 }
 </style>

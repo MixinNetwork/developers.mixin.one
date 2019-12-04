@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "526001",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
       "icon_id": "3458470",
       "name": "菜单",
       "font_class": "caidan",
@@ -27,6 +34,13 @@
       "unicode_decimal": 58897
     },
     {
+      "icon_id": "6691793",
+      "name": "加号",
+      "font_class": "jiahao",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
       "icon_id": "6693282",
       "name": "登出",
       "font_class": "dengchu",
@@ -39,6 +53,13 @@
       "font_class": "suo",
       "unicode": "e612",
       "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "7531574",
+      "name": "标签",
+      "font_class": "bookmark",
+      "unicode": "e614",
+      "unicode_decimal": 58900
     },
     {
       "icon_id": "8566866",
@@ -60,6 +81,13 @@
       "font_class": "iconfontplatformentrance-copy1",
       "unicode": "e600",
       "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11124969",
+      "name": "加号",
+      "font_class": "21",
+      "unicode": "e616",
+      "unicode_decimal": 58902
     }
   ]
 }

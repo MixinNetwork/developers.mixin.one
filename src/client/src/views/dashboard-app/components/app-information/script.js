@@ -1,20 +1,11 @@
-
-import MixinInput from '@/components/t-input'
-
 export default {
     name: 'app-information',
-    components: {
-        MixinInput
-    },
-    props: ['active_app'],
+    props: ['active_app', 'is_new_app'],
     data() {
         return {
+            can_save: true,
+            new_app: true,
             icon_base64: ''
-        }
-    },
-    watch: {
-        active_app() {
-            this.icon_base64 = '';
         }
     },
     methods: {
@@ -26,6 +17,7 @@ export default {
         }
     }
 }
+
 
 function _render_file_to_base64(file) {
     let reader = new FileReader();
@@ -46,17 +38,31 @@ function _submit_to_database() {
         this.$message.error('Contents remain unchanged, please do not submit repeatedly');
         return;
     }
-    parmas.icon_base64 = this.icon_base64.substring(22);
+    parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
     tmp_commit_form = parmas;
     once_submit = true;
     let post_url = '/apps/' + app_id
     if (!app_id) {
         post_url = '/apps'
     }
-    this.$axios.post(post_url, parmas).then(res => {
-        if (res.type === 'app') {
-            this.$message.success('Submitted successfully')
-            this.$emit('add_new_app', res.app_id)
-        }
-    }).finally(_ => once_submit = false)
+    this.$emit('loading', true)
+    this.$axios.post(post_url, parmas)
+        .then(res => {
+            if (res.type === 'app') {
+                this.$message.success('Submitted successfully')
+                this.$emit('add_new_app', res.app_id)
+                this.$store.dispatch('init_app', true).then(_ => {
+                    this.$store.commit('change_state', { can_transition: true });
+                    this.$router.push('/')
+                })
+            }
+        })
+        .catch(err => {
+            let error = err.response.data.error
+            this.$message.error(`${error.code}: ${error.description}`)
+        })
+        .finally(_ => {
+            once_submit = false;
+            this.$emit('loading', false)
+        })
 }

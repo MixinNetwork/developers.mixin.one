@@ -1,0 +1,76 @@
+.dashboard-app-secret {
+    font-size: 16px;
+    box-sizing: border-box;
+    .secret-list {
+        margin-top: 44px;
+        overflow-y: auto;
+        padding: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        .secret-item {
+            padding: 25px 20px 32px 20px;
+            margin-bottom: 16px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+            border-radius: 4px;
+            font-size: 16px;
+            i {
+                margin-right: 14px;
+                font-weight: 700;
+                color: #b8bdc7;
+                position: relative;
+                &::after {
+                    content: "";
+                    width: 3px;
+                    height: 20px;
+                    background: rgba(61, 117, 227, 1);
+                    border-radius: 0px 100px 100px 0px;
+                    position: absolute;
+                    top: -5px;
+                    left: -20px;
+                }
+            }
+            p {
+                padding: 16px 0;
+                font-size: 15px;
+                width: 295px;
+                line-height: 23px;
+                overflow: hidden;
+                color: #333;
+            }
+            button {
+                font-size: 14px;
+                height: 32px;
+                width: 180px;
+            }
+        }
+    }
+    .new-secret-content {
+        padding: 0 20px;
+        width: 100%;
+        label {
+            display: block;
+            padding-left: 30px;
+        }
+        input {
+            width: 100%;
+            padding-left: 30px;
+        }
+        .disabled {
+            background: #fff;
+            color: initial;
+        }
+        transform: translate(0, -20%);
+        transition: all 0.2s ease-in-out;
+        opacity: 0;
+
+        &.active {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+}

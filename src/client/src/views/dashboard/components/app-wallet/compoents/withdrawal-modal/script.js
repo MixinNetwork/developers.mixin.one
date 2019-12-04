@@ -65,7 +65,6 @@ async function _send_withdrawal_request(private_key, sid, uid) {
         data: parmas,
         headers: { 'Authorization': 'Bearer ' + token }
     })
-    console.log(res)
     return res && res.type === 'transfer'
 }
 
@@ -100,8 +99,4 @@ function _get_token({ sid, uid, private_key: privateKey }, method, url, body) {
 function _get_sid_from_storge(appid) {
     console.log('appid :', appid);
     return (JSON.parse(window.localStorage.getItem(appid)))._sid
-}
-
-function _set_pin_token_and_private_key_if_has() {
-
 }
