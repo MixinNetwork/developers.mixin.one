@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard-app-secret">
+    <div v-loading="loading" class="dashboard-app-secret">
         <div class="secret-list f">
             <div class="secret-item">
                 <i class="icon iconfont iconsuo"></i>
@@ -27,6 +27,21 @@
             type="text"
             disabled
         />
+        <t-modal v-show="new_secret" :show="new_secret ? true : false" width="612" height="294">
+            <div class="new-secret-modal">
+                <h3>App Secret</h3>
+                <span>{{new_secret}}</span>
+                <div class="btns">
+                    <button
+                        v-clipboard:copy="new_secret"
+                        　　v-clipboard:success="click_copy_succuess"
+                        　　v-clipboard:error="click_copy_error"
+                        class="btn-copy primary"
+                    >Copy</button>
+                    <button @click="click_close_new_secret" class="btn-close primary">Close</button>
+                </div>
+            </div>
+        </t-modal>
         <a v-show="false" ref="download_ssesion_json"></a>
     </div>
 </template>

@@ -109,3 +109,30 @@ textarea {
         }
     }
 }
+.el-message-box {
+    height: 208px;
+    .el-message-box__header {
+        display: none;
+    }
+    .el-message-box__content {
+        padding: 0;
+        p {
+            text-align: center;
+            margin: 56px 0 40px 0;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 1);
+            line-height: 16px;
+            font-size: 16px;
+        }
+    }
+    .el-message-box__btns {
+        text-align: center;
+        button {
+            width: 140px;
+            height: 40px;
+        }
+        .el-button--primary {
+            background-color: #3277ff;
+        }
+    }
+}

@@ -3,7 +3,9 @@
     width: 100%;
     height: 100%;
     .secret-list {
-        margin: 50px 0 20px 100px;
+        height: 100%;
+        width: 100%;
+        padding: 50px 0 20px 100px;
         .secret-item {
             min-width: 400px;
             padding: 22px 30px;
@@ -27,6 +29,39 @@
             }
             &:last-child {
                 margin-right: 0;
+            }
+        }
+    }
+    .new-secret-modal {
+        text-align: center;
+        padding: 0 10px;
+        h3 {
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+        span {
+            text-align: left;
+            word-wrap: break-word;
+            display: block;
+            padding: 25px 20px;
+            width: 100%;
+            height: 82px;
+            background-color: #f6f9ff;
+        }
+        .btns {
+            button {
+                float: right;
+                width: 140px;
+                height: 40px;
+                margin-top: 32px;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            .btn-close {
+                background-color: #e5e7ec;
+                color: #333;
+                margin-right: 9px;
             }
         }
     }

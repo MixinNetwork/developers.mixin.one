@@ -1,19 +1,24 @@
 import forge from 'node-forge'
 import TInput from '@/components/t-input'
+import TModal from '@/components/t-modal'
 export default {
     name: 'app-information',
     components: {
-        TInput
+        TInput, TModal
     },
     props: ['active_app'],
     data() {
         return {
-            new_secret: ''
+            new_secret: '',
+            loading: false
         }
     },
     methods: {
         request_new_secret() {
-            this.$confirm('Do you want to reset secret?')
+            this.$confirm('Do you want to reset secret?', '', {
+                confirmButtonText: 'OK',
+                cancelButtonText: 'Cancel',
+            })
                 .then(_ => {
                     _request_new_secret.call(this)
                 })
@@ -23,13 +28,25 @@ export default {
 
         },
         request_new_session() {
-            this.$confirm('Do you want to reset session?')
+            this.$confirm('Do you want to reset session?', '', {
+                confirmButtonText: 'OK',
+                cancelButtonText: 'Cancel',
+            })
                 .then(_ => {
                     _request_new_sseion.call(this)
                 })
                 .catch(_ => {
                     return
                 })
+        },
+        click_copy_succuess() {
+            this.$message.success('Copy success')
+        },
+        click_copy_error() {
+            this.$message.error('Copy error')
+        },
+        click_close_new_secret() {
+            this.new_secret = ''
         }
     },
     mounted() {
@@ -42,11 +59,12 @@ function _request_new_secret() {
         this.$message.error('Reset, please wait...')
         return
     }
+    this.loading = true
     once_submit = true;
     this.$axios.post('/apps/' + this.active_app.app_id + '/secret').then(res => {
         this.$message.success('Reset successfully')
         this.new_secret = res.app_secret;
-    }).finally(_ => once_submit = false)
+    }).finally(_ => { once_submit = false; this.loading = false })
 }
 
 
@@ -58,12 +76,13 @@ function _request_new_sseion() {
     let pin = _get_pin()
     let { session_secret, private_key } = _get_private_key()
     once_submit = true;
+    this.loading = true;
     this.$axios.post('/apps/' + this.active_app.app_id + '/session', { pin, session_secret }).then(res => {
         this.$message.success('Reset successfully')
         let { session_id, pin_token } = res;
         _download_app_json(this.$refs.download_ssesion_json, pin, this.active_app.app_id, session_id, pin_token, private_key, this.active_app.app_number)
 
-    }).finally(_ => once_submit = false)
+    }).finally(_ => { once_submit = false; this.loading = false })
 }
 
 function _download_app_json(dom, pin, client_id, session_id, pin_token, private_key, app_number) {

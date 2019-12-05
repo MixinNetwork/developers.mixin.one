@@ -9,6 +9,9 @@ import _const from './assets/js/const'
 import $bus from './assets/js/bus'
 import VueTouch from 'vue-touch'
 import store from './store'
+import VueClipboard from 'vue-clipboard2'
+
+Vue.use(VueClipboard)
 
 Vue.use(elementUI)
 Vue.use(VueTouch, { name: 'v-touch' })
@@ -18,6 +21,7 @@ VueTouch.config.swipe = {
 
 }
 Vue.config.productionTip = false
+Vue.config.devtools = true
 
 
 Vue.prototype.$axios = axios

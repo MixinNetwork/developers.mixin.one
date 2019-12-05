@@ -1,6 +1,6 @@
 <template>
     <div v-loading="loading" class="dashboard-app-wallet">
-        <div class="tips f">
+        <!-- <div class="tips f">
             <div class="tips-title">
                 <i class="icon iconfont iconbiaoqian" />
                 <span>TIP</span>
@@ -9,17 +9,31 @@
                 <div>The deposit can only be made to your Mixin Messenger account.</div>
                 <div>Open Mixin Messenger > Search 7000100101 to find this app > Deposit by transfer.</div>
             </div>
-        </div>
-        <div v-if="!is_edited" class="edit-information">
-            <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
-            <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
-            <div class="edit-information-PK">
-                <label style="margin-bottom:16px">Private Key</label>
-                <textarea v-model="submit_form.private_key"></textarea>
+        </div>-->
+        <div class="app-wallet-des" v-if="!is_edited">
+            <div>
+                <h3>Update token to access your assets</h3>
+                <button class="primary" @click="open_edit_modal = true">Update</button>
             </div>
-            <button @click="click_submit" class="primary">Submit</button>
         </div>
-        <div v-else class="assets-list">
+        <div v-show="open_edit_modal" class="edit-information">
+            <t-modal :show="open_edit_modal" :width="700" :height="512">
+                <div class="edit-main-modal">
+                    <h3 class="edit-main-modal-title">Upload Token</h3>
+                    <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
+                    <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
+                    <div class="edit-information-PK">
+                        <label style="margin-bottom:16px">Private Key</label>
+                        <textarea v-model="submit_form.private_key"></textarea>
+                    </div>
+                    <div class="btns">
+                        <button @click="click_submit" class="btns-save primary">Save</button>
+                        <button @click="click_cancel" class="btns-cancel primary">Cancel</button>
+                    </div>
+                </div>
+            </t-modal>
+        </div>
+        <div v-if="is_edited" class="assets-list">
             <div class="assets-item" v-for="item in assets_list">
                 <img :style="{opacity: item.icon_url ? '1':'0'}" :src="item.icon_url" />
                 <span class="assets-item-num">{{item.balance}}</span>
@@ -35,7 +49,8 @@
             :app_id="active_app.app_id"
             :active_asset="active_asset"
             @close-modal="show_withdrawal=false"
-            v-if="show_withdrawal"
+            v-show="show_withdrawal"
+            :show="show_withdrawal"
         ></withdrawal-modal>
     </div>
 </template>
