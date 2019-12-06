@@ -13,6 +13,13 @@
       "unicode_decimal": 58904
     },
     {
+      "icon_id": "1048882",
+      "name": "向左",
+      "font_class": "icon_on_the_left",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
       "icon_id": "3458470",
       "name": "菜单",
       "font_class": "caidan",
@@ -32,6 +39,13 @@
       "font_class": "iconfontplatformentrance-copy",
       "unicode": "e611",
       "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "6204091",
+      "name": "关  闭",
+      "font_class": "guanbi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
     },
     {
       "icon_id": "6691793",

@@ -62,7 +62,7 @@ export default {
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #fff;
-            padding: 50px 40px 0 40px;
+            // padding: 50px 40px 0 40px;
             overflow: auto;
         }
     }

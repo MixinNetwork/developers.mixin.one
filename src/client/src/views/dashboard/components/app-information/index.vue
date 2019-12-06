@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="app-info-edit-list f f-column">
-                        <mixin-input label="Name" width v-model="active_app.name"></mixin-input>
+                        <mixin-input label="Name" width v-model="app_name"></mixin-input>
                         <mixin-input
                             label="Home URL"
                             width

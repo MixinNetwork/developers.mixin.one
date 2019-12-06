@@ -10,7 +10,7 @@
                     @click="back"
                     slot="left"
                 >
-                    <i class="icon iconfont iconfanhui"></i>
+                    <i class="icon iconfont iconicon_on_the_left"></i>
                 </div>
                 <div slot="center">{{header_name}}</div>
             </m-header>

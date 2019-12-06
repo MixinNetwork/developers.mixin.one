@@ -8,7 +8,7 @@
                 <div>Icon</div>
                 <div>
                     <input type="file" @change="getFile" ref="upload_dom" />
-                    <template v-if="!is_new_app || icon_base64 || active_app.icon_url">
+                    <template v-if="icon_base64 || active_app.icon_url">
                         <img :src="icon_base64 || active_app.icon_url" />
                     </template>
                     <template v-else>
@@ -41,19 +41,22 @@
             <div class="app-info-item">
                 <div>Name</div>
                 <div>
-                    <input v-model="active_app.name" />
+                    <input placeholder="2-64 characters" v-model="app_name" />
                 </div>
             </div>
             <div class="app-info-item">
                 <div>Home URL</div>
                 <div>
-                    <input v-model="active_app.home_uri" />
+                    <input placeholder="E.g.: https://mixin.one" v-model="active_app.home_uri" />
                 </div>
             </div>
             <div class="app-info-item">
                 <div>Oauth URL</div>
                 <div>
-                    <input v-model="active_app.redirect_uri" />
+                    <input
+                        placeholder="Required e.g.: https://mixin.one/auth"
+                        v-model="active_app.redirect_uri"
+                    />
                 </div>
             </div>
             <div class="app-info-item">

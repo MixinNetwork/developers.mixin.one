@@ -12,12 +12,15 @@
         top: 0;
         .secret-item {
             padding: 25px 20px 32px 20px;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             width: 100%;
             background: #fff;
             box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
             border-radius: 4px;
             font-size: 16px;
+            &:first-child {
+                margin-bottom: 16px;
+            }
             i {
                 margin-right: 14px;
                 font-weight: 700;
@@ -48,29 +51,10 @@
                 width: 180px;
             }
         }
-    }
-    .new-secret-content {
-        padding: 0 20px;
-        width: 100%;
-        label {
-            display: block;
-            padding-left: 30px;
-        }
-        input {
-            width: 100%;
-            padding-left: 30px;
-        }
-        .disabled {
-            background: #fff;
-            color: initial;
-        }
-        transform: translate(0, -20%);
-        transition: all 0.2s ease-in-out;
-        opacity: 0;
-
-        &.active {
-            transform: translate(0, 0);
-            opacity: 1;
+        .bottom-tips {
+            font-size: 11px;
+            line-height: 13px;
+            color: #b8bdc7;
         }
     }
 }

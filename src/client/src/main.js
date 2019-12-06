@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './route/router'
 import axios from './assets/js/api/index'
 import './assets/iconfont/iconfont.css'
-import elementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import elementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 import _const from './assets/js/const'
 import $bus from './assets/js/bus'
 import VueTouch from 'vue-touch'
@@ -13,7 +13,7 @@ import VueClipboard from 'vue-clipboard2'
 
 Vue.use(VueClipboard)
 
-Vue.use(elementUI)
+// Vue.use(elementUI)
 Vue.use(VueTouch, { name: 'v-touch' })
 VueTouch.config.swipe = {
 

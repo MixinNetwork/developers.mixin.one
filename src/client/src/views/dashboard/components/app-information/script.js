@@ -9,12 +9,14 @@ export default {
     props: ['active_app'],
     data() {
         return {
-            icon_base64: ''
+            icon_base64: '',
+            app_name: ''
         }
     },
     watch: {
         active_app() {
             this.icon_base64 = '';
+            this.app_name = this.active_app.name
         }
     },
     methods: {
@@ -24,7 +26,10 @@ export default {
         getFile(event) {
             _render_file_to_base64.call(this, event.target.files[0])
         }
-    }
+    },
+    mounted() {
+        this.app_name = this.active_app.name
+    },
 }
 
 function _render_file_to_base64(file) {
@@ -41,6 +46,7 @@ function _submit_to_database() {
         return
     }
     let { app_id, capabilities, description, home_uri, name, redirect_uri } = this.active_app
+    name = this.app_name
     let parmas = { capabilities, description, home_uri, name, redirect_uri }
     if (JSON.stringify(parmas) === JSON.stringify(tmp_commit_form)) {
         this.$message.error('Contents remain unchanged, please do not submit repeatedly');

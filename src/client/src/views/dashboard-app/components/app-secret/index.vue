@@ -19,23 +19,10 @@
                 </p>
                 <button @click="tips_to_desktop" class="primary">Generate a new session</button>
             </div>
-            <div class="secret-item">
-                <i class="icon iconfont iconbookmark"></i>
-                <span>TIP</span>
-                <p>
-                    Mixin server and the browser did not
-                    keep the information at all. If you forgot,
-                    you can generate a new one.
-                </p>
-            </div>
+            <div
+                class="bottom-tips"
+            >Mixin server and the browser did not keep the information at all. If you forgot, you can generate a new one.</div>
         </div>
-        <!-- <t-input
-            label="NEW SECRET"
-            v-model="new_secret"
-            :class="[(new_secret? 'active': ''), 'new-secret-content']"
-            type="text"
-            disabled
-        />-->
         <a v-show="false" ref="download_ssesion_json"></a>
     </div>
 </template>

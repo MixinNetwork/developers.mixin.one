@@ -19,7 +19,8 @@ export default {
     data() {
         return {
             description: {
-                'Mixin ID': 'Mixin ID or Mixin address'
+                'Mixin ID': 'Mixin ID or Mixin address',
+                Amount: '0.0000'
             }
         };
     },

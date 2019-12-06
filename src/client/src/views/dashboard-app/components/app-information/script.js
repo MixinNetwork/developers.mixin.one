@@ -5,7 +5,13 @@ export default {
         return {
             can_save: true,
             new_app: true,
-            icon_base64: ''
+            icon_base64: '',
+            app_name: ''
+        }
+    },
+    watch: {
+        active_app(val) {
+            this.app_name = val.name
         }
     },
     methods: {
@@ -15,7 +21,10 @@ export default {
         getFile(event) {
             _render_file_to_base64.call(this, event.target.files[0])
         }
-    }
+    },
+    mounted() {
+        this.app_name = this.active_app.name
+    },
 }
 
 
@@ -33,6 +42,7 @@ function _submit_to_database() {
         return
     }
     let { app_id, capabilities, description, home_uri, name, redirect_uri } = this.active_app
+    name = this.app_name
     let parmas = { capabilities, description, home_uri, name, redirect_uri }
     if (JSON.stringify(parmas) === JSON.stringify(tmp_commit_form)) {
         this.$message.error('Contents remain unchanged, please do not submit repeatedly');

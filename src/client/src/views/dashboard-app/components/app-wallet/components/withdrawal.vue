@@ -6,7 +6,7 @@
                 @click="back"
                 slot="left"
             >
-                <i class="icon iconfont iconfanhui"></i>
+                <i class="icon iconfont iconicon_on_the_left"></i>
             </div>
             <div slot="center">Wallet</div>
         </m-header>
@@ -19,31 +19,34 @@
                 <div class="app-info-item">
                     <div>Amount</div>
                     <div>
-                        <input v-model="submit_form.amount" />
+                        <input placeholder="0.0000" v-model="submit_form.amount" />
                     </div>
                 </div>
                 <div class="app-info-item">
                     <div>PIN</div>
                     <div>
-                        <input v-model="submit_form.pin" />
+                        <input placeholder="PIN" v-model="submit_form.pin" />
                     </div>
                 </div>
                 <div class="app-info-item">
                     <div>Mixin ID</div>
                     <div>
-                        <input v-model="submit_form.opponent_id" />
+                        <input
+                            placeholder="Mixin ID or Mixin address"
+                            v-model="submit_form.opponent_id"
+                        />
                     </div>
                 </div>
                 <div class="app-info-item">
                     <div>Pin Token</div>
                     <div>
-                        <input v-model="submit_form.pin_token" />
+                        <input placeholder="Pin Token" v-model="submit_form.pin_token" />
                     </div>
                 </div>
                 <div class="app-info-item">
                     <div>Private Key</div>
                     <div>
-                        <input v-model="submit_form.private_key" />
+                        <input placeholder="Private Key" v-model="submit_form.private_key" />
                     </div>
                 </div>
                 <span @click="click_submit" class="withdrawal-edit-main-save-button">Submit</span>

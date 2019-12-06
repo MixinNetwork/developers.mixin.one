@@ -4,7 +4,9 @@
     box-sizing: border-box;
     font-family: "SF Pro Text";
 }
-
+img {
+    border-radius: 50% !important;
+}
 button {
     cursor: pointer;
 }
@@ -61,6 +63,17 @@ textarea {
     outline: none;
     padding: 20px;
     resize: none;
+    &::-webkit-input-placeholder {
+        color: #a9b0bf;
+    }
+    &::-moz-input-placeholder {
+        color: #a9b0bf;
+    }
+    &::-ms-input-placeholder {
+        color: #a9b0bf;
+    }
+}
+input {
     &::-webkit-input-placeholder {
         color: #a9b0bf;
     }

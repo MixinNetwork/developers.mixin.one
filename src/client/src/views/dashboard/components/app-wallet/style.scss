@@ -62,6 +62,7 @@
             bottom: 0;
             overflow: hidden;
             .edit-main-modal {
+                padding: 50px 40px 0 40px;
                 overflow: hidden;
                 h3 {
                     width: 113px;
@@ -89,8 +90,13 @@
                         }
                         textarea {
                             padding: 5px 0 5px 20px;
+                            width: 492px;
                             height: 82px;
                             background: #f6f9ff;
+                            &::-webkit-scrollbar {
+                                width: 0;
+                                height: 100%;
+                            }
                         }
                     }
                     &.btns {

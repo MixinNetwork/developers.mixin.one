@@ -65,6 +65,11 @@
                     height: 30px;
                     margin-top: 24px;
                 }
+                & > div {
+                    margin: 8px 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }
@@ -73,7 +78,7 @@
         .right-user-more {
             position: absolute;
             top: 40px;
-            transition: top .5s;
+            transition: top 0.5s;
             opacity: 0;
             right: -10px;
             color: #fff;
