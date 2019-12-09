@@ -21,15 +21,19 @@
                     >
                         <div class="bottom-user-button-list">
                             <div @click.stop class="bottom-user-button-item">
-                                <i class="icon iconfont icondengchu"></i>
+                                <!-- <i class="icon iconfont icondengchu"></i> -->
+                            <img src="@/assets/img/svg/logout.svg">
                                 <span>Sign Out</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="middle-app-list-or-new-app">
-                    <div @click="click_new_app" class="create-new-app">
-                        <img src="../../assets/add.png" />
+                    <div
+                        @click="click_new_app"
+                        :class="['create-new-app',entring_status.is_new_app ? 'create-new-app-active' : '' ]"
+                    >
+                        <img src="@/assets/img/svg/add.svg" />
                         <span>New App</span>
                     </div>
                     <div class="app-list-container" v-if="app_list.length">
@@ -57,14 +61,15 @@
                     <img :src="user_info.avatar_url || _const.default.avatar_url" />
                     <div class="user-info-name-and-id">
                         <div>{{user_info.full_name}}</div>
-                        <div>ID: {{user_info.identity_number}}</div>
+                        <div>ID:{{user_info.identity_number}}</div>
                     </div>
                     <div
                         :class="['bottom-user-more', (entring_status.show_click_user ? 'bottom-user-more-active' : '')]"
                     >
                         <div class="bottom-user-button-list">
                             <div @click.stop="click_sign_out" class="bottom-user-button-item">
-                                <i class="icon iconfont icondengchu"></i>
+                                <!-- <i class="icon iconfont icondengchu"></i> -->
+                            <img src="@/assets/img/svg/logout.svg">
                                 <span>Sign Out</span>
                             </div>
                         </div>
@@ -73,7 +78,7 @@
             </nav>
             <div class="dashboard-center-and-nav">
                 <div v-if="entring_status.welcome" class="welcome">
-                    <img src="../../assets/robots.png" />
+                    <img src="@/assets/img/svg/robot.svg" />
                     <h1>WELCOME</h1>
                     <p>Dashboard is a hand-picked collection of lastest developers console</p>
                     <button @click="click_new_app" class="primary">CREATE</button>
@@ -82,7 +87,10 @@
                     <header>
                         <div :class="['header-list', ('header-index-' +nav_header_index)]">
                             <template v-if="entring_status.is_new_app">
-                                <span class="header-item" style="color:#1d69ff">New App</span>
+                                <span
+                                    class="header-item"
+                                    style="font-weight:700;color:#1d69ff"
+                                >New App</span>
                             </template>
                             <template v-else>
                                 <span

@@ -70,6 +70,7 @@ div {
     .disabled {
         background: #eceef2;
         color: #a9b0bf;
+        box-shadow: none;
     }
 }
 </style>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="桌面端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0创建机器人(1440*900）" transform="translate(-34.000000, -214.000000)">
+            <g id="Group-9" transform="translate(20.000000, 200.000000)">
+                <g id="Group-8">
+                    <g id="Group" transform="translate(14.000000, 14.000000)">
+                        <rect id="path" fill="#3277FF" x="10" y="6" width="2" height="10" rx="1"></rect>
+                        <path d="M11,6 C11.5522847,6 12,6.44771525 12,7 L12,15 C12,15.5522847 11.5522847,16 11,16 C10.4477153,16 10,15.5522847 10,15 L10,7 C10,6.44771525 10.4477153,6 11,6 Z" id="path" fill="#3277FF" transform="translate(11.000000, 11.000000) rotate(90.000000) translate(-11.000000, -11.000000) "></path>
+                        <circle id="path" stroke="#3277FF" stroke-width="2" cx="11" cy="11" r="10"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

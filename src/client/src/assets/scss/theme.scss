@@ -21,6 +21,7 @@ button.active.focus {
     outline: none;
     border-color: transparent;
     box-shadow: none;
+    font-weight: 500;
 }
 
 .f {
@@ -105,6 +106,7 @@ input {
     line-height: 16px;
 
     .app-info-item {
+        font-weight: 500;
         & > div {
             margin-bottom: 16px;
             input {
@@ -115,9 +117,13 @@ input {
                 border-radius: 6px;
                 height: 50px;
                 padding: 0 20px;
+                font-weight: 500;
+                font-size: 16px;
             }
             textarea {
                 width: 100%;
+                font-weight: 500;
+                font-size: 16px;
             }
         }
     }
@@ -125,13 +131,17 @@ input {
 .el-message-box {
     height: 208px;
     .el-message-box__header {
-        display: none;
+        color: #b8bdc7;
+        .el-message-box__headerbtn {
+            top: 19px;
+            right: 19px;
+        }
     }
     .el-message-box__content {
         padding: 0;
         p {
             text-align: center;
-            margin: 56px 0 40px 0;
+            margin: 31px 0 34px 0;
             font-weight: bold;
             color: rgba(0, 0, 0, 1);
             line-height: 16px;
@@ -144,8 +154,22 @@ input {
             width: 140px;
             height: 40px;
         }
-        .el-button--primary {
-            background-color: #3277ff;
+        outline: none;
+        border: none;
+        .el-button--small {
+            background-color: #e5e7ec;
+            color: #333;
+            font-size: 15px;
+            line-height: 22px;
+            &.el-button--primary {
+                color: #fff;
+                background-color: #3277ff;
+            }
+            &:hover {
+                outline: none;
+                border: 1px solid #e5e7ec;
+                opacity: 0.8;
+            }
         }
     }
 }

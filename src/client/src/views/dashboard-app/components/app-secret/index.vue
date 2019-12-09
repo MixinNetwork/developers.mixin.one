@@ -2,7 +2,7 @@
     <div class="dashboard-app-secret">
         <div class="secret-list">
             <div class="secret-item">
-                <i class="icon iconfont iconsuo"></i>
+                <img src="@/assets/img/svg/secret.svg" />
                 <span>APP SECRET</span>
                 <p>
                     If you are requesting the API from your secret server,
@@ -11,7 +11,7 @@
                 <button @click="tips_to_desktop" class="primary">Generate a new secret</button>
             </div>
             <div class="secret-item">
-                <i class="icon iconfont iconcaidan"></i>
+                <img src="@/assets/img/svg/session.svg" />
                 <span>APP SESSION</span>
                 <p>
                     Generate PIN, Session ID, PinToken, Private Key

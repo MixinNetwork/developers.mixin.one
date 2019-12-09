@@ -1,14 +1,22 @@
 .dashboard-app-information {
     padding-left: 100px;
     font-family: Helvetica !important;
-    font-size: 16px;
+    // font-size: 16px;
     .app-info-content {
         margin-top: 50px;
+        input,
+        textarea {
+            font-size: 16px;
+        }
         label {
+            font-weight: 700;
             display: block;
             margin-bottom: 16px;
         }
         .app-info-edit-main {
+            &.app-info-edit-main-new-app {
+                margin-top: 50px;
+            }
             .app-info-icon {
                 .app-info-upload-and-show-icon {
                     width: 320px;
@@ -18,10 +26,15 @@
                     border-radius: 50%;
                     color: #a9b0bf;
                     text-align: center;
-                    i {
+                    img {
                         display: inline-block;
                         font-size: 40px;
-                        margin: 120px 0 16px 0;
+                        margin-top: 120px;
+                        border-radius: 0 !important;
+                    }
+                    img.app-info-icon-img {
+                        margin: 0;
+                        border-radius: 50% !important;
                     }
                     p {
                         width: 140px;
@@ -52,33 +65,22 @@
             }
         }
         .app-info-description {
-            // textarea {
-            //     width: 960px;
-            //     height: 120px;
-            //     background: rgba(255, 255, 255, 1);
-            //     box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-            //     border-radius: 4px;
-            //     border: 0;
-            //     outline: none;
-            //     padding: 20px;
-            //     resize: none;
-            //     &::-webkit-input-placeholder {
-            //         color: #a9b0bf;
-            //     }
-            //     &::-moz-input-placeholder {
-            //         color: #a9b0bf;
-            //     }
-            //     &::-ms-input-placeholder {
-            //         color: #a9b0bf;
-            //     }
-            // }
+            margin-top: 26px;
         }
 
         button {
+            border-radius: 8px;
             width: 140px;
             height: 46px;
+            font-size: 16px;
             margin-bottom: 70px;
-            margin-top: 32px;
+            margin-top: 28px;
+            font-weight: 700;
+            &.app-info-not-finished {
+                color: #a9b0bf;
+                background-color: #e6e8ee;
+                cursor: not-allowed;
+            }
         }
     }
 }

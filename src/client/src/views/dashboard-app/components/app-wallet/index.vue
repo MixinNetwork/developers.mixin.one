@@ -31,6 +31,13 @@
                     class="assets-item-withdrawal primary"
                 >Withdrawal</button>
             </div>
+            <div class="assets-list-bottom-tips">
+                <div>The deposit can only be made to your Mixin Messenger account.</div>
+                <div>
+                    Open Mixin Messenger > Search 7000100101 to find this app >
+                    Deposit by transfer.
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -13,7 +13,7 @@
         <div class="app-wallet-des" v-if="!is_edited">
             <div>
                 <h3>Update token to access your assets</h3>
-                <button class="primary" @click="open_edit_modal = true">Update</button>
+                <button class="primary" @click="open_edit_modal = true">UPDATE</button>
             </div>
         </div>
         <div v-show="open_edit_modal" class="edit-information">
@@ -24,12 +24,17 @@
                     <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
                     <div class="edit-information-PK">
                         <label style="margin-bottom:16px">Private Key</label>
-                        <textarea v-model="submit_form.private_key"></textarea>
+                        <textarea
+                            style="ali"
+                            placeholder="Private Key"
+                            v-model="submit_form.private_key"
+                        ></textarea>
                     </div>
                     <div class="btns">
                         <button @click="click_submit" class="btns-save primary">Save</button>
                         <button @click="click_cancel" class="btns-cancel primary">Cancel</button>
                     </div>
+                    <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
                 </div>
             </t-modal>
         </div>
@@ -43,6 +48,10 @@
                     class="assets-item-withdrawal primary"
                 >Withdrawal</button>
             </div>
+        </div>
+        <div v-if="assets_list.length" class="assets-list-bottom-tips">
+            <div>The deposit can only be made to your Mixin Messenger account.</div>
+            <div>Open Mixin Messenger > Search 7000100101 to find this app > Deposit by transfer.</div>
         </div>
         <withdrawal-modal
             @update-list="update_list"

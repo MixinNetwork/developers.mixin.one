@@ -5,6 +5,7 @@
     .dashboard-container {
         display: flex;
         nav {
+            font-weight: 700;
             z-index: 10;
             background: #fff;
             min-width: 280px;
@@ -19,7 +20,7 @@
                 img {
                     width: 24px;
                     height: 20px;
-                    border-radius: 50%;
+                    border-radius: 0 !important;
                     transform: translate(0, 3px);
                 }
                 span {
@@ -49,6 +50,7 @@
                     div:last-child {
                         margin-top: 3px;
                         font-size: 14px;
+                        font-weight: 400;
                         color: #b8bdc7;
                     }
                 }
@@ -78,13 +80,22 @@
                                 transform: translate(0, 1px);
                                 margin-right: 4px;
                             }
+                            span {
+                                font-weight: 500;
+                            }
                             &:hover {
                                 background: #f6f9ff;
                             }
                         }
+                        img {
+                            width: initial;
+                            height: initial;
+                            border-radius: initial !important;
+                            display: inline-block;
+                            transform: translate(0, 3px);
+                        }
                     }
                     &.bottom-user-more-active {
-                        // display: block;
                         z-index: 2;
                         opacity: 1;
                         top: -55px;
@@ -102,7 +113,6 @@
                 height: 100%;
                 .create-new-app {
                     cursor: pointer;
-                    background: #f6f9ff;
                     width: 240px;
                     line-height: 50px;
                     margin: 40px 0 0 20px;
@@ -118,6 +128,12 @@
                         line-height: 16px;
                         margin-left: 20px;
                     }
+                    &:hover {
+                        background: #f6f9ff;
+                    }
+                    &.create-new-app-active {
+                        background: #f6f9ff;
+                    }
                 }
                 .app-list-container {
                     margin-top: 40px;
@@ -125,7 +141,7 @@
                     .app-list-header {
                         padding-left: 30px;
                         padding-right: 26px;
-                        margin-bottom: 26px;
+                        margin-bottom: 6px;
                         display: flex;
                         justify-content: space-between;
                         .iconfont {
@@ -145,18 +161,19 @@
                         }
                         .app-item {
                             cursor: pointer;
-                            padding: 12px 30px;
-                            line-height: 30px;
+                            padding: 0 30px 0 30px;
+                            line-height: 54px;
+                            height: 54px;
 
                             img {
                                 width: 30px;
                                 height: 30px;
-                                transform: translate(0, 5px);
+                                transform: translate(0, 10px);
                             }
                             span {
                                 display: inline-block;
                                 margin-left: 16px;
-                                transform: translate(0, -4px);
+                                font-size: 14px;
                             }
                             &.app-item-active,
                             &:hover {
@@ -186,30 +203,33 @@
                 position: absolute;
                 width: 554px;
                 height: 294px;
-                top: 50%;
+                top: 28.333%;
+                bottom: 39%;
                 z-index: 0;
                 left: 50%;
-                // margin-left: -50px;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%);
                 text-align: center;
                 color: rgba(51, 51, 51, 1);
-                // min-width: 500px;
                 img {
-                    width: 60px;
+                    border-radius: 0 !important;
                 }
                 h1 {
                     font-size: 44px;
                     line-height: 53px;
-                    margin: 31px 0 13px 0;
+                    margin: 32px 0 13px 0;
+                    font-weight: 900;
                 }
                 p {
                     width: 553px;
                     margin: 0 auto;
                     font-size: 24px;
                     line-height: 29px;
+                    font-weight: 400;
                 }
                 button {
                     margin-top: 30px;
+                    width: 140px;
+                    height: 49px;
                 }
             }
             header {
@@ -218,6 +238,7 @@
                 border-bottom: 1px solid #e1e7f5;
                 color: #b8bdc7;
                 .header-list {
+                    font-weight: 700;
                     padding: 30px 0 0 100px;
                     position: relative;
                     .header-item {
@@ -242,12 +263,12 @@
                     }
                     &.header-index-1 {
                         .move-slider {
-                            left: 260px;
+                            left: 272px;
                         }
                     }
                     &.header-index-2 {
                         .move-slider {
-                            left: 385px;
+                            left: 400px;
                         }
                     }
                 }

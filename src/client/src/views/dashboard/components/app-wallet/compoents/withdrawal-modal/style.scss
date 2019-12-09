@@ -1,5 +1,19 @@
 .withdrawal-modal-container {
     padding: 50px;
+    .iconguanbi {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: #b8bdc7;
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+            color: rgba(50, 119, 255, 0.8);
+        }
+    }
+    input {
+        font-size: 16px;
+    }
     header {
         border: 0 !important;
         height: 140px !important;
@@ -14,15 +28,37 @@
             margin-bottom: 30px;
             color: #a9b0bf;
             user-select: text;
+            line-height: 16px;
+        }
+    }
+    section {
+        label {
+            text-align: left;
+            font-weight: 700;
+        }
+        input {
+            box-shadow: none !important;
         }
     }
     .first-row {
-        input {
-            width: 200px;
-        }
         & > div:last-child {
+            margin-bottom: 16px;
+            display: flex;
             label {
-                width: 72px;
+                display: inline-block;
+                width: 90px;
+                text-align: left;
+                line-height: 60px;
+                margin-right: 20px;
+            }
+            input {
+                outline: none;
+                height: 60px;
+                width: 492px;
+                background: #f6f9ff;
+                padding-left: 20px;
+                border: 0;
+                border-radius: 4px;
             }
         }
     }
@@ -42,7 +78,7 @@
         }
     }
     .btns {
-        margin-top: 30px;
+        margin-top: 64px;
         button {
             font-size: 14px;
             width: 140px;
