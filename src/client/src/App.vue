@@ -34,14 +34,14 @@ body,
 .views {
     position: absolute;
     width: 100%;
-    transition: all 0.8s ease;
+    transition: transform 0.8s ease, opacity 0.8s ease;
     top: 0;
 }
 .slide-left-enter-active {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .slide-left-leave-active {
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .slide-left-enter {
     transform: translateX(100%);
@@ -53,10 +53,10 @@ body,
 }
 
 .slide-right-enter-active {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .slide-right-leave-active {
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .slide-right-enter {
     transform: translateX(-100%);

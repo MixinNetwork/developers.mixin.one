@@ -6,11 +6,14 @@
         <div v-if="!open_withdrawal_state">
             <m-header :has_shadow="is_new_app ? 1 : 0">
                 <div
-                    style="width:50px;transform:translate(-20px);padding-left:25px"
+                    style="width:50px;transform:translate(-25px);padding-left:25px"
                     @click="back"
                     slot="left"
                 >
-                    <i class="icon iconfont iconicon_on_the_left"></i>
+                    <img
+                        style="height:24px;width:24px;transform:translate(0,5px)"
+                        src="@/assets/img/app-svg/left.svg"
+                    />
                 </div>
                 <div slot="center">{{header_name}}</div>
             </m-header>
@@ -26,14 +29,13 @@
                     >{{item}}</span>
                     <div class="move-slider"></div>
                 </div>
-                <transition :name="transition_name">
-                    <router-view
-                        @open_withdrawal="change_withdrawal(true)"
-                        @loading="loading"
-                        :is_new_app="is_new_app"
-                        :active_app="active_app"
-                    ></router-view>
-                </transition>
+                <component
+                    :is="component_name"
+                    @open_withdrawal="change_withdrawal(true)"
+                    @loading="loading"
+                    :is_new_app="is_new_app"
+                    :active_app="active_app"
+                ></component>
             </m-conent>
         </div>
     </div>
@@ -43,10 +45,19 @@
 import MHeader from './header';
 import MConent from './content';
 import Withdrawal from './app-wallet/components/withdrawal';
-let tmp_uri = '';
+import Information from './app-information';
+import Wallet from './app-wallet';
+import Secret from './app-secret';
 export default {
     name: 'app-info',
-    components: { MHeader, MConent, Withdrawal },
+    components: {
+        MHeader,
+        MConent,
+        Withdrawal,
+        Information,
+        Wallet,
+        Secret
+    },
     data() {
         return {
             is_new_app: false,
@@ -55,7 +66,8 @@ export default {
             nav_header_index: 0,
             all_loading: false,
             open_withdrawal_state: false,
-            slider: 'slide-left'
+            slider: 'slide-left',
+            component_name: 'Information'
         };
     },
     computed: {
@@ -74,8 +86,7 @@ export default {
         change_router(nav_header_index) {
             this.$store.commit('change_state', { can_transition: true });
             this.nav_header_index = nav_header_index;
-            let uri = '/' + this.nav_list[nav_header_index].toLowerCase();
-            jump_to_uri.call(this, uri, true);
+            this.component_name = this.nav_list[nav_header_index];
         },
         loading(state) {
             this.all_loading = state;
@@ -86,12 +97,17 @@ export default {
         }
     },
     mounted() {
-        if (this.$route.name === 'new_app') {
+        if (this.$route.path === '/app/new') {
             this.is_new_app = true;
             this.$store.commit('change_state', {
                 active_app: {}
             });
             return;
+        }
+        if (this.$store.state.back_to_wallet) {
+            this.nav_header_index = 1;
+            this.component_name = this.nav_list[1];
+            this.$store.commit('change_state', { back_to_wallet: false });
         }
         this.is_new_app = false;
         let { app_number } = this.$route.params;
@@ -101,26 +117,18 @@ export default {
             let active_index = app_list.findIndex(
                 item => item.app_number === app_number
             );
-            let a = { information: 0, wallet: 1, secret: 2 };
-            this.nav_header_index = a[this.$route.name];
             this.$store.commit('change_state', {
                 active_app: app_list[active_index]
             });
             this.header_name = this.active_app.name;
             this.all_loading = false;
-            tmp_uri = this.$route.path;
         });
+        this.$bus.$on(
+            'change_loading_state',
+            state => (this.all_loading = state)
+        );
     }
 };
-
-function jump_to_uri(uri, has_app_number) {
-    uri = has_app_number
-        ? '/app' + uri + '/' + this.active_app.app_number
-        : uri;
-    if (uri === tmp_uri) return;
-    tmp_uri = uri;
-    this.$router.push(tmp_uri);
-}
 </script>
 
 <style lang="scss">
@@ -140,6 +148,7 @@ function jump_to_uri(uri, has_app_number) {
         .header-item {
             position: absolute;
             cursor: pointer;
+            font-weight: 500;
             &.herader-item-active {
                 color: #1d69ff;
             }

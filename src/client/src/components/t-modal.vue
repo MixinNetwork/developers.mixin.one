@@ -56,7 +56,7 @@ export default {
         bottom: 0;
         overflow: hidden;
         .--modal-main {
-            border-radius: 8px;
+            border-radius: 12px;
             position: absolute;
             top: 50%;
             left: 50%;

@@ -13,13 +13,14 @@
 </template>
 
 <script>
+let a = navigator.language === 'zh' ? 'Mixin ID 或 Mixin 地址' : '';
 export default {
     name: 't-input',
     props: ['value', 'label', 'private'],
     data() {
         return {
             description: {
-                'Mixin ID': 'Mixin ID or Mixin address'
+                'Mixin ID': a || 'Mixin ID or Mixin address'
             }
         };
     },

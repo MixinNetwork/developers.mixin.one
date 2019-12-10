@@ -15,9 +15,9 @@ export default {
     },
     methods: {
         request_new_secret() {
-            this.$confirm('Do you want to reset secret?', '', {
-                confirmButtonText: 'OK',
-                cancelButtonText: 'Cancel',
+            this.$confirm(this.$t('secret.secret_q'), '', {
+                confirmButtonText: this.$t('button.ok'),
+                cancelButtonText: this.$t('button.cancel'),
             })
                 .then(_ => {
                     _request_new_secret.call(this)
@@ -28,9 +28,9 @@ export default {
 
         },
         request_new_session() {
-            this.$confirm('Do you want to reset session?', '', {
-                confirmButtonText: 'OK',
-                cancelButtonText: 'Cancel',
+            this.$confirm(this.$t('secret.session_q'), '', {
+                confirmButtonText: this.$t('button.ok'),
+                cancelButtonText: this.$t('button.cancel'),
             })
                 .then(_ => {
                     _request_new_sseion.call(this)
@@ -40,10 +40,10 @@ export default {
                 })
         },
         click_copy_succuess() {
-            this.$message.success('Copy success')
+            this.$message.success(this.$t('message.success.copy'));
         },
         click_copy_error() {
-            this.$message.error('Copy error')
+            this.$message.error(this.$t('message.errors.copy'));
         },
         click_close_new_secret() {
             this.new_secret = ''
@@ -56,13 +56,13 @@ export default {
 let once_submit = false
 function _request_new_secret() {
     if (once_submit) {
-        this.$message.error('Reset, please wait...')
+        this.$message.error(this.$t('message.errors.reset'));
         return
     }
     this.loading = true
     once_submit = true;
     this.$axios.post('/apps/' + this.active_app.app_id + '/secret').then(res => {
-        this.$message.success('Reset successfully')
+        this.$message.success(this.$t('message.success.reset'));
         this.new_secret = res.app_secret;
     }).finally(_ => { once_submit = false; this.loading = false })
 }
@@ -70,7 +70,7 @@ function _request_new_secret() {
 
 function _request_new_sseion() {
     if (once_submit) {
-        this.$message.error('Reset, please wait...')
+        this.$message.error(this.$t('message.errors.reset'));
         return
     }
     let pin = _get_pin()
@@ -78,9 +78,10 @@ function _request_new_sseion() {
     once_submit = true;
     this.loading = true;
     this.$axios.post('/apps/' + this.active_app.app_id + '/session', { pin, session_secret }).then(res => {
-        this.$message.success('Reset successfully')
+        this.$message.success(this.$t('message.success.reset'));
         let { session_id, pin_token } = res;
         _download_app_json(this.$refs.download_ssesion_json, pin, this.active_app.app_id, session_id, pin_token, private_key, this.active_app.app_number)
+        window.localStorage.removeItem(this.active_app.app_id)
 
     }).finally(_ => { once_submit = false; this.loading = false })
 }

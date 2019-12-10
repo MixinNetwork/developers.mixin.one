@@ -11,7 +11,6 @@ export default {
         return signAuthenticationToken(uid, sid, privateKey, method, url, body)
     },
     signPin(pin, pinToken, sid, private_key, iterator) {
-        debugger
         return signEncryptedPin(pin, pinToken, sid, private_key, iterator)
     },
     getUUID() {

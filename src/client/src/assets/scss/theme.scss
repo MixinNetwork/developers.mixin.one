@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "SF Pro Text";
+    -webkit-appearance: none;
 }
 img {
-    border-radius: 50% !important;
+    border-radius: 50%;
 }
 button {
     cursor: pointer;

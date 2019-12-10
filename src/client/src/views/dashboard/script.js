@@ -16,7 +16,7 @@ export default {
             },
             app_list: [],
             nav_header_index: 0,
-            nav_list: ['Information', 'Wallet', 'Secret'],
+            nav_list: ['information', 'wallet', 'secret'],
             active_app: {},
             loading: false,
             all_loading: false,
@@ -31,7 +31,7 @@ export default {
     methods: {
         change_router(nav_header_index) {
             this.nav_header_index = nav_header_index
-            let uri = '/' + this.nav_list[nav_header_index].toLowerCase()
+            let uri = '/' + this.nav_list[nav_header_index]
             jump_to_uri.call(this, uri, true)
         },
         click_user() {

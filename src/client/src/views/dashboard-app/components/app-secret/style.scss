@@ -1,6 +1,7 @@
 .dashboard-app-secret {
     font-size: 16px;
     box-sizing: border-box;
+    font-weight: 500;
     .secret-list {
         margin-top: 44px;
         overflow-y: auto;
@@ -11,7 +12,8 @@
         right: 0;
         top: 0;
         .secret-item {
-            padding: 25px 20px 32px 20px;
+            // height: 207px;
+            padding: 23px 20px 32px 20px;
             margin-bottom: 10px;
             width: 100%;
             background: #fff;
@@ -38,24 +40,8 @@
             &:first-child {
                 margin-bottom: 16px;
             }
-            // i {
-            //     margin-right: 14px;
-            //     font-weight: 700;
-            //     color: #b8bdc7;
-            //     position: relative;
-            //     &::after {
-            //         content: "";
-            //         width: 3px;
-            //         height: 20px;
-            //         background: rgba(61, 117, 227, 1);
-            //         border-radius: 0px 100px 100px 0px;
-            //         position: absolute;
-            //         top: -5px;
-            //         left: -20px;
-            //     }
-            // }
             p {
-                padding: 16px 0;
+                padding: 15px 0 15px 0;
                 font-size: 15px;
                 width: 295px;
                 line-height: 23px;
@@ -66,6 +52,7 @@
                 font-size: 14px;
                 height: 32px;
                 width: 180px;
+                white-space: nowrap;
             }
         }
         .bottom-tips {

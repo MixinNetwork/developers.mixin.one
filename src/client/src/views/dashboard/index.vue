@@ -1,10 +1,10 @@
 <template>
-    <div v-loading="all_loading" class="development-dashboard">
+    <div v-loading="all_loading" :class="['development-dashboard', $t('language')]">
         <div class="dashboard-container">
             <nav class="nav-side">
                 <div class="top-logo-title">
                     <img src="../../assets/logo.png" />
-                    <span>DASHBOARD</span>
+                    <span>{{$t('home.title')}}</span>
                 </div>
                 <div
                     v-if="!app_list.length"
@@ -22,8 +22,8 @@
                         <div class="bottom-user-button-list">
                             <div @click.stop class="bottom-user-button-item">
                                 <!-- <i class="icon iconfont icondengchu"></i> -->
-                            <img src="@/assets/img/svg/logout.svg">
-                                <span>Sign Out</span>
+                                <img src="@/assets/img/svg/logout.svg" />
+                                <span>{{$t('home.sign_out')}}</span>
                             </div>
                         </div>
                     </div>
@@ -34,11 +34,11 @@
                         :class="['create-new-app',entring_status.is_new_app ? 'create-new-app-active' : '' ]"
                     >
                         <img src="@/assets/img/svg/add.svg" />
-                        <span>New App</span>
+                        <span>{{$t('home.new_app')}}</span>
                     </div>
                     <div class="app-list-container" v-if="app_list.length">
                         <div class="app-list-header">
-                            <div class="app-list-name">MY APPS</div>
+                            <div class="app-list-name">{{$t('home.my_app')}}</div>
                         </div>
                         <div class="app-content">
                             <div
@@ -68,9 +68,8 @@
                     >
                         <div class="bottom-user-button-list">
                             <div @click.stop="click_sign_out" class="bottom-user-button-item">
-                                <!-- <i class="icon iconfont icondengchu"></i> -->
-                            <img src="@/assets/img/svg/logout.svg">
-                                <span>Sign Out</span>
+                                <img src="@/assets/img/svg/logout.svg" />
+                                <span>{{$t('home.sign_out')}}</span>
                             </div>
                         </div>
                     </div>
@@ -79,9 +78,9 @@
             <div class="dashboard-center-and-nav">
                 <div v-if="entring_status.welcome" class="welcome">
                     <img src="@/assets/img/svg/robot.svg" />
-                    <h1>WELCOME</h1>
-                    <p>Dashboard is a hand-picked collection of lastest developers console</p>
-                    <button @click="click_new_app" class="primary">CREATE</button>
+                    <h1>{{$t('home.welcome')}}</h1>
+                    <p>{{$t('home.welcome_d')}}</p>
+                    <button @click="click_new_app" class="primary">{{$t('home.create_b')}}</button>
                 </div>
                 <div v-else>
                     <header>
@@ -90,14 +89,14 @@
                                 <span
                                     class="header-item"
                                     style="font-weight:700;color:#1d69ff"
-                                >New App</span>
+                                >{{$t('home.new_app')}}</span>
                             </template>
                             <template v-else>
                                 <span
                                     v-for="(item,index) in nav_list"
                                     :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
                                     @click="change_router(index)"
-                                >{{item}}</span>
+                                >{{$t(item + '.title')}}</span>
                                 <div class="move-slider"></div>
                             </template>
                         </div>

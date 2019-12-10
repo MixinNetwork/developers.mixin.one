@@ -1,38 +1,33 @@
 <template>
-    <div v-loading="loading" class="dashboard-app-wallet">
-        <!-- <div class="tips f">
-            <div class="tips-title">
-                <i class="icon iconfont iconbiaoqian" />
-                <span>TIP</span>
-            </div>
-            <div class="tips-content">
-                <div>The deposit can only be made to your Mixin Messenger account.</div>
-                <div>Open Mixin Messenger > Search 7000100101 to find this app > Deposit by transfer.</div>
-            </div>
-        </div>-->
+    <div v-loading="loading" class="dashboard-desktop-wallet">
         <div class="app-wallet-des" v-if="!is_edited">
             <div>
-                <h3>Update token to access your assets</h3>
-                <button class="primary" @click="open_edit_modal = true">UPDATE</button>
+                <h3>{{$t('wallet.update_token_d')}}</h3>
+                <button
+                    class="primary"
+                    @click="open_edit_modal = true"
+                >{{$t('wallet.update_token')}}</button>
             </div>
         </div>
         <div v-show="open_edit_modal" class="edit-information">
             <t-modal :show="open_edit_modal" :width="700" :height="512">
                 <div class="edit-main-modal">
-                    <h3 class="edit-main-modal-title">Upload Token</h3>
+                    <h3 class="edit-main-modal-title">{{$t('wallet.update_token')}}</h3>
                     <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
                     <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
                     <div class="edit-information-PK">
                         <label style="margin-bottom:16px">Private Key</label>
-                        <textarea
-                            style="ali"
-                            placeholder="Private Key"
-                            v-model="submit_form.private_key"
-                        ></textarea>
+                        <textarea placeholder="Private Key" v-model="submit_form.private_key"></textarea>
                     </div>
                     <div class="btns">
-                        <button @click="click_submit" class="btns-save primary">Save</button>
-                        <button @click="click_cancel" class="btns-cancel primary">Cancel</button>
+                        <button
+                            @click="click_submit"
+                            class="btns-save primary"
+                        >{{$t('button.save')}}</button>
+                        <button
+                            @click="click_cancel"
+                            class="btns-cancel primary"
+                        >{{$t('button.cancel')}}</button>
                     </div>
                     <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
                 </div>
@@ -46,12 +41,12 @@
                 <button
                     @click="click_withdrawal(item)"
                     class="assets-item-withdrawal primary"
-                >Withdrawal</button>
+                >{{$t('button.withdraw')}}</button>
             </div>
         </div>
         <div v-if="assets_list.length" class="assets-list-bottom-tips">
-            <div>The deposit can only be made to your Mixin Messenger account.</div>
-            <div>Open Mixin Messenger > Search 7000100101 to find this app > Deposit by transfer.</div>
+            <div>{{$t('wallet.des_1')}}</div>
+            <div>{{$t('wallet.des_2')}}</div>
         </div>
         <withdrawal-modal
             @update-list="update_list"

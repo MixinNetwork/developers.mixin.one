@@ -10,7 +10,8 @@ let state = {
     active_app: {},
     user_info: {},
     app_list: [],
-    active_asset: {}
+    active_asset: {},
+    back_to_wallet: false
 }
 
 let mutations = {

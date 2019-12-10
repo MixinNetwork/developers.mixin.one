@@ -20,12 +20,16 @@ export default {
     name: 't-input',
     props: ['value', 'label', 'disabled', 'width'],
     data() {
+        window.localStorage
         return {
             placeholder: {
-                Name: 'E.g. Mixin',
-                'Home URL': 'E.g. https://mixin.one',
-                'OAuth URL': 'E.g. https://mixin.one/auth',
-                description: 'A short description of your app'
+                Name: this.$t('information.name_d'),
+                'Home URL': this.$t('information.home_url_d'),
+                'OAuth URL': this.$t('information.oauth_url_d'),
+                description: 'A short description of your app',
+                名称: this.$t('information.name_d'),
+                首页网址: this.$t('information.home_url_d'),
+                验证网址: this.$t('information.oauth_url_d')
             }
         };
     },

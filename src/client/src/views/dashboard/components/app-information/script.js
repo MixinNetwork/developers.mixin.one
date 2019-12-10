@@ -52,23 +52,16 @@ function _render_file_to_base64(file) {
     reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
     reader.readAsDataURL(file);
 }
-
-let tmp_commit_form = {}
 let once_submit = false
 function _submit_to_database() {
     if (once_submit) {
-        this.$message.error('Submitting, please wait...')
+        this.$message.error(this.$t('message.errors.saving'));
         return
     }
     let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
     let name = this.app_name
     let parmas = { capabilities, description, home_uri, name, redirect_uri }
-    if (JSON.stringify(parmas) === JSON.stringify(tmp_commit_form)) {
-        this.$message.error('Contents remain unchanged, please do not submit repeatedly');
-        return;
-    }
     parmas.icon_base64 = this.icon_base64.substring(22);
-    tmp_commit_form = parmas;
     once_submit = true;
     let post_url = '/apps/' + app_id
     if (!app_id) {
@@ -76,7 +69,7 @@ function _submit_to_database() {
     }
     this.$axios.post(post_url, parmas).then(res => {
         if (res.type === 'app') {
-            this.$message.success('Submitted successfully')
+            this.$message.success(this.$t('message.success.save'))
             this.$emit('add_new_app', res.app_id)
         }
     }).finally(_ => once_submit = false)

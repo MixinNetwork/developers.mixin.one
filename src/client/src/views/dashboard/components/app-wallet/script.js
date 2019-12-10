@@ -1,8 +1,7 @@
 import TInput from './compoents/t-input2'
 import TModal from '@/components/t-modal'
-import tools from '@/assets/js/tools'
-import validator from 'validator'
 import WithdrawalModal from './compoents/withdrawal-modal'
+import { _check_date, _get_assets_list, _set_token_obj } from '@/assets/js/wallet'
 
 export default {
     components: {
@@ -56,52 +55,4 @@ export default {
             _get_assets_list.call(this)
         }
     },
-}
-
-function _check_date() {
-    if (!validator.isUUID(this.submit_form.session_id, 4)) {
-        this.$message.error('Session Id Format Error')
-        return false
-    }
-    if (!validator.isBase64(this.submit_form.pin_token)) {
-        this.$message.error('Pin Token Format Error')
-        return false
-    }
-    return true
-}
-
-function _get_assets_list() {
-    this.loading = true
-    let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
-    let assets_token = _get_assets_token.call(this, _client_info_str)
-    this.$axios({
-        method: 'get',
-        url: '/assets',
-        headers: { 'Authorization': 'Bearer ' + assets_token }
-    }).then(res => {
-        this.assets_list = res
-        this.is_edited = true
-        this.open_edit_modal = false
-        this.loading = false
-    })
-}
-
-function _get_assets_token(_client_info_str) {
-    let _client_info = JSON.parse(_client_info_str)
-    let get_token_obj = {
-        uid: this.active_app.app_id,
-        sid: _client_info.sid,
-        privateKey: _client_info.privateKey
-    }
-    return tools.getJwtToken(get_token_obj, 'get', 'https://api.mixin.one/assets')
-}
-
-
-function _set_token_obj() {
-    let get_token_obj = {
-        sid: this.submit_form.session_id,
-        pinToken: this.submit_form.pin_token,
-        privateKey: this.submit_form.private_key.replace(/\\r\\n/g, '\r\n')
-    }
-    window.localStorage.setItem(this.active_app.app_id, JSON.stringify(get_token_obj))
 }

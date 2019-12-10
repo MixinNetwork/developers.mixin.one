@@ -1,28 +1,24 @@
 <template>
-    <div v-loading="loading" class="dashboard-app-secret">
+    <div v-loading="loading" class="dashboard-desktop-secret">
         <div class="secret-list f">
             <div class="secret-item">
                 <img src="@/assets/img/svg/secret.svg" />
-                <span>APP SECRET</span>
-                <p>
-                    If you are requesting the API from your secret server,
-                    it's recommended to use app secret.
-                </p>
-                <button @click="request_new_secret" class="primary">Generate a new secret</button>
+                <span>{{$t('secret.secret_t')}}</span>
+                <p>{{$t('secret.secret_p')}}</p>
+                <button @click="request_new_secret" class="primary">{{$t('secret.secret_b')}}</button>
             </div>
             <div class="secret-item">
                 <img src="@/assets/img/svg/session.svg" />
-                <span>APP SESSION</span>
+                <span>{{$t('secret.session_t')}}</span>
                 <p>
-                    Generate PIN, Session ID, PinToken, Private Key
-                    for this App.
+                    {{$t('secret.session_p')}}
                 </p>
-                <button @click="request_new_session" class="primary">Generate a new session</button>
+                <button @click="request_new_session" class="primary">{{$t('secret.session_b')}}</button>
             </div>
         </div>
         <div
             class="secret-list-bottom-tips"
-        >Mixin server and the browser did not keep the information at all. If you forgot,you can generate a new one.</div>
+        >{{$t('secret.des')}}</div>
         <t-modal v-show="new_secret" :show="new_secret ? true : false" :width="612" :height="294">
             <div class="new-secret-modal">
                 <h3>App Secret</h3>

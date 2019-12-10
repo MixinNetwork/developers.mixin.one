@@ -20,7 +20,12 @@
         .no-app-button {
             font-size: 16px;
             line-height: 19px;
+            font-weight: 500;
             color: #3277ff;
+            img {
+                height: 14px;
+                transform: translate(8px, 2px);
+            }
         }
     }
     &.is-pad {
@@ -32,7 +37,7 @@
         }
     }
     .has-app {
-        padding: 40px 20px 0 20px;
+        padding: 28px 20px 0 20px;
         .has-app-list {
             display: flex;
             flex-flow: wrap;
@@ -42,6 +47,7 @@
                 width: 100px;
                 height: 100px;
                 margin-bottom: 18px;
+                font-weight: 500;
                 &:nth-child(3n) {
                     margin-right: 0;
                 }
@@ -52,12 +58,11 @@
                 &.has-app-new-app {
                     color: #fff;
                     background-color: #3277ff;
-                    i {
-                        display: block;
-                        padding: 30px 0 10px 0;
-                        font-weight: 700;
-                        font-size: 18px;
-                        line-height: 18px;
+                    img {
+                        display: inline-block;
+                        margin: 33px 0 4px 0;
+                        height: 18px;
+                        width: 18px;
                     }
                 }
                 img {
@@ -66,7 +71,7 @@
                     margin-top: 24px;
                 }
                 & > div {
-                    margin: 8px 20px;
+                    margin: 3px 20px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
@@ -81,39 +86,29 @@
             transition: top 0.5s;
             opacity: 0;
             right: -10px;
-            color: #fff;
             width: 160px;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0px 2px 12px 0px rgba(47, 48, 50, 0.6);
+            box-shadow: 0px 2px 12px 0px rgba($color: #2f3032, $alpha: 0.26);
             border-radius: 6px;
             .right-user-button-list {
                 & > div {
                     height: 63px;
                     border-bottom: solid 1px rgba(255, 255, 255, 0.19);
+
                     display: flex;
                     align-items: center;
-                    i {
-                        padding-left: 32px;
-                        font-size: 20px;
-                        font-weight: 100;
+                    img {
+                        margin-left: 32px;
+                        height: 16px;
+                        width: 16px;
+                        border-radius: 0;
+                        display: inline-block;
+                        transform: translate(0, 0);
                     }
                     span {
                         font-size: 14px;
-                        padding-left: 16px;
+                        padding-left: 20px;
                     }
                 }
-            }
-            &::before {
-                content: "";
-                height: 100%;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                border-radius: 6px;
-                background-color: #fff;
-                filter: blur(5px);
-                z-index: -1;
             }
             &::after {
                 content: "";
@@ -121,10 +116,20 @@
                 width: 0;
                 height: 0;
                 border: solid 5px;
-                // border-radius: 50px;
                 top: -10px;
                 right: 22px;
-                border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #5e5e5e rgba(0, 0, 0, 0);
+                border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff rgba(0, 0, 0, 0);
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                filter: blur(4px);
+                z-index: -1;
+                background-color: #fff;
             }
             &.right-user-more-active {
                 top: 50px;

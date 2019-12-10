@@ -33,11 +33,10 @@ export default {
         },
         async click_submit() {
             this.loading = true
-            // this.submit_form.private_key = this.submit_form.private_key.replace(/\\r\\n/g, '\r\n')
             let transfer_status = await submit_withdrawal.call(this)
             this.loading = false
             if (transfer_status) {
-                this.$message.success('Withdrawal Success')
+                this.$message.success(this.$t('message.success.withdraw'));
                 this.$emit('close-modal')
                 this.$emit('update-list')
                 this.submit_form = {}
@@ -48,14 +47,11 @@ export default {
         },
         change_style() {
             let originVal = this.$refs.pin_token.value
-            if (this.tmp_pin === undefined) {
+            if (this.tmp_pin === undefined || this.tmp_pin.length > originVal.length) {
                 this.tmp_pin = ''
-            }
-            if (this.tmp_pin.length > originVal.length) {
-                this.tmp_pin = this.tmp_pin.substr(0, originVal.length)
             } else {
-                let val = originVal.replace(/\D/g, '')
-                this.tmp_pin += val
+                let val = originVal.replace(/\D/g, '');
+                this.tmp_pin += val;
             }
             let valLength = this.tmp_pin.length
             let _pin = ''
@@ -71,7 +67,6 @@ export default {
 };
 
 async function submit_withdrawal() {
-
     let _client_info_str = window.localStorage.getItem(this.uid)
     let _client_info_str_obj = JSON.parse(_client_info_str)
     return await _send_withdrawal_request.call(this, _client_info_str_obj, this.uid)

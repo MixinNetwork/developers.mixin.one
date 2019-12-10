@@ -1,7 +1,6 @@
 
 import MHeader from './components/header'
 import MContent from './components/content'
-let tmp_uri = '';
 export default {
     name: 'dashboard-container',
     components: { MHeader, MContent },
@@ -9,11 +8,8 @@ export default {
         return {
             nav_header_index: 0,
             nav_list: ['Information', 'Wallet', 'Secret'],
-            active_app: {},
-            loading: false,
             all_loading: false,
             is_pad: document.documentElement.clientWidth > 500,
-            timer: null,
             show_click_user: false
         }
     },
@@ -38,7 +34,7 @@ export default {
                 return
             }
             this.$store.commit('change_state', { active_app: app_info })
-            this.$router.push('/app/information/' + app_info.app_number)
+            this.$router.push('/app/' + app_info.app_number)
         },
         click_user_img() {
             this.show_click_user = !this.show_click_user
@@ -52,9 +48,6 @@ export default {
             setTimeout(() => {
                 window.location.href = window.location.origin
             }, 100)
-        },
-        test() {
-            console.log(123)
         }
     },
     mounted() {
@@ -62,7 +55,6 @@ export default {
         this.$store.dispatch('init_app').then(_ => {
             this.all_loading = false
         })
-
     }
 }
 

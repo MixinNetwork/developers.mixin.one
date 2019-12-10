@@ -53,6 +53,7 @@ export default {
         position: absolute;
         left: 50%;
         top: 0;
+        font-size: 18px;
         transform: translate(-50%);
     }
     .app-header-right {

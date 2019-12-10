@@ -2,26 +2,18 @@
     <div class="dashboard-app-secret">
         <div class="secret-list">
             <div class="secret-item">
-                <img src="@/assets/img/svg/secret.svg" />
-                <span>APP SECRET</span>
-                <p>
-                    If you are requesting the API from your secret server,
-                    it's recommended to use app secret.
-                </p>
-                <button @click="tips_to_desktop" class="primary">Generate a new secret</button>
+                <img src="@/assets/img/app-svg/secret.svg" />
+                <span>{{$t('secret.secret_t')}}</span>
+                <p>{{$t('secret.secret_p')}}</p>
+                <button @click="tips_to_desktop" class="primary">{{$t('secret.secret_b')}}</button>
             </div>
             <div class="secret-item">
-                <img src="@/assets/img/svg/session.svg" />
-                <span>APP SESSION</span>
-                <p>
-                    Generate PIN, Session ID, PinToken, Private Key
-                    for this App.
-                </p>
-                <button @click="tips_to_desktop" class="primary">Generate a new session</button>
+                <img src="@/assets/img/app-svg/session.svg" />
+                <span>{{$t('secret.session_t')}}</span>
+                <p>{{$t('secret.session_p')}}</p>
+                <button @click="tips_to_desktop" class="primary">{{$t('secret.session_b')}}</button>
             </div>
-            <div
-                class="bottom-tips"
-            >Mixin server and the browser did not keep the information at all. If you forgot, you can generate a new one.</div>
+            <div class="bottom-tips">{{$t('secret.des')}}</div>
         </div>
         <a v-show="false" ref="download_ssesion_json"></a>
     </div>

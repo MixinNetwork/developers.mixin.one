@@ -7,34 +7,21 @@ export default [
         meta: { tree: 0 }
     },
     {
-        path: '/app',
+        path: '/app/:app_number',
         component: App,
         meta: { tree: 1 },
         children: [
-            {
-                path: 'information/:app_number',
-                name: 'information',
-                meta: { tree: 6 },
-                component: () => import('../views/dashboard-app/components/app-information')
-            },
-            {
-                path: 'new',
-                name: 'new_app',
-                meta: { tree: 6 },
-                component: () => import('../views/dashboard-app/components/app-information')
-            },
-            {
-                path: 'wallet/:app_number',
-                name: 'wallet',
-                meta: { tree: 7 },
-                component: () => import('../views/dashboard-app/components/app-wallet')
-            },
-            {
-                path: 'secret/:app_number',
-                name: 'secret',
-                meta: { tree: 8 },
-                component: () => import('../views/dashboard-app/components/app-secret')
-            }
         ]
-    }
+    },
+    {
+        path: '/app/new',
+        name: 'new_app',
+        meta: { tree: 1 },
+        component: () => import('../views/dashboard-app/components/app-information')
+    },
+    {
+        path: '/withdrawal/:app_number',
+        component: () => import('../views/dashboard-app/components/app-wallet/components/withdrawal'),
+        meta: { tree: 3 }
+    },
 ]

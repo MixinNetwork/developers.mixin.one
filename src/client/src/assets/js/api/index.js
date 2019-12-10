@@ -13,7 +13,8 @@ instance.interceptors.request.use(config => {
 instance.interceptors.response.use((res) => {
     let data = res.data
     if (data.error && data.error.description) {
-        _vm.$message.error(`${data.error.description}(${data.error.code})`)
+        _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code)}(${data.error.code})`)
+        if (_vm._not_through_interceptor) return false
         if (Number(data.error.code) === 401) {
             setTimeout(() => {
                 window.localStorage.clear()
@@ -23,6 +24,7 @@ instance.interceptors.response.use((res) => {
         return;
     }
     return data.data
+
 })
 
 export default instance;

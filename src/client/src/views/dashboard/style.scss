@@ -284,4 +284,23 @@
             }
         }
     }
+    &.zh {
+        .dashboard-container .dashboard-center-and-nav header .header-list{
+            &.header-index-0 {
+                .move-slider {
+                    left: 100px;
+                }
+            }
+            &.header-index-1 {
+                .move-slider {
+                    left: 212px;
+                }
+            }
+            &.header-index-2 {
+                .move-slider {
+                    left: 324px;
+                }
+            }
+        }
+    }
 }

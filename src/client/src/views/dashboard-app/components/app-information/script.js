@@ -1,9 +1,21 @@
 export default {
     name: 'app-information',
     props: ['active_app', 'is_new_app'],
+    props: {
+        active_app: {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+        is_new_app: {
+            type: Boolean,
+            default: true
+        }
+    },
     data() {
         return {
-            can_save: true,
+            can_save: false,
             new_app: true,
             icon_base64: '',
             app_name: ''
@@ -20,10 +32,18 @@ export default {
         },
         getFile(event) {
             _render_file_to_base64.call(this, event.target.files[0])
+        },
+        check_is_finished() {
+            if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description) {
+                this.can_save = true;
+            } else {
+                this.can_save = false;
+            }
         }
     },
     mounted() {
         this.app_name = this.active_app.name
+        this.check_is_finished()
     },
 }
 
@@ -33,23 +53,16 @@ function _render_file_to_base64(file) {
     reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
     reader.readAsDataURL(file);
 }
-
-let tmp_commit_form = {}
 let once_submit = false
 function _submit_to_database() {
     if (once_submit) {
-        this.$message.error('Submitting, please wait...')
+        this.$message.error(this.$t('message.'))
         return
     }
     let { app_id, capabilities, description, home_uri, name, redirect_uri } = this.active_app
     name = this.app_name
     let parmas = { capabilities, description, home_uri, name, redirect_uri }
-    if (JSON.stringify(parmas) === JSON.stringify(tmp_commit_form)) {
-        this.$message.error('Contents remain unchanged, please do not submit repeatedly');
-        return;
-    }
     parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
-    tmp_commit_form = parmas;
     once_submit = true;
     let post_url = '/apps/' + app_id
     if (!app_id) {
@@ -59,7 +72,7 @@ function _submit_to_database() {
     this.$axios.post(post_url, parmas)
         .then(res => {
             if (res.type === 'app') {
-                this.$message.success('Submitted successfully')
+                this.$message.success(this.$t('message.success.save'))
                 this.$emit('add_new_app', res.app_id)
                 this.$store.dispatch('init_app', true).then(_ => {
                     this.$store.commit('change_state', { can_transition: true });
@@ -69,7 +82,7 @@ function _submit_to_database() {
         })
         .catch(err => {
             let error = err.response.data.error
-            this.$message.error(`${error.code}: ${error.description}`)
+            this.$message.error(`${this.$t('message.errors.' + error.code)} (${error.code})`)
         })
         .finally(_ => {
             once_submit = false;
