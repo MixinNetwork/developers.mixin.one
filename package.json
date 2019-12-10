@@ -16,7 +16,7 @@
     "simple-line-icons": "^2.4.1",
     "to": "^0.2.9",
     "uuid": "^3.3.3",
-    "validator": "^12.0.0"
+    "validator": "^12.1.0"
   },
   "devDependencies": {
     "compression-webpack-plugin": "^3.0.1",
