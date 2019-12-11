@@ -20,13 +20,13 @@
             <m-conent v-loading="all_loading">
                 <div
                     v-if="!is_new_app"
-                    :class="['header-list', 'header-index-' + nav_header_index]"
+                    :class="['header-list', 'header-index-' + nav_header_index, $t('language')]"
                 >
                     <span
                         v-for="(item,index) in nav_list"
                         :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
                         @click="change_router(index)"
-                    >{{item}}</span>
+                    >{{$t(item + '.title')}}</span>
                     <div class="move-slider"></div>
                 </div>
                 <component
@@ -62,12 +62,12 @@ export default {
         return {
             is_new_app: false,
             header_name: 'New App',
-            nav_list: ['Information', 'Wallet', 'Secret'],
+            nav_list: ['information', 'wallet', 'secret'],
             nav_header_index: 0,
             all_loading: false,
             open_withdrawal_state: false,
             slider: 'slide-left',
-            component_name: 'Information'
+            component_name: 'information'
         };
     },
     computed: {
@@ -152,15 +152,6 @@ export default {
             &.herader-item-active {
                 color: #1d69ff;
             }
-            &:nth-child(1) {
-                left: 20px;
-            }
-            &:nth-child(2) {
-                left: 143px;
-            }
-            &:nth-child(3) {
-                left: 228px;
-            }
         }
         .move-slider {
             position: absolute;
@@ -171,19 +162,60 @@ export default {
             transition: left 0.3s ease-in-out;
             top: 41px;
         }
-        &.header-index-0 {
-            .move-slider {
-                left: 20px;
+        &.en {
+            .header-item {
+                &:nth-child(1) {
+                    left: 20px;
+                }
+                &:nth-child(2) {
+                    left: 143px;
+                }
+                &:nth-child(3) {
+                    left: 228px;
+                }
+            }
+            &.header-index-0 {
+                .move-slider {
+                    left: 20px;
+                }
+            }
+            &.header-index-1 {
+                .move-slider {
+                    left: 143px;
+                }
+            }
+            &.header-index-2 {
+                .move-slider {
+                    left: 228px;
+                }
             }
         }
-        &.header-index-1 {
-            .move-slider {
-                left: 143px;
+        &.zh {
+            .header-item {
+                &:nth-child(1) {
+                    left: 20px;
+                }
+                &:nth-child(2) {
+                    left: 100px;
+                }
+                &:nth-child(3) {
+                    left: 180px;
+                }
             }
-        }
-        &.header-index-2 {
-            .move-slider {
-                left: 228px;
+            &.header-index-0 {
+                .move-slider {
+                    left: 20px;
+                }
+            }
+            &.header-index-1 {
+                .move-slider {
+                    left: 100px;
+                }
+            }
+            &.header-index-2 {
+                .move-slider {
+                    left: 180px;
+                }
             }
         }
     }

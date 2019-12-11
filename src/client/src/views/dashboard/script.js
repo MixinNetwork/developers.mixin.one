@@ -1,8 +1,12 @@
 
 let tmp_uri = '';
+import Information from './components/app-information'
+import Secret from './components/app-secret'
+import Wallet from './components/app-wallet'
 
 export default {
     name: 'dashboard-container',
+    components: { Information, Secret, Wallet },
     data() {
         return {
             entring_status: {
@@ -18,6 +22,7 @@ export default {
             nav_header_index: 0,
             nav_list: ['information', 'wallet', 'secret'],
             active_app: {},
+            _component: 'information',
             loading: false,
             all_loading: false,
             timer: null
@@ -31,7 +36,7 @@ export default {
     methods: {
         change_router(nav_header_index) {
             this.nav_header_index = nav_header_index
-            let uri = '/' + this.nav_list[nav_header_index]
+            this._component = this.nav_list[nav_header_index]
             jump_to_uri.call(this, uri, true)
         },
         click_user() {
@@ -44,8 +49,7 @@ export default {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = false
             this.active_app = this.app_list[index]
-            this.nav_header_index = 0
-            jump_to_uri.call(this, '/information', true)
+            jump_to_uri.call(this, '/app', true)
             clearTimeout(this.timer)
             this.loading = true;
             this.timer = setTimeout(() => {
@@ -74,6 +78,9 @@ export default {
             setTimeout(() => {
                 window.location.href = window.location.origin
             }, 100)
+        },
+        change_loading(state) {
+            this.loading = state
         }
     },
     mounted() {
@@ -86,6 +93,7 @@ function init_page() {
     mounted_select_active_router.call(this)
     axios_get_me.call(this)
     axios_get_app_list.call(this)
+    this.change_router(0)
 }
 
 
@@ -98,6 +106,7 @@ function axios_get_app_list(app_id) {
     this.$axios.get('/apps').then(res => {
         this.app_list = res
         this.all_loading = false
+
         let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
         route_active_index !== -1 && (this.active_app = this.app_list[route_active_index])
         if (!app_id) return;
@@ -127,6 +136,8 @@ function event_listener_to_toogle_show_click_user() {
 }
 
 function jump_to_uri(uri, has_app_number) {
+    this._component = 'information'
+    this.nav_header_index = 0
     uri = has_app_number ? (uri + '/' + this.active_app.app_number) : uri;
     if (uri === tmp_uri) return;
     tmp_uri = uri;

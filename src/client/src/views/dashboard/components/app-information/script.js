@@ -63,6 +63,7 @@ function _submit_to_database() {
     let parmas = { capabilities, description, home_uri, name, redirect_uri }
     parmas.icon_base64 = this.icon_base64.substring(22);
     once_submit = true;
+    this.$emit('loading', true)
     let post_url = '/apps/' + app_id
     if (!app_id) {
         post_url = '/apps'
@@ -72,5 +73,8 @@ function _submit_to_database() {
             this.$message.success(this.$t('message.success.save'))
             this.$emit('add_new_app', res.app_id)
         }
-    }).finally(_ => once_submit = false)
+    }).finally(_ => {
+        once_submit = false
+        this.$emit('loading', false)
+    })
 }

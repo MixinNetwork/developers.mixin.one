@@ -27,10 +27,9 @@ export default {
     },
     wallet: {
         title: '钱包',
-        title1: '钱包',
         des_1: '只能通过 Mixin Messenger 充值',
         des_2: '打开 Mixin Messenger > 搜索 {app_number} 以找到此应用 > 通过转帐完成充值',
-        amount: '',
+        amount: '数量',
         mixin_id_placeholder: '',
         pin: '',
         update_token_desc: '更新令牌以访问您的资产',

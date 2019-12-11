@@ -5,11 +5,10 @@ import en from './config/en'
 
 
 Vue.use(VueI18n)
-
-
+let language = navigator.language.includes('zh') ? 'zh' : 'en'
 
 const i18n = new VueI18n({
-    locale: navigator.language || 'en',
+    locale: language,
     messages: { en, zh }
 })
 

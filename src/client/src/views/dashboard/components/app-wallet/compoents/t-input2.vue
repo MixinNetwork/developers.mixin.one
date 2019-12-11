@@ -6,23 +6,17 @@
             :maxlength="label==='PIN' ? '6': ''"
             :style="{'letter-spacing': label==='PIN' ? '10px': ''}"
             :value="value"
-            :placeholder="description[label] || label"
             @input="change($event)"
         />
     </div>
 </template>
 
 <script>
-let a = navigator.language === 'zh' ? 'Mixin ID 或 Mixin 地址' : '';
 export default {
     name: 't-input',
     props: ['value', 'label', 'private'],
     data() {
-        return {
-            description: {
-                'Mixin ID': a || 'Mixin ID or Mixin address'
-            }
-        };
+        return {};
     },
     methods: {
         change(event) {

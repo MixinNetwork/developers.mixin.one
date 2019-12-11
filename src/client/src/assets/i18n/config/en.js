@@ -26,15 +26,14 @@ export default {
         description_desc: 'A short description of your app'
     },
     wallet: {
-        title: 'Withdrawal',
-        title1: 'Wallet',
+        title: 'Wallet',
         des_1: 'The deposit can only be made to your Mixin Messenger account.',
         des_2: 'Open Mixin Messenger > Search {app_number} to find this app > Deposit by transfer.',
-        amount: '',
+        amount: 'Amount',
         mixin_id_placeholder: '',
         pin: '',
         update_token_desc: 'Update token to access your assets',
-        update_token: 'Upload Token',
+        update_token: 'Upload',
         private_key: 'Private Key'
     },
     secret: {

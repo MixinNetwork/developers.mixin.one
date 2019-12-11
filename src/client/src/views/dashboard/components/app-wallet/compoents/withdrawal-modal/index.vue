@@ -10,7 +10,7 @@
                     <t-input2 v-model="submit_form.amount" :label="$t('wallet.amount')"></t-input2>
                     <div>
                         <label>PIN</label>
-                        <input placeholder="PIN" ref="pin_token" @input="change_style" />
+                        <input ref="pin_token" @input="change_style" />
                     </div>
                 </div>
                 <t-input2 v-model="submit_form.opponent_id" label="Mixin ID"></t-input2>

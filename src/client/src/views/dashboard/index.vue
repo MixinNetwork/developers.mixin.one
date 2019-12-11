@@ -102,7 +102,12 @@
                         </div>
                     </header>
                     <div v-loading="loading" class="dashboard-main">
-                        <router-view @add_new_app="add_new_app" :active_app="active_app"></router-view>
+                        <component
+                            :is="_component"
+                            @add_new_app="add_new_app"
+                            @loading="change_loading"
+                            :active_app="active_app"
+                        ></component>
                     </div>
                 </div>
             </div>

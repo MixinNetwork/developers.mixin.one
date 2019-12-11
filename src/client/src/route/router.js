@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const routes = navigator.appVersion.includes('Mobile') ? h5_router : pc_router
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({ routes, mode: 'history' })
 
 // 路由跳转前进后退动画,Vue原型上定义transition为动画效果
 router.beforeEach((to, from, next) => {

@@ -6,7 +6,7 @@ export default [
         component: Dashboard,
         children: [
             {
-                path: 'information/:app_number',
+                path: 'app/:app_number',
                 name: 'information',
                 component: () => import('../views/dashboard/components/app-information')
             },
@@ -14,16 +14,6 @@ export default [
                 path: 'new',
                 name: 'new_app',
                 component: () => import('../views/dashboard/components/app-information')
-            },
-            {
-                path: 'wallet/:app_number',
-                name: 'wallet',
-                component: () => import('../views/dashboard/components/app-wallet')
-            },
-            {
-                path: 'secret/:app_number',
-                name: 'secret',
-                component: () => import('../views/dashboard/components/app-secret')
             }
         ]
     }
