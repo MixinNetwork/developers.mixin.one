@@ -79,11 +79,11 @@ export default {
             20123: "创建的应用太多，最多 10 个。",
             20119: "PIN 码不正确。",
             session_id_f: '会话 ID 格式错误',
-            pin_token_f: ' Pin令牌格式错误',
+            pin_token_f: ' Pin 令牌格式错误',
             saving: '正在保存，请稍候...',
             amount: '请输入正确的金额',
             pin: '请输入正确的密码',
-            mixin_id: '请输入正确的Mixin ID',
+            mixin_id: '请输入正确的 Mixin ID',
             copy: '复制错误',
             reset: '正在重置，请稍候...'
         },

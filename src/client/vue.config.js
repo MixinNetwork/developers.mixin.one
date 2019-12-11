@@ -1,6 +1,6 @@
 module.exports = {
-    outputDir: "dashboard",
-    publicPath: '/dashboard/',
+    // outputDir: "dashboard",
+    // publicPath: '/dashboard/',
     productionSourceMap: false,
     configureWebpack: {
         externals: {
@@ -8,8 +8,9 @@ module.exports = {
             'vue-router': 'VueRouter',
             'axios': 'axios',
             'moment': 'moment',
-            'axios': 'axios',
-            'node-forge': 'forge'
+            'node-forge': 'forge',
+            'vuex': 'Vuex',
+            'vue-i18n': 'VueI18n'
         }
     }
 }
