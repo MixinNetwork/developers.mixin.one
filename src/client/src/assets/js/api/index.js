@@ -18,7 +18,7 @@ instance.interceptors.response.use((res) => {
         if (Number(data.error.code) === 401) {
             setTimeout(() => {
                 window.localStorage.clear()
-                window.location.href = window.location.origin
+                window.location.href = 'https://mixin.one/oauth/authorize?client_id=fbd26bc6-3d04-4964-a7fe-a540432b16e2&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth'
             }, 100)
         }
         return;
