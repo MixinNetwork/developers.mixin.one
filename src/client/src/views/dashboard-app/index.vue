@@ -25,9 +25,9 @@
         <m-content :background="app_list.length ? '#fff' : ''">
             <div v-if="!app_list.length" class="no-app">
                 <div class="no-app-title">{{$t('home.welcome')}}</div>
-                <div class="no-app-content">{{$t('home.welcome_d1')}}</div>
+                <div class="no-app-content">{{$t('home.welcome_d')}}</div>
                 <div class="no-app-button">
-                    {{$t('home.create_b1')}}
+                    {{$t('home.create_btn1')}}
                     <img src="@/assets/img/app-svg/right.svg" />
                 </div>
             </div>

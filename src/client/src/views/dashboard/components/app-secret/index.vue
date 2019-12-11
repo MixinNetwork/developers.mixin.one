@@ -3,17 +3,17 @@
         <div class="secret-list f">
             <div class="secret-item">
                 <img src="@/assets/img/svg/secret.svg" />
-                <span>{{$t('secret.secret_t')}}</span>
-                <p>{{$t('secret.secret_p')}}</p>
-                <button @click="request_new_secret" class="primary">{{$t('secret.secret_b')}}</button>
+                <span>{{$t('secret.secret_title')}}</span>
+                <p>{{$t('secret.secret_content')}}</p>
+                <button @click="request_new_secret" class="primary">{{$t('secret.secret_btn')}}</button>
             </div>
             <div class="secret-item">
                 <img src="@/assets/img/svg/session.svg" />
-                <span>{{$t('secret.session_t')}}</span>
+                <span>{{$t('secret.session_title')}}</span>
                 <p>
-                    {{$t('secret.session_p')}}
+                    {{$t('secret.session_content')}}
                 </p>
-                <button @click="request_new_session" class="primary">{{$t('secret.session_b')}}</button>
+                <button @click="request_new_session" class="primary">{{$t('secret.session_btn')}}</button>
             </div>
         </div>
         <div

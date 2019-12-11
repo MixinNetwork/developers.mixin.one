@@ -35,7 +35,7 @@
                     <div>Mixin ID</div>
                     <div>
                         <input
-                            :placeholder="$t('wallet.mixin_id_d')"
+                            :placeholder="$t('wallet.mixin_id_placeholder')"
                             v-model="submit_form.opponent_id"
                         />
                     </div>

@@ -23,13 +23,13 @@ export default {
         window.localStorage
         return {
             placeholder: {
-                Name: this.$t('information.name_d'),
-                'Home URL': this.$t('information.home_url_d'),
-                'OAuth URL': this.$t('information.oauth_url_d'),
+                Name: this.$t('information.name_desc'),
+                'Home URL': this.$t('information.home_url_desc'),
+                'OAuth URL': this.$t('information.oauth_url_desc'),
                 description: 'A short description of your app',
-                名称: this.$t('information.name_d'),
-                首页网址: this.$t('information.home_url_d'),
-                验证网址: this.$t('information.oauth_url_d')
+                名称: this.$t('information.name_desc'),
+                首页网址: this.$t('information.home_url_desc'),
+                验证网址: this.$t('information.oauth_url_desc')
             }
         };
     },

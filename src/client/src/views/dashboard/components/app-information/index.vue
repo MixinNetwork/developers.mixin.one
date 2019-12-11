@@ -24,7 +24,7 @@
                             <input type="file" @change="getFile" ref="upload_dom" />
                             <template v-if="!icon_base64 && !active_app.icon_url">
                                 <img src="@/assets/img/svg/img.svg" />
-                                <p>{{$t('information.icon_d')}}</p>
+                                <p>{{$t('information.icon_desc')}}</p>
                             </template>
                             <img
                                 v-else
@@ -61,7 +61,7 @@
                     <label style="margin-bottom:16px">{{$t('information.description')}}</label>
                     <textarea
                         @input="check_is_finished"
-                        :placeholder="$t('information.description_d')"
+                        :placeholder="$t('information.description_desc')"
                         v-model="active_app.description"
                     ></textarea>
                 </div>

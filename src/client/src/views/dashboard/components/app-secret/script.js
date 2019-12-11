@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         request_new_secret() {
-            this.$confirm(this.$t('secret.secret_q'), '', {
+            this.$confirm(this.$t('secret.secret_question'), '', {
                 confirmButtonText: this.$t('button.ok'),
                 cancelButtonText: this.$t('button.cancel'),
             })
@@ -28,7 +28,7 @@ export default {
 
         },
         request_new_session() {
-            this.$confirm(this.$t('secret.session_q'), '', {
+            this.$confirm(this.$t('secret.session_question'), '', {
                 confirmButtonText: this.$t('button.ok'),
                 cancelButtonText: this.$t('button.cancel'),
             })

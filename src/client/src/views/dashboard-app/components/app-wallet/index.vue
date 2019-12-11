@@ -3,7 +3,7 @@
         <div v-loading="loading" class="dashboard-app-wallet-loaing"></div>
         <div class="app-wallet-des" v-if="!is_edited">
             <div>
-                <h3>{{$t('wallet.update_token_d')}}</h3>
+                <h3>{{$t('wallet.update_token_desc')}}</h3>
                 <span @click="open_edit_modal = true">{{$t('wallet.update_token')}}</span>
                 <img src="@/assets/img/app-svg/right.svg" />
             </div>

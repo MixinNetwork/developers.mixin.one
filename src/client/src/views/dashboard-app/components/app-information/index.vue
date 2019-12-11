@@ -31,7 +31,7 @@
                 </div>
             </template>
             <template v-else>
-                <div class="app-info-new-icon-des">{{$t('information.icon_d')}}</div>
+                <div class="app-info-new-icon-des">{{$t('information.icon_desc')}}</div>
             </template>
         </div>
         <div class="app-info-edit-main">
@@ -40,7 +40,7 @@
                 <div>
                     <input
                         @input="check_is_finished"
-                        :placeholder="$t('information.name_d1')"
+                        :placeholder="$t('information.name_desc1')"
                         v-model="app_name"
                     />
                 </div>
@@ -50,7 +50,7 @@
                 <div>
                     <input
                         @input="check_is_finished"
-                        :placeholder="$t('information.home_url_d')"
+                        :placeholder="$t('information.home_url_desc')"
                         v-model="active_app.home_uri"
                     />
                 </div>
@@ -60,7 +60,7 @@
                 <div>
                     <input
                         @input="check_is_finished"
-                        :placeholder="$t('information.oauth_url_d')"
+                        :placeholder="$t('information.oauth_url_desc')"
                         v-model="active_app.redirect_uri"
                     />
                 </div>
@@ -70,7 +70,7 @@
                 <div>
                     <textarea
                         @input="check_is_finished"
-                        :placeholder="$t('information.description_d')"
+                        :placeholder="$t('information.description_desc')"
                         v-model="active_app.description"
                     ></textarea>
                 </div>

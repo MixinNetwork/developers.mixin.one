@@ -3,11 +3,11 @@ import validator from 'validator'
 
 function _check_date() {
     if (!validator.isUUID(this.submit_form.session_id, 4)) {
-        this.$message.error(this.$t('message.errors.session_id_f'))
+        this.$message.error(this.$t('message.errors.session_id_format'))
         return false
     }
     if (!validator.isBase64(this.submit_form.pin_token)) {
-        this.$message.error(this.$t('message.errors.pin_token_f'))
+        this.$message.error(this.$t('message.errors.pin_token_format'))
         return false
     }
     return true

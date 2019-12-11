@@ -80,7 +80,7 @@
                     <img src="@/assets/img/svg/robot.svg" />
                     <h1>{{$t('home.welcome')}}</h1>
                     <p>{{$t('home.welcome_d')}}</p>
-                    <button @click="click_new_app" class="primary">{{$t('home.create_b')}}</button>
+                    <button @click="click_new_app" class="primary">{{$t('home.create_btn')}}</button>
                 </div>
                 <div v-else>
                     <header>
