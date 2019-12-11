@@ -18,7 +18,7 @@ Event.prototype = {
       success: function(resp) {
         $('body').attr('class', 'event layout');
         $('#layout-container').html(self.templateIndex({
-          logoURL: require('../home/logo.png')
+          logoURL: require('../home/logo.png').default
         }));
         for (var i in resp.data) {
           var item = resp.data[i];
