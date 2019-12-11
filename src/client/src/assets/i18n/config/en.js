@@ -29,7 +29,7 @@ export default {
         title: 'Withdrawal',
         title1: 'Wallet',
         des_1: 'The deposit can only be made to your Mixin Messenger account.',
-        des_2: 'Open Mixin Messenger > Search 7000100101 to find this app > Deposit by transfer.',
+        des_2: 'Open Mixin Messenger > Search {app_number} to find this app > Deposit by transfer.',
         amount: '',
         mixin_id_placeholder: '',
         pin: '',

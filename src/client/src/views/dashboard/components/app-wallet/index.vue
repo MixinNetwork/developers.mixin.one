@@ -46,7 +46,7 @@
         </div>
         <div v-if="assets_list.length" class="assets-list-bottom-tips">
             <div>{{$t('wallet.des_1')}}</div>
-            <div>{{$t('wallet.des_2')}}</div>
+            <div>{{$t('wallet.des_2', {app_number: active_app.app_number})}}</div>
         </div>
         <withdrawal-modal
             @update-list="update_list"
