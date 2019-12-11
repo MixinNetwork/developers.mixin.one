@@ -1,6 +1,6 @@
 module.exports = {
-    // outputDir: "/dist/dashboard",
-    // publicPath: '/dashboard/',
+    outputDir: "dashboard",
+    publicPath: '/dashboard/',
     productionSourceMap: false,
     configureWebpack: {
         externals: {
