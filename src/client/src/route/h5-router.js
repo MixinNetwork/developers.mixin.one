@@ -7,14 +7,14 @@ export default [
         meta: { tree: 0 }
     },
     {
-        path: '/app/:app_number',
+        path: '/apps/:app_number',
         component: App,
         meta: { tree: 1 },
         children: [
         ]
     },
     {
-        path: '/app/new',
+        path: '/apps/new',
         name: 'new_app',
         meta: { tree: 1 },
         component: () => import('../views/dashboard-app/components/app-information')

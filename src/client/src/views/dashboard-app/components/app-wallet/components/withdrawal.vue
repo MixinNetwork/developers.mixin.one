@@ -198,7 +198,7 @@ function _back() {
         back_to_wallet: true,
         can_transition: true
     });
-    this.$router.push('/app/' + this.$route.params.app_number);
+    this.$router.push('/apps/' + this.$route.params.app_number);
 }
 </script>
 

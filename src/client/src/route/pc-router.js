@@ -6,7 +6,7 @@ export default [
         component: Dashboard,
         children: [
             {
-                path: 'app/:app_number',
+                path: 'apps/:app_number',
                 name: 'information',
                 component: () => import('../views/dashboard/components/app-information')
             },

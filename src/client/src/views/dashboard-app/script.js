@@ -30,11 +30,11 @@ export default {
         click_app_item(app_info) {
             this.$store.commit('change_state', { can_transition: true })
             if (!app_info) {
-                this.$router.push('/app/new')
+                this.$router.push('/apps/new')
                 return
             }
             this.$store.commit('change_state', { active_app: app_info })
-            this.$router.push('/app/' + app_info.app_number)
+            this.$router.push('/apps/' + app_info.app_number)
         },
         click_user_img() {
             this.show_click_user = !this.show_click_user

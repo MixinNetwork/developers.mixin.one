@@ -37,7 +37,6 @@ export default {
         change_router(nav_header_index) {
             this.nav_header_index = nav_header_index
             this._component = this.nav_list[nav_header_index]
-            jump_to_uri.call(this, uri, true)
         },
         click_user() {
             this.entring_status.show_click_user = !this.entring_status.show_click_user
@@ -49,12 +48,12 @@ export default {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = false
             this.active_app = this.app_list[index]
-            jump_to_uri.call(this, '/app', true)
+            jump_to_uri.call(this, '/apps', true)
             clearTimeout(this.timer)
             this.loading = true;
             this.timer = setTimeout(() => {
                 this.loading = false;
-            }, 1000)
+            }, 500)
         },
         click_new_app() {
             this.entring_status.welcome = false
@@ -93,7 +92,6 @@ function init_page() {
     mounted_select_active_router.call(this)
     axios_get_me.call(this)
     axios_get_app_list.call(this)
-    this.change_router(0)
 }
 
 
@@ -108,7 +106,10 @@ function axios_get_app_list(app_id) {
         this.all_loading = false
 
         let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
-        route_active_index !== -1 && (this.active_app = this.app_list[route_active_index])
+        if (route_active_index !== -1) {
+            this.active_app = this.app_list[route_active_index]
+            this._component = 'information'
+        }
         if (!app_id) return;
         let target_index = res.findIndex(item => item.app_id === app_id)
         this.active_app = res[target_index]
