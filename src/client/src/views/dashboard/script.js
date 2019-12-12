@@ -1,12 +1,12 @@
-
-let tmp_uri = '';
 import Information from './components/app-information'
 import Secret from './components/app-secret'
 import Wallet from './components/app-wallet'
 
+let tmp_uri = '';
+
 export default {
     name: 'dashboard-container',
-    components: { Information, Secret, Wallet },
+    components: {Information, Secret, Wallet},
     data() {
         return {
             entring_status: {
@@ -89,6 +89,7 @@ export default {
 
 function init_page() {
     this.all_loading = true
+    tmp_uri = this.$route.path
     mounted_select_active_router.call(this)
     axios_get_me.call(this)
     axios_get_app_list.call(this)
@@ -96,12 +97,13 @@ function init_page() {
 
 
 function axios_get_me() {
-    this.$axios.get('/me').then(res => {
+    this.apis.get_me().then(res => {
         this.user_info = res
     })
 }
+
 function axios_get_app_list(app_id) {
-    this.$axios.get('/apps').then(res => {
+    this.apis.get_apps().then(res => {
         this.app_list = res
         this.all_loading = false
 
@@ -118,14 +120,14 @@ function axios_get_app_list(app_id) {
 
 
 function mounted_select_active_router() {
-    const nav_header_index = { 'information': 0, 'wallet': 1, 'secret': 2 }
-    this.nav_header_index = nav_header_index[this.$route.name]
+    this.nav_header_index = 0
 
     if (this.$route.path === '/') {
         this.entring_status.welcome = true
     } else if (this.$route.name === 'new_app') {
         this.entring_status.welcome = false
         this.entring_status.is_new_app = true
+        this._component = 'information'
     } else {
         this.entring_status.welcome = false
     }

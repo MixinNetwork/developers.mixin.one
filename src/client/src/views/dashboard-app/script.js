@@ -1,9 +1,9 @@
-
 import MHeader from './components/header'
 import MContent from './components/content'
+
 export default {
     name: 'dashboard-container',
-    components: { MHeader, MContent },
+    components: {MHeader, MContent},
     data() {
         return {
             nav_header_index: 0,
@@ -28,12 +28,12 @@ export default {
     },
     methods: {
         click_app_item(app_info) {
-            this.$store.commit('change_state', { can_transition: true })
+            this.$store.commit('change_state', {can_transition: true})
             if (!app_info) {
                 this.$router.push('/apps/new')
                 return
             }
-            this.$store.commit('change_state', { active_app: app_info })
+            this.$store.commit('change_state', {active_app: app_info})
             this.$router.push('/apps/' + app_info.app_number)
         },
         click_user_img() {

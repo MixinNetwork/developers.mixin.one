@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './route/router'
-import axios from './assets/js/api/index'
+import apis from './api'
 import './assets/iconfont/iconfont.css'
 // import elementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
@@ -22,7 +22,7 @@ Vue.config.productionTip = false
 Vue.config.devtools = true
 
 
-Vue.prototype.$axios = axios
+Vue.prototype.apis = apis
 Vue.prototype._const = _const
 Vue.prototype.$bus = $bus
 

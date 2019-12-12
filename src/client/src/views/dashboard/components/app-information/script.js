@@ -1,4 +1,3 @@
-
 import MixinInput from '@/components/t-input'
 
 export default {
@@ -17,7 +16,7 @@ export default {
     watch: {
         active_app(val) {
             this.icon_base64 = '';
-            this.app_name = this.$route.name === 'new_app' ? '' : this.active_app.name
+            this.app_name = val.name
             _check_is_finished.call(this)
         }
     },
@@ -34,7 +33,7 @@ export default {
         }
     },
     mounted() {
-        this.app_name = this.$route.name === 'new_app' ? '' : this.active_app.name
+        this.app_name = this.active_app.name
         _check_is_finished.call(this)
     },
 }
@@ -52,15 +51,17 @@ function _render_file_to_base64(file) {
     reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
     reader.readAsDataURL(file);
 }
+
 let once_submit = false
+
 function _submit_to_database() {
     if (once_submit) {
         this.$message.error(this.$t('message.errors.saving'));
         return
     }
-    let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
+    let {app_id, capabilities, description, home_uri, redirect_uri} = this.active_app
     let name = this.app_name
-    let parmas = { capabilities, description, home_uri, name, redirect_uri }
+    let parmas = {capabilities, description, home_uri, name, redirect_uri}
     parmas.icon_base64 = this.icon_base64.substring(22);
     once_submit = true;
     this.$emit('loading', true)
@@ -68,7 +69,7 @@ function _submit_to_database() {
     if (!app_id) {
         post_url = '/apps'
     }
-    this.$axios.post(post_url, parmas).then(res => {
+    this.apis.set_app(app_id, parmas).then(res => {
         if (res.type === 'app') {
             this.$message.success(this.$t('message.success.save'))
             this.$emit('add_new_app', res.app_id)

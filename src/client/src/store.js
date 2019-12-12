@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from './assets/js/api/index'
+import apis from './api'
 
 Vue.use(Vuex)
 
@@ -43,17 +43,18 @@ export default new Vuex.Store({
 
 function axios_get_me() {
     return new Promise(resolve => {
-        axios.get('/me').then(res => {
-            this.commit('change_state', { user_info: res })
+        apis.get_me().then(res => {
+            this.commit('change_state', {user_info: res})
             resolve()
         })
     })
 
 }
+
 function axios_get_app_list() {
     return new Promise(resolve => {
-        axios.get('/apps').then(res => {
-            this.commit('change_state', { app_list: res })
+        apis.get_apps().then(res => {
+            this.commit('change_state', {app_list: res})
             resolve()
         })
     })

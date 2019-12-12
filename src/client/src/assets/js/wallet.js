@@ -18,11 +18,7 @@ function _get_assets_list() {
     let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
     let assets_token = _get_assets_token.call(this, _client_info_str)
     _vm._not_through_interceptor = true
-    this.$axios({
-        method: 'get',
-        url: '/assets',
-        headers: { 'Authorization': 'Bearer ' + assets_token }
-    }).then(res => {
+    this.apis.get_assets(assets_token).then(res => {
         if (res) {
             this.assets_list = res
             this.is_edited = true
@@ -58,4 +54,4 @@ function _set_token_obj() {
     window.localStorage.setItem(this.active_app.app_id, JSON.stringify(get_token_obj))
 }
 
-export { _check_date, _get_assets_list, _set_token_obj }
+export {_check_date, _get_assets_list, _set_token_obj}

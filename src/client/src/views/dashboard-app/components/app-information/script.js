@@ -1,6 +1,5 @@
 export default {
     name: 'app-information',
-    props: ['active_app', 'is_new_app'],
     props: {
         active_app: {
             type: Object,
@@ -13,6 +12,7 @@ export default {
             default: true
         }
     },
+
     data() {
         return {
             can_save: false,
@@ -23,6 +23,8 @@ export default {
     },
     watch: {
         active_app(val) {
+            console.log(val)
+            this.icon_base64 = '';
             this.app_name = val.name
         }
     },
@@ -53,33 +55,30 @@ function _render_file_to_base64(file) {
     reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
     reader.readAsDataURL(file);
 }
+
 let once_submit = false
+
 function _submit_to_database() {
     if (once_submit) {
         this.$message.error(this.$t('message.'))
         return
     }
-    let { app_id, capabilities, description, home_uri, name, redirect_uri } = this.active_app
+    let {app_id, capabilities, description, home_uri, name, redirect_uri} = this.active_app
     name = this.app_name
-    let parmas = { capabilities, description, home_uri, name, redirect_uri }
+    let parmas = {capabilities, description, home_uri, name, redirect_uri}
     parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
     once_submit = true;
-    let post_url = '/apps/' + app_id
-    if (!app_id) {
-        post_url = '/apps'
-    }
     this.$emit('loading', true)
-    this.$axios.post(post_url, parmas)
-        .then(res => {
-            if (res.type === 'app') {
-                this.$message.success(this.$t('message.success.save'))
-                this.$emit('add_new_app', res.app_id)
-                this.$store.dispatch('init_app', true).then(_ => {
-                    this.$store.commit('change_state', { can_transition: true });
-                    this.$router.push('/')
-                })
-            }
-        })
+    this.apis.set_app(app_id, parmas).then(res => {
+        if (res.type === 'app') {
+            this.$message.success(this.$t('message.success.save'))
+            this.$emit('add_new_app', res.app_id)
+            this.$store.dispatch('init_app', true).then(_ => {
+                this.$store.commit('change_state', {can_transition: true});
+                this.$router.push('/')
+            })
+        }
+    })
         .catch(err => {
             let error = err.response.data.error
             this.$message.error(`${this.$t('message.errors.' + error.code)} (${error.code})`)
