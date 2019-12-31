@@ -3,8 +3,9 @@ import '../../node_modules/croppie/croppie.css';
 import $ from 'jquery';
 import Croppie from 'croppie';
 import forge from 'node-forge';
-import FormUtils from '../utils/form.js';
 import uuid from 'uuid/v4';
+const BigNumber = require('bignumber.js');
+import FormUtils from '../utils/form.js';
 
 function App(router, api) {
   this.router = router;
@@ -39,14 +40,18 @@ App.prototype = {
 
           me.client_id = CLIENT_ID;
           let base = resp.data.length - result.data.count;
+          let price = result.data.price;
+          if (!price) {
+            price = '0.01';
+          }
           if (base >= 0) {
             const array = ['one', 'two', 'five'];
             array.forEach(e => {
               me['trace_'+e] = uuid();
             });
-            me.amount_one = base * 0.01 + 0.01;
-            me.amount_two = base * 0.01 + 0.02;
-            me.amount_five = base * 0.01 + 0.05;
+            me.amount_one = BigNumber(price).times(base+1).toString();
+            me.amount_two = BigNumber(price).times(base+2).toString();
+            me.amount_five = BigNumber(price).times(base+5).toString();
           }
 
           $('body').attr('class', 'app layout');

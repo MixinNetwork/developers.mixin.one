@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "bignumber.js": "^9.0.0",
     "croppie": "^2.6.4",
     "handlebars": "^4.5.3",
     "int64-buffer": "^0.99.1007",
