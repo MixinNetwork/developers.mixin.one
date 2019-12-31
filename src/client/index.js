@@ -195,6 +195,10 @@ App.prototype = {
     });
     $('input[type=submit]').on('click', function (event) {
       event.preventDefault();
+      if (!change) {
+        $('form').submit();
+        return;
+      }
       croppie.result({type: 'base64', size: {width: 512, height: 512}}).then(function(base64) {
         if (change) {
           $('input[name=icon_base64]').val(base64.substring(22));
