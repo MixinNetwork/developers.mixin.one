@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Croppie from 'croppie';
 import forge from 'node-forge';
 import FormUtils from '../utils/form.js';
+import uuid from 'uuid/v4';
 
 function App(router, api) {
   this.router = router;
@@ -31,76 +32,99 @@ App.prototype = {
         if (github != null && github != undefined) {
           me.github = github;
         }
-        $('body').attr('class', 'app layout');
-        $('#layout-container').html(self.templateLayout({title: "Dashboard"}));
-        $('#layout-container .content').html(self.templateDashboard(me));
-        self.handleSignOut();
-        for (var i in resp.data) {
-          var app = resp.data[i];
-          if (app.icon_url.indexOf('https://') !== 0) {
-            app.icon_url = "https://images.mixin.one/E2y0BnTopFK9qey0YI-8xV3M82kudNnTaGw0U5SU065864SsewNUo6fe9kDF1HIzVYhXqzws4lBZnLj1lPsjk-0=s256";
-          }
-          var appItem = self.partialApp(app);
-          $('#layout-container .content .apps.container').append(appItem);
-        }
-        $('.apps.container').on('click', '.secret.action', function () {
-          if (!window.confirm('Do you want to reset secret?')) {
+        self.api.app.property(function (result) {
+          if (result.error) {
             return;
           }
-          var secretItem = $(this);
-          var appId = secretItem.parents('.app.block').attr('data-app-id');
-          self.api.app.secret(function (resp) {
-            if (resp.error) {
-              return;
-            }
-            secretItem.html(resp.data.app_secret);
-            secretItem.removeClass('action');
-          }, appId);
-        });
-        var randInt = function (max) {
-          return Math.floor(Math.random() * Math.floor(max));
-        };
-        $('.apps.container').on('click', '.session.action', function () {
-          if (!window.confirm('Do you want to reset session?')) {
-            return;
-          }
-          var sessionItem= $(this);
-          var appId = sessionItem.parents('.app.block').attr('data-app-id');
-          var appNumber = sessionItem.parents('.app.block').attr('data-app-number');
-          var pin = "" + (randInt(9) + 1) + randInt(10) + randInt(10) + randInt(10) + randInt(10) + randInt(10);
-          var keypair = forge.pki.rsa.generateKeyPair({bits: 1024, e: 0x10001});
-          var body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes();
-          var public_key = forge.util.encode64(body, 64);
-          var private_key = forge.pki.privateKeyToPem(keypair.privateKey);
-          self.api.app.session(function (resp) {
-            if (resp.error) {
-              return;
-            }
-            var data = {
-              "pin": pin,
-              "client_id": appId,
-              "session_id": resp.data.session_id,
-              "pin_token": resp.data.pin_token,
-              "private_key": private_key
-            }
-            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, ' '));
-            var anchor = document.getElementById(appId);
-            anchor.setAttribute("href", dataStr)
-            anchor.setAttribute("download", `keystore-${appNumber}.json`);
-            anchor.click();
-          }, appId, pin, public_key);
-        });
-        self.router.updatePageLinks();
-        if (github == null || github == undefined) {
-          self.api.github.user(function (resp) {
-            if (resp.error) {
-              $('.bonus').show();
-              return;
-            }
 
-            $('.github').html(resp.data.html_url);
+          me.client_id = CLIENT_ID;
+          let base = resp.data.length - result.data.count;
+          if (base >= 0) {
+            const array = ['one', 'two', 'five'];
+            array.forEach(e => {
+              me['trace_'+e] = uuid();
+            });
+            me.amount_one = base * 0.01 + 0.01;
+            me.amount_two = base * 0.01 + 0.02;
+            me.amount_five = base * 0.01 + 0.05;
+          }
+
+          $('body').attr('class', 'app layout');
+          $('#layout-container').html(self.templateLayout({title: "Dashboard"}));
+          $('#layout-container .content').html(self.templateDashboard(me));
+          if (base >= 0) {
+            $('.new.app').hide();
+          } else {
+            $('.app.payments').hide();
+          }
+          self.handleSignOut();
+          for (var i in resp.data) {
+            var app = resp.data[i];
+            if (app.icon_url.indexOf('https://') !== 0) {
+              app.icon_url = "https://images.mixin.one/E2y0BnTopFK9qey0YI-8xV3M82kudNnTaGw0U5SU065864SsewNUo6fe9kDF1HIzVYhXqzws4lBZnLj1lPsjk-0=s256";
+            }
+            var appItem = self.partialApp(app);
+            $('#layout-container .content .apps.container').append(appItem);
+          }
+          $('.apps.container').on('click', '.secret.action', function () {
+            if (!window.confirm('Do you want to reset secret?')) {
+              return;
+            }
+            var secretItem = $(this);
+            var appId = secretItem.parents('.app.block').attr('data-app-id');
+            self.api.app.secret(function (resp) {
+              if (resp.error) {
+                return;
+              }
+              secretItem.html(resp.data.app_secret);
+              secretItem.removeClass('action');
+            }, appId);
           });
-        }
+          var randInt = function (max) {
+            return Math.floor(Math.random() * Math.floor(max));
+          };
+          $('.apps.container').on('click', '.session.action', function () {
+            if (!window.confirm('Do you want to reset session?')) {
+              return;
+            }
+            var sessionItem= $(this);
+            var appId = sessionItem.parents('.app.block').attr('data-app-id');
+            var appNumber = sessionItem.parents('.app.block').attr('data-app-number');
+            var pin = "" + (randInt(9) + 1) + randInt(10) + randInt(10) + randInt(10) + randInt(10) + randInt(10);
+            var keypair = forge.pki.rsa.generateKeyPair({bits: 1024, e: 0x10001});
+            var body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes();
+            var public_key = forge.util.encode64(body, 64);
+            var private_key = forge.pki.privateKeyToPem(keypair.privateKey);
+            self.api.app.session(function (resp) {
+              if (resp.error) {
+                return;
+              }
+              var data = {
+                "pin": pin,
+                "client_id": appId,
+                "session_id": resp.data.session_id,
+                "pin_token": resp.data.pin_token,
+                "private_key": private_key
+              }
+              var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, ' '));
+              var anchor = document.getElementById(appId);
+              anchor.setAttribute("href", dataStr)
+              anchor.setAttribute("download", `keystore-${appNumber}.json`);
+              anchor.click();
+            }, appId, pin, public_key);
+          });
+          self.router.updatePageLinks();
+          if (github == null || github == undefined) {
+            self.api.github.user(function (resp) {
+              if (resp.error) {
+                $('.bonus').show();
+                return;
+              }
+
+              $('.github').html(resp.data.html_url);
+            });
+          }
+        });
       });
     });
   },

@@ -152,6 +152,36 @@
     }
   }
 
+  .app.payments {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 512px;
+    margin: 32px auto 0;
+    .title {
+      opacity: 0.6;
+      padding: 0 24px;
+      margin-bottom: 24px;
+    }
+    .note {
+      margin-top: 8px;
+    }
+    .options {
+      display: flex;
+    }
+  }
+  .add {
+    border: 1px dashed $color-main-foreground-dark;
+    color: $color-main-foreground-dark;
+    flex-grow: 1;
+    text-align: center;
+    padding: 1.6rem 0;
+    margin: 0 24px;
+    &:hover {
+      border-color: $color-main-highlight;
+      color: $color-main-highlight;
+    }
+  }
+
   .form {
     min-height: 256px;
     text-align: left;

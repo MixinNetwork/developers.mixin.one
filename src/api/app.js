@@ -15,6 +15,12 @@ App.prototype = {
     });
   },
 
+  property: function (callback) {
+    this.api.request('GET', '/apps/property', undefined, function (resp) {
+      callback(resp);
+    });
+  },
+
   create: function (callback, params) {
     if (params['capabilities']) {
       params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
