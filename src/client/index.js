@@ -42,7 +42,7 @@ App.prototype = {
           let base = resp.data.length - result.data.count;
           let price = result.data.price;
           if (!price) {
-            price = '0.01';
+            price = '0.001';
           }
           if (base >= 0) {
             const array = ['one', 'two', 'five'];
