@@ -11,7 +11,9 @@
       "20112": "Invalid invitation code.",
       "20113": "Invalid phone verification code.",
       "20123": "Too many apps created, the maximum is 10.",
-      "20119": "PIN incorrect."
+      "20119": "PIN incorrect.",
+      "20120": "Transfer amount too small.",
+      "30103": "Insufficient pool."
     }
   }
 }
