@@ -6,7 +6,7 @@
   "dependencies": {
     "bignumber.js": "^9.0.0",
     "croppie": "^2.6.4",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.6.0",
     "int64-buffer": "^0.99.1007",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
