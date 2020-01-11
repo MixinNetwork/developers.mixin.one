@@ -6,7 +6,7 @@ order: 9
 
 Create plain messages through HTTP, can be used by bot only. the max messages body size is 100.
 
-###### POST /attachments
+###### POST /messages
 
 ```
 // cURL Example
