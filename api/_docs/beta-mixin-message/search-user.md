@@ -8,7 +8,6 @@ Search user by `identity_number`, this is a limited api.
 
 ###### GET /search/:q
 
-
 | q | String: Mixin Id or Phone Number |
 
 ```

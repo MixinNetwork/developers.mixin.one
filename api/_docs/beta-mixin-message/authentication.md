@@ -1,7 +1,7 @@
 ---
 title: Websocket Authentication
 category: Mixin Messenger
-order: 12
+order: 20
 ---
 
 Websocket can be used to receive and handle messages. Here are the things that should be noticed:

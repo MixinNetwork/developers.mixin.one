@@ -1,7 +1,7 @@
 ---
 title: Websocket Messages
 category: Mixin Messenger
-order: 13
+order: 30
 ---
 
 Following is message category supported by Websocket.
