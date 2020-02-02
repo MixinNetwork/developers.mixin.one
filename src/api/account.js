@@ -50,6 +50,18 @@ Account.prototype = {
     });
   },
 
+  user: function (callback, token) {
+    this.api.requestWithToken('GET', '/me', undefined, token, function(resp) {
+      callback(resp);
+    });
+  },
+
+  rotateCode: function (callback, token) {
+    this.api.requestWithToken('GET', '/me/code', undefined, token, function(resp) {
+      callback(resp);
+    });
+  },
+
   token: function () {
     let str = window.localStorage.getItem('token');
     if (str == null || str == undefined) {

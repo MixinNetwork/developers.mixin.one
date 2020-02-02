@@ -2,6 +2,7 @@ import './index.scss';
 import $ from 'jquery';
 import validator from 'validator';
 import FormUtils from '../utils/form.js';
+import URLUtils from '../utils/url.js';
 
 function Token(router, api) {
   this.router = router;
@@ -30,6 +31,11 @@ Token.prototype = {
       }
       if (!validator.isBase64(params['pin_token'])) {
         self.api.notify('error', 'Pin Token Format Error');
+        return;
+      }
+      let r = new URLUtils().getUrlParameter("return");
+      if (r === 'dashboard') {
+        self.router.replace("/dashboard");
         return;
       }
       window.localStorage.setItem(id, JSON.stringify(params).replace(/\\\\/gi, '\\'));

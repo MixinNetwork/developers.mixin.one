@@ -6,6 +6,7 @@ import forge from 'node-forge';
 import uuid from 'uuid/v4';
 const BigNumber = require('bignumber.js');
 import FormUtils from '../utils/form.js';
+import Mixin from '../utils/mixin.js';
 
 function App(router, api) {
   this.router = router;
@@ -117,6 +118,42 @@ App.prototype = {
               anchor.setAttribute("download", `keystore-${appNumber}.json`);
               anchor.click();
             }, appId, pin, public_key);
+          });
+          $('.apps.container').on('click', '.code.show', function () {
+            var appId = $(this).parents('.app.block').attr('data-app-id');
+            let objStr = window.localStorage.getItem(appId);
+            let data = JSON.parse(objStr);
+            if (data == undefined) {
+              self.router.replace("/tokens/"+appId+"?return=dashboard");
+              return;
+            }
+
+            let token = new Mixin().signAuthenticationToken(appId, data.session_id, data.private_key, 'GET', '/me', "");
+            self.api.account.user(function(resp) {
+              if (resp.error) {
+                return;
+              }
+              $('.app.code.rotate').hide();
+              $('.app.code.show').html(resp.data.code_url);
+            }, token);
+          });
+          $('.apps.container').on('click', '.code.rotate', function () {
+            var appId = $(this).parents('.app.block').attr('data-app-id');
+            let objStr = window.localStorage.getItem(appId);
+            let data = JSON.parse(objStr);
+            if (data == undefined) {
+              self.router.replace("/tokens/"+appId+"?return=dashboard");
+              return;
+            }
+
+            let token = new Mixin().signAuthenticationToken(appId, data.session_id, data.private_key, 'GET', '/me/code', "");
+            self.api.account.rotateCode(function(resp) {
+              if (resp.error) {
+                return;
+              }
+              $('.app.code.rotate').hide();
+              $('.app.code.show').html(resp.data.code_url);
+            }, token);
           });
           self.router.updatePageLinks();
           if (github == null || github == undefined) {
