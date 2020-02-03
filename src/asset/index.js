@@ -3,6 +3,7 @@ import $ from 'jquery';
 import uuid from 'uuid/v4';
 import Mixin from '../utils/mixin.js';
 import FormUtils from '../utils/form.js';
+const BigNumber = require('bignumber.js');
 
 function Asset(router, api) {
   this.router = router;
@@ -28,6 +29,39 @@ Asset.prototype = {
       if (resp.error) {
         return;
       }
+
+      function compare(a, b) {
+        let cmp = 0;
+
+        let ap = new BigNumber(a.balance).times(a.price_usd);
+        let bp = new BigNumber(b.balance).times(b.price_usd);
+        if (ap.gt(bp)) {
+          cmp = -1
+        } else if (ap.lt(bp)) {
+          cmp = 1
+        }
+        if (cmp === 0) {
+          ap = new BigNumber(a.balance)
+          bp = new BigNumber(b.balance)
+          if (ap.gt(bp)) {
+            cmp = -1
+          } else if (ap.lt(bp)) {
+            cmp = 1
+          }
+        }
+        if (cmp === 0) {
+          ap = new BigNumber(a.price_usd)
+          bp = new BigNumber(b.price_usd)
+          if (ap.gt(bp)) {
+            cmp = -1
+          } else if (ap.lt(bp)) {
+            cmp = 1
+          }
+        }
+        return cmp
+      }
+      resp.data.sort(compare);
+
       $('body').attr('class', 'asset layout');
       $('#layout-container').html(self.templateIndex(resp));
       $('.asset.item').on('click', function(event) {
