@@ -154,6 +154,26 @@ Data Format
   {"icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png", "title": "Mixin", "description": "A free and lightning fast peer-to-peer transactional network for digital assets.", "action": "https://mixin.one"}
 ```
 
+PLAIN_AUDIO
+```json
+  {
+    "id": "UUID",
+    "action": "CREATE_MESSAGE",
+    "params": {
+      "conversation_id": "UUID",
+      "category": "PLAIN_AUDIO",
+      "status": "SENT",
+      "message_id": "UUID",
+      "data": "Base64 encoded data"
+    }
+  }
+```
+Data Format
+```js
+ // width: int, height: int, size: int64, duration: int64 milliseconds
+ {"attachment_id": "Read From POST /attachments", "mime_type": "audio/ogg", "waveform": "QIQQSA...AAIAA", "size": 1024, "duration": 1024}
+```
+
 PLAIN_VIDEO
 ```json
   {
