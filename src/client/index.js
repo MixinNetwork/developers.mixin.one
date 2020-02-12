@@ -206,6 +206,7 @@ App.prototype = {
       if (resp.data.capabilities.includes('IMMERSIVE')) {
         resp.data.check = 'checked';
       }
+      resp.data.resources = resp.data.resource_patterns.join('\r\n');
       $('body').attr('class', 'app layout');
       $('#layout-container').html(self.templateLayout({title: "Edit App"}));
       $('#layout-container .content').html(self.templateForm(resp.data));

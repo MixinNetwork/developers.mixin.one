@@ -25,6 +25,9 @@ App.prototype = {
     if (params['capabilities']) {
       params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
     }
+    if (params['resources']) {
+      params['resource_patterns'] = params['resources'].split('\r\n')
+    }
     this.api.request('POST', '/apps', params, function (resp) {
       callback(resp);
     });
@@ -35,6 +38,9 @@ App.prototype = {
       params['capabilities'] = ['CONTACT', 'GROUP', 'IMMERSIVE'];
     } else {
       params['capabilities'] = ['CONTACT', 'GROUP'];
+    }
+    if (params['resources']) {
+      params['resource_patterns'] = params['resources'].split('\r\n')
     }
     this.api.request('POST', '/apps/' + id, params, function (resp) {
       callback(resp);
