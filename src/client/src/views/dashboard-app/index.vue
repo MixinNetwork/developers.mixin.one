@@ -39,6 +39,7 @@
                     </div>
                     <div
                         v-for="(item,index) in app_list"
+                        :key="index"
                         @click="click_app_item(item)"
                         class="has-app-item"
                     >

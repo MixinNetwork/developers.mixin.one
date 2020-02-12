@@ -38,11 +38,11 @@
     }
     .has-app {
         padding: 28px 20px 0 20px;
+        overflow-y: auto;
+        height: 100%;
         .has-app-list {
-            display: flex;
-            flex-flow: wrap;
-            justify-content: flex-start;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             .has-app-item {
                 width: 100px;
                 height: 100px;
