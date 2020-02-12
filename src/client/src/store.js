@@ -1,0 +1,62 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+import apis from './api'
+
+Vue.use(Vuex)
+
+let state = {
+    transition_name: '',
+    can_transition: false,
+    active_app: {},
+    user_info: {},
+    app_list: [],
+    active_asset: {},
+    back_to_wallet: false
+}
+
+let mutations = {
+    change_state(state, obj) {
+        for (let key in obj) {
+            state[key] = obj[key]
+        }
+    }
+}
+
+let actions = {
+    init_app(context, force_reload) {
+        if (force_reload || !context.state.user_info.full_name) {
+            return new Promise((resolve, reject) => {
+                Promise.all([axios_get_me.call(context), axios_get_app_list.call(context)]).then(_ => {
+                    resolve()
+                })
+            })
+        }
+        return new Promise(res => res())
+    }
+}
+
+export default new Vuex.Store({
+    state,
+    mutations,
+    actions
+})
+
+function axios_get_me() {
+    return new Promise(resolve => {
+        apis.get_me().then(res => {
+            this.commit('change_state', {user_info: res})
+            resolve()
+        })
+    })
+
+}
+
+function axios_get_app_list() {
+    return new Promise(resolve => {
+        apis.get_apps().then(res => {
+            this.commit('change_state', {app_list: res})
+            resolve()
+        })
+    })
+
+}

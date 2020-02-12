@@ -1,0 +1,150 @@
+.dashboard-app-wallet {
+    margin-top: 44px;
+    padding-top: 8px;
+    .dashboard-app-wallet-loaing {
+        position: absolute;
+        top: 44px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    .app-wallet-des {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        & > div {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            h3 {
+                font-weight: 500;
+                font-size: 14px;
+                width: 236px;
+                margin-bottom: 24px;
+            }
+            span {
+                font-size: 16px;
+                color: #3277ff;
+                font-weight: 500;
+            }
+            img {
+                margin-left: 10px;
+                transform: translate(0, 1px);
+            }
+        }
+    }
+    .edit-information {
+        margin-top: 65px;
+        padding: 20px;
+        .edit-main-modal {
+            padding: 40px 25px 0 25px;
+            text-align: center;
+            img {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                padding: 5px;
+                box-sizing: initial;
+                width: 14px;
+                height: 14px;
+            }
+            h3 {
+                font-size: 16px;
+                font-weight: 900;
+                margin-bottom: 32px;
+            }
+            & > div {
+                display: block;
+                text-align: left;
+                margin-bottom: 16px;
+                font-size: 16px;
+                font-weight: 500;
+                label {
+                    text-align: left;
+                    line-height: 16px;
+                    margin-bottom: 16px;
+                }
+                input {
+                    width: 100%;
+                    height: 50px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    border-radius: 6px;
+                    background-color: #f6f9ff;
+                }
+            }
+            button {
+                margin-top: 16px;
+                width: 140px;
+                font-size: 15px;
+                height: 40px;
+            }
+        }
+    }
+    .assets-list {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: auto;
+        padding: 23px 20px 0 20px;
+        font-weight: 500;
+        .assets-item {
+            height: 72px;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+            border-radius: 4px;
+            margin-bottom: 16px;
+            padding: 0 16px;
+            display: flex;
+            img {
+                transform: translate(0, 20px);
+                width: 30px;
+                height: 30px;
+            }
+            & > div {
+                margin-top: 20px;
+                padding: 0 8px;
+                flex: 1;
+                font-size: 14px;
+                span {
+                    display: block;
+                    &:last-child {
+                        margin-top: 2px;
+                        font-size: 12px;
+                        color: #b8bdc7;
+                    }
+                }
+            }
+            button {
+                margin-top: 20px;
+                margin-left: auto;
+                width: 104px;
+                height: 32px;
+                background: #1d69ff;
+                border-radius: 4px;
+                font-size: 14px;
+                color: #fff;
+                line-height: 17px;
+            }
+        }
+        .assets-list-bottom-tips {
+            div {
+                font-weight: 500;
+                color: #b8bdc7;
+                line-height: 12px;
+                &:first-child {
+                    font-size: 12px;
+                    margin-bottom: 4px;
+                }
+                &:last-child {
+                    font-size: 10px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

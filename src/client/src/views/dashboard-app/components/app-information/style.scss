@@ -1,0 +1,93 @@
+.dashboard-app-information {
+    margin-top: 44px;
+    padding: 20px;
+    .grep {
+        color: #a9b0bf;
+        margin-top: 16px;
+    }
+    .app-info-item {
+        label {
+            font-weight: 500 !important;
+        }
+        input,
+        textarea {
+            font-weight: 500 !important;
+            -webkit-box-shadow: 0px 0px 2px 2px #ccc;
+            box-shadow: 0 1px 4px 0 rgba($color: #1c4dae, $alpha: 0.1);
+            &::-webkit-input-placeholder {
+                color: #d7dde7;
+            }
+            &::-moz-input-placeholder {
+                color: #d7dde7;
+            }
+            &::-ms-input-placeholder {
+                color: #d7dde7;
+            }
+        }
+    }
+    .app-info-icon-and-id {
+        margin-bottom: 4px;
+        .app-info-icon {
+            width: 100px;
+            div:last-child {
+                position: relative;
+                margin-top: 16px;
+                input {
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 999;
+                    cursor: pointer;
+                }
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+                .app-info-new-icon {
+                    width: 100px;
+                    height: 100px;
+                    background-color: #fff;
+                    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+                    border-radius: 50%;
+                    text-align: center;
+                    padding-top: 40px;
+                    img {
+                        width: 30px;
+                        height: 23px;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+        .app-info-id {
+            margin-left: 26px;
+        }
+        .app-info-new-icon-des {
+            margin: 64px 0 0 16px;
+            width: 137px;
+            height: 32px;
+            font-size: 14px;
+            font-family: Helvetica;
+            color: rgba(199, 201, 210, 1);
+            line-height: 17px;
+            font-weight: 400;
+        }
+    }
+    .app-info-button-to-save {
+        width: 96px;
+        height: 42px;
+        text-align: center;
+        color: #fff;
+        line-height: 42px;
+        margin: 0 auto;
+        background: #d7d9e2;
+        border-radius: 40px;
+        &.app-info-button-to-save-active {
+            box-shadow: 0px 4px 10px 0 rgba(50, 119, 255, 0.18);
+            background-color: #3277ff;
+        }
+    }
+}

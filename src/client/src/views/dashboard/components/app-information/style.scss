@@ -1,0 +1,89 @@
+.dashboard-desktop-information {
+    padding-left: 100px;
+    font-family: Helvetica !important;
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: auto;
+    .app-info-content {
+    min-width: 1050px;
+    margin-top: 50px;
+        input,
+        textarea {
+            font-size: 16px;
+        }
+        label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .app-info-edit-main {
+            &.app-info-edit-main-new-app {
+                margin-top: 50px;
+            }
+            .app-info-icon {
+                .app-info-upload-and-show-icon {
+                    width: 320px;
+                    position: relative;
+                    height: 320px;
+                    background: #fff;
+                    border-radius: 50%;
+                    color: #a9b0bf;
+                    text-align: center;
+                    img {
+                        display: inline-block;
+                        font-size: 40px;
+                        margin-top: 120px;
+                        border-radius: 0 !important;
+                    }
+                    img.app-info-icon-img {
+                        margin: 0;
+                        border-radius: 50% !important;
+                    }
+                    p {
+                        width: 140px;
+                        margin: 0 auto;
+                        font-size: 14px;
+                    }
+                    &:active {
+                        background: rgba(250, 250, 250, 1);
+                    }
+                    input {
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        opacity: 0;
+                        z-index: 999;
+                        cursor: pointer;
+                    }
+                    .app-info-icon-img {
+                        width: 320px;
+                        height: 320px;
+                    }
+                }
+            }
+            .app-info-edit-list {
+                margin-left: 60px;
+            }
+        }
+        .app-info-description {
+            margin-top: 26px;
+        }
+
+        button {
+            border-radius: 8px;
+            width: 140px;
+            height: 46px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            margin-top: 28px;
+            font-weight: 700;
+            &.app-info-not-finished {
+                color: #a9b0bf;
+                background-color: #e6e8ee;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
