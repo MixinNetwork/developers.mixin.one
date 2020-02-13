@@ -22,7 +22,7 @@ export default {
             nav_header_index: 0,
             nav_list: ['information', 'wallet', 'secret'],
             active_app: {},
-            _component: 'information',
+            tmp_component: 'information',
             loading: false,
             all_loading: false,
             timer: null
@@ -36,7 +36,7 @@ export default {
     methods: {
         change_router(nav_header_index) {
             this.nav_header_index = nav_header_index
-            this._component = this.nav_list[nav_header_index]
+            this.tmp_component = this.nav_list[nav_header_index]
         },
         click_user() {
             this.entring_status.show_click_user = !this.entring_status.show_click_user
@@ -110,7 +110,7 @@ function axios_get_app_list(app_id) {
         let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
         if (route_active_index !== -1) {
             this.active_app = this.app_list[route_active_index]
-            this._component = 'information'
+            this.tmp_component = 'information'
         }
         if (!app_id) return;
         let target_index = res.findIndex(item => item.app_id === app_id)
@@ -127,7 +127,7 @@ function mounted_select_active_router() {
     } else if (this.$route.name === 'new_app') {
         this.entring_status.welcome = false
         this.entring_status.is_new_app = true
-        this._component = 'information'
+        this.tmp_component = 'information'
     } else {
         this.entring_status.welcome = false
     }
@@ -139,7 +139,7 @@ function event_listener_to_toogle_show_click_user() {
 }
 
 function jump_to_uri(uri, has_app_number) {
-    this._component = 'information'
+    this.tmp_component = 'information'
     this.nav_header_index = 0
     uri = has_app_number ? (uri + '/' + this.active_app.app_number) : uri;
     if (uri === tmp_uri) return;

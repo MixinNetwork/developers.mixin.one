@@ -1,89 +1,211 @@
 .dashboard-desktop-information {
-    padding-left: 100px;
+    padding: 0 100px;
     font-family: Helvetica !important;
     width: 100%;
     height: calc(100% - 60px);
-    overflow: auto;
-    .app-info-content {
-    min-width: 1050px;
-    margin-top: 50px;
-        input,
-        textarea {
-            font-size: 16px;
-        }
-        label {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 16px;
-        }
-        .app-info-edit-main {
-            &.app-info-edit-main-new-app {
-                margin-top: 50px;
-            }
-            .app-info-icon {
-                .app-info-upload-and-show-icon {
-                    width: 320px;
-                    position: relative;
-                    height: 320px;
-                    background: #fff;
-                    border-radius: 50%;
-                    color: #a9b0bf;
-                    text-align: center;
-                    img {
-                        display: inline-block;
-                        font-size: 40px;
-                        margin-top: 120px;
-                        border-radius: 0 !important;
-                    }
-                    img.app-info-icon-img {
-                        margin: 0;
-                        border-radius: 50% !important;
-                    }
-                    p {
-                        width: 140px;
-                        margin: 0 auto;
-                        font-size: 14px;
-                    }
-                    &:active {
-                        background: rgba(250, 250, 250, 1);
-                    }
-                    input {
-                        position: absolute;
-                        width: 100%;
-                        left: 0;
-                        top: 0;
-                        height: 100%;
-                        opacity: 0;
-                        z-index: 999;
-                        cursor: pointer;
-                    }
-                    .app-info-icon-img {
-                        width: 320px;
-                        height: 320px;
-                    }
-                }
-            }
-            .app-info-edit-list {
-                margin-left: 60px;
-            }
-        }
-        .app-info-description {
-            margin-top: 26px;
-        }
+    overflow-x: hidden;
+}
 
-        button {
-            border-radius: 8px;
-            width: 140px;
-            height: 46px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            margin-top: 28px;
-            font-weight: 700;
-            &.app-info-not-finished {
-                color: #a9b0bf;
-                background-color: #e6e8ee;
-                cursor: not-allowed;
-            }
+.app-info-content {
+    margin-top: 50px;
+
+    input,
+    textarea {
+        font-size: 16px;
+    }
+
+    label {
+        font-weight: 700;
+        display: block;
+        width: 100px;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    button {
+        border-radius: 8px;
+        width: 140px;
+        height: 46px;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 28px auto;
+
+        &.app-info-not-finished {
+            color: #a9b0bf;
+            background-color: #e6e8ee;
+            cursor: not-allowed;
         }
+    }
+}
+
+.app-info-edit-main {
+    &.app-info-edit-main-new-app {
+        margin-top: 50px;
+    }
+}
+
+.app-info-edit-list {
+    margin-left: 60px;
+}
+
+.app-info-description {
+    margin-top: 26px;
+}
+
+.app-info-upload-and-show-icon {
+    width: 320px;
+    position: relative;
+    height: 320px;
+    background: #fff;
+    border-radius: 50%;
+    color: #a9b0bf;
+    text-align: center;
+
+    img {
+        display: inline-block;
+        font-size: 40px;
+        margin-top: 120px;
+        border-radius: 0 !important;
+    }
+
+    img.app-info-icon-img {
+        margin: 0;
+        border-radius: 50% !important;
+    }
+
+    p {
+        width: 140px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    &:active {
+        background: rgba(250, 250, 250, 1);
+    }
+
+    input {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: 100%;
+        opacity: 0;
+        z-index: 999;
+        cursor: pointer;
+    }
+}
+
+.app-info-mixin-id {
+    width: 320px;
+    margin-bottom: 32px;
+}
+
+.app-info-item {
+    margin-bottom: 32px;
+}
+
+@media screen and (min-width: 1160px) {
+    .app-info-icon-img {
+        width: 320px;
+        height: 320px;
+    }
+
+    .app-info-meta {
+        .app-info-item {
+            width: calc(100% - 480px);
+            min-width: 300px;
+        }
+    }
+
+    textarea {
+        width: calc(100% - 100px);
+        min-width: 680px;
+    }
+
+    .app-info-edit-list {
+        width: calc(100% - 480px);
+        min-width: 300px;
+    }
+}
+
+
+@media screen and (max-width: 1159px) and (min-width: 797px) {
+
+    textarea,
+    .app-info-item {
+        width: 320px;
+    }
+
+    .app-info-meta,
+    .app-info-edit-main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .app-info-mixin-id{
+        margin-right: 0;
+    }
+
+    .app-info-edit-list {
+        margin-left: 0;
+    }
+
+    .app-info-icon-img {
+        width: 320px;
+        height: 320px;
+    }
+    .app-info-icon {
+        margin-bottom: 32px;
+    }
+
+    .app-info-edit-list {
+        width: calc(100% - 480px);
+        min-width: 300px;
+    }
+
+    .app-info-description {
+        width: 320px;
+        margin: 0 auto;
+        transform: translate(11px);
+    }
+}
+
+
+@media screen and (max-width: 796px) {
+
+    textarea,
+    .app-info-item {
+        width: 320px;
+    }
+
+    .app-info-meta,
+    .app-info-edit-main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .app-info-mixin-id{
+        margin-right: 0;
+    }
+
+    .app-info-edit-list {
+        margin-left: 0;
+    }
+
+    .app-info-icon-img {
+        width: 320px;
+        height: 320px;
+    }
+    .app-info-icon {
+        margin-bottom: 32px;
+    }
+
+    .app-info-edit-list {
+        width: calc(100% - 480px);
+        min-width: 300px;
+    }
+
+    .app-info-description {
+        width: 320px;
+        margin: 0 auto;
+        transform: translate(11px);
     }
 }

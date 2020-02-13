@@ -19,6 +19,7 @@ export default {
             },
             assets_list: [],
             loading: false,
+            whole_loading: false,
             show_withdrawal: false,
             active_asset: {}
         }
@@ -33,7 +34,10 @@ export default {
     methods: {
         click_submit() {
             if (!_check_date.call(this)) return
+            this.loading = true
             _set_token_obj.call(this)
+            this.open_edit_modal = false
+            this.loading = false
             _get_assets_list.call(this)
         },
         click_cancel() {

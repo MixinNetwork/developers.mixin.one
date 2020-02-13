@@ -14,20 +14,23 @@ function _check_date() {
 }
 
 function _get_assets_list() {
-    this.loading = true
+    this.whole_loading = true
     let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
     let assets_token = _get_assets_token.call(this, _client_info_str)
     _vm._not_through_interceptor = true
     this.apis.get_assets(assets_token).then(res => {
         if (res) {
+            if (res.length / 2 !== 0) {
+                res.push({})
+            }
             this.assets_list = res
             this.is_edited = true
             this.open_edit_modal = false
-            this.loading = false
+            this.whole_loading = false
         } else {
             this.is_edited = false
             this.open_edit_modal = true
-            this.loading = false
+            this.whole_loading = false
             window.localStorage.removeItem(this.active_app.app_id)
         }
         _vm._not_through_interceptor = false
@@ -54,4 +57,4 @@ function _set_token_obj() {
     window.localStorage.setItem(this.active_app.app_id, JSON.stringify(get_token_obj))
 }
 
-export {_check_date, _get_assets_list, _set_token_obj}
+export { _check_date, _get_assets_list, _set_token_obj }
