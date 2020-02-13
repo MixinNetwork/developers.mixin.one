@@ -59,9 +59,9 @@ function _submit_to_database() {
         this.$message.error(this.$t('message.errors.saving'));
         return
     }
-    let {app_id, capabilities, description, home_uri, redirect_uri} = this.active_app
+    let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
     let name = this.app_name
-    let parmas = {capabilities, description, home_uri, name, redirect_uri}
+    let parmas = { capabilities, description, home_uri, name, redirect_uri }
     parmas.icon_base64 = this.icon_base64.substring(22);
     once_submit = true;
     this.$emit('loading', true)

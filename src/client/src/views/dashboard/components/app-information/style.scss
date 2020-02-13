@@ -48,9 +48,6 @@
     margin-left: 60px;
 }
 
-.app-info-description {
-    margin-top: 26px;
-}
 
 .app-info-upload-and-show-icon {
     width: 320px;
@@ -141,7 +138,8 @@
         flex-direction: column;
         align-items: center;
     }
-    .app-info-mixin-id{
+
+    .app-info-mixin-id {
         margin-right: 0;
     }
 
@@ -153,6 +151,7 @@
         width: 320px;
         height: 320px;
     }
+
     .app-info-icon {
         margin-bottom: 32px;
     }
@@ -163,10 +162,21 @@
     }
 
     .app-info-description {
-        width: 320px;
-        margin: 0 auto;
-        transform: translate(11px);
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            display: inline-block;
+            width: 320px;
+        }
+
+        &>div {
+            width: 300px;
+        }
     }
+
 }
 
 
@@ -182,7 +192,8 @@
         flex-direction: column;
         align-items: center;
     }
-    .app-info-mixin-id{
+
+    .app-info-mixin-id {
         margin-right: 0;
     }
 
@@ -194,6 +205,7 @@
         width: 320px;
         height: 320px;
     }
+
     .app-info-icon {
         margin-bottom: 32px;
     }
@@ -204,8 +216,18 @@
     }
 
     .app-info-description {
-        width: 320px;
-        margin: 0 auto;
-        transform: translate(11px);
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            display: inline-block;
+            width: 320px;
+        }
+
+        &>div {
+            width: 300px;
+        }
     }
 }

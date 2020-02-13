@@ -12,6 +12,14 @@
       :value="value"
       @input="change($event)"
     />
+    <img
+      v-if="['Mixin ID', '应用 ID', 'App ID'].includes(label)"
+      :style="{left: label === 'Mixin ID'? '88px' : '273px'}"
+      v-clipboard:copy="value"
+      　　v-clipboard:success="click_copy_succuess"
+      　　v-clipboard:error="click_copy_error"
+      src="../assets/img/copy.png"
+    />
   </div>
 </template>
 
@@ -36,6 +44,12 @@ export default {
   methods: {
     change(event) {
       this.$emit("input", event.target.value);
+    },
+    click_copy_succuess() {
+      this.$message.success(this.$t("message.success.copy"));
+    },
+    click_copy_error() {
+      this.$message.error(this.$t("message.errors.copy"));
     }
   }
 };
@@ -44,6 +58,7 @@ export default {
 <style scoped lang="scss">
 div {
   font-size: 16px;
+  position: relative;
   label {
     font-weight: 700;
     display: block;
@@ -76,6 +91,17 @@ div {
     background: #eceef2;
     color: #a9b0bf;
     box-shadow: none;
+  }
+  img {
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    left: 5px;
+    top: 64px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
   }
 }
 </style>

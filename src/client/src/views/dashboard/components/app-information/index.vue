@@ -53,14 +53,15 @@
             ></mixin-input>
           </div>
         </div>
-
         <div class="app-info-description">
-          <label style="margin-bottom:16px">{{$t('information.description')}}</label>
-          <textarea
-            @input="check_is_finished"
-            :placeholder="$t('information.description_desc')"
-            v-model="active_app.description"
-          ></textarea>
+          <div>
+            <label style="margin-bottom:16px">{{$t('information.description')}}</label>
+            <textarea
+              @input="check_is_finished"
+              :placeholder="$t('information.description_desc')"
+              v-model="active_app.description"
+            ></textarea>
+          </div>
         </div>
         <button
           @click="submit_to_database"
