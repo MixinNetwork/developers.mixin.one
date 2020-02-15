@@ -3,7 +3,7 @@
     <div class="app-wallet-des" v-if="!is_edited">
       <div>
         <h3>{{$t('wallet.update_token_desc')}}</h3>
-        <button class="primary" @click="open_edit_modal = true">{{$t('wallet.update_token')}}</button>
+        <button class="primary" @click="open_edit_modal = true">{{$t('wallet.update')}}</button>
       </div>
     </div>
     <div v-show="open_edit_modal" class="edit-information">
@@ -20,7 +20,7 @@
           <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
           <div class="edit-information-PK">
             <label style="margin-bottom:16px">Private Key</label>
-            <textarea placeholder="Private Key" v-model="submit_form.private_key"></textarea>
+            <textarea v-model="submit_form.private_key"></textarea>
           </div>
           <div class="btns">
             <button @click="click_submit" class="btns-save primary">{{$t('button.save')}}</button>
@@ -48,10 +48,10 @@
           class="assets-item-withdrawal primary"
         >{{$t('button.withdraw')}}</button>
       </div>
-    </div>
-    <div v-if="assets_list.length" class="assets-list-bottom-tips">
-      <div>{{$t('wallet.des_1')}}</div>
-      <div>{{$t('wallet.des_2', {app_number: active_app.app_number})}}</div>
+      <div v-if="assets_list.length" class="assets-list-bottom-tips">
+        <div>{{$t('wallet.des_1')}}</div>
+        <div>{{$t('wallet.des_2', {app_number: active_app.app_number})}}</div>
+      </div>
     </div>
     <withdrawal-modal
       @update-list="update_list"

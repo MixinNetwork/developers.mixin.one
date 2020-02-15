@@ -15,7 +15,7 @@ apis.prototype = {
         return await api({
             method: 'get',
             url: '/assets',
-            headers: {'Authorization': 'Bearer ' + assets_token}
+            headers: { 'Authorization': 'Bearer ' + assets_token }
         })
     },
     async set_app(app_id, data) {
@@ -26,21 +26,35 @@ apis.prototype = {
         return await api.post('/apps/' + app_id + '/secret')
     },
     async app_new_session(app_id, pin, session_secret) {
-        return await api.post('/apps/' + app_id + '/session', {pin, session_secret})
+        return await api.post('/apps/' + app_id + '/session', { pin, session_secret })
+    },
+    async app_show_qrcode(token) {
+        return await api({
+            method: 'get',
+            url: '/me',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+    },
+    async app_rotate_qrcode(token) {
+        return await api({
+            method: 'get',
+            url: '/me/code',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
     },
     async transfers(data, token) {
         return await api({
             method: 'post',
             url: '/transfers',
             data,
-            headers: {'Authorization': 'Bearer ' + token}
+            headers: { 'Authorization': 'Bearer ' + token }
         })
     },
     async search(user_id, token) {
-        return  await api({
+        return await api({
             method: 'get',
             url: '/search/' + user_id,
-            headers: {Authorization: 'Bearer ' + token}
+            headers: { Authorization: 'Bearer ' + token }
         });
     }
 }

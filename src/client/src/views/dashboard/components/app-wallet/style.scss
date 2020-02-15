@@ -1,7 +1,6 @@
 .dashboard-desktop-wallet {
     width: 100%;
-    height: calc(100% - 60px);
-    overflow: auto;
+    height: 100%;
 }
 
 .app-wallet-des {
@@ -82,7 +81,6 @@
         overflow: hidden;
 
         h3 {
-            width: 113px;
             height: 16px;
             font-size: 16px;
             letter-spacing: 0.2px;
@@ -90,7 +88,8 @@
             font-weight: bold;
             color: rgba(0, 0, 0, 1);
             line-height: 16px;
-            margin: 10px auto 40px auto;
+            margin: 10px 0 40px 0;
+            text-align: center;
         }
 
         label {
@@ -119,7 +118,7 @@
 
         textarea {
             font-size: 16px;
-            padding: 20px 0 0 20px;
+            padding: 10px;
             width: 492px;
             height: 82px;
             background: #f6f9ff;
@@ -155,8 +154,8 @@
 
 .iconguanbi {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 25px;
+    right: 25px;
     color: #b8bdc7;
     cursor: pointer;
     padding: 5px;
@@ -170,8 +169,26 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 60px;
-    justify-content: center;
+    padding: 34px 0 0 0;
+    margin-left: 60px;
+    position: relative;
+    margin-bottom: 100px !important;
+}
+
+
+.assets-list-bottom-tips {
+    position: absolute;
+    bottom: -75px;
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+    color: #b8bdc7;
+    font-size: 11px;
+    font-weight: 500;
+
+    &>div:first-child {
+        margin-bottom: 4px;
+    }
 }
 
 .assets-item {
@@ -179,31 +196,31 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 16px;
-    margin-right: 20px;
     padding: 0px 20px;
     height: 72px;
-    width: 40%;
+    width: calc(50% - 20px);
+    max-width: 500px;
     min-width: 292px;
     background-color: #fff;
     box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
     border-radius: 4px;
 
-    &:first-child,
-    &:nth-child(2) {
-        margin-top: 50px;
+    &:nth-child(2n) {
+        margin-left: 40px;
     }
 
     div {
         flex: 1;
-        max-width: calc(100% - 90px);
-        vertical-align: middle;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        max-width: calc(100% - 120px);
     }
 
     img {
         display: inline-block;
         width: 30px;
         height: 30px;
-        // transform: translate(0, 5px);
     }
 
     &:last-child {
@@ -211,44 +228,72 @@
     }
 }
 
-@media screen and (max-width: 1023px) {
-
-    .assets-item:nth-child(2) {
-        margin-top: 16px;
-    }
-}
 
 .assets-item-num {
-    display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
-    max-width: calc(100% - 40px);
+    max-width: calc(100% - 50px);
     padding: 0 8px 0 16px;
 }
 
 .assets-item-symbol {
-    display: inline-block;
     color: #b8bdc7;
     font-size: 14px;
     font-weight: 700;
-    transform: translateY(-4.5px);
 }
 
 .assets-item-withdrawal {
     height: 32px;
+    min-width: 93px;
     font-size: 15px;
-    width: 60px;
 }
 
-.assets-list-bottom-tips {
-    width: 100%;
-    padding: 10px 90px 30px 90px;
-    color: #b8bdc7;
-    font-size: 11px;
-    font-weight: 500;
 
-    &>div:first-child {
-        margin-bottom: 4px;
+@media screen and (max-width: 1359px) and (min-width: 1300px) {
+
+    .assets-list {
+        margin: 0 auto;
+        width: 960px;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1000px) {
+    .assets-list {
+        margin: 0 30px;
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 999px) and (min-width: 680px) {
+    .assets-list {
+        margin: 0 30px;
+        width: calc(100% - 60px);
+    }
+
+    .assets-item {
+        box-sizing: border-box;
+        margin: 16px auto 0 auto !important;
+        width: 200%;
+        max-width: 500px;
+        min-width: 420px;
+    }
+
+    .assets-list-bottom-tips {
+        left: calc(27% - 108px);
+        right: calc(27% - 108px);
+    }
+}
+
+@media screen and (max-width: 679px) {
+    .assets-list {
+        margin: 0 30px;
+        width: 400px;
+    }
+
+    .assets-item {
+        box-sizing: border-box;
+        margin: 16px auto 0 auto !important;
+        min-width: 420px;
     }
 }

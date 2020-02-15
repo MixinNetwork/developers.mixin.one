@@ -2,8 +2,8 @@
     padding: 50px;
     .iconguanbi {
         position: absolute;
-        top: 30px;
-        right: 30px;
+        top: 25px;
+        right: 25px;
         color: #b8bdc7;
         cursor: pointer;
         padding: 5px;
@@ -13,6 +13,7 @@
     }
     input {
         font-size: 16px;
+        padding: 0 10px!important;
     }
     header {
         border: 0 !important;

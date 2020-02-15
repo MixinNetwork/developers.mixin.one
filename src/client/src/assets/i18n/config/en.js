@@ -23,7 +23,10 @@ export default {
         oauth_url: 'OAuth URL',
         oauth_url_desc: 'E.g. https://mixin.one/auth',
         description: 'Description',
-        description_desc: 'A short description of your app'
+        description_desc: 'A short description of your app',
+        resource_patterns: 'Resource Patterns',
+        resource_patterns_desc: 'Resource patterns for your app, split by line and max 10 items.',
+        immersive: 'Immersive'
     },
     wallet: {
         title: 'Wallet',
@@ -33,7 +36,8 @@ export default {
         mixin_id_placeholder: '',
         pin: '',
         update_token_desc: 'Update token to access your assets',
-        update_token: 'Upload',
+        update: 'Update',
+        update_token: 'Update Token',
         private_key: 'Private Key'
     },
     secret: {
@@ -46,7 +50,12 @@ export default {
         session_content: "Generate PIN, Session ID, PinToken, Private Key for this App.",
         session_btn: 'Generate a new session',
         session_question: 'Do you want to reset session?',
-        des: 'Mixin server and the browser did not keep the information at all. If you forgot,you can generate a new one.',
+        qrcode_title: 'QR CODE',
+        qrcode_content: "Display or rotate QR code for this app.",
+        qrcode_btn1: 'Show QR code',
+        qrcode_btn2: 'Rotate QR code',
+        rotate_qrcode_question: 'Do you want to reset QR code?',
+        des: 'Mixin server and the browser did not keep the information at all. If you forgot, you can generate a new one.',
     },
     button: {
         save: 'Save',
@@ -74,7 +83,7 @@ export default {
             20110: "Invalid phone number.",
             20112: "Invalid invitation code.",
             20113: "Invalid phone verification code.",
-            20123: "Too many apps created, the maximum is 10.",
+            20123: "Too many apps created, the maximum is 2.",
             20119: "PIN incorrect.",
             session_id_format: 'Session Id Format Error',
             pin_token_format: 'Pin Token Format Error',
@@ -83,7 +92,8 @@ export default {
             pin: 'Please enter the correct Pin',
             mixin_id: 'Please enter the correct Mixin ID',
             copy: 'Copy error',
-            reset: 'Resetting, please wait...'
+            reset: 'Resetting, please wait...',
+            overtime: 'Request failed, please check the network...'
         },
         app: {
             secret_tips: 'Please generate from your computer, thank you'

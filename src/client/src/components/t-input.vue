@@ -14,11 +14,10 @@
     />
     <img
       v-if="['Mixin ID', '应用 ID', 'App ID'].includes(label)"
-      :style="{left: label === 'Mixin ID'? '88px' : '273px'}"
       v-clipboard:copy="value"
       　　v-clipboard:success="click_copy_succuess"
       　　v-clipboard:error="click_copy_error"
-      src="../assets/img/copy.png"
+      src="../assets/img/ic_copy.png"
     />
   </div>
 </template>
@@ -70,7 +69,7 @@ div {
     width: 100%;
     height: 64px;
     background: #fff;
-    padding-left: 20px;
+    padding: 0 20px;
     border: 0;
     border-radius: 4px;
     box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
@@ -96,11 +95,9 @@ div {
     cursor: pointer;
     padding: 5px;
     position: absolute;
-    left: 5px;
+    right: 10px;
     top: 64px;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
     border-radius: 0;
   }
 }

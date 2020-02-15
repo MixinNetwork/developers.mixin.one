@@ -1,4 +1,5 @@
 import MixinInput from '@/components/t-input'
+import { _render_file_to_base64, _submit_to_database, _check_is_finished } from '@/assets/js/information'
 
 export default {
     name: 'app-information',
@@ -10,19 +11,23 @@ export default {
         return {
             icon_base64: '',
             app_name: '',
-            not_finished: true
+            can_save: false,
+            tmp_resource_patterns: '',
+            immersive_status: false
         }
     },
     watch: {
         active_app(val) {
             this.icon_base64 = '';
             this.app_name = val.name
+            this.tmp_resource_patterns = val.resource_patterns && val.resource_patterns.join('\n')
+            this.immersive_status = val.capabilities && val.capabilities.includes('IMMERSIVE')
             _check_is_finished.call(this)
         }
     },
     methods: {
         submit_to_database() {
-            if (this.not_finished) return
+            if (!this.can_save) return
             _submit_to_database.call(this)
         },
         getFile(event) {
@@ -33,49 +38,10 @@ export default {
         }
     },
     mounted() {
-        this.app_name = this.active_app.name
+        let { name, resource_patterns, capabilities } = this.active_app
+        this.app_name = name
+        this.tmp_resource_patterns = resource_patterns && resource_patterns.join('\n')
+        this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
         _check_is_finished.call(this)
     },
-}
-
-function _check_is_finished() {
-    if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description) {
-        this.not_finished = false;
-    } else {
-        this.not_finished = true;
-    }
-}
-
-function _render_file_to_base64(file) {
-    let reader = new FileReader();
-    reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
-    reader.readAsDataURL(file);
-}
-
-let once_submit = false
-
-function _submit_to_database() {
-    if (once_submit) {
-        this.$message.error(this.$t('message.errors.saving'));
-        return
-    }
-    let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
-    let name = this.app_name
-    let parmas = { capabilities, description, home_uri, name, redirect_uri }
-    parmas.icon_base64 = this.icon_base64.substring(22);
-    once_submit = true;
-    this.$emit('loading', true)
-    let post_url = '/apps/' + app_id
-    if (!app_id) {
-        post_url = '/apps'
-    }
-    this.apis.set_app(app_id, parmas).then(res => {
-        if (res.type === 'app') {
-            this.$message.success(this.$t('message.success.save'))
-            this.$emit('add_new_app', res.app_id)
-        }
-    }).finally(_ => {
-        once_submit = false
-        this.$emit('loading', false)
-    })
 }

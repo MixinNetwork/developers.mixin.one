@@ -23,7 +23,10 @@ export default {
         oauth_url: '验证网址',
         oauth_url_desc: '例如：https://mixin.one/auth',
         description: '简介',
-        description_desc: '您的应用的简介'
+        description_desc: '您的应用的简介',
+        resource_patterns: '资源模式',
+        resource_patterns_desc: '您应用的资源模式，按行划分，最多 10 个项目。',
+        immersive: '沉浸式'
     },
     wallet: {
         title: '钱包',
@@ -33,6 +36,7 @@ export default {
         mixin_id_placeholder: '',
         pin: '',
         update_token_desc: '更新令牌以访问您的资产',
+        update: '更新',
         update_token: '更新令牌',
         private_key: '密钥'
     },
@@ -46,6 +50,11 @@ export default {
         session_content: "为此应用程序生成 PIN，会话 ID，PinToken，私钥。",
         session_btn: '生成新的会话',
         session_question: '你想要重置会话吗？',
+        qrcode_title: 'QR 码',
+        qrcode_content: "显示或重置此应用程序的QR码。",
+        qrcode_btn1: '显示 QR 码',
+        qrcode_btn2: '重置 QR 码',
+        rotate_qrcode_question: '你想要重置 QR 码吗？',
         des: 'Mixin 服务器和浏览器不保存敏感信息。如果忘记，你可以生成一个新的。',
     },
     button: {
@@ -74,7 +83,7 @@ export default {
             20110: "无效的电话号码。",
             20112: "邀请码无效。",
             20113: "无效的电话验证码。",
-            20123: "创建的应用太多，最多 10 个。",
+            20123: "创建的应用太多，最多 2 个。",
             20119: "PIN 码不正确。",
             session_id_format: '会话 ID 格式错误',
             pin_token_format: ' Pin 令牌格式错误',
@@ -83,7 +92,8 @@ export default {
             pin: '请输入正确的密码',
             mixin_id: '请输入正确的 Mixin ID',
             copy: '复制错误',
-            reset: '正在重置，请稍候...'
+            reset: '正在重置，请稍候...',
+            overtime: '请求失败，请检查网络...'
         },
         app: {
             secret_tips: '请从您的计算机生成，谢谢'

@@ -136,12 +136,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .dash-app-components-header {
   .header-list {
     padding: 10px 0 14px 20px;
     height: 44px;
     width: 100%;
+    box-sizing: border-box;
     position: absolute;
     left: 0;
     right: 0;

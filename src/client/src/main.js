@@ -9,15 +9,15 @@ import VueTouch from 'vue-touch'
 import store from './store'
 import VueClipboard from 'vue-clipboard2'
 import i18n from './assets/i18n'
-// import elementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-// Vue.use(elementUI)
+import elementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(elementUI)
 
 
 Vue.use(VueClipboard)
 Vue.use(VueTouch, { name: 'v-touch' })
 VueTouch.config.swipe = {
-  threshold: 100 //手指左右滑动距离
+  threshold: 100
 }
 Vue.config.productionTip = false
 Vue.config.devtools = true

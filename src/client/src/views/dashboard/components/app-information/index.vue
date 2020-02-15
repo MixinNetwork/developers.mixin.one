@@ -7,7 +7,7 @@
             label="Mixin ID"
             disabled
             v-model="active_app.app_number"
-            class="app-info-mixin-id m-r-60"
+            class="app-info-mixin-id"
           ></mixin-input>
           <mixin-input
             :label="$t('information.app_id')"
@@ -22,10 +22,10 @@
             <label>{{$t('information.icon')}}</label>
             <div class="app-info-upload-and-show-icon">
               <input type="file" @change="getFile" ref="upload_dom" />
-              <template v-if="!icon_base64 && !active_app.icon_url">
+              <div class="no-pic" v-if="!icon_base64 && !active_app.icon_url">
                 <img src="@/assets/img/svg/img.svg" />
                 <p>{{$t('information.icon_desc')}}</p>
-              </template>
+              </div>
               <img v-else class="app-info-icon-img" :src="icon_base64 || active_app.icon_url" />
             </div>
           </div>
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="app-info-description">
-          <div>
+          <div class="app-info-description-c" style="margin-bottom:32px;">
             <label style="margin-bottom:16px">{{$t('information.description')}}</label>
             <textarea
               @input="check_is_finished"
@@ -62,10 +62,22 @@
               v-model="active_app.description"
             ></textarea>
           </div>
+          <div class="app-info-description-c" style="margin-bottom:32px;">
+            <label style="margin-bottom:16px">{{$t('information.resource_patterns')}}</label>
+            <textarea
+              :placeholder="$t('information.resource_patterns_desc')"
+              v-model="tmp_resource_patterns"
+            ></textarea>
+          </div>
+          <div class="app-info-description-c">
+            <i v-if="!immersive_status" @click="immersive_status=!immersive_status" />
+            <img @click="immersive_status=!immersive_status" v-else src="@/assets/img/ic_v.png" />
+            <span @click="immersive_status=!immersive_status">{{$t('information.immersive')}}</span>
+          </div>
         </div>
         <button
           @click="submit_to_database"
-          :class="['primary',not_finished ? 'app-info-not-finished' : '' ]"
+          :class="['primary',!can_save ? 'app-info-not-finished' : '' ]"
         >{{$t('button.save')}}</button>
       </div>
     </section>

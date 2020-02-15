@@ -16,25 +16,30 @@ function _check_date() {
 function _get_assets_list() {
     this.whole_loading = true
     let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
-    let assets_token = _get_assets_token.call(this, _client_info_str)
-    _vm._not_through_interceptor = true
-    this.apis.get_assets(assets_token).then(res => {
-        if (res) {
-            if (res.length / 2 !== 0) {
-                res.push({})
+    try {
+        let assets_token = _get_assets_token.call(this, _client_info_str)
+        _vm._not_through_interceptor = true
+        this.apis.get_assets(assets_token).then(res => {
+            if (res) {
+                this.assets_list = res
+                this.is_edited = true
+                this.open_edit_modal = false
+                this.whole_loading = false
+            } else {
+                this.is_edited = false
+                this.open_edit_modal = true
+                this.whole_loading = false
+                window.localStorage.removeItem(this.active_app.app_id)
             }
-            this.assets_list = res
-            this.is_edited = true
-            this.open_edit_modal = false
-            this.whole_loading = false
-        } else {
-            this.is_edited = false
-            this.open_edit_modal = true
-            this.whole_loading = false
-            window.localStorage.removeItem(this.active_app.app_id)
-        }
-        _vm._not_through_interceptor = false
-    })
+            _vm._not_through_interceptor = false
+        })
+    } catch (e) {
+        window.localStorage.removeItem(this.active_app.app_id)
+        this.open_edit_modal = true
+        this.whole_loading = false
+        this.is_edited = false
+    }
+
 }
 
 function _get_assets_token(_client_info_str) {

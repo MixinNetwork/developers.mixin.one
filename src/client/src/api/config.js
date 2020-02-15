@@ -25,6 +25,12 @@ instance.interceptors.response.use((res) => {
     }
     return data.data
 
+}, err => {
+    const { config, code, message } = err
+    if (code === 'ECONNABORTED' || message === 'Network Error') {
+        _vm.$message.error(_vm.$t('message.errors.overtime'))
+    }
+    return Promise.reject(err)
 })
 
 export default instance;

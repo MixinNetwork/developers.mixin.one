@@ -81,7 +81,7 @@
           <p>{{$t('home.welcome_d')}}</p>
           <button @click="click_new_app" class="primary">{{$t('home.create_btn')}}</button>
         </div>
-        <div v-else>
+        <div  v-loading="loading" v-else>
           <header>
             <div :class="['header-list', ('header-index-' +nav_header_index)]">
               <template v-if="entring_status.is_new_app">
@@ -101,7 +101,7 @@
               </template>
             </div>
           </header>
-          <div v-loading="loading" class="dashboard-main">
+          <div class="dashboard-main">
             <component
               :is="tmp_component"
               @add_new_app="add_new_app"

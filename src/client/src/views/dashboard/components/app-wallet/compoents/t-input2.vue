@@ -42,7 +42,7 @@ div {
         width: 492px;
         height: 60px;
         background: #f6f9ff;
-        padding-left: 20px;
+        padding:0 10px;
         border: 0;
         border-radius: 4px;
         box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
