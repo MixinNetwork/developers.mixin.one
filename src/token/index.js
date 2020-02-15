@@ -33,12 +33,12 @@ Token.prototype = {
         self.api.notify('error', 'Pin Token Format Error');
         return;
       }
+      window.localStorage.setItem(id, JSON.stringify(params).replace(/\\\\/gi, '\\'));
       let r = new URLUtils().getUrlParameter("return");
       if (r === 'dashboard') {
         self.router.replace("/dashboard");
         return;
       }
-      window.localStorage.setItem(id, JSON.stringify(params).replace(/\\\\/gi, '\\'));
       self.router.replace("/apps/"+id+"/assets");
     });
     self.router.updatePageLinks();
