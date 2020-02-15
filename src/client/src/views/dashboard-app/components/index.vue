@@ -83,10 +83,9 @@ export default {
   methods: {
     back() {
       this.$store.commit("change_state", { can_transition: true });
-      this.$router.push("/");
+      this.$router.go(-1);
     },
     change_router(nav_header_index) {
-      this.$store.commit("change_state", { can_transition: true });
       this.nav_header_index = nav_header_index;
       this.component_name = this.nav_list[nav_header_index];
     },
