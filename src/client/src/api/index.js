@@ -5,6 +5,9 @@ const apis = function () {
 }
 
 apis.prototype = {
+    async get_apps_property() {
+        return await api.get('/apps/property')
+    },
     async get_me() {
         return await api.get('/me')
     },

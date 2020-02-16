@@ -1,12 +1,14 @@
 import Information from './components/app-information'
 import Secret from './components/app-secret'
 import Wallet from './components/app-wallet'
+import TModal from '@/components/t-modal'
+import tools from '@/assets/js/tools'
 
 let tmp_uri = '';
 
 export default {
     name: 'dashboard-container',
-    components: { Information, Secret, Wallet },
+    components: { Information, Secret, Wallet, TModal },
     data() {
         return {
             entring_status: {
@@ -20,7 +22,9 @@ export default {
             loading: false,
             all_loading: false,
             timer: null,
-            slider_can_move: true
+            slider_can_move: true,
+            balance_modal: false,
+            tmp_money: 0
         }
     },
     computed: {
@@ -66,10 +70,18 @@ export default {
             this.$store.commit('change_state', { asset_list: [] })
         },
         click_new_app() {
-            this.entring_status.welcome = false
-            this.entring_status.is_new_app = true
-            this.$store.commit("cache_new_app", null);
-            jump_to_uri.call(this, '/apps/new', false)
+            this.all_loading = true
+            this.$store.dispatch('get_apps_property').then(res => {
+                if (res > 0) {
+                    this.tmp_money = res
+                    this.balance_modal = true
+                } else {
+                    this.entring_status.welcome = false
+                    this.entring_status.is_new_app = true
+                    this.$store.commit("cache_new_app", null);
+                    jump_to_uri.call(this, '/apps/new', false)
+                }
+            }).finally(_ => this.all_loading = false)
         },
         add_new_app(app_id) {
             axios_get_app_list.call(this, app_id)
@@ -84,6 +96,11 @@ export default {
         },
         change_loading(state) {
             this.loading = state
+        },
+        click_buy_item(count) {
+            let trace = tools.getUUID()
+            let amount = Number(count) * Number(this.tmp_money)
+            window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`
         }
     },
     mounted() {

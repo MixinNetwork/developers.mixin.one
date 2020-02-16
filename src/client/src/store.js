@@ -15,6 +15,7 @@ let state = {
     tmp_resource_patterns: '',
     tmp_immersive_status: false,
     user_info: {},
+    apps_property: {},
     app_list: [],
     asset_list: [],
     active_asset: {},
@@ -59,7 +60,7 @@ let actions = {
     init_app(context, force_reload) {
         if (!context.state.user_info.full_name) {
             return new Promise((resolve, reject) => {
-                Promise.all([axios_get_me.call(context), axios_get_app_list.call(context)]).then(_ => {
+                Promise.all([axios_get_me.call(context), axios_get_app_list.call(context), axios_get_apps_property.call(context)]).then(_ => {
                     resolve()
                 })
             })
@@ -78,6 +79,25 @@ let actions = {
             }).catch(err => false)
         }
         return new Promise(res => res())
+    },
+    init_apps_property(context) {
+        axios_get_apps_property.call(context)
+    },
+    get_apps_property(context) {
+        return new Promise(resolve => {
+            let { state } = context
+            let { app_list, apps_property } = state
+            let app_nums = app_list.length
+            let { count, price } = apps_property
+            let unit_cost = (app_nums + 1 - Number(count)) * Number(price)
+            if (unit_cost > 0) {
+                axios_get_apps_property.call(context).then(res => {
+                    let { count, price } = res
+                    let unit_cost = (app_nums + 1 - Number(count)) * Number(price)
+                    resolve(unit_cost)
+                })
+            } else resolve(unit_cost)
+        })
     }
 }
 
@@ -94,7 +114,15 @@ function axios_get_me() {
             resolve()
         })
     })
+}
 
+function axios_get_apps_property() {
+    return new Promise(resolve => {
+        apis.get_apps_property().then(res => {
+            this.commit('change_state', { apps_property: res })
+            resolve(res)
+        })
+    })
 }
 
 function axios_get_app_list() {

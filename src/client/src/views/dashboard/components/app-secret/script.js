@@ -93,10 +93,10 @@ export default {
                 })
         },
         click_copy_succuess() {
-            this.$message.success(this.$t('message.success.copy'));
+            this.$message.success({ message: this.$t('message.success.copy'), showClose: true });
         },
         click_copy_error() {
-            this.$message.error(this.$t('message.errors.copy'));
+            this.$message.error({ message: this.$t('message.errors.copy'), showClose: true });
         },
         click_close_new_secret() {
             this.modal_content = ''
@@ -110,7 +110,7 @@ let once_submit = false
 
 function _request_new_sseion() {
     if (once_submit) {
-        this.$message.error(this.$t('message.errors.reset'));
+        this.$message.error({ message: this.$t('message.errors.reset'), showClose: true });
         return
     }
     let pin = _get_pin()
@@ -118,7 +118,7 @@ function _request_new_sseion() {
     once_submit = true;
     this.loading = true;
     this.apis.app_new_session(this.active_app.app_id, pin, session_secret).then(res => {
-        this.$message.success(this.$t('message.success.reset'));
+        this.$message.success({ message: this.$t('message.success.reset'), showClose: true });
         let { session_id, pin_token } = res;
         _download_app_json(this.$refs.download_ssesion_json, pin, this.active_app.app_id, session_id, pin_token, private_key, this.active_app.app_number)
         window.localStorage.removeItem(this.active_app.app_id)

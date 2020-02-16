@@ -8,7 +8,14 @@ export default {
         welcome: 'WELCOME',
         welcome_d: 'Build any decentralized applications on Mixin',
         create_btn: 'CREATE',
-        create_btn1: 'Create Your First App'
+        create_btn1: 'Create Your First App',
+        buy: {
+            title: 'Buy Apps',
+            desc1: 'You have exhausted your free credit and please buy more at first',
+            desc2: 'NOTE: please create the apps as soon as you finished the payment, because the price may change frequently.',
+            btn: "Buy {count} App",
+            btns: "Buy {count} Apps"
+        }
     },
     information: {
         title: 'Information',

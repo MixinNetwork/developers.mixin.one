@@ -3,7 +3,7 @@ import tools from '@/assets/js/tools'
 let once_submit = false
 function _request_show_qrcode() {
     if (once_submit) {
-        this.$message.error(this.$t('message.errors.reset'));
+        this.$message.error({ message: this.$t('message.errors.reset'), showClose: true });
         return
     }
     this.loading = true
@@ -28,7 +28,7 @@ function _request_show_qrcode() {
 
 function _request_rotate_qrcode() {
     if (once_submit) {
-        this.$message.error(this.$t('message.errors.reset'));
+        this.$message.error({ message: this.$t('message.errors.reset'), showClose: true });
         return
     }
     this.loading = true
@@ -42,7 +42,7 @@ function _request_rotate_qrcode() {
             window.localStorage.removeItem(uid)
             this.open_edit_modal = true
         }
-        this.$message.success(this.$t('message.success.reset'));
+        this.$message.success({ message: this.$t('message.success.reset'), showClose: true });
         this.modal_title = 'QR Code'
         this.modal_content = res.code_url;
     }).finally(_ => {
@@ -55,13 +55,13 @@ function _request_rotate_qrcode() {
 
 function _request_new_secret() {
     if (once_submit) {
-        this.$message.error(this.$t('message.errors.reset'));
+        this.$message.error({ message: this.$t('message.errors.reset'), showClose: true });
         return
     }
     this.loading = true
     once_submit = true;
     this.apis.app_new_secret(this.active_app.app_id).then(res => {
-        this.$message.success(this.$t('message.success.reset'));
+        this.$message.success({ message: this.$t('message.success.reset'), showClose: true });
         this.modal_title = 'App Secret'
         this.modal_content = res.app_secret;
     }).finally(_ => {

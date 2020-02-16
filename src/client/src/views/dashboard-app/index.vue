@@ -80,6 +80,29 @@
         <component :is="component_name" @back="back"></component>
       </transition>
     </template>
+
+    <div v-show="balance_modal" class="edit-information">
+      <t-modal :show="balance_modal" :width="300" :height="474">
+        <div class="edit-main-modal">
+          <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
+          <h3 class="edit-main-modal-title">{{$t('home.buy.title')}}</h3>
+          <span>{{$t('home.buy.desc1')}}</span>
+          <p>{{$t('home.buy.desc2')}}</p>
+          <button
+            @click="click_buy_item(1)"
+            class="btns-save primary"
+          >{{$t('home.buy.btn',{count:1})}}</button>
+          <button
+            @click="click_buy_item(2)"
+            class="btns-save primary"
+          >{{$t('home.buy.btn',{count:2})}}</button>
+          <button
+            @click="click_buy_item(5)"
+            class="btns-save primary"
+          >{{$t('home.buy.btn',{count:5})}}</button>
+        </div>
+      </t-modal>
+    </div>
   </div>
 </template>
 

@@ -37,7 +37,7 @@ export default {
             let transfer_status = await submit_withdrawal.call(this)
             this.loading = false
             if (transfer_status) {
-                this.$message.success(this.$t('message.success.withdraw'));
+                this.$message.success({ message: this.$t('message.success.withdraw'), showClose: true });
                 this.tmp_pin = ''
                 this.$emit('close-modal')
                 this.$emit('update-list')

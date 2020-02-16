@@ -8,7 +8,14 @@ export default {
         welcome: '欢迎',
         welcome_d: '在 Mixin 上构建任何分布式应用程序',
         create_btn: '创建',
-        create_btn1: '创建你的第一个应用'
+        create_btn1: '创建你的第一个应用',
+        buy: {
+            title: '购买 App',
+            desc1: '您的免费余量已用尽，请先购买更多',
+            desc2: '注意：完成付款后，请立即创建应用，因为价格可能会经常变化。',
+            btn: "买 {count} 个",
+            btns: "买 {count} 个"
+        }
     },
     information: {
         title: '信息',
@@ -83,7 +90,7 @@ export default {
             20110: "无效的电话号码。",
             20112: "邀请码无效。",
             20113: "无效的电话验证码。",
-            20123: "创建的应用太多，最多 2 个。",
+            20123: "创建的应用太多，最多 ${count} 个。",
             20119: "PIN 码不正确。",
             session_id_format: '会话 ID 格式错误',
             pin_token_format: ' Pin 令牌格式错误',

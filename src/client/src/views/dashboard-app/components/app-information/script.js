@@ -60,7 +60,7 @@ export default {
     methods: {
         submit_to_database() {
             if (!this.can_save) return
-            _submit_to_database.call(this, true)
+            _submit_to_database.call(this)
         },
         getFile(event) {
             _render_file_to_base64.call(this, event.target.files[0])
@@ -73,10 +73,10 @@ export default {
             }
         },
         click_copy_succuess() {
-            this.$message.success(this.$t("message.success.copy"));
+            this.$message.success({ message: this.$t("message.success.copy"), showClose: true });
         },
         click_copy_error() {
-            this.$message.error(this.$t("message.errors.copy"));
+            this.$message.error({ message: this.$t("message.errors.copy"), showClose: true });
         }
     },
     mounted() {

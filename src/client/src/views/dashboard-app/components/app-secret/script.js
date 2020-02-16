@@ -33,13 +33,13 @@ export default {
     },
     methods: {
         tips_to_desktop() {
-            this.$message.info(this.$t('message.app.secret_tips'))
+            this.$message.info({ message: this.$t('message.app.secret_tips'), showClose: true })
         },
         click_copy_succuess() {
-            this.$message.success(this.$t('message.success.copy'));
+            this.$message.success({ message: this.$t('message.success.copy'), showClose: true });
         },
         click_copy_error() {
-            this.$message.error(this.$t('message.errors.copy'));
+            this.$message.error({ message: this.$t('message.errors.copy'), showClose: true });
         },
         click_close_new_secret() {
             this.modal_content = ''

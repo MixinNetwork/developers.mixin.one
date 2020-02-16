@@ -7,9 +7,9 @@ function _render_file_to_base64(file) {
 
 let once_submit = false
 
-function _submit_to_database(is_app) {
+function _submit_to_database() {
     if (once_submit) {
-        this.$message.error(this.$t('message.errors.saving'));
+        this.$message.error({ message: this.$t('message.errors.saving'), showClose: true });
         return
     }
     let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
@@ -33,7 +33,7 @@ function _submit_to_database(is_app) {
     this.$emit('loading', true)
     this.apis.set_app(app_id, parmas).then(res => {
         if (res && res.type === 'app') {
-            this.$message.success(this.$t('message.success.save'))
+            this.$message.success({ message: this.$t('message.success.save'), showClose: true })
             this.$emit('add_new_app', res.app_id)
             this.$store.dispatch('init_app', true)
         }

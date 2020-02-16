@@ -219,38 +219,66 @@
 }
 
 
-.slide-left-enter-active {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+.development-dashboard-web-app {
 
-.slide-left-leave-active {
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
+    .iconguanbi {
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        color: #b8bdc7;
+        cursor: pointer;
+        padding: 5px;
 
-.slide-left-enter {
-    transform: translateX(100%);
-    opacity: 0;
-}
+        &:hover {
+            color: rgba(50, 119, 255, 0.8);
+        }
+    }
 
-.slide-left-leave-to {
-    transform: translateX(-100%);
-    opacity: 0;
-}
 
-.slide-right-enter-active {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
 
-.slide-right-leave-active {
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
+    .edit-information {
+        margin-top: 65px;
+        padding: 20px;
+    }
 
-.slide-right-enter {
-    transform: translateX(-100%);
-    opacity: 0;
-}
+    .edit-main-modal {
+        padding: 40px 20px 0 20px;
+        text-align: center;
 
-.slide-right-leave-to {
-    transform: translateX(100%);
-    opacity: 0;
+        img {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px;
+            box-sizing: initial;
+            width: 14px;
+            height: 14px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        span {
+            color: #333333;
+            font-size: 15px;
+            line-height: 23px;
+        }
+
+        p {
+            margin: 10px 0 18px 0;
+            background-color: #f6f9ff;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 12px;
+            width: 140px;
+            font-size: 15px;
+            height: 40px;
+        }
+    }
 }
