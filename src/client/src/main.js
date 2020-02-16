@@ -5,7 +5,6 @@ import apis from './api'
 import './assets/iconfont/iconfont.css'
 import _const from './assets/js/const'
 import $bus from './assets/js/bus'
-import VueTouch from 'vue-touch'
 import store from './store'
 import VueClipboard from 'vue-clipboard2'
 import i18n from './assets/i18n'
@@ -16,10 +15,6 @@ Vue.prototype.$message = Message;
 
 Vue.use(Loading.directive);
 Vue.use(VueClipboard)
-Vue.use(VueTouch, { name: 'v-touch' })
-VueTouch.config.swipe = {
-  threshold: 100
-}
 Vue.config.productionTip = false
 Vue.config.devtools = true
 

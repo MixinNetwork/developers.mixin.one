@@ -45,6 +45,7 @@ export default {
             }
         },
         click_cancel() {
+            this.tmp_pin = ''
             this.$emit('close-modal')
         },
         change_style() {
