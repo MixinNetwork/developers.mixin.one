@@ -66,11 +66,6 @@ export default {
     position: absolute;
     right: 20px;
     top: 0;
-    .header-slot-right-img {
-      width: 32px;
-      height: 32px;
-      transform: translate(0, 6px);
-    }
   }
 }
 </style>

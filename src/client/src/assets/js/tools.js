@@ -15,9 +15,53 @@ export default {
     },
     getUUID() {
         return uuid()
-    }
+    },
+    isImmersive() {
+        var ctx;
+        switch (environment()) {
+            case 'iOS':
+                ctx = prompt('MixinContext.getContext()');
+                return JSON.parse(ctx).immersive;
+            case 'Android':
+                ctx = window.MixinContext.getContext();
+                return JSON.parse(ctx).immersive;
+            default:
+                return false;
+        }
+    },
+    changeTheme(color) {
+        let head = document.getElementsByTagName('head')[0]
+        let metas = document.getElementsByTagName('meta');
+        for (let i = 0; i < metas.length; i++) {
+            if (metas[i].name === 'theme-color') {
+                head.removeChild(metas[i])
+            }
+        }
+        let meta = document.createElement('meta')
+        meta.name = 'theme-color';
+        meta.content = color;
+        head.appendChild(meta)
+        reloadTheme()
+    },
 };
 
+function reloadTheme() {
+    switch (environment()) {
+        case 'iOS':
+            return window.webkit.messageHandlers.reloadTheme && window.webkit.messageHandlers.reloadTheme.postMessage('');
+        case 'Android':
+            return window.MixinContext.reloadTheme()
+    }
+}
+function environment() {
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
+        return 'iOS'
+    }
+    if (window.MixinContext && window.MixinContext.getContext) {
+        return 'Android'
+    }
+    return undefined
+}
 
 function signAuthenticationToken(uid, sid, privateKey, method, uri, body) {
     uri = uri.replace('https://api.mixin.one', '')

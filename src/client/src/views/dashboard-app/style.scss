@@ -1,5 +1,9 @@
 @import "../../assets/scss/theme.scss";
 
+.development-dashboard-web-app {
+    min-width: 320px;
+}
+
 .no-app {
     position: absolute;
     top: 42%;
@@ -135,6 +139,23 @@
     position: relative;
 }
 
+.header-slot-img {
+    width: 32px;
+    height: 32px;
+    transform: translate(0, 6px);
+}
+
+.header-slot-left {
+    .right-user-more {
+        right: initial;
+        left: -10px;
+
+        &:after {
+            left: 22px;
+        }
+    }
+}
+
 .right-user-more {
     position: absolute;
     top: 40px;
@@ -163,7 +184,6 @@
         right: 0;
         left: 0;
         bottom: 0;
-        filter: blur(4px);
         z-index: -1;
         background-color: #fff;
     }

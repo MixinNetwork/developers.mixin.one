@@ -1,5 +1,6 @@
 import MHeader from './components/header'
 import MContent from './components/content'
+import tools from '@/assets/js/tools'
 
 export default {
     name: 'dashboard-container',
@@ -12,7 +13,8 @@ export default {
             is_pad: document.documentElement.clientWidth > 500,
             show_click_user: false,
             component_name: '',
-            transition_name: ''
+            transition_name: '',
+            is_immersive: false
         }
     },
     computed: {
@@ -65,6 +67,8 @@ export default {
         }
     },
     mounted() {
+        tools.changeTheme('#fff')
+        this.is_immersive = tools.isImmersive()
         this.all_loading = true
         this.$store.dispatch('init_app').then(_ => {
             this.all_loading = false

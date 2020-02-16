@@ -4,22 +4,46 @@
       <transition :name="transition_name">
         <div class="safe-view">
           <m-header :has_shadow="app_list.length ? 0 : 1">
-            <div slot="left">{{$t('home.title')}}</div>
-            <div class="header-slot-right" slot="right">
-              <img
-                class="header-slot-right-img"
-                @click.stop="click_user_img"
-                :src="user_info.avatar_url || _const.default.avatar_url"
-              />
-              <div :class="['right-user-more', (show_click_user ? 'right-user-more-active' : '')]">
-                <div class="right-user-button-list">
-                  <div @click.stop="click_sign_out" class="right-user-button-item">
-                    <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
-                    <span>{{$t('home.sign_out')}}</span>
+            <template v-if="!is_immersive">
+              <div slot="left">{{$t('home.title')}}</div>
+              <div class="header-slot-right" slot="right">
+                <img
+                  class="header-slot-img"
+                  @click.stop="click_user_img"
+                  :src="user_info.avatar_url || _const.default.avatar_url"
+                />
+                <div
+                  :class="['right-user-more', (show_click_user ? 'right-user-more-active' : '')]"
+                >
+                  <div class="right-user-button-list">
+                    <div @click.stop="click_sign_out" class="right-user-button-item">
+                      <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
+                      <span>{{$t('home.sign_out')}}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </template>
+            <template v-else>
+              <div slot="center">{{$t('home.title')}}</div>
+              <div class="header-slot-left" slot="left">
+                <img
+                  class="header-slot-img"
+                  @click.stop="click_user_img"
+                  :src="user_info.avatar_url || _const.default.avatar_url"
+                />
+                <div
+                  :class="['right-user-more', (show_click_user ? 'right-user-more-active' : '')]"
+                >
+                  <div class="right-user-button-list">
+                    <div @click.stop="click_sign_out" class="right-user-button-item">
+                      <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
+                      <span>{{$t('home.sign_out')}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
           </m-header>
           <m-content :background="app_list.length ? '#fff' : ''">
             <div v-if="!app_list.length" class="no-app">
