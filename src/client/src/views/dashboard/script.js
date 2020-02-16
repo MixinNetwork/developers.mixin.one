@@ -6,7 +6,7 @@ let tmp_uri = '';
 
 export default {
     name: 'dashboard-container',
-    components: {Information, Secret, Wallet},
+    components: { Information, Secret, Wallet },
     data() {
         return {
             entring_status: {
@@ -14,23 +14,32 @@ export default {
                 is_new_app: false,
                 show_click_user: false
             },
-            user_info: {
-                avatar_url: '',
-                full_name: ''
-            },
-            app_list: [],
             nav_header_index: 0,
             nav_list: ['information', 'wallet', 'secret'],
-            active_app: {},
             tmp_component: 'information',
             loading: false,
             all_loading: false,
-            timer: null
+            timer: null,
+            slider_can_move: true
+        }
+    },
+    computed: {
+        user_info() {
+            return this.$store.state.user_info
+        },
+        app_list() {
+            return this.$store.state.app_list
+        },
+        active_app() {
+            return this.$store.state.active_app
         }
     },
     watch: {
         'entring_status.show_click_user'(val) {
             if (!val) document.removeEventListener('click', event_listener_to_toogle_show_click_user.bind(this))
+        },
+        nav_header_index(val) {
+            this.$store.commit('change_state', { nav_header_index: val })
         }
     },
     methods: {
@@ -47,25 +56,20 @@ export default {
         click_app_list_item(index) {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = false
-            this.active_app = this.app_list[index]
+            this.$store.commit('change_state', { active_app: this.app_list[index] })
             jump_to_uri.call(this, '/apps', true)
             clearTimeout(this.timer)
             this.loading = true;
             this.timer = setTimeout(() => {
                 this.loading = false;
             }, 500)
+            this.$store.commit('change_state', { asset_list: [] })
         },
         click_new_app() {
             this.entring_status.welcome = false
             this.entring_status.is_new_app = true
-            jump_to_uri.call(this, '/new', false)
-            this.active_app = {
-                name: '',
-                home_uri: '',
-                redirect_uri: '',
-                icon_url: '',
-                description: ''
-            }
+            this.$store.commit("cache_new_app", null);
+            jump_to_uri.call(this, '/apps/new', false)
         },
         add_new_app(app_id) {
             axios_get_app_list.call(this, app_id)
@@ -85,36 +89,50 @@ export default {
     mounted() {
         init_page.call(this)
     },
+    destroyed() {
+        if (this.$route.path === '/apps/new') {
+            this.$store.commit('cache_new_app', false)
+        }
+    },
 }
 
 function init_page() {
     this.all_loading = true
     tmp_uri = this.$route.path
     mounted_select_active_router.call(this)
-    axios_get_me.call(this)
-    axios_get_app_list.call(this)
-}
-
-
-function axios_get_me() {
-    this.apis.get_me().then(res => {
-        this.user_info = res
+    this.all_loading = true
+    this.$store.dispatch('init_app').then(_ => {
+        let { nav_header_index } = this.$store.state;
+        this.slider_can_move = false
+        this.change_router(nav_header_index)
+        this.all_loading = false
+        if (this.$route.path.includes('/apps')) {
+            if (this.$route.path === '/apps/new') {
+                this.$store.commit('cache_new_app', true)
+            } else {
+                let { app_number } = this.$route.params
+                let active_index = this.app_list.findIndex(item => item.app_number === app_number)
+                this.$store.commit('change_state', { active_app: this.app_list[active_index] })
+            }
+        }
+        setTimeout(() => {
+            this.slider_can_move = true
+        }, 300);
     })
 }
 
 function axios_get_app_list(app_id) {
     this.apis.get_apps().then(res => {
-        this.app_list = res
+        this.$store.commit('change_state', { app_list: res })
         this.all_loading = false
-
         let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
         if (route_active_index !== -1) {
-            this.active_app = this.app_list[route_active_index]
+            this.$store.commit('change_state', { active_app: this.app_list[route_active_index] })
             this.tmp_component = 'information'
         }
         if (!app_id) return;
         let target_index = res.findIndex(item => item.app_id === app_id)
-        this.active_app = res[target_index]
+        this.$store.commit('change_state', { active_app: res[target_index] })
     })
 }
 

@@ -19,18 +19,41 @@ export default {
         return {
             can_save: false,
             new_app: true,
-            icon_base64: '',
-            app_name: '',
-            tmp_resource_patterns: '',
-            immersive_status: false,
+            icon_base64: ''
+        }
+    },
+    computed: {
+        app_name: {
+            get() {
+                return this.$store.state.app_name
+            },
+            set(val) {
+                this.$store.commit('change_state', { app_name: val })
+            }
+        },
+        resource_patterns: {
+            get() {
+                return this.$store.state.resource_patterns
+            },
+            set(val) {
+                this.$store.commit('change_state', { resource_patterns: val })
+            }
+        },
+        immersive_status: {
+            get() {
+                return this.$store.state.immersive_status
+            },
+            set(val) {
+                this.$store.commit('change_state', { immersive_status: val })
+            }
         }
     },
     watch: {
         active_app(val) {
             this.icon_base64 = '';
-            this.app_name = val.name
-            this.tmp_resource_patterns = val.resource_patterns && val.resource_patterns.join('\n')
-            this.immersive_status = val.capabilities && val.capabilities.includes('IMMERSIVE')
+            if (val.name) this.app_name = val.name
+            if (val.resource_patterns) this.resource_patterns = val.resource_patterns && val.resource_patterns.join('\n')
+            if (val.capabilities) this.immersive_status = val.capabilities && val.capabilities.includes('IMMERSIVE')
             this.check_is_finished.call(this)
         },
     },
@@ -57,10 +80,10 @@ export default {
         }
     },
     mounted() {
-        this.app_name = this.active_app.name
-        this.tmp_resource_patterns = this.active_app.resource_patterns && this.active_app.resource_patterns.join('\n')
-        this.immersive_status = this.active_app.capabilities && this.active_app.capabilities.includes('IMMERSIVE')
+        if (this.active_app.name) this.app_name = this.active_app.name
+        if (this.active_app.resource_patterns) this.resource_patterns = this.active_app.resource_patterns.join('\n')
+        if (this.active_app.capabilities) this.immersive_status = this.active_app.capabilities.includes('IMMERSIVE')
         this.icon_base64 = '';
         this.check_is_finished()
-    },
+    }
 }

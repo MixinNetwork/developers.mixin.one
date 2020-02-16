@@ -8,7 +8,6 @@ function _request_show_qrcode() {
     }
     this.loading = true
     once_submit = true;
-    console.log(this.app_str)
     let uid = this.active_app.app_id
     let { sid, privateKey } = JSON.parse(this.app_str)
     let token = _get_token({ sid, uid, privateKey }, 'GET', '/me', '')

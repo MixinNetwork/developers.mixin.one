@@ -90,7 +90,7 @@
           <textarea
             @input="check_is_finished"
             :placeholder="$t('information.resource_patterns_desc')"
-            v-model="tmp_resource_patterns"
+            v-model="resource_patterns"
           ></textarea>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import TInput from '@/components/t-input'
-import Withdrawal from './components/withdrawal'
 import TModal from '@/components/t-modal'
 import { _check_date, _get_assets_list, _set_token_obj } from '@/assets/js/wallet'
 export default {
     components: {
-        TInput, Withdrawal, TModal
+        TInput, TModal
     },
     props: ['active_app'],
     data() {
@@ -46,11 +45,11 @@ export default {
             this.open_edit_modal = false
         },
         click_withdrawal(item) {
-            this.$store.commit('change_state', { active_asset: item, can_transition: true })
-            this.$router.push('/withdrawal/' + this.active_app.app_number)
+            this.$store.commit('change_state', { active_asset: item })
+            this.$emit('open_withdrawal')
         },
         update_list() {
-            _get_assets_list.call(this)
+            _get_assets_list.call(this, true)
         }
     },
     mounted() {

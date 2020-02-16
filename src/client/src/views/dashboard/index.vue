@@ -81,7 +81,7 @@
           <p>{{$t('home.welcome_d')}}</p>
           <button @click="click_new_app" class="primary">{{$t('home.create_btn')}}</button>
         </div>
-        <div  v-loading="loading" v-else>
+        <div v-loading="loading" v-else>
           <header>
             <div :class="['header-list', ('header-index-' +nav_header_index)]">
               <template v-if="entring_status.is_new_app">
@@ -97,7 +97,10 @@
                   :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
                   @click="change_router(index)"
                 >{{$t(item + '.title')}}</span>
-                <div class="move-slider"></div>
+                <div
+                  :style="{transition: slider_can_move ? 'left 0.3s ease-in-out' : '0s'}"
+                  class="move-slider"
+                ></div>
               </template>
             </div>
           </header>

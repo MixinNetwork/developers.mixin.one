@@ -66,7 +66,7 @@
             <label style="margin-bottom:16px">{{$t('information.resource_patterns')}}</label>
             <textarea
               :placeholder="$t('information.resource_patterns_desc')"
-              v-model="tmp_resource_patterns"
+              v-model="resource_patterns"
             ></textarea>
           </div>
           <div class="app-info-description-c">

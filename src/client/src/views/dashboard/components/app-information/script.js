@@ -10,19 +10,38 @@ export default {
     data() {
         return {
             icon_base64: '',
-            app_name: '',
             can_save: false,
-            tmp_resource_patterns: '',
-            immersive_status: false
+        }
+    },
+    computed: {
+        app_name: {
+            get() {
+                return this.$store.state.app_name
+            },
+            set(val) {
+                this.$store.commit('change_state', { app_name: val })
+            }
+        },
+        resource_patterns: {
+            get() {
+                return this.$store.state.resource_patterns
+            },
+            set(val) {
+                this.$store.commit('change_state', { resource_patterns: val })
+            }
+        },
+        immersive_status: {
+            get() {
+                return this.$store.state.immersive_status
+            },
+            set(val) {
+                this.$store.commit('change_state', { immersive_status: val })
+            }
         }
     },
     watch: {
         active_app(val) {
-            this.icon_base64 = '';
-            this.app_name = val.name
-            this.tmp_resource_patterns = val.resource_patterns && val.resource_patterns.join('\n')
-            this.immersive_status = val.capabilities && val.capabilities.includes('IMMERSIVE')
-            _check_is_finished.call(this)
+            this.init_app(val)
         }
     },
     methods: {
@@ -35,13 +54,17 @@ export default {
         },
         check_is_finished() {
             _check_is_finished.call(this)
+        },
+        init_app(app) {
+            this.icon_base64 = '';
+            let { name, resource_patterns, capabilities } = app
+            if (name) this.app_name = name
+            if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
+            if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
+            _check_is_finished.call(this)
         }
     },
     mounted() {
-        let { name, resource_patterns, capabilities } = this.active_app
-        this.app_name = name
-        this.tmp_resource_patterns = resource_patterns && resource_patterns.join('\n')
-        this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
-        _check_is_finished.call(this)
-    },
+        this.init_app(this.active_app)
+    }
 }

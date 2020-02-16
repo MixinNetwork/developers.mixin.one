@@ -14,8 +14,6 @@ function _submit_to_database(is_app) {
     }
     let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
     let name = this.app_name
-    let parmas = { capabilities, description, home_uri, name, redirect_uri }
-    parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
     if (capabilities) {
         let index = capabilities.findIndex(item => item === 'IMMERSIVE')
         if (this.immersive_status) {
@@ -27,14 +25,17 @@ function _submit_to_database(is_app) {
         capabilities = ["CONTACT", "GROUP"]
         this.immersive_status && capabilities.push('IMMERSIVE')
     }
-    parmas.resource_patterns = this.tmp_resource_patterns && this.tmp_resource_patterns.split('\n') || []
+    let parmas = { capabilities, description, home_uri, name, redirect_uri }
+    parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
+
+    parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\n') || []
     once_submit = true;
     this.$emit('loading', true)
     this.apis.set_app(app_id, parmas).then(res => {
-        if (res.type === 'app') {
+        if (res && res.type === 'app') {
             this.$message.success(this.$t('message.success.save'))
             this.$emit('add_new_app', res.app_id)
-            is_app && this.$store.dispatch('init_app', true)
+            this.$store.dispatch('init_app', true)
         }
     }).finally(_ => {
         once_submit = false

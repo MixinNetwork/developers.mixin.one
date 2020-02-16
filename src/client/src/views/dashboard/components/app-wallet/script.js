@@ -51,7 +51,7 @@ export default {
             }, 200)
         },
         update_list() {
-            _get_assets_list.call(this)
+            _get_assets_list.call(this, true)
         }
     },
     mounted() {

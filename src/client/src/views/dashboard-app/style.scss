@@ -1,4 +1,5 @@
 @import "../../assets/scss/theme.scss";
+
 .no-app {
     position: absolute;
     top: 42%;
@@ -89,7 +90,7 @@
 }
 
 
-@media screen and(min-width: 300px) and(max-width: 359px) {
+@media screen and(max-width: 359px) {
     .has-app {
         padding: 28px 10px 0 15px;
 
@@ -195,4 +196,41 @@
             padding-left: 20px;
         }
     }
+}
+
+
+.slide-left-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide-left-leave-active {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slide-left-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slide-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-right-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide-right-leave-active {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slide-right-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
 }

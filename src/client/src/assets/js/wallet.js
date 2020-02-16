@@ -13,7 +13,15 @@ function _check_date() {
     return true
 }
 
-function _get_assets_list() {
+function _get_assets_list(force_status) {
+    if (!force_status) {
+        let { asset_list } = this.$store.state
+        if (asset_list && asset_list.length > 0) {
+            this.assets_list = asset_list
+            this.is_edited = true
+            return
+        }
+    }
     this.whole_loading = true
     let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
     try {
@@ -22,6 +30,7 @@ function _get_assets_list() {
         this.apis.get_assets(assets_token).then(res => {
             if (res) {
                 this.assets_list = res
+                this.$store.commit('change_state', { asset_list: res })
                 this.is_edited = true
                 this.open_edit_modal = false
                 this.whole_loading = false

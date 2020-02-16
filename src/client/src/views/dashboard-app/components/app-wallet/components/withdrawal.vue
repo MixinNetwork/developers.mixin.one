@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     back() {
-      _back.call(this);
+      this.$emit("change_withdrawal");
     },
     async click_submit() {
       if (!check_form_data.call(this)) return;
@@ -93,7 +93,7 @@ export default {
         this.active_asset.balance -= this.submit_form.amount;
         this.submit_form = {};
         this.$store.dispatch("init_app", true);
-        _back.call(this);
+        this.back()
       }
     },
     change_style() {
@@ -174,14 +174,6 @@ function check_form_data() {
     return false;
   }
   return true;
-}
-
-function _back() {
-  this.$store.commit("change_state", {
-    back_to_wallet: true,
-    can_transition: true
-  });
-  this.$router.go(-1);
 }
 </script>
 

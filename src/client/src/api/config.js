@@ -6,7 +6,7 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-    !config.headers.Authorization && (config.headers.Authorization = window.localStorage.getItem("token"))
+    !config.headers.Authorization && (config.headers.Authorization = 'Bearer ' + window.localStorage.getItem("token"))
     return config;
 })
 
