@@ -1,12 +1,11 @@
-import TInput from './components/t-input2'
 import TModal from '@/components/t-modal'
-import WithdrawalModal from './components/withdrawal-modal'
+import WithdrawalModal from './withdrawal'
 import tools from '@/assets/js/tools'
 import UpdateToken from '@/components/update-token'
 
 export default {
   components: {
-    TInput, WithdrawalModal, TModal, UpdateToken
+    WithdrawalModal, TModal, UpdateToken
   },
   props: ['active_app'],
   data() {
