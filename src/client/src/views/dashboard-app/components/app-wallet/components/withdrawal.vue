@@ -89,11 +89,14 @@ export default {
       let transfer_status = await _send_withdrawal_request.call(this, this.uid);
       this.loading = false;
       if (transfer_status) {
-        this.$message.success({ message: this.$t("message.success.withdraw"), showClose: true });
+        this.$message.success({
+          message: this.$t("message.success.withdraw"),
+          showClose: true
+        });
         this.active_asset.balance -= this.submit_form.amount;
         this.submit_form = {};
         this.$store.dispatch("init_app", true);
-        this.back()
+        this.back();
       }
     },
     change_style() {
@@ -162,15 +165,24 @@ function check_form_data() {
   let { amount, opponent_id } = this.submit_form;
   let pin = this.tmp_pin;
   if (!amount || amount < 0) {
-    this.$message.error({ message: this.$t("message.errors.amount"), showClose: true });
+    this.$message.error({
+      message: this.$t("message.errors.amount"),
+      showClose: true
+    });
     return false;
   }
   if (!pin || pin.length !== 6) {
-    this.$message.error({ message: this.$t("message.errors.pin"), showClose: true });
+    this.$message.error({
+      message: this.$t("message.errors.pin"),
+      showClose: true
+    });
     return false;
   }
   if (!opponent_id) {
-    this.$message.error({ message: this.$t("message.errors.mixin_id"), showClose: true });
+    this.$message.error({
+      message: this.$t("message.errors.mixin_id"),
+      showClose: true
+    });
     return false;
   }
   return true;

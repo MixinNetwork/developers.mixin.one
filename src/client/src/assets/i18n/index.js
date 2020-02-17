@@ -8,8 +8,8 @@ Vue.use(VueI18n)
 let language = navigator.language.includes('zh') ? 'zh' : 'en'
 
 const i18n = new VueI18n({
-    locale: language,
-    messages: { en, zh }
+  locale: language,
+  messages: { en, zh }
 })
 
 export default i18n

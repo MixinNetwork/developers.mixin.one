@@ -1,353 +1,353 @@
 .dashboard-desktop-information {
-    padding: 0 100px;
-    font-family: Helvetica !important;
-    width: 100%;
-    height: 100%;
+  padding: 0 100px;
+  font-family: Helvetica !important;
+  width: 100%;
+  height: 100%;
 }
 
 .app-info-content {
-    margin-top: 50px;
+  margin-top: 50px;
 
-    input,
-    textarea {
-        font-size: 16px;
+  input,
+  textarea {
+    font-size: 16px;
+  }
+
+  label {
+    font-weight: 700;
+    display: block;
+    width: 200px;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  span {
+    font-weight: 700;
+    padding-left: 8px;
+  }
+
+  button {
+    border-radius: 8px;
+    width: 140px;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 28px 0;
+
+    &.app-info-not-finished {
+      color: #a9b0bf;
+      background-color: #e6e8ee;
+      cursor: not-allowed;
     }
+  }
 
-    label {
-        font-weight: 700;
-        display: block;
-        width: 200px;
-        margin: 0;
-        margin-bottom: 16px;
-    }
+  .app-info-description-c img {
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+    transform: translateY(2px);
+  }
 
-    span {
-        font-weight: 700;
-        padding-left: 8px;
-    }
-
-    button {
-        border-radius: 8px;
-        width: 140px;
-        height: 46px;
-        font-size: 16px;
-        font-weight: 700;
-        margin: 28px 0;
-
-        &.app-info-not-finished {
-            color: #a9b0bf;
-            background-color: #e6e8ee;
-            cursor: not-allowed;
-        }
-    }
-
-    .app-info-description-c img {
-        width: 16px;
-        height: 16px;
-        border-radius: 0;
-        transform: translateY(2px);
-    }
-
-    i {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border: 2px solid #000000;
-        box-sizing: border-box;
-        border-radius: 4px;
-        transform: translateY(2px);
-    }
+  i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transform: translateY(2px);
+  }
 }
 
 .app-info-edit-main {
-    &.app-info-edit-main-new-app {
-        margin-top: 50px;
-    }
+  &.app-info-edit-main-new-app {
+    margin-top: 50px;
+  }
 }
 
 .app-info-icon {
-    margin-right: 60px;
+  margin-right: 60px;
 }
 
 
 .app-info-upload-and-show-icon {
-    width: 320px;
-    position: relative;
-    height: 320px;
-    background: #fff;
-    border-radius: 50%;
-    color: #a9b0bf;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 320px;
+  position: relative;
+  height: 320px;
+  background: #fff;
+  border-radius: 50%;
+  color: #a9b0bf;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    img {
-        display: inline-block;
-        font-size: 40px;
-        border-radius: 0 !important;
-    }
+  img {
+    display: inline-block;
+    font-size: 40px;
+    border-radius: 0 !important;
+  }
 
-    img.app-info-icon-img {
-        margin: 0;
-        border-radius: 50% !important;
-    }
+  img.app-info-icon-img {
+    margin: 0;
+    border-radius: 50% !important;
+  }
 
-    p {
-        width: 140px;
-        margin: 16px auto;
-        font-size: 14px;
-    }
+  p {
+    width: 140px;
+    margin: 16px auto;
+    font-size: 14px;
+  }
 
-    &:active {
-        background: rgba(250, 250, 250, 1);
-    }
+  &:active {
+    background: rgba(250, 250, 250, 1);
+  }
 
-    input {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 0;
-        height: 100%;
-        opacity: 0;
-        z-index: 999;
-        cursor: pointer;
-    }
+  input {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0;
+    z-index: 999;
+    cursor: pointer;
+  }
 }
 
 .app-info-mixin-id {
-    min-width: 320px;
-    margin-bottom: 32px;
-    margin-right: 60px;
+  min-width: 320px;
+  margin-bottom: 32px;
+  margin-right: 60px;
 }
 
 .app-info-item {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .app-info-mixin-id /deep/ input,
 .app-info-item /deep/ input {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .app-info-icon-img {
-    width: 320px;
-    height: 320px;
+  width: 320px;
+  height: 320px;
 }
 
 
 .app-info-edit-list,
 .app-info-meta .app-info-item {
-    min-width: 580px;
+  min-width: 580px;
 }
 
 
 textarea {
-    min-width: 960px;
+  min-width: 960px;
 }
 
 @media screen and (max-width: 1439px) and (min-width: 1300px) {
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 auto;
-        width: 960px;
-    }
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 auto;
+    width: 960px;
+  }
 }
 
 @media screen and (max-width: 1299px) and (min-width: 1120px) {
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 30px;
-        width: calc(100% - 60px);
-        max-width: 960px;
-    }
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 30px;
+    width: calc(100% - 60px);
+    max-width: 960px;
+  }
 
-    .app-info-edit-list,
-    .app-info-meta .app-info-item {
-        width: 100%;
-        min-width: 400px;
-    }
+  .app-info-edit-list,
+  .app-info-meta .app-info-item {
+    width: 100%;
+    min-width: 400px;
+  }
 
-    textarea {
-        width: 100%;
-        min-width: 780px;
-    }
+  textarea {
+    width: 100%;
+    min-width: 780px;
+  }
 }
 
 @media screen and (max-width: 1119px) and (min-width: 1080px) {
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 30px;
-        width: calc(100% - 60px);
-    }
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 30px;
+    width: calc(100% - 60px);
+  }
 
-    .app-info-edit-list,
-    .app-info-meta .app-info-item {
-        width: 100%;
-        min-width: 400px;
-    }
+  .app-info-edit-list,
+  .app-info-meta .app-info-item {
+    width: 100%;
+    min-width: 400px;
+  }
 
-    textarea {
-        width: 100%;
-        min-width: 740px;
-    }
+  textarea {
+    width: 100%;
+    min-width: 740px;
+  }
 
-    .app-info-mixin-id,
-    .app-info-icon {
-        margin-right: calc(100% - 720px);
-    }
+  .app-info-mixin-id,
+  .app-info-icon {
+    margin-right: calc(100% - 720px);
+  }
 }
 
 @media screen and (max-width: 1079px) and (min-width: 1000px) {
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 30px;
-        width: calc(100% - 60px);
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 30px;
+    width: calc(100% - 60px);
+  }
+
+  .app-info-edit-list,
+  .app-info-meta .app-info-item,
+  .app-info-item {
+    max-width: 400px;
+    min-width: 400px;
+  }
+
+  textarea {
+    width: 100%;
+    min-width: 660px;
+  }
+
+  .app-info-mixin-id,
+  .app-info-icon {
+    margin-right: 20px;
+  }
+
+  .app-info-icon {
+    width: 100%;
+  }
+
+  .app-info-mixin-id {
+    min-width: calc(100% - 420px);
+  }
+
+  .app-info-upload-and-show-icon {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    border-radius: 100%;
+    box-sizing: border-box;
+    position: relative;
+
+    .app-info-icon-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
-    .app-info-edit-list,
-    .app-info-meta .app-info-item,
-    .app-info-item {
-        max-width: 400px;
-        min-width: 400px;
+    .no-pic {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      text-align: center;
     }
-
-    textarea {
-        width: 100%;
-        min-width: 660px;
-    }
-
-    .app-info-mixin-id,
-    .app-info-icon {
-        margin-right: 20px;
-    }
-
-    .app-info-icon {
-        width: 100%;
-    }
-
-    .app-info-mixin-id {
-        min-width: calc(100% - 420px);
-    }
-
-    .app-info-upload-and-show-icon {
-        width: 100%;
-        height: 0;
-        padding-top: 100%;
-        border-radius: 100%;
-        box-sizing: border-box;
-        position: relative;
-
-        .app-info-icon-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .no-pic {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-            text-align: center;
-        }
-    }
+  }
 
 }
 
 @media screen and (max-width: 999px) and (min-width: 680px) {
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 auto;
-        width: calc(61% + 55px);
-        min-width: 400px;
-    }
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 auto;
+    width: calc(61% + 55px);
+    min-width: 400px;
+  }
 
-    .app-info-meta,
-    .app-info-edit-main {
-        flex-direction: column;
-    }
+  .app-info-meta,
+  .app-info-edit-main {
+    flex-direction: column;
+  }
 
-    .app-info-mixin-id,
-    .app-info-edit-list,
-    .app-info-meta .app-info-item,
-    .app-info-item,
-    .app-info-icon,
-    textarea,
-    .app-info-description>div,
-    .app-info-mixin-id {
-        width: 100%;
-        max-width: 560px;
-        min-width: 400px;
-    }
+  .app-info-mixin-id,
+  .app-info-edit-list,
+  .app-info-meta .app-info-item,
+  .app-info-item,
+  .app-info-icon,
+  textarea,
+  .app-info-description>div,
+  .app-info-mixin-id {
+    width: 100%;
+    max-width: 560px;
+    min-width: 400px;
+  }
 
-    .app-info-description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .app-info-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 
-    .app-info-mixin-id,
-    .app-info-icon {
-        margin-right: 20px;
-    }
+  .app-info-mixin-id,
+  .app-info-icon {
+    margin-right: 20px;
+  }
 
-    .app-info-icon {
-        width: 100%;
-    }
+  .app-info-icon {
+    width: 100%;
+  }
 
-    .app-info-upload-and-show-icon {
-        margin-bottom: 32px;
-    }
+  .app-info-upload-and-show-icon {
+    margin-bottom: 32px;
+  }
 }
 
 @media screen and (max-width: 679px) {
-    .dashboard-center-and-nav {
-        min-width: 460px;
-    }
+  .dashboard-center-and-nav {
+    min-width: 460px;
+  }
 
-    .dashboard-desktop-information {
-        padding: 0;
-        margin: 0 30px;
-        min-width: 400px;
-    }
+  .dashboard-desktop-information {
+    padding: 0;
+    margin: 0 30px;
+    min-width: 400px;
+  }
 
-    .app-info-meta,
-    .app-info-edit-main {
-        flex-direction: column;
-    }
+  .app-info-meta,
+  .app-info-edit-main {
+    flex-direction: column;
+  }
 
-    .app-info-mixin-id,
-    .app-info-edit-list,
-    .app-info-meta .app-info-item,
-    .app-info-item,
-    .app-info-icon,
-    textarea,
-    .app-info-mixin-id {
-        max-width: 400px;
-        min-width: 400px;
-    }
+  .app-info-mixin-id,
+  .app-info-edit-list,
+  .app-info-meta .app-info-item,
+  .app-info-item,
+  .app-info-icon,
+  textarea,
+  .app-info-mixin-id {
+    max-width: 400px;
+    min-width: 400px;
+  }
 
-    .app-info-description {
-        display: flex;
-        flex-direction: column;
-    }
+  .app-info-description {
+    display: flex;
+    flex-direction: column;
+  }
 
 
-    .app-info-mixin-id,
-    .app-info-icon {
-        margin-right: 20px;
-    }
+  .app-info-mixin-id,
+  .app-info-icon {
+    margin-right: 20px;
+  }
 
-    .app-info-icon {
-        width: 100%;
-    }
+  .app-info-icon {
+    width: 100%;
+  }
 
-    .app-info-upload-and-show-icon {
-        margin-bottom: 32px;
-    }
+  .app-info-upload-and-show-icon {
+    margin-bottom: 32px;
+  }
 }

@@ -45,10 +45,16 @@ export default {
       this.$emit("input", event.target.value);
     },
     click_copy_succuess() {
-      this.$message.success({ message: this.$t("message.success.copy"), showClose: true });
+      this.$message.success({
+        message: this.$t("message.success.copy"),
+        showClose: true
+      });
     },
     click_copy_error() {
-      this.$message.error({ message: this.$t("message.errors.copy"), showClose: true });
+      this.$message.error({
+        message: this.$t("message.errors.copy"),
+        showClose: true
+      });
     }
   }
 };

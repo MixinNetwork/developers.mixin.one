@@ -1,196 +1,196 @@
 .dashboard-app-information {
-    padding: 20px;
+  padding: 20px;
 }
 
 .grep {
-    color: #a9b0bf;
-    margin-top: 16px;
+  color: #a9b0bf;
+  margin-top: 16px;
 }
 
 .app-info-item label {
-    font-weight: 500 !important;
+  font-weight: 500 !important;
 }
 
 input,
 textarea {
-    width: 100%;
-    font-weight: 500 !important;
-    -webkit-box-shadow: 0px 0px 2px 2px #ccc;
-    box-shadow: 0 1px 4px 0 rgba($color: #1c4dae, $alpha: 0.1);
+  width: 100%;
+  font-weight: 500 !important;
+  -webkit-box-shadow: 0px 0px 2px 2px #ccc;
+  box-shadow: 0 1px 4px 0 rgba($color: #1c4dae, $alpha: 0.1);
 
-    &::-webkit-input-placeholder {
-        color: #d7dde7;
-    }
+  &::-webkit-input-placeholder {
+    color: #d7dde7;
+  }
 
-    &::-moz-input-placeholder {
-        color: #d7dde7;
-    }
+  &::-moz-input-placeholder {
+    color: #d7dde7;
+  }
 
-    &::-ms-input-placeholder {
-        color: #d7dde7;
-    }
+  &::-ms-input-placeholder {
+    color: #d7dde7;
+  }
 }
 
 .app-info-icon-and-id {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .app-info-icon {
-    width: 100px;
+  width: 100px;
 }
 
 .app-info-file {
 
-    position: relative;
-    margin-top: 16px;
+  position: relative;
+  margin-top: 16px;
 
-    input {
-        position: absolute;
-        height: 100% !important;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        z-index: 999;
-        cursor: pointer;
-    }
+  input {
+    position: absolute;
+    height: 100% !important;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 999;
+    cursor: pointer;
+  }
 
-    img {
-        width: 100px;
-        height: 100px;
-    }
+  img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .app-info-new-icon {
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-    border-radius: 50%;
-    text-align: center;
-    padding-top: 40px;
-    box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 40px;
+  box-sizing: border-box;
 
-    img {
-        width: 30px;
-        height: 23px;
-        border-radius: 0;
-    }
+  img {
+    width: 30px;
+    height: 23px;
+    border-radius: 0;
+  }
 }
 
 
 .app-info-id {
-    margin-left: 26px;
+  margin-left: 26px;
 }
 
 .app-info-new-icon-des {
-    margin: 64px 0 0 16px;
-    width: 137px;
-    height: 32px;
-    font-size: 14px;
-    font-family: Helvetica;
-    color: rgba(199, 201, 210, 1);
-    line-height: 17px;
-    font-weight: 400;
+  margin: 64px 0 0 16px;
+  width: 137px;
+  height: 32px;
+  font-size: 14px;
+  font-family: Helvetica;
+  color: rgba(199, 201, 210, 1);
+  line-height: 17px;
+  font-weight: 400;
 }
 
 .app-info-button-to-save {
-    width: 96px;
-    height: 42px;
-    text-align: center;
-    color: #fff;
-    line-height: 42px;
-    margin: 0 auto;
-    background: #d7d9e2;
-    border-radius: 40px;
+  width: 96px;
+  height: 42px;
+  text-align: center;
+  color: #fff;
+  line-height: 42px;
+  margin: 0 auto;
+  background: #d7d9e2;
+  border-radius: 40px;
 
-    &.app-info-button-to-save-active {
-        box-shadow: 0px 4px 10px 0 rgba(50, 119, 255, 0.18);
-        background-color: #3277ff;
-    }
+  &.app-info-button-to-save-active {
+    box-shadow: 0px 4px 10px 0 rgba(50, 119, 255, 0.18);
+    background-color: #3277ff;
+  }
 }
 
 .app-info-item {
-    font-weight: 500;
+  font-weight: 500;
 
-    &>div {
-        margin-bottom: 16px;
+  &>div {
+    margin-bottom: 16px;
 
-        input {
-            width: 100%;
-            outline: none;
-            border: 0;
-            box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-            border-radius: 6px;
-            height: 50px;
-            padding: 0 20px;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        textarea {
-            width: 100%;
-            font-weight: 500;
-            font-size: 16px;
-        }
+    input {
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+      border-radius: 6px;
+      height: 50px;
+      padding: 0 20px;
+      font-weight: 500;
+      font-size: 16px;
     }
 
-    .immersive_icon {
-        border-radius: 0;
-        width: 12px;
-        height: 12px;
-        transform: translateY(1px);
+    textarea {
+      width: 100%;
+      font-weight: 500;
+      font-size: 16px;
     }
+  }
 
-    i {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        border: 2px solid #000000;
-        box-sizing: border-box;
-        border-radius: 4px;
-        transform: translateY(1px);
-    }
+  .immersive_icon {
+    border-radius: 0;
+    width: 12px;
+    height: 12px;
+    transform: translateY(1px);
+  }
 
-    span {
-        padding-left: 8px;
-    }
+  i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transform: translateY(1px);
+  }
 
-    &:last-child {
-        margin-bottom: 16px;
-    }
+  span {
+    padding-left: 8px;
+  }
+
+  &:last-child {
+    margin-bottom: 16px;
+  }
 }
 
 .app-info-appnumber input,
 .app-info-appid textarea {
-    background-color: #ebedf2;
-    color: #a9b0bf;
-    box-shadow: 0px 1px 4px rgba(125, 137, 155, 0.3) !important;
-    -webkit-appearance: none;
+  background-color: #ebedf2;
+  color: #a9b0bf;
+  box-shadow: 0px 1px 4px rgba(125, 137, 155, 0.3) !important;
+  -webkit-appearance: none;
 }
 
 .app-info-appid textarea {
-    height: 50px;
-    padding: 7px 46px 7px 20px;
-    overflow: hidden;
+  height: 50px;
+  padding: 7px 46px 7px 20px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 440px) {
-    .app-info-appid textarea {
-        padding: 0 0 0 20px;
-        line-height: 50px;
-    }
+  .app-info-appid textarea {
+    padding: 0 0 0 20px;
+    line-height: 50px;
+  }
 }
 
 .copy-container {
-    position: relative;
+  position: relative;
 
-    img {
-        position: absolute;
-        right: 18px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 0;
-    }
+  img {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0;
+  }
 }
