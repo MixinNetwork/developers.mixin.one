@@ -11,7 +11,6 @@
           src="@/assets/img/app-svg/left.svg"
         />
       </div>
-      <div slot="center">{{active_app.name}}</div>
     </t-header>
     <div class="dashboard-container">
       <nav class="nav-side">
