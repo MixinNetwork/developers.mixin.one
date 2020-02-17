@@ -31,6 +31,11 @@ body,
   overflow: hidden;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .views {
   position: absolute;
   width: 100%;

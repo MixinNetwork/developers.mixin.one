@@ -1,87 +1,92 @@
-.dashboard-desktop-secret {
-  font-size: 16px;
-  width: 100%;
-  height: 100%;
+.secret-list {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  width: 62rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3rem 0 0;
+
+  .item {
+    width: 50%;
+    padding: 1rem;
+  }
+
+  .secret-item {
+    padding: 1.375rem 1.875rem;
+    background: #fff;
+    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    border-radius: .25rem;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: .5rem;
+
+    img {
+      border-radius: 0 !important;
+      margin-right: 14px;
+      transform: translate(0, 2px);
+    }
+
+    span {
+      font-weight: 700;
+    }
+
+    i {
+      margin-right: 14px;
+      font-weight: 1000;
+    }
+
+    p {
+      padding: 32px 0;
+      font-weight: 500;
+      font-size: 15px;
+      overflow: hidden;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 3px;
+      height: 20px;
+      background-color: #3d75e3;
+      position: absolute;
+      top: 22px;
+      left: 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    button {
+      max-width: 198px;
+      width: 100%;
+      white-space: nowrap;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+  }
 }
 
-.secret-list {
-  width: 100%;
-  padding: 50px 50px 0 100px;
-  margin-bottom: 100px !important;
-  flex-wrap: wrap;
-  position: relative;
+@media screen and (max-width: 70rem) {
+  .secret-list {
+    display: block;
+    .item {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
 }
 
 .secret-list-bottom-tips {
-  position: absolute;
-  bottom: -75px;
-  left: 30px;
-  min-width: 340px;
-  right: 30px;
+  width: 62rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2.875rem;
   font-size: 15px;
   font-weight: 400;
   color: rgba(184, 189, 199, 1);
-  line-height: 23px;
-}
-
-
-.secret-item {
-  padding: 22px 30px;
-  width: calc(50% - 20px);
-  background: #fff;
-  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-  border-radius: 4px;
-  margin-right: 40px;
-  position: relative;
-  margin-bottom: 30px;
-  min-width: 420px;
-  max-width: 450px;
-
-  img {
-    border-radius: 0 !important;
-    margin-right: 14px;
-    transform: translate(0, 2px);
-  }
-
-  span {
-    font-weight: 700;
-  }
-
-  i {
-    margin-right: 14px;
-    font-weight: 1000;
-  }
-
-  p {
-    padding: 32px 0;
-    font-weight: 500;
-    font-size: 15px;
-    overflow: hidden;
-  }
-
-  &:nth-child(2n) {
-    margin-right: 0;
-  }
-
-  &::after {
-    content: "";
-    width: 3px;
-    height: 20px;
-    background-color: #3d75e3;
-    position: absolute;
-    top: 22px;
-    left: 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  button {
-    max-width: 198px;
-    width: 100%;
-    white-space: nowrap;
-    font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
 }
 
 .qrcode img {
@@ -263,12 +268,15 @@
   }
 }
 
-.qrcode-btns button {
-  width: 131px;
-  height: 40px;
+.qrcode-btns {
+  display: flex;
 
-  &:first-child {
-    margin-right: 32px;
+  button {
+    width: 131px;
+    height: 40px;
+    &:first-child {
+      margin-right: 32px;
+    }
   }
 }
 
@@ -285,44 +293,16 @@
   }
 }
 
+@media screen and (max-width: 48rem) {
+  .secret-list {
+    padding: 1.5rem 0 0;
 
-@media screen and (min-width: 1440px) {
+    .secret-item {
+      margin-bottom: 0;
+    }
+  }
   .secret-list-bottom-tips {
-    left: 130px;
-  }
-}
-
-@media screen and (max-width: 1439px) and (min-width: 1300px) {
-  .secret-list {
-    padding: 50px 0 0 0;
-    margin: 0 auto;
-    width: 960px;
-  }
-
-  .secret-item {
-    max-width: 450px;
-  }
-}
-
-@media screen and (max-width: 1299px) and (min-width: 1220px) {
-  .secret-list {
-    padding: 50px 0 0 0;
-    margin: 0 30px;
-    width: calc(100% - 60px);
-  }
-
-}
-
-@media screen and (max-width: 1219px) {
-  .secret-list {
-    padding: 50px 0 0 0;
-    margin: 0 30px;
-    width: calc(100% - 60px);
-  }
-
-  .secret-item {
-    max-width: initial;
-    width: 100%;
-    margin-right: 0;
+    font-size: .75rem;
+    padding: 1rem 1rem 2rem;
   }
 }

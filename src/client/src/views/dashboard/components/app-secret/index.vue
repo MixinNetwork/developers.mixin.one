@@ -1,29 +1,35 @@
 <template>
   <div class="dashboard-desktop-secret">
     <div v-loading="loading" class="secret-list f">
-      <div class="secret-item">
-        <img src="@/assets/img/svg/secret.svg" />
-        <span>{{$t('secret.secret_title')}}</span>
-        <p>{{$t('secret.secret_content')}}</p>
-        <button @click="request_new_secret" class="primary">{{$t('secret.secret_btn')}}</button>
-      </div>
-      <div class="secret-item">
-        <img src="@/assets/img/svg/session.svg" />
-        <span>{{$t('secret.session_title')}}</span>
-        <p>{{$t('secret.session_content')}}</p>
-        <button @click="request_new_session" class="primary">{{$t('secret.session_btn')}}</button>
-      </div>
-      <div class="secret-item qrcode">
-        <img src="@/assets/img/ic_qr_code.png" />
-        <span>{{$t('secret.qrcode_title')}}</span>
-        <p>{{$t('secret.qrcode_content')}}</p>
-        <div class="qrcode-btns">
-          <button @click="request_show_qrcode" class="primary">{{$t('secret.qrcode_btn1')}}</button>
-          <button @click="request_rotate_qrcode" class="primary">{{$t('secret.qrcode_btn2')}}</button>
+      <div class="item">
+        <div class="secret-item">
+          <img src="@/assets/img/svg/secret.svg" />
+          <span>{{$t('secret.secret_title')}}</span>
+          <p>{{$t('secret.secret_content')}}</p>
+          <button @click="request_new_secret" class="primary">{{$t('secret.secret_btn')}}</button>
         </div>
       </div>
-      <div class="secret-list-bottom-tips">{{$t('secret.des')}}</div>
+      <div class="item">
+        <div class="secret-item">
+          <img src="@/assets/img/svg/session.svg" />
+          <span>{{$t('secret.session_title')}}</span>
+          <p>{{$t('secret.session_content')}}</p>
+          <button @click="request_new_session" class="primary">{{$t('secret.session_btn')}}</button>
+        </div>
+      </div>
+      <div class="item">
+        <div class="secret-item qrcode">
+          <img src="@/assets/img/ic_qr_code.png" />
+          <span>{{$t('secret.qrcode_title')}}</span>
+          <p>{{$t('secret.qrcode_content')}}</p>
+          <div class="qrcode-btns">
+            <button @click="request_show_qrcode" class="primary">{{$t('secret.qrcode_btn1')}}</button>
+            <button @click="request_rotate_qrcode" class="primary">{{$t('secret.qrcode_btn2')}}</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="secret-list-bottom-tips">{{$t('secret.des')}}</div>
     <t-modal v-show="modal_content" :show="modal_content ? true : false" :width="612" :height="294">
       <div class="new-secret-modal">
         <h3>{{modal_title}}</h3>

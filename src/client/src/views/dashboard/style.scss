@@ -345,8 +345,10 @@ header {
 
 .header-list {
   font-weight: 700;
-  padding: 30px 0 0 0;
-  margin-left: 100px;
+  width: 62rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.6rem 1rem 0;
   position: relative;
   white-space: nowrap;
 
@@ -370,19 +372,19 @@ header {
 
   &.header-index-0 {
     .move-slider {
-      left: 0;
+      left: 1rem;
     }
   }
 
   &.header-index-1 {
     .move-slider {
-      left: 172px;
+      left: 11.75rem;
     }
   }
 
   &.header-index-2 {
     .move-slider {
-      left: 300px;
+      left: 19.75rem;
     }
   }
 }
@@ -447,35 +449,8 @@ header {
   }
 }
 
-@media screen and (max-width: 1439px) and (min-width: 1300px) {
-  .header-list {
-    padding: 30px 0 0 0;
-    width: 960px;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (max-width: 1299px) and (min-width: 1000px) {
-  .header-list {
-    padding: 30px 0 0 0;
-    width: 960px;
-    margin: 0 30px;
-  }
-}
-
-@media screen and (max-width: 999px) and (min-width: 680px) {
-  .header-list {
-    padding: 30px 0 0 0;
-    margin: 0 auto;
-    width: calc(61% + 55px);
-    min-width: 400px;
-  }
-}
-
-@media screen and (max-width: 679px) {
-  .header-list {
-    padding: 30px 0 0 0;
-    margin: 0 30px;
-    width: 100%;
+@media screen and (max-width: 48rem) {
+  .nav-side {
+    display: none;
   }
 }
