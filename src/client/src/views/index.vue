@@ -36,7 +36,7 @@
     <div class="dashboard-container">
       <nav class="nav-side">
         <div class="top-logo-title">
-          <img src="../../assets/logo.png" />
+          <img src="@/assets/logo.png" />
           <span>{{$t('home.title')}}</span>
         </div>
         <div

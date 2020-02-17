@@ -1,7 +1,7 @@
 import THeader from '@/components/header'
-import Information from './components/app-information'
-import Secret from './components/app-secret'
-import Wallet from './components/app-wallet'
+import Information from './app-information'
+import Secret from './app-secret'
+import Wallet from './app-wallet'
 import TModal from '@/components/t-modal'
 import tools from '@/assets/js/tools'
 
