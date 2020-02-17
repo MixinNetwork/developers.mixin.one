@@ -2,7 +2,7 @@
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
-  padding: 3rem 1rem 0 ;
+  padding: 3rem 1rem 0;
 }
 
 .app-info-content {
@@ -160,15 +160,18 @@ textarea {
   width: 100%;
 }
 
-@media screen and (max-width: 60rem) {
+
+@media screen and (max-width: 70rem) {
   .app-info-content {
     .app-info-top {
       flex-direction: column;
     }
+
     .app-info-meta {
       padding-right: 0rem;
       flex-direction: column-reverse;
     }
+
     .app-info-icon {
       margin-bottom: 2rem;
     }
@@ -177,6 +180,15 @@ textarea {
   .app-info-upload-and-show-icon {
     width: 8rem;
     height: 8rem;
+    position: relative;
+
+    p {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      left: calc(100% + 1rem);
+    }
   }
 
   .app-info-icon-img {

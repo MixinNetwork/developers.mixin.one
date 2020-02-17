@@ -8,9 +8,8 @@ import $bus from './assets/js/bus'
 import store from './store'
 import VueClipboard from 'vue-clipboard2'
 import i18n from './assets/i18n'
-import { Message, MessageBox, Loading } from 'element-ui'
+import { Message, Loading } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$message = Message;
 
 Vue.use(Loading.directive);

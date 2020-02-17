@@ -1,13 +1,13 @@
 import forge from 'node-forge'
-import TInput from '@/components/t-input'
 import TModal from '@/components/t-modal'
 import { _check_date, _set_token_obj } from '@/assets/js/wallet'
 import { _request_show_qrcode, _request_rotate_qrcode, _request_new_secret } from '@/assets/js/secret'
-
+import UpdateToken from '@/components/update-token'
+import Confirm from '@/components/confirm'
 export default {
   name: 'app-information',
   components: {
-    TInput, TModal
+    TModal, UpdateToken, Confirm
   },
   props: ['active_app'],
   data() {
@@ -15,8 +15,9 @@ export default {
       modal_title: '',
       modal_content: '',
       loading: false,
-      modal_loading: false,
       open_edit_modal: false,
+      confirm_modal: false,
+      confirm_content: '',
       submit_form: {
         session_id: '',
         pin_token: '',
@@ -27,45 +28,35 @@ export default {
     }
   },
   methods: {
-    click_submit() {
-      if (!_check_date.call(this)) return
-      _set_token_obj.call(this)
-      this.open_edit_modal = false
+    confirm_action() {
       switch (this.tmp_action) {
         case 'show':
           this.request_show_qrcode()
           break
         case 'rotate':
-          this.request_rotate_qrcode()
+          _request_rotate_qrcode.call(this)
+          break
+        case 'secret':
+          _request_new_secret.call(this)
+          break
+        case 'sesson':
+          _request_new_sseion.call(this)
           break
       }
     },
-    click_cancel() {
+    close_modal() {
+      this.confirm_modal = false
       this.open_edit_modal = false
     },
     request_new_secret() {
-      this.$confirm(this.$t('secret.secret_question'), '', {
-        confirmButtonText: this.$t('button.ok'),
-        cancelButtonText: this.$t('button.cancel'),
-      })
-        .then(_ => {
-          _request_new_secret.call(this)
-        })
-        .catch(_ => {
-          return
-        })
+      this.confirm_content = this.$t('secret.secret_question')
+      this.tmp_action = 'secret'
+      this.confirm_modal = true
     },
     request_new_session() {
-      this.$confirm(this.$t('secret.session_question'), '', {
-        confirmButtonText: this.$t('button.ok'),
-        cancelButtonText: this.$t('button.cancel'),
-      })
-        .then(_ => {
-          _request_new_sseion.call(this)
-        })
-        .catch(_ => {
-          return
-        })
+      this.confirm_content = this.$t('secret.session_question')
+      this.tmp_action = 'sesson'
+      this.confirm_modal = true
     },
     request_show_qrcode() {
       let { app_id } = this.active_app
@@ -81,16 +72,8 @@ export default {
       this.tmp_action = 'rotate'
       if (!app_str) return this.open_edit_modal = true
       this.app_str = app_str
-      this.$confirm(this.$t('secret.rotate_qrcode_question'), '', {
-        confirmButtonText: this.$t('button.ok'),
-        cancelButtonText: this.$t('button.cancel'),
-      })
-        .then(_ => {
-          _request_rotate_qrcode.call(this)
-        })
-        .catch(_ => {
-          return
-        })
+      this.confirm_content = this.$t('secret.rotate_qrcode_question')
+      this.confirm_modal = true
     },
     click_copy_succuess() {
       this.$message.success({ message: this.$t('message.success.copy'), showClose: true });

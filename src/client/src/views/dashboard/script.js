@@ -12,6 +12,7 @@ export default {
   components: { Information, Secret, Wallet, TModal, THeader },
   data() {
     return {
+      show_click_user: false,
       entring_status: {
         welcome: true,
         is_new_app: false,
@@ -24,7 +25,9 @@ export default {
       all_loading: false,
       timer: null,
       balance_modal: false,
-      tmp_money: 0
+      tmp_money: 0,
+      is_immersive: false,
+      is_mobile: false
     }
   },
   computed: {
@@ -48,8 +51,7 @@ export default {
   },
   methods: {
     back() {
-      this.$store.commit("change_state", { asset_list: [] });
-      this.$emit("back");
+      this.$router.go(-1)
     },
     change_router(nav_header_index) {
       this.nav_header_index = nav_header_index
@@ -91,8 +93,15 @@ export default {
       axios_get_app_list.call(this, app_id)
       this.entring_status.is_new_app = false
     },
+    click_user_img() {
+      this.show_click_user = !this.show_click_user
+      if (this.show_click_user) {
+        document.addEventListener('click', event_listener_to_toogle_show_click_user.bind(this))
+      }
+    },
     click_sign_out() {
       window.localStorage.clear()
+      this.show_click_user = false;
       this.entring_status.show_click_user = false;
       setTimeout(() => {
         window.location.href = window.location.origin
@@ -109,15 +118,16 @@ export default {
   },
   mounted() {
     init_page.call(this)
-  },
-  destroyed() {
-    if (this.$route.path === '/apps/new') {
-      this.$store.commit('cache_new_app', false)
+    this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
+    window.onresize = () => {
+      this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
     }
-  },
+  }
 }
 
 function init_page() {
+  tools.changeTheme('#fff')
+  this.is_immersive = tools.isImmersive()
   this.all_loading = true
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)

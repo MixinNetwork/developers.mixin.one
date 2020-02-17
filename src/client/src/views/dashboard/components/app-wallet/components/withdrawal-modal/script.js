@@ -1,11 +1,12 @@
 import tools from '@/assets/js/tools'
 import TInput2 from '../t-input2'
 import TModal from '@/components/t-modal'
+import THeader from '@/components/header'
 
 export default {
   name: 'withdrawal-modal',
   components: {
-    TInput2, TModal
+    TInput2, TModal, THeader
   },
   props: ['active_asset', 'app_id', 'show'],
   data() {
@@ -29,6 +30,9 @@ export default {
     }
   },
   methods: {
+    back() {
+      this.$emit('close-modal')
+    },
     click_remember_token() {
       this.remember_token_status = !this.remember_token_status;
     },

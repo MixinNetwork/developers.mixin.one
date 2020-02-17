@@ -3,8 +3,9 @@
     <section class="app-info">
       <div class="app-info-content f f-column">
         <div class="app-info-top">
-          <div v-if="active_app.app_id" class="app-info-meta f">
+          <div class="app-info-meta f">
             <mixin-input
+              v-if="active_app.app_id"
               label="Mixin ID"
               disabled
               v-model="active_app.app_number"
@@ -25,6 +26,7 @@
           <div :class="['app-info-edit-main','f' ]">
             <div class="app-info-edit-list f f-column">
               <mixin-input
+                v-if="active_app.app_id"
                 :label="$t('information.app_id')"
                 disabled
                 width

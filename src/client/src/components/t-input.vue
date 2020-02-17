@@ -1,13 +1,21 @@
 <template>
   <div>
     <label>{{label}}</label>
+    <textarea
+      v-if="['应用 ID', 'App ID'].includes(label)"
+      :value="value"
+      :class="[
+            (width===''?'width':''),
+            (disabled==='' ? 'disabled':'')
+            ]"
+    />
     <input
+      v-else
       :class="[
             (width===''?'width':''),
             (disabled==='' ? 'disabled':'')
             ]"
       :disabled="disabled===''"
-      type="text"
       :placeholder="placeholder[label] || ''"
       :value="value"
       @input="change($event)"
@@ -64,47 +72,76 @@ export default {
 div {
   font-size: 16px;
   position: relative;
-  label {
-    font-weight: 700;
-    display: block;
-    line-height: 16px;
-    margin-bottom: 16px;
-  }
-  input {
-    outline: none;
-    width: 100%;
-    height: 64px;
-    background: #fff;
-    padding: 0 20px;
-    border: 0;
-    border-radius: 4px;
-    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-    &::-webkit-input-placeholder {
-      color: #a9b0bf;
-    }
-    &::-moz-input-placeholder {
-      color: #a9b0bf;
-    }
-    &::-ms-input-placeholder {
-      color: #a9b0bf;
-    }
-  }
-  .width {
-    width: 100%;
-  }
-  .disabled {
-    background: #eceef2;
+}
+
+label {
+  font-weight: 700;
+  display: block;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+
+textarea,
+input {
+  outline: none;
+  width: 100%;
+  height: 64px;
+  background: #fff;
+  font-size: 1rem;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+  &::-webkit-input-placeholder {
     color: #a9b0bf;
-    box-shadow: none;
+  }
+  &::-moz-input-placeholder {
+    color: #a9b0bf;
+  }
+  &::-ms-input-placeholder {
+    color: #a9b0bf;
+  }
+}
+.width {
+  width: 100%;
+}
+.disabled {
+  background: #eceef2;
+  color: #a9b0bf;
+  box-shadow: none;
+}
+img {
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  right: 10px;
+  top: 64px;
+  transform: translateY(-50%);
+  border-radius: 0;
+}
+
+textarea {
+  line-height: 64px;
+}
+
+@media screen and (max-width: 48rem) {
+  input,
+  textarea {
+    font-weight: 500;
+    height: 50px;
+  }
+  textarea {
+    line-height: 50px;
   }
   img {
-    cursor: pointer;
-    padding: 5px;
-    position: absolute;
-    right: 10px;
-    top: 64px;
-    transform: translateY(-50%);
-    border-radius: 0;
+    top: 55px;
+  }
+}
+
+@media screen and (max-width: 423px) {
+  textarea {
+    line-height: 18px;
+    padding: 7px 46px 7px 20px;
   }
 }
 </style>

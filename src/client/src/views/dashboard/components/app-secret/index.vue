@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="secret-list-bottom-tips">{{$t('secret.des')}}</div>
-    <t-modal v-show="modal_content" :show="modal_content ? true : false" :width="612" :height="294">
+    <t-modal class="secret-modal" v-show="modal_content" :show="modal_content ? true : false" :width="612" :height="294">
       <div class="new-secret-modal">
         <h3>{{modal_title}}</h3>
         <span>{{modal_content}}</span>
@@ -46,32 +46,20 @@
         <img @click="click_close_new_secret" class="iconguanbi" src="@/assets/img/svg/close.svg" />
       </div>
     </t-modal>
-
-    <div v-show="open_edit_modal" class="edit-information">
-      <t-modal
-        :loading="modal_loading"
-        class="--edit-modal"
-        :show="open_edit_modal"
-        :width="700"
-        :height="512"
-      >
-        <div class="edit-main-modal">
-          <h3 class="edit-main-modal-title">{{$t('wallet.update_token')}}</h3>
-          <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
-          <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
-          <div class="edit-information-PK">
-            <label style="margin-bottom:16px">Private Key</label>
-            <textarea v-model="submit_form.private_key"></textarea>
-          </div>
-          <div class="btns">
-            <button @click="click_submit" class="btns-save primary">{{$t('button.save')}}</button>
-            <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-          </div>
-          <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
-        </div>
-      </t-modal>
-    </div>
     <a v-show="false" ref="download_ssesion_json"></a>
+    <update-token
+      :open_edit_modal="open_edit_modal"
+      :active_app="active_app"
+      :submit_form="submit_form"
+      @success="confirm_action"
+      @close_modal="close_modal"
+    />
+    <confirm
+      :confirm_content="confirm_content"
+      :confirm_modal="confirm_modal"
+      @confirm="confirm_action"
+      @close_modal="close_modal"
+    />
   </div>
 </template>
 

@@ -1,28 +1,6 @@
 .development-dashboard {
   cursor: default;
   font-family: Helvetica;
-
-  // &.zh {
-  //   .dashboard-container .dashboard-center-and-nav header .header-list {
-  //     &.header-index-0 {
-  //       .move-slider {
-  //         left: 0;
-  //       }
-  //     }
-
-  //     &.header-index-1 {
-  //       .move-slider {
-  //         left: 112px;
-  //       }
-  //     }
-
-  //     &.header-index-2 {
-  //       .move-slider {
-  //         left: 224px;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 .app-header {
@@ -43,17 +21,6 @@ nav {
   overflow: hidden;
 }
 
-@media screen and (max-width: 740px) and (min-width: 680px) {
-  nav {
-    width: calc(100% - 460px);
-  }
-}
-
-@media screen and (max-width: 680px) {
-  nav {
-    width: 220px;
-  }
-}
 
 .top-logo-title {
   height: 60px;
@@ -351,28 +318,6 @@ header {
   padding: 1.6rem 1rem 0;
   position: relative;
   white-space: nowrap;
-
-
-  // .move-slider {
-  // }
-
-  // &.header-index-0 {
-  //   .move-slider {
-  //     left: 1rem;
-  //   }
-  // }
-
-  // &.header-index-1 {
-  //   .move-slider {
-  //     left: 11.75rem;
-  //   }
-  // }
-
-  // &.header-index-2 {
-  //   .move-slider {
-  //     left: 19.75rem;
-  //   }
-  // }
 }
 
 
@@ -392,6 +337,92 @@ header {
       height: 3px;
       width: 30px;
       background: #3277ff;
+    }
+  }
+}
+
+.app-dashboard-container {
+  width: 100%;
+  height: 100%;
+}
+
+.header-slot-right {
+  position: relative;
+}
+
+.header-slot-img {
+  width: 32px;
+  height: 32px;
+  transform: translate(0, 6px);
+}
+
+.header-slot-left.right-user-more {
+  right: initial;
+  left: -10px;
+
+  &:after {
+    left: 22px;
+  }
+}
+
+.right-user-more {
+  position: absolute;
+  top: 40px;
+  transition: top 0.5s;
+  opacity: 0;
+  right: -10px;
+  width: 160px;
+  box-shadow: 0px 2px 12px 0px rgba($color: #2f3032, $alpha: 0.26);
+  border-radius: 6px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid 5px;
+    top: -10px;
+    right: 22px;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff rgba(0, 0, 0, 0);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #fff;
+  }
+
+  &.right-user-more-active {
+    top: 50px;
+    opacity: 1;
+  }
+}
+
+.right-user-button-list {
+  &>div {
+    height: 63px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.19);
+
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 32px;
+      height: 16px;
+      width: 16px;
+      border-radius: 0;
+      display: inline-block;
+      transform: translate(0, 0);
+    }
+
+    span {
+      font-size: 14px;
+      padding-left: 20px;
     }
   }
 }
@@ -476,8 +507,116 @@ header {
     margin-right: 3.75rem;
   }
 
+  .no-app {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .no-app-title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  .no-app-content {
+    margin: 14px 0 20px 0;
+    width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .no-app-button {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+    color: #3277ff;
+
+    img {
+      height: 14px;
+      transform: translate(8px, 2px);
+    }
+  }
+
+  .has-app {
+    padding: 28px 20px 0 20px;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  .has-app-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .has-app-item {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px auto;
+    font-weight: 500;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(3n-2) {
+      margin-left: 0;
+    }
+
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #eceff6;
+
+    &.has-app-new-app {
+      color: #fff;
+      background-color: #3277ff;
+
+      img {
+        display: inline-block;
+        margin: 33px 0 4px 0;
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-top: 24px;
+    }
+
+    &>div {
+      margin: 3px 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .edit-main-modal {
+    button {
+      margin-right: 0;
+    }
+  }
 
   .app-header {
     display: block;
+  }
+}
+
+@media screen and (min-width: 420px) {
+
+  .has-app-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .has-app-item {
+    width: 100px;
+    height: 100px;
+    margin: 0 20px 18px 0 !important;
   }
 }

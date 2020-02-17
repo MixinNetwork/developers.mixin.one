@@ -83,6 +83,9 @@ textarea {
 }
 
 input {
+  outline: none;
+  border: 0;
+
   &::-webkit-input-placeholder {
     color: #a9b0bf;
   }

@@ -6,112 +6,101 @@
   z-index: 999;
   bottom: 0;
   user-select: none;
-
-  .modal-mask {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.34);
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-
-    .--modal-main {
-      border-radius: 12px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      overflow: auto;
-      height: 550px;
-    }
-  }
 }
 
-.fade-up-enter-active,
-.fade-up-leave-active {
-  transition: margin 0.3s, opacity 0.3s;
+.modal-mask {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.34);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
-.fade-up-enter {
-  margin-top: -20px;
-  opacity: 0;
-}
-
-.fade-up-leave-to {
-  margin-top: 20px;
-  opacity: 0;
+.--modal-main {
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  overflow: auto;
+  height: 550px;
 }
 
 .withdrawal-modal-container {
   padding: 50px;
+}
 
-  .iconguanbi {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    color: #b8bdc7;
-    cursor: pointer;
-    padding: 5px;
+.app-header {
+  display: none;
+}
+
+.iconguanbi {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #b8bdc7;
+  cursor: pointer;
+  padding: 5px;
+}
+
+header {
+  text-align: center;
+
+  img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
   }
 
-  header {
-    text-align: center;
+  p {
+    margin-bottom: 30px;
+    color: #a9b0bf;
+    user-select: text;
+  }
+}
 
-    img {
-      width: 72px;
-      height: 72px;
-      margin-bottom: 16px;
+.first-row {
+  &>div:last-child {
+    margin-bottom: 16px;
+    display: flex;
+
+    label {
+      width: 90px;
+      text-align: left;
+      line-height: 60px;
+      margin-right: 20px;
     }
 
-    p {
-      margin-bottom: 30px;
-      color: #a9b0bf;
-      user-select: text;
+    input {
+      outline: none;
+      width: 492px;
+      background: #f6f9ff;
+      padding-left: 10px;
+      border: 0;
+      border-radius: 4px;
     }
   }
+}
 
-  .first-row {
-    &>div:last-child {
-      margin-bottom: 16px;
-      display: flex;
+.btns {
+  margin-top: 64px;
 
-      label {
-        width: 90px;
-        text-align: left;
-        line-height: 60px;
-        margin-right: 20px;
-      }
-
-      input {
-        outline: none;
-        width: 492px;
-        background: #f6f9ff;
-        padding-left: 10px;
-        border: 0;
-        border-radius: 4px;
-      }
-    }
+  button {
+    font-size: 14px;
+    width: 140px;
+    float: right;
+    margin-left: 10px;
   }
 
-  .btns {
-    margin-top: 64px;
+  .btns-cancel {
+    background: #e5e7ec;
+    color: #333;
 
-    button {
-      font-size: 14px;
-      width: 140px;
-      float: right;
-      margin-left: 10px;
-    }
-
-    .btns-cancel {
-      background: #e5e7ec;
-      color: #333;
-
-      &:hover {
-        opacity: 0.8;
-      }
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
@@ -130,5 +119,85 @@
 }
 
 
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: margin 0.3s, opacity 0.3s;
+}
 
-@media screen and (max-width: 48rem) {}
+.fade-up-enter {
+  margin-top: -20px;
+  opacity: 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .--modal-main {
+    top: 0;
+    left: 0;
+    transform: initial;
+    background-color: #f6f7f9;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .app-header {
+    display: block;
+  }
+
+  .withdrawal-modal-container {
+    padding: 1.25rem;
+
+    header p {
+      color: #000;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .withdrawal-modal-container /deep/ section {
+
+    .mixin-id,
+    .first-row>div {
+      flex-direction: column;
+
+      label {
+        height: 1rem;
+        line-height: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      input {
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(28, 77, 174, .1);
+        height: 3.125rem;
+        padding: 0 1.25rem;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btns {
+    margin-top: 0;
+
+    .btns-copy {
+      display: block;
+      float: none;
+      margin: 0 auto;
+      width: 7.875rem;
+      height: 2.625rem;
+      border-radius: 2.5rem;
+      background: #3277ff;
+      font-size: 1rem;
+    }
+  }
+
+  .btns-cancel {
+    display: none;
+  }
+
+  .fade-up-enter-active,
+  .fade-up-leave-active {
+    transition: none;
+  }
+}
