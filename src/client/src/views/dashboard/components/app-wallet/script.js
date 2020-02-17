@@ -1,6 +1,6 @@
-import TInput from './compoents/t-input2'
+import TInput from './components/t-input2'
 import TModal from '@/components/t-modal'
-import WithdrawalModal from './compoents/withdrawal-modal'
+import WithdrawalModal from './components/withdrawal-modal'
 import { _check_date, _get_assets_list, _set_token_obj } from '@/assets/js/wallet'
 
 export default {
