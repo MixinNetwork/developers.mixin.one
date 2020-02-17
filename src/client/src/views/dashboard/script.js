@@ -1,3 +1,4 @@
+import THeader from '@/components/header'
 import Information from './components/app-information'
 import Secret from './components/app-secret'
 import Wallet from './components/app-wallet'
@@ -8,7 +9,7 @@ let tmp_uri = '';
 
 export default {
   name: 'dashboard-container',
-  components: { Information, Secret, Wallet, TModal },
+  components: { Information, Secret, Wallet, TModal, THeader },
   data() {
     return {
       entring_status: {
@@ -22,7 +23,6 @@ export default {
       loading: false,
       all_loading: false,
       timer: null,
-      slider_can_move: true,
       balance_modal: false,
       tmp_money: 0
     }
@@ -47,6 +47,10 @@ export default {
     }
   },
   methods: {
+    back() {
+      this.$store.commit("change_state", { asset_list: [] });
+      this.$emit("back");
+    },
     change_router(nav_header_index) {
       this.nav_header_index = nav_header_index
       this.tmp_component = this.nav_list[nav_header_index]
@@ -120,7 +124,6 @@ function init_page() {
   this.all_loading = true
   this.$store.dispatch('init_app').then(_ => {
     let { nav_header_index } = this.$store.state;
-    this.slider_can_move = false
     this.change_router(nav_header_index)
     this.all_loading = false
     if (this.$route.path.includes('/apps')) {
@@ -132,9 +135,6 @@ function init_page() {
         this.$store.commit('change_state', { active_app: this.app_list[active_index] })
       }
     }
-    setTimeout(() => {
-      this.slider_can_move = true
-    }, 300);
   })
 }
 

@@ -4,6 +4,8 @@
       <div>
         <h3>{{$t('wallet.update_token_desc')}}</h3>
         <button class="primary" @click="open_edit_modal = true">{{$t('wallet.update')}}</button>
+        <span @click="open_edit_modal = true">{{$t('wallet.update_token')}}</span>
+        <img src="@/assets/img/app-svg/right.svg" />
       </div>
     </div>
     <div v-show="open_edit_modal" class="edit-information">

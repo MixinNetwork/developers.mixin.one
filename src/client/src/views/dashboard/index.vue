@@ -1,5 +1,18 @@
 <template>
   <div v-loading="all_loading" :class="['development-dashboard', $t('language')]">
+    <t-header class="app-header">
+      <div
+        style="width:50px;transform:translate(-25px);padding-left:25px"
+        @click="back"
+        slot="left"
+      >
+        <img
+          style="height:24px;width:24px;transform:translate(0,5px)"
+          src="@/assets/img/app-svg/left.svg"
+        />
+      </div>
+      <div slot="center">{{active_app.name}}</div>
+    </t-header>
     <div class="dashboard-container">
       <nav class="nav-side">
         <div class="top-logo-title">
@@ -97,10 +110,7 @@
                   :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
                   @click="change_router(index)"
                 >{{$t(item + '.title')}}</span>
-                <div
-                  :style="{transition: slider_can_move ? 'left 0.3s ease-in-out' : '0s'}"
-                  class="move-slider"
-                ></div>
+                <div class="move-slider"></div>
               </template>
             </div>
           </header>
@@ -143,6 +153,6 @@
 
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 @import "./style.scss";
 </style>

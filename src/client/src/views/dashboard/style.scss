@@ -1,30 +1,32 @@
-@import "../../assets/scss/theme.scss";
-
 .development-dashboard {
   cursor: default;
   font-family: Helvetica;
 
-  &.zh {
-    .dashboard-container .dashboard-center-and-nav header .header-list {
-      &.header-index-0 {
-        .move-slider {
-          left: 0;
-        }
-      }
+  // &.zh {
+  //   .dashboard-container .dashboard-center-and-nav header .header-list {
+  //     &.header-index-0 {
+  //       .move-slider {
+  //         left: 0;
+  //       }
+  //     }
 
-      &.header-index-1 {
-        .move-slider {
-          left: 112px;
-        }
-      }
+  //     &.header-index-1 {
+  //       .move-slider {
+  //         left: 112px;
+  //       }
+  //     }
 
-      &.header-index-2 {
-        .move-slider {
-          left: 224px;
-        }
-      }
-    }
-  }
+  //     &.header-index-2 {
+  //       .move-slider {
+  //         left: 224px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.app-header {
+  display: none;
 }
 
 .dashboard-container {
@@ -339,8 +341,6 @@ header {
   background: rgba(255, 255, 255, 1);
   border-bottom: 1px solid #e1e7f5;
   color: #b8bdc7;
-
-
 }
 
 .header-list {
@@ -352,39 +352,46 @@ header {
   position: relative;
   white-space: nowrap;
 
-  .header-item {
-    margin-right: 80px;
-    cursor: pointer;
 
-    &.herader-item-active {
-      color: #1d69ff;
-    }
-  }
+  // .move-slider {
+  // }
 
-  .move-slider {
-    position: absolute;
-    height: 3px;
-    width: 30px;
-    background: #3277ff;
-    transition: left 0.3s ease-in-out;
-    top: 57px;
-  }
+  // &.header-index-0 {
+  //   .move-slider {
+  //     left: 1rem;
+  //   }
+  // }
 
-  &.header-index-0 {
-    .move-slider {
-      left: 1rem;
-    }
-  }
+  // &.header-index-1 {
+  //   .move-slider {
+  //     left: 11.75rem;
+  //   }
+  // }
 
-  &.header-index-1 {
-    .move-slider {
-      left: 11.75rem;
-    }
-  }
+  // &.header-index-2 {
+  //   .move-slider {
+  //     left: 19.75rem;
+  //   }
+  // }
+}
 
-  &.header-index-2 {
-    .move-slider {
-      left: 19.75rem;
+
+.header-item {
+  margin-right: 80px;
+  cursor: pointer;
+
+  &.herader-item-active {
+    color: #1d69ff;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      height: 3px;
+      width: 30px;
+      background: #3277ff;
     }
   }
 }
@@ -452,5 +459,25 @@ header {
 @media screen and (max-width: 48rem) {
   .nav-side {
     display: none;
+  }
+
+  header {
+    height: 2.5625rem;
+    box-shadow: 0 1px 4px 0 rgba(28, 77, 174, .1);
+  }
+
+  .header-list {
+    padding: 0.625rem 0 0.875rem 1.25rem;
+
+  }
+
+  .header-item {
+    font-size: 0.875rem;
+    margin-right: 3.75rem;
+  }
+
+
+  .app-header {
+    display: block;
   }
 }

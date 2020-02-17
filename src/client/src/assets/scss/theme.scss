@@ -64,14 +64,9 @@ button.active.focus {
 }
 
 textarea {
-  width: 960px;
-  height: 120px;
-  background: rgba(255, 255, 255, 1);
   box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-  border-radius: 4px;
   border: 0;
   outline: none;
-  padding: 20px;
   resize: none;
 
   &::-webkit-input-placeholder {

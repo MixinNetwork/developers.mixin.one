@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/scss/theme.scss";
+
 html,
 body,
 #app,
@@ -31,7 +33,8 @@ body,
   overflow: hidden;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }

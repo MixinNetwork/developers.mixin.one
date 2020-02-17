@@ -1,3 +1,49 @@
+.--app-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  bottom: 0;
+  user-select: none;
+
+  .modal-mask {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.34);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    .--modal-main {
+      border-radius: 12px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      overflow: auto;
+      height: 550px;
+    }
+  }
+}
+
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: margin 0.3s, opacity 0.3s;
+}
+
+.fade-up-enter {
+  margin-top: -20px;
+  opacity: 0;
+}
+
+.fade-up-leave-to {
+  margin-top: 20px;
+  opacity: 0;
+}
+
 .withdrawal-modal-container {
   padding: 50px;
 
@@ -8,45 +54,21 @@
     color: #b8bdc7;
     cursor: pointer;
     padding: 5px;
-
-    &:hover {
-      color: rgba(50, 119, 255, 0.8);
-    }
-  }
-
-  input {
-    font-size: 16px;
-    padding: 0 10px !important;
   }
 
   header {
-    border: 0 !important;
-    height: 140px !important;
     text-align: center;
 
     img {
       width: 72px;
       height: 72px;
       margin-bottom: 16px;
-      border: 0;
     }
 
     p {
       margin-bottom: 30px;
       color: #a9b0bf;
       user-select: text;
-      line-height: 16px;
-    }
-  }
-
-  section {
-    label {
-      text-align: left;
-      font-weight: 700;
-    }
-
-    input {
-      box-shadow: none !important;
     }
   }
 
@@ -56,7 +78,6 @@
       display: flex;
 
       label {
-        display: inline-block;
         width: 90px;
         text-align: left;
         line-height: 60px;
@@ -65,31 +86,12 @@
 
       input {
         outline: none;
-        height: 60px;
         width: 492px;
         background: #f6f9ff;
-        padding-left: 20px;
+        padding-left: 10px;
         border: 0;
         border-radius: 4px;
       }
-    }
-  }
-
-  .remenber-token {
-    margin-left: 114px;
-    color: #a9b0bf;
-    cursor: pointer;
-
-    i {
-      margin-right: 13px;
-
-      &.active {
-        color: #3277ff;
-      }
-    }
-
-    span {
-      color: #a9b0bf;
     }
   }
 
@@ -113,3 +115,20 @@
     }
   }
 }
+
+
+.withdrawal-modal-container /deep/ section {
+  label {
+    text-align: left;
+    font-weight: 700;
+  }
+
+  input {
+    font-size: 16px;
+    box-shadow: none;
+  }
+}
+
+
+
+@media screen and (max-width: 48rem) {}
