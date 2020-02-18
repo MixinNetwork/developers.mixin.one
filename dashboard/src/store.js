@@ -90,14 +90,14 @@ let actions = {
       let { app_list, apps_property } = state
       let app_nums = app_list.length
       let { count, price } = apps_property
-      let unit_cost = (app_nums + 1 - Number(count)) * Number(price)
-      if (unit_cost > 0) {
+      let buy_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
+      if (buy_one_app_price > 0) {
         axios_get_apps_property.call(context).then(res => {
           let { count, price } = res
-          let unit_cost = (app_nums + 1 - Number(count)) * Number(price)
-          resolve(unit_cost)
+          let buy_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
+          resolve(buy_one_app_price)
         })
-      } else resolve(unit_cost)
+      } else resolve(buy_one_app_price)
     })
   }
 }

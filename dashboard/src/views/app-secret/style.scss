@@ -69,22 +69,12 @@
   }
 }
 
-@media screen and (max-width: 70rem) {
-  .secret-list {
-    display: block;
-
-    .item {
-      width: 100%;
-      padding: 1rem;
-    }
-  }
-}
 
 .tips {
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
-  padding: 5rem 2.875rem 2rem;
+  padding: 2rem 2.875rem 2rem;
   font-size: 15px;
   font-weight: 400;
   color: rgba(184, 189, 199, 1);
@@ -166,108 +156,6 @@
   }
 }
 
-
-
-.edit-information {
-  padding: 50px 0 0 100px;
-  height: 100%;
-}
-
-// .--edit-modal /deep/ .modal-mask {
-//   position: absolute;
-//   background-color: rgba(0, 0, 0, 0.34);
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   bottom: 0;
-//   overflow: hidden;
-
-//   .edit-main-modal {
-//     padding: 50px 40px 0 40px;
-//     overflow: hidden;
-
-//     h3 {
-//       width: 113px;
-//       height: 16px;
-//       font-size: 16px;
-//       letter-spacing: 0.2px;
-//       font-family: SFProText-Bold, SFProText;
-//       font-weight: bold;
-//       color: rgba(0, 0, 0, 1);
-//       line-height: 16px;
-//       margin: 10px auto 40px auto;
-//     }
-
-//     label {
-//       font-weight: 700;
-//       min-width: 90px;
-//       margin-right: 20px;
-//     }
-
-//     div {
-//       display: flex;
-//       align-items: center;
-//       margin-bottom: 20px;
-
-//       label {
-//         margin-bottom: 0;
-//       }
-
-//       input {
-//         width: 492px;
-//         font-size: 16px;
-//         background: #f6f9ff;
-//       }
-
-//     }
-
-//     .btns {
-//       justify-content: flex-end;
-
-//       button:first-child {
-//         margin-right: 20px;
-//       }
-//     }
-
-//     input {
-//       padding: 0 10px;
-//     }
-//   }
-
-//   .edit-information-PK {
-//     display: flex;
-//     align-items: center;
-
-//     label {
-//       transform: translate(0, 5px);
-//     }
-
-//     textarea {
-//       font-size: 16px;
-//       padding: 10px;
-//       width: 492px;
-//       height: 82px;
-//       background: #f6f9ff;
-
-//       &::-webkit-scrollbar {
-//         width: 0;
-//         height: 100%;
-//       }
-//     }
-//   }
-// }
-
-
-.btns-cancel {
-  margin-right: 9px;
-  background-color: #e5e7ec;
-  color: #333;
-
-  &:hover {
-    background-color: rgba(229, 231, 236, 0.8);
-  }
-}
-
 .qrcode-btns {
   display: flex;
 
@@ -291,6 +179,17 @@
 
   &:hover {
     color: rgba(50, 119, 255, 0.8);
+  }
+}
+
+@media screen and (max-width: 70rem) {
+  .secret-list {
+    display: block;
+
+    .item {
+      width: 100%;
+      padding: 1rem;
+    }
   }
 }
 
