@@ -45,9 +45,6 @@ export default {
     }
   },
   watch: {
-    'entring_status.show_click_user'(val) {
-      if (!val) document.removeEventListener('click', event_listener_to_toogle_show_click_user.bind(this))
-    },
     nav_header_index(val) {
       this.$store.commit('change_state', { nav_header_index: val })
     },
@@ -73,7 +70,7 @@ export default {
     click_user() {
       this.entring_status.show_click_user = !this.entring_status.show_click_user
       if (this.entring_status.show_click_user) {
-        document.addEventListener('click', event_listener_to_toogle_show_click_user.bind(this))
+        document.onclick = () => this.entring_status.show_click_user = false
       }
     },
     click_app_list_item(index) {
@@ -191,10 +188,6 @@ function mounted_select_active_router() {
   }
 }
 
-
-function event_listener_to_toogle_show_click_user() {
-  this.entring_status.show_click_user = false
-}
 
 function jump_to_uri(uri, has_app_number) {
   this.tmp_component = 'information'
