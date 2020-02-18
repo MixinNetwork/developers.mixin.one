@@ -22,10 +22,10 @@
           :src="user_info.avatar_url || _const.default.avatar_url"
         />
         <div
-          :class="['right-user-more', show_click_user ? 'right-user-more-active' : '',!is_immersive ? 'header-slot-right' : 'header-slot-left']"
+          :class="['right-more', show_click_user ? 'right-more-active' : '',!is_immersive ? 'header-slot-right' : 'header-slot-left']"
         >
-          <div class="right-user-button-list">
-            <div @click.stop="click_sign_out" class="right-user-button-item">
+          <div class="right-button-list">
+            <div @click.stop="click_sign_out" class="right-button-item">
               <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
               <span>{{$t('home.sign_out')}}</span>
             </div>
@@ -42,28 +42,28 @@
         <div
           v-if="!app_list.length"
           @click.stop="click_user"
-          class="middle-user-or-new-app top-user-info"
+          class="middle top-info"
         >
           <img :src="user_info.avatar_url || _const.default.avatar_url" />
-          <div class="user-info-name-and-id">
+          <div class="user-name-id">
             <div>{{user_info.full_name}}</div>
             <div>ID: {{user_info.identity_number}}</div>
           </div>
           <div
-            :class="['bottom-user-more', (entring_status.show_click_user ? 'bottom-user-more-active' : '')]"
+            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
           >
-            <div class="bottom-user-button-list">
-              <div @click.stop class="bottom-user-button-item">
+            <div class="bottom-button-list">
+              <div @click.stop class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
                 <span>{{$t('home.sign_out')}}</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="middle-app-list-or-new-app">
+        <div class="middle-app-list">
           <div
             @click="click_new_app"
-            :class="['create-new-app',entring_status.is_new_app ? 'create-new-app-active' : '' ]"
+            :class="['create-app',entring_status.is_new_app ? 'create-app-active' : '' ]"
           >
             <img src="@/assets/img/svg/add.svg" />
             <span>{{$t('home.new_app')}}</span>
@@ -88,18 +88,18 @@
         <div
           v-if="app_list.length"
           @click.stop="click_user"
-          class="bottom-user-info middle-user-or-new-app"
+          class="bottom-info middle"
         >
           <img :src="user_info.avatar_url || _const.default.avatar_url" />
-          <div class="user-info-name-and-id">
+          <div class="user-name-id">
             <div>{{user_info.full_name}}</div>
             <div>ID:{{user_info.identity_number}}</div>
           </div>
           <div
-            :class="['bottom-user-more', (entring_status.show_click_user ? 'bottom-user-more-active' : '')]"
+            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
           >
-            <div class="bottom-user-button-list">
-              <div @click.stop="click_sign_out" class="bottom-user-button-item">
+            <div class="bottom-button-list">
+              <div @click.stop="click_sign_out" class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
                 <span>{{$t('home.sign_out')}}</span>
               </div>
@@ -175,9 +175,9 @@
 
     <div v-show="balance_modal" class="edit-information">
       <t-modal :show="balance_modal" :width="is_mobile ? 300 : 600" :height="is_mobile ? 474 : 312">
-        <div class="edit-main-modal">
+        <div class="edit-modal">
           <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
-          <h3 class="edit-main-modal-title">{{$t('home.buy.title')}}</h3>
+          <h3 class="edit-modal-title">{{$t('home.buy.title')}}</h3>
           <span>{{$t('home.buy.desc1')}}</span>
           <p>{{$t('home.buy.desc2')}}</p>
           <button

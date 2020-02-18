@@ -1,6 +1,6 @@
 <template>
-  <div v-loading="whole_loading" class="dashboard-desktop-wallet">
-    <div class="app-wallet-des" v-if="!is_edited">
+  <div v-loading="whole_loading" class="container">
+    <div class="des" v-if="!is_edited">
       <div>
         <h3>{{$t('wallet.update_token_desc')}}</h3>
         <button class="primary" @click="open_edit_modal = true">{{$t('wallet.update')}}</button>
@@ -9,25 +9,25 @@
       </div>
     </div>
 
-    <div v-if="is_edited" class="assets-list">
+    <div v-if="is_edited" class="list">
       <div
         v-for="(item, index) in assets_list"
         :key="index"
         :style="{opacity: item.icon_url ? '1':'0'}"
-        class="assets-item"
+        class="item"
       >
         <img :src="item.icon_url" />
         <div>
-          <span class="assets-item-num">{{item.balance}}</span>
-          <span class="assets-item-symbol">{{item.symbol}}</span>
+          <span class="num">{{item.balance}}</span>
+          <span class="symbol">{{item.symbol}}</span>
         </div>
         <button
           v-if="item.icon_url"
           @click="click_withdrawal(item)"
-          class="assets-item-withdrawal primary"
+          class="withdrawal primary"
         >{{$t('button.withdraw')}}</button>
       </div>
-      <div v-if="assets_list.length" class="assets-list-bottom-tips">
+      <div v-if="assets_list.length" class="list-bottom-tips">
         <div>{{$t('wallet.des_1')}}</div>
         <div>{{$t('wallet.des_2', {app_number: active_app.app_number})}}</div>
       </div>

@@ -1,9 +1,9 @@
 <template>
-  <div v-show="show" class="--app-modal">
-    <div class="modal-mask">
+  <div v-show="show" class="modal">
+    <div class="mask">
       <transition name="fade-up">
-        <div v-if="show" class="--modal-main" v-loading="loading">
-          <t-header class="app-header">
+        <div v-if="show" class="main" v-loading="loading">
+          <t-header class="header">
             <div
               style="width:50px;transform:translate(-25px);padding-left:25px"
               @click="back"
@@ -16,7 +16,7 @@
             </div>
             <div slot="center">{{$t('wallet.title')}}</div>
           </t-header>
-          <div class="withdrawal-modal-container">
+          <div class="content">
             <header :style="{opacity: active_asset.icon_url ? '1':'0'}">
               <img :src="active_asset.icon_url" />
               <p>{{active_asset.balance}} {{active_asset.symbol}}</p>
@@ -184,7 +184,7 @@ function _get_sid_from_storge(appid) {
 </script>
 
 <style lang="scss" scoped>
-.--app-modal {
+.modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -194,7 +194,7 @@ function _get_sid_from_storge(appid) {
   user-select: none;
 }
 
-.modal-mask {
+.mask {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.34);
   top: 0;
@@ -204,7 +204,7 @@ function _get_sid_from_storge(appid) {
   overflow: hidden;
 }
 
-.--modal-main {
+.main {
   border-radius: 12px;
   position: absolute;
   top: 50%;
@@ -215,11 +215,11 @@ function _get_sid_from_storge(appid) {
   height: 550px;
 }
 
-.withdrawal-modal-container {
+.content {
   padding: 50px;
 }
 
-.app-header {
+.header {
   display: none;
 }
 
@@ -291,7 +291,7 @@ header {
   }
 }
 
-.withdrawal-modal-container /deep/ section {
+.content /deep/ section {
   label {
     text-align: left;
     font-weight: 700;
@@ -314,7 +314,7 @@ header {
 }
 
 @media screen and (max-width: 48rem) {
-  .--modal-main {
+  .main {
     top: 0;
     left: 0;
     transform: initial;
@@ -324,11 +324,11 @@ header {
     width: 100%;
   }
 
-  .app-header {
+  .header {
     display: block;
   }
 
-  .withdrawal-modal-container {
+  .content {
     padding: 1.25rem;
 
     header p {
@@ -337,7 +337,7 @@ header {
     }
   }
 
-  .withdrawal-modal-container /deep/ section {
+  .content /deep/ section {
     .mixin-id,
     .first-row > div {
       flex-direction: column;

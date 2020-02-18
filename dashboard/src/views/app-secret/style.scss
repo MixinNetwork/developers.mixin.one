@@ -80,7 +80,7 @@
   }
 }
 
-.secret-list-bottom-tips {
+.tips {
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
@@ -303,12 +303,12 @@
     }
   }
 
-  // .secret-list-bottom-tips {
+  // .tips {
   //   font-size: .75rem;
   //   padding: 1rem 1rem 2rem;
   // }
 
-  .dashboard-desktop-secret /deep/ .secret-modal {
+  .container /deep/ .secret-modal {
     .--modal-main {
       width: 18.75rem !important;
       height: 16.5rem !important;

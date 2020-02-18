@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-desktop-secret">
+  <div class="container">
     <div v-loading="loading" class="secret-list f">
       <div class="item">
         <div class="secret-item">
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="secret-list-bottom-tips">{{$t('secret.des')}}</div>
+    <div class="tips">{{$t('secret.des')}}</div>
     <t-modal class="secret-modal" v-show="modal_content" :show="modal_content ? true : false" :width="612" :height="294">
       <div class="new-secret-modal">
         <h3>{{modal_title}}</h3>

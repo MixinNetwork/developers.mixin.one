@@ -43,7 +43,7 @@ nav {
   }
 }
 
-.middle-user-or-new-app {
+.middle {
   cursor: pointer;
   padding: 30px;
   height: 100px;
@@ -58,7 +58,7 @@ nav {
     margin-right: 16px;
   }
 
-  .user-info-name-and-id {
+  .user-name-id {
     line-height: 1;
 
     div:first-child {
@@ -82,17 +82,17 @@ nav {
     background: #f6f9ff;
   }
 
-  &.top-user-info .bottom-user-more {
+  &.top-info .bottom-more {
     top: 140px;
 
-    &.bottom-user-more-active {
+    &.bottom-more-active {
       opacity: 1;
       top: 160px;
     }
   }
 }
 
-.bottom-user-more {
+.bottom-more {
   transition: all 0.3s ease-in;
   z-index: -1;
   opacity: 0;
@@ -105,17 +105,17 @@ nav {
   border-radius: 6px;
   overflow: hidden;
 
-  &.bottom-user-more-active {
+  &.bottom-more-active {
     z-index: 2;
     opacity: 1;
     top: -55px;
   }
 }
 
-.bottom-user-button-list {
+.bottom-button-list {
   font-size: 14px;
 
-  .bottom-user-button-item {
+  .bottom-button-item {
     padding-left: 26px;
     line-height: 60px;
 
@@ -144,10 +144,10 @@ nav {
   }
 }
 
-.middle-app-list-or-new-app {
+.middle-app-list {
   height: 100%;
 
-  .create-new-app {
+  .create-app {
     cursor: pointer;
     width: 240px;
     line-height: 50px;
@@ -171,7 +171,7 @@ nav {
       background: #f6f9ff;
     }
 
-    &.create-new-app-active {
+    &.create-app-active {
       background: #f6f9ff;
     }
   }
@@ -237,7 +237,7 @@ nav {
   }
 }
 
-.bottom-user-info {
+.bottom-info {
   position: absolute;
   width: 279px;
   cursor: pointer;
@@ -356,7 +356,7 @@ header {
   transform: translate(0, 6px);
 }
 
-.header-slot-left.right-user-more {
+.header-slot-left.right-more {
   right: initial;
   left: -10px;
 
@@ -365,7 +365,7 @@ header {
   }
 }
 
-.right-user-more {
+.right-more {
   position: absolute;
   top: 40px;
   transition: top 0.5s;
@@ -397,13 +397,13 @@ header {
     background-color: #fff;
   }
 
-  &.right-user-more-active {
+  &.right-more-active {
     top: 50px;
     opacity: 1;
   }
 }
 
-.right-user-button-list {
+.right-button-list {
   &>div {
     height: 63px;
     border-bottom: solid 1px rgba(255, 255, 255, 0.19);
@@ -441,7 +441,7 @@ header {
   }
 }
 
-.edit-main-modal {
+.edit-modal {
   padding: 40px 20px 0 20px;
   text-align: center;
 
@@ -596,7 +596,7 @@ header {
     }
   }
 
-  .edit-main-modal {
+  .edit-modal {
     button {
       margin-right: 0;
     }

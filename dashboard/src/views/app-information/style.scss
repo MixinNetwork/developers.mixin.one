@@ -1,17 +1,17 @@
-.dashboard-desktop-information {
+.container {
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
   padding: 3rem 1rem 0;
 }
 
-.app-info-content {
-  .app-info-top {
+.content {
+  .top {
     display: flex;
     flex-direction: row;
   }
 
-  .app-info-meta {
+  .meta {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -19,7 +19,7 @@
     padding-right: 2rem;
   }
 
-  .app-info-edit-main {
+  .edit-main {
     display: flex;
     flex-direction: column;
     flex-grow: 3;
@@ -51,14 +51,14 @@
     font-weight: 700;
     margin: 28px 0;
 
-    &.app-info-not-finished {
+    &.not-finished {
       color: #a9b0bf;
       background-color: #e6e8ee;
       cursor: not-allowed;
     }
   }
 
-  .app-info-description-c {
+  .des-c {
     textarea {
       width: 100%;
       height: 120px;
@@ -87,13 +87,13 @@
   }
 }
 
-.app-info-edit-main {
-  &.app-info-edit-main-new-app {
+.edit-main {
+  &.edit-main-new-app {
     margin-top: 50px;
   }
 }
 
-.app-info-upload-and-show-icon {
+.upload-icon {
   width: 320px;
   position: relative;
   height: 320px;
@@ -111,7 +111,7 @@
     border-radius: 0 !important;
   }
 
-  img.app-info-icon-img {
+  img.icon-img {
     margin: 0;
     border-radius: 50% !important;
   }
@@ -138,20 +138,20 @@
   }
 }
 
-.app-info-mixin-id {
+.mixin-id {
   margin-bottom: 32px;
 }
 
-.app-info-item {
+.item {
   margin-bottom: 32px;
 }
 
-.app-info-mixin-id /deep/ input,
-.app-info-item /deep/ input {
+.mixin-id /deep/ input,
+.item /deep/ input {
   font-size: 16px;
 }
 
-.app-info-icon-img {
+.icon-img {
   width: 320px;
   height: 320px;
 }
@@ -162,22 +162,22 @@ textarea {
 
 
 @media screen and (max-width: 70rem) {
-  .app-info-content {
-    .app-info-top {
+  .content {
+    .top {
       flex-direction: column;
     }
 
-    .app-info-meta {
+    .meta {
       padding-right: 0rem;
       flex-direction: column-reverse;
     }
 
-    .app-info-icon {
+    .icon {
       margin-bottom: 2rem;
     }
   }
 
-  .app-info-upload-and-show-icon {
+  .upload-icon {
     width: 8rem;
     height: 8rem;
     position: relative;
@@ -191,7 +191,7 @@ textarea {
     }
   }
 
-  .app-info-icon-img {
+  .icon-img {
     width: 8rem;
     height: 8rem;
   }
