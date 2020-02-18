@@ -4,15 +4,8 @@
       <transition name="fade-up">
         <div v-if="show && !snap_status" v-loading="loading" class="main">
           <t-header class="header">
-            <div
-              style="width:50px;transform:translate(-25px);padding-left:25px"
-              @click="back"
-              slot="left"
-            >
-              <img
-                style="height:24px;width:24px;transform:translate(0,5px)"
-                src="@/assets/img/app-svg/left.svg"
-              />
+            <div class="header-back" @click="back" slot="left">
+              <img src="@/assets/img/app-svg/left.svg" />
             </div>
             <div slot="center">{{$t('wallet.title')}}</div>
           </t-header>
@@ -42,15 +35,8 @@
         </div>
         <div v-if="show && snap_status" class="main snap-main">
           <t-header class="header">
-            <div
-              style="width:50px;transform:translate(-25px);padding-left:25px"
-              @click="back"
-              slot="left"
-            >
-              <img
-                style="height:24px;width:24px;transform:translate(0,5px)"
-                src="@/assets/img/app-svg/left.svg"
-              />
+            <div class="header-back" @click="back" slot="left">
+              <img src="@/assets/img/app-svg/left.svg" />
             </div>
             <div slot="center">{{$t('wallet.snapshot_info')}}</div>
           </t-header>
@@ -80,8 +66,8 @@
               <button @click="click_submit" class="btns-copy primary">{{$t('button.withdraw')}}</button>
               <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
             </footer>
-            <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
+          <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
         </div>
       </transition>
     </div>
@@ -290,7 +276,7 @@ function _get_sid_from_storge(appid) {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  overflow: auto;
+  overflow: hidden;
   height: 550px;
 }
 
@@ -399,6 +385,8 @@ header {
 .snapshot {
   padding: 1.5rem;
   width: 100%;
+  height: 100%;
+  overflow: auto;
   h3 {
     text-align: center;
     margin: 0.75rem 0 1rem 0;
@@ -413,6 +401,7 @@ header {
       font-size: 1rem;
     }
     p {
+      user-select: text;
       background: #f6f9ff;
       box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
       border-radius: 6px;
@@ -435,6 +424,18 @@ header {
     border-radius: 0;
     height: 100%;
     width: 100%;
+  }
+
+  .header-back {
+    width: 50px;
+    transform: translate(-25px);
+    padding-left: 25px;
+
+    img {
+      height: 24px;
+      width: 24px;
+      transform: translate(0, 5px);
+    }
   }
 
   .header {

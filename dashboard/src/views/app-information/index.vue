@@ -58,16 +58,16 @@
           </div>
         </div>
         <div class="des">
-          <div class="des-c" style="margin-bottom:32px;">
-            <label style="margin-bottom:16px">{{$t('information.description')}}</label>
+          <div class="des-c">
+            <label>{{$t('information.description')}}</label>
             <textarea
               @input="check_is_finished"
               :placeholder="$t('information.description_desc')"
               v-model="active_app.description"
             ></textarea>
           </div>
-          <div class="des-c" style="margin-bottom:32px;">
-            <label style="margin-bottom:16px">{{$t('information.resource_patterns')}}</label>
+          <div class="des-c">
+            <label>{{$t('information.resource_patterns')}}</label>
             <textarea
               :placeholder="$t('information.resource_patterns_desc')"
               v-model="resource_patterns"

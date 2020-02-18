@@ -12,7 +12,7 @@
         <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
         <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
         <div class="edit-information-PK">
-          <label style="margin-bottom:1rem">Private Key</label>
+          <label>Private Key</label>
           <textarea v-model="submit_form.private_key"></textarea>
         </div>
         <div class="btns">
@@ -133,6 +133,7 @@ label {
 
   label {
     transform: translate(0, 5px);
+    margin-bottom: 1rem;
   }
 
   textarea {

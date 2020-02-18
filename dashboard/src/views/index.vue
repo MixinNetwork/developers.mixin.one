@@ -1,15 +1,8 @@
 <template>
   <div v-loading="all_loading" :class="['development-dashboard', $t('language')]">
     <t-header v-if="$route.path!=='/'" class="app-header">
-      <div
-        style="width:50px;transform:translate(-25px);padding-left:25px"
-        @click="back"
-        slot="left"
-      >
-        <img
-          style="height:24px;width:24px;transform:translate(0,5px)"
-          src="@/assets/img/app-svg/left.svg"
-        />
+      <div class="header-back" @click="back" slot="left">
+        <img src="@/assets/img/app-svg/left.svg" />
       </div>
       <div slot="center">{{active_app.name || $t('home.new_app')}}</div>
     </t-header>
@@ -39,11 +32,7 @@
           <img src="@/assets/logo.png" />
           <span>{{$t('home.title')}}</span>
         </div>
-        <div
-          v-if="!app_list.length"
-          @click.stop="click_user"
-          class="middle top-info"
-        >
+        <div v-if="!app_list.length" @click.stop="click_user" class="middle top-info">
           <img :src="user_info.avatar_url || _const.default.avatar_url" />
           <div class="user-name-id">
             <div>{{user_info.full_name}}</div>
@@ -85,11 +74,7 @@
             </div>
           </div>
         </div>
-        <div
-          v-if="app_list.length"
-          @click.stop="click_user"
-          class="bottom-info middle"
-        >
+        <div v-if="app_list.length" @click.stop="click_user" class="bottom-info middle">
           <img :src="user_info.avatar_url || _const.default.avatar_url" />
           <div class="user-name-id">
             <div>{{user_info.full_name}}</div>
@@ -118,10 +103,7 @@
           <header>
             <div :class="['header-list', ('header-index-' +nav_header_index)]">
               <template v-if="entring_status.is_new_app">
-                <span
-                  class="header-item"
-                  style="font-weight:700;color:#1d69ff"
-                >{{$t('home.new_app')}}</span>
+                <span class="header-item new-item">{{$t('home.new_app')}}</span>
               </template>
               <template v-else>
                 <span
