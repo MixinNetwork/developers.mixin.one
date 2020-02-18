@@ -109,7 +109,7 @@ export default {
     click_user_img() {
       this.show_click_user = !this.show_click_user
       if (this.show_click_user) {
-        document.addEventListener('click', event_listener_to_toogle_show_click_user.bind(this))
+        document.onclick = () => this.show_click_user = false
       }
     },
     click_sign_out() {
