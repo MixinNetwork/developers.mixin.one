@@ -50,10 +50,20 @@ export default {
     },
     nav_header_index(val) {
       this.$store.commit('change_state', { nav_header_index: val })
+    },
+    '$route.path'(val) {
+      if (val === '/apps/new') {
+        this.click_new_app()
+      } else if (val.includes('/apps')) {
+        let { app_number } = this.$route.params
+        let active_index = this.app_list.findIndex(item => item.app_number === app_number)
+        this.$store.commit('change_state', { active_app: this.app_list[active_index] })
+      }
     }
   },
   methods: {
     back() {
+      tmp_uri = ''
       this.$router.go(-1)
     },
     change_router(nav_header_index) {
