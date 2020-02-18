@@ -29,7 +29,7 @@
     <div class="dashboard-container">
       <nav class="nav-side">
         <div class="top-logo-title">
-          <img src="@/assets/logo.png" />
+          <img src="@/assets/img/logo.png" />
           <span>{{$t('home.title')}}</span>
         </div>
         <div v-if="!app_list.length" @click.stop="click_user" class="middle top-info">
