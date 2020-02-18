@@ -84,7 +84,7 @@
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
-  padding: 3rem 2.875rem;
+  padding: 5rem 2.875rem 2rem;
   font-size: 15px;
   font-weight: 400;
   color: rgba(184, 189, 199, 1);
@@ -302,11 +302,6 @@
       margin-bottom: 0;
     }
   }
-
-  // .tips {
-  //   font-size: .75rem;
-  //   padding: 1rem 1rem 2rem;
-  // }
 
   .container /deep/ .secret-modal {
     .--modal-main {
