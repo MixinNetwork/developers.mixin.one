@@ -11,4 +11,9 @@ cd ..
 mkdir dist/api
 mv api/_site/beta-mixin-message api/_site/alpha-mixin-network api/_site/assets api/_site/scripts api/_site/images api/_site/search api/_site/favicon.ico api/_site/apple-touch-icon.png api/_site/launcher.png api/_site/robots.txt api/_site/index.html dist/api/
 
+cd dashboard
+yarn build
+cd ..
+mv dashboard/dist dist/dashboard
+
 rsync -rcv dist/* one@mixin-developers:html/

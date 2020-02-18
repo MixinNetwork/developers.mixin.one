@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>形状结合</title>
+    <desc>Created with Sketch.</desc>
+    <g id="移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="主页我的备份" transform="translate(-236.000000, -182.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="编组-18备份" transform="translate(205.000000, 88.000000)">
+                <g id="编组-19" transform="translate(31.000000, 94.000000)">
+                    <g id="编组-16">
+                        <g id="编组-13">
+                            <path d="M12,0 C12.5522847,0 13,0.44771525 13,1 C13,1.51283584 12.6139598,1.93550716 12.1166211,1.99327227 L12,2 L2,2 L2,16 L12,16 C12.5128358,16 12.9355072,16.3860402 12.9932723,16.8833789 L13,17 C13,17.5128358 12.6139598,17.9355072 12.1166211,17.9932723 L12,18 L0,18 L0,0 L12,0 Z M12,5 L17,9 L12,13 L12,10 L5,10 L5,8 L12,8 L12,5 Z" id="形状结合"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
