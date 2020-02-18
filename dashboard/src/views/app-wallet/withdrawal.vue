@@ -26,7 +26,7 @@
             </section>
             <footer>
               <div class="btns">
-                <button @click="click_submit" class="btns-copy primary">{{$t('button.withdraw')}}</button>
+                <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
                 <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
               </div>
             </footer>
@@ -63,7 +63,7 @@
               <p>{{transaction_info.transaction_hash}}</p>
             </div>
             <footer class="btns">
-              <button @click="click_submit" class="btns-copy primary">{{$t('button.withdraw')}}</button>
+              <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
               <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
             </footer>
           </div>
@@ -117,7 +117,7 @@ export default {
       this.loading = false;
       if (transfer_status) {
         this.$message.success({
-          message: this.$t("message.success.withdraw"),
+          message: this.$t("message.success.withdrawal"),
           showClose: true
         });
         if (this.submit_form.opponent_id.startsWith("XIN")) {
