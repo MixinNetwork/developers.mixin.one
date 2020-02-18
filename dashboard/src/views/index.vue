@@ -1,6 +1,6 @@
 <template>
   <div v-loading="all_loading" :class="['development-dashboard', $t('language')]">
-    <t-header v-if="$route.path!=='/'" class="app-header">
+    <t-header v-if="$route.name!=='dashboard'" class="app-header">
       <div class="header-back" @click="back" slot="left">
         <img src="@/assets/img/app-svg/left.svg" />
       </div>
@@ -92,7 +92,7 @@
           </div>
         </div>
       </nav>
-      <div v-if="$route.path!=='/' || !is_mobile" class="dashboard-center-and-nav">
+      <div v-if="$route.name!=='dashboard' || !is_mobile" class="dashboard-center-and-nav">
         <div v-if="entring_status.welcome" class="welcome">
           <img src="@/assets/img/svg/robot.svg" />
           <h1>{{$t('home.welcome')}}</h1>
@@ -126,7 +126,7 @@
           </div>
         </div>
       </div>
-      <div v-if="$route.path==='/' && is_mobile" class="app-dashboard-container">
+      <div v-if="$route.name==='dashboard' && is_mobile" class="app-dashboard-container">
         <div v-if="!app_list.length" class="no-app">
           <div class="no-app-title">{{$t('home.welcome')}}</div>
           <div class="no-app-content">{{$t('home.welcome_d')}}</div>

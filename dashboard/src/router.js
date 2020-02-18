@@ -5,24 +5,20 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    name: 'dashboard',
+    path: '/dashboard',
     component: Dashboard,
   },
   {
-    path: '/apps/:app_number',
     name: 'information',
+    path: '/apps/:app_number',
     component: Dashboard
   },
   {
-    path: '/apps/new',
     name: 'new_app',
+    path: '/apps/new',
     component: Dashboard
-  },
-  {
-    path: '/withdrawal/:app_number',
-    component: Dashboard,
-    meta: { tree: 3 }
-  },
+  }
 ]
 
 const router = new VueRouter({ routes, mode: 'history' })

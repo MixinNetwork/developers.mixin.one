@@ -2,6 +2,7 @@ import TModal from '@/components/t-modal'
 import WithdrawalModal from './withdrawal'
 import tools from '@/assets/js/tools'
 import UpdateToken from '@/components/update-token'
+import BigNumber from 'bignumber.js'
 
 export default {
   components: {
@@ -69,6 +70,7 @@ function _get_assets_list(force_status) {
     _vm._not_through_interceptor = true
     this.apis.get_assets(assets_token).then(res => {
       if (res) {
+        res = res.sort(compare)
         this.assets_list = res
         this.$store.commit('change_state', { asset_list: res })
         this.is_edited = true
@@ -98,4 +100,34 @@ function _get_assets_token(_client_info_str) {
     privateKey: _client_info.privateKey
   }
   return tools.getJwtToken(get_token_obj, 'get', 'https://api.mixin.one/assets')
+}
+
+function compare(a, b) {
+  let cmp = 0;
+  let ap = new BigNumber(a.balance).times(a.price_usd);
+  let bp = new BigNumber(b.balance).times(b.price_usd);
+  if (ap.gt(bp)) {
+    cmp = -1
+  } else if (ap.lt(bp)) {
+    cmp = 1
+  }
+  if (cmp === 0) {
+    ap = new BigNumber(a.balance)
+    bp = new BigNumber(b.balance)
+    if (ap.gt(bp)) {
+      cmp = -1
+    } else if (ap.lt(bp)) {
+      cmp = 1
+    }
+  }
+  if (cmp === 0) {
+    ap = new BigNumber(a.price_usd)
+    bp = new BigNumber(b.price_usd)
+    if (ap.gt(bp)) {
+      cmp = -1
+    } else if (ap.lt(bp)) {
+      cmp = 1
+    }
+  }
+  return cmp
 }

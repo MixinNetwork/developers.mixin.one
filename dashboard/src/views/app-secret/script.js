@@ -85,7 +85,7 @@ export default {
     }
   },
   mounted() {
-    !(this.active_app.app_id || this.$route.params.app_number) && this.$router.push('/')
+    !(this.active_app.app_id || this.$route.params.app_number) && this.$router.push('/dashboard')
   },
 }
 let once_submit = false

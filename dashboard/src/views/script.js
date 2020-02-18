@@ -170,7 +170,7 @@ function axios_get_app_list(app_id) {
 function mounted_select_active_router() {
   this.nav_header_index = 0
 
-  if (this.$route.path === '/') {
+  if (this.$route.name === 'dashboard') {
     this.entring_status.welcome = true
   } else if (this.$route.name === 'new_app') {
     this.entring_status.welcome = false
