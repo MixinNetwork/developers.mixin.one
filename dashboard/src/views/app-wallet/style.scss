@@ -72,20 +72,18 @@
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem 1rem 3rem;
+  padding: 2rem 1rem 2rem;
   position: relative;
   margin: 0 auto;
 }
 
 
 .list-bottom-tips {
-  position: absolute;
-  bottom: -75px;
-  left: 0;
-  width: 100%;
-  padding: 0 30px;
+  width: 62rem;
+  max-width: 100%;
+  padding: 2rem 1rem;
   color: #b8bdc7;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
 
   &>div:first-child {
@@ -160,11 +158,6 @@
     max-width: 500px;
     min-width: 420px;
   }
-
-  .list-bottom-tips {
-    left: calc(27% - 108px);
-    right: calc(27% - 108px);
-  }
 }
 
 @media screen and (max-width: 48rem) {
@@ -206,11 +199,6 @@
       align-items: flex-start;
       transform: translateY(1px);
     }
-  }
-
-  .list-bottom-tips {
-    left: calc(27% - 108px);
-    right: calc(27% - 108px);
   }
 
   .num {
