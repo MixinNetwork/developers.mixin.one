@@ -23,9 +23,10 @@
         </div>
         <button
           v-if="item.icon_url"
+          :disabled="item.balance == '0'"
           @click="click_withdrawal(item)"
           class="withdrawal primary"
-        >{{$t('button.withdraw')}}</button>
+        >{{$t('button.withdrawal')}}</button>
       </div>
       <div v-if="assets_list.length" class="list-bottom-tips">
         <div>{{$t('wallet.des_1')}}</div>

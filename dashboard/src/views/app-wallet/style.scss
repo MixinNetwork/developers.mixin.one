@@ -146,6 +146,9 @@
   height: 32px;
   min-width: 93px;
   font-size: 15px;
+  &[disabled="disabled"] {
+    background: rgba(50, 119, 255, 0.9);
+  }
 }
 
 

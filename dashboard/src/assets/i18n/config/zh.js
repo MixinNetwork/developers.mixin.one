@@ -75,7 +75,7 @@ export default {
   button: {
     save: '保存',
     cancel: '取消',
-    withdraw: '提现',
+    withdrawal: '提现',
     update: '更新',
     copy: '复制',
     ok: '是的'
@@ -83,7 +83,7 @@ export default {
   message: {
     success: {
       save: '保存成功',
-      withdraw: '提现成功',
+      withdrawal: '提现成功',
       reset: '重置成功',
       copy: '复制成功'
     },

@@ -75,14 +75,14 @@ export default {
   button: {
     save: 'Save',
     cancel: 'Cancel',
-    withdraw: 'Withdraw',
+    withdrawal: 'Withdrawal',
     update: 'UPDATE',
     copy: 'Copy',
     ok: 'OK'
   },
   message: {
     success: {
-      withdraw: 'Withdrawal Success',
+      withdrawal: 'Withdrawal Success',
       save: 'Save Success',
       reset: 'Reset Success',
       copy: 'Copy Success'
