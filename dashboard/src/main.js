@@ -4,7 +4,6 @@ import router from './router'
 import apis from './api'
 import './assets/font/font.css'
 import _const from './assets/js/const'
-import $bus from './assets/js/bus'
 import store from './store'
 import VueClipboard from 'vue-clipboard2'
 import i18n from './assets/i18n'
@@ -20,7 +19,6 @@ Vue.config.devtools = true
 
 Vue.prototype.apis = apis
 Vue.prototype._const = _const
-Vue.prototype.$bus = $bus
 
 new Vue({
   render: h => h(App),
