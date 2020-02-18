@@ -73,14 +73,14 @@ function _get_assets_list(force_status) {
         this.$store.commit('change_state', { asset_list: res })
         this.is_edited = true
         this.open_edit_modal = false
-        this.whole_loading = false
       } else {
         this.is_edited = false
         this.open_edit_modal = true
-        this.whole_loading = false
         window.localStorage.removeItem(this.active_app.app_id)
       }
       _vm._not_through_interceptor = false
+    }).finally(_ => {
+      this.whole_loading = false
     })
   } catch (e) {
     window.localStorage.removeItem(this.active_app.app_id)

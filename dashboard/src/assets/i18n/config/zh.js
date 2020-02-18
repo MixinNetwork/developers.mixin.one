@@ -45,7 +45,15 @@ export default {
     update_token_desc: '更新令牌以访问您的资产',
     update: '更新',
     update_token: '更新令牌',
-    private_key: '密钥'
+    private_key: '密钥',
+    snapshot_info: '快照',
+    snapshot: {
+      snapshot_id: '快照 ID',
+      trace_id: '交易 ID',
+      account: '帐户',
+      amount: '数量',
+      transaction_hash: '交易哈希'
+    }
   },
   secret: {
     title: '密钥',

@@ -39,6 +39,9 @@ export default {
     },
     active_app() {
       return this.$store.state.active_app
+    },
+    apps_property() {
+      return this.$store.state.apps_property
     }
   },
   watch: {
@@ -112,7 +115,7 @@ export default {
     },
     click_buy_item(count) {
       let trace = tools.getUUID()
-      let amount = Number(count) * Number(this.tmp_money)
+      let amount = this.tmp_money + (count - 1) * Number(this.apps_property.price)
       window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`
     }
   },

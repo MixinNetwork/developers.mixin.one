@@ -26,7 +26,8 @@ let state = {
 let mutations = {
   change_state(state, obj) {
     for (let key in obj) {
-      state[key] = obj[key]
+      if (key === 'active_app' && !obj[key]) state[key] = {}
+      else state[key] = obj[key]
     }
   },
   cache_new_app(state, cache_status) {

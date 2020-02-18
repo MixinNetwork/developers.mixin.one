@@ -45,7 +45,15 @@ export default {
     update_token_desc: 'Update token to access your assets',
     update: 'Update',
     update_token: 'Update Token',
-    private_key: 'Private Key'
+    private_key: 'Private Key',
+    snapshot_info: 'Snapshot',
+    snapshot: {
+      snapshot_id: 'SNAPSHOT ID',
+      trace_id: 'TRACE ID',
+      account: 'ACCOUNT',
+      amount: 'AMOUNT',
+      transaction_hash: 'TRANSACTION HASH'
+    }
   },
   secret: {
     title: 'Secret',

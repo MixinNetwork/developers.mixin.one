@@ -2,7 +2,7 @@
   <div v-show="show" class="modal">
     <div class="mask">
       <transition name="fade-up">
-        <div v-if="show" class="main" v-loading="loading">
+        <div v-if="show && !snap_status" v-loading="loading" class="main">
           <t-header class="header">
             <div
               style="width:50px;transform:translate(-25px);padding-left:25px"
@@ -40,6 +40,49 @@
             <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
         </div>
+        <div v-if="show && snap_status" class="main snap-main">
+          <t-header class="header">
+            <div
+              style="width:50px;transform:translate(-25px);padding-left:25px"
+              @click="back"
+              slot="left"
+            >
+              <img
+                style="height:24px;width:24px;transform:translate(0,5px)"
+                src="@/assets/img/app-svg/left.svg"
+              />
+            </div>
+            <div slot="center">{{$t('wallet.snapshot_info')}}</div>
+          </t-header>
+          <div class="content snapshot">
+            <h3>{{$t('wallet.snapshot_info')}}</h3>
+            <div>
+              <label>{{$t('wallet.snapshot.snapshot_id')}}</label>
+              <p>{{transaction_info.snapshot_id}}</p>
+            </div>
+            <div>
+              <label>{{$t('wallet.snapshot.trace_id')}}</label>
+              <p>{{transaction_info.trace_id}}</p>
+            </div>
+            <div>
+              <label>{{$t('wallet.snapshot.account')}}</label>
+              <p>{{transaction_info.opponent_key}}</p>
+            </div>
+            <div>
+              <label>{{$t('wallet.snapshot.amount')}}</label>
+              <p>{{transaction_info.amount}}</p>
+            </div>
+            <div>
+              <label>{{$t('wallet.snapshot.transaction_hash')}}</label>
+              <p>{{transaction_info.transaction_hash}}</p>
+            </div>
+            <footer class="btns">
+              <button @click="click_submit" class="btns-copy primary">{{$t('button.withdraw')}}</button>
+              <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+            </footer>
+            <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+          </div>
+        </div>
       </transition>
     </div>
   </div>
@@ -47,12 +90,11 @@
 <script>
 import tools from "@/assets/js/tools";
 import AutoInput from "@/components/auto-input";
-import TModal from "@/components/t-modal";
 import THeader from "@/components/header";
 
 export default {
   name: "withdrawal-modal",
-  components: { AutoInput, TModal, THeader },
+  components: { AutoInput, THeader },
   props: ["active_asset", "app_id", "show"],
   data() {
     return {
@@ -64,8 +106,10 @@ export default {
       sid: "",
       uid: "",
       remember_token_status: false,
+      snap_status: false,
       loading: false,
-      tmp_pin: ""
+      tmp_pin: "",
+      transaction_info: {}
     };
   },
   watch: {
@@ -90,14 +134,21 @@ export default {
           message: this.$t("message.success.withdraw"),
           showClose: true
         });
+        if (this.submit_form.opponent_id.startsWith("XIN")) {
+          this.$emit("update-list");
+          this.snap_status = true;
+        } else {
+          this.$emit("close-modal");
+          this.$emit("update-list");
+        }
         this.tmp_pin = "";
-        this.$emit("close-modal");
-        this.$emit("update-list");
         this.submit_form = {};
       }
     },
     click_cancel() {
       this.tmp_pin = "";
+      this.snap_status = false;
+      this.transaction_info = {};
       this.$emit("close-modal");
     },
     change_style() {
@@ -155,6 +206,7 @@ async function _send_withdrawal_request(_client_info_str_obj, uid) {
         parmas
       );
     let res = await this.apis.transactions(parmas, token);
+    this.transaction_info = res;
     return res && res.type === "raw";
   }
 }
@@ -240,6 +292,10 @@ function _get_sid_from_storge(appid) {
   background-color: #fff;
   overflow: auto;
   height: 550px;
+}
+
+.snap-main {
+  width: 45rem;
 }
 
 .content {
@@ -340,6 +396,36 @@ header {
   opacity: 0;
 }
 
+.snapshot {
+  padding: 1.5rem;
+  width: 100%;
+  h3 {
+    text-align: center;
+    margin: 0.75rem 0 1rem 0;
+  }
+  div {
+    margin-bottom: 1rem;
+    width: 100%;
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    p {
+      background: #f6f9ff;
+      box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
+      border-radius: 6px;
+      padding: 1rem;
+      word-break: break-all;
+      font-size: 16px;
+    }
+  }
+  .btns {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 48rem) {
   .main {
     top: 0;
@@ -406,9 +492,20 @@ header {
     display: none;
   }
 
+  .snapshot {
+    h3 {
+      display: none;
+    }
+  }
+
   .fade-up-enter-active,
   .fade-up-leave-active {
     transition: none;
+  }
+
+  .fade-up-enter {
+    margin-top: 0;
+    opacity: 1;
   }
 }
 </style>

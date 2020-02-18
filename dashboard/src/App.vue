@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <transition :name="transition_name">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "app",
-  computed: {
-    transition_name() {
-      return this.$store.state.transition_name;
-    }
-  },
   mounted() {
     window._vm = this;
   }
