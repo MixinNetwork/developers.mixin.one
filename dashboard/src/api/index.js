@@ -53,6 +53,14 @@ apis.prototype = {
       headers: { 'Authorization': 'Bearer ' + token }
     })
   },
+  async transactions(data, token) {
+    return await api({
+      method: 'post',
+      url: '/transactions',
+      data,
+      headers: { 'Authorization': 'Bearer ' + token }
+    })
+  },
   async search(user_id, token) {
     return await api({
       method: 'get',
