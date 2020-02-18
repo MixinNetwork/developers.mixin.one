@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './route/router'
+import router from './router'
 import apis from './api'
 import './assets/iconfont/iconfont.css'
 import _const from './assets/js/const'
