@@ -7,7 +7,7 @@
       <div slot="center">{{active_app.name || $t('home.new_app')}}</div>
     </t-header>
     <t-header v-else-if="is_mobile">
-      <div :slot="!is_immersive? 'left': 'right'">{{$t('home.title')}}</div>
+      <div :slot="!is_immersive? 'left': 'center'">{{$t('home.title')}}</div>
       <div :slot="!is_immersive? 'right': 'left'">
         <img
           class="header-slot-img"
