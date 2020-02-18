@@ -88,7 +88,6 @@ function _get_assets_list(force_status) {
     this.whole_loading = false
     this.is_edited = false
   }
-
 }
 
 function _get_assets_token(_client_info_str) {

@@ -23,13 +23,13 @@
             </header>
             <section>
               <div class="first-row">
-                <t-input2 v-model="submit_form.amount" :label="$t('wallet.amount')"></t-input2>
+                <auto-input v-model="submit_form.amount" :label="$t('wallet.amount')"></auto-input>
                 <div>
                   <label>PIN</label>
                   <input ref="pin_token" @input="change_style" />
                 </div>
               </div>
-              <t-input2 class="mixin-id" v-model="submit_form.opponent_id" label="Mixin ID"></t-input2>
+              <auto-input class="mixin-id" v-model="submit_form.opponent_id" label="Mixin ID"></auto-input>
             </section>
             <footer>
               <div class="btns">
@@ -46,17 +46,13 @@
 </template>
 <script>
 import tools from "@/assets/js/tools";
-import TInput2 from "@/components/t-input2";
+import AutoInput from "@/components/auto-input";
 import TModal from "@/components/t-modal";
 import THeader from "@/components/header";
 
 export default {
   name: "withdrawal-modal",
-  components: {
-    TInput2,
-    TModal,
-    THeader
-  },
+  components: { AutoInput, TModal, THeader },
   props: ["active_asset", "app_id", "show"],
   data() {
     return {

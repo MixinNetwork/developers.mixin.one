@@ -25,7 +25,7 @@
       v-clipboard:copy="value"
       　　v-clipboard:success="click_copy_succuess"
       　　v-clipboard:error="click_copy_error"
-      src="../assets/img/ic_copy.png"
+      src="@/assets/img/ic_copy.png"
     />
   </div>
 </template>

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import TInput from "./t-input2";
+import TInput from "./auto-input";
 import TModal from "./t-modal";
 import validator from "validator";
 export default {
