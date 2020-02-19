@@ -35,7 +35,7 @@ export default {
       this.icon_base64 = ''
       let { name, resource_patterns, capabilities } = app
       if (name) this.app_name = name
-      if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\r\n')
+      if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
       if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
       _check_is_finished.call(this)
     }
@@ -67,7 +67,7 @@ function _submit_to_database() {
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
   parmas.icon_base64 = this.icon_base64 && this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
-  parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\r\n') || []
+  parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\n') || []
   once_submit = true;
   this.$emit('loading', true)
   this.apis.set_app(app_id, parmas).then(res => {

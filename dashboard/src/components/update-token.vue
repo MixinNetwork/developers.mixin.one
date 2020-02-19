@@ -88,7 +88,7 @@ function _set_token_obj() {
   let get_token_obj = {
     sid: this.submit_form.session_id,
     pinToken: this.submit_form.pin_token,
-    privateKey: this.submit_form.private_key.replace(/\\r\\n/g, "\r\n")
+    privateKey: this.submit_form.private_key.replace(/\\n/g, "\n")
   };
   window.localStorage.setItem(
     this.active_app.app_id,
