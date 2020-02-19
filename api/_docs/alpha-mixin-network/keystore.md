@@ -10,7 +10,7 @@ For an app user, you can provide information on the following format to let him 
 // file name keystore.json
 {
   "version":"1.0.0",
-  "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
+  "client_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
   "session_id":"a34c07a9-755d-4b54-94c5-e45e9a2dd43e",
   "pin_token":"brM63kx....1w6pFM=",
   "session_key":"-----BEGIN RSA PRIVATE KEY-----
