@@ -23,7 +23,7 @@
 
     img {
       border-radius: 0 !important;
-      margin-right: 14px;
+      margin-right: 0.875rem;
       transform: translate(0, 2px);
     }
 
@@ -32,14 +32,14 @@
     }
 
     i {
-      margin-right: 14px;
+      margin-right: 0.875rem;
       font-weight: 1000;
     }
 
     p {
-      padding: 32px 0;
+      padding: 2rem 0;
       font-weight: 500;
-      font-size: 15px;
+      font-size: 0.9375rem;
       overflow: hidden;
     }
 
@@ -49,22 +49,22 @@
 
     &::after {
       content: "";
-      width: 3px;
-      height: 20px;
+      width: 0.1875rem;
+      height: 1.25rem;
       background-color: #3d75e3;
       position: absolute;
-      top: 22px;
+      top: 1.375rem;
       left: 0;
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 0.5rem 0.5rem 0;
     }
 
     button {
-      max-width: 198px;
+      max-width: 12rem;
       width: 100%;
       white-space: nowrap;
       font-weight: 500;
-      font-size: 15px;
-      margin-bottom: 16px;
+      font-size: 0.9375rem;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -75,33 +75,33 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem 2.875rem 2rem;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: rgba(184, 189, 199, 1);
 }
 
 .qrcode img {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .new-secret-modal {
   text-align: center;
-  padding: 50px 60px 0 60px;
+  padding: 3.125rem 3.75rem 0 3.75rem;
 
   h3 {
-    margin-bottom: 21px;
-    font-size: 16px;
+    margin-bottom: 1.3125rem;
+    font-size: 1rem;
   }
 
   span {
     text-align: left;
     word-wrap: break-word;
     display: block;
-    padding: 26px 20px;
-    line-height: 16px;
+    padding: 1.625rem 1.25rem;
+    line-height: 1rem;
     width: 100%;
-    height: 82px;
+    height: 5.125rem;
     background-color: #f6f9ff;
   }
 }
@@ -109,10 +109,10 @@
 .btns {
   button {
     float: right;
-    width: 140px;
-    height: 40px;
-    margin-top: 32px;
-    font-size: 15px;
+    width: 8.75rem;
+    height: 2.5rem;
+    margin-top: 2rem;
+    font-size: 0.9375rem;
 
     &:hover {
       opacity: 0.8;
@@ -122,23 +122,23 @@
   .btn-close {
     background-color: #e5e7ec;
     color: #333;
-    margin-right: 9px;
+    margin-right: 0.5625rem;
   }
 }
 
 .new-secret-content {
-  margin: 0 100px 80px 100px;
+  margin: 0 6.25rem 5rem 6.25rem;
   width: 100%;
 
   label {
     display: block;
-    padding-left: 30px;
+    padding-left: 1.875rem;
   }
 
   input {
-    min-width: 840px;
-    width: calc(90% - 50px);
-    padding-left: 30px;
+    min-width: 52.5rem;
+    width: calc(90% - 3.125rem);
+    padding-left: 1.875rem;
   }
 
   .disabled {
@@ -160,22 +160,22 @@
   display: flex;
 
   button {
-    width: 131px;
-    height: 40px;
+    width: 8.125rem;
+    height: 2.5rem;
 
     &:first-child {
-      margin-right: 32px;
+      margin-right: 2rem;
     }
   }
 }
 
 .iconguanbi {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 1.875rem;
+  right: 1.875rem;
   color: #b8bdc7;
   cursor: pointer;
-  padding: 5px;
+  padding: 0.3125rem;
 
   &:hover {
     color: rgba(50, 119, 255, 0.8);
@@ -217,14 +217,14 @@
   }
 
   .new-secret-modal {
-    padding: 40px 20px;
+    padding: 2.5rem 1.25rem;
 
     h3 {
       margin-bottom: 1rem;
     }
 
     span {
-      padding: 10px;
+      padding: 0.625rem;
       font-weight: 500;
     }
   }
