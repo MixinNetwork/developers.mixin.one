@@ -37,7 +37,6 @@ export default {
       this.open_edit_modal = false
     },
     click_withdrawal(item) {
-      this.active_asset = {}
       this.active_asset = item
       setTimeout(() => {
         this.show_withdrawal = true
@@ -54,15 +53,7 @@ export default {
   },
 }
 
-function _get_assets_list(force_status) {
-  if (!force_status) {
-    let { asset_list } = this.$store.state
-    if (asset_list && asset_list.length > 0) {
-      this.assets_list = asset_list
-      this.is_edited = true
-      return
-    }
-  }
+function _get_assets_list() {
   this.whole_loading = true
   let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
   try {
@@ -72,7 +63,6 @@ function _get_assets_list(force_status) {
       if (res) {
         res = res.sort(compare)
         this.assets_list = res
-        this.$store.commit('change_state', { asset_list: res })
         this.is_edited = true
         this.open_edit_modal = false
       } else {

@@ -76,6 +76,12 @@ button {
   }
 }
 
+.icon label {
+  display: inline-block;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+
 .upload-icon {
   width: 20rem;
   position: relative;
@@ -193,6 +199,10 @@ textarea {
 }
 
 @media screen and (max-width: 48rem) {
+  .content {
+    padding-top: 2.5rem;
+  }
+
   textarea {
     font-weight: 500;
   }

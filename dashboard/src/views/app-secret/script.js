@@ -157,6 +157,10 @@ function _request_show_qrcode() {
       window.localStorage.removeItem(uid)
       this.open_edit_modal = true
     }
+    if (!res.code_url) {
+      once_submit = false;
+      return _request_rotate_qrcode.call(this)
+    }
     this.modal_title = 'QR Code'
     this.modal_content = res.code_url;
   }).finally(_ => {
