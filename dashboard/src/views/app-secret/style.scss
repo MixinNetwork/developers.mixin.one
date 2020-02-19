@@ -22,7 +22,7 @@
     margin-bottom: .5rem;
 
     img {
-      border-radius: 0 !important;
+      border-radius: 0;
       margin-right: 0.875rem;
       transform: translate(0, 2px);
     }
@@ -204,8 +204,6 @@
 
   .container /deep/ .secret-modal {
     .--modal-main {
-      width: 18.75rem !important;
-      height: 16.5rem !important;
       overflow: hidden;
 
     }

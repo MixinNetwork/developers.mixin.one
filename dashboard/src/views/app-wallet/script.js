@@ -8,7 +8,18 @@ export default {
   components: {
     WithdrawalModal, TModal, UpdateToken
   },
-  props: ['active_app'],
+  props: {
+    active_app: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    is_mobile: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       is_edited: false,

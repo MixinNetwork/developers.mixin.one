@@ -155,10 +155,9 @@
 
 
 @media screen and (max-width: 999px) and (min-width: 48rem) {
-  .item {
-    box-sizing: border-box;
-    margin: 16px auto 0 auto !important;
-    width: 200%;
+  .list .item {
+    margin: 16px auto 0 auto;
+    width: 100%;
     max-width: 500px;
     min-width: 420px;
   }
@@ -195,9 +194,12 @@
     padding-top: 2.5rem;
   }
 
+  .list .item {
+    margin: 0 0 1rem 0;
+  }
+
   .item {
     box-sizing: border-box;
-    margin: 0 0 1rem 0 !important;
     width: 100%;
     min-width: 17.5rem;
 

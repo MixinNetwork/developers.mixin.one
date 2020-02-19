@@ -99,9 +99,10 @@
             <div class="dashboard-main">
               <component
                 :is="tmp_component"
+                :is_mobile="is_mobile"
+                :active_app="active_app"
                 @add_new_app="add_new_app"
                 @loading="change_loading"
-                :active_app="active_app"
               ></component>
             </div>
           </div>

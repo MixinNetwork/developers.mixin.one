@@ -5,7 +5,14 @@ export default {
   components: {
     MixinInput
   },
-  props: ['active_app'],
+  props: {
+    active_app: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  },
   data() {
     return {
       icon_base64: '',
@@ -72,10 +79,10 @@ function _submit_to_database() {
   }
   if (!resource_patterns) {
     parmas.resource_patterns = []
-  }
-  else if (resource_patterns.includes('\r\n')) {
-    parmas.resource_patterns = resource_patterns.split('\r\n')
   } else {
+    if (resource_patterns.includes('\r\n')) {
+      resource_patterns = resource_patterns.replace('\r\n', '\n')
+    }
     parmas.resource_patterns = resource_patterns.split('\n')
   }
   once_submit = true;

@@ -4,8 +4,8 @@
       :loading="loading"
       class="--edit-modal"
       :show="open_edit_modal"
-      :width="700"
-      :height="512"
+      :width="is_mobile ? 310 : 700"
+      :height="is_mobile ? 478 : 512"
     >
       <div class="edit-main-modal">
         <h3 class="edit-main-modal-title">{{$t('wallet.update_token')}}</h3>
@@ -51,6 +51,10 @@ export default {
       default() {
         return {};
       }
+    },
+    is_mobile: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -176,9 +180,6 @@ label {
 
 @media screen and (max-width: 48rem) {
   .--edit-modal /deep/ .--modal-main {
-    width: 19.375rem !important;
-    height: 29.875rem !important;
-
     .iconguanbi {
       top: 1rem;
       right: 1rem;
