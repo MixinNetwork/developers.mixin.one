@@ -31,8 +31,8 @@ export default {
     oauth_url_desc: '例如：https://mixin.one/auth',
     description: '简介',
     description_desc: '您的应用的简介',
-    resource_patterns: '资源模式',
-    resource_patterns_desc: '您应用的资源模式，按行划分，最多 10 个项目。',
+    resource_patterns: '域名白名单',
+    resource_patterns_desc: '您应用的域名白名单，按行划分，最多 10 个域名。',
     immersive: '沉浸式'
   },
   wallet: {
