@@ -23,7 +23,6 @@
         </div>
         <button
           v-if="item.icon_url"
-          :disabled="item.balance == '0'"
           @click="click_withdrawal(item)"
           class="withdrawal primary"
         >{{$t('button.withdrawal')}}</button>
@@ -46,7 +45,7 @@
       :app_id="active_app.app_id"
       :active_asset="active_asset"
       @close-modal="show_withdrawal=false"
-      v-show="show_withdrawal"
+      v-if="show_withdrawal"
       :show="show_withdrawal"
     ></withdrawal-modal>
   </div>

@@ -8,19 +8,9 @@ let state = {
   transition_name: '',
   can_transition: false,
   active_app: {},
-  app_name: '',
-  resource_patterns: '',
-  immersive_status: false,
-  tmp_app_name: '',
-  tmp_resource_patterns: '',
-  tmp_immersive_status: false,
   user_info: {},
   apps_property: {},
-  app_list: [],
-  asset_list: [],
-  active_asset: {},
-  back_to_wallet: false,
-  nav_header_index: 0
+  app_list: []
 }
 
 let mutations = {
@@ -41,17 +31,7 @@ let actions = {
       return
     }
     if (force_reload || context.state.app_list.length === 0) {
-      await axios_get_app_list.call(context)
-      return true
-    }
-  },
-  async init_assets(context, token, force_reload) {
-    if (force_reload || context.state.user_info.asset_list.length === 0) {
-      try {
-        await axios_get_assets_list.call(context, token)
-        return true
-      }
-      catch (e) { () => false }
+      return await axios_get_app_list.call(context)
     }
   },
   async init_apps_property(context) {
@@ -90,13 +70,6 @@ async function axios_get_app_list() {
   this.commit('change_state', { app_list: res })
   return true
 }
-
-async function axios_get_assets_list(token) {
-  let res = await apis.get_assets(token)
-  this.commit('change_state', { asset_list: res })
-  return true
-}
-
 
 export default new Vuex.Store({
   state,

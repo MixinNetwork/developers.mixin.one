@@ -10,32 +10,9 @@ export default {
     return {
       icon_base64: '',
       can_save: false,
-    }
-  },
-  computed: {
-    app_name: {
-      get() {
-        return this.$store.state.app_name
-      },
-      set(val) {
-        this.$store.commit('change_state', { app_name: val })
-      }
-    },
-    resource_patterns: {
-      get() {
-        return this.$store.state.resource_patterns
-      },
-      set(val) {
-        this.$store.commit('change_state', { resource_patterns: val })
-      }
-    },
-    immersive_status: {
-      get() {
-        return this.$store.state.immersive_status
-      },
-      set(val) {
-        this.$store.commit('change_state', { immersive_status: val })
-      }
+      app_name: '',
+      resource_patterns: '',
+      immersive_status: false,
     }
   },
   watch: {
@@ -96,7 +73,6 @@ function _submit_to_database() {
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
   parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
-
   parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\n') || []
   once_submit = true;
   this.$emit('loading', true)
@@ -114,7 +90,6 @@ function _submit_to_database() {
 
 
 function _check_is_finished() {
-
   if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description) {
     this.can_save = true;
   } else {

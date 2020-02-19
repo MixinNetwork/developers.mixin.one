@@ -45,9 +45,6 @@ export default {
     }
   },
   watch: {
-    nav_header_index(val) {
-      this.$store.commit('change_state', { nav_header_index: val })
-    },
     '$route.path'(val) {
       if (val === '/apps/new') {
         this.click_new_app()
@@ -77,7 +74,6 @@ export default {
       this.timer = setTimeout(() => {
         this.loading = false;
       }, 500)
-      this.$store.commit('change_state', { asset_list: [] })
     },
     click_new_app() {
       this.all_loading = true
@@ -135,8 +131,6 @@ function init_page() {
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)
   this.$store.dispatch('init_app').then(_ => {
-    let { nav_header_index } = this.$store.state;
-    this.change_router(nav_header_index)
     this.all_loading = false
     this.init_status = true
     if (this.$route.params.app_number) {

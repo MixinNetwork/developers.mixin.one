@@ -76,10 +76,6 @@ button {
   }
 }
 
-.immersive {
-  width: 5rem;
-}
-
 .icon label {
   display: inline-block;
   font-weight: 700;
@@ -203,6 +199,10 @@ textarea {
 }
 
 @media screen and (max-width: 48rem) {
+  .content {
+    padding-top: 2.5rem;
+  }
+
   textarea {
     font-weight: 500;
   }
