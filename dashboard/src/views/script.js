@@ -15,8 +15,7 @@ export default {
       show_click_user: false,
       entring_status: {
         welcome: true,
-        is_new_app: false,
-        show_click_user: false
+        is_new_app: false
       },
       nav_header_index: 0,
       nav_list: ['information', 'wallet', 'secret'],
@@ -67,12 +66,6 @@ export default {
       this.nav_header_index = nav_header_index
       this.tmp_component = this.nav_list[nav_header_index]
     },
-    click_user() {
-      this.entring_status.show_click_user = !this.entring_status.show_click_user
-      if (this.entring_status.show_click_user) {
-        document.onclick = () => this.entring_status.show_click_user = false
-      }
-    },
     click_app_list_item(index) {
       this.entring_status.welcome = false
       this.entring_status.is_new_app = false
@@ -103,7 +96,7 @@ export default {
       axios_get_app_list.call(this, app_id)
       this.entring_status.is_new_app = false
     },
-    click_user_img() {
+    click_user() {
       this.show_click_user = !this.show_click_user
       if (this.show_click_user) {
         document.onclick = () => this.show_click_user = false
@@ -112,7 +105,6 @@ export default {
     click_sign_out() {
       window.localStorage.clear()
       this.show_click_user = false;
-      this.entring_status.show_click_user = false;
       setTimeout(() => {
         window.location.href = window.location.origin
       }, 100)

@@ -4,6 +4,7 @@
     <textarea
       v-if="['应用 ID', 'App ID'].includes(label)"
       :value="value"
+      disabled
       :class="[
             (width===''?'width':''),
             (disabled==='' ? 'disabled':'')
@@ -70,26 +71,23 @@ export default {
 
 <style scoped lang="scss">
 div {
-  font-size: 16px;
+  font-size: 1rem;
   position: relative;
 }
 
 label {
   font-weight: 700;
   display: block;
-  line-height: 16px;
-  margin-bottom: 16px;
+  line-height: 1rem;
+  margin-bottom: 1rem;
 }
 
 textarea,
 input {
-  outline: none;
   width: 100%;
-  height: 64px;
-  background: #fff;
+  height: 4rem;
   font-size: 1rem;
-  padding: 0 20px;
-  border: 0;
+  padding: 0 1.25rem;
   border-radius: 4px;
   box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
   &::-webkit-input-placeholder {
@@ -112,36 +110,34 @@ input {
 }
 img {
   cursor: pointer;
-  padding: 5px;
   position: absolute;
-  right: 10px;
-  top: 64px;
-  transform: translateY(-50%);
+  right: 0.625rem;
+  top: 3.5rem;
   border-radius: 0;
 }
 
 textarea {
-  line-height: 64px;
+  line-height: 4rem;
 }
 
 @media screen and (max-width: 48rem) {
   input,
   textarea {
     font-weight: 500;
-    height: 50px;
+    height: 3.125rem;
   }
   textarea {
-    line-height: 50px;
+    line-height: 3.125rem;
   }
   img {
-    top: 55px;
+    top: 3rem;
   }
 }
 
-@media screen and (max-width: 423px) {
+@media screen and (max-width: 25.75rem) {
   textarea {
-    line-height: 18px;
-    padding: 7px 46px 7px 20px;
+    line-height: 1.125rem;
+    padding: 0.4375rem 2.875rem 0.4375rem 1.25rem;
   }
 }
 </style>

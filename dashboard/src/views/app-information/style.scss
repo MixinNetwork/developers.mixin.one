@@ -1,108 +1,90 @@
-.container {
+.content {
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
   padding: 3rem 1rem 0;
 }
 
-.content {
-  .top {
-    display: flex;
-    flex-direction: row;
-  }
+.top {
+  display: flex;
+  flex-direction: row;
+}
 
-  .meta {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    box-sizing: border-box;
-    padding-right: 2rem;
-  }
-
-  .edit-main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 3;
-  }
-
-  input,
-  textarea {
-    font-size: 16px;
-  }
+.des {
+  margin-bottom: 2rem;
 
   label {
     font-weight: 700;
     display: block;
-    width: 200px;
+    width: 12.5rem;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
   }
 
-  span {
-    font-weight: 700;
-    padding-left: 8px;
-  }
-
-  button {
-    border-radius: 8px;
-    width: 140px;
-    height: 46px;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 28px 0;
-
-    &.not-finished {
-      color: #a9b0bf;
-      background-color: #e6e8ee;
-      cursor: not-allowed;
-    }
-  }
-
-  .des-c {
-    margin-bottom: 32px;
-
-    label {
-      margin-bottom: 16px
-    }
-
-    textarea {
-      width: 100%;
-      height: 120px;
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-      border-radius: 4px;
-      padding: 20px;
-    }
-
-    img {
-      width: 16px;
-      height: 16px;
-      border-radius: 0;
-      transform: translateY(2px);
-    }
+  i,
+  img {
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(2px);
   }
 
   i {
     display: inline-block;
-    width: 16px;
-    height: 16px;
     border: 2px solid #000000;
-    box-sizing: border-box;
     border-radius: 4px;
-    transform: translateY(2px);
   }
+
+  img {
+    border-radius: 0;
+  }
+
+  span {
+    font-weight: 700;
+    padding-left: 0.5rem;
+  }
+}
+
+button {
+  border-radius: 0.5rem;
+  width: 8.75rem;
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  line-height: 2.75rem;
+
+  &.not-finished {
+    color: #a9b0bf;
+    background-color: #e6e8ee;
+    cursor: not-allowed;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding-right: 2rem;
 }
 
 .edit-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+
   &.edit-main-new-app {
-    margin-top: 50px;
+    margin-top: 3.125rem;
   }
 }
 
+.immersive {
+  width: 5rem;
+}
+
+
 .upload-icon {
-  width: 320px;
+  width: 20rem;
   position: relative;
-  height: 320px;
+  height: 20rem;
   background: #fff;
   border-radius: 50%;
   color: #a9b0bf;
@@ -111,26 +93,34 @@
   flex-direction: column;
   justify-content: center;
 
+  &:active {
+    background: rgba(250, 250, 250, 1);
+  }
+
   img {
     display: inline-block;
-    font-size: 40px;
-    border-radius: 0 !important;
+    border-radius: 0;
   }
 
   img.icon-img {
     margin: 0;
-    border-radius: 50% !important;
+    border-radius: 50%;
+  }
+
+  img.no-img {
+    width: 2.5rem;
+    height: 2rem;
+    margin: 0 auto;
+    border-radius: 0;
+    transform: translateY(2px);
   }
 
   p {
-    width: 140px;
-    margin: 16px auto;
-    font-size: 14px;
+    width: 8.75rem;
+    margin: 1rem auto;
+    font-size: 0.88rem;
   }
 
-  &:active {
-    background: rgba(250, 250, 250, 1);
-  }
 
   input {
     position: absolute;
@@ -139,48 +129,48 @@
     top: 0;
     height: 100%;
     opacity: 0;
-    z-index: 999;
+    z-index: 10;
     cursor: pointer;
   }
 }
 
-.mixin-id {
-  margin-bottom: 32px;
-}
-
+.mixin-id,
 .item {
-  margin-bottom: 32px;
-}
-
-.mixin-id /deep/ input,
-.item /deep/ input {
-  font-size: 16px;
+  margin-bottom: 2rem;
 }
 
 .icon-img {
-  width: 320px;
-  height: 320px;
+  width: 20rem;
+  height: 20rem;
 }
 
 textarea {
+  font-size: 1rem;
   width: 100%;
+  height: 7.5rem;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+  border-radius: 4px;
+  padding: 1.25rem;
+}
+
+.none {
+  display: none;
 }
 
 
 @media screen and (max-width: 70rem) {
-  .content {
-    .top {
-      flex-direction: column;
-    }
+  .top {
+    flex-direction: column;
+  }
 
-    .meta {
-      padding-right: 0rem;
-      flex-direction: column-reverse;
-    }
+  .meta {
+    padding-right: 0rem;
+    flex-direction: column-reverse;
+  }
 
-    .icon {
-      margin-bottom: 2rem;
-    }
+  .icon {
+    margin-bottom: 2rem;
   }
 
   .upload-icon {
@@ -200,5 +190,15 @@ textarea {
   .icon-img {
     width: 8rem;
     height: 8rem;
+  }
+
+  .none {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  textarea {
+    font-weight: 500;
   }
 }

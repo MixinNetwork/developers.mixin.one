@@ -11,7 +11,7 @@
       <div :slot="!is_immersive? 'right': 'left'">
         <img
           class="header-slot-img"
-          @click.stop="click_user_img"
+          @click.stop="click_user"
           :src="user_info.avatar_url || _const.default.avatar_url"
         />
         <div
@@ -38,9 +38,7 @@
             <div>{{user_info.full_name}}</div>
             <div>ID: {{user_info.identity_number}}</div>
           </div>
-          <div
-            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
-          >
+          <div :class="['bottom-more', (show_click_user ? 'bottom-more-active' : '')]">
             <div class="bottom-button-list">
               <div @click.stop class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
@@ -80,9 +78,7 @@
             <div>{{user_info.full_name}}</div>
             <div>ID:{{user_info.identity_number}}</div>
           </div>
-          <div
-            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
-          >
+          <div :class="['bottom-more', (show_click_user ? 'bottom-more-active' : '')]">
             <div class="bottom-button-list">
               <div @click.stop="click_sign_out" class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
