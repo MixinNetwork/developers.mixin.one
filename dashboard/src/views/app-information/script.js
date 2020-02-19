@@ -66,8 +66,18 @@ function _submit_to_database() {
     capabilities = ['CONTACT', 'GROUP']
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
-  parmas.icon_base64 = this.icon_base64 && this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
-  parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\n') || []
+  let { icon_base64, resource_patterns } = this
+  if (icon_base64) {
+    parmas.icon_base64 = icon_base64.substring(icon_base64.split('').findIndex(item => item === ',') + 1);
+  }
+  if (!resource_patterns) {
+    parmas.resource_patterns = []
+  }
+  else if (resource_patterns.includes('\r\n')) {
+    parmas.resource_patterns = resource_patterns.split('\r\n')
+  } else {
+    parmas.resource_patterns = resource_patterns.split('\n')
+  }
   once_submit = true;
   this.$emit('loading', true)
   this.apis.set_app(app_id, parmas).then(res => {

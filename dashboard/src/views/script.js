@@ -125,15 +125,10 @@ async function init_page() {
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)
   this.user_info = await this.apis.get_me()
+  if (!this.user_info) return
   await axios_get_app_list.call(this)
   this.init_status = true
-  if (this.$route.params.app_number) {
-    let { app_number } = this.$route.params
-    let active_idx = this.app_list.findIndex(item => item.app_number === app_number)
-    this.active_app = this.app_list[active_idx]
-  }
   this.apps_property = await this.apis.get_apps_property()
-  this.all_loading = false
 }
 
 async function axios_get_app_list(app_id) {
@@ -143,10 +138,7 @@ async function axios_get_app_list(app_id) {
   app_id = app_id || this.$route.params.app_number
   if (app_id) {
     let active_idx = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
-    if (active_idx !== -1) {
-      this.active_app = this.app_list[active_idx]
-      this.tmp_component = 'information'
-    }
+    if (active_idx !== -1) this.active_app = this.app_list[active_idx]
   }
   this.all_loading = false
 }
