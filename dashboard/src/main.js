@@ -4,7 +4,6 @@ import router from './router'
 import apis from './api'
 import './assets/font/font.css'
 import _const from './assets/js/const'
-import store from './store'
 import VueClipboard from 'vue-clipboard2'
 import i18n from './assets/i18n'
 import { Message, Loading } from 'element-ui'
@@ -23,6 +22,5 @@ Vue.prototype._const = _const
 new Vue({
   render: h => h(App),
   router,
-  store,
   i18n
 }).$mount('#app')

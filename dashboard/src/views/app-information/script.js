@@ -32,10 +32,10 @@ export default {
       _check_is_finished.call(this)
     },
     init_app(app) {
-      this.icon_base64 = '';
+      this.icon_base64 = ''
       let { name, resource_patterns, capabilities } = app
       if (name) this.app_name = name
-      if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
+      if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\r\n')
       if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
       _check_is_finished.call(this)
     }
@@ -46,9 +46,9 @@ export default {
 }
 
 function _render_file_to_base64(file) {
-  let reader = new FileReader();
+  let reader = new FileReader()
   reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(file)
 }
 
 let once_submit = false
@@ -60,27 +60,20 @@ function _submit_to_database() {
   }
   let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
   let name = this.app_name
-  if (capabilities) {
-    let index = capabilities.findIndex(item => item === 'IMMERSIVE')
-    if (this.immersive_status) {
-      index === -1 && capabilities.push('IMMERSIVE')
-    } else {
-      index !== -1 && capabilities.splice(index, 1)
-    }
+  if (this.immersive_status) {
+    capabilities = ['CONTACT', 'GROUP', 'IMMERSIVE']
   } else {
-    capabilities = ["CONTACT", "GROUP"]
-    this.immersive_status && capabilities.push('IMMERSIVE')
+    capabilities = ['CONTACT', 'GROUP']
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
-  parmas.icon_base64 = this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
-  parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\n') || []
+  parmas.icon_base64 = this.icon_base64 && this.icon_base64.substring(this.icon_base64.split('').findIndex(item => item === ',') + 1);
+  parmas.resource_patterns = this.resource_patterns && this.resource_patterns.split('\r\n') || []
   once_submit = true;
   this.$emit('loading', true)
   this.apis.set_app(app_id, parmas).then(res => {
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
       this.$emit('add_new_app', res.app_id)
-      this.$store.dispatch('init_app', true)
     }
   }).finally(_ => {
     once_submit = false

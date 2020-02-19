@@ -18,17 +18,17 @@
           <div
             :class="['right-more', show_click_user ? 'right-more-active' : '',!is_immersive ? 'header-slot-right' : 'header-slot-left']"
           >
-            <div class="right-button-list">
-              <div @click.stop="click_sign_out" class="right-button-item">
+            <ul class="right-button-list">
+              <li @click.stop="click_sign_out" class="right-button-item">
                 <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
                 <span>{{$t('home.sign_out')}}</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </t-header>
       <div class="dashboard-container">
-        <nav class="nav-side">
+        <nav>
           <div class="top-logo-title">
             <img src="@/assets/img/logo.svg" />
             <span>{{$t('home.title')}}</span>
@@ -36,17 +36,15 @@
           <div class="middle-app-list">
             <div
               @click="click_new_app"
-              :class="['create-app',entring_status.is_new_app ? 'create-app-active' : '' ]"
+              :class="['create-app',is_new_app ? 'create-app-active' : '' ]"
             >
               <img src="@/assets/img/svg/add.svg" />
               <span>{{$t('home.new_app')}}</span>
             </div>
             <div class="app-list-container" v-if="app_list.length">
-              <div class="app-list-header">
-                <div class="app-list-name">{{$t('home.my_app')}}</div>
-              </div>
-              <div class="app-content">
-                <div
+              <div class="app-list-header">{{$t('home.my_app')}}</div>
+              <ul class="app-list">
+                <li
                   v-for="(item,index) in app_list"
                   :key="index"
                   @click="click_app_list_item(index)"
@@ -54,8 +52,8 @@
                 >
                   <img :src="item.icon_url || _const.default.app_icon_url" />
                   <span>{{item.name}}</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
           <div @click.stop="click_user" class="bottom-info middle">
@@ -75,7 +73,7 @@
           </div>
         </nav>
         <div v-if="$route.name!=='dashboard' || !is_mobile" class="dashboard-center-and-nav">
-          <div v-if="entring_status.welcome" class="welcome">
+          <div v-if="is_welcome" class="welcome">
             <img src="@/assets/img/svg/robot.svg" />
             <h1>{{$t('home.welcome')}}</h1>
             <p>{{$t('home.welcome_d')}}</p>
@@ -84,7 +82,7 @@
           <div v-loading="loading" v-else>
             <header>
               <div :class="['header-list', ('header-index-' +nav_header_index)]">
-                <template v-if="entring_status.is_new_app">
+                <template v-if="is_new_app">
                   <span class="header-item new-item">{{$t('home.new_app')}}</span>
                 </template>
                 <template v-else>

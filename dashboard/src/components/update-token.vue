@@ -53,7 +53,6 @@ export default {
       }
     }
   },
-  computed: {},
   methods: {
     click_submit() {
       if (!_check_date.call(this)) return;

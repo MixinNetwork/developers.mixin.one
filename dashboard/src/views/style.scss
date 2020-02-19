@@ -184,7 +184,7 @@ nav {
   }
 }
 
-.app-content {
+.app-list {
   overflow-y: auto;
   height: calc(100% - 20rem);
 
@@ -398,7 +398,7 @@ header {
 }
 
 .right-button-list {
-  &>div {
+  li {
     height: 4rem;
     border-bottom: solid 0.0625rem rgba(255, 255, 255, 0.19);
 
@@ -494,7 +494,7 @@ header {
     }
   }
 
-  .nav-side {
+  nav {
     display: none;
   }
 
