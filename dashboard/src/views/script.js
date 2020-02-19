@@ -22,6 +22,7 @@ export default {
       tmp_component: 'information',
       loading: false,
       all_loading: false,
+      init_status: false,
       timer: null,
       balance_modal: false,
       tmp_money: 0,
@@ -87,7 +88,6 @@ export default {
         } else {
           this.entring_status.welcome = false
           this.entring_status.is_new_app = true
-          this.$store.commit("cache_new_app", null);
           jump_to_uri.call(this, '/apps/new', false)
         }
       }).finally(_ => this.all_loading = false)
@@ -130,27 +130,25 @@ export default {
 function init_page() {
   tools.changeTheme('#fff')
   this.is_immersive = tools.isImmersive()
+  this.init_status = false
   this.all_loading = true
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)
-  this.all_loading = true
   this.$store.dispatch('init_app').then(_ => {
     let { nav_header_index } = this.$store.state;
     this.change_router(nav_header_index)
     this.all_loading = false
-    if (this.$route.path.includes('/apps')) {
-      if (this.$route.path === '/apps/new') {
-        this.$store.commit('cache_new_app', true)
-      } else {
-        let { app_number } = this.$route.params
-        let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-        this.$store.commit('change_state', { active_app: this.app_list[active_index] })
-      }
+    this.init_status = true
+    if (this.$route.params.app_number) {
+      let { app_number } = this.$route.params
+      let active_index = this.app_list.findIndex(item => item.app_number === app_number)
+      this.$store.commit('change_state', { active_app: this.app_list[active_index] })
     }
   })
 }
 
 function axios_get_app_list(app_id) {
+  this.all_loading = true
   this.apis.get_apps().then(res => {
     this.$store.commit('change_state', { app_list: res })
     this.all_loading = false
@@ -168,7 +166,6 @@ function axios_get_app_list(app_id) {
 
 function mounted_select_active_router() {
   this.nav_header_index = 0
-
   if (this.$route.name === 'dashboard') {
     this.entring_status.welcome = true
   } else if (this.$route.name === 'new_app') {

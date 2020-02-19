@@ -28,13 +28,11 @@ nav {
   padding-left: 2.375rem;
   color: #fff;
   background: #1d69ff;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 
   img {
-    width: 1.5rem;
-    height: 1.25rem;
     border-radius: 0 !important;
-    transform: translate(0, 0.1875rem);
   }
 
   span {
@@ -80,15 +78,6 @@ nav {
 
   &:hover {
     background: #f6f9ff;
-  }
-
-  &.top-info .bottom-more {
-    top: 8.75rem;
-
-    &.bottom-more-active {
-      opacity: 1;
-      top: 10rem;
-    }
   }
 }
 
@@ -507,6 +496,10 @@ header {
 
   .nav-side {
     display: none;
+  }
+
+  .dashboard-center-and-nav .dashboard-main {
+    height: calc(100% - 6rem);
   }
 
   .no-app {
