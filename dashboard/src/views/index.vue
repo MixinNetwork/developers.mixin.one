@@ -11,7 +11,7 @@
       <div :slot="!is_immersive? 'right': 'left'">
         <img
           class="header-slot-img"
-          @click.stop="click_user_img"
+          @click.stop="click_user"
           :src="user_info.avatar_url || _const.default.avatar_url"
         />
         <div
@@ -38,9 +38,7 @@
             <div>{{user_info.full_name}}</div>
             <div>ID: {{user_info.identity_number}}</div>
           </div>
-          <div
-            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
-          >
+          <div :class="['bottom-more', (show_click_user ? 'bottom-more-active' : '')]">
             <div class="bottom-button-list">
               <div @click.stop class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
@@ -80,9 +78,7 @@
             <div>{{user_info.full_name}}</div>
             <div>ID:{{user_info.identity_number}}</div>
           </div>
-          <div
-            :class="['bottom-more', (entring_status.show_click_user ? 'bottom-more-active' : '')]"
-          >
+          <div :class="['bottom-more', (show_click_user ? 'bottom-more-active' : '')]">
             <div class="bottom-button-list">
               <div @click.stop="click_sign_out" class="bottom-button-item">
                 <img src="@/assets/img/svg/logout.svg" />
@@ -136,21 +132,24 @@
           </div>
         </div>
         <div v-else class="has-app">
-          <div class="has-app-list">
-            <div @click="click_new_app" class="has-app-item has-app-new-app">
-              <img src="@/assets/img/app-svg/add.svg" />
+          <ul class="has-app-list">
+            <li @click="click_new_app" class="has-app-item has-app-new-app">
+              <div class="new-app-bg"></div>
               <div>{{$t('home.new_app')}}</div>
-            </div>
-            <div
+            </li>
+            <li
               v-for="(item,index) in app_list"
               :key="index"
               @click="click_app_list_item(index)"
               class="has-app-item"
             >
               <img :src="item.icon_url || _const.default.app_icon_url" />
-              <div>{{item.name}}</div>
-            </div>
-          </div>
+              <div>
+                <div class="item-name">{{item.name}}</div>
+                <div class="item-number">{{item.app_number}}</div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
