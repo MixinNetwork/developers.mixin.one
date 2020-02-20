@@ -14,16 +14,20 @@
               <img :src="active_asset.icon_url" />
               <p>{{active_asset.balance}} {{active_asset.symbol}}</p>
             </header>
-            <section>
-              <div class="first-row">
-                <auto-input v-model="submit_form.amount" :label="$t('wallet.amount')"></auto-input>
-                <div>
-                  <label>PIN</label>
-                  <input ref="pin_token" @input="change_style" />
-                </div>
-              </div>
-              <auto-input class="mixin-id" v-model="submit_form.opponent_id" label="Mixin ID"></auto-input>
-            </section>
+            <ul>
+              <li>
+                <label>{{$t('wallet.amount')}}</label>
+                <input v-model="submit_form.amount" />
+              </li>
+              <li>
+                <label>PIN</label>
+                <input maxlength="6" ref="pin_token" @input="change_style" />
+              </li>
+              <li>
+                <label>Mixin ID</label>
+                <input v-model="submit_form.opponent_id" />
+              </li>
+            </ul>
             <footer>
               <div class="btns">
                 <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
@@ -75,12 +79,11 @@
 </template>
 <script>
 import tools from "@/assets/js/tools";
-import AutoInput from "@/components/auto-input";
 import THeader from "@/components/header";
 
 export default {
   name: "withdrawal-modal",
-  components: { AutoInput, THeader },
+  components: { THeader },
   props: ["active_asset", "app_id", "show"],
   data() {
     return {
@@ -317,26 +320,26 @@ header {
   }
 }
 
-.first-row {
-  & > div:last-child {
-    margin-bottom: 16px;
-    display: flex;
-
-    label {
-      width: 90px;
-      text-align: left;
-      line-height: 60px;
-      margin-right: 20px;
-    }
-
-    input {
-      outline: none;
-      width: 492px;
-      background: #f6f9ff;
-      padding-left: 10px;
-      border: 0;
-      border-radius: 4px;
-    }
+ul {
+  display: flex;
+  flex-direction: column;
+}
+li {
+  display: flex;
+  margin-bottom: 1rem;
+  label {
+    width: 90px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 60px;
+    margin-right: 20px;
+  }
+  input {
+    font-size: 1rem;
+    width: 492px;
+    background: #f6f9ff;
+    padding-left: 10px;
+    border-radius: 4px;
   }
 }
 
@@ -357,18 +360,6 @@ header {
     &:hover {
       opacity: 0.8;
     }
-  }
-}
-
-.content /deep/ section {
-  label {
-    text-align: left;
-    font-weight: 700;
-  }
-
-  input {
-    font-size: 16px;
-    box-shadow: none;
   }
 }
 
@@ -451,26 +442,22 @@ header {
     }
   }
 
-  .content /deep/ section {
-    .mixin-id,
-    .first-row > div {
-      flex-direction: column;
+  li {
+    flex-direction: column;
+    label {
+      height: 1rem;
+      line-height: 1rem;
+      margin-bottom: 1rem;
+    }
 
-      label {
-        height: 1rem;
-        line-height: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      input {
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
-        height: 3.125rem;
-        padding: 0 1.25rem;
-        font-weight: 500;
-        font-size: 1rem;
-      }
+    input {
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
+      height: 3.125rem;
+      padding: 0 1.25rem;
+      font-weight: 500;
+      font-size: 1rem;
     }
   }
 

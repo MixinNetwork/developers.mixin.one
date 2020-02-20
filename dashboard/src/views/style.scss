@@ -436,7 +436,8 @@ header {
 }
 
 .edit-modal {
-  padding: 2.5rem 1.25rem 0 1.25rem;
+  padding: 2.5rem 1.25rem 4.75rem 1.25rem;
+  min-width: 37.5rem;
   text-align: center;
 
   img {
@@ -617,6 +618,10 @@ header {
   }
 
   .edit-modal {
+    padding: 2.5rem 1.25rem;
+    min-width: initial;
+    max-width: 18rem;
+
     button {
       margin-right: 0;
     }

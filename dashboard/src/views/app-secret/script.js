@@ -14,10 +14,6 @@ export default {
       default() {
         return {}
       }
-    },
-    is_mobile: {
-      type: Boolean,
-      default: false
     }
   },
   data() {

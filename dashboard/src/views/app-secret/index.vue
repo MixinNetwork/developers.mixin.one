@@ -30,31 +30,24 @@
       </div>
     </div>
     <div class="tips">{{$t('secret.des')}}</div>
-    <t-modal
-      class="secret-modal"
-      v-show="modal_content"
-      :show="modal_content ? true : false"
-      :width="is_mobile ? 300 : 612"
-      :height="is_mobile ? 264 : 294"
-    >
+    <t-modal class="secret-modal" :show="modal_content ? true : false">
       <div class="new-secret-modal">
         <h3>{{modal_title}}</h3>
         <span>{{modal_content}}</span>
         <div class="btns">
+          <button @click="click_close_new_secret" class="btn-close primary">Close</button>
           <button
             v-clipboard:copy="modal_content"
             　　v-clipboard:success="click_copy_succuess"
             　　v-clipboard:error="click_copy_error"
             class="btn-copy primary"
           >Copy</button>
-          <button @click="click_close_new_secret" class="btn-close primary">Close</button>
         </div>
         <img @click="click_close_new_secret" class="iconguanbi" src="@/assets/img/svg/close.svg" />
       </div>
     </t-modal>
     <a v-show="false" ref="download_ssesion_json"></a>
     <update-token
-      :is_mobile="is_mobile"
       :open_edit_modal="open_edit_modal"
       :active_app="active_app"
       :submit_form="submit_form"

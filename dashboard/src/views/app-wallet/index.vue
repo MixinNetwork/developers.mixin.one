@@ -33,7 +33,6 @@
       </div>
     </div>
     <update-token
-      :is_mobile="is_mobile"
       :open_edit_modal="open_edit_modal"
       :loading="loading"
       :active_app="active_app"

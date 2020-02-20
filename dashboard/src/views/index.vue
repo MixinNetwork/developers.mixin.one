@@ -99,7 +99,6 @@
             <div class="dashboard-main">
               <component
                 :is="tmp_component"
-                :is_mobile="is_mobile"
                 :active_app="active_app"
                 @add_new_app="add_new_app"
                 @loading="change_loading"
@@ -139,28 +138,26 @@
         </div>
       </div>
     </template>
-    <div v-show="balance_modal" class="edit-information">
-      <t-modal :show="balance_modal" :width="is_mobile ? 300 : 600" :height="is_mobile ? 474 : 312">
-        <div class="edit-modal">
-          <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
-          <h3 class="edit-modal-title">{{$t('home.buy.title')}}</h3>
-          <span>{{$t('home.buy.desc1')}}</span>
-          <p>{{$t('home.buy.desc2')}}</p>
-          <button
-            @click="click_buy_item(1)"
-            class="btns-save primary"
-          >{{$t('home.buy.btn',{count:1})}}</button>
-          <button
-            @click="click_buy_item(2)"
-            class="btns-save primary"
-          >{{$t('home.buy.btns',{count:2})}}</button>
-          <button
-            @click="click_buy_item(5)"
-            class="btns-save primary"
-          >{{$t('home.buy.btns',{count:5})}}</button>
-        </div>
-      </t-modal>
-    </div>
+    <t-modal :show="balance_modal">
+      <div class="edit-modal">
+        <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
+        <h3 class="edit-modal-title">{{$t('home.buy.title')}}</h3>
+        <span>{{$t('home.buy.desc1')}}</span>
+        <p>{{$t('home.buy.desc2')}}</p>
+        <button
+          @click="click_buy_item(1)"
+          class="btns-save primary"
+        >{{$t('home.buy.btn',{count:1})}}</button>
+        <button
+          @click="click_buy_item(2)"
+          class="btns-save primary"
+        >{{$t('home.buy.btns',{count:2})}}</button>
+        <button
+          @click="click_buy_item(5)"
+          class="btns-save primary"
+        >{{$t('home.buy.btns',{count:5})}}</button>
+      </div>
+    </t-modal>
   </div>
 </template>
 
