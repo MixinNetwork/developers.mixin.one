@@ -30,7 +30,7 @@ export default {
     oauth_url: 'OAuth URL',
     oauth_url_desc: 'E.g. https://mixin.one/auth',
     description: 'Description',
-    description_desc: 'A short description of your app',
+    description_desc: 'A short description of your app, at lease 16 characters, and less than 128 characters',
     resource_patterns: 'Resource Patterns',
     resource_patterns_desc: 'Resource patterns for your app, split by line and max 10 items.',
     immersive: 'Immersive'
