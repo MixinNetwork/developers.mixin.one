@@ -53,7 +53,7 @@ export default {
       this.confirm_modal = true
     },
     request_new_session() {
-      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      if (/Android|webOS|iPhone|iPad|BlackBerry|Mobile/i.test(navigator.userAgent)) {
         return this.$message.info(this.$t('message.app.secret_tips'))
       }
       this.confirm_content = this.$t('secret.session_question')
