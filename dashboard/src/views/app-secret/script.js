@@ -8,7 +8,14 @@ export default {
   components: {
     TModal, UpdateToken, Confirm
   },
-  props: ['active_app'],
+  props: {
+    active_app: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  },
   data() {
     return {
       modal_title: '',

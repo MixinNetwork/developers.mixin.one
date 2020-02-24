@@ -13,10 +13,8 @@ export default {
   data() {
     return {
       show_click_user: false,
-      entring_status: {
-        welcome: true,
-        is_new_app: false
-      },
+      is_welcome: true,
+      is_new_app: false,
       nav_header_index: 0,
       nav_list: ['information', 'wallet', 'secret'],
       tmp_component: 'information',
@@ -27,21 +25,11 @@ export default {
       balance_modal: false,
       tmp_money: 0,
       is_immersive: false,
-      is_mobile: false
-    }
-  },
-  computed: {
-    user_info() {
-      return this.$store.state.user_info
-    },
-    app_list() {
-      return this.$store.state.app_list
-    },
-    active_app() {
-      return this.$store.state.active_app
-    },
-    apps_property() {
-      return this.$store.state.apps_property
+      is_mobile: false,
+      user_info: {},
+      app_list: [],
+      active_app: {},
+      apps_property: {}
     }
   },
   watch: {
@@ -51,7 +39,7 @@ export default {
       } else if (val.includes('/apps')) {
         let { app_number } = this.$route.params
         let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-        this.$store.commit('change_state', { active_app: this.app_list[active_index] })
+        this.active_app = this.app_list[active_index]
       }
     }
   },
@@ -65,9 +53,9 @@ export default {
       this.tmp_component = this.nav_list[nav_header_index]
     },
     click_app_list_item(index) {
-      this.entring_status.welcome = false
-      this.entring_status.is_new_app = false
-      this.$store.commit('change_state', { active_app: this.app_list[index] })
+      this.is_welcome = false
+      this.is_new_app = false
+      this.active_app = this.app_list[index]
       jump_to_uri.call(this, '/apps', true)
       clearTimeout(this.timer)
       this.loading = true;
@@ -75,22 +63,28 @@ export default {
         this.loading = false;
       }, 500)
     },
-    click_new_app() {
+    async click_new_app() {
       this.all_loading = true
-      this.$store.dispatch('get_apps_property').then(res => {
-        if (res > 0) {
-          this.tmp_money = res
+      let app_nums = this.app_list.length
+      let { count, price } = this.apps_property
+      let add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
+      if (add_one_app_price < 0) {
+        this.is_welcome = false
+        this.is_new_app = true
+        jump_to_uri.call(this, '/apps/new', false)
+      } else {
+        let { count, price } = await this.apis.get_apps_property()
+        add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
+        if (add_one_app_price > 0) {
+          this.tmp_money = add_one_app_price
           this.balance_modal = true
-        } else {
-          this.entring_status.welcome = false
-          this.entring_status.is_new_app = true
-          jump_to_uri.call(this, '/apps/new', false)
         }
-      }).finally(_ => this.all_loading = false)
+      }
+      this.all_loading = false
     },
     add_new_app(app_id) {
       axios_get_app_list.call(this, app_id)
-      this.entring_status.is_new_app = false
+      this.is_new_app = false
     },
     click_user() {
       this.show_click_user = !this.show_click_user
@@ -114,60 +108,54 @@ export default {
       window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`
     }
   },
-  mounted() {
-    init_page.call(this)
+  async mounted() {
     this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
     window.onresize = () => {
       this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
     }
+    await init_page.call(this)
   }
 }
 
-function init_page() {
+async function init_page() {
   tools.changeTheme('#fff')
   this.is_immersive = tools.isImmersive()
   this.init_status = false
   this.all_loading = true
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)
-  this.$store.dispatch('init_app').then(_ => {
-    this.all_loading = false
-    this.init_status = true
-    if (this.$route.params.app_number) {
-      let { app_number } = this.$route.params
-      let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-      this.$store.commit('change_state', { active_app: this.app_list[active_index] })
-    }
-  })
+  this.user_info = await this.apis.get_me()
+  if (!this.user_info) return
+  await axios_get_app_list.call(this)
+  this.init_status = true
+  this.apps_property = await this.apis.get_apps_property()
 }
 
-function axios_get_app_list(app_id) {
+async function axios_get_app_list(app_id) {
   this.all_loading = true
-  this.apis.get_apps().then(res => {
-    this.$store.commit('change_state', { app_list: res })
-    this.all_loading = false
-    let route_active_index = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
-    if (route_active_index !== -1) {
-      this.$store.commit('change_state', { active_app: this.app_list[route_active_index] })
-      this.tmp_component = 'information'
-    }
-    if (!app_id) return;
-    let target_index = res.findIndex(item => item.app_id === app_id)
-    this.$store.commit('change_state', { active_app: res[target_index] })
-  })
+  let res = await this.apis.get_apps()
+  this.app_list = res
+  app_id = app_id || this.$route.params.app_number
+  if (app_id) {
+    let active_idx = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
+    if (active_idx !== -1) this.active_app = this.app_list[active_idx]
+  }
+  this.all_loading = false
 }
 
 
 function mounted_select_active_router() {
-  this.nav_header_index = 0
-  if (this.$route.name === 'dashboard') {
-    this.entring_status.welcome = true
-  } else if (this.$route.name === 'new_app') {
-    this.entring_status.welcome = false
-    this.entring_status.is_new_app = true
-    this.tmp_component = 'information'
-  } else {
-    this.entring_status.welcome = false
+  switch (this.$route.name) {
+    case 'dashboard':
+      this.is_welcome = true
+      break
+    case 'new_app':
+      this.is_welcome = false
+      this.is_new_app = true
+      this.tmp_component = 'information'
+      break
+    default:
+      this.is_welcome = false
   }
 }
 

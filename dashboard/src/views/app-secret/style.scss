@@ -22,7 +22,7 @@
     margin-bottom: .5rem;
 
     img {
-      border-radius: 0 !important;
+      border-radius: 0;
       margin-right: 0.875rem;
       transform: translate(0, 2px);
     }
@@ -87,7 +87,8 @@
 
 .new-secret-modal {
   text-align: center;
-  padding: 3.125rem 3.75rem 0 3.75rem;
+  padding: 3.125rem 3.75rem;
+  max-width: 38.5rem;
 
   h3 {
     margin-bottom: 1.3125rem;
@@ -107,8 +108,10 @@
 }
 
 .btns {
+  display: flex;
+  justify-content: flex-end;
+
   button {
-    float: right;
     width: 8.75rem;
     height: 2.5rem;
     margin-top: 2rem;
@@ -202,22 +205,9 @@
     }
   }
 
-  .container /deep/ .secret-modal {
-    .--modal-main {
-      width: 18.75rem !important;
-      height: 16.5rem !important;
-      overflow: hidden;
-
-    }
-
-    img {
-      top: 1rem;
-      right: 1rem;
-    }
-  }
-
   .new-secret-modal {
     padding: 2.5rem 1.25rem;
+    max-width: 18.75rem;
 
     h3 {
       margin-bottom: 1rem;
@@ -227,11 +217,15 @@
       padding: 0.625rem;
       font-weight: 500;
     }
+
+    img {
+      top: 1rem;
+      right: 1rem;
+    }
   }
 
-  .btns .btn-copy {
-    margin-top: 1.75rem;
-    float: none;
+  .btns {
+    justify-content: center;
   }
 
   .btn-close {

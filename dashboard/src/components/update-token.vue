@@ -1,36 +1,33 @@
 <template>
-  <div v-show="open_edit_modal" class="edit-information">
-    <t-modal
-      :loading="loading"
-      class="--edit-modal"
-      :show="open_edit_modal"
-      :width="700"
-      :height="512"
-    >
-      <div class="edit-main-modal">
-        <h3 class="edit-main-modal-title">{{$t('wallet.update_token')}}</h3>
-        <t-input v-model="submit_form.session_id" label="Session ID"></t-input>
-        <t-input v-model="submit_form.pin_token" label="Pin Token"></t-input>
-        <div class="edit-information-PK">
-          <label>Private Key</label>
-          <textarea v-model="submit_form.private_key"></textarea>
-        </div>
-        <div class="btns">
-          <button @click="click_submit" class="btns-save primary">{{$t('button.save')}}</button>
-          <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-        </div>
-        <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+  <t-modal :loading="loading" class="modal" :show="open_edit_modal">
+    <div class="main">
+      <h3>{{$t('wallet.update_token')}}</h3>
+      <div class="edit-item">
+        <label>Session ID</label>
+        <input v-model="submit_form.session_id" />
       </div>
-    </t-modal>
-  </div>
+      <div class="edit-item">
+        <label>Pin Token</label>
+        <input v-model="submit_form.pin_token" />
+      </div>
+      <div class="edit-item">
+        <label>Private Key</label>
+        <textarea v-model="submit_form.private_key"></textarea>
+      </div>
+      <div class="btns">
+        <button @click="click_submit" class="btns-save primary">{{$t('button.save')}}</button>
+        <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+      </div>
+      <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+    </div>
+  </t-modal>
 </template>
 
 <script>
-import TInput from "./auto-input";
 import TModal from "./t-modal";
 import validator from "validator";
 export default {
-  components: { TInput, TModal },
+  components: { TModal },
   props: {
     open_edit_modal: {
       type: Boolean,
@@ -53,7 +50,6 @@ export default {
       }
     }
   },
-  computed: {},
   methods: {
     click_submit() {
       if (!_check_date.call(this)) return;
@@ -109,38 +105,44 @@ function _set_token_obj() {
   overflow: hidden;
 }
 
-.edit-main-modal {
-  padding: 50px 40px 0 40px;
+.main {
+  padding: 3.125rem 2.5rem 2.5rem 2.5rem;
   overflow: hidden;
 }
 
 h3 {
-  height: 1rem;
   font-size: 1rem;
-  margin: 10px 0 40px 0;
+  margin: 0.625rem 0 2.5rem 0;
   text-align: center;
 }
 
 label {
   font-weight: 700;
-  min-width: 90px;
+  min-width: 5.625rem;
   margin-right: 20px;
 }
 
-.edit-information-PK {
+.edit-item {
   display: flex;
   align-items: center;
+  margin-bottom: 1.25rem;
 
-  label {
-    transform: translate(0, 5px);
-    margin-bottom: 1rem;
+  input {
+    width: 100%;
+    max-width: 492px;
+    height: 60px;
+    font-size: 1rem;
+    background: #f6f9ff;
+    padding: 0 10px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
   }
 
   textarea {
-    font-size: 16px;
-    padding: 10px;
-    width: 492px;
-    height: 82px;
+    font-size: 1rem;
+    padding: 0.625rem;
+    width: 30.75rem;
+    height: 5.125rem;
     background: #f6f9ff;
   }
 }
@@ -176,19 +178,17 @@ label {
 }
 
 @media screen and (max-width: 48rem) {
-  .--edit-modal /deep/ .--modal-main {
-    width: 19.375rem !important;
-    height: 29.875rem !important;
-
+  .modal {
     .iconguanbi {
       top: 1rem;
       right: 1rem;
     }
 
-    .edit-main-modal {
-      padding: 2.5rem 1.5625rem 0 1.5625rem;
+    .main {
+      padding: 2.5rem 1.5625rem;
+      width: 310px;
 
-      .edit-main-modal-title {
+      h3 {
         margin: 0 0 2rem 0;
       }
 
@@ -208,7 +208,7 @@ label {
         }
       }
 
-      .edit-information-PK {
+      .edit-item {
         align-items: flex-start;
 
         textarea {

@@ -18,17 +18,17 @@
           <div
             :class="['right-more', show_click_user ? 'right-more-active' : '',!is_immersive ? 'header-slot-right' : 'header-slot-left']"
           >
-            <div class="right-button-list">
-              <div @click.stop="click_sign_out" class="right-button-item">
+            <ul class="right-button-list">
+              <li @click.stop="click_sign_out" class="right-button-item">
                 <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" />
                 <span>{{$t('home.sign_out')}}</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </t-header>
       <div class="dashboard-container">
-        <nav class="nav-side">
+        <nav>
           <div class="top-logo-title">
             <img src="@/assets/img/logo.svg" />
             <span>{{$t('home.title')}}</span>
@@ -36,17 +36,15 @@
           <div class="middle-app-list">
             <div
               @click="click_new_app"
-              :class="['create-app',entring_status.is_new_app ? 'create-app-active' : '' ]"
+              :class="['create-app',is_new_app ? 'create-app-active' : '' ]"
             >
               <img src="@/assets/img/svg/add.svg" />
               <span>{{$t('home.new_app')}}</span>
             </div>
             <div class="app-list-container" v-if="app_list.length">
-              <div class="app-list-header">
-                <div class="app-list-name">{{$t('home.my_app')}}</div>
-              </div>
-              <div class="app-content">
-                <div
+              <div class="app-list-header">{{$t('home.my_app')}}</div>
+              <ul class="app-list">
+                <li
                   v-for="(item,index) in app_list"
                   :key="index"
                   @click="click_app_list_item(index)"
@@ -54,8 +52,8 @@
                 >
                   <img :src="item.icon_url || _const.default.app_icon_url" />
                   <span>{{item.name}}</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
           <div @click.stop="click_user" class="bottom-info middle">
@@ -75,7 +73,7 @@
           </div>
         </nav>
         <div v-if="$route.name!=='dashboard' || !is_mobile" class="dashboard-center-and-nav">
-          <div v-if="entring_status.welcome" class="welcome">
+          <div v-if="is_welcome" class="welcome">
             <img src="@/assets/img/svg/robot.svg" />
             <h1>{{$t('home.welcome')}}</h1>
             <p>{{$t('home.welcome_d')}}</p>
@@ -84,7 +82,7 @@
           <div v-loading="loading" v-else>
             <header>
               <div :class="['header-list', ('header-index-' +nav_header_index)]">
-                <template v-if="entring_status.is_new_app">
+                <template v-if="is_new_app">
                   <span class="header-item new-item">{{$t('home.new_app')}}</span>
                 </template>
                 <template v-else>
@@ -101,9 +99,9 @@
             <div class="dashboard-main">
               <component
                 :is="tmp_component"
+                :active_app="active_app"
                 @add_new_app="add_new_app"
                 @loading="change_loading"
-                :active_app="active_app"
               ></component>
             </div>
           </div>
@@ -140,28 +138,26 @@
         </div>
       </div>
     </template>
-    <div v-show="balance_modal" class="edit-information">
-      <t-modal :show="balance_modal" :width="is_mobile ? 300 : 600" :height="is_mobile ? 474 : 312">
-        <div class="edit-modal">
-          <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
-          <h3 class="edit-modal-title">{{$t('home.buy.title')}}</h3>
-          <span>{{$t('home.buy.desc1')}}</span>
-          <p>{{$t('home.buy.desc2')}}</p>
-          <button
-            @click="click_buy_item(1)"
-            class="btns-save primary"
-          >{{$t('home.buy.btn',{count:1})}}</button>
-          <button
-            @click="click_buy_item(2)"
-            class="btns-save primary"
-          >{{$t('home.buy.btns',{count:2})}}</button>
-          <button
-            @click="click_buy_item(5)"
-            class="btns-save primary"
-          >{{$t('home.buy.btns',{count:5})}}</button>
-        </div>
-      </t-modal>
-    </div>
+    <t-modal :show="balance_modal">
+      <div class="edit-modal">
+        <img @click="balance_modal=false" src="@/assets/img/app-svg/close.svg" />
+        <h3 class="edit-modal-title">{{$t('home.buy.title')}}</h3>
+        <span>{{$t('home.buy.desc1')}}</span>
+        <p>{{$t('home.buy.desc2')}}</p>
+        <button
+          @click="click_buy_item(1)"
+          class="btns-save primary"
+        >{{$t('home.buy.btn',{count:1})}}</button>
+        <button
+          @click="click_buy_item(2)"
+          class="btns-save primary"
+        >{{$t('home.buy.btns',{count:2})}}</button>
+        <button
+          @click="click_buy_item(5)"
+          class="btns-save primary"
+        >{{$t('home.buy.btns',{count:5})}}</button>
+      </div>
+    </t-modal>
   </div>
 </template>
 
