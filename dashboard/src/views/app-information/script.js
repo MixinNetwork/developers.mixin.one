@@ -100,7 +100,7 @@ function _submit_to_database() {
 
 
 function _check_is_finished() {
-  if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description) {
+  if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description && this.app_name.length>=2 && this.app_name.length<=64 && this.active_app.description.length>=16 && this.active_app.description.length<=128) {
     this.can_save = true;
   } else {
     this.can_save = false;
