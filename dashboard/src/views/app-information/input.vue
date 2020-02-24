@@ -134,7 +134,7 @@ textarea {
   }
 }
 
-@media screen and (max-width: 25.75rem) {
+@media screen and (max-width: 25.875rem) {
   textarea {
     line-height: 1.125rem;
     padding: 0.4375rem 2.875rem 0.4375rem 1.25rem;
