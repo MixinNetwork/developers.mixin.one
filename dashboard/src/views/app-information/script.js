@@ -29,8 +29,7 @@ export default {
   },
   methods: {
     submit_to_database() {
-      notice.call(this)
-      if (!this.can_save) return
+      if (!this.can_save) return notice.call(this)
       _submit_to_database.call(this)
     },
     getFile(event) {
