@@ -33,7 +33,15 @@ export default {
     description_desc: '您的应用的简介, 最少 16 个字符, 最多 128 个字符',
     resource_patterns: '域名白名单',
     resource_patterns_desc: '您应用的域名白名单，按行划分，最多 10 个域名。',
-    immersive: '沉浸式'
+    immersive: '沉浸式',
+    errors: {
+      no_app_name: '应用名称不能为空。',
+      no_home_uri: '首页网址不能为空。',
+      no_redirect_uri: '验证网站不能为空',
+      no_description: '简介不能为空',
+      app_name_length: '应用名称长度为 2 ~ 64',
+      description_length: '简介的长度为 16 ~ 128',
+    }
   },
   wallet: {
     title: '钱包',
