@@ -68,7 +68,7 @@ export default {
       let app_nums = this.app_list.length
       let { count, price } = this.apps_property
       let add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
-      if (add_one_app_price < 0) {
+      if (add_one_app_price <= 0) {
         this.is_welcome = false
         this.is_new_app = true
         jump_to_uri.call(this, '/apps/new', false)
@@ -82,8 +82,8 @@ export default {
       }
       this.all_loading = false
     },
-    add_new_app(app_id) {
-      axios_get_app_list.call(this, app_id)
+    add_new_app(app_number) {
+      axios_get_app_list.call(this, app_number)
       this.is_new_app = false
     },
     click_user() {
@@ -131,15 +131,12 @@ async function init_page() {
   this.apps_property = await this.apis.get_apps_property()
 }
 
-async function axios_get_app_list(app_id) {
+async function axios_get_app_list(app_number) {
   this.all_loading = true
   let res = await this.apis.get_apps()
   this.app_list = res
-  app_id = app_id || this.$route.params.app_number
-  if (app_id) {
-    let active_idx = this.app_list.findIndex(item => item.app_number === this.$route.params.app_number)
-    if (active_idx !== -1) this.active_app = this.app_list[active_idx]
-  }
+  app_number = app_number || this.$route.params.app_number
+  if (app_number) jump_to_uri.call(this, '/apps/' + app_number, false)
   this.all_loading = false
 }
 

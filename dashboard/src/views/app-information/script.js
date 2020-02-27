@@ -90,7 +90,7 @@ function _submit_to_database() {
   this.apis.set_app(app_id, parmas).then(res => {
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
-      this.$emit('add_new_app', res.app_id)
+      this.$emit('add_new_app', res.app_number)
     }
   }).finally(_ => {
     once_submit = false
