@@ -126,7 +126,9 @@ async function init_page() {
   mounted_select_active_router.call(this)
   this.user_info = await this.apis.get_me()
   if (!this.user_info) return
-  await axios_get_app_list.call(this)
+  let app_number = await axios_get_app_list.call(this)
+  let active_index = this.app_list.findIndex(item => item.app_number === app_number)
+  this.active_app = this.app_list[active_index]
   this.init_status = true
   this.apps_property = await this.apis.get_apps_property()
 }
@@ -138,6 +140,7 @@ async function axios_get_app_list(app_number) {
   app_number = app_number || this.$route.params.app_number
   if (app_number) jump_to_uri.call(this, '/apps/' + app_number, false)
   this.all_loading = false
+  return app_number
 }
 
 
