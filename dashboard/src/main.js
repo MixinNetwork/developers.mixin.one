@@ -13,8 +13,6 @@ Vue.prototype.$message = Message;
 Vue.use(Loading.directive);
 Vue.use(VueClipboard)
 Vue.config.productionTip = false
-Vue.config.devtools = true
-
 
 Vue.prototype.apis = apis
 Vue.prototype._const = _const

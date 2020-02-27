@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     submit_to_database() {
-      if (!this.can_save) return
+      if (!this.can_save) return notice.call(this)
       _submit_to_database.call(this)
     },
     getFile(event) {
@@ -90,7 +90,7 @@ function _submit_to_database() {
   this.apis.set_app(app_id, parmas).then(res => {
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
-      this.$emit('add_new_app', res.app_id)
+      this.$emit('add_new_app', res.app_number)
     }
   }).finally(_ => {
     once_submit = false
@@ -100,9 +100,26 @@ function _submit_to_database() {
 
 
 function _check_is_finished() {
-  if (this.app_name && this.active_app.home_uri && this.active_app.redirect_uri && this.active_app.description && this.app_name.length>=2 && this.app_name.length<=64 && this.active_app.description.length>=16 && this.active_app.description.length<=128) {
+  let { app_name, active_app } = this
+  let { home_uri, redirect_uri, description } = active_app
+  if (app_name && home_uri && redirect_uri && description && app_name.length >= 2 && app_name.length <= 64 && description.length >= 16 && description.length <= 128) {
     this.can_save = true;
   } else {
     this.can_save = false;
   }
+}
+
+function notice() {
+  let { app_name, active_app } = this
+  let { home_uri, redirect_uri, description } = active_app
+  if (!app_name) return notice_message.call(this, 'no_app_name')
+  if (!home_uri) return notice_message.call(this, 'no_home_uri')
+  if (!redirect_uri) return notice_message.call(this, 'no_redirect_uri')
+  if (!description) return notice_message.call(this, 'no_description')
+  if (app_name.length < 2 || app_name.length > 64) return notice_message.call(this, 'app_name_length')
+  if (description.length < 16 || description.length > 128) return notice_message.call(this, 'description_length')
+}
+
+function notice_message(message) {
+  return this.$message.error({ message: this.$t('information.errors.' + message), showClose: true })
 }

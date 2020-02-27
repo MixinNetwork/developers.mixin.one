@@ -33,7 +33,15 @@ export default {
     description_desc: 'A short description of your app, at lease 16 characters, and less than 128 characters',
     resource_patterns: 'Resource Patterns',
     resource_patterns_desc: 'Resource patterns for your app, split by line and max 10 items.',
-    immersive: 'Immersive'
+    immersive: 'Immersive',
+    errors: {
+      no_app_name: 'Application name cannot be empty',
+      no_home_uri: 'Home URL cannot be empty',
+      no_redirect_uri: 'OAuth URL cannot be empty',
+      no_description: 'Description cannot be empty',
+      app_name_length: 'Application name length is 2 to 64',
+      description_length: 'Description length is 16 to 128',
+    }
   },
   wallet: {
     title: 'Wallet',
