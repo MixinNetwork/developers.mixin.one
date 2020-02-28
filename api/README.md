@@ -4,7 +4,7 @@ Website: [https://developers.mixin.one/api](https://developers.mixin.one/api)
 
 ## API Guide
 
-You can run api locally to view your changes. Before you run api document locally, you should install [ruby](https://www.ruby-lang.org/en/documentation/installation/) and [bundler](http://bundler.io/) first.
+You can run api locally to view your changes. Before you run api document locally, you should install [ruby](https://www.ruby-lang.org/en/documentation/installation/) and [bundler](http://bundler.io/) first. Theme from [edition](https://long-pig.cloudvent.net/)
 
 1. cd api
 2. bundle install 
