@@ -6,6 +6,7 @@
           v-if="active_app.app_id"
           label="Mixin ID"
           disabled
+          is-copied=true
           v-model="active_app.app_number"
           class="mixin-id"
         ></mixin-input>
@@ -30,6 +31,7 @@
             :label="$t('information.app_id')"
             disabled
             width
+            is-copied=true
             v-model="active_app.app_id"
             class="item"
           ></mixin-input>
