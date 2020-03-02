@@ -17,15 +17,15 @@
             (disabled==='' ? 'disabled':'')
             ]"
       :disabled="disabled===''"
-      :placeholder="placeholder[label] || ''"
+      :placeholder="placeholder || ''"
       :value="value"
       @input="change($event)"
     />
     <img
       v-if="['Mixin ID', '应用 ID', 'App ID'].includes(label)"
       v-clipboard:copy="value"
-      　　v-clipboard:success="click_copy_succuess"
-      　　v-clipboard:error="click_copy_error"
+  　　v-clipboard:success="click_copy_succuess"
+  　　v-clipboard:error="click_copy_error"
       src="@/assets/img/ic_copy.png"
     />
   </div>
@@ -34,20 +34,10 @@
 <script>
 export default {
   name: "t-input",
-  props: ["value", "label", "disabled", "width"],
+  props: ["value", "label", "disabled", "width", "placeholder"],
   data() {
     window.localStorage;
-    return {
-      placeholder: {
-        Name: this.$t("information.name_desc"),
-        "Home URL": this.$t("information.home_url_desc"),
-        "OAuth URL": this.$t("information.oauth_url_desc"),
-        description: "A short description of your app",
-        名称: this.$t("information.name_desc"),
-        首页网址: this.$t("information.home_url_desc"),
-        验证网址: this.$t("information.oauth_url_desc")
-      }
-    };
+    return {}
   },
   methods: {
     change(event) {
