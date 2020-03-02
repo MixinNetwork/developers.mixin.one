@@ -1,5 +1,5 @@
 ---
-title: Create PIN
+title: Create & Update PIN
 category: Pin
 order: 7
 ---

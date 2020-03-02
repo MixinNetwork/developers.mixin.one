@@ -1,7 +1,7 @@
 ---
 title: Create Attachment
 category: Messenge
-order: 9
+order: 5
 ---
 
 Create an attachment upload address. We use s3 as our storage, you can follow s3 Browser-Based Upload using HTTP POST. [https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html).
