@@ -2,10 +2,6 @@
   <div>
     <label>{{label}}</label>
     <input
-      :class="[
-            (width===''?'width':''),
-            (disabled==='' ? 'disabled':'')
-            ]"
       :disabled="disabled===''"
       :placeholder="placeholder || ''"
       :value="value"
@@ -24,7 +20,7 @@
 <script>
 export default {
   name: "t-input",
-  props: ["value", "label", "disabled", "width", "placeholder", "isCopied"],
+  props: ["value", "label", "disabled", "placeholder", "isCopied"],
   data() {
     window.localStorage;
     return {}
@@ -53,21 +49,19 @@ export default {
   div {
     position: relative;
   }
-
   label {
     font-weight: 700;
     display: block;
     line-height: 1rem;
     margin-bottom: 1rem;
   }
-
-  textarea,
   input {
+    box-sizing:border-box;
     width: 100%;
     height: 4rem;
     font-size: 1rem;
     padding: 0 1.25rem;
-    border-radius: 4px;
+    border-radius: .25rem;
     box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
     &::-webkit-input-placeholder {
       color: #a9b0bf;
@@ -78,30 +72,25 @@ export default {
     &::-ms-input-placeholder {
       color: #a9b0bf;
     }
-  }
-  .width {
-    width: 100%;
-  }
-  .disabled {
-    background: #eceef2;
-    color: #a9b0bf;
-    box-shadow: none;
+    &:disabled {
+      background: #eceef2;
+      color: #a9b0bf;
+      box-shadow: none;
+    }
   }
   img {
+    border-radius: 0;
     cursor: pointer;
     position: absolute;
     right: 0.625rem;
-    top: 3.5rem;
-    border-radius: 0;
+    top: 50%;
+    transform: translateY(.5rem);
   }
 
   @media screen and (max-width: 48rem) {
     input {
       font-weight: 500;
       height: 3.125rem;
-    }
-    img {
-      top: 3rem;
     }
   }
 </style>
