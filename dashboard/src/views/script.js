@@ -129,7 +129,9 @@ async function init_page() {
   if (!this.user_info) return
   let app_number = await axios_get_app_list.call(this)
   let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-  this.active_app = this.app_list[active_index]
+  if (active_index >= 0) {
+    this.active_app = this.app_list[active_index]
+  }
   this.init_status = true
   this.apps_property = await this.apis.get_apps_property()
 }
