@@ -23,8 +23,8 @@ export default {
     }
   },
   watch: {
-    active_app(val) {
-      this.init_app(val)
+    active_app(val, old) {
+      if (JSON.stringify(val) !== JSON.stringify(old)) this.init_app(val)
     }
   },
   methods: {

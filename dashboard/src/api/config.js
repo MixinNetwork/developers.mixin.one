@@ -11,9 +11,15 @@ instance.interceptors.request.use(config => {
 })
 
 instance.interceptors.response.use((res) => {
-  let data = res.data
+  let { data } = res
   if (data.error && data.error.description) {
-    _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code)}(${data.error.code})`)
+    if (data.error.code === 20123) {
+      let { description } = data.error
+      let max_app_numbers = description.replace(/\D/g, "")
+      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code, { count: max_app_numbers })}(${data.error.code})`)
+    } else {
+      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code)}(${data.error.code})`)
+    }
     if (_vm._not_through_interceptor) return false
     if (Number(data.error.code) === 401) {
       setTimeout(() => {

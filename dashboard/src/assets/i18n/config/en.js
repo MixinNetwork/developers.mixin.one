@@ -107,7 +107,7 @@ export default {
       20112: "Invalid invitation code.",
       20113: "Invalid phone verification code.",
       20117: "Insufficient balance.",
-      20123: "Too many apps created, the maximum is 2.",
+      20123: "Too many apps created, the maximum is {count}.",
       20119: "PIN incorrect.",
       20120: "Transfer amount too small.",
       session_id_format: 'Session Id Format Error',
