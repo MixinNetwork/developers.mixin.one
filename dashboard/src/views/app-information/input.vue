@@ -1,31 +1,17 @@
 <template>
   <div>
     <label>{{label}}</label>
-    <textarea
-      v-if="['应用 ID', 'App ID'].includes(label)"
-      :value="value"
-      disabled
-      :class="[
-            (width===''?'width':''),
-            (disabled==='' ? 'disabled':'')
-            ]"
-    />
     <input
-      v-else
-      :class="[
-            (width===''?'width':''),
-            (disabled==='' ? 'disabled':'')
-            ]"
       :disabled="disabled===''"
-      :placeholder="placeholder[label] || ''"
+      :placeholder="placeholder || ''"
       :value="value"
       @input="change($event)"
     />
     <img
-      v-if="['Mixin ID', '应用 ID', 'App ID'].includes(label)"
+      v-if="isCopied"
       v-clipboard:copy="value"
-      　　v-clipboard:success="click_copy_succuess"
-      　　v-clipboard:error="click_copy_error"
+  　　v-clipboard:success="click_copy_succuess"
+  　　v-clipboard:error="click_copy_error"
       src="@/assets/img/ic_copy.png"
     />
   </div>
@@ -34,20 +20,10 @@
 <script>
 export default {
   name: "t-input",
-  props: ["value", "label", "disabled", "width"],
+  props: ["value", "label", "disabled", "placeholder", "isCopied"],
   data() {
     window.localStorage;
-    return {
-      placeholder: {
-        Name: this.$t("information.name_desc"),
-        "Home URL": this.$t("information.home_url_desc"),
-        "OAuth URL": this.$t("information.oauth_url_desc"),
-        description: "A short description of your app",
-        名称: this.$t("information.name_desc"),
-        首页网址: this.$t("information.home_url_desc"),
-        验证网址: this.$t("information.oauth_url_desc")
-      }
-    };
+    return {}
   },
   methods: {
     change(event) {
@@ -69,75 +45,52 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-div {
-  font-size: 1rem;
-  position: relative;
-}
-
-label {
-  font-weight: 700;
-  display: block;
-  line-height: 1rem;
-  margin-bottom: 1rem;
-}
-
-textarea,
-input {
-  width: 100%;
-  height: 4rem;
-  font-size: 1rem;
-  padding: 0 1.25rem;
-  border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
-  &::-webkit-input-placeholder {
-    color: #a9b0bf;
+<style lang="scss" scoped>
+  div {
+    position: relative;
   }
-  &::-moz-input-placeholder {
-    color: #a9b0bf;
+  label {
+    font-weight: 700;
+    display: block;
+    line-height: 1rem;
+    margin-bottom: 1rem;
   }
-  &::-ms-input-placeholder {
-    color: #a9b0bf;
-  }
-}
-.width {
-  width: 100%;
-}
-.disabled {
-  background: #eceef2;
-  color: #a9b0bf;
-  box-shadow: none;
-}
-img {
-  cursor: pointer;
-  position: absolute;
-  right: 0.625rem;
-  top: 3.5rem;
-  border-radius: 0;
-}
-
-textarea {
-  line-height: 4rem;
-}
-
-@media screen and (max-width: 48rem) {
-  input,
-  textarea {
-    font-weight: 500;
-    height: 3.125rem;
-  }
-  textarea {
-    line-height: 3.125rem;
+  input {
+    box-sizing:border-box;
+    width: 100%;
+    height: 4rem;
+    font-size: 1rem;
+    padding: 0 1.25rem;
+    border-radius: .25rem;
+    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    &::-webkit-input-placeholder {
+      color: #a9b0bf;
+    }
+    &::-moz-input-placeholder {
+      color: #a9b0bf;
+    }
+    &::-ms-input-placeholder {
+      color: #a9b0bf;
+    }
+    &:disabled {
+      background: #eceef2;
+      color: #a9b0bf;
+      box-shadow: none;
+    }
   }
   img {
-    top: 3rem;
+    border-radius: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0.625rem;
+    top: 50%;
+    transform: translateY(.5rem);
   }
-}
 
-@media screen and (max-width: 25.875rem) {
-  textarea {
-    line-height: 1.125rem;
-    padding: 0.4375rem 2.875rem 0.4375rem 1.25rem;
+  @media screen and (max-width: 48rem) {
+    input {
+      font-weight: 500;
+      height: 3.125rem;
+    }
   }
-}
 </style>

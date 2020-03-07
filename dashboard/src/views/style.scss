@@ -24,12 +24,15 @@ nav {
 
 .top-logo-title {
   height: 3.75rem;
-  line-height: 3.75rem;
   padding-left: 2.375rem;
   color: #fff;
   background: #1d69ff;
   display: flex;
   align-items: center;
+
+  .home {
+    line-height: 0;
+  }
 
   img {
     border-radius: 0;

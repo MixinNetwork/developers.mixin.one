@@ -6,6 +6,7 @@
           v-if="active_app.app_id"
           label="Mixin ID"
           disabled
+          is-copied=true
           v-model="active_app.app_number"
           class="mixin-id"
         ></mixin-input>
@@ -29,20 +30,20 @@
             v-if="active_app.app_id"
             :label="$t('information.app_id')"
             disabled
-            width
+            is-copied=true
             v-model="active_app.app_id"
             class="item"
           ></mixin-input>
           <mixin-input
             @input="check_is_finished"
             :label="$t('information.name')"
-            width
+            :placeholder="$t('information.name_desc')"
             v-model="app_name"
             class="item"
           ></mixin-input>
           <mixin-input
             :label="$t('information.home_url')"
-            width
+            :placeholder="$t('information.home_url_desc')"
             @input="check_is_finished"
             v-model="active_app.home_uri"
             class="item"
@@ -50,7 +51,7 @@
           <mixin-input
             @input="check_is_finished"
             :label="$t('information.oauth_url')"
-            width
+            :placeholder="$t('information.oauth_url_desc')"
             v-model="active_app.redirect_uri"
             class="item"
           ></mixin-input>

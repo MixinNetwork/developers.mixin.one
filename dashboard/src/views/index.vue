@@ -30,7 +30,9 @@
       <div class="dashboard-container">
         <nav>
           <div class="top-logo-title">
-            <img src="@/assets/img/logo.svg" />
+            <a href="/" class="home">
+              <img src="@/assets/img/logo.svg" />
+            </a>
             <span>{{$t('home.title')}}</span>
           </div>
           <div class="middle-app-list">

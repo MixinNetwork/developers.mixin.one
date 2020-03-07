@@ -69,6 +69,7 @@ export default {
       let { count, price } = this.apps_property
       let add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
       if (add_one_app_price <= 0) {
+        this.active_app = {};
         this.is_welcome = false
         this.is_new_app = true
         jump_to_uri.call(this, '/apps/new', false)

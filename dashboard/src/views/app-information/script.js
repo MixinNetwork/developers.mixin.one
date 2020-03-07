@@ -40,8 +40,10 @@ export default {
     },
     init_app(app) {
       this.icon_base64 = ''
+      this.resource_patterns = ''
+      this.immersive_status = false
       let { name, resource_patterns, capabilities } = app
-      if (name) this.app_name = name
+      this.app_name = name
       if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
       if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
       _check_is_finished.call(this)
