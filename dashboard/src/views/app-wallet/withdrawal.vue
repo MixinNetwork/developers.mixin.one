@@ -24,7 +24,7 @@
                 <input maxlength="6" ref="pin_token" @input="change_style" />
               </li>
               <li>
-                <label>Mixin ID</label>
+                <label>Mixin ID / Address</label>
                 <input v-model="submit_form.opponent_id" />
               </li>
             </ul>
@@ -280,7 +280,6 @@ function _get_sid_from_storge(appid) {
   transform: translate(-50%, -50%);
   background-color: #fff;
   overflow: hidden;
-  height: 550px;
 }
 
 .snap-main {
@@ -288,7 +287,7 @@ function _get_sid_from_storge(appid) {
 }
 
 .content {
-  padding: 50px;
+  padding: 3rem;
 }
 
 .header {
@@ -320,36 +319,32 @@ header {
   }
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-}
 li {
   display: flex;
+  align-items: center;
   margin-bottom: 1rem;
   label {
     width: 90px;
     font-weight: 700;
     text-align: left;
-    line-height: 60px;
     margin-right: 20px;
   }
   input {
     font-size: 1rem;
     width: 492px;
     background: #f6f9ff;
-    padding-left: 10px;
+    padding: 1.25rem .8rem;
     border-radius: 4px;
   }
 }
 
 .btns {
+  text-align: right;
   margin-top: 64px;
 
   button {
     font-size: 14px;
     width: 140px;
-    float: right;
     margin-left: 10px;
   }
 
