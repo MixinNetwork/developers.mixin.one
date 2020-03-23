@@ -9,7 +9,7 @@ Read public snapshots of Mixin Network. Since you need to add an Authorization T
 ###### GET /network/snapshots?limit=10&offset=2006-01-02T15:04:05.999999999%2B07:00&asset=965e5c6e-434c-3fa9-b780-c50f43cd955c
 
 | limit | Integer: Max 500 |
-| offset | String: format RFC3339Nano, UTC or non UTC time e.g.: 1. 2006-01-02T15:04:05.999999999Z 2. 2006-01-02T15:04:05.999999999%2B07:00 3. 2006-01-02T15:04:05.999999999-07:00 |
+| offset | String: format RFC3339Nano, UTC: 2006-01-02T15:04:05.999999999Z |
 | asset | UUID: OPTION, return all network snapshots or specific asset snapshots. |
 | order | string: OPTION, ASC or DESC. DEFAULT DESC |
 
