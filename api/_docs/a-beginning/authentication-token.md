@@ -6,7 +6,7 @@ order: 3
 
 AuthenticationToken is used to request protected resources. Notice: `privateKey` is generated using RSA PKCS#1 v1.5. You can get more information from [https://golang.org/pkg/crypto/rsa/](https://golang.org/pkg/crypto/rsa/).
 
-In order to get the following infomations, you have to create an app first. [How to create an app](b-apps/register/).
+In order to get the following infomations, you have to create an app first. [How to create an app](/api/b-apps/register/).
 
 ```golang
 uid: ClientId or Bear User Id
