@@ -55,7 +55,7 @@ Following is message category supported by Websocket.
  ```
 
 Date Format, [How to Upload attachment](/api/beta-mixin-message/create-attachment/)
-```js
+```json
   // width: int, height: int, size: int64
   {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": 1024, "height": 1024, "size": 1024, "thumbnail": "base64 encoded"}
 ```
@@ -76,7 +76,7 @@ Date Format, [How to Upload attachment](/api/beta-mixin-message/create-attachmen
   }
 ```
 Data Format
-```js
+```json
   // size int64
   {"attachment_id": "Read From POST /attachments", "mime_type": "", "size": 1024, "name": "Share"}
 ```
@@ -137,7 +137,7 @@ Data Format
   }
 ```
 Data Format
-```js
+```json
  // The length of label field must be less than 36 bytes, and the color field must be filled in the correct format
   [{"label": "Mixin Website", "color": "#ABABAB", "action": "https://mixin.one"}, ...]
 ```
@@ -178,7 +178,7 @@ Data Format
   }
 ```
 Data Format
-```js
+```json
  // width: int, height: int, size: int64, duration: int64 milliseconds
  {"attachment_id": "Read From POST /attachments", "mime_type": "audio/ogg", "waveform": "QIQQSA...AAIAA", "size": 1024, "duration": 1024}
 ```
@@ -199,7 +199,7 @@ Data Format
   }
 ```
 Data Format
-```js
+```json
  // width: int, height: int, size: int64, duration: int64 milliseconds
  {"attachment_id": "Read From POST /attachments", "mime_type": "", "width": 1024, "height": 1024, "size": 1024, "duration": 1024, "thumbnail": "base64 encoded"}
 ```
@@ -220,9 +220,30 @@ Data Format
   }
 ```
 Data Format
-```js
+```json
  // width: int, height: int, thumb_url: string, url: string
  {"width": 650, "height": 366, "thumb_url": "https://mixin.one/logo.png", "url": "https://mixin.one/live.m3u8"}
+```
+
+##### PLAIN_LOCATION
+
+```json
+  {
+    "id": "UUID",
+    "action": "CREATE_MESSAGE",
+    "params": {
+      "conversation_id": "UUID",
+      "category": "PLAIN_LOCATION",
+      "status": "SENT",
+      "message_id": "UUID",
+      "data": "Base64 encoded data"
+    }
+  }
+```
+Data Format
+```json
+ // longitude: float, latitude: float, name: string, address: string
+ {"longitude":126.5893955829421,"latitude":53.478451778240661,"name":"China","address":"中国北京市"}
 ```
 
 `ACKNOWLEDGE_MESSAGE_RECEIPT` ack server received message
@@ -238,7 +259,7 @@ Data Format
 ```
 
 `CREATE_PLAIN_MESSAGES` send a batch of messages, max size 100.
-```js
+```json
   {
     "id": "UUID",
     "action": "CREATE_PLAIN_MESSAGES",
