@@ -1,4 +1,5 @@
 import MixinInput from './input.vue'
+import imgClip from '../../assets/js/imgClip'
 
 export default {
   name: 'app-information',
@@ -33,13 +34,14 @@ export default {
       _submit_to_database.call(this)
     },
     getFile(event) {
-      _render_file_to_base64.call(this, event.target.files[0])
+      event.target.files[0] && _render_file_to_base64.call(this, event.target.files[0])
     },
     check_is_finished() {
       _check_is_finished.call(this)
     },
     init_app(app) {
       this.icon_base64 = ''
+      this.$refs.upload_dom.value = ''
       this.resource_patterns = ''
       this.immersive_status = false
       let { name, resource_patterns, capabilities } = app
@@ -56,17 +58,18 @@ export default {
 
 function _render_file_to_base64(file) {
   let reader = new FileReader()
-  reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
+  reader.addEventListener('load', async event => {
+    let base64 = await imgClip(event.target.result)
+    if (!base64) return this.$message.error({ message: this.$t('message.errors.clip_img'), showClose: true });
+    this.icon_base64 = base64
+  }, false)
   reader.readAsDataURL(file)
 }
 
 let once_submit = false
 
 function _submit_to_database() {
-  if (once_submit) {
-    this.$message.error({ message: this.$t('message.errors.saving'), showClose: true });
-    return
-  }
+  if (once_submit) return this.$message.error({ message: this.$t('message.errors.saving'), showClose: true });
   let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
   let name = this.app_name
   if (this.immersive_status) {

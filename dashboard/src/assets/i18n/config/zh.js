@@ -114,6 +114,7 @@ export default {
       pin_token_format: ' Pin 令牌格式错误',
       saving: '正在保存，请稍候...',
       amount: '请输入正确的金额',
+      clip_img: '请检查图片文件...',
       pin: '请输入正确的密码',
       mixin_id: '请输入正确的 Mixin ID',
       copy: '复制错误',

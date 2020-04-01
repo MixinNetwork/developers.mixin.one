@@ -114,6 +114,7 @@ export default {
       pin_token_format: 'Pin Token Format Error',
       saving: 'Saving, please wait...',
       amount: 'Please enter the correct Amount',
+      clip_img: 'Please check the image file...',
       pin: 'Please enter the correct Pin',
       mixin_id: 'Please enter the correct Mixin ID',
       copy: 'Copy error',
