@@ -1,10 +1,10 @@
 import MixinInput from './input.vue'
-import Croppid from './croppie.vue'
+import Croppie from './croppie.vue'
 
 export default {
   name: 'app-information',
   components: {
-    MixinInput, Croppid
+    MixinInput, Croppie
   },
   props: {
     active_app: {
@@ -20,7 +20,7 @@ export default {
       app_name: '',
       resource_patterns: '',
       immersive_status: false,
-      toogle_idx: 0
+      toggle_app: 0
     }
   },
   watch: {
@@ -39,7 +39,7 @@ export default {
     init_app(app) {
       this.resource_patterns = ''
       this.immersive_status = false
-      this.toogle_idx++
+      this.toggle_app++
       let { name, resource_patterns, capabilities } = app
       this.app_name = name || ''
       if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
@@ -65,7 +65,7 @@ async function _submit_to_database() {
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
   let { resource_patterns } = this
-  let icon_base64 = await this.$refs.croppid.crop();
+  let icon_base64 = await this.$refs.croppie.crop();
   if (icon_base64) {
     parmas.icon_base64 = icon_base64.substring(icon_base64.split('').findIndex(item => item === ',') + 1);
   }

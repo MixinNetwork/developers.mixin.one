@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="toogle_component"
-    class="croppie-page"
-    :style="{width: size + 'px', height: size + 'px'}"
-  >
+  <div v-if="toggle_view" class="croppie-page">
     <div class="file-uploader" v-show="!tmp_file">
       <input type="file" accept="image/*" @change="croppie" ref="upload_dom" />
       <img class="icon-url" :src="icon_url" v-if="icon_url" />
@@ -34,7 +30,7 @@ export default {
       type: String,
       default: ""
     },
-    toogle: {
+    toggle_app: {
       type: Number,
       default: 0
     }
@@ -44,13 +40,13 @@ export default {
       resize_status: true,
       size: null,
       tmp_file: null,
-      toogle_component: true
+      toggle_view: true
     };
   },
   watch: {
-    toogle() {
-      this.toogle_component = false;
-      this.$nextTick(() => (this.toogle_component = true));
+    toggle_app() {
+      this.toggle_view = false;
+      this.$nextTick(() => (this.toggle_view = true));
       this.tmp_file = null;
     }
   },
@@ -122,6 +118,8 @@ export default {
 }
 .croppie-page {
   position: relative;
+  width: 320px;
+  height: 320px;
 }
 
 .reset-img {
@@ -171,6 +169,7 @@ export default {
     width: 8.75rem;
     font-size: 0.88rem;
     color: #a9b0bf;
+    margin-top: 1rem;
   }
 
   &:active {
@@ -182,17 +181,17 @@ export default {
     height: 100%;
     border-radius: 50%;
   }
-  @media screen and (min-width: 70rem) {
-    p {
-      margin-top: 1rem;
-    }
-  }
+}
 
-  @media screen and (max-width: 70rem) {
-    p {
-      position: absolute;
-      left: calc(100% + 1rem);
-    }
+@media screen and (max-width: 70rem) {
+  .croppie-page {
+    width: 128px;
+    height: 128px;
+  }
+  .file-uploader p {
+    margin-top: 0;
+    position: absolute;
+    left: calc(100% + 1rem);
   }
 }
 </style>

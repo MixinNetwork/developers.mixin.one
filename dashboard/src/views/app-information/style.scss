@@ -173,29 +173,6 @@ textarea {
   .icon {
     margin-bottom: 2rem;
   }
-
-  .upload-icon {
-    width: 8rem;
-    height: 8rem;
-    position: relative;
-
-    p {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      margin: 0;
-      left: calc(100% + 1rem);
-    }
-  }
-
-  .icon-img {
-    width: 8rem;
-    height: 8rem;
-  }
-
-  .none {
-    display: block;
-  }
 }
 
 @media screen and (max-width: 48rem) {

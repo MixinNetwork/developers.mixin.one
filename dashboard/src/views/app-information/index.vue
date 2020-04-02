@@ -12,7 +12,7 @@
         ></mixin-input>
         <div class="icon">
           <label>{{$t('information.icon')}}</label>
-          <Croppid ref="croppid" :icon_url="active_app.icon_url" :toogle="toogle_idx"></Croppid>
+          <Croppie ref="croppie" :icon_url="active_app.icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
       <div :class="['edit-main','f' ]">
