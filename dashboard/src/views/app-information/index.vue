@@ -12,16 +12,7 @@
         ></mixin-input>
         <div class="icon">
           <label>{{$t('information.icon')}}</label>
-          <div class="upload-icon">
-            <input type="file" accept="image/*" @change="getFile" ref="upload_dom" />
-            <img
-              :class="['icon-img' , !icon_base64 && !active_app.icon_url? 'no-img' : '']"
-              :src="icon_base64 || active_app.icon_url || require('@/assets/img/svg/img.svg')"
-            />
-            <p
-              :class="[!icon_base64 && !active_app.icon_url ? '' : 'none']"
-            >{{$t('information.icon_desc')}}</p>
-          </div>
+          <Croppid ref="croppid" :icon_url="active_app.icon_url" :toogle="toogle_idx"></Croppid>
         </div>
       </div>
       <div :class="['edit-main','f' ]">

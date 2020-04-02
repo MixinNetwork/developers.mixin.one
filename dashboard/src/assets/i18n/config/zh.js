@@ -21,7 +21,7 @@ export default {
     title: '信息',
     app_id: '应用 ID',
     icon: '图标',
-    icon_desc: '至少 500*500 像素 PNG 或 JPG 文件。 ',
+    icon_desc: '至少 500 * 500 像素 PNG 或 JPG 文件。 ',
     name: '名称',
     name_desc: '例如：Mixin',
     name_desc1: '2-64 字符',
