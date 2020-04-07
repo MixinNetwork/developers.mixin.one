@@ -16,7 +16,7 @@
     "noty": "^3.2.0-beta",
     "simple-line-icons": "^2.4.1",
     "to": "^0.2.9",
-    "uuid": "^7.0.2",
+    "uuid": "^7.0.3",
     "validator": "^12.2.0"
   },
   "devDependencies": {
