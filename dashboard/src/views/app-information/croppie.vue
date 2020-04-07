@@ -8,17 +8,17 @@
         <p>{{$t('information.icon_desc')}}</p>
       </template>
     </div>
-    <img v-show="tmp_file" @click="reset_img" class="reset-img" src="@/assets/img/svg/reset.svg" />
-    <div v-if="tmp_file && resize_status" class="croppie">
+    <div v-if="tmp_file && resize_status" class="croppie" @click="reset_img">
       <vue-croppie
         ref="croppieRef"
         :enableZoom="true"
         :mouseWheelZoom="false"
         :showZoomer="false"
         :enableResize="false"
+        :enableOrientation="true"
         :boundary="{ width: size, height: size}"
-        :viewport="{ width: size, height: size, 'type':'square' }"
-      ></vue-croppie>
+        :viewport="{ width: size, height: size, 'type':'circle' }"
+        ></vue-croppie>
     </div>
   </div>
 </template>
@@ -69,8 +69,8 @@ export default {
         if (!this.tmp_file) return resolve(false);
         let options = {
           type: "base64",
-          size: { width: 320, height: 320 },
-          format: "jpeg"
+          size: { width: 512, height: 512 },
+          format: "png"
         };
         this.$refs.croppieRef.result(options, output => resolve(output));
       });
@@ -79,35 +79,6 @@ export default {
       this.$refs.upload_dom.click();
     }
   },
-  mounted() {
-    let clientWidth =
-      document.documentElement.clientWidth || document.body.clientWidth;
-    this.size = clientWidth > 1120 ? 320 : 128;
-    window.addEventListener("resize", e => {
-      let { document } = e.target;
-      let clientWidth =
-        document.documentElement.clientWidth || document.body.clientWidth;
-      if (clientWidth <= 1120) {
-        if (this.size === 128) return;
-        this.size = 128;
-        if (!this.tmp_file) return;
-        this.resize_status = false;
-        this.$nextTick(() => {
-          this.resize_status = true;
-          this.croppie(this.tmp_file);
-        });
-      } else {
-        if (this.size === 320) return;
-        this.size = 320;
-        if (!this.tmp_file) return;
-        this.resize_status = false;
-        this.$nextTick(() => {
-          this.resize_status = true;
-          this.croppie(this.tmp_file);
-        });
-      }
-    });
-  }
 };
 </script>
 
@@ -118,8 +89,8 @@ export default {
 }
 .croppie-page {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 240px;
+  height: 240px;
 }
 
 .reset-img {
@@ -184,10 +155,6 @@ export default {
 }
 
 @media screen and (max-width: 70rem) {
-  .croppie-page {
-    width: 128px;
-    height: 128px;
-  }
   .file-uploader p {
     margin-top: 0;
     position: absolute;
