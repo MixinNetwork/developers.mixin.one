@@ -1,9 +1,10 @@
 import MixinInput from './input.vue'
+import Croppie from './croppie.vue'
 
 export default {
   name: 'app-information',
   components: {
-    MixinInput
+    MixinInput, Croppie
   },
   props: {
     active_app: {
@@ -15,11 +16,11 @@ export default {
   },
   data() {
     return {
-      icon_base64: '',
       can_save: false,
       app_name: '',
       resource_patterns: '',
       immersive_status: false,
+      toggle_app: 0
     }
   },
   watch: {
@@ -32,18 +33,15 @@ export default {
       if (!this.can_save) return notice.call(this)
       _submit_to_database.call(this)
     },
-    getFile(event) {
-      _render_file_to_base64.call(this, event.target.files[0])
-    },
     check_is_finished() {
       _check_is_finished.call(this)
     },
     init_app(app) {
-      this.icon_base64 = ''
       this.resource_patterns = ''
       this.immersive_status = false
+      this.toggle_app++
       let { name, resource_patterns, capabilities } = app
-      this.app_name = name
+      this.app_name = name || ''
       if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
       if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
       _check_is_finished.call(this)
@@ -54,19 +52,10 @@ export default {
   }
 }
 
-function _render_file_to_base64(file) {
-  let reader = new FileReader()
-  reader.addEventListener('load', event => this.icon_base64 = event.target.result, false)
-  reader.readAsDataURL(file)
-}
-
 let once_submit = false
 
-function _submit_to_database() {
-  if (once_submit) {
-    this.$message.error({ message: this.$t('message.errors.saving'), showClose: true });
-    return
-  }
+async function _submit_to_database() {
+  if (once_submit) return notice.call(this, 'saving')
   let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
   let name = this.app_name
   if (this.immersive_status) {
@@ -75,7 +64,8 @@ function _submit_to_database() {
     capabilities = ['CONTACT', 'GROUP']
   }
   let parmas = { capabilities, description, home_uri, name, redirect_uri }
-  let { icon_base64, resource_patterns } = this
+  let { resource_patterns } = this
+  let icon_base64 = await this.$refs.croppie.crop();
   if (icon_base64) {
     parmas.icon_base64 = icon_base64.substring(icon_base64.split('').findIndex(item => item === ',') + 1);
   }
@@ -83,7 +73,7 @@ function _submit_to_database() {
     parmas.resource_patterns = []
   } else {
     if (resource_patterns.includes('\r\n')) {
-      resource_patterns = resource_patterns.replace('\r\n', '\n')
+      resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
     }
     parmas.resource_patterns = resource_patterns.split('\n')
   }

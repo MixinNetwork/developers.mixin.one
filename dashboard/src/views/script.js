@@ -38,8 +38,7 @@ export default {
         this.click_new_app()
       } else if (val.includes('/apps')) {
         let { app_number } = this.$route.params
-        let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-        this.active_app = this.app_list[active_index]
+        update_active_app.call(this, app_number)
       }
     }
   },
@@ -128,8 +127,7 @@ async function init_page() {
   this.user_info = await this.apis.get_me()
   if (!this.user_info) return
   let app_number = await axios_get_app_list.call(this)
-  let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-  this.active_app = this.app_list[active_index] || {}
+  update_active_app.call(this, app_number)
   this.init_status = true
   this.apps_property = await this.apis.get_apps_property()
 }
@@ -139,7 +137,10 @@ async function axios_get_app_list(app_number) {
   let res = await this.apis.get_apps()
   this.app_list = res
   app_number = app_number || this.$route.params.app_number
-  if (app_number) jump_to_uri.call(this, '/apps/' + app_number, false)
+  if (app_number) {
+    jump_to_uri.call(this, '/apps/' + app_number, false)
+    update_active_app.call(this, app_number)
+  }
   this.all_loading = false
   return app_number
 }
@@ -160,6 +161,11 @@ function mounted_select_active_router() {
   }
 }
 
+function update_active_app(app_number) {
+  if (!app_number) return
+  let active_index = this.app_list.findIndex(item => item.app_number === app_number)
+  this.active_app = this.app_list[active_index] || {}
+}
 
 function jump_to_uri(uri, has_app_number) {
   this.tmp_component = 'information'
