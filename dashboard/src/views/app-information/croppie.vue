@@ -88,16 +88,8 @@ export default {
   box-shadow: none !important;
 }
 .croppie-page {
-  position: relative;
   width: 240px;
   height: 240px;
-}
-
-.reset-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
 }
 
 .croppie {
@@ -109,12 +101,10 @@ export default {
 
 .file-uploader {
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 100%;
   background-color: #fff;
