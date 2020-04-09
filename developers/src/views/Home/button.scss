@@ -1,0 +1,26 @@
+button {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  white-space: nowrap;
+
+  padding: 0 2rem;
+  height: 3.875rem;
+
+  font-family: Maven Pro;
+  font-weight: 500;
+  font-size: 1.5rem;
+  background: #3d75e3;
+  color: #ffffff;
+  border-radius: 0.625rem;
+  border: 0.125rem solid #397ee4;
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #fff;
+    color: #3d75e3;
+  }
+}

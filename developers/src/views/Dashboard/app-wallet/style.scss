@@ -1,0 +1,224 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.des {
+  position: absolute;
+  top: 3.75rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  div {
+    text-align: center;
+    position: absolute;
+    top: 36.5%;
+    left: 50%;
+    transform: translate(-50%);
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.875rem;
+      margin-bottom: 2rem;
+      white-space: nowrap;
+    }
+
+    button {
+      width: 8.75rem;
+    }
+
+    span,
+    img {
+      display: none;
+    }
+  }
+}
+
+.tips {
+  color: #864836;
+  height: 5rem;
+  background: rgba(255, 250, 224, 1);
+  box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+  padding: 1.25rem 0 0 6.25rem;
+
+  .tips-title {
+    font-size: 1rem;
+  }
+
+  i {
+    margin-right: 0.5rem;
+  }
+}
+
+.tips-content {
+  margin-left: 1.5rem;
+
+  &>div:first-child {
+    font-size: 0.9375rem;
+  }
+
+  &>div:last-child {
+    font-size: 0.75rem;
+    margin-top: 0.3125rem;
+    color: rgba(134, 72, 54, 0.5);
+  }
+}
+
+.list {
+  width: 62rem;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 1rem 2rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+
+.list-bottom-tips {
+  width: 62rem;
+  max-width: 100%;
+  padding: 3rem 1rem 2rem;
+  color: #b8bdc7;
+  font-size: 0.9375rem;
+  font-weight: 500;
+
+  &>div:first-child {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0 1.25rem;
+  height: 4.5rem;
+  width: calc(50% - 1.25rem);
+  background-color: #fff;
+  box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+  border-radius: 0.25rem;
+
+  &:nth-child(2n) {
+    margin-left: 2.5rem;
+  }
+
+  div {
+    flex: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    max-width: calc(100% - 7.5rem);
+    padding: 0 0 0 1rem;
+  }
+
+  img {
+    display: inline-block;
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  &:last-child {
+    justify-self: left;
+  }
+}
+
+
+.num {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  padding-right: 0.5rem;
+  max-width: calc(100% - 3.125rem);
+}
+
+.symbol {
+  color: #b8bdc7;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.withdrawal {
+  height: 2rem;
+  min-width: 5.8125rem;
+  font-size: 0.9375rem;
+
+  &[disabled="disabled"] {
+    background: rgba(50, 119, 255, 0.9);
+  }
+}
+
+
+
+@media screen and (max-width: 62.4375rem) and (min-width: 48rem) {
+  .list .item {
+    margin: 1rem auto 0 auto;
+    width: 100%;
+    max-width: 31.25rem;
+    min-width: 26.25;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .des div {
+    font-weight: 500;
+
+    h3 {
+      font-weight: 500;
+      font-size: .875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      display: none;
+    }
+
+    span,
+    img {
+      font-size: 1rem;
+      color: #3277ff;
+      display: inline-block;
+    }
+
+    img {
+      margin-left: 0.625rem;
+      transform: translateY(0.0625rem);
+    }
+  }
+
+  .list {
+    padding-top: 2.5rem;
+  }
+
+  .list .item {
+    margin: 0 0 1rem 0;
+  }
+
+  .item {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 17.5rem;
+
+    div {
+      padding-left: .5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      transform: translateY(0.0625rem);
+    }
+  }
+
+  .num {
+    max-width: 100%;
+    font-size: .88rem;
+  }
+
+  .symbol {
+    font-weight: 400;
+    font-size: 0.75rem;
+    padding-top: 0.125rem;
+  }
+}

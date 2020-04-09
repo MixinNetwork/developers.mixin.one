@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Text";
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+button:focus,
+button:active:focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button.active.focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #3d75e3;
+
+  &:visited {
+    color: #3d75e3;
+  }
+}
+
+.f {
+  display: flex;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.primary {
+  padding: 0 12px;
+  height: 48px;
+  background: rgba(50, 119, 255, 1);
+  border-radius: 4px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  line-height: 26px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(50, 119, 255, 0.9);
+  }
+}
+
+textarea {
+  box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+  border: 0;
+  outline: none;
+  resize: none;
+
+  &::-webkit-input-placeholder {
+    color: #a9b0bf;
+  }
+
+  &::-moz-input-placeholder {
+    color: #a9b0bf;
+  }
+
+  &::-ms-input-placeholder {
+    color: #a9b0bf;
+  }
+}
+
+input {
+  outline: none;
+  border: 0;
+
+  &::-webkit-input-placeholder {
+    color: #a9b0bf;
+  }
+
+  &::-moz-input-placeholder {
+    color: #a9b0bf;
+  }
+
+  &::-ms-input-placeholder {
+    color: #a9b0bf;
+  }
+}
+
+.animate-up {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3rem, 1rem);
+    transform: translate3d(0, 3rem, 1rem);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpRotate {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 15rem, 0);
+    transform: translate3d(0, 15rem, 0) rotate(-1600deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
