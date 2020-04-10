@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 400;
+  src: local('Maven Pro Regular'), local('MavenPro-Regular'),
+    url(./maven-pro/MavenPro-Medium.ttf),
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 500;
+  src: local('Maven Pro Medium'), local('MavenPro-Medium'),
+    url(./maven-pro/MavenPro-Medium.ttf),
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 700;
+  src: local('Maven Pro Bold'), local('MavenPro-Bold'),
+    url(./maven-pro/MavenPro-Bold.ttf),
+}

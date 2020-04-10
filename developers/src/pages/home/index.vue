@@ -43,12 +43,13 @@
         </div>
       </ul>
       <div class="router-list">
-        <button
+        <a
           v-for="(item,index) in $t('home.main.button')"
           :key="index"
-          class="animate-up"
+          :href="mainRoute[index]"
+          class="animate-up button"
           data-animate="fadeInUp,1s,easin-in-out"
-        >{{item}}</button>
+        >{{item}}</a>
       </div>
     </section>
 
@@ -67,15 +68,15 @@
           class="animate-up"
           :data-animate="`fadeInUp,1s,easin-in-out`"
         >
-          <span @click="$router.push('/news/'+index)" class="title">{{item.title}}</span>
+          <a :href="'/news/'+index" class="title">{{item.title}}</a>
           <span class="time">{{item.date}}</span>
         </li>
       </ul>
       <router-link
-        class="animate-up"
+        class="animate-up button"
         data-animate="fadeInUp,1s,easin-in-out"
         to="/news"
-        tag="button"
+        tag="a"
       >{{$t('home.button.readmore')}}</router-link>
     </section>
 
@@ -97,10 +98,11 @@
           ></div>
         </li>
       </ul>
-      <button
-        class="animate-up"
+      <a
+        class="animate-up button"
         data-animate="fadeInUp,1s,easin-in-out, .3s"
-      >{{$t('home.button.readmore')}}</button>
+        href="cases"
+      >{{$t('home.button.readmore')}}</a>
     </section>
 
     <!--  -->
@@ -119,7 +121,7 @@
           >
             <h3>{{item.title}}</h3>
             <p>{{item.info}}</p>
-            <router-link :to="item.href" tag="button">{{item.button}}</router-link>
+            <a href="#" class="button">{{item.button}}</a>
           </li>
         </ul>
         <ul class="section2">
@@ -130,7 +132,7 @@
             data-animate="fadeInUp,1s,easin-in-out"
           >
             <p>{{item.title}}</p>
-            <router-link :to="item.href" tag="p">{{item.info}}</router-link>
+            <a href="#">{{item.info}}</a>
           </li>
         </ul>
       </div>
@@ -148,7 +150,7 @@
             data-animate="fadeInUp,1s,easin-in-out"
           >
             <p>{{item.info}}</p>
-            <router-link :to="item.href" tag="button">{{item.button}}</router-link>
+            <a href="dashboard" class="button">{{item.button}}</a>
           </li>
         </ul>
         <ul class="section2">
@@ -159,7 +161,7 @@
             data-animate="fadeInUp,1s,easin-in-out"
           >
             <p>{{item.title}}</p>
-            <router-link :to="item.href" tag="p">{{item.info}}</router-link>
+            <a href="#">{{item.info}}</a>
           </li>
         </ul>
       </div>
@@ -174,6 +176,11 @@ import Footer from "@/components/MainFooter";
 export default {
   name: "Home",
   components: { Header, Footer },
+  data() {
+    return {
+      mainRoute: ["/start", "/document", "/dashboard"]
+    };
+  },
   mounted() {
     require("@/assets/js/resize-first");
     let t = require("@/assets/js/animate-up").default;

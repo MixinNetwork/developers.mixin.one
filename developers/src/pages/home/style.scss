@@ -122,7 +122,7 @@ h2 {
     justify-content: center;
     margin: 4rem 0;
 
-    button {
+    .button {
       margin-right: 2.5rem;
       width: 14rem;
     }
@@ -253,7 +253,6 @@ h2 {
 
   .title {
     font-size: 1.125rem;
-
     color: #3d75e3;
 
     cursor: pointer;
@@ -268,7 +267,7 @@ h2 {
     color: #979797;
   }
 
-  button {
+  .button {
     margin-top: 5.615rem;
   }
 }
@@ -321,6 +320,10 @@ h2 {
     line-height: 38px;
 
     color: #979797;
+
+    /deep/ a {
+      color: #3d75e3;
+    }
   }
 }
 
@@ -360,18 +363,19 @@ h2 {
       font-size: 1.5rem;
       line-height: 1.8125rem;
 
-      &:first-child {
-        color: #979797;
-      }
+      color: #979797;
+    }
 
-      &:last-child {
-        padding: 1.25rem 0 2.5rem 0;
-        color: #397ee4;
-        cursor: pointer;
+    a {
+      display: inline-block;
+      padding: 1.25rem 0 2.5rem 0;
+      font-size: 1.5rem;
+      color: #397ee4;
 
-        &:hover {
-          opacity: 0.5;
-        }
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
       }
     }
   }
@@ -621,7 +625,7 @@ h2 {
       flex-direction: column;
       margin-top: 5rem;
 
-      button {
+      .button {
         margin-bottom: 2rem;
       }
     }
@@ -681,7 +685,7 @@ h2 {
       margin-top: 0;
     }
 
-    button {
+    .button {
       margin-top: 5rem;
     }
   }

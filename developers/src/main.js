@@ -1,18 +1,18 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import apis from './api'
-import './assets/font/font.css'
-import _const from './assets/js/const'
+import App from '@/App.vue'
+import router from '@/router'
+import apis from '@/api'
+import '@/assets/font/dashboard.css'
+import '@/assets/font/home.css'
+import _const from '@/assets/js/const'
 import VueClipboard from 'vue-clipboard2'
-import i18n from './i18n'
+import i18n from '@/i18n'
 import { Message, Loading } from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+
 import VueCroppie from 'vue-croppie';
 import 'croppie/croppie.css'
 
 Vue.prototype.$message = Message;
-
 Vue.use(Loading.directive);
 Vue.use(VueClipboard)
 Vue.use(VueCroppie);

@@ -18,7 +18,7 @@
       <Pages
         align="right"
         :currentPage="currentPage"
-        :split="6"
+        :split="split"
         :allPage="allList && allList.length"
         @page="toPage"
       />
@@ -42,6 +42,7 @@ export default {
       allList: [],
       viewList: [],
       currentPage: 1,
+      split: 20,
       refresh: null,
       reloadState: true
     };
@@ -55,21 +56,21 @@ export default {
   methods: {
     toPage(pageNum) {
       this.currentPage = pageNum;
-      let start = (pageNum - 1) * 6;
-      this.viewList = this.allList.slice(start, start + 6);
+      let start = (pageNum - 1) * this.split;
+      this.viewList = this.allList.slice(start, start + this.split);
       setTimeout(refresh);
     },
     clickReadMore() {
       this.currentPage++;
       let currentPage = this.currentPage;
-      let start = (currentPage - 1) * 6;
-      let appendList = this.allList.slice(start, start + 6);
+      let start = (currentPage - 1) * this.split;
+      let appendList = this.allList.slice(start, start + this.split);
       this.viewList = this.viewList.concat(appendList);
       setTimeout(refresh);
     },
     clickNews(index) {
       let { currentPage } = this;
-      let id = (currentPage - 1) * 6 + index;
+      let id = (currentPage - 1) * this.split + index;
 
       this.$router.push(`/news/${id}`);
     }
@@ -78,7 +79,7 @@ export default {
     window.scrollTo(0, 0);
     this.reloadState = true;
     this.allList = this.$t("news.list");
-    this.viewList = this.allList.slice(0, 6);
+    this.viewList = this.allList.slice(0, this.split);
     setTimeout(refresh);
   }
 };
@@ -130,27 +131,13 @@ function refresh() {
 
     padding-left: 2.25rem;
   }
-
-  h4 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-
-    cursor: pointer;
-  }
-
-  p {
-    font-size: 22px;
-    line-height: 28px;
-    height: 84px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    color: #2f3032;
-
-    cursor: pointer;
+  a {
+    color: #3d75e3;
+    font-size: 1.125rem;
   }
 
   span {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.5rem;
 
     color: #c7c9d2;

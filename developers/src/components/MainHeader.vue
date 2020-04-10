@@ -1,17 +1,15 @@
 <template>
   <!--  -->
   <header>
-    <div @click="$router.push('/').catch(()=>{})" class="logo">
+    <a href="/" class="logo">
       <img src="@/assets/img/svg/logo.svg" />
       <span>{{$t('home.title')}}</span>
-    </div>
+    </a>
     <img @click.stop="toggleMenus" class="menus-icon" src="@/assets/img/svg/menus.svg" />
     <ul :class="['menus', showMenus ? 'show' : '']">
-      <li
-        v-for="(item,index) in $t('home.menus')"
-        :key="index"
-        @click.stop="clickRouter(index)"
-      >{{item}}</li>
+      <li v-for="(item,index) in $t('home.menus')" :key="index">
+        <a :href="routerList[index]">{{item}}</a>
+      </li>
     </ul>
   </header>
 </template>
@@ -21,7 +19,8 @@ export default {
   name: "Header",
   data() {
     return {
-      showMenus: false
+      showMenus: false,
+      routerList: ["/news", "/cases", "/document", "/dashboard"]
     };
   },
   methods: {
@@ -29,7 +28,6 @@ export default {
       this.showMenus = !this.showMenus;
     },
     clickRouter(index) {
-      let router = ["news", "cases", "api", "dashboard"];
       this.$router.push("/" + router[index]).catch(() => {});
     },
     closeMenus() {
@@ -54,8 +52,6 @@ header {
   font-weight: 500;
   line-height: 1.25rem;
   text-align: center;
-
-  color: #3a3c3e;
 
   max-width: 75rem;
   width: 100%;
@@ -82,8 +78,11 @@ header {
 .menus {
   display: flex;
   li {
-    margin-left: 2.5rem;
-    cursor: pointer;
+    margin-left: 1.5rem;
+    a {
+      color: #3a3c3e;
+      padding: 0.5rem;
+    }
   }
 }
 

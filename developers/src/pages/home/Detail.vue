@@ -24,9 +24,6 @@
 <script>
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
-import MarkdownIt from "markdown-it";
-
-let md = new MarkdownIt();
 
 export default {
   name: "NewsDetail",

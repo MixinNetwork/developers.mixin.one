@@ -10,22 +10,21 @@
           class="animate-up"
           :data-animate="`fadeInUp,1s,easin-in-out,.1s`"
         >
-          <img
-            @click="clickNews(index)"
-            :src="require(`@/assets/img/${$route.name}/${item.img || index+1}.png`)"
-          />
-          <div class="container">
-            <h4 @click="clickNews(index)">{{item.title}}</h4>
-            <p @click="clickNews(index)" v-html="item.info"></p>
-            <span>{{item.date}}</span>
-          </div>
+          <a :href="`/cases/${(currentPage - 1) * split + index}`">
+            <img :src="require(`@/assets/img/${$route.name}/${item.img || index+1}.png`)" />
+            <div class="container">
+              <h4>{{item.title}}</h4>
+              <p v-html="item.info"></p>
+              <span>{{item.date}}</span>
+            </div>
+          </a>
         </li>
       </ul>
 
       <Pages
         align="right"
         :currentPage="currentPage"
-        :split="6"
+        :split="split"
         :allPage="allList && allList.length"
         @page="toPage"
       />
@@ -49,6 +48,7 @@ export default {
       allList: [],
       viewList: [],
       currentPage: 1,
+      split: 6,
       refresh: null,
       reloadState: true
     };
@@ -62,21 +62,21 @@ export default {
   methods: {
     toPage(pageNum) {
       this.currentPage = pageNum;
-      let start = (pageNum - 1) * 6;
-      this.viewList = this.allList.slice(start, start + 6);
+      let start = (pageNum - 1) * this.split;
+      this.viewList = this.allList.slice(start, start + this.split);
       setTimeout(refresh);
     },
     clickReadMore() {
       this.currentPage++;
       let currentPage = this.currentPage;
-      let start = (currentPage - 1) * 6;
-      let appendList = this.allList.slice(start, start + 6);
+      let start = (currentPage - 1) * this.split;
+      let appendList = this.allList.slice(start, start + this.split);
       this.viewList = this.viewList.concat(appendList);
       setTimeout(refresh);
     },
     clickNews(index) {
       let { currentPage } = this;
-      let id = (currentPage - 1) * 6 + index;
+      let id = (currentPage - 1) * this.split + index;
 
       this.$router.push(`/cases/${id}`);
     }
@@ -85,7 +85,7 @@ export default {
     window.scrollTo(0, 0);
     this.reloadState = true;
     this.allList = this.$t("cases.list");
-    this.viewList = this.allList.slice(0, 6);
+    this.viewList = this.allList.slice(0, this.split);
     setTimeout(refresh);
   }
 };
@@ -110,17 +110,18 @@ function refresh() {
   width: 100%;
   max-width: 1180px;
 
-  box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
-  border-radius: 0.75rem;
-
   margin: 2.75rem auto 0;
   padding: 4rem 2.5rem;
 
   li {
-    display: flex;
     padding: 0 2.5rem 2.5rem;
+    background-color: #fff;
     margin-bottom: 3rem;
     border-bottom: 0.0625rem solid #edf0f5;
+  }
+
+  a {
+    display: flex;
   }
 
   img {
@@ -180,13 +181,15 @@ button {
     margin: 3rem auto;
     padding: 0;
     li {
-      flex-direction: column;
-
       margin-bottom: 1.25rem;
       padding: 0;
 
       border-radius: 0.875rem;
       box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
+    }
+
+    a {
+      flex-direction: column;
     }
 
     img {

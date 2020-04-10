@@ -2,9 +2,9 @@
   font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 400;
-  src: url('SF-Pro-Text-Light.woff2') format('woff2'),
+  src: url('SF-Pro/SF-Pro-Text-Light.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('SF-Pro-Text-Light.woff') format('woff');
+    url('SF-Pro/SF-Pro-Text-Light.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -12,9 +12,9 @@
   font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 500;
-  src: url('SF-Pro-Text-Regular.woff2') format('woff2'),
+  src: url('SF-Pro/SF-Pro-Text-Regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('SF-Pro-Text-Regular.woff') format('woff');
+    url('SF-Pro/SF-Pro-Text-Regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -22,9 +22,9 @@
   font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 700;
-  src: url('SF-Pro-Text-Semibold.woff2') format('woff2'),
+  src: url('SF-Pro/SF-Pro-Text-Semibold.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('SF-Pro-Text-Semibold.woff') format('woff');
+    url('SF-Pro/SF-Pro-Text-Semibold.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -32,8 +32,8 @@
   font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 900;
-  src: url('SF-Pro-Text-Bold.woff2') format('woff2'),
+  src: url('SF-Pro/SF-Pro-Text-Bold.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('SF-Pro-Text-Bold.woff') format('woff');
+    url('SF-Pro/SF-Pro-Text-Bold.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
