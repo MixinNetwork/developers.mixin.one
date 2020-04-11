@@ -8,9 +8,9 @@
           v-for="(item, index) in viewList"
           :key="index"
           class="animate-up"
-          :data-animate="`fadeInUp,1s,easin-in-out,.1s`"
+          :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
         >
-          <a :href="`/news/${index}`">{{item.title}}</a>
+          <a :href="`/news/${newsIndex(index)}`">{{item.title}}</a>
           <span>{{item.date}}</span>
         </li>
       </ul>
@@ -68,11 +68,11 @@ export default {
       this.viewList = this.viewList.concat(appendList);
       setTimeout(refresh);
     },
-    clickNews(index) {
-      let { currentPage } = this;
-      let id = (currentPage - 1) * this.split + index;
-
-      this.$router.push(`/news/${id}`);
+    newsIndex(index) {
+      let { currentPage, split, viewList } = this;
+      return viewList.length > split
+        ? index
+        : (currentPage - 1) * split + index;
     }
   },
   mounted() {
@@ -102,7 +102,7 @@ function refresh() {
 
 .list {
   width: 100%;
-  max-width: 1180px;
+  max-width: 73.75rem;
 
   box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
   border-radius: 0.75rem;
@@ -116,13 +116,13 @@ function refresh() {
 
     padding: 0 2.5rem 3.25rem;
 
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   img {
-    min-width: 262px;
-    max-width: 262px;
-    height: 164px;
+    min-width: 16.375rem;
+    max-width: 16.375rem;
+    height: 14rem;
   }
 
   .container {
@@ -149,7 +149,7 @@ button {
 }
 
 /deep/ footer {
-  margin-top: 180px;
+  margin-top: 11.25rem;
 }
 
 @media screen and (max-width: 60rem) {
@@ -157,7 +157,7 @@ button {
     min-width: 20rem;
   }
   .list {
-    max-width: 540px;
+    max-width: 33.75rem;
     width: calc(100% - 2.5rem);
     margin: 3rem auto;
     padding: 2rem 1rem;
@@ -187,9 +187,25 @@ button {
 
   button {
     display: block;
-    margin: 5rem auto 7.5rem;
-    height: 3rem;
+    margin: 5rem auto 7.5rem auto;
     font-size: 1.25rem;
+    padding: 0 2rem;
+    line-height: 3rem;
+
+    font-family: Maven Pro;
+    font-weight: 400;
+    font-size: 1.5rem;
+    background: #3d75e3;
+    color: #ffffff;
+    border-radius: 0.625rem;
+    border: 0.125rem solid #397ee4;
+
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background: #fff;
+      color: #3d75e3;
+    }
   }
 
   /deep/ .pages {

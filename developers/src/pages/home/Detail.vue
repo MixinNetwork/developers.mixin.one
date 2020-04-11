@@ -2,7 +2,7 @@
   <div class="detail-page">
     <Header />
 
-    <section class="page animate-up" data-animate="fadeInUp,1s,easin-in-out">
+    <section class="page animate-up" data-animate="fadeInUp,0.5s,easin-in-out">
       <nav>
         <router-link tag="a" :to="`/${path}`">{{route}}</router-link>
         <span>> {{info.title}}</span>
@@ -70,8 +70,8 @@ export default {
 }
 
 .page {
-  margin: 44px auto;
-  max-width: 1180px;
+  margin: 2.75rem auto;
+  max-width: 73.75rem;
   padding: 2.5rem 3.125rem;
   font-family: Maven Pro;
 
@@ -92,7 +92,7 @@ nav {
 }
 
 h2 {
-  margin-top: 54px;
+  margin-top: 3.375rem;
   font-size: 2.5rem;
   color: #2f3032;
 }
@@ -108,7 +108,7 @@ h2 {
 .desc {
   margin-top: 3.75rem;
   /deep/ p {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 2rem;
     margin-bottom: 2rem;
 
@@ -118,11 +118,11 @@ h2 {
 
 img {
   align-self: flex-end;
-  margin: 28px 0 80px;
+  margin: 1.75rem 0 5rem;
 }
 
 /deep/ footer {
-  margin-top: 160px;
+  margin-top: 10rem;
 }
 
 @media screen and (max-width: 60rem) {
@@ -146,17 +146,17 @@ img {
   }
 
   .date {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     font-size: 0.875rem;
     color: #c7c9d2;
   }
 
   .desc {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   img {
-    margin: 28px 1.25rem 0 0;
+    margin: 1.75rem 1.25rem 0 0;
   }
 
   /deep/ footer {

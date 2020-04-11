@@ -30,7 +30,6 @@ h2 {
   position: relative;
   padding: 1rem;
 
-  line-height: 4rem;
   text-align: center;
 
   display: flex;
@@ -90,8 +89,8 @@ h2 {
 
     justify-content: center;
     width: 48rem;
-    margin-top: -5rem;
-    padding: 10.25rem 7.125rem 6rem 7.125rem;
+    margin-top: -1rem;
+    padding: 12.025rem 6.8rem 4.6rem 5rem;
 
     background: linear-gradient(180deg,
         rgba(255, 255, 255, 0) 0%,
@@ -107,7 +106,7 @@ h2 {
       width: 22rem;
       margin-bottom: 1.25rem;
 
-      b {
+      /deep/ b {
         color: #2f3032;
       }
 
@@ -120,11 +119,16 @@ h2 {
   .router-list {
     display: flex;
     justify-content: center;
-    margin: 4rem 0;
+    margin-top: 3rem;
 
     .button {
       margin-right: 2.5rem;
-      width: 14rem;
+      min-width: 13rem;
+      font-weight: 500;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -134,57 +138,57 @@ h2 {
     height: 1.75rem;
 
     &:nth-child(1) {
-      top: 6.375rem;
+      top: 11.8rem;
       left: -0.5rem;
     }
 
     &:nth-child(2) {
-      top: 13.2rem;
+      top: 18.625rem;
       left: -4.44rem;
     }
 
     &:nth-child(3) {
-      top: 17.08rem;
+      top: 22.505rem;
       left: 0.5rem;
     }
 
     &:nth-child(4) {
-      top: 23.2rem;
+      top: 28.445rem;
       left: -2.25rem;
     }
 
     &:nth-child(5) {
-      top: 25.7rem;
+      top: 31.125rem;
       left: 3.75rem;
     }
 
     &:nth-child(6) {
-      top: 6.325rem;
+      top: 11.75rem;
       right: -0.87rem;
     }
 
     &:nth-child(7) {
-      top: 11.2rem;
+      top: 16.625rem;
       right: -3.75rem;
     }
 
     &:nth-child(8) {
-      top: 16.575rem;
+      top: 22rem;
       right: 1.75rem;
     }
 
     &:nth-child(9) {
-      top: 19.64rem;
+      top: 25.065rem;
       right: -2.875rem;
     }
 
     &:nth-child(10) {
-      top: 25.325rem;
+      top: 30.75rem;
       right: 4.875rem;
     }
 
     &:nth-child(11) {
-      top: 22.825rem;
+      top: 28.25rem;
       right: -2.3rem;
 
       width: 10.375rem;
@@ -192,7 +196,7 @@ h2 {
     }
 
     &.left-line {
-      top: 14.4rem;
+      top: 19.825rem;
       left: -0.125rem;
 
       width: 0.25rem;
@@ -205,7 +209,7 @@ h2 {
     }
 
     &.right-line {
-      top: 9.1375rem;
+      top: 13.5625rem;
       right: -0.125rem;
 
       width: 0.25rem;
@@ -226,8 +230,9 @@ h2 {
   align-items: center;
   font-family: Maven Pro;
 
+  margin-top: 19rem;
+
   .text-segmentation {
-    margin-top: 16.125rem;
     width: auto;
     height: auto;
     max-width: 100%;
@@ -268,7 +273,7 @@ h2 {
   }
 
   .button {
-    margin-top: 5.615rem;
+    margin-top: 4rem;
   }
 }
 
@@ -279,7 +284,7 @@ h2 {
   align-items: center;
 
   li {
-    max-width: 69.5em;
+    max-width: 64rem;
   }
 
   img {
@@ -301,7 +306,7 @@ h2 {
       position: absolute;
       top: 0.5rem;
       left: 0;
-      width: 6px;
+      width: 0.375rem;
       height: 1.5rem;
 
       background: linear-gradient(0deg, #3d75e3 0%, #3e76e3 133.33%);
@@ -311,13 +316,13 @@ h2 {
 
   .desc {
     margin-top: 2.5rem;
-    width: 33.75rem;
+    width: 28rem;
 
     font-family: Maven Pro;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 38px;
+    font-size: 1.125rem;
+    line-height: 2.375rem;
 
     color: #979797;
 
@@ -344,13 +349,14 @@ h2 {
 
     p {
       font-size: 1.125rem;
-      line-height: 38px;
+      line-height: 2.375rem;
     }
   }
 
   .section2 {
+    width: 23.75rem;
+
     li {
-      width: 23.75rem;
       border-bottom: 0.0625rem dashed #979797;
       margin-bottom: 3.125rem;
     }
@@ -400,6 +406,12 @@ h2 {
 }
 
 @media screen and(min-width: 75.0625rem) {
+  .main-title {
+    ul {
+      margin-top: -8rem;
+    }
+  }
+
   .user-cases {
     ul {
       margin-top: 10rem;
@@ -451,13 +463,14 @@ h2 {
       }
 
       p {
-        width: 32rem;
+        width: 28rem;
         margin: 1.25rem 0 1.875rem 0;
       }
     }
 
     .section2 {
       padding: 2rem 0 0 4.375rem;
+      width: 20.75rem;
     }
   }
 
@@ -474,21 +487,35 @@ h2 {
 
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
   .main-title {
-    min-height: 984px;
+    min-height: 61.5rem;
+
+    ul {
+      margin: 0rem auto 0 auto;
+      padding: 4.7rem 0rem 4rem;
+
+      li {
+        width: 32.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      li:nth-child(2n - 1) {
+        margin-right: 0;
+      }
+    }
+
+    .router-list {
+      .button:nth-child(2) {
+        margin-right: 0;
+      }
+
+      .button:last-child {
+        display: none;
+      }
+    }
   }
 
-  .main-title ul {
-    margin: 0rem auto 0 auto;
-    padding: 2rem 0rem 1.4rem;
-
-    li {
-      width: 32.5rem;
-      margin-bottom: 1.875rem;
-    }
-
-    li:nth-child(2n - 1) {
-      margin-right: 0;
-    }
+  .latest-news {
+    margin-top: 14.375rem;
   }
 
   .user-cases {
@@ -566,7 +593,7 @@ h2 {
 
   h2 {
     font-size: 2rem;
-    line-height: 28px;
+    line-height: 1.75rem;
   }
 
   .main-title {
@@ -574,8 +601,8 @@ h2 {
     height: initial !important;
 
     h2 {
-      font-size: 22px;
-      width: 280px;
+      font-size: 1.375rem;
+      width: 17.5rem;
 
       .title-dec {
         &:nth-child(1) {
@@ -598,8 +625,8 @@ h2 {
     ul {
       width: calc(100% - 1.875rem);
       max-width: 43.75rem;
-      padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-      margin-top: 58px;
+      padding: 1.25rem;
+      margin-top: 3.625rem;
 
       background: linear-gradient(180deg,
           rgba(248, 250, 255, 0.54) 0%,
@@ -622,11 +649,17 @@ h2 {
     }
 
     .router-list {
-      flex-direction: column;
-      margin-top: 5rem;
+      position: absolute;
+      bottom: -8rem;
 
-      .button {
-        margin-bottom: 2rem;
+
+      .button:first-child {
+        margin: 0;
+      }
+
+      .button:nth-child(2),
+      .button:nth-child(3) {
+        display: none;
       }
     }
   }
@@ -637,15 +670,17 @@ h2 {
   }
 
   .latest-news {
+    margin-top: 15.5rem;
+
     ul {
       width: initial;
       max-width: calc(100% - 3.125rem);
-      margin-top: 65px;
+      margin-top: 4.0625rem;
     }
 
     li {
       flex-direction: column;
-      padding: 10px 10px;
+      padding: 0.625rem 0.625rem;
       margin-bottom: 0;
       border-bottom: 0.0625rem solid #edf0f5;
     }
@@ -669,7 +704,7 @@ h2 {
     }
 
     img {
-      width: 342px;
+      width: 21.375rem;
       margin: 2rem 0;
     }
 

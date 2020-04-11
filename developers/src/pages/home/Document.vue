@@ -99,6 +99,7 @@ nav {
   padding-left: 1.25rem;
   min-width: 12.5rem;
   height: 36.25rem;
+  border-radius: 0.3rem;
 }
 
 ul {
@@ -126,6 +127,7 @@ li {
 
 li.active {
   background-color: #fff;
+  border-radius: 0.3rem 0 0 0.3rem;
 }
 
 .container {
@@ -135,19 +137,19 @@ li.active {
 
   /deep/ {
     h1 {
-      font-size: 60px;
+      font-size: 3.75rem;
       font-weight: 600;
-      line-height: 72px;
-      margin-bottom: 40px;
+      line-height: 4.5rem;
+      margin-bottom: 2.5rem;
     }
     p {
       color: rgba($color: #3a3c3e, $alpha: 0.8);
-      margin: 40px 0;
-      line-height: 28px;
+      margin: 2.5rem 0;
+      line-height: 1.75rem;
     }
 
     strong {
-      font-size: 18px;
+      font-size: 1.125rem;
       color: #333;
     }
 
@@ -157,8 +159,8 @@ li.active {
     li {
       list-style-type: decimal;
       color: #3a3c3e;
-      line-height: 20px;
-      margin-bottom: 10px;
+      line-height: 1.25rem;
+      margin-bottom: 0.625rem;
       opacity: 0.6;
     }
   }

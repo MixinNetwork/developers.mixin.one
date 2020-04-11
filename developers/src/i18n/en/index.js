@@ -44,17 +44,29 @@ export default {
       community: {
         title: "Community",
         list: {
-          twitter: 'Twitter',
-          github: 'Github',
-          facebook: 'Facebook',
-          youtube: 'Youtube',
-          reddit: 'Reddit',
-          telegram: 'Telegram'
+          twitter: { name: 'Twitter', href: 'https://twitter.com/Mixin_Network' },
+          github: { name: 'Github', href: 'https://github.com/MixinNetwork/developers.mixin.one' },
+          facebook: { name: 'Facebook', href: 'https://fb.com/MixinMessenger' },
+          // youtube: { name: 'Youtube', href: '' },
+          // reddit: { name: 'Reddit', href: '' },
+          // telegram: { name: 'Telegram', href: '' }
         }
       },
       resources: {
         title: "Resources",
-        list: ['PRESS KIT', 'WHITEPAPER', 'API']
+        list: [
+          { name: 'PRESS KIT', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
+          { name: 'WHITEPAPER', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' },
+          { name: 'API', href: 'https://developers.mixin.one/api' }
+        ]
+      },
+      others: {
+        title: "Others",
+        list: [
+          { name: 'PRESS KIT', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
+          { name: 'WHITEPAPER', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' },
+          { name: 'API', href: 'https://developers.mixin.one/api' }
+        ]
       }
     },
     button: {

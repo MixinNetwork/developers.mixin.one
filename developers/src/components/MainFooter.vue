@@ -4,34 +4,55 @@
       <div class="community">
         <h6
           class="animate-up"
-          data-animate="fadeInUp,1s,easin-in-out"
+          data-animate="fadeInUp,0.5s,easin-in-out"
         >{{$t('home.footer.community.title')}}</h6>
         <ul>
           <li
             v-for="(value, key,index) in $t('home.footer.community.list')"
             :key="key"
             class="animate-up"
-            :data-animate="`fadeInUp,1s,easin-in-out,${(index+1)/10}s`"
+            :data-animate="`fadeInUp,0.5s,easin-in-out,${(index+1)/10}s`"
           >
-            <div>
-              <img :src=" require(`@/assets/img/footer/${key}.png`)" />
-            </div>
-            <span>{{value}}</span>
+            <a :href="value.href">
+              <div>
+                <img :class="key" :src=" require(`@/assets/img/footer/${key}.png`)" />
+              </div>
+              <span>{{value.name}}</span>
+            </a>
           </li>
         </ul>
       </div>
       <div class="resources">
         <h6
           class="animate-up"
-          data-animate="fadeInUp,1s,easin-in-out"
+          data-animate="fadeInUp,0.5s,easin-in-out"
         >{{$t('home.footer.resources.title')}}</h6>
         <ul>
-          <li
+          <a
             v-for="(item, index) in $t('home.footer.resources.list')"
             :key="index"
+            :href="item.href"
             class="animate-up"
-            :data-animate="`fadeInUp,1s,easin-in-out,${(index+1) / 5}s`"
-          >{{item}}</li>
+            :data-animate="`fadeInUp,0.5s,easin-in-out,${(index+1) / 5}s`"
+          >{{item.name}}</a>
+        </ul>
+      </div>
+
+      <div class="others">
+        <h6
+          class="animate-up"
+          data-animate="fadeInUp,0.5s,easin-in-out"
+        >{{$t('home.footer.others.title')}}</h6>
+        <ul>
+          <li class="i18n animate-up" data-animate="fadeInUp,0.5s,easin-in-out,0.2s">
+            <div @click="toggleLocale" class="locale">
+              {{lang === 'zh' ? '中文':'English'}}
+              <ul v-if="showLocale" class="select">
+                <li @click="clickChangeLocale('zh')">中文</li>
+                <li @click="clickChangeLocale('en')">English</li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -40,93 +61,146 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  data() {
+    return {
+      lang: "",
+      showLocale: false
+    };
+  },
+  methods: {
+    clickChangeLocale(lang) {
+      window.localStorage.setItem("lang", lang);
+      window.location.reload();
+    },
+    toggleLocale() {
+      this.showLocale = !this.showLocale;
+    }
+  },
+  mounted() {
+    this.lang = this.$i18n.locale;
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 footer {
   background: #eef1f9;
-  height: 520px;
   padding-top: 110px;
   margin-top: 300px;
+  padding: 110px 0 30px 0;
   display: flex;
   justify-content: center;
+}
 
-  .container {
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 47.875rem;
+}
+
+h6 {
+  font-size: 22px;
+  line-height: 26px;
+  margin-bottom: 3.75rem;
+
+  color: #333333;
+}
+
+.community {
+  min-width: 20.75rem;
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 20.75rem;
+  }
+
+  li:nth-child(4) {
+    div {
+      height: 1rem;
+    }
+  }
+
+  a {
     display: flex;
-    justify-content: space-around;
-    width: 47.875rem;
-  }
+    align-items: center;
+    margin-bottom: 3rem;
+    cursor: pointer;
 
-  h6 {
-    font-size: 22px;
-    line-height: 26px;
-    letter-spacing: 0.488889px;
-
-    margin-bottom: 3.75rem;
-
-    color: #333333;
-  }
-
-  .community {
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 20.75rem;
+    div {
+      width: 40px;
     }
-    li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 3rem;
 
-      div {
-        width: 40px;
-      }
+    span {
+      font-style: italic;
+    }
 
-      span {
-        font-style: italic;
-      }
-
-      &:nth-child(1) {
-        img {
-          width: 24px;
-        }
-      }
-      &:nth-child(2) {
-        img {
-          width: 26px;
-        }
-      }
-      &:nth-child(3) {
-        img {
-          width: 15px;
-          height: 25px;
-        }
-      }
-      &:nth-child(4) {
-        div {
-          height: 16px;
-        }
-        img {
-          width: 30px;
-        }
-      }
-      &:nth-child(5) {
-        img {
-          width: 27px;
-        }
-      }
-      &:nth-child(6) {
-        img {
-          width: 25px;
-        }
-      }
+    .twitter {
+      width: 24px;
+    }
+    .github {
+      width: 26px;
+    }
+    .facebook {
+      width: 15px;
+      height: 25px;
+    }
+    .youtube {
+      width: 30px;
+    }
+    .reddit {
+      width: 27px;
+    }
+    .telegram {
+      width: 25px;
     }
   }
-  .resources {
+}
+.resources {
+  min-width: 7.5rem;
+  a {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 3.5rem;
+  }
+}
+
+.i18n {
+  .locale {
+    display: inline-block;
+    padding: 0 40px 0 10px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+
+    cursor: pointer;
+
+    position: relative;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 7px;
+      right: 15px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #000 transparent transparent transparent;
+    }
+  }
+
+  .select {
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1.6rem;
+    border-radius: 5px;
     li {
-      margin-bottom: 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      line-height: 2rem;
     }
   }
 }
@@ -134,8 +208,7 @@ footer {
 @media screen and (max-width: 60rem) {
   footer {
     margin-top: 0;
-    height: 688px;
-    padding: 0 2.25rem;
+    padding: 0 2.25rem 100px 0;
 
     .container {
       flex-direction: column;

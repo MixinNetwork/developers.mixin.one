@@ -4,3 +4,4 @@ api/_site
 .sass-cache
 .jekyll-cache
 .DS_Store
+test.sh

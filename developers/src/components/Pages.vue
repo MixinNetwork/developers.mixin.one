@@ -1,6 +1,6 @@
 <template>
   <div :class="['pages', align]">
-    <div @click="changePage(currentPage-1)" v-if="currentPage !== 1" class="circle-left">
+    <!-- <div @click="changePage(currentPage-1)" v-if="currentPage !== 1" class="circle-left">
       <img src="@/assets/img/svg/right.svg" />
     </div>
 
@@ -27,7 +27,14 @@
     </div>
 
     <input type="text" v-model="page" />
-    <span class="skip" @click="changePage(Number(page))">Skip</span>
+    <span class="skip" @click="changePage(Number(page))">Skip</span>-->
+
+    <span
+      v-for="i in pages"
+      :key="i"
+      @click="changePage(i)"
+      :class="i === currentPage ? 'active' : ''"
+    >{{i}}</span>
   </div>
 </template>
 

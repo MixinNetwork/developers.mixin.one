@@ -296,8 +296,8 @@ function _get_sid_from_storge(appid) {
 
 .iconguanbi {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 1.5625rem;
+  right: 1.5625rem;
   color: #b8bdc7;
   cursor: pointer;
   padding: 0.3125rem;
@@ -324,14 +324,14 @@ li {
   align-items: center;
   margin-bottom: 1rem;
   label {
-    width: 90px;
+    width: 5.625rem;
     font-weight: 700;
     text-align: left;
     margin-right: 1.25rem;
   }
   input {
     font-size: 1rem;
-    width: 492px;
+    width: 30.75rem;
     background: #f6f9ff;
     padding: 1.25rem .8rem;
     border-radius: 0.25rem;
@@ -340,12 +340,12 @@ li {
 
 .btns {
   text-align: right;
-  margin-top: 64px;
+  margin-top: 4rem;
 
   button {
     font-size: 0.875rem;
     width: 8.75rem;
-    margin-left: 10px;
+    margin-left: 0.625rem;
   }
 
   .btns-cancel {
@@ -390,7 +390,7 @@ li {
       user-select: text;
       background: #f6f9ff;
       box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-      border-radius: 6px;
+      border-radius: 0.375rem;
       padding: 1rem;
       word-break: break-all;
       font-size: 1rem;
@@ -414,8 +414,8 @@ li {
 
   .header-back {
     width: 3.125rem;
-    transform: translate(-25px);
-    padding-left: 25px;
+    transform: translate(-1.5625rem);
+    padding-left: 1.5625rem;
 
     img {
       height: 1.5rem;

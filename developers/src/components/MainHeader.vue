@@ -53,10 +53,10 @@ header {
   line-height: 1.25rem;
   text-align: center;
 
-  max-width: 75rem;
+  max-width: 68rem;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2rem 0 2rem;
+  padding: 2rem 0 0 0;
   user-select: none;
 }
 

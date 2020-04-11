@@ -8,9 +8,9 @@
           v-for="(item, index) in viewList"
           :key="index"
           class="animate-up"
-          :data-animate="`fadeInUp,1s,easin-in-out,.1s`"
+          :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
         >
-          <a :href="`/cases/${(currentPage - 1) * split + index}`">
+          <a :href="`/cases/${casesIndex(index)}`">
             <img :src="require(`@/assets/img/${$route.name}/${item.img || index+1}.png`)" />
             <div class="container">
               <h4>{{item.title}}</h4>
@@ -74,11 +74,11 @@ export default {
       this.viewList = this.viewList.concat(appendList);
       setTimeout(refresh);
     },
-    clickNews(index) {
-      let { currentPage } = this;
-      let id = (currentPage - 1) * this.split + index;
-
-      this.$router.push(`/cases/${id}`);
+    casesIndex(index) {
+      let { currentPage, split, viewList } = this;
+      return viewList.length > split
+        ? index
+        : (currentPage - 1) * split + index;
     }
   },
   mounted() {
@@ -108,7 +108,7 @@ function refresh() {
 
 .list {
   width: 100%;
-  max-width: 1180px;
+  max-width: 73.75rem;
 
   margin: 2.75rem auto 0;
   padding: 4rem 2.5rem;
@@ -125,9 +125,9 @@ function refresh() {
   }
 
   img {
-    min-width: 262px;
-    max-width: 262px;
-    height: 164px;
+    min-width: 16.375rem;
+    max-width: 16.375rem;
+    height: 14rem;
   }
 
   .container {
@@ -138,16 +138,16 @@ function refresh() {
   }
 
   h4 {
-    font-size: 2rem;
+    font-size: 1.625rem;
     margin-bottom: 1rem;
 
     cursor: pointer;
   }
 
   p {
-    font-size: 22px;
-    line-height: 28px;
-    height: 84px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    height: 5.25rem;
     margin-bottom: 1rem;
     overflow: hidden;
     color: #2f3032;
@@ -168,7 +168,7 @@ button {
 }
 
 /deep/ footer {
-  margin-top: 180px;
+  margin-top: 11.25rem;
 }
 
 @media screen and (max-width: 60rem) {
@@ -176,7 +176,7 @@ button {
     min-width: 20rem;
   }
   .list {
-    max-width: 540px;
+    max-width: 33.75rem;
     width: calc(100% - 2.5rem);
     margin: 3rem auto;
     padding: 0;
@@ -205,7 +205,7 @@ button {
 
     h4 {
       font-size: 1.25rem;
-      line-height: 28px;
+      line-height: 1.75rem;
       margin-top: 1.25rem;
     }
 
@@ -224,9 +224,25 @@ button {
 
   button {
     display: block;
-    margin: 5rem auto 7.5rem;
-    height: 3rem;
+    margin: 5rem auto 7.5rem auto;
     font-size: 1.25rem;
+    padding: 0 2rem;
+    line-height: 3rem;
+
+    font-family: Maven Pro;
+    font-weight: 400;
+    font-size: 1.5rem;
+    background: #3d75e3;
+    color: #ffffff;
+    border-radius: 0.625rem;
+    border: 0.125rem solid #397ee4;
+
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background: #fff;
+      color: #3d75e3;
+    }
   }
 
   /deep/ .pages {

@@ -88,8 +88,8 @@ export default {
   box-shadow: none !important;
 }
 .croppie-page {
-  width: 240px;
-  height: 240px;
+  width: 15rem;
+  height: 15rem;
 }
 
 .croppie {
