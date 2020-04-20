@@ -140,6 +140,22 @@ button {
   margin-bottom: 2rem;
 }
 
+.name-category {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+
+  .item:first-child {
+    margin-right: 1.125rem;
+    flex: 1;
+  }
+
+  .item:last-child {
+    min-width: 280px;
+  }
+}
+
 .icon-img {
   width: 20rem;
   height: 20rem;
@@ -165,6 +181,14 @@ textarea {
     flex-direction: column;
   }
 
+  .name-category {
+    flex-direction: column;
+
+    &>.item:first-child {
+      margin-right: 0;
+    }
+  }
+
   .meta {
     padding-right: 0rem;
     flex-direction: column-reverse;
@@ -178,6 +202,18 @@ textarea {
 @media screen and (max-width: 48rem) {
   .content {
     padding-top: 2.5rem;
+  }
+
+  .name-category {
+    flex-direction: column;
+
+    &>.item:first-child {
+      margin-right: 0;
+    }
+
+    &>.item:last-child {
+      min-width: initial;
+    }
   }
 
   textarea {
