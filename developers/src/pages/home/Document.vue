@@ -25,6 +25,7 @@
 <script>
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
+import tools from "@/assets/js/tools";
 export default {
   name: "News",
   components: { Header, Footer },
@@ -60,6 +61,7 @@ export default {
   },
   methods: {},
   mounted() {
+    tools.changeTheme("#fff");
     this.page = require("@/i18n/en/document/overview.md");
     let { title } = this.$route.params;
     if (title) this.activeIdx = Number(title);
@@ -75,6 +77,7 @@ export default {
 <style lang="scss" scoped>
 .api-page {
   font-family: SF Pro Text;
+  background-color: #fff;
 }
 
 section {

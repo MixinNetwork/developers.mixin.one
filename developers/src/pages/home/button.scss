@@ -3,13 +3,15 @@
 
   white-space: nowrap;
 
-  padding: 0 2rem;
-  line-height: 3.5rem;
+  min-width: 10.5rem;
+  padding: 0 1.5rem;
+  line-height: 2.75rem;
 
-  font-family: Maven Pro;
+  font-family: Roboto;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background: #3d75e3;
+  text-align: center;
   color: #ffffff;
   border-radius: 0.625rem;
   border: 0.125rem solid #397ee4;
@@ -19,13 +21,5 @@
   &:hover {
     background: #fff;
     color: #3d75e3;
-  }
-}
-
-
-
-@media screen and (max-width: 60rem) {
-  .button {
-    line-height: 3rem;
   }
 }

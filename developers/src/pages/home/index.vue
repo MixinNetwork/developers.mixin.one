@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page" ref="root">
+  <div :class="['home-page', $i18n.locale]" ref="root">
     <Header />
     <img class="bg-top" src="@/assets/img/svg/home_bg_top.svg" />
     <img class="bg-bottom" src="@/assets/img/svg/home_bg_bottom.svg" />
@@ -59,7 +59,7 @@
         class="text-segmentation animate-up"
         data-animate="fadeInUp,0.5s,easin-in-out,.1s"
         src="@/assets/img/text-segmentation.png"
-      /> -->
+      />-->
       <h2 class="animate-up" data-animate="fadeInUp,0.5s,easin-in-out">{{$t('news.title')}}</h2>
       <ul>
         <li
@@ -173,6 +173,7 @@
 <script>
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
+import tools from "@/assets/js/tools";
 export default {
   name: "Home",
   components: { Header, Footer },
@@ -182,6 +183,7 @@ export default {
     };
   },
   mounted() {
+    tools.changeTheme("#fff");
     require("@/assets/js/resize-first");
     let t = require("@/assets/js/animate-up").default;
     setTimeout(t.bind(this.$refs.root));

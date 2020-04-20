@@ -22,7 +22,7 @@
           </li>
         </ul>
       </div>
-      <div class="resources">
+      <div :class="['resources', lang]">
         <h6
           class="animate-up"
           data-animate="fadeInUp,0.5s,easin-in-out"
@@ -108,16 +108,17 @@ h6 {
 }
 
 .community {
-  min-width: 20.75rem;
+  min-width: 20rem;
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 20.75rem;
+    // width: 20.75rem;
   }
 
   li:nth-child(4) {
     div {
-      height: 1rem;
+      padding-top: 0.3rem;
+      // line-height: 1rem;
     }
   }
 
@@ -157,7 +158,12 @@ h6 {
   }
 }
 .resources {
-  min-width: 7.5rem;
+  &.en {
+    min-width: 11rem;
+  }
+  &.zh {
+    min-width: 9rem;
+  }
   a {
     cursor: pointer;
     display: block;
@@ -168,9 +174,7 @@ h6 {
 .i18n {
   .locale {
     display: inline-block;
-    padding: 0 40px 0 10px;
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
+    padding: 0 40px 0 0px;
 
     cursor: pointer;
 

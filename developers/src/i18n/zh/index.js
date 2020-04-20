@@ -2,7 +2,7 @@ export default {
   language: 'zh',
   home: {
     title: 'Mixin 开发者',
-    menus: ['最新消息', '用户案例', '文档', '仪表盘'],
+    menus: ['最新消息', '用户案例', '文档', '开发者后台'],
     main: {
       title: '在 Mixin 上构建任何分布式应用程序',
       info: [
@@ -15,7 +15,7 @@ export default {
         '<b>多重签名&nbsp;-&nbsp;</b>大型资产的安全管理。',
         '<b>方便使用&nbsp;-&nbsp;</b>由 6 位 D3M-PIN 保护',
       ],
-      button: ['开始使用', 'API 参考', '仪表盘']
+      button: ['开始使用', 'API 参考', '开发者后台']
     },
     documentation: {
       title: "文献资料",
@@ -33,7 +33,7 @@ export default {
     nextstep: {
       title: "下一步",
       left: [
-        { info: '开始您的下一个项目，探索交互式教程，并管理您的帐户。', button: '前往仪表盘', href: '#' },
+        { info: '开始您的下一个项目，探索交互式教程，并管理您的帐户。', button: '前往开发者后台', href: '#' },
       ],
       right: [
         { title: '快速开始', info: '需要入门帮助吗？', href: '#' },
@@ -47,9 +47,9 @@ export default {
           twitter: { name: '推特', href: 'https://twitter.com/Mixin_Network' },
           github: { name: 'Github', href: 'https://github.com/MixinNetwork/developers.mixin.one' },
           facebook: { name: '脸书', href: 'https://fb.com/MixinMessenger' },
-          // youtube: { name: '油管', href: '' },
-          // reddit: { name: 'Reddit', href: '' },
-          // telegram: { name: '电报', href: '' }
+          youtube: { name: '油管', href: 'https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA' },
+          reddit: { name: 'Reddit', href: 'https://www.reddit.com/r/mixin' },
+          telegram: { name: '电报', href: 'https://t.me/MixinCommunity' }
         }
       },
       resources: {
@@ -142,18 +142,18 @@ export default {
     title: '用户案例',
     route: "用户案例",
     list: [
-      { title: 'Blockin 钱包', date: '2020/3/14', info: '特征:<br />多币种：BTC，ETH，USDT Omni，USDT ERC20，BSV，DCR，DOGE，BCH，RVN，VCash，ZEC，DASH，LTC当前可用。<br />将会继续支持更多货币。<br />安全性：多重安全性验证可确保资产安全。<br />方便和用户友好：高效的交易，公告和资产变更的实时通知可改善用户体验。<a  href="/cases/0">更多.</a>' },
-      { title: 'F1EX 交易所', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/1">更多.</a>' },
-      { title: 'ETF 投资 - BOX', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/2">更多.</a>' },
-      { title: '多重签名', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/3">更多.</a>' },
-      { title: 'ExinLocal，全球的点对点市场', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/4">更多.</a>' },
-      { title: '商家接受加密货币', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/5">更多.</a>' },
-      { title: '即时加密信用额度', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。<br /><br />F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/6">更多.</a>' }
+      { title: 'Blockin 钱包', date: '2020/3/14', info: '特征: 多币种：BTC，ETH，USDT Omni，USDT ERC20，BSV，DCR，DOGE，BCH，RVN，VCash，ZEC，DASH，LTC当前可用。将会继续支持更多货币。安全性：多重安全性验证可确保资产安全。方便和用户友好：高效的交易，公告和资产变更的实时通知可改善用户体验。<a  href="/cases/0">更多.</a>' },
+      { title: 'F1EX 交易所', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/1">更多.</a>' },
+      { title: 'ETF 投资 - BOX', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/2">更多.</a>' },
+      { title: '多重签名', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/3">更多.</a>' },
+      { title: 'ExinLocal，全球的点对点市场', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/4">更多.</a>' },
+      { title: '商家接受加密货币', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/5">更多.</a>' },
+      { title: '即时加密信用额度', date: '2020/3/14', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。F1EX 专注于安全性和用户体验。 我们在安全机制和易于使用的界面之间取得平衡，从而为所有用户提供最佳功能。<a  href="/cases/6">更多.</a>' }
     ]
   },
 
   dashboard: {
-    title: '仪表盘',
+    title: '开发者后台',
     new_app: '新应用',
     my_app: '我的应用',
     sign_out: '登出',

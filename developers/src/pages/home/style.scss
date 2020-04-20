@@ -4,7 +4,14 @@
   position: relative;
   overflow: auto;
   height: 100%;
+  background-color: #fff;
 }
+
+section {
+  font-family: 'Roboto';
+  margin-top: 18rem;
+}
+
 
 h2 {
   font-family: Maven Pro;
@@ -28,7 +35,8 @@ h2 {
 
 .main-title {
   position: relative;
-  padding: 1rem;
+  margin-top: 0;
+  padding: 1rem 1rem 0 1rem;
 
   text-align: center;
 
@@ -47,35 +55,36 @@ h2 {
     .title-dec {
       position: absolute;
       border-radius: 0.0625rem;
+      border-radius: 2px;
 
       &:nth-child(1) {
         right: -1.7rem;
-        top: 3.5rem;
+        top: 5.5rem;
 
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 0.8125rem;
+        height: 0.8125rem;
 
         background: linear-gradient(180deg, #ff6827 0%, #ff9c40 100%);
       }
 
       &:nth-child(2) {
         right: -0.5rem;
-        top: 4.5rem;
+        top: 6.5rem;
 
-        width: 1.4rem;
-        height: 1.4rem;
+        width: 0.9375rem;
+        height: 0.9375rem;
 
-        background: linear-gradient(180deg, #3180ed 0%, #1eb3f9 100%);
+        background: linear-gradient(270deg, #2c8df0 0%, #1eb3f9 100%);
       }
 
       &:nth-child(3) {
-        left: -1rem;
+        left: -1.2rem;
         top: 1rem;
 
         width: 1rem;
         height: 1rem;
 
-        background: linear-gradient(180deg, #e8d172 0%, #ffc940 100%);
+        background: linear-gradient(180deg, #ffd424 0%, #ffba09 100%);
       }
     }
   }
@@ -97,7 +106,6 @@ h2 {
         #f9fbff 100%);
 
     li {
-      font-family: Maven Pro;
       font-weight: normal;
       text-align: left;
       line-height: 1.5rem;
@@ -123,8 +131,6 @@ h2 {
 
     .button {
       margin-right: 2.5rem;
-      min-width: 13rem;
-      font-weight: 500;
 
       &:last-child {
         margin-right: 0;
@@ -223,14 +229,22 @@ h2 {
   }
 }
 
+.zh .main-title {
+  h2 {
+    .title-dec {
+      &:nth-child(3) {
+        left: -1.2rem;
+      }
+    }
+  }
+}
+
 .latest-news {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Maven Pro;
-
-  margin-top: 19rem;
+  margin-top: 15rem;
 
   .text-segmentation {
     width: auto;
@@ -278,7 +292,6 @@ h2 {
 }
 
 .user-cases {
-  margin-top: 13.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,13 +331,12 @@ h2 {
     margin-top: 2.5rem;
     width: 28rem;
 
-    font-family: Maven Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 2.375rem;
 
-    color: #979797;
+    color: #333;
 
     /deep/ a {
       color: #3d75e3;
@@ -336,7 +348,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Maven Pro;
 
   .section1 {
     li {
@@ -345,11 +356,13 @@ h2 {
 
     h3 {
       font-size: 1.875rem;
+      font-weight: 500;
     }
 
     p {
       font-size: 1.125rem;
       line-height: 2.375rem;
+      color: #333;
     }
   }
 
@@ -419,7 +432,6 @@ h2 {
 
     li {
       position: relative;
-      font-family: Maven Pro;
       margin-bottom: 6.25rem;
       height: 26rem;
     }
@@ -443,7 +455,6 @@ h2 {
   }
 
   .documentation {
-    margin-top: 12.5rem;
 
     .container {
       display: flex;
@@ -486,6 +497,10 @@ h2 {
 }
 
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  section {
+    margin-top: 14rem;
+  }
+
   .main-title {
     min-height: 61.5rem;
 
@@ -541,8 +556,6 @@ h2 {
   }
 
   .documentation {
-    margin-top: 7.5rem;
-
     .container {
       display: flex;
       flex-direction: column;
@@ -587,6 +600,10 @@ h2 {
     min-width: 20rem;
   }
 
+  section {
+    margin-top: 10rem;
+  }
+
   button {
     height: 3rem;
   }
@@ -599,6 +616,7 @@ h2 {
   .main-title {
     width: 100%;
     height: initial !important;
+    padding: 2rem;
 
     h2 {
       font-size: 1.375rem;
@@ -606,18 +624,18 @@ h2 {
 
       .title-dec {
         &:nth-child(1) {
-          right: -0.8rem;
-          top: 2.5rem;
+          right: -1rem;
+          top: 1.5rem;
         }
 
         &:nth-child(2) {
-          right: 0.4rem;
-          top: 3.4rem;
+          right: 0rem;
+          top: 2.4rem;
         }
 
         &:nth-child(3) {
           left: -0.5rem;
-          top: 0.5rem;
+          top: 0.2rem;
         }
       }
     }
@@ -670,7 +688,7 @@ h2 {
   }
 
   .latest-news {
-    margin-top: 15.5rem;
+    margin-top: 18rem;
 
     ul {
       width: initial;
@@ -693,6 +711,7 @@ h2 {
   .user-cases {
     ul {
       width: 100%;
+      max-width: 500px;
     }
 
     li {
@@ -732,24 +751,30 @@ h2 {
   }
 
   .documentation {
-    padding: 7.5rem 1.5625rem;
+    padding: 0 1.5625rem;
 
     h2 {
       margin-bottom: 5rem;
     }
 
     .container {
-      padding-top: 5rem;
+      padding: 5rem 0rem 0;
+      width: 100%;
+      max-width: 500px;
       text-align: center;
       background: #f8faff;
     }
 
     .section1 p {
-      margin: 1.25rem 0 1.875rem 0;
+      margin: 1.25rem 2rem 1.875rem;
+    }
+
+    .section2 {
+      width: 100%;
     }
 
     .section2 li {
-      width: initial;
+      width: calc(100% - 5rem);
       text-align: left;
       margin: 0 1.25rem 3.125rem 1.25rem;
       padding-left: 2.005rem;
@@ -757,6 +782,8 @@ h2 {
   }
 
   .next-step {
+    margin-bottom: 7.5rem;
+
     .container {
       padding-top: 3rem;
     }

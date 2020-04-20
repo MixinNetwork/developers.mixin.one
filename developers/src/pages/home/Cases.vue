@@ -40,6 +40,7 @@
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
 import Pages from "@/components/Pages";
+import tools from "@/assets/js/tools";
 export default {
   name: "News",
   components: { Header, Footer, Pages },
@@ -82,6 +83,7 @@ export default {
     }
   },
   mounted() {
+    tools.changeTheme("#fdfeff");
     window.scrollTo(0, 0);
     this.reloadState = true;
     this.allList = this.$t("cases.list");

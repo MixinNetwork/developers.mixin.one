@@ -24,6 +24,7 @@
 <script>
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
+import tools from "@/assets/js/tools";
 
 export default {
   name: "NewsDetail",
@@ -37,6 +38,7 @@ export default {
     };
   },
   mounted() {
+    tools.changeTheme("#fdfeff");
     window.scrollTo(0, 0);
     let { id } = this.$route.params;
     let path = "";

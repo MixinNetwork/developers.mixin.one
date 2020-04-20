@@ -109,7 +109,6 @@ export default {
     }
   },
   async mounted() {
-    console.log('dashboard script.js')
     this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
     window.onresize = () => {
       this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
