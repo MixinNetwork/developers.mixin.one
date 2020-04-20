@@ -38,7 +38,7 @@ export default {
   methods: {
     toggle_options(status) {
       this.show_options = !this.show_options;
-      document.onclick = status ? () => this.toggle_options(false) : null;
+      document.onclick = () => (this.show_options = false);
     },
     click_category(key) {
       this.$emit("input", key);
