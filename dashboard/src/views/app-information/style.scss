@@ -205,12 +205,6 @@ textarea {
   }
 
   .name-category {
-    flex-direction: column;
-
-    &>.item:first-child {
-      margin-right: 0;
-    }
-
     &>.item:last-child {
       min-width: initial;
     }
