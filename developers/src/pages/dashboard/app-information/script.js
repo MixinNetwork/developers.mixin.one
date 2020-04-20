@@ -1,10 +1,11 @@
-import MixinInput from './input.vue'
+import MInput from './input.vue'
 import Croppie from './croppie.vue'
+import CategorySelect from './select.vue'
 
 export default {
   name: 'app-information',
   components: {
-    MixinInput, Croppie
+    MInput, Croppie, CategorySelect
   },
   props: {
     active_app: {
@@ -56,14 +57,14 @@ let once_submit = false
 
 async function _submit_to_database() {
   if (once_submit) return notice.call(this, 'saving')
-  let { app_id, capabilities, description, home_uri, redirect_uri } = this.active_app
+  let { app_id, capabilities, description, home_uri, redirect_uri, category } = this.active_app
   let name = this.app_name
   if (this.immersive_status) {
     capabilities = ['CONTACT', 'GROUP', 'IMMERSIVE']
   } else {
     capabilities = ['CONTACT', 'GROUP']
   }
-  let parmas = { capabilities, description, home_uri, name, redirect_uri }
+  let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
   let icon_base64 = await this.$refs.croppie.crop();
   if (icon_base64) {
@@ -79,15 +80,16 @@ async function _submit_to_database() {
   }
   once_submit = true;
   this.$emit('loading', true)
-  this.apis.set_app(app_id, parmas).then(res => {
+  try {
+    let res = await this.apis.set_app(app_id, parmas)
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
       this.$emit('add_new_app', res.app_number)
     }
-  }).finally(_ => {
+  } finally {
     once_submit = false
     this.$emit('loading', false)
-  })
+  }
 }
 
 
