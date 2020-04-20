@@ -57,13 +57,9 @@ let once_submit = false
 
 async function _submit_to_database() {
   if (once_submit) return notice.call(this, 'saving')
-  let { app_id, capabilities, description, home_uri, redirect_uri, category } = this.active_app
+  let { app_id, description, home_uri, redirect_uri, category = 'OTHER' } = this.active_app
   let name = this.app_name
-  if (this.immersive_status) {
-    capabilities = ['CONTACT', 'GROUP', 'IMMERSIVE']
-  } else {
-    capabilities = ['CONTACT', 'GROUP']
-  }
+  let capabilities = this.immersive_status ? ['CONTACT', 'GROUP', 'IMMERSIVE'] : ['CONTACT', 'GROUP']
   let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
   let icon_base64 = await this.$refs.croppie.crop();

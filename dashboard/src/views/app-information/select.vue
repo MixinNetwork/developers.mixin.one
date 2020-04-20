@@ -2,7 +2,7 @@
   <div class="select-component">
     <label>{{$t('information.category')}}</label>
     <div class="select" @click.stop="toggle_options">
-      {{$t('information.category_list.'+value)}}
+      {{$t('information.category_list.' + (value || 'OTHER'))}}
       <img
         class="bottom"
         src="@/assets/img/svg/bottom.svg"
