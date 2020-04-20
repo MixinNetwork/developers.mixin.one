@@ -1,7 +1,7 @@
 <template>
   <div class="select-component">
     <label>{{$t('information.category')}}</label>
-    <div class="select" @click="toggle_options">
+    <div class="select" @click.stop="toggle_options(true)">
       {{$t('information.category_list.'+value)}}
       <img
         class="bottom"
@@ -38,7 +38,7 @@ export default {
   methods: {
     toggle_options(status) {
       this.show_options = !this.show_options;
-      console.log(this.show_options);
+      document.onclick = status ? () => this.toggle_options(false) : null;
     },
     click_category(key) {
       this.$emit("input", key);
