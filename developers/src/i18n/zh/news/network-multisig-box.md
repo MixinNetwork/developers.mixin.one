@@ -1,0 +1,1 @@
+BTC, BOX, ONE, PRS, USDT-ERC20, USDT-Omni 现已支持多重签名
