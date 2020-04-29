@@ -84,6 +84,7 @@ export default {
       { title: 'Mixin 支持 DGD 溶解计划', filename: 'dgd-dissolution', info: '', date: '2020/03/31', img: '' },
       { title: 'Mixin 多重签名支持已扩充至 6 种币', filename: 'network-multisig-box', info: '', date: '2020/03/31', img: '' },
       { title: '支持 Handshake 公链', filename: 'blockchain-handshake', info: '', date: '2020/03/23', img: '' },
+      { title: '支持 Nervos 公链', filename: 'blockchain-nervos', info: '', date: '2020/03/19', img: '' },
     ]
   },
   cases: {
