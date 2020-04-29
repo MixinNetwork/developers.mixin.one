@@ -10,7 +10,7 @@
           class="animate-up"
           :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
         >
-          <a :href="`/cases/${casesIndex(index)}`">
+          <a :href="`/cases/${item.filename}`">
             <img :src="require(`@/assets/img/${$route.name}/${item.img || index+1}.png`)" />
             <div class="container">
               <h4>{{item.title}}</h4>

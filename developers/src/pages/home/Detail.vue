@@ -40,7 +40,7 @@ export default {
   mounted() {
     tools.changeTheme("#fdfeff");
     window.scrollTo(0, 0);
-    let { id } = this.$route.params;
+    let { filename: _filename } = this.$route.params;
     let path = "";
 
     let { name } = this.$route;
@@ -51,7 +51,10 @@ export default {
     }
     this.path = path;
     this.route = this.$t(path + ".route");
-    this.info = this.$t(path + ".list")[id];
+
+    this.info = this.$t(path + ".list").find(
+      item => item.filename === _filename
+    );
     let { locale } = this.$i18n;
     let { filename } = this.info;
     if (filename) {
@@ -107,14 +110,32 @@ h2 {
   color: #c7c9d2;
 }
 
-.desc {
+/deep/ .desc {
   margin-top: 3.75rem;
-  /deep/ p {
+  * {
+    color: #2f3032;
+  }
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+  p {
     font-size: 1.125rem;
     line-height: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem 0;
 
     color: #2f3032;
+  }
+  img {
+    width: 100%;
+  }
+  ul {
+    margin-bottom: 2rem;
+  }
+  li {
+    list-style: initial;
+    line-height: 2;
   }
 }
 

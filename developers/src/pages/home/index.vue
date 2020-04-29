@@ -68,7 +68,7 @@
           class="animate-up"
           :data-animate="`fadeInUp,0.5s,easin-in-out`"
         >
-          <a :href="'/news/'+index" class="title">{{item.title}}</a>
+          <a :href="'/news/'+item.filename" class="title">{{item.title}}</a>
           <span class="time">{{item.date}}</span>
         </li>
       </ul>

@@ -20,12 +20,12 @@ const routes = [
     component: () => import('./pages/home/Cases')
   },
   {
-    path: '/news/:id',
+    path: '/news/:filename',
     name: 'news_detail',
     component: () => import('./pages/home/Detail')
   },
   {
-    path: '/cases/:id',
+    path: '/cases/:filename',
     name: 'cases_detail',
     component: () => import('./pages/home/Detail')
   },
