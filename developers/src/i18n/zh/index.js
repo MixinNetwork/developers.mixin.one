@@ -81,6 +81,7 @@ export default {
       { title: 'Mixin Messenger 机器人支持返回 currency 和 locale ', filename: 'messenger-currency-and-locale', info: '', date: '2020/04/29', img: '' },
       { title: 'Mixin Messenger 支持机器人置顶首页', filename: 'messenger-bottom-navigation', info: '', date: '2020/04/27', img: '' },
       { title: 'Blockchain 支持 Mixin Network', filename: 'network-explorer-blockchair', info: '', date: '2020/04/21', img: '' },
+      { title: 'Mixin 支持 DGD 溶解计划', filename: 'dgd-dissolution', info: '', date: '2020/03/31', img: '' },
     ]
   },
   cases: {
