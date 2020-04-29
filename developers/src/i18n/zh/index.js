@@ -88,6 +88,7 @@ export default {
       { title: '支持 VCash 公链', filename: 'blockchain-vcash', info: '', date: '2020/02/02', img: '' },
       { title: '支持 Grin 公链', filename: 'blockchain-grin', info: '', date: '2020/01/27', img: '' },
       { title: '支持 Ravencoin 公链', filename: 'blockchain-ravencoin', info: '', date: '2020/01/06', img: '' },
+      { title: '加入 HackerOne 的 Bug 赏金计划', filename: 'hackerone', info: '', date: '2019/09/30', img: '' },
     ]
   },
   cases: {
