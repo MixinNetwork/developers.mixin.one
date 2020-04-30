@@ -104,7 +104,6 @@ h2 {
 
 .date {
   margin-top: 1.875rem;
-  font-size: 1.25rem;
   line-height: 1.5rem;
 
   color: #c7c9d2;

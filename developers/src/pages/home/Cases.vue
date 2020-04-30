@@ -11,7 +11,7 @@
           :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
         >
           <a :href="`/cases/${item.filename}`">
-            <img :src="require(`@/assets/img/${$route.name}/${item.img || index+1}.png`)" />
+            <img :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)" />
             <div class="container">
               <h4>{{item.title}}</h4>
               <p v-html="item.info"></p>

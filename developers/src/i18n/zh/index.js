@@ -96,7 +96,7 @@ export default {
     title: '用户案例',
     route: "用户案例",
     list: [
-      { title: '基于 Mixin 实现公开、透明的 ETF 基金产品', filename: 'etf-box', date: '2020/4/30', info: 'BOX 是一个完全公开、透明的基金产品，由李笑来设计。<br/>BOX 的成分由三个标的构成，它们分别是 BTC、EOS 和 XIN。所以，第一个字母换成 B，最后一个字母换成 X，就成了 “BOX”。每一份 BOX 中，包含 0.0001 个 BTC、0.15 个 EOS 和 0.0008 个 XIN。<a  href="/cases/etf-box">更多.</a>' },
+      { title: '基于 Mixin 实现公开、透明的 ETF 基金产品', filename: 'etf-box', img: 'etf-box.png', date: '2020/4/30', info: 'BOX 是一个完全公开、透明的基金产品，由李笑来设计。<br/>BOX 的成分由三个标的构成，它们分别是 BTC、EOS 和 XIN。所以，第一个字母换成 B，最后一个字母换成 X，就成了 “BOX”。每一份 BOX 中，包含 0.0001 个 BTC、0.15 个 EOS 和 0.0008 个 XIN。<a  href="/cases/etf-box">更多.</a>' },
     ]
   },
 

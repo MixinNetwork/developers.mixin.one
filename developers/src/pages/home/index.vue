@@ -87,7 +87,7 @@
         <li v-for="(item,index) in $t('cases.list')" :key="index">
           <div class="title animate-up" data-animate="fadeInUp,0.5s,easin-in-out,.1s">{{item.title}}</div>
           <img
-            :src="require(`@/assets/img/cases/${index+1}.png`)"
+            :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)"
             class="animate-up"
             data-animate="fadeInUp,0.5s,easin-in-out,.2s"
           />

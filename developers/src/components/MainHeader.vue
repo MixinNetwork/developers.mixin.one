@@ -7,7 +7,11 @@
     </a>
     <img @click.stop="toggleMenus" class="menus-icon" src="@/assets/img/svg/menus.svg" />
     <ul :class="['menus', showMenus ? 'show' : '']">
-      <li v-for="(item,index) in $t('home.menus')" :key="index">
+      <li
+        v-for="(item,index) in $t('home.menus')"
+        :key="index"
+        :class="$route.path.startsWith(routerList[index]) ? 'acvie': ''"
+      >
         <a :href="routerList[index]">{{item}}</a>
       </li>
     </ul>
@@ -26,9 +30,6 @@ export default {
   methods: {
     toggleMenus() {
       this.showMenus = !this.showMenus;
-    },
-    clickRouter(index) {
-      this.$router.push("/" + router[index]).catch(() => {});
     },
     closeMenus() {
       this.showMenus = false;
@@ -83,6 +84,10 @@ header {
     a {
       color: #3a3c3e;
       padding: 0.5rem;
+    }
+
+    &.acvie a {
+      color: #3d75e3;
     }
   }
 }
