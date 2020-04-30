@@ -8,7 +8,7 @@ export default {
       info: [
         '<b>Fast&nbsp;-&nbsp;</b>More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.',
         ' <b>Developer Friendly&nbsp;-&nbsp;</b>Standard REST API interface with any language.',
-        '<b>Powerful&nbsp;-&nbsp;</b>Supported 26 blockchians, such as BTC, ETH, XMR.',
+        '<b>Powerful&nbsp;-&nbsp;</b>Supported 28 blockchians, such as BTC, ETH, XMR.',
         '<b>Secure&nbsp;-&nbsp;</b>All assets are stored in PoS-BFT-DAG distributed network',
         '<b>Free&nbsp;-&nbsp;</b>No transaction fee.',
         '<b>Privacy&nbsp;-&nbsp;</b>End to end encrypted messages',

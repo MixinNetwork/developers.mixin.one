@@ -7,13 +7,13 @@ export default {
       title: '在 Mixin 上构建任何分布式应用程序',
       info: [
         '<b>快速&nbsp;-&nbsp;</b>超过 1,000,000 TPS 的容量，最终确认时间不到 1 秒。',
-        '<b>开发人员友好&nbsp;-&nbsp;</b>标准 REST API 接口，支持任何语言。',
-        '<b>强大&nbsp;-&nbsp;</b>支持 26 个区块链，例如BTC，ETH，XMR。',
+        '<b>开发友好&nbsp;-&nbsp;</b>标准 REST API 接口，支持任何语言。',
+        '<b>强大&nbsp;-&nbsp;</b>支持 28 个区块链，例如 BTC，ETH，XMR。',
         '<b>安全&nbsp;-&nbsp;</b>所有资产都存储在 PoS-BFT-DAG 分布式网络中',
         '<b>免费&nbsp;-&nbsp;</b>没有交易费。',
         '<b>隐私&nbsp;-&nbsp;</b>端到端加密消息。',
         '<b>多重签名&nbsp;-&nbsp;</b>大型资产的安全管理。',
-        '<b>方便使用&nbsp;-&nbsp;</b>由 6 位 D3M-PIN 保护',
+        '<b>使用方便&nbsp;-&nbsp;</b>由 6 位 D3M-PIN 保护',
       ],
       button: ['开始使用', 'API 参考', '开发者后台']
     },
@@ -44,20 +44,20 @@ export default {
       community: {
         title: "社区",
         list: {
-          twitter: { name: '推特', href: 'https://twitter.com/Mixin_Network' },
+          twitter: { name: 'Twitter', href: 'https://twitter.com/Mixin_Network' },
           github: { name: 'Github', href: 'https://github.com/MixinNetwork/developers.mixin.one' },
-          facebook: { name: '脸书', href: 'https://fb.com/MixinMessenger' },
-          youtube: { name: '油管', href: 'https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA' },
+          facebook: { name: 'Facebook', href: 'https://fb.com/MixinMessenger' },
+          youtube: { name: 'YouTube', href: 'https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA' },
           reddit: { name: 'Reddit', href: 'https://www.reddit.com/r/mixin' },
-          telegram: { name: '电报', href: 'https://t.me/MixinCommunity' }
+          telegram: { name: 'Telegram', href: 'https://t.me/MixinCommunity' }
         }
       },
       resources: {
         title: "资源",
         list: [
-          { name: '新闻资料袋', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
+          { name: '媒体资源', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
           { name: '白皮书', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' },
-          { name: 'API', href: 'https://developers.mixin.one/api' }
+          { name: 'API 文档', href: 'https://developers.mixin.one/api' }
         ]
       },
       others: {

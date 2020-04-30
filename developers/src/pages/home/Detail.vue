@@ -99,7 +99,7 @@ nav {
 
 h2 {
   margin-top: 3.375rem;
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   color: #2f3032;
 }
 
