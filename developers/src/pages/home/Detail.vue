@@ -12,7 +12,7 @@
 
       <p class="date">{{info.date}}</p>
 
-      <div class="desc" v-html="desc"></div>
+      <div class="desc markdown-body" v-html="desc"></div>
 
       <img src="@/assets/img/svg/black_logo.svg" />
     </section>
@@ -25,6 +25,7 @@
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
 import tools from "@/assets/js/tools";
+import 'github-markdown-css'
 
 export default {
   name: "NewsDetail",
@@ -112,30 +113,8 @@ h2 {
 
 /deep/ .desc {
   margin-top: 3.75rem;
-  * {
-    color: #2f3032;
-  }
-  h4 {
-    font-size: 1.5rem;
-    line-height: 2;
-    margin-bottom: 1rem;
-  }
-  p {
-    font-size: 1.125rem;
-    line-height: 2rem;
-    margin: 1rem 0;
-
-    color: #2f3032;
-  }
-  img {
-    width: 100%;
-  }
-  ul {
-    margin-bottom: 2rem;
-  }
   li {
     list-style: initial;
-    line-height: 2;
   }
 }
 

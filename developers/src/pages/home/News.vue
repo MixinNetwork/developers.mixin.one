@@ -43,7 +43,7 @@ export default {
       allList: [],
       viewList: [],
       currentPage: 1,
-      split: 20,
+      split: 10,
       refresh: null,
       reloadState: true
     };

@@ -11,6 +11,7 @@
     "bignumber.js": "^9.0.0",
     "core-js": "^3.3.2",
     "element-ui": "^2.13.0",
+    "github-markdown-css": "^4.0.0",
     "int64-buffer": "^0.99.1007",
     "jsonwebtoken": "^8.5.1",
     "markdown-it": "^10.0.0",
