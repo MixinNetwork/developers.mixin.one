@@ -104,7 +104,7 @@ function refresh() {
 
 .list {
   width: 100%;
-  max-width: 73.75rem;
+  max-width: 52rem;
 
   box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
   border-radius: 0.75rem;
@@ -115,6 +115,7 @@ function refresh() {
   li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     padding: 0 2.5rem 3.25rem;
 
@@ -136,6 +137,7 @@ function refresh() {
   a {
     color: #3d75e3;
     font-size: 1.125rem;
+    max-width: calc(100% - 10rem);
   }
 
   span {
@@ -154,6 +156,11 @@ button {
   margin-top: 11.25rem;
 }
 
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  .list {
+    max-width: 40rem;
+  }
+}
 @media screen and (max-width: 60rem) {
   .news-page {
     min-width: 20rem;
@@ -165,8 +172,12 @@ button {
     padding: 2rem 1rem;
     li {
       flex-direction: column;
+      align-items: start;
 
       padding: 0;
+      a {
+        max-width: initial;
+      }
     }
 
     img {

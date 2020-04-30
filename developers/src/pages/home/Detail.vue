@@ -3,10 +3,10 @@
     <Header />
 
     <section class="page animate-up" data-animate="fadeInUp,0.5s,easin-in-out">
-      <nav>
+      <!-- <nav>
         <router-link tag="a" :to="`/${path}`">{{route}}</router-link>
         <span>> {{info.title}}</span>
-      </nav>
+      </nav>-->
 
       <h2>{{info.title}}</h2>
 
@@ -25,7 +25,7 @@
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
 import tools from "@/assets/js/tools";
-import 'github-markdown-css'
+import "github-markdown-css";
 
 export default {
   name: "NewsDetail",
@@ -77,7 +77,7 @@ export default {
 
 .page {
   margin: 2.75rem auto;
-  max-width: 73.75rem;
+  max-width: 52rem;
   padding: 2.5rem 3.125rem;
   font-family: Maven Pro;
 
@@ -98,7 +98,6 @@ nav {
 }
 
 h2 {
-  margin-top: 3.375rem;
   font-size: 1.6rem;
   color: #2f3032;
 }
@@ -112,7 +111,7 @@ h2 {
 }
 
 /deep/ .desc {
-  margin-top: 3.75rem;
+  margin-top: 2.75rem;
   li {
     list-style: initial;
   }
@@ -127,6 +126,11 @@ img {
   margin-top: 10rem;
 }
 
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  .page {
+    max-width: 40rem;
+  }
+}
 @media screen and (max-width: 60rem) {
   .detail-page {
     background: #fff;

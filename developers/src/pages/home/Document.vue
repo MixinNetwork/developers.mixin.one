@@ -81,9 +81,8 @@ export default {
 }
 
 section {
-  max-width: 72.5rem;
+  max-width: 52rem;
   margin: 3.25rem auto;
-  padding: 0 3rem;
 
   display: flex;
 }
@@ -166,6 +165,11 @@ li.active {
       margin-bottom: 0.625rem;
       opacity: 0.6;
     }
+  }
+}
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  section {
+    max-width: 40rem;
   }
 }
 </style>

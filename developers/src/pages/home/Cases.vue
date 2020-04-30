@@ -110,13 +110,13 @@ function refresh() {
 
 .list {
   width: 100%;
-  max-width: 73.75rem;
+  max-width: 52rem;
 
   margin: 2.75rem auto 0;
-  padding: 4rem 2.5rem;
+  padding: 4rem 0;
 
   li {
-    padding: 0 2.5rem 2.5rem;
+    padding: 0 0 2.5rem;
     background-color: #fff;
     margin-bottom: 3rem;
     border-bottom: 0.0625rem solid #edf0f5;
@@ -173,12 +173,17 @@ button {
   margin-top: 11.25rem;
 }
 
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  .list {
+    max-width: 40rem;
+  }
+}
 @media screen and (max-width: 60rem) {
   .news-page {
     min-width: 20rem;
   }
   .list {
-    max-width: 33.75rem;
+    max-width: 30rem;
     width: calc(100% - 2.5rem);
     margin: 3rem auto;
     padding: 0;
@@ -188,6 +193,9 @@ button {
 
       border-radius: 0.875rem;
       box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
+      a {
+        max-width: initial;
+      }
     }
 
     a {

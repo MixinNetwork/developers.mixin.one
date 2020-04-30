@@ -54,7 +54,7 @@ header {
   line-height: 1.25rem;
   text-align: center;
 
-  max-width: 68rem;
+  max-width: 60rem;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 0 0 0;
@@ -88,11 +88,8 @@ header {
 }
 
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
-  // @media screen and (max-width: 75rem) {
-  .menus {
-    li:last-child {
-      margin-right: 2rem;
-    }
+  header {
+    max-width: 50rem;
   }
 }
 
