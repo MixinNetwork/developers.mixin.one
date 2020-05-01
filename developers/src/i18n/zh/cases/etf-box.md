@@ -24,8 +24,15 @@ BOX 定投公开课、BOX 定投践行群、七三韭菜节等基金社区基于
 - 资产多重签名多人共管确保资产安全
 - 开发 BOX 二级市场链上交易，手续费无损分红
 
+### BOX 产品体验
+下载安装 http://mixin.one/messenger Mixin Messenger 并登录
+- 搜索 7000102023 找到 B.Watch 官网机器人，提供申购、兑换、文档等功能
+- 搜索 7000102069 找到 BOX 定投践行群，通过邀请码 + 并支付 2019.73 人民币等值 BTC 即可加入
+- 搜索 7000100217 找到 FOX.ONE 中文群入群咨询，也可以直接联系 Fox 产品负责人发条 37160854 进行咨询（Fox 团队是 BOX 产品的技术提供方）
+
 ### 参考
-[BOX 简介](https://bwatch.zendesk.com/hc/zh-cn/articles/360032542872)
+- [BOX 简介](https://bwatch.zendesk.com/hc/zh-cn/articles/360032542872)
+- [BOX 购买教程](https://bwatch.zendesk.com/hc/zh-cn/articles/360032543032)
 
 ---
 基于 Mixin 的免费转账、实时到账和可公开验仓的特性，BOX 这款 ETF 产品得以专注业务本身，极大的提升了传统 ETF 产品的透明度，更易持有和交易。
