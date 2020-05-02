@@ -155,6 +155,9 @@ function refresh() {
     color: #2f3032;
 
     cursor: pointer;
+    /deep/ a {
+      color: #3d75e3;
+    }
   }
 
   span {

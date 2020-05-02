@@ -14,7 +14,7 @@
 
       <div class="desc markdown-body" v-html="desc"></div>
 
-      <img src="@/assets/img/svg/black_logo.svg" />
+      <!-- <img src="@/assets/img/svg/black_logo.svg" /> -->
     </section>
 
     <Footer />
@@ -73,56 +73,55 @@ export default {
 <style lang="scss" scoped>
 .detail-page {
   background: #fdfeff;
-}
+  .page {
+    margin: 2.75rem auto;
+    max-width: 52rem;
+    padding: 2.5rem 3.125rem;
+    font-family: Maven Pro;
 
-.page {
-  margin: 2.75rem auto;
-  max-width: 52rem;
-  padding: 2.5rem 3.125rem;
-  font-family: Maven Pro;
+    display: flex;
+    flex-direction: column;
 
-  display: flex;
-  flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
+    border-radius: 0.75rem;
+  }
 
-  background: #ffffff;
-  box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
-  border-radius: 0.75rem;
-}
+  nav {
+    font-size: 1.25rem;
+    span {
+      padding-left: 0.5rem;
+      color: #c7c9d2;
+    }
+  }
 
-nav {
-  font-size: 1.25rem;
-  span {
-    padding-left: 0.5rem;
+  h2 {
+    font-size: 1.6rem;
+    color: #2f3032;
+  }
+
+  .date {
+    margin-top: 1.875rem;
+    line-height: 1.5rem;
+
     color: #c7c9d2;
   }
-}
 
-h2 {
-  font-size: 1.6rem;
-  color: #2f3032;
-}
-
-.date {
-  margin-top: 1.875rem;
-  line-height: 1.5rem;
-
-  color: #c7c9d2;
-}
-
-/deep/ .desc {
-  margin-top: 2.75rem;
-  li {
-    list-style: initial;
+  /deep/ .desc {
+    margin-top: 2.75rem;
+    li {
+      list-style: initial;
+    }
   }
-}
 
-img {
-  align-self: flex-end;
-  margin: 1.75rem 0 5rem;
-}
+  img {
+    align-self: flex-end;
+    margin: 1.75rem 0 5rem;
+  }
 
-/deep/ footer {
-  margin-top: 10rem;
+  /deep/ footer {
+    margin-top: 10rem;
+  }
 }
 
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
@@ -133,39 +132,38 @@ img {
 @media screen and (max-width: 60rem) {
   .detail-page {
     background: #fff;
-  }
+    .page {
+      margin-top: 1.875rem;
+      padding: 0 1.25rem 0;
+      box-shadow: none;
+    }
 
-  .page {
-    margin-top: 1.875rem;
-    padding: 0 1.25rem 0;
-    box-shadow: none;
-  }
+    nav {
+      font-size: 0.875rem;
+    }
 
-  nav {
-    font-size: 0.875rem;
-  }
+    h2 {
+      margin-top: 1.25rem;
+      font-size: 1.5rem;
+    }
 
-  h2 {
-    margin-top: 1.25rem;
-    font-size: 1.5rem;
-  }
+    .date {
+      margin-top: 0.625rem;
+      font-size: 0.875rem;
+      color: #c7c9d2;
+    }
 
-  .date {
-    margin-top: 0.625rem;
-    font-size: 0.875rem;
-    color: #c7c9d2;
-  }
+    .desc {
+      margin-top: 0.625rem;
+    }
 
-  .desc {
-    margin-top: 0.625rem;
-  }
+    img {
+      margin: 1.75rem 1.25rem 0 0;
+    }
 
-  img {
-    margin: 1.75rem 1.25rem 0 0;
-  }
-
-  /deep/ footer {
-    margin-top: 7.5rem;
+    /deep/ footer {
+      margin-top: 7.5rem;
+    }
   }
 }
 </style>
