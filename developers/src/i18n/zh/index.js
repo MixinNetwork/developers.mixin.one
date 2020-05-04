@@ -2,23 +2,23 @@ export default {
   language: 'zh',
   home: {
     title: 'Mixin 开发者',
-    menus: ['最新消息', '用户案例', '文档', '开发者后台'],
+    menus: ['公告', '案例', '文档', '后台'],
     main: {
       title: '在 Mixin 上构建任何分布式应用程序',
       info: [
-        '<b>快速&nbsp;-&nbsp;</b>超过 1,000,000 TPS 的容量，最终确认时间不到 1 秒。',
-        '<b>开发友好&nbsp;-&nbsp;</b>标准 REST API 接口，支持任何语言。',
-        '<b>强大&nbsp;-&nbsp;</b>支持 28 个区块链，例如 BTC，ETH，XMR。',
-        '<b>安全&nbsp;-&nbsp;</b>所有资产都存储在 PoS-BFT-DAG 分布式网络中',
-        '<b>免费&nbsp;-&nbsp;</b>没有交易费。',
-        '<b>隐私&nbsp;-&nbsp;</b>端到端加密消息。',
-        '<b>多重签名&nbsp;-&nbsp;</b>大型资产的安全管理。',
-        '<b>使用方便&nbsp;-&nbsp;</b>由 6 位 D3M-PIN 保护',
+        '<b>安全&nbsp;-&nbsp;</b>所有资产都安全的存储在 PoS-BFT-DAG 分布式网络中',
+        '<b>高性能&nbsp;-&nbsp;</b>超过 1,000,000 TPS 的容量，数据最终确认小于 1 秒',
+        '<b>隐私&nbsp;-&nbsp;</b>交易使用 CryptoNote 协议，聊天使用 Signal 协议',
+        '<b>强大&nbsp;-&nbsp;</b>支持 28 条公链，例如 BTC，ETH，EOS，DASH，ZEC，XMR 等。',
+        '<b>免费&nbsp;-&nbsp;</b>没有交易手续费。',
+        '<b>便捷&nbsp;-&nbsp;</b>6 位数字密码轻松管理资产',
+        '<b>多重签名&nbsp;-&nbsp;</b>适用于多人团队共同管理大额数字资产和 C2C 交易',
+        '<b>开发友好&nbsp;-&nbsp;</b>标准 REST API 接口，用你熟悉的语言快速开发',
       ],
       button: ['开始使用', 'API 参考', '开发者后台']
     },
     documentation: {
-      title: "文献资料",
+      title: "文档资料",
       left: [
         { title: '使用 Golang 快速入门', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。', button: '快速开始', href: '#' },
         { title: '使用 Golang 快速入门', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。', button: '快速开始', href: '#' },
@@ -75,8 +75,8 @@ export default {
   },
 
   news: {
-    title: "最新消息",
-    route: "Mixin 新闻",
+    title: "最新公告",
+    route: "公告",
     list: [
       { title: 'Mixin Messenger 机器人支持返回 currency 和 locale ', filename: 'messenger-currency-and-locale', info: '', date: '2020/04/29', img: '' },
       { title: 'Mixin Messenger 支持机器人置顶首页', filename: 'messenger-bottom-navigation', info: '', date: '2020/04/27', img: '' },
@@ -94,7 +94,7 @@ export default {
   },
   cases: {
     title: '用户案例',
-    route: "用户案例",
+    route: "案例",
     list: [
       { title: 'ETF 基金产品 - BOX', filename: 'etf-box', img: 'etf-box.png', date: '2020/4/30', info: 'BOX 是一个完全公开、透明的基金产品，由李笑来设计。<br/>BOX 的成分由三个标的构成，它们分别是 BTC、EOS 和 XIN。所以，第一个字母换成 B，最后一个字母换成 X，就成了 “BOX”。每一份 BOX 中，包含 0.0001 个 BTC、0.15 个 EOS 和 0.0008 个 XIN。<br/>BOX Token 是参与 BOX 投资的权益证明，它是一个 ERC20 Token，<a  href="/cases/etf-box">更多内容</a>' },
       { title: 'W3c.Group 创作者社区通证系统', filename: 'w3c-group', img: 'w3c-group.png', date: '2020/05/01', info: 'W3C（Web3.0 Content Group）创作者社区，是以小组形式聚集各类主题的内容平台，是由多个小组组成的一个整体，努力方向是运用区块链特性促进小组成员间的协作。<a href="/cases/w3c-group">更多内容</a>' },
