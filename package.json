@@ -9,7 +9,7 @@
     "handlebars": "^4.7.3",
     "int64-buffer": "^0.99.1007",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.25.1",
     "navigo": "^7.1.2",
     "node-forge": "^0.9.1",
     "node-polyglot": "^2.4.0",
