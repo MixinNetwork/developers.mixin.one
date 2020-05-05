@@ -133,7 +133,7 @@ h6 {
     }
 
     span {
-      font-style: italic;
+      // font-style: italic;
     }
 
     .twitter {

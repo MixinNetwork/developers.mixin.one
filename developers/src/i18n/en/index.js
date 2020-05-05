@@ -150,6 +150,23 @@ export default {
   },
 
 
+  documentation: [
+    {
+      name: "Get Start",
+      filename: ""
+    },
+    {
+      name: "Build your first app",
+      filename: "overview",
+      child: [
+        { name: "Overview", filename: "overview" }
+      ]
+    },
+    {
+      name: "Best practies",
+      filename: ""
+    }
+  ],
 
 
   dashboard: {

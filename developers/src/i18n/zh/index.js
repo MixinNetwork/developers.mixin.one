@@ -101,6 +101,23 @@ export default {
       { title: '去中心化交易所 - Ocean ONE', filename: 'ocean-one', img: 'exchange.png', date: '2020/05/02', info: 'Ocean ONE 是基于 Mixin Network 构建的新一代去中心化交易所，这是第一个用户体验匹敌中心化交易所的去中心化交易所。<a href="/cases/ocean-one">更多内容</a>' },
     ]
   },
+  documentation: [
+    {
+      name: "Get Start",
+      filename: ""
+    },
+    {
+      name: "Build your first app",
+      filename: "overview",
+      child: [
+        { name: "Overview", filename: "overview" }
+      ]
+    },
+    {
+      name: "Best practies",
+      filename: ""
+    }
+  ],
 
   dashboard: {
     title: '开发者后台',

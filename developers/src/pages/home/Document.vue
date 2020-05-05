@@ -4,18 +4,18 @@
 
     <section>
       <nav>
-        <ul v-for="(item, index) in document" :key="index">
-          <a href class="top">{{item.name}}</a>
+        <ul v-for="(item, index) in $t('documentation')" :key="index">
+          <a :href="'/document/' +item.filename" class="top">{{item.name}}</a>
           <li
-            :class="nindex === activeIdx ? 'active' : ''"
             v-for="(nitem, nindex) in item.child"
             :key="nindex"
+            :class="nitem.filename === active_filename ? 'active' : ''"
           >
-            <a :href="nitem.route" class="item">{{nitem.name}}</a>
+            <a :href="'/document/' +nitem.filename" class="item">{{nitem.name}}</a>
           </li>
         </ul>
       </nav>
-      <div class="container" v-html="page">123</div>
+      <div class="container markdown-body" v-html="page"></div>
     </section>
 
     <Footer />
@@ -26,46 +26,23 @@
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
 import tools from "@/assets/js/tools";
+import "github-markdown-css";
 export default {
   name: "News",
   components: { Header, Footer },
   data() {
     return {
       page: "",
-      activeIdx: 0,
-      document: [
-        {
-          name: "Get Start",
-          route: ""
-        },
-        {
-          name: "Build your first app",
-          route: "",
-          child: [
-            { name: "Overview", route: "/document/0" },
-            { name: "Create new app", route: "/document/1" },
-            { name: "Create user", route: "/document/2" },
-            { name: "Transfer", route: "/document/3" }
-          ]
-        },
-        {
-          name: "API reference",
-          route: ""
-        },
-        {
-          name: "Best practies",
-          route: ""
-        }
-      ]
+      active_filename: "overview"
     };
   },
   methods: {},
   mounted() {
     tools.changeTheme("#fff");
-    this.page = require("@/i18n/en/document/overview.md");
-    let { title } = this.$route.params;
-    if (title) this.activeIdx = Number(title);
-
+    let { title = "overveiw" } = this.$route.params;
+    if (title) this.active_filename = title;
+    let { locale } = this.$i18n;
+    this.page = require(`@/i18n/${locale}/document/${title}.md`);
     this.$nextTick(() => {
       let t = require("@/assets/js/animate-up").default;
       t();
