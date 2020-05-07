@@ -1,6 +1,4 @@
----
-title: Overview
----
+# Overview
 
 Mixin blockchain research cointains the following aspects:
 

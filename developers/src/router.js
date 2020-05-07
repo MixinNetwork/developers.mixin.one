@@ -35,7 +35,7 @@ const routes = [
     component: () => import('./pages/home/Document'),
   },
   {
-    path: '/document/:title',
+    path: '/document/:router',
     name: 'detail',
     component: () => import('./pages/home/Document'),
   },
