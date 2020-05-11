@@ -1,13 +1,17 @@
-# Overview
+### 简介
+Mixin 是一个免费、快速的点对点数字资产交易网络，可帮助其他区块链分布式账本获得超高 TPS、亚秒级确认、零手续费、加强隐私、无限扩展的能力，同时极大降低开发者的区块链开发学习成本，使用任何开发者熟悉的语言（Go、Java、Ruby、NodeJS、Php 、C#、Javascript、Python、Swift、Koltin 等）基于 REST API 结合区块链特点快速实现产品和业务。
 
-If you want to develop your Dapp on Mixin Network, there is no better way than trying it first by downloading Mixin Messenger (DOWNLOAD) which is also a Dapp based on Mixin Network, by using it you can have an overview and understand the benefit of the Mixin Network.
+### 特点
+- **安全** - 开源的 PoS 去中心化网络，TEE 硬件加固，数万轻节点监督全节点防止作恶
+- **高并发** - 可直接应用于大型商业应用，性能与传统中心化服务器接近，可通过升级硬件、带宽等实现十万、百万甚至更高 TPS。
+- **免费转账** - 用户转账免费，可满足小额支付、消费等商业应用场景。
+- **实时到账** - 目前完成一笔转账的校验并签名只需 300 毫秒，不会出现交易回滚、双花等问题。
+- **支持丰富** - 现已支持 BTC、ETH、EOS、XMR 等 28 条主链，超过 10 万种代币。
+- **使用方便** - 6 位数字密码安全管理钱包，容易记忆便于使用，细节参考[《分布式 D3M-PIN 码设计方案》](https://w3c.group/c/1575723828153220)
+- **多重签名** - 支持最多 255 人共管多签资产，适合团队、家庭共同管理大额资产，也适用于 B2C、C2C平台共管资金，平台无法挪用用户和商家的资金。
+- **交易隐私** - 交易只有双方知道，全节点也无法知道交易双方，也就是说无法根据交易本身推导出具体交易双方。
+- **双密钥** - 双密钥结构确保资产匿名的同时，用户可以主动提供自己的 view key 供会计查询，可用于报税和会计审计等，而资产不会被转移。
 
-**Things you will learn in this section.**
-
-1. How to register an APP.
-2. Sign an authentication token.
-3. Generate an encrypted pin for managing assets.
-4. Error codes for Http request and Websocket.
-5. Deposit, withdrawal and transfer between Mixin Network users.
-6. Get transaction information in Mixin Network.
-7. Create a Mixin Network user.
+### 下一步
+- [将 Mixin 钱包集成到您的产品]()
+- [基于 Mixin Messenger 开发机器人]()
