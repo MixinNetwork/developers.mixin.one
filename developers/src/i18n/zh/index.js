@@ -101,6 +101,7 @@ export default {
       { title: 'W3c.Group 创作者社区通证系统', filename: 'w3c-group', img: 'w3c-group.png', date: '2020/05/01', info: 'W3C（Web3.0 Content Group）创作者社区，是以小组形式聚集各类主题的内容平台，是由多个小组组成的一个整体，努力方向是运用区块链特性促进小组成员间的协作。<a href="/cases/w3c-group">更多内容</a>' },
       { title: '去中心化交易所 - Ocean ONE', filename: 'ocean-one', img: 'exchange.png', date: '2020/05/02', info: 'Ocean ONE 是基于 Mixin Network 构建的新一代去中心化交易所，这是第一个用户体验匹敌中心化交易所的去中心化交易所。<a href="/cases/ocean-one">更多内容</a>' },
       { title: '全币种钱包 - Web 版', filename: 'wallet-web', img: 'exchange.png', date: '2020/05/04', info: '基于 Mixin 提供的标准 REST API ，开发者很容易集成 Mixin 全币种钱包，并且向前兼容。本演示版完整的实现了一个 Web 版全币种钱包的所有功能 <a href="/cases/wallet-web">更多内容</a>' },
+      { title: 'C2C 购物平台 - 安信购物', filename: 'flowin', img: 'exchange.png', date: '2020/05/12', info: '安信购物（https://flowin.xin）是基于 Mixin Messenger 构建的一个 C2C 购物平台。通过安信购物平台，用户可以方便地使用各种加密货币出售或者购买各种商品或服务。 <a href="/cases/flowin">更多内容</a>' },
     ]
   },
   documentation: [

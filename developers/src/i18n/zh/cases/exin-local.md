@@ -6,7 +6,7 @@
 ### 架构
 前端使用 Vue，后端使用 Laravel 开发，区块链及其他特定功能由 Mixin 提供支持，产品形态是移动端适配的 Web 应用。
 
-![](https://paper-attachments.dropbox.com/s_8B58C897CB414BAEF46CBF0CDCA2EFF7D31AF7B5426E4A472D17F4E3F5BDD50B_1589183103609_ExinLocal.png)
+![](./exin-local-structure.png)
 
 ### 流程
 
