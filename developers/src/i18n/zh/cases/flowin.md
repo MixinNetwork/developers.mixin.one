@@ -22,4 +22,4 @@ Mixin Messenger 是对用户隐私极为重视的端对端加密通讯工具，�
 - 访问网站 https://flowin.xin
 
 ### 联系方式
-作者 Mixin ID: 1051445
+开发者 Mixin ID: 1051445
