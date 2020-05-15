@@ -98,6 +98,7 @@ export default {
     list: [
       { title: 'ETF 基金产品 - BOX', filename: 'etf-box', img: 'etf-box.png', date: '2020/4/30', info: 'BOX 是一个完全公开、透明的基金产品，由李笑来设计。<br/>BOX 的成分由三个标的构成，它们分别是 BTC、EOS 和 XIN。所以，第一个字母换成 B，最后一个字母换成 X，就成了 “BOX”。每一份 BOX 中，包含 0.0001 个 BTC、0.15 个 EOS 和 0.0008 个 XIN。<br/>BOX Token 是参与 BOX 投资的权益证明，它是一个 ERC20 Token，<a  href="/cases/etf-box">更多内容</a>' },
       { title: '点对点多签交易系统 - ExinLocal', filename: 'exin-local', img: 'exin-local.png', date: '2020/5/11', info: 'ExinLocal 是一个全球买卖加密货币的点对点市场，支持任意合法用户挂单，通过 Mixin Network 多签保障资金安全，交易是真正的点对点，支持任意的付款方式和法定货币。<a  href="/cases/exin-local">更多内容</a>' },
+      { title: 'ExinOne C2C 币币交易系统', filename: 'exin-c2c', img: 'exin-local.png', date: '2020/5/15', info: 'ExinOne 致力于为全球用户提供安全的数字资产金融服务以及优质的用户体验。使用 ExinOne，用户可以在方便的进行交易及使用服务的同时确保资产 100% 由自己掌控，平台目前提供的主要功能包含法币 C2C、币币闪兑、定投、理财、借贷等。本文将着重介绍 C2C 部分的实现和交易流程。<a  href="/cases/exin-c2c">更多内容</a>' },
       { title: 'W3c.Group 创作者社区通证系统', filename: 'w3c-group', img: 'w3c-group.png', date: '2020/05/01', info: 'W3C（Web3.0 Content Group）创作者社区，是以小组形式聚集各类主题的内容平台，是由多个小组组成的一个整体，努力方向是运用区块链特性促进小组成员间的协作。<a href="/cases/w3c-group">更多内容</a>' },
       { title: '去中心化交易所 - Ocean ONE', filename: 'ocean-one', img: 'exchange.png', date: '2020/05/02', info: 'Ocean ONE 是基于 Mixin Network 构建的新一代去中心化交易所，这是第一个用户体验匹敌中心化交易所的去中心化交易所。<a href="/cases/ocean-one">更多内容</a>' },
       { title: '全币种钱包 - Web 版', filename: 'wallet-web', img: 'exchange.png', date: '2020/05/04', info: '基于 Mixin 提供的标准 REST API ，开发者很容易集成 Mixin 全币种钱包，并且向前兼容。本演示版完整的实现了一个 Web 版全币种钱包的所有功能 <a href="/cases/wallet-web">更多内容</a>' },
@@ -107,15 +108,24 @@ export default {
   },
   documentation: [
     {
-      name: "Get Start",
-      path: "start/overview",
-      router: "start-overview"
+      name: "Get Started",
+      path: "overview",
+      router: "start-overview",
+      child: [
+        { name: "Get Started", path: "overview", router: "start-overview" },
+      ]
     },
-    { name: "Build your first app", path: "first/overview", router: "first-overview" },
+    { 
+      name: "Build your first app", 
+      path: "overview", 
+      router: "overview" 
+    },
     {
-      name: "Best practies",
-      path: "",
-      router: ""
+      name: "API Reference",
+      path: "api-index",
+      child: [
+        { name: "Overview", path: "api/index" }
+      ]
     }
   ],
 
