@@ -124,7 +124,6 @@ export default {
       child: [
         { name: "使用入门（Go）", path: "tutorials/getting-started-go", router: "tutorials/getting-started-go" },
         { name: "使用入门（Node.js）", path: "tutorials/getting-started-nodejs", router: "tutorials/getting-started-nodejs" },
-        { name: "使用入门（PHP）", path: "tutorials/getting-started-php", router: "tutorials/getting-started-php" },
       ]
     },
     {
