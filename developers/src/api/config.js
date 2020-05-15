@@ -24,20 +24,33 @@ instance.interceptors.response.use((res) => {
     if (Number(data.error.code) === 401) {
       setTimeout(() => {
         window.localStorage.clear()
-        window.location.href = 'https://mixin.one/oauth/authorize?client_id=fbd26bc6-3d04-4964-a7fe-a540432b16e2&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth'
+        window.location.href = `https://mixin.one/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth`
       }, 100)
     }
     return;
   }
   return data.data
-
 }, err => {
   const { config, code, message } = err
   if (code === 'ECONNABORTED' || message === 'Network Error') {
     _vm.$message.error(_vm.$t('message.errors.overtime'))
   }
-  return Promise.reject(err)
+  return retry(config)
 })
+
+
+function backOff() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 500)
+  })
+}
+
+async function retry(config) {
+  await backOff()
+  return await instance(config)
+}
 
 export default instance;
 

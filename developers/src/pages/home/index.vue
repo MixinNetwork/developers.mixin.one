@@ -55,11 +55,6 @@
 
     <!--  -->
     <section class="latest-news">
-      <!-- <img
-        class="text-segmentation animate-up"
-        data-animate="fadeInUp,0.5s,easin-in-out,.1s"
-        src="@/assets/img/text-segmentation.png"
-      />-->
       <h2 class="animate-up" data-animate="fadeInUp,0.5s,easin-in-out">{{$t('news.title')}}</h2>
       <ul>
         <li
@@ -84,7 +79,7 @@
     <section class="user-cases">
       <h2 class="animate-up" data-animate="fadeInUp,0.5s,easin-in-out">{{$t('cases.title')}}</h2>
       <ul>
-        <li v-for="(item,index) in $t('cases.list')" :key="index">
+        <li v-for="(item,index) in $t('cases.list').slice(0,3)" :key="index">
           <div class="title animate-up" data-animate="fadeInUp,0.5s,easin-in-out,.1s">{{item.title}}</div>
           <img
             :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)"

@@ -156,105 +156,10 @@ export default {
       path: "start/overview",
       router: "start-overview"
     },
-    { name: "Build your first app", path: "first/overview", router: "first-overview" },
     {
-      name: "API Reference",
-      path: "api/index",
-      router: "api-overview",
-      child: [
-        { name: "Overview", path: "api/index", router: "api-overview" },
-        {
-          name: "Beginning", path: "api/a-beginning/authentication-token", router: "authentication-token", child: [
-            { name: "Authentication Token", path: "api/a-beginning/authentication-token", router: "authentication-token" },
-            { name: "Encypted PIN", path: "api/a-beginning/encrypted-pin", router: "encrypted-pin" },
-            { name: "Error Codes", path: "api/a-beginning/errors", router: "error-codes" },
-          ]
-        },
-        {
-          name: "APP", path: "api/b-apps/oauth-scopes", router: "oauth-scopes", child: [
-            { name: "Oauth Scopes", path: "api/b-apps/oauth-scopes", router: "oauth-scopes" },
-            { name: "Register", path: "api/b-apps/register", router: "register" },
-            { name: "Favorite Apps", path: "api/b-apps/favorite", router: "favorite" },
-            { name: "Keystore", path: "api/b-apps/keystore", router: "keystore" },
-          ]
-        },
-        {
-          name: "User", path: "api/c-users/read-profile", router: "read-profile", child: [
-            { name: "Read Profile", path: "api/c-users/read-profile", router: "read-profile" },
-            { name: "Update Perference", path: "api/c-users/update-perference", router: "update-perference" },
-            { name: "Update Profile", path: "api/c-users/update-profile", router: "update-profile" },
-            { name: "Read User List", path: "api/c-users/read-users", router: "read-users" },
-            { name: "Read User", path: "api/c-users/read-user", router: "read-user" },
-            { name: "Search User", path: "api/c-users/search-user", router: "search-user" },
-            { name: "Rotate User's QR", path: "api/c-users/rotate-qr", router: "rotate-qr" },
-            { name: "Friends", path: "api/c-users/friends", router: "friends" },
-            { name: "APP User", path: "api/c-users/app-user", router: "app-user" }
-          ]
-        },
-        {
-          name: "Pin", path: "api/d-pin/create-pin", router: "create-pin", child: [
-            { name: "Create & Update PIN", path: "api/d-pin/create-pin", router: "create-pin" },
-            { name: "Verify PIN", path: "api/d-pin/verify-pin", router: "verify-pin" },
-          ]
-        },
-        {
-          name: "Address", path: "api/e-addresses/create-address", router: "create-address", child: [
-            { name: "Create Address", path: "api/e-addresses/create-address", router: "create-address" },
-            { name: "Delete Address", path: "api/e-addresses/delete-address", router: "delete-address" },
-            { name: "Read Address", path: "api/e-addresses/read-address", router: "read-address" },
-            { name: "Addresses by Asset", path: "api/e-addresses/withdrawal-addresses", router: "withdrawal-addresses" },
-          ]
-        },
-        {
-          name: "Asset", path: "api/f-assets/read-asset", router: "read-asset", child: [
-            { name: "Read Asset", path: "api/f-assets/read-asset", router: "read-asset" },
-            { name: "Read Asset List", path: "api/f-assets/read-assets", router: "read-assets" },
-            { name: "Read Asset Fee", path: "api/f-assets/read-asset-fee", router: "read-asset-fee" },
-          ]
-        },
-        {
-          name: "Transfer", path: "api/g-transfer/deposit", router: "deposit", child: [
-            { name: "Deposit", path: "api/g-transfer/deposit", router: "deposit" },
-            { name: "Withdrawal", path: "api/g-transfer/withdrawal", router: "withdrawal" },
-            { name: "Verify Payment", path: "api/g-transfer/verify-payment", router: "verify-payment" },
-            { name: "Transfer", path: "api/g-transfer/transfer", router: "transfer" },
-            { name: "Read Transfer", path: "api/g-transfer/read-transfer", router: "read-transfer" },
-          ]
-        },
-        {
-          name: "Conversation", path: "api/h-conversations/create-conversation", router: "create-conversation", child: [
-            { name: "Create Conversation", path: "api/h-conversations/create-conversation", router: "create-conversation" },
-            { name: "Rotate Conversation", path: "api/h-conversations/rotate-conversation", router: "rotate-conversation" },
-            { name: "Update Conversation", path: "api/h-conversations/update-conversation", router: "update-conversation" },
-            { name: "Read Conversation", path: "api/h-conversations/read-conversation", router: "read-conversation" },
-            { name: "Participants Actions", path: "api/h-conversations/participants-actions", router: "participants-actions" },
-          ]
-        },
-        {
-          name: "Messenge", path: "api/l-messages/create-attachment", router: "create-attachment", router: "create-attachment", child: [
-            { name: "Create Attachment", path: "api/l-messages/create-attachment", router: "create-attachment" },
-            { name: "Create Acknowledgements", path: "api/l-messages/create-acknowledgements", router: "create-acknowledgements" },
-            { name: "Create Messages", path: "api/l-messages/create-messages", router: "create-messages" },
-          ]
-        },
-        {
-          name: "Mixin Network", path: "api/m-mixin-network/read-fiats", router: "read-fiats", child: [
-            { name: "Live Exchange Rages", path: "api/m-mixin-network/read-fiats", router: "read-fiats" },
-            { name: "Top Assets", path: "api/m-mixin-network/network", router: "network" },
-            { name: "Network Asset", path: "api/m-mixin-network/network-asset", router: "network-asset" },
-            { name: "Network Snapshots", path: "api/m-mixin-network/network-snapshots", router: "network-snapshots" },
-            { name: "Network Snapshot", path: "api/m-mixin-network/network-snapshot", router: "network-snapshot" },
-            { name: "External Transactions", path: "api/m-mixin-network/external-transactions", router: "external-transactions" },
-            { name: "Search Assets", path: "api/m-mixin-network/search-assets", router: "search-assets" },
-          ]
-        },
-        {
-          name: "Websocket", path: "api/n-websocket/authentication", router: "authentication", child: [
-            { name: "Websocket Authentication", path: "api/n-websocket/authentication", router: "authentication" },
-            { name: "Websocket Messages", path: "api/n-websocket/messages", router: "messages" },
-          ]
-        },
-      ]
+      name: "Build your first app",
+      path: "first/overview",
+      router: "first-overview"
     },
     {
       name: "Best practies",

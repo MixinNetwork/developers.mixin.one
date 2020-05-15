@@ -108,20 +108,14 @@ export default {
   documentation: [
     {
       name: "Get Start",
-      path: "overview",
-      router: "overview"
+      path: "start/overview",
+      router: "start-overview"
     },
-    { name: "Build your first app", path: "overview", router: "overview" },
-    {
-      name: "API Reference",
-      path: "api-index",
-      child: [
-        { name: "Overview", path: "api/index" }
-      ]
-    },
+    { name: "Build your first app", path: "first/overview", router: "first-overview" },
     {
       name: "Best practies",
-      path: ""
+      path: "",
+      router: ""
     }
   ],
 

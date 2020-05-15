@@ -6,7 +6,6 @@ import en from './en'
 
 Vue.use(VueI18n)
 let lang = window.localStorage.getItem('lang')
-console.log(lang)
 let language = lang || (navigator.language.includes('zh') ? 'zh' : 'en')
 
 const i18n = new VueI18n({

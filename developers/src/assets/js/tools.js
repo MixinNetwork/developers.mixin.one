@@ -7,6 +7,12 @@ import LittleEndian from "int64-buffer";
 import crypto from 'crypto';
 
 export default {
+  getUrlParameter: function (name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  },
   getJwtToken({ uid, sid, privateKey }, method, url, body = '') {
     return signAuthenticationToken(uid, sid, privateKey, method, url, body)
   },

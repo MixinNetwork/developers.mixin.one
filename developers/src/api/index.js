@@ -1,10 +1,19 @@
 import api from './config'
+import axios from 'axios'
 
 
 const apis = function () {
 }
 
 apis.prototype = {
+  async authenticate(code) {
+    var params = {
+      client_id: process.env.VUE_APP_CLIENT_ID,
+      code
+    };
+    let { data } = await axios.post('https://api.mixin.one/oauth/token', params);
+    return data;
+  },
   async get_apps_property() {
     return await api.get('/apps/property')
   },

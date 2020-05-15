@@ -77,7 +77,6 @@ function getPathByRouter(originRouter) {
   let _path = [];
   let documenList = this.$t("documentation");
   let path = iterate(documenList, originRouter, _path);
-  console.log(_path);
   this.active_nindex = _path[1];
   return path;
 }
@@ -174,35 +173,6 @@ li.active {
   margin-left: 2rem;
   flex: 1;
   width: calc(100% - 17.5rem);
-  /deep/ {
-    h1 {
-      font-size: 3.75rem;
-      font-weight: 600;
-      line-height: 4.5rem;
-      margin-bottom: 2.5rem;
-    }
-    p {
-      color: rgba($color: #3a3c3e, $alpha: 0.8);
-      margin: 2.5rem 0;
-      line-height: 1.75rem;
-    }
-
-    strong {
-      font-size: 1.125rem;
-      color: #333;
-    }
-
-    ol {
-      padding-left: 1.25rem;
-    }
-    li {
-      list-style-type: decimal;
-      color: #3a3c3e;
-      line-height: 1.25rem;
-      margin-bottom: 0.625rem;
-      opacity: 0.6;
-    }
-  }
 }
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
   section {

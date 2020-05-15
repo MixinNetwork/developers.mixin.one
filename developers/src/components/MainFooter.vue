@@ -112,13 +112,11 @@ h6 {
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    // width: 20.75rem;
   }
 
   li:nth-child(4) {
     div {
       padding-top: 0.3rem;
-      // line-height: 1rem;
     }
   }
 
@@ -131,11 +129,6 @@ h6 {
     div {
       width: 40px;
     }
-
-    span {
-      // font-style: italic;
-    }
-
     .twitter {
       width: 24px;
     }
@@ -212,7 +205,7 @@ h6 {
 @media screen and (max-width: 60rem) {
   footer {
     margin-top: 0;
-    padding: 0 2.25rem 100px 0;
+    padding: 0 0 100px 2rem;
 
     .container {
       flex-direction: column;
