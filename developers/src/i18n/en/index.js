@@ -101,7 +101,7 @@ export default {
     title: 'Use Cases',
     route: "Use Cases",
     list: [
-      { title: 'Blockin Wallet', filename: 'mixin-kernel-node-operations', img: 'etf-box.png', info: 'Features: Multi-currency: BTC, ETH, USDT Omni, USDT ERC20, BSV, DCR, DOGE, BCH, RVN, VCash, ZEC, DASH, LTC are available currently. More currencies will be supported continuously. Security: multiple security verification ensures asset safety. Convenient and user friendly: efficient transaction, real-time notification of announcement and asset changes improve user experience...<a  href="/cases/mixin-kernel-node-operations">more.</a>' },
+      { title: 'ETF - BOX', filename: 'etf-box', img: 'etf-box.png', info: 'BOX is a completely open and transparent fund product designed by Li Xiaolai. The name of BOX consists of three underlying assets, which are BTC, EOS, and XIN. The first letter B is coming from Bitcoin, and the last letter is from XIN, which becomes "BOX". Each BOX contains 0.0001 BTC, 0.15 EOS and 0.0008 XIN. ...<a  href="/cases/etf-box">more.</a>' },
     ]
   },
 
