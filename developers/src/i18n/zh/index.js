@@ -110,9 +110,9 @@ export default {
     {
       name: "概念",
       path: "overview",
-      router: "start-overview",
+      router: "start/overview",
       child: [
-        { name: "简介", path: "overview", router: "mixin-overview" },
+        { name: "简介", path: "overview", router: "mixin/overview" },
       ]
     },
     { 
@@ -121,9 +121,9 @@ export default {
       router: "tutorials",
       child: [
         { name: "使用入门（Go）", path: "overview", router: "tutorials/go/overview" },
-        { name: "使用入门（Node.js）", path: "overview", router: "mixin-overview" },
-        { name: "使用入门（PHP）", path: "overview", router: "mixin-overview" },
-        { name: "使用入门（REST）", path: "overview", router: "mixin-overview" },
+        { name: "使用入门（Node.js）", path: "overview", router: "mixin/overview" },
+        { name: "使用入门（PHP）", path: "overview", router: "mixin/overview" },
+        { name: "使用入门（REST）", path: "overview", router: "mixin/overview" },
       ]
     },
     {
