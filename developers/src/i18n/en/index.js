@@ -85,6 +85,12 @@ export default {
       { title: 'Mixin supports DGD dissolution plan', filename: 'dgd-dissolution', info: '', date: '2020/03/31', img: '' },
       { title: 'Mixin Network multi-signature has been expanded to support 6 assets', filename: 'network-multisig-box', info: '', date: '2020/03/31', img: '' },
       { title: 'Support public chain Handshake', filename: 'blockchain-handshake', info: '', date: '2020/03/23', img: '' },
+      { title: 'Support public chain Nervos', filename: 'blockchain-nervos', info: '', date: '2020/03/19', img: '' },
+      { title: 'Support public chain VCash', filename: 'blockchain-vcash', info: '', date: '2020/02/02', img: '' },
+      { title: 'Support public chain Grin', filename: 'blockchain-grin', info: '', date: '2020/01/27', img: '' },
+      { title: 'Support public chain Ravencoin', filename: 'blockchain-ravencoin', info: '', date: '2020/01/06', img: '' },
+      { title: 'Join HackerOne\'s bug bounty program', filename: 'hackerone', info: '', date: '2019/09/30', img: '' },
+      { title: 'Withdrawal fee subsidy activity', filename: 'withdrawal-sponsor', info: '', date: '2019/02/28', img: '' },
     ],
     desc_list: [
       '<p>Mixin is impossible to succeed without developers, that’s why we would prepare 10,000 XIN as the developer incentive for year 2018.</p><p>Developers can always help Mixin by contribute code or documentation to any repositories in our GitHub https://github.com/MixinNetwork.</p<p>In the future, besides those regular contributions, we will announce more developer events here with XIN rewards.</p<p>Prior to this announcement, there have been many developers working on Mixin. We will distribute about 50 XIN to appreciate their works.</p>'
