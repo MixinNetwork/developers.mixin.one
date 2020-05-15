@@ -204,7 +204,7 @@ h6 {
 
 @media screen and (max-width: 60rem) {
   footer {
-    margin-top: 0;
+    margin-top: 10rem;
     padding: 0 0 100px 2rem;
 
     .container {
