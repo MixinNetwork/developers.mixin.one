@@ -46,7 +46,7 @@
             v-for="(item,index) in $t('home.main.button')"
             :key="index"
             :href="mainRoute[index]"
-            :target="item==='/api' && '_blank'"
+            :target="'_blank'"
             class="animate-up button"
             data-animate="fadeInUp,0.5s,easin-in-out"
           >{{item}}</a>
