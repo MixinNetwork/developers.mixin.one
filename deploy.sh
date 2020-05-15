@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf ./dist
+mkdir dist
 cd api
 bundle install
 JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config-production.yml || exit
@@ -12,6 +14,6 @@ cd developers
 yarn install
 yarn build
 cd ..
-mv dashboard/dist dist/developers
+mv developers/dist dist/developers
 
 rsync -rcv dist/* one@mixin-developers:html/
