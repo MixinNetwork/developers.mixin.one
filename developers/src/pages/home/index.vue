@@ -174,7 +174,7 @@ export default {
   components: { Header, Footer },
   data() {
     return {
-      mainRoute: ["/start", "/api", "/dashboard"]
+      mainRoute: ["/document", "/api", "/dashboard"]
     };
   },
   mounted() {
