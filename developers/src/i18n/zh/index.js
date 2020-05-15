@@ -108,24 +108,27 @@ export default {
   },
   documentation: [
     {
-      name: "Get Started",
+      name: "概念",
       path: "overview",
       router: "start-overview",
       child: [
-        { name: "Get Started", path: "overview", router: "start-overview" },
+        { name: "简介", path: "overview", router: "mixin-overview" },
       ]
     },
     { 
-      name: "Build your first app", 
-      path: "overview", 
-      router: "overview" 
+      name: "教程", 
+      path: "tutorials", 
+      router: "tutorials",
+      child: [
+        { name: "使用入门（Go）", path: "overview", router: "tutorials/go/overview" },
+        { name: "使用入门（Node.js）", path: "overview", router: "mixin-overview" },
+        { name: "使用入门（PHP）", path: "overview", router: "mixin-overview" },
+        { name: "使用入门（REST）", path: "overview", router: "mixin-overview" },
+      ]
     },
     {
-      name: "API Reference",
-      path: "api-index",
-      child: [
-        { name: "Overview", path: "api/index" }
-      ]
+      name: "API 文档",
+      path: "api-index"
     }
   ],
 
