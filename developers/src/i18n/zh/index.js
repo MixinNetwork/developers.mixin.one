@@ -109,10 +109,12 @@ export default {
   documentation: [
     {
       name: "概念",
-      path: "overview",
-      router: "start/overview",
+      path: "concepts",
+      router: "concepts",
       child: [
-        { name: "简介", path: "overview", router: "mixin/overview" },
+        { name: "简介", path: "concepts/overview", router: "concepts/overview" },
+        { name: "快速入门", path: "concepts/quickstart", router: "concepts/quickstart" },
+        { name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin" },
       ]
     },
     { 
@@ -120,10 +122,9 @@ export default {
       path: "tutorials", 
       router: "tutorials",
       child: [
-        { name: "使用入门（Go）", path: "overview", router: "tutorials/go/overview" },
-        { name: "使用入门（Node.js）", path: "overview", router: "mixin/overview" },
-        { name: "使用入门（PHP）", path: "overview", router: "mixin/overview" },
-        { name: "使用入门（REST）", path: "overview", router: "mixin/overview" },
+        { name: "使用入门（Go）", path: "tutorials/getting-started-go", router: "tutorials/getting-started-go" },
+        { name: "使用入门（Node.js）", path: "tutorials/getting-started-nodejs", router: "tutorials/getting-started-nodejs" },
+        { name: "使用入门（PHP）", path: "tutorials/getting-started-php", router: "tutorials/getting-started-php" },
       ]
     },
     {
