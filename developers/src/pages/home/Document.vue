@@ -203,4 +203,15 @@ li.active {
     max-width: 40rem;
   }
 }
+@media screen and (max-width: 60rem) {
+  nav {
+    display: none;
+  }
+  section {
+    max-width: 40rem;
+  }
+  .container {
+    margin: 0 2rem;
+  }
+}
 </style>
