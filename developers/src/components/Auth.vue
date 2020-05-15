@@ -13,7 +13,7 @@ export default {
     const resp = await this.apis.authenticate(code);
     if (resp && resp.error && [401, 403].includes(resp.error.code))
       return handle_access_denied.call(this);
-    const { scope, access_token } = resp;
+    const { scope, access_token } = resp.data;
     if (
       !scope ||
       scope.indexOf("APPS:READ") < 0 ||
