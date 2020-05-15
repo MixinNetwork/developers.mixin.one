@@ -102,21 +102,14 @@ export default {
     route: "Use Cases",
     list: [
       { title: 'Blockin Wallet', filename: 'mixin-kernel-node-operations', img: 'etf-box.png', info: 'Features: Multi-currency: BTC, ETH, USDT Omni, USDT ERC20, BSV, DCR, DOGE, BCH, RVN, VCash, ZEC, DASH, LTC are available currently. More currencies will be supported continuously. Security: multiple security verification ensures asset safety. Convenient and user friendly: efficient transaction, real-time notification of announcement and asset changes improve user experience...<a  href="/cases/mixin-kernel-node-operations">more.</a>' },
-      // { title: 'F1EX Exchange', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/1">more.</a>' },
-      // { title: 'ETF Investing - BOX', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/2">more.</a>' },
-      // { title: 'Multisig', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/3">more.</a>' },
-      // { title: 'ExinLocal, a worldwide peer-to-peer marketplace', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/4">more.</a>' },
-      // { title: 'Merchants accept cryptocurrency', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/5">more.</a>' },
-      // { title: 'Instant Crypto Credit Lines', info: 'F1EX, a stand alone exchange product by Fox.ONE, with low token-issuance cost, high performance, rich managment dashboard, multi-chains support and greate eco-system.F1EX focus on security and user experience. We balance the security mechanism and easy-use interface, to provide best features to all users.<a  href="/cases/6">more.</a>' },
     ]
   },
-
 
   documentation: [
     {
       name: "Get Started",
       path: "start/overview",
-      router: "start/overview",
+      router: "/",
       child: [
         { name: "Get Started", path: "start/overview", router: "start/overview" },
         { name: "Payment", path: "start/payment", router: "start/payment" },
@@ -127,15 +120,6 @@ export default {
       router: "/api"
     }
   ],
-
-
-
-
-
-
-
-
-
 
   dashboard: {
     title: 'DASHBOARD',

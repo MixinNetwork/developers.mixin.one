@@ -6,7 +6,7 @@
       <nav>
         <ul v-for="(item, windex) in $t('documentation')" :key="windex">
           <a
-            :href="item.router==='/api' ? '/api' : '/document/' +item.router"
+            :href="item.router==='/api' ? '/api' : item.router === '/' ? '/document' : '/document/' +item.router"
             :target="item.router==='/api' && '_blank'"
             class="top"
           >{{item.name}}</a>
@@ -70,19 +70,21 @@ export default {
   },
   mounted() {
     tools.changeTheme("#fff");
-    let { pathMatch = "overview" } = this.$route.params;
-    if (pathMatch) this.active_path = pathMatch;
+    let { pathMatch } = this.$route.params;
+    pathMatch = pathMatch ? pathMatch.substr(1) : "/";
+    this.active_path = pathMatch;
     let { locale } = this.$i18n;
     let path = getPathByRouter.call(this, pathMatch);
     try {
       this.page = require(`@/i18n/${locale}/document/${path}.md`);
-      this.$nextTick(() => {
-        let t = require("@/assets/js/animate-up").default;
-        t();
-      });
     } catch (e) {
-      this.$router.replace("/notfound");
+      console.log(e);
+      // this.$router.replace("/");
     }
+    this.$nextTick(() => {
+      let t = require("@/assets/js/animate-up").default;
+      t();
+    });
   }
 };
 
@@ -142,6 +144,8 @@ nav {
   max-width: 15.5rem;
   border-radius: 0.3rem;
   height: 100%;
+  // position: sticky;
+  // top: 1rem;
 }
 
 ul {

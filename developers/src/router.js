@@ -35,7 +35,7 @@ const routes = [
     component: () => import('./pages/home/Detail')
   },
   {
-    path: '/document/*',
+    path: '/document*',
     name: 'detail',
     component: () => import('./pages/home/Document'),
   },

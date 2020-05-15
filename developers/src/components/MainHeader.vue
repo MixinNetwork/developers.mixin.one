@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       showMenus: false,
-      routerList: ["/news", "/cases", "/document/start/overview", "/dashboard"]
+      routerList: ["/news", "/cases", "/document", "/dashboard"]
     };
   },
   methods: {

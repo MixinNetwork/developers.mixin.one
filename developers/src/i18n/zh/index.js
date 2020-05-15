@@ -109,8 +109,8 @@ export default {
   documentation: [
     {
       name: "概念",
-      path: "concepts",
-      router: "concepts",
+      path: "concepts/overview",
+      router: "/",
       child: [
         { name: "简介", path: "concepts/overview", router: "concepts/overview" },
         { name: "快速入门", path: "concepts/quickstart", router: "concepts/quickstart" },
