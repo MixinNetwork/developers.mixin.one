@@ -116,10 +116,10 @@ export default {
     {
       name: "Get Started",
       path: "start/overview",
-      router: "start-overview",
+      router: "start/overview",
       child: [
-        { name: "Get Started", path: "start/overview", router: "start-overview" },
-        { name: "Payment", path: "start/payment", router: "start-payment" },
+        { name: "Get Started", path: "start/overview", router: "start/overview" },
+        { name: "Payment", path: "start/payment", router: "start/payment" },
       ]
     },
     {

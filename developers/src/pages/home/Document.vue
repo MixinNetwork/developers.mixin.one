@@ -4,12 +4,12 @@
 
     <section>
       <nav>
-        <ul v-for="(item, index) in $t('documentation')" :key="index">
+        <ul v-for="(item, windex) in $t('documentation')" :key="windex">
           <a :href="'/document/' +item.router" class="top">{{item.name}}</a>
           <li
             v-for="(nitem, nindex) in item.child"
             :key="nindex"
-            :class="n_path_change(nitem, nindex)"
+            :class="n_path_change(nitem, nindex,windex)"
           >
             <a :href="'/document/' +nitem.router" class="item">{{nitem.name}}</a>
             <ul v-if="n_path_change(nitem, nindex) ==='n-active'" class="nnitem-ul">
@@ -43,12 +43,16 @@ export default {
     return {
       page: "",
       active_path: "overview",
+      active_windex: -1,
       active_nindex: -1
     };
   },
   methods: {
-    n_path_change(item, nindex) {
-      if (item.router === this.active_path || this.active_nindex === nindex) {
+    n_path_change(item, nindex, windex) {
+      if (
+        item.router === this.active_path ||
+        (this.active_nindex === nindex && this.active_windex === windex)
+      ) {
         return "n-active";
       }
     },
@@ -61,15 +65,19 @@ export default {
   },
   mounted() {
     tools.changeTheme("#fff");
-    let { router = "overview" } = this.$route.params;
-    if (router) this.active_path = router;
+    let { pathMatch = "overview" } = this.$route.params;
+    if (pathMatch) this.active_path = pathMatch;
     let { locale } = this.$i18n;
-    let path = getPathByRouter.call(this, router);
-    this.page = require(`@/i18n/${locale}/document/${path}.md`);
-    this.$nextTick(() => {
-      let t = require("@/assets/js/animate-up").default;
-      t();
-    });
+    let path = getPathByRouter.call(this, pathMatch);
+    try {
+      this.page = require(`@/i18n/${locale}/document/${path}.md`);
+      this.$nextTick(() => {
+        let t = require("@/assets/js/animate-up").default;
+        t();
+      });
+    } catch (e) {
+      this.$router.replace("/notfound");
+    }
   }
 };
 
@@ -77,6 +85,7 @@ function getPathByRouter(originRouter) {
   let _path = [];
   let documenList = this.$t("documentation");
   let path = iterate(documenList, originRouter, _path);
+  this.active_windex = _path[0];
   this.active_nindex = _path[1];
   return path;
 }
@@ -173,6 +182,11 @@ li.active {
   margin-left: 2rem;
   flex: 1;
   width: calc(100% - 17.5rem);
+  /deep/ {
+    li {
+      list-style: decimal;
+    }
+  }
 }
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
   section {

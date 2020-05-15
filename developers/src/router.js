@@ -35,12 +35,7 @@ const routes = [
     component: () => import('./pages/home/Detail')
   },
   {
-    path: '/document',
-    name: 'document',
-    component: () => import('./pages/home/Document'),
-  },
-  {
-    path: '/document/:router',
+    path: '/document/*',
     name: 'detail',
     component: () => import('./pages/home/Document'),
   },
@@ -58,6 +53,10 @@ const routes = [
     path: '/apps/new',
     name: 'new_app',
     component: () => import('./pages/dashboard'),
+  },
+  {
+    path: '*',
+    component: () => import('./404')
   }
 ]
 

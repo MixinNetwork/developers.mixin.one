@@ -79,7 +79,7 @@
     <section class="user-cases">
       <h2 class="animate-up" data-animate="fadeInUp,0.5s,easin-in-out">{{$t('cases.title')}}</h2>
       <ul>
-        <li v-for="(item,index) in $t('cases.list').slice(0,3)" :key="index">
+        <li v-for="(item,index) in $t('cases.list').slice(0,2)" :key="index">
           <div class="title animate-up" data-animate="fadeInUp,0.5s,easin-in-out,.1s">{{item.title}}</div>
           <img
             :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)"
@@ -101,7 +101,7 @@
     </section>
 
     <!--  -->
-    <section class="documentation">
+    <!-- <section class="documentation">
       <h2
         class="animate-up"
         data-animate="fadeInUp,0.5s,easin-in-out"
@@ -131,10 +131,10 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
 
     <!--  -->
-    <section class="next-step documentation">
+    <!-- <section class="next-step documentation">
       <h2 class="animate-up" data-animate="fadeInUp,0.5s,easin-in-out">{{$t('home.nextstep.title')}}</h2>
       <div class="container">
         <ul class="section1">
@@ -160,7 +160,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
     <Footer />
   </div>
 </template>
@@ -174,7 +174,7 @@ export default {
   components: { Header, Footer },
   data() {
     return {
-      mainRoute: ["/start", "/document", "/dashboard"]
+      mainRoute: ["/start", "/api", "/dashboard"]
     };
   },
   mounted() {
