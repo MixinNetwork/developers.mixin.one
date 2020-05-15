@@ -5,7 +5,12 @@
     <section>
       <nav>
         <ul v-for="(item, windex) in $t('documentation')" :key="windex">
-          <a :href="'/document/' +item.router" class="top">{{item.name}}</a>
+          <a
+            :href="item.router==='/api' ? '/api' : '/document/' +item.router"
+            :target="item.router==='/api' && '_blank'"
+            class="top"
+          >{{item.name}}</a>
+
           <li
             v-for="(nitem, nindex) in item.child"
             :key="nindex"

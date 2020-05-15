@@ -128,7 +128,7 @@ export default {
     },
     {
       name: "API 文档",
-      path: "api-index"
+      router: "/api"
     }
   ],
 
