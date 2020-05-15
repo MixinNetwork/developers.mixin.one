@@ -136,6 +136,7 @@ nav {
   min-width: 15.5rem;
   max-width: 15.5rem;
   border-radius: 0.3rem;
+  height: 100%;
 }
 
 ul {
