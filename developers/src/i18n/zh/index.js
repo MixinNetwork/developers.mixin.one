@@ -124,6 +124,7 @@ export default {
       child: [
         { name: "使用入门（Go）", path: "tutorials/getting-started-go", router: "tutorials/getting-started-go" },
         { name: "使用入门（Node.js）", path: "tutorials/getting-started-nodejs", router: "tutorials/getting-started-nodejs" },
+        { name: "全节点加入指南", path: "tutorials/full-node-join", router: "tutorials/full-node-join" },
       ]
     },
     {
