@@ -10,11 +10,15 @@ export default {
     const error = getUrlParameter("error");
     if (error === "access_denied") return handle_access_denied.call(this);
     const code = getUrlParameter("code");
-    let data = await this.apis.authenticate(code);
-    if (data && data.error && [401, 403].includes(data.error.code))
+    const resp = await this.apis.authenticate(code);
+    if (resp && resp.error && [401, 403].includes(resp.error.code))
       return handle_access_denied.call(this);
-    let { scope, access_token } = data;
-    if (scope.indexOf("APPS:READ") < 0 || scope.indexOf("APPS:WRITE") < 0)
+    const { scope, access_token } = resp;
+    if (
+      !scope ||
+      scope.indexOf("APPS:READ") < 0 ||
+      scope.indexOf("APPS:WRITE") < 0
+    )
       return handle_access_denied.call(this);
     window.localStorage.setItem("token", access_token);
     this.$router.push("/dashboard");
