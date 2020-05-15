@@ -15,7 +15,10 @@
             :key="key"
             :class="key === value ? 'active' : ''"
             @click="click_category(key)"
-          >{{item}}</span>
+          >
+            <img class="category-icon" :src="require(`@/assets/img/svg/Category${key}.svg`)" />
+            {{item}}
+          </span>
         </div>
       </transition>
     </div>
@@ -67,46 +70,56 @@ label {
   border-radius: 0.25rem;
   cursor: pointer;
   position: relative;
+}
 
-  .bottom {
+.bottom {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+
+  width: 14.25rem;
+  padding: 1.25rem;
+  line-height: 2;
+
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+  .category-icon {
+    width: 1.2rem;
+    margin-right: 0.625rem;
+    border-radius: initial;
+  }
+}
+
+.active {
+  position: relative;
+  &::after {
+    content: "";
+
     position: absolute;
     top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
-  }
-
-  .options {
-    display: flex;
-    flex-direction: column;
-
-    position: absolute;
     right: 0;
-    z-index: 1;
-    overflow: hidden;
+    transform: translateY(-50%);
 
-    width: 14.25rem;
-    padding: 1.25rem;
-    line-height: 2;
-
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
-  }
-
-  .active {
-    position: relative;
-    &::after {
-      content: "";
-
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-
-      width: 0.8325rem;
-      height: 0.5625rem;
-      background: url("../../../assets/img/svg/selected.svg") no-repeat;
-    }
+    width: 0.8325rem;
+    height: 0.5625rem;
+    background: url("../../../assets/img/svg/selected.svg") no-repeat;
   }
 }
 
