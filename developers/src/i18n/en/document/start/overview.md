@@ -1,4 +1,4 @@
-# Get Start
+## Get Started
 
 As Mixin is a public blockchain, whose data is fully open to the world, all developers can use the blockchain to develop anything.
 
