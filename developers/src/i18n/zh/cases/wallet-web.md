@@ -1,4 +1,4 @@
-![](./wallet-web.png)
+![](./wallet-web-screenshot.png)
 
 基于 Mixin 提供的标准 REST API ，开发者很容易集成 Mixin 全币种钱包，并且向前兼容。本演示版完整的实现了一个 Web 版全币种钱包的所有功能，钱包体验地址：https://wallet.mixcoin.one ，代码地址：https://github.com/over140/mixwallet 。
 

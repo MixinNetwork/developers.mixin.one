@@ -1,7 +1,7 @@
 ### 安信简介
 安信购物 https://flowin.xin 是基于 Mixin Messenger 构建的一个 C2C 购物平台。通过安信购物平台，用户可以方便地使用各种加密货币出售或者购买各种商品或服务。
 
-![](./flowin.png)
+![](./flowin-screenshot.png)
 
 ### 转账
 安信购物支持使用多种加密货币进行交易，基于 Mixin Network，转账免费和实时到账非常适合小额支付。

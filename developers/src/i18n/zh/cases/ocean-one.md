@@ -11,7 +11,7 @@ Ocean ONE 是基于 Mixin Network 构建的新一代去中心化交易所，这�
 ### Ocean ONE 架构
 Ocean 是基于 Mixin Network 使用 Go 语言实现的高性能撮合引擎，而 Ocean ONE 是基于 Mixin Network 的钱包 + 交易所前端 Dapp，通过转账来实现挂单、吃单和撤单，有效的隔离了用户资产同时交易上链提高透明度实现了去中心化的效果。
 
-![](./ocean-one.png)
+![](./ocean-one-structure.png)
 
  如图所有 Mixin Network 上的 Dapp 都可以直接给 Ocean 撮合引擎挂单，可以直接在 OceanONE 的源码上改改创建一个新的 Dapp 然后部署一下就是一个新的交易所了，显示什么交易对你说的算！
 
