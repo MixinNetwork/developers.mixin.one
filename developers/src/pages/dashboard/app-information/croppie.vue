@@ -8,7 +8,7 @@
         <p>{{$t('information.icon_desc')}}</p>
       </template>
     </div>
-    <div v-if="tmp_file && resize_status" class="croppie" @click="reset_img">
+    <div v-if="tmp_file" class="croppie" @click="reset_img">
       <vue-croppie
         ref="croppieRef"
         :enableZoom="true"
@@ -18,7 +18,7 @@
         :enableOrientation="true"
         :boundary="{ width: size, height: size}"
         :viewport="{ width: size, height: size, 'type':'circle' }"
-        ></vue-croppie>
+      ></vue-croppie>
     </div>
   </div>
 </template>
@@ -37,7 +37,6 @@ export default {
   },
   data() {
     return {
-      resize_status: true,
       size: null,
       tmp_file: null,
       toggle_view: true
@@ -78,7 +77,7 @@ export default {
     reset_img() {
       this.$refs.upload_dom.click();
     }
-  },
+  }
 };
 </script>
 

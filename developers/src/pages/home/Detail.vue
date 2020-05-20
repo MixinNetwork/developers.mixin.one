@@ -59,8 +59,11 @@ export default {
     let { locale } = this.$i18n;
     let { filename } = this.info;
     if (filename) {
-      let t = require(`@/i18n/${locale}/${path}/${this.info.filename}.md`);
-      this.desc = t;
+      try {
+        this.desc = require(`@/i18n/${locale}/${path}/${this.info.filename}.md`);
+      } catch (e) {
+        this.desc = require(`@/i18n/en/${path}/${this.info.filename}.md`);
+      }
     }
     this.$nextTick(() => {
       let t = require("@/assets/js/animate-up").default;

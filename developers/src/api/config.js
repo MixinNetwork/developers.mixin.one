@@ -16,9 +16,9 @@ instance.interceptors.response.use((res) => {
     if (data.error.code === 20123) {
       let { description } = data.error
       let max_app_numbers = description.replace(/\D/g, "")
-      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code, { count: max_app_numbers })}(${data.error.code})`)
+      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code, { count: max_app_numbers })}(${data.error.code})`, { showClose: true, duration: 2000 })
     } else {
-      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code)}(${data.error.code})`)
+      _vm.$message.error(`${_vm.$t('message.errors.' + data.error.code)}(${data.error.code})`, { showClose: true, duration: 2000 })
     }
     if (_vm._not_through_interceptor) return false
     if (Number(data.error.code) === 401) {
@@ -33,7 +33,7 @@ instance.interceptors.response.use((res) => {
 }, err => {
   const { config, code, message } = err
   if (code === 'ECONNABORTED' || message === 'Network Error') {
-    _vm.$message.error(_vm.$t('message.errors.overtime'))
+    _vm.$message.error(_vm.$t('message.errors.overtime'), { showClose: true, duration: 2000 })
   }
   return retry(config)
 })
@@ -43,7 +43,7 @@ function backOff() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve()
-    }, 500)
+    }, 2000)
   })
 }
 

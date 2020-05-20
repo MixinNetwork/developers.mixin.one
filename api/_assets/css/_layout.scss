@@ -2,6 +2,26 @@ input::-ms-clear,
 input::-ms-reveal {
 	display: none !important;
 }
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 400;
+  src: local('Maven Pro Regular'), local('MavenPro-Regular'),
+    url(./maven-pro/MavenPro-Medium.ttf),
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 500;
+  src: local('Maven Pro Medium'), local('MavenPro-Medium'),
+    url(./maven-pro/MavenPro-Medium.ttf),
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  font-weight: 700;
+  src: local('Maven Pro Bold'), local('MavenPro-Bold'),
+    url(./maven-pro/MavenPro-Bold.ttf),
+}
 
 body {
 	height: auto;
@@ -405,7 +425,8 @@ h4 svg {
 }
 
 .badge {
-	font-family: "Open Sans", sans-serif;
+	// font-family: "Open Sans", sans-serif;
+	font-family: "Maven Pro";
 	padding: 2px 5px;
 	text-transform: uppercase;
 	font-size: 0.8rem;

@@ -11,9 +11,8 @@ export default {
     if (error === "access_denied") return handle_access_denied.call(this);
     const code = getUrlParameter("code");
     const resp = await this.apis.authenticate(code);
-    if (resp && resp.error && [401, 403].includes(resp.error.code))
-      return handle_access_denied.call(this);
-    const { scope, access_token } = resp.data;
+    if (!resp) return handle_access_denied.call(this);
+    const { scope, access_token } = resp;
     if (
       !scope ||
       scope.indexOf("APPS:READ") < 0 ||
