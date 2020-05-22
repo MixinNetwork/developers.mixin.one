@@ -102,14 +102,14 @@ export default {
     route: "Use Cases",
     list: [
       { title: 'ETF - BOX', filename: 'etf-box', img: 'etf-box.png', info: 'BOX is a completely open and transparent fund product designed by Li Xiaolai. The name of BOX consists of three underlying assets, which are BTC, EOS, and XIN. The first letter B is coming from Bitcoin, and the last letter is from XIN, which becomes "BOX". Each BOX contains 0.0001 BTC, 0.15 EOS and 0.0008 XIN. ...<a  href="/cases/etf-box">more.</a>' },
-      { title: 'ExinLocal', filename: 'exin-local', img: 'etf-box.png', date: '2020/5/11', info: '' },
-      { title: 'ExinOne C2C', filename: 'exin-c2c', img: 'etf-box.png', date: '2020/5/15', info: '' },
-      { title: 'ExinEarn', filename: 'exin-earn', img: 'etf-box.png', date: '2020/5/18', info: '' },
-      { title: 'W3c.Group', filename: 'w3c-group', img: 'etf-box.png', date: '2020/05/01', info: '' },
-      { title: 'Ocean ONE', filename: 'ocean-one', img: 'etf-box.png', date: '2020/05/02', info: '' },
-      { title: 'Web Multi-currenty Wallet', filename: 'wallet-web', img: 'etf-box.png', date: '2020/05/04', info: '' },
-      { title: 'Flowin', filename: 'flowin', img: 'etf-box.png', date: '2020/05/12', info: '' },
-      { title: 'Ohmy', filename: 'ohmy', img: 'etf-box.png', date: '2020/05/13', info: '' },
+      { title: 'ExinLocal', filename: 'exin-local', img: 'exin-local.png', date: '2020/5/11', info: '' },
+      { title: 'ExinOne C2C', filename: 'exin-c2c', img: 'exin-c2c.png', date: '2020/5/15', info: '' },
+      { title: 'ExinEarn', filename: 'exin-earn', img: 'exin-earn.png', date: '2020/5/18', info: '' },
+      { title: 'W3c.Group', filename: 'w3c-group', img: 'w3c-group.png', date: '2020/05/01', info: '' },
+      { title: 'Ocean ONE', filename: 'ocean-one', img: 'ocean-one.png', date: '2020/05/02', info: '' },
+      { title: 'Web Multi-currenty Wallet', filename: 'wallet-web', img: 'wallet-web.png', date: '2020/05/04', info: '' },
+      { title: 'Flowin', filename: 'flowin', img: 'flowin.png', date: '2020/05/12', info: '' },
+      { title: 'Ohmy', filename: 'ohmy', img: 'ohmy.png', date: '2020/05/13', info: '' },
     ]
   },
 
