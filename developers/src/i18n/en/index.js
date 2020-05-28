@@ -102,6 +102,7 @@ export default {
     route: "Use Cases",
     list: [
       { title: 'ETF - BOX', filename: 'etf-box', img: 'etf-box.png', info: 'BOX is a completely open and transparent fund product designed by Li Xiaolai. The name of BOX consists of three underlying assets, which are BTC, EOS, and XIN. The first letter B is coming from Bitcoin, and the last letter is from XIN, which becomes "BOX". Each BOX contains 0.0001 BTC, 0.15 EOS and 0.0008 XIN. ...<a  href="/cases/etf-box">more.</a>' },
+      { title: 'DICEOS', filename: 'diceos', img: 'diceos.png', date: '2020/05/28', info: 'DICEOS is developed based on Mixin, and now supports BTC, EOS, BOX, XIN, ETH, DOGE betting, beautiful interface, friendly interactive experience, fair and verifiable games.' },
       { title: 'ExinLocal', filename: 'exin-local', img: 'exin-local.png', date: '2020/5/11', info: '' },
       { title: 'ExinOne C2C', filename: 'exin-c2c', img: 'exin-c2c.png', date: '2020/5/15', info: '' },
       { title: 'ExinEarn', filename: 'exin-earn', img: 'exin-earn.png', date: '2020/5/18', info: '' },
