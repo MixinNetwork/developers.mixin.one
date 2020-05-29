@@ -73,6 +73,7 @@ types:
   - major
 
 sass:
-  load_paths: "_assets/css"
+  sass_dir: "_assets/css"
+  style: compressed
 cdn:
   baseurl: true
