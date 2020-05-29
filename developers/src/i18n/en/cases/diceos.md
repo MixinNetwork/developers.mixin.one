@@ -1,5 +1,5 @@
 ### Introduction
-DICEOS is developed based on Mixin, and now supports BTC, EOS, BOX, XIN, ETH, DOGE betting, beautiful interface, friendly interactive experience, fair and verifiable games, and many users.
+DICEOS is developed based on Mixin, and now supports BTC, EOS, BOX, XIN, ETH, DOGE betting, beautiful interface, friendly interactive experience, fair and verifiable games.
 
 ![](./diceos-screenshot.png)
 
@@ -21,8 +21,3 @@ function verify (msg) {
   return s MOD 100 + 1
 }
 ```
-
-### Experience
-Download and install http://mixin.one/messenger Mixin Messenger and log in. 
-- Search ID 7000101571 to find the Diceos bot.
-- Official website https://diceos.com/

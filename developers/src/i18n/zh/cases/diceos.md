@@ -1,6 +1,6 @@
 
-### Diceos 简介
-Diceos 骰子游戏基于 Mixin 开发，现支持 BTC、EOS、BOX、XIN、ETH、DOGE 下注，界面美观、交互体验友好，游戏公平可验证，玩的用户很多。
+### DICEOS 简介
+DICEOS 骰子游戏基于 Mixin 开发，现支持 BTC、EOS、BOX、XIN、ETH、DOGE 下注，界面美观、交互体验友好，游戏公平可验证。
 
 ![](./diceos-screenshot.png)
 
@@ -20,7 +20,5 @@ function verify (msg) {
 }
 ```
 
-### 体验
-下载安装 http://mixin.one/messenger Mixin Messenger 并登录
-- 搜索 7000101571 找到 Diceos 机器人
-- 访问网站 https://diceos.com/
+--- 
+**使用 snapshot id 做随机数非常可靠，得益于 Mixin Network 卓越的性能不会出现交易回滚，可广泛用于游戏、抽奖等。**
