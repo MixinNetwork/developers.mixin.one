@@ -15,7 +15,6 @@
             <div class="container">
               <h4>{{item.title}}</h4>
               <p v-html="item.info"></p>
-              <span>{{item.date}}</span>
             </div>
           </a>
         </li>
@@ -142,6 +141,8 @@ function refresh() {
   h4 {
     font-size: 1.625rem;
     margin-bottom: 1rem;
+    max-height: 4.625rem;
+    overflow: hidden;
 
     cursor: pointer;
   }
@@ -149,7 +150,7 @@ function refresh() {
   p {
     font-size: 1.125rem;
     line-height: 1.75rem;
-    height: 5.25rem;
+    height: 8.75rem;
     margin-bottom: 1rem;
     overflow: hidden;
     color: #2f3032;
@@ -158,13 +159,6 @@ function refresh() {
     /deep/ a {
       color: #3d75e3;
     }
-  }
-
-  span {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-
-    color: #c7c9d2;
   }
 }
 

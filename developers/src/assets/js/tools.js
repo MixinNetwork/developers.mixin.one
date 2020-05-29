@@ -7,7 +7,7 @@ import LittleEndian from "int64-buffer";
 import crypto from 'crypto';
 
 export default {
-  getUrlParameter: function (name) {
+  getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);

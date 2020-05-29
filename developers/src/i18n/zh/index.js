@@ -119,9 +119,9 @@ export default {
         { name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin" },
       ]
     },
-    { 
-      name: "教程", 
-      path: "tutorials", 
+    {
+      name: "教程",
+      path: "tutorials",
       router: "tutorials",
       child: [
         { name: "使用入门（Go）", path: "tutorials/getting-started-go", router: "tutorials/getting-started-go" },
