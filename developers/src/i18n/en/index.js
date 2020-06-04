@@ -102,10 +102,10 @@ export default {
     route: "Use Cases",
     list: [
       { title: 'ETF - BOX', filename: 'etf-box', img: 'etf-box.png', info: 'BOX is a completely open and transparent fund product designed by Li Xiaolai. The name of BOX consists of three underlying assets, which are BTC, EOS, and XIN. The first letter B is coming from Bitcoin, and the last letter is from XIN, which becomes "BOX". Each BOX contains 0.0001 BTC, 0.15 EOS and 0.0008 XIN. ...<a  href="/cases/etf-box">more.</a>' },
+      { title: 'ExinLocal', filename: 'exin-local', img: 'exin-local.png', date: '2020/5/11', info: 'Buyers and sellers advertise on ExinLocal to trade cryptocurrencies through multiple payment methods. When a user responds to an advertisement, there is a direct reciprocal exchange between the buyer and seller. ExinLocal is based on the Mixin Network and Mixin Messenger. ...<a  href="/cases/exin-local">more.</a>' },
+      { title: 'ExinOne C2C', filename: 'exin-c2c', img: 'exin-c2c.png', date: '2020/5/15', info: 'ExinOne is committed to providing secure financial services for digital assets and a superior user experience for users worldwide. With ExinOne, users can trade and use the service conveniently while ensuring 100% control of their assets. ...<a  href="/cases/exin-c2c">more.</a>' },
+      { title: 'ExinEarn', filename: 'exin-earn', img: 'exin-earn.png', date: '2020/5/18', info: 'The ExinEarn App is the first platform that makes it easy to get bitcoin rewards through online purchases, and we have access to e-commerce platforms such as Taobao, Tmall, Jingdong, Pinduoduo, Eleme, and subsequent access to more platforms will drive their sales online....<a  href="/cases/exin-earn">more.</a>' },
       { title: 'DICEOS', filename: 'diceos', img: 'diceos.png', date: '2020/05/28', info: 'DICEOS is developed based on Mixin, and now supports BTC, EOS, BOX, XIN, ETH, DOGE betting, beautiful interface, friendly interactive experience, fair and verifiable games.' },
-      { title: 'ExinLocal', filename: 'exin-local', img: 'exin-local.png', date: '2020/5/11', info: '' },
-      { title: 'ExinOne C2C', filename: 'exin-c2c', img: 'exin-c2c.png', date: '2020/5/15', info: '' },
-      { title: 'ExinEarn', filename: 'exin-earn', img: 'exin-earn.png', date: '2020/5/18', info: '' },
       { title: 'W3c.Group', filename: 'w3c-group', img: 'w3c-group.png', date: '2020/05/01', info: '' },
       { title: 'Ocean ONE', filename: 'ocean-one', img: 'ocean-one.png', date: '2020/05/02', info: '' },
       { title: 'Web Multi-currenty Wallet', filename: 'wallet-web', img: 'wallet-web.png', date: '2020/05/04', info: '' },

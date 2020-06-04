@@ -52,7 +52,7 @@ ExinOne 的整体设计，使买卖自由，双向交易，快捷方便成为可
 整个买入过程平均只需要 3-5 分钟，用户付款后商家平均放币时间小于 60 秒，卖出转账订单商家平均转账时间在 60-180 秒左右，可以说逻辑简单易懂，体验极致丝滑。
 
 ### 体验
-下载安装 http://mixin.one/messenger Mixin Messenger 并登录
+- 下载安装 http://mixin.one/messenger Mixin Messenger 并登录
 - 搜索 7000101276 找到 ExinOne 机器人开始使用
 
 ### 联系我们
