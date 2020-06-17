@@ -4,7 +4,10 @@ category: Asset
 order: 3
 ---
 
-Read user's all assets. Deposit address maybe not return in this api, use `/assets/:id` to fetch deposit address.
+The API is using to read the user's assets list. Until 2020-06-17, Mixin Network supports 28 chains, includes BTC, ETH, you can find [all chains here](https://mixin.one/network/chains). There is some difference between Network users and Messenger users.
+
+1. For Network users, the list only displays which asset balance is more than 0.
+2. For Messenger users, the list will displays which asset balance is more than 0 and all chain assets. Please notice the deposit address maybe not return in this API, you need to visit `/assets/:id` to generate deposit address at the first time. 
 
 ###### GET /assets
 
