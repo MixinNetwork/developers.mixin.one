@@ -1,7 +1,7 @@
 ---
 title: Register
 category: APP
-order: 2
+order: 5
 ---
 
 Since you have to register an App before you can use Mixin Network. The following is an example of the parameters. Need to understand that An app is also a user with only minor differences, such as without phone, create a bear user.

@@ -1,7 +1,7 @@
 ---
 title: Oauth Scopes
 category: APP
-order: 1 
+order: 3
 ---
 
 Mixin allows developers to use OAuth to get authorized access to some information of the users.
