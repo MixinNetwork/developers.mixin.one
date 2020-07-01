@@ -4,7 +4,9 @@ category: APP
 order: 8
 ---
 
-Add app to favorite app list. The list will be shown in Messenger user(or bot)'s Shared Apps. The maximum favorite apps size is 3.
+Add app to favorite app list. The list will be shown in Messenger user's Shared Apps. The maximum favorite apps size is 3.
+
+Best Practices: Mixin Bot can share apps for Messenger users
 
 ###### POST /apps/:id/favorite
 
