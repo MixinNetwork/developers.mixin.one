@@ -115,7 +115,7 @@ export default {
       router: "/",
       child: [
         { name: "简介", path: "concepts/overview", router: "concepts/overview" },
-        { name: "快速入门", path: "concepts/quickstart", router: "concepts/quickstart" },
+        { name: "资产", path: "concepts/asset", router: "concepts/asset" },
         { name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin" },
       ]
     },
@@ -124,8 +124,8 @@ export default {
       path: "tutorials",
       router: "tutorials",
       child: [
-        { name: "使用入门（Go）", path: "tutorials/getting-started-go", router: "tutorials/getting-started-go" },
-        { name: "使用入门（Node.js）", path: "tutorials/getting-started-nodejs", router: "tutorials/getting-started-nodejs" },
+        { name: "钱包开发指南", path: "tutorials/dapp-guide", router: "tutorials/dapp-guide" },
+        { name: "机器人开发指南", path: "tutorials/bot-guide", router: "tutorials/bot-guide" },
         { name: "全节点加入指南", path: "tutorials/full-node-join", router: "tutorials/full-node-join" },
       ]
     },
