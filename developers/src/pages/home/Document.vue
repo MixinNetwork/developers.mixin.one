@@ -191,11 +191,6 @@ li.active {
   margin-left: 2rem;
   flex: 1;
   width: calc(100% - 17.5rem);
-  /deep/ {
-    li {
-      list-style: decimal;
-    }
-  }
 }
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
   section {
