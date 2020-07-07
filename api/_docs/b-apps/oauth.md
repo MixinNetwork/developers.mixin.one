@@ -18,13 +18,15 @@ Give your app a name and description, and define an OAuth callback URL, it may b
 
 The Mixin Messenger uses a slightly modified OAuth 2 protocol to manage user authentication and permissions. The first step is to request an authorization code by redirecting your user to the URL below.
 
-` class="code">https://mixin.one/oauth/authorize?client_id=CLIENT_ID&amp;scope=SCOPE&amp;code_challenge=PKCE`
+`https://mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=SCOPE&code_challenge=PKCE&return_to=`
 
 CLIENT_ID is the UUID of your app in Mixin Developers dashboard, and there are three supported available scopes for now.
 
 * <strong>PROFILE:READ</strong> - all public user profile, including the Mixin ID, name and profile photo.
 * <strong>PHONE:READ</strong> - the phone number of Mixin user.</li>
 * <strong>ASSETS:READ</strong> - all the assets list, balances and transaction histories.
+
+Visit [Oauth Scopes](/api/b-apps/oauth-scopes/) for full scopes.
 
 The code_challenge PKCE is optional, and only required if you are building a client app and don't want to expose your client secret. The only supported PKCE method is S256.
 
