@@ -4,7 +4,14 @@ category: Messenge
 order: 9
 ---
 
-Create plain messages through HTTP, can be used by bot only. the max messages body size is 100.
+Since messages with a bot is not encrypted (will be changed to E2EE too) yet, so there's a more convenient method to batch create messages through HTTP. But there have some restrictions:
+
+1. Limit 100000 messages per minute
+2. Maximum 100 messages once time
+3. Contact Conversations are permitted only
+4. `MESSAGES:REPRESENT` is needed, which means messenger user allows the bot can representative him (or her).
+5. `PLAIN_*` messages only
+
 
 ###### POST /messages
 
