@@ -121,7 +121,7 @@ function iterate(list, originRouter, _path) {
 }
 
 section {
-  max-width: 52rem;
+  max-width: 60rem;
   margin: 3.25rem auto;
 
   display: flex;
@@ -139,8 +139,8 @@ a:hover {
 nav {
   background: #f5f7fa;
   padding-left: 1.25rem;
-  min-width: 15.5rem;
-  max-width: 15.5rem;
+  min-width: 14rem;
+  max-width: 14rem;
   border-radius: 0.3rem;
   height: 100%;
   // position: sticky;
@@ -156,7 +156,7 @@ li {
   flex-direction: column;
   justify-content: center;
   padding-left: 0.625rem;
-  line-height: 3.75rem;
+  line-height: 3rem;
   border-radius: 0.25rem 0 0 0.25rem;
 }
 .n-active {
@@ -194,7 +194,7 @@ li.active {
 }
 @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
   section {
-    max-width: 40rem;
+    max-width: 50rem;
   }
 }
 @media screen and (max-width: 60rem) {
