@@ -8,17 +8,17 @@
 
 ### 创建机器人
 
-进入开发者后台，点左侧「新应用」按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户数据并提供相应的服务。 本教程中创建应用即创建机器人，一些重要的参数说明：
+进入开发者后台，点左侧「新应用」按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户并提供相应的服务。 本教程中创建应用即创建机器人，一些重要的参数说明：
 
-- 分类 - 机器人分类，当机器人在 Mixin Messenger 的底导栏被用户置顶至首页时会显示分类对应的图标
+- 分类 - 机器人分类，当机器人在 Mixin Messenger 首页底导栏被用户置顶时会显示分类对应的图标
 
-- 首页网址 - 机器人首页网站
+- 首页网址 - 机器人首页网址
 
 - 验证网址 - 用于 OAuth 授权回调
 
 - 域名白名单 - 用于防止伪造机器人链接，打开 App Card 类型的消息如果指定了 app id 会检查链接的域名是否在白名单中，不在会提醒用户打开的是一个可疑链接
 
-- 沉浸式 - 机器人开启沉浸模式将获得更多展示空间，后续将有介绍
+- 沉浸式 - 机器人开启沉浸模式将获得更多展示空间
 
 每个开发者账号可免费创建 2 个机器人，可付费创建更多。
 
@@ -60,25 +60,25 @@ d25a525fef3bda14f1a2fd4de85609639c4b4686d8b45e5976f53d9b99687b09
 
 ### OAuth 授权
 
-要访问 Mixin Messenger 用户的个人信息、资产等数据需要开发者以 OAuth 的方式向用户申请授权访问。权限列表：
+要访问 Mixin Messenger 用户的个人信息、资产等数据需要开发者向用户申请授权。权限列表：
 
-| 权限                 | 说明                                |
-|:------------------:|:---------------------------------:|
-| PROFILE:READ       | 获取用户基本信息，例如 UserID、Mixin ID、名称、头像 |
-| ASSETS:READ        | 读取用户资产列表，资产余额                     |
-| PHONE:READ         | 读取用户手机号                           |
-| CONTACTS:READ      | 读取用户联系人列表，禁言列表                    |
-| MESSAGES:REPRESENT | 允许机器人代表你发消息                       |
-| SNAPSHOTS:READ     | 访问用户的转账记录，包括充值和提醒                 |
+| 权限                 | 说明                                 |
+|:------------------:|:----------------------------------:|
+| PROFILE:READ       | 获取用户基本信息，例如 user id、Mixin ID、名称、头像 |
+| ASSETS:READ        | 读取用户资产列表，资产余额                      |
+| PHONE:READ         | 读取用户手机号                            |
+| CONTACTS:READ      | 读取用户联系人列表，禁言列表                     |
+| MESSAGES:REPRESENT | 允许机器人代表用户发消息                       |
+| SNAPSHOTS:READ     | 访问用户的转账记录，包括充值和提醒                  |
 
-当机器人检测到用户没有授权时跳转页面至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` 引导用户授权，参数说明：
+当机器人检测到用户没有授权时应跳转至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` 向用户申请授权，参数说明：
 
 - client_id - 机器人唯一标识
 - scope - 申请权限
 - response_type - 固定写 code 返回授权码
 - return_to - 当前页面链接，授权后可跳转回当前界面
 
-Mixin Messenger 授权成功后会回调机器人的验证网址，回调 URL 会附带 code 授权码和 return_to 参数，开发者再根据授权码请求令牌：
+授权成功后页面会自动跳转至机器人的验证网址，回调 URL 会附带 code 授权码和 return_to 参数，开发者再根据授权码请求令牌：
 
 ```
 POST https://mixin-api.zeromesh.net/oauth/token
@@ -90,16 +90,16 @@ POST https://mixin-api.zeromesh.net/oauth/token
 
 返回数据
 {
-    "access_token": "用户授权的令牌",
+    "access_token": "用户授权令牌",
     "scope": "用户同意的授权列表，例如'PROFILE:READ ASSETS:READ'"
 }
 ```
 
-将 access token 缓存起来，后续通过 access token 调用 API 访问用户数据，可据此判断用户是否已授权。
+建议开发者将 access token 缓存起来，后续通过 access token 调用 API 访问用户数据，可据此判断用户是否已授权。
 
 ### 访问用户数据
 
-访问授权用户的个人资料、资产列表等 API 都需要在请求头设置 Authorization ：
+访问授权用户的个人资料、资产列表等 API 都需要在请求头设置授权信息 ：
 
 ```json
 GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me 
@@ -145,7 +145,7 @@ Mixin Messenger 支持通过 schema 唤起特定界面：
 
 - 机器人弹窗 `mixin://apps/:appid?action=open`
   
-  action 为可选参数，不传打开机器人弹窗，传 action=open 打开机器人首页
+  action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页
 
 - 新增提现地址 `mixin://address?asset=&label=&destination=&tag=`
   
@@ -161,7 +161,7 @@ Mixin Messenger 支持通过 schema 唤起特定界面：
 
 - 分享文字 `mixin://send?text=`
   
-  可以分享文字内容到 Mixin Messenger 里，客户端这边会唤起转发的界面
+  可以分享文字内容到 Mixin Messenger 里，客户端会唤起转发的界面
 
 ### 界面适配
 
@@ -175,7 +175,9 @@ Mixin Messenger 支持通过 schema 唤起特定界面：
 
 - 沉浸模式
   
-  开启沉浸模式能让开发者获得除状态栏以外所有的屏幕显示区域，能方便的开发出沉浸式交互体验的机器人，让用户获得更好的交互体验。沉浸模式默认关闭，需开发者后台手动开启。注意右上角漂浮按钮菜单是固定的，界面设计和交互需避开此固定区域。
+  开启沉浸模式能让开发者获得除状态栏以外所有的屏幕显示区域，能方便的开发出具有沉浸交互体验的机器人。沉浸模式默认关闭，需开发者后台手动开启。注意右上角漂浮按钮菜单是固定的，界面设计和交互需避开此固定区域。
+  
+  ![](https://mixin-assets.zeromesh.net/mixin/attachments/1594215155-8caf255df2ba3c369f62a854bc35701b56338f573baca33d50021306d6411762)
 
 ### JS 交互
 
@@ -183,7 +185,7 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
 
 - getContext()
   
-  返回 Mixin Messenger 客户端用户设置和当前所处的会话
+  返回客户端用户设置和当前所处的会话
   
   ```json
   {                 
@@ -199,13 +201,15 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
 
 - reloadTheme()
   
-  重新读取机器人的 theme-color 信息并应用，适合机器人换肤功能。
+  重新读取机器人的 theme-color 信息并应用，适合机器人动态换肤功能。
 
 具体调用方法参考 [Mixin JS SDK](https://github.com/MixinNetwork/bot-api-js-client/blob/master/src/mixin.js) 代码。
 
 ### 发消息
 
-开发者可通过机器人给用户发一些重要的通知或者来引导和帮助用户更好的享受服务。Mixin Messenger 支持文字、图片、视频、音频、贴纸等多种消息类型，参考[文档](https://developers.mixin.one/api/n-websocket/messages/)，机器人只能发送 `PLAIN_` 开头的消息类型。通过 WebSocket 发消息：
+开发者可通过机器人给用户发一些重要的通知，也可以发说明文字或操作按钮帮助用户更好的熟悉机器人提供的服务。Mixin Messenger 支持文字、图片、视频、音频、贴纸等多种消息类型，参考[文档](https://developers.mixin.one/api/n-websocket/messages/)，但机器人目前只能发送 `PLAIN_` 开头的消息类型。
+
+##### 通过 WebSocket 发消息
 
 - 建立连接
   
@@ -256,6 +260,8 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
   
   representative_id 机器人代表谁发消息，需要 `MESSAGES:REPRESENT` 权限，可用于聊天机器人。通过 WebSocket 批量发消息每次最多 100 条，消息 Body 不能超过 128Kb，建议限制单条消息大小。
 
+##### 通过 HTTP 发消息
+
 调用 `POST /messages` 可通过 HTTP 批量发消息，每次最多 100 条，消息 Body 不能超过 1024Kb，建议限制单条消息大小，正常聊天内容一般每次发送 50 条信息没问题。
 
 ```json
@@ -270,11 +276,15 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
 }]
 ```
 
-PLAIN_LIVE、POST、APP_BUTTON_GROUP 和 APP_CARD 这几种消息类型只能通过机器人发送，非常强大：
+##### 特殊消息类型
 
-![](https://mixin-assets.zeromesh.net/mixin/attachments/1594196909-0318536850d04540ed5b75eba2803e8f20e384e0e8f7db6113b40f4fdc47a73b)
+LIVE、POST、APP_BUTTON_GROUP 和 APP_CARD 这几种消息类型只能通过机器人发送，可灵活实现各种交互逻辑非常强大：
 
-支持指令交互很酷，但让用户输入指令门槛有点高，APP_BUTTON 支持点击按钮自动发消息能很好的优化这种交互，将 APP_BUTTON 的 action 按格式 `input:SOMETHING` 设置好指令，然后机器人给用户发送一组按钮让用户点击即可交互。例如当前的 App Button 的 action 是 `input:subscribe` ，当用户点击这个按钮时客户端会自动发送一条 `subscribe` 的消息给机器人，开发者可以任意指定 input 后面的文字。
+![](https://mixin-assets.zeromesh.net/mixin/attachments/1594216189-6246be069a55c720efa9f855c6df64906c5cfd91f5038d0603e2415403b2fa31)
+
+##### 指令交互
+
+支持指令交互很酷，但让用户输入指令门槛有点高，将 APP_BUTTON 的 action 按格式 `input:SOMETHING` 设置就能获得点击按钮自动发消息的能力，非常实用。例如当前的 App Button 的 action 是 `input:subscribe` ，当用户点击这个按钮时客户端会自动发送一条 `subscribe` 的消息给机器人，开发者可以任意指定 input 后面的文字。
 
 ### 收消息
 
@@ -282,11 +292,11 @@ PLAIN_LIVE、POST、APP_BUTTON_GROUP 和 APP_CARD 这几种消息类型只能通
 
 - 建立连接
   
-  通过 `wss://mixin-blaze.zeromesh.net` 与 Mixin Messenger 服务器建立 WebSocket 连接，需要在 Header 里设置 Authorization 信息，参见[文档](https://developers.mixin.one/api/n-websocket/authentication/)。建议开后台常驻服务保持连接并支持自动连接。
+  通过 `wss://mixin-blaze.zeromesh.net` 与 Mixin Messenger 服务器建立 WebSocket 连接，需要在 Header 里设置 Authorization 信息，参见[文档](https://developers.mixin.one/api/n-websocket/authentication/)。建议开后台常驻服务保持 WebSocket 连接并支持自动重连。
 
 - 接受消息
   
-  当 WebSocket 连接上以后需要先发送 `LIST_PENDING_MESSAGES` 消息给服务端，会严格按时间先推旧消息再实时推新消息：
+  当 WebSocket 连接上后需要先发送 `LIST_PENDING_MESSAGES` 消息给服务端，服务器会严格按时间先推旧消息再实时推新消息：
   
   ```json
     {
@@ -351,6 +361,8 @@ PLAIN_LIVE、POST、APP_BUTTON_GROUP 和 APP_CARD 这几种消息类型只能通
 
 - WebSocket 也需要处理 401 的情况
 
+- WebSocket 发送消息需要经过了 gzip 压缩，收消息 gzip 解压缩
+
 - WebSocket 建议增加自动重连的逻辑
 
 - 机器人发消息的限额每分钟 10 万
@@ -362,8 +374,8 @@ PLAIN_LIVE、POST、APP_BUTTON_GROUP 和 APP_CARD 这几种消息类型只能通
 
 ### 案例
 
-- [DonateCafe](http://donate.cafe/) - 基于 Mixin Messenger 的打赏工具，机器人 ID 7000103066，开源代码： https://github.com/MixinNetwork/donate.cafe 。
-- Hacker News 机器人 7000100124 ，每天推送 news.ycombinator.com 上的文章，开源代码： https://github.com/crossle/hacker-news-mixin-bot 。
+- [DonateCafe](http://donate.cafe/) - 基于 Mixin Messenger 的打赏工具，机器人 ID 7000103066，源码： https://github.com/MixinNetwork/donate.cafe 。
+- Hacker News 机器人 7000100124 ，每天推送 news.ycombinator.com 上的文章，源码： https://github.com/crossle/hacker-news-mixin-bot 。
 
 ---
 

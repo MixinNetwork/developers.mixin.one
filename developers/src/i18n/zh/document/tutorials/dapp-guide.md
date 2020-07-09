@@ -8,7 +8,7 @@
 
 ### 创建应用
 
-进入开发者后台，点左侧「新应用」按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户数据并提供相应的服务。 
+进入开发者后台，点左侧「新应用」按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户并提供相应的服务。 
 
 每个开发者账号可免费创建 2 个应用，可付费创建更多。
 
@@ -80,7 +80,7 @@
 注意事项：
 
 - 注意使用用户的私钥、user_id、session_id 等参数调用接口
-- 如果用户没有资产 API 会返回空列表，您产品的服务器端可以自定义一个列表返回，例如 OceanONE 的就用一个 json 来配置的，参见[ json 文件](https://github.com/MixinNetwork/ocean.one/blob/master/example/web/src/api/assets.json)。
+- 如果用户没有资产 API 会返回空列表，您产品的服务器端可自定义一个列表返回，例如 OceanONE 的就用一个 json 来配置的，参见[ json 文件](https://github.com/MixinNetwork/ocean.one/blob/master/example/web/src/api/assets.json)。
 - 有图标的资产是经过主网开发团队和节点验证过的，如需显示项目代币图标，请先把项目信息提交到 https://coinmarketcap.com ，然后在 https://github.com/MixinNetwork/asset-profile 提 pr 。
 - 想要特定资产 asset id 可以充值或转账该类型的代币，到账后再次调用资产接口就有了。
 
@@ -94,7 +94,7 @@
 - 可以根据 confirmations 来提醒用户充值需要等待多少个区块确认才能入账。Mixin 充值确认数一般高于钱包和交易所两倍以上，充值会慢一些，主要目的是为了安全，可以有效阻止双花等问题。
 - 调用 `GET /external/transactions` 可获得充值进度，接口的 confirmations 字段表示当前充值已完成的区块确认数，BTC、BCH、BSV、LTC 这四种资产 0 确认就有数据，其他的资产需要有 1 个区块确认才会有数据。注意该接口与 `GET /snapshots` 不会同时返回，可通过 asset id 、type 和 transaction hash 字段来映射为同一条记录，参考[文档](https://developers.mixin.one/api/m-mixin-network/external-transactions/)。
 - 如果遇到充值迟迟不到账的问题，地址没错一般提醒用户等着就行，有可能是区块数据同步慢导致的，可访问 https://mixin.one/network/chains 对比 Mixin 的区块高度和数据所在的区块即可。
-- 用户充值错误可尝试联系 Mixin 团队提供帮助。
+- 建议产品做足充值相关的提醒，尽量避免用户充错。
 - **强烈建议提醒用户：首次充值请小额尝试！首次充值请小额尝试！首次充值请小额尝试！**
 
 ### 用户提现
@@ -108,6 +108,8 @@
 - 根据 reserve 字段判断账户是否需要保留储备金，例如 XRP
 - 根据 fee 字段获取提现手续费，提现手续费根据公链拥堵情况自动调整，个别应用出于业务考虑仍然会收提现手续费
 - 除了可以通过 `GET /addresses/:id` 获取提现手续费信息，还可以单独调用 `GET /assets/:id/fee` 获取。
+- 建议产品做足提现相关的提醒，尽量避免用户提到错误的地址，资产提现后如果被其他交易所和钱包原路打回资产无法回到用户钱包！
+- **强烈建议提醒用户：首次提现请小额尝试！首次提现请小额尝试！首次提现请小额尝试！**
 
 ### 用户转账
 
@@ -129,7 +131,7 @@
 
 ### 应用对账
 
-调用 `GET /network/snapshots` 可抓取 Mixin 全网所有的交易记录，如果通过应用的密钥信息访问接口，是你的用户就会返回 user_id 等信息，这样就能过滤出应用所有用户的充值、提醒和转账数据，从而实现对账功能。
+调用 `GET /network/snapshots` 可抓取 Mixin 全网所有的交易记录，如果通过应用的密钥信息访问接口，是你的用户就会返回 user_id 等信息，这样就能过滤出应用所有用户的充值、提醒和转账数据，从而实现对账功能，参考[文档](https://developers.mixin.one/api/m-mixin-network/network-snapshots/)。
 
 ### 错误码
 
