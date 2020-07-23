@@ -180,8 +180,10 @@ Data Format
 Data Format
 ```json
  // width: int, height: int, size: int64, duration: int64 milliseconds
- {"attachment_id": "Read From POST /attachments", "mime_type": "audio/ogg", "waveform": "QIQQSA...AAIAA", "size": 1024, "duration": 1024}
+ {"attachment_id": "Read From POST /attachments", "mime_type": "audio/ogg", "waveform": "QIQQSA...AAIAA", "size": 1024, "duration": 60}
 ```
+
+PLAIN_AUDIO max duration is 60 seconds, waveform is base64 of a byte array. Here is how to generate in android-app: https://github.com/MixinNetwork/android-app/blob/f80fb2cc3e4f97e5e6e167584ddb062fa6c4603e/app/src/main/cpp/audio.c#L53
 
 ##### PLAIN_VIDEO
 
