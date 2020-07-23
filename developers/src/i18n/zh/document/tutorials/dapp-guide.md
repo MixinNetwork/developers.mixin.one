@@ -8,13 +8,13 @@
 
 ### 创建应用
 
-进入开发者后台，点左侧**新应用**按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户数据并提供相应的服务。 
+进入开发者后台，点左侧「新应用」按提示创建应用，应用可用于独立的 Dapp 钱包也可用于 Mixin Messenger 机器人，前者为您产品每个用户生成一个钱包，后者主要是通过授权来获取 Mixin Messenger 用户并提供相应的服务。 
 
 每个开发者账号可免费创建 2 个应用，可付费创建更多。
 
-### 生成密钥
+### 应用密钥
 
-切换应用到**密钥**点**生成新的 Session**为 Mixin App 生成 PIN、Session ID、PinToken、私钥等敏感信息，内容如下：
+切换应用到「密钥」点「生成新的 Session」为 Mixin App 生成 PIN、Session ID、PinToken、私钥等敏感信息，内容如下：
 
 ```
 {
@@ -80,7 +80,7 @@
 注意事项：
 
 - 注意使用用户的私钥、user_id、session_id 等参数调用接口
-- 如果用户没有资产 API 会返回空列表，您产品的服务器端可以自定义一个列表返回，例如 OceanONE 的就用一个 json 来配置的，参见[ json 文件](https://github.com/MixinNetwork/ocean.one/blob/master/example/web/src/api/assets.json)。
+- 如果用户没有资产 API 会返回空列表，您产品的服务器端可自定义一个列表返回，例如 OceanONE 的就用一个 json 来配置的，参见[ json 文件](https://github.com/MixinNetwork/ocean.one/blob/master/example/web/src/api/assets.json)。
 - 有图标的资产是经过主网开发团队和节点验证过的，如需显示项目代币图标，请先把项目信息提交到 https://coinmarketcap.com ，然后在 https://github.com/MixinNetwork/asset-profile 提 pr 。
 - 想要特定资产 asset id 可以充值或转账该类型的代币，到账后再次调用资产接口就有了。
 
@@ -94,7 +94,7 @@
 - 可以根据 confirmations 来提醒用户充值需要等待多少个区块确认才能入账。Mixin 充值确认数一般高于钱包和交易所两倍以上，充值会慢一些，主要目的是为了安全，可以有效阻止双花等问题。
 - 调用 `GET /external/transactions` 可获得充值进度，接口的 confirmations 字段表示当前充值已完成的区块确认数，BTC、BCH、BSV、LTC 这四种资产 0 确认就有数据，其他的资产需要有 1 个区块确认才会有数据。注意该接口与 `GET /snapshots` 不会同时返回，可通过 asset id 、type 和 transaction hash 字段来映射为同一条记录，参考[文档](https://developers.mixin.one/api/m-mixin-network/external-transactions/)。
 - 如果遇到充值迟迟不到账的问题，地址没错一般提醒用户等着就行，有可能是区块数据同步慢导致的，可访问 https://mixin.one/network/chains 对比 Mixin 的区块高度和数据所在的区块即可。
-- 用户充值错误可尝试联系 Mixin 团队提供帮助。
+- 建议产品做足充值相关的提醒，尽量避免用户充错。
 - **强烈建议提醒用户：首次充值请小额尝试！首次充值请小额尝试！首次充值请小额尝试！**
 
 ### 用户提现
@@ -108,6 +108,8 @@
 - 根据 reserve 字段判断账户是否需要保留储备金，例如 XRP
 - 根据 fee 字段获取提现手续费，提现手续费根据公链拥堵情况自动调整，个别应用出于业务考虑仍然会收提现手续费
 - 除了可以通过 `GET /addresses/:id` 获取提现手续费信息，还可以单独调用 `GET /assets/:id/fee` 获取。
+- 建议产品做足提现相关的提醒，尽量避免用户提到错误的地址，资产提现后如果被其他交易所和钱包原路打回资产无法回到用户钱包！
+- **强烈建议提醒用户：首次提现请小额尝试！首次提现请小额尝试！首次提现请小额尝试！**
 
 ### 用户转账
 
@@ -117,6 +119,7 @@
 - 可以使用 snapshot_id 来做随机数，转账成功才会生成，Mixin Network 能确保唯一性
 - 调用 `POST /payments` 可验证一笔转账是不是已支付的状态，参见[文档](https://developers.mixin.one/api/g-transfer/verify-payment)。
 - 分页调用 `GET /snapshots` 可获取资产的所有的转账记录，参考[文档](https://developers.mixin.one/api/m-mixin-network/network-snapshots/)，注意 url 没有 network 也不支持 order 参数，别的都一样。
+- 如果调用 API 返回 500 的错误码一般重试一下就好了
 
 ### 应用充值
 
@@ -128,13 +131,12 @@
 
 ### 应用对账
 
-调用 `GET /network/snapshots` 可抓取 Mixin 全网所有的交易记录，如果通过应用的密钥信息访问接口，是你的用户就会返回 user_id 等信息，这样就能过滤出应用所有用户的充值、提醒和转账数据，从而实现对账功能。
+调用 `GET /network/snapshots` 可抓取 Mixin 全网所有的交易记录，如果通过应用的密钥信息访问接口，是你的用户就会返回 user_id 等信息，这样就能过滤出应用所有用户的充值、提醒和转账数据，从而实现对账功能，参考[文档](https://developers.mixin.one/api/m-mixin-network/network-snapshots/)。
 
 ### 错误码
 
 | 错误码   | 错误说明         |
 |:-----:|:------------:|
-| 429   | 凡是           |
 | 20117 | 余额不足         |
 | 20118 | PIN 格式不对     |
 | 20119 | PIN 不对       |
@@ -145,6 +147,8 @@
 | 20131 | 提现 Memo 格式不对 |
 | 30100 | 区块同步异常，请稍后重试 |
 | 30102 | 提现地址格式错误     |
+
+**错误码 429 比较特殊，凡是不需要 PIN 作为参数的 API 都是请求过快，稍后重试即可；凡是需要 PIN 作为参数的 API 报 429 都说明用户最近 24 小时使用错误的密码大于等于 5 次，需要让用户等 24 小时再尝试，超过次数再尝试就算是 PIN 正确的也不会返回正确的结果，而且可能锁更长时间；**
 
 ### 资源
 

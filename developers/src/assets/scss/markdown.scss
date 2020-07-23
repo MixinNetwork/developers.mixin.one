@@ -23,4 +23,11 @@ body .markdown-body {
   li {
     list-style: initial;
   }
+
+  pre {
+    code {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  }
 }
