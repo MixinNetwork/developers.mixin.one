@@ -85,6 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  font-family: sans-serif;
   background: #eef1f9;
   padding-top: 110px;
   margin-top: 300px;
