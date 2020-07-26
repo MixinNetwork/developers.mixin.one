@@ -116,7 +116,7 @@ function iterate(list, originRouter, _path) {
 
 <style lang="scss" scoped>
 .api-page {
-  font-family: SF Pro Text;
+  font-family: "SF Pro Text", sans-serif;
   background-color: #fff;
 }
 

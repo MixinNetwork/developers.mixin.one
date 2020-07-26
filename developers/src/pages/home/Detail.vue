@@ -80,7 +80,7 @@ export default {
     margin: 2.75rem auto;
     max-width: 52rem;
     padding: 2.5rem 3.125rem;
-    font-family: Maven Pro;
+    font-family: "Maven Pro", sans-serif;
 
     display: flex;
     flex-direction: column;

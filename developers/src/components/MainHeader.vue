@@ -50,7 +50,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  font-family: Maven Pro;
+  font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   line-height: 1.25rem;
   text-align: center;
