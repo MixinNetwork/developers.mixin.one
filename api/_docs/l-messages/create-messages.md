@@ -1,6 +1,6 @@
 ---
 title: Create Messages
-category: Messenge
+category: Message
 order: 9
 ---
 

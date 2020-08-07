@@ -1,6 +1,6 @@
 ---
 title: Create Acknowledgements
-category: Messenge
+category: Message
 order: 9
 ---
 
