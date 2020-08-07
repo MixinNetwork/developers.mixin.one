@@ -143,8 +143,9 @@ Mixin Messenger 支持通过 schema 唤起特定界面：
 
 - 用户弹窗 `mixin://users/:userid`
 
+- 转账详情界面 `mixin://snapshots?trace=:traceid` 或者 `mixin://snapshots/:snapshotid`
+
 - 机器人弹窗 `mixin://apps/:appid?action=open`
-  
   action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页
 
 - 新增提现地址 `mixin://address?asset=&label=&destination=&tag=`
