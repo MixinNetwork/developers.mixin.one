@@ -43,7 +43,7 @@ POST https://api.mixin.one/oauth/token
 "code": "authorization code from step above",
 "client_secret": "optional client secret",
 "code_verifier": "optional PKCE code verifier",
-"ed25519": "base64.RawURLEncoding.DecodeString('public key of ed25519')"
+"ed25519": "optional base64.RawURLEncoding.DecodeString('public key of ed25519')"
 }
 ```
 
