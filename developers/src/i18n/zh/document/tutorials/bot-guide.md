@@ -263,7 +263,7 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
 
 ##### 通过 HTTP 发消息
 
-调用 `POST /messages` 可通过 HTTP 批量发消息，每次最多 100 条，消息 Body 不能超过 1024Kb，建议限制单条消息大小，正常聊天内容一般每次发送 50 条信息没问题。
+调用 `POST /messages` 可通过 HTTP 批量发消息，每次最多 100 条，消息 Body 不能超过 1024Kb，建议限制单条消息大小，正常聊天内容一般每次发送 50 条信息没问题，参加[文档](https://developers.mixin.one/api/l-messages/create-messages/)。
 
 ```json
 [{
@@ -272,10 +272,12 @@ Mixin Messenger 客户端有提供一些 JS 方法供机器人网页调用：
     "message_id":"UUID", 
     "category":"PLAIN_TEXT", 
     "data":"base64 of data", 
-    "representative_id": "UUID", 
-    "quote_message_id":"UUID"
+    "representative_id": "UUID",    // 可选
+    "quote_message_id":"UUID"       // 可选
 }]
 ```
+
+- representative_id 一般用于机器人代替用户发言（需要申请 MESSAGES:REPRESENT 权限），如果发的消息是发到群里，不能设置这个字段。
 
 ##### 特殊消息类型
 
