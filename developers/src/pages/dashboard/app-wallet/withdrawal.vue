@@ -24,7 +24,7 @@
                 <input maxlength="6" ref="pin_token" @input="change_style" />
               </li>
               <li>
-                <label>Mixin ID / Address</label>
+                <label>Mixin ID / Mainnet Address</label>
                 <input v-model="submit_form.opponent_id" />
               </li>
             </ul>
