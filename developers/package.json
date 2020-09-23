@@ -14,7 +14,7 @@
     "github-markdown-css": "^4.0.0",
     "int64-buffer": "^0.99.1007",
     "jsonwebtoken": "^8.5.1",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^11.0.1",
     "moment": "^2.24.0",
     "node-forge": "^0.9.1",
     "uuid": "^3.3.3",
