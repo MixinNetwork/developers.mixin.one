@@ -15,7 +15,7 @@
     "int64-buffer": "^0.99.1007",
     "jsonwebtoken": "^8.5.1",
     "markdown-it": "^10.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.0",
     "node-forge": "^0.9.1",
     "uuid": "^3.3.3",
     "validator": "^12.1.0",
