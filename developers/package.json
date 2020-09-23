@@ -17,7 +17,7 @@
     "markdown-it": "^10.0.0",
     "moment": "^2.24.0",
     "node-forge": "^0.9.1",
-    "uuid": "^3.3.3",
+    "uuid": "^8.3.0",
     "validator": "^12.1.0",
     "vue": "^2.6.10",
     "vue-clipboard2": "^0.3.1",
