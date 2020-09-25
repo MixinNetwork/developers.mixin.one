@@ -104,6 +104,11 @@
     width: 100%;
     height: 5.125rem;
     background-color: #f6f9ff;
+
+    &.session {
+      height: 12rem;
+      overflow: auto;
+    }
   }
 }
 

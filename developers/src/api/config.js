@@ -24,7 +24,7 @@ instance.interceptors.response.use((res) => {
     if (Number(data.error.code) === 401) {
       setTimeout(() => {
         window.localStorage.clear()
-        window.location.href = `https://mixin.one/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth`
+        window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth`
       }, 100)
     }
     return;

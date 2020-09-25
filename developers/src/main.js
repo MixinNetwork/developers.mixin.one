@@ -9,13 +9,13 @@ import VueClipboard from 'vue-clipboard2'
 import i18n from '@/i18n'
 import { Message, Loading } from 'element-ui'
 
-import VueCroppie from 'vue-croppie';
+import VueCroppie from 'vue-croppie'
 import 'croppie/croppie.css'
 
-Vue.prototype.$message = Message;
-Vue.use(Loading.directive);
+Vue.prototype.$message = Message
+Vue.use(Loading.directive)
 Vue.use(VueClipboard)
-Vue.use(VueCroppie);
+Vue.use(VueCroppie)
 Vue.config.productionTip = false
 
 Vue.prototype.apis = apis

@@ -4,8 +4,8 @@
       <img @click="click_cancel" src="@/assets/img/svg/close.svg" />
       <h3>{{confirm_content}}</h3>
       <div class="btns">
-        <button @click="click_cancel">Cancel</button>
-        <button @click="click_confirm">OK</button>
+        <button @click="click_cancel">{{$t('button.cancel')}}</button>
+        <button @click="click_confirm">{{$t('button.ok')}}</button>
       </div>
     </div>
   </div>
