@@ -5,7 +5,7 @@ import Wallet from './app-wallet'
 import DModal from '@/components/DModal'
 import tools from '@/assets/js/tools'
 
-let tmp_uri = '';
+let tmp_uri = ''
 
 export default {
   name: 'dashboard-container',
@@ -57,9 +57,9 @@ export default {
       this.active_app = this.app_list[index]
       jump_to_uri.call(this, '/apps', true)
       clearTimeout(this.timer)
-      this.loading = true;
+      this.loading = true
       this.timer = setTimeout(() => {
-        this.loading = false;
+        this.loading = false
       }, 500)
     },
     async click_new_app() {
@@ -68,7 +68,7 @@ export default {
       let { count, price } = this.apps_property
       let add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
       if (add_one_app_price <= 0) {
-        this.active_app = {};
+        this.active_app = {}
         this.is_welcome = false
         this.is_new_app = true
         jump_to_uri.call(this, '/apps/new', false)
@@ -94,7 +94,7 @@ export default {
     },
     click_sign_out() {
       window.localStorage.clear()
-      this.show_click_user = false;
+      this.show_click_user = false
       setTimeout(() => {
         window.location.href = window.location.origin
       }, 100)
@@ -170,8 +170,8 @@ function update_active_app(app_number) {
 function jump_to_uri(uri, has_app_number) {
   this.tmp_component = 'information'
   this.nav_header_index = 0
-  uri = has_app_number ? (uri + '/' + this.active_app.app_number) : uri;
-  if (uri === tmp_uri) return;
-  tmp_uri = uri;
-  this.$router.push(tmp_uri);
+  uri = has_app_number ? (uri + '/' + this.active_app.app_number) : uri
+  if (uri === tmp_uri) return
+  tmp_uri = uri
+  this.$router.push(tmp_uri)
 }
