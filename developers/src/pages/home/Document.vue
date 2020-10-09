@@ -78,7 +78,12 @@ export default {
     try {
       this.page = require(`@/i18n/${locale}/document/${path}.md`);
     } catch (e) {
-      this.page = require(`@/i18n/en/document/${path}.md`);
+      try {
+        this.page = require(`@/i18n/en/document/${path}.md`);
+      }
+      catch(e) {
+        console.log('no doc')
+      }
     }
     this.$nextTick(() => {
       let t = require("@/assets/js/animate-up").default;

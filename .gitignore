@@ -8,3 +8,4 @@ test.sh
 *.xml
 *.iml
 .idea
+settings.json
