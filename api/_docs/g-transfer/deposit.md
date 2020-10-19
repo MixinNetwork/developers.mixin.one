@@ -4,7 +4,7 @@ category: Transfer
 order: 9
 ---
 
-Gant an asset's deposit address. The api same as `Read Asset`.
+Get an asset's deposit address. The api same as `Read Asset`.
 
 ###### GET /assets/:id
 
