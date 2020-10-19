@@ -8547,10 +8547,10 @@ vue-clipboard2@^0.3.1:
   dependencies:
     clipboard "^2.0.0"
 
-vue-croppie@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-croppie/-/vue-croppie-2.0.1.tgz#ba52b2b9aaae3db882618567f96bc95ea69b41ec"
-  integrity sha512-oo9EVHvjlMg3kegHq55pibbSk4mOiAIpzEnjnhZS8kSGAFtbJ0sB9q4JrOnsfcE1gtml/UfavEVJ9fH8bGhcSQ==
+vue-croppie@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-croppie/-/vue-croppie-2.0.2.tgz#5a2617cc16d99d1c6bc21ae79bbaa4aebf13b781"
+  integrity sha512-+yiDryp76tkHpYvbFdKSTM2VSU4TTLIikOvWlSaTaomvTky2Fiig7aRr1+AcHdB1mhrtEAZQRrWFbvc7NX0qBQ==
   dependencies:
     croppie "^2.6.4"
 
