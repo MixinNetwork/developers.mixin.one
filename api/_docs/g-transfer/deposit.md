@@ -6,7 +6,7 @@ order: 9
 
 There's no way for developers to deposit to Mixin Network by API, but you can get the `public key` of the assets like BTC, `account name` and `memo` for assets like EOS by programming.
 
-`destination` is the Public Key for BTC, ETH, DOGE etc, for EOS, BTS, GRIN is the account name, while tag only for EOS, BTS, GRIN is like the memo.
+`destination` is the Public Key for BTC, ETH, DOGE, etc, for EOS, BTS, GRIN is the account name, while tag only for EOS, BTS, GRIN is like the memo.
 
 This api is the same as `Read Asset`.
 
