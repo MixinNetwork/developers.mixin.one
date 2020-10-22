@@ -5,9 +5,9 @@ order: 32
 ---
 
 Before you can operate a raw transaction, it should be created a multisigs request first. After a multisigs request is created, actions may be:  
-1. `cancel` only `initial` transaction can be canceled.  
-2. `sign` use to sign a multisigs request  
-3. `unlock` unlock signed multisigs request  
+1. cancel: only `initial` transaction can be canceled.  
+2. sign: use to sign a multisigs request  
+3. unlock: unlock signed multisigs request  
 
 ###### POST /multisigs/requests/:id/:action
 
