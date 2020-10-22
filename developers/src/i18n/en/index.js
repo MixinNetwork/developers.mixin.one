@@ -185,18 +185,36 @@ export default {
 
   documentation: [
     {
-      name: "Get Started",
-      path: "start/overview",
-      router: "/",
+      name: "Mainnet",
       child: [
-        { name: "Get Started", path: "start/overview", router: "start/overview" },
-        { name: "Payment", path: "start/payment", router: "start/payment" },
+        {
+          name: "Get Started",
+          child: [
+            { name: "Get Started", path: "start/overview", router: "start/overview" },
+          ]
+        },
+        {
+          name: "Payment",
+          child: [
+            { name: "Payment", path: "start/payment", router: "start/payment" },
+          ]
+        },
       ]
     },
     {
-      name: "API Reference",
-      router: "/api"
-    }
+      name: "Wallet",
+      child: [
+        { name: "Overview", path: "wallet/overview", router: "wallet/overview" },
+        {
+          name: "Concept",
+          child: [
+            { name: "Overview", path: "wallet/concept/overview", router: "wallet/concept/overview" },
+            { name: "Concept", path: "wallet/concept/concept", router: "wallet/concept/concept" },
+          ]
+        },
+      ]
+    },
+    { name: "API Reference", router: "api/start", path: "api/start" }
   ],
 
   dashboard: {

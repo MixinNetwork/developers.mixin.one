@@ -175,8 +175,11 @@ export default {
       router: "/",
       child: [
         { name: "简介", path: "concepts/overview", router: "concepts/overview" },
-        { name: "公链", path: "concepts/chain", router: "concepts/chain" },
-        { name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin" },
+        {
+          name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin", child: [
+            { name: "公链", path: "concepts/chain", router: "concepts/chain" },
+          ]
+        },
       ]
     },
     {
