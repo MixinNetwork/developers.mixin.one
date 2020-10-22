@@ -2,7 +2,6 @@
 import moment from 'moment';
 import forge from 'node-forge';
 import jwt from 'jsonwebtoken';
-import uuid from 'uuid/v4';
 import LittleEndian from "int64-buffer";
 import crypto from 'crypto';
 
@@ -20,7 +19,11 @@ export default {
     return signEncryptedPin(pin, pinToken, sid, private_key, iterator)
   },
   getUUID() {
-    return uuid()
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
   },
   isImmersive() {
     var ctx;
@@ -89,6 +92,14 @@ function signAuthenticationToken(uid, sid, privateKey, method, uri, body) {
     scp: 'FULL'
   };
   return jwt.sign(payload, privateKey, { algorithm: 'RS512' });
+}
+
+function uuid(){
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 }
 
 
