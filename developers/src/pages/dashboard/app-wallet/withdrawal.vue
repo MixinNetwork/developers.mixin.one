@@ -234,6 +234,7 @@ function _build_transactions_parmas(_client_info_str_obj) {
 }
 
 async function _get_opponent_id({ opponent_id }, { sid, privateKey }, uid) {
+  if(_check_is_uuid(opponent_id)) return opponent_id
   let url = "/search/" + opponent_id;
   if (!sid) sid = _get_sid_from_storge(uid);
   let token = _get_token({ sid, uid, privateKey }, "get", url);
@@ -248,6 +249,10 @@ function _get_token({ sid, uid, privateKey }, method, url, body) {
 function _get_sid_from_storge(appid) {
   let a = JSON.parse(window.localStorage.getItem(appid));
   return a && a._sid;
+}
+
+function _check_is_uuid(str) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(str)
 }
 </script>
 
