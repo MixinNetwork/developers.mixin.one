@@ -169,32 +169,120 @@ export default {
     ]
   },
   documentation: [
+    /*
     {
-      name: "概念",
-      path: "concepts/overview",
-      router: "/",
+      name: "概念与术语",
+      path: "concepts",
+      router: "concepts",
       child: [
-        { name: "简介", path: "concepts/overview", router: "concepts/overview" },
+        { name: "简介", path: "concepts/chains", router: "concepts/chains" },
         {
-          name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin", child: [
-            { name: "公链", path: "concepts/chain", router: "concepts/chain" },
+          name: "公链介绍", path: "concepts/chains", router: "concepts/chains", child: [
+            { name: "比特币", path: "concepts/chains/bitcoin", router: "concepts/chains/bitcoin" },
+          ]
+        },
+      ]
+    },*/
+    {
+      name: "主网",
+      path: "mainnet",
+      router: "mainnet",
+      child: [
+        { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
+        { name: "加入全节点", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+        { name: "多重签名", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+        { name: "公链", path: "mainnet/mtg", router: "mainnet/d3m-pin" },
+        { name: "MTG", path: "mainnet/mtg", router: "mainnet/d3m-pin" },
+        { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+      ]
+    },
+    {
+      name: "钱包",
+      path: "wallet",
+      router: "wallet",
+      child: [
+        { name: "简介", path: "wallet/overview", router: "wallet/overview" },
+        {
+          name: "开始使用", path: "wallet/get-started", router: "wallet/get-started", child: [
+            { name: "新建应用", path: "concepts/chain", router: "concepts/chain" },
+            { name: "生成钱包用户", path: "concepts/chain", router: "concepts/chain" },
+            { name: "监听对账", path: "concepts/chain", router: "concepts/chain" },
+          ]
+        },
+        {
+          name: "SDK", child: [
+            { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
+            { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
+            { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
+            { name: "PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
+            { name: "Python", path: "wallet/sdk/python", router: "wallet/sdk/python" },
+            { name: "C#/.NET", path: "wallet/sdk/csharep", router: "wallet/sdk/csharep" },
+          ]
+        },
+        {
+          name: "APIs", child: [
+            { name: "用户", path: "bot/wallet/user", router: "bot/wallet/user" },
+            { name: "PIN", path: "bot/wallet/pin", router: "bot/wallet/pin" },
+            { name: "资产", path: "bot/wallet/asset", router: "bot/wallet/asset" },
+            { name: "充值", path: "bot/wallet/deposit", router: "bot/wallet/deposit" },
+            { name: "提现", path: "bot/wallet/withdrawal", router: "bot/wallet/withdrawal" },
+            { name: "转账", path: "bot/wallet/transfer", router: "bot/wallet/transfer" },
+            { name: "转账记录", path: "bot/wallet/snapshots", router: "bot/wallet/snapshots" },
+          ]
+        },
+        /*
+        { name: "钱包开发指南", path: "tutorials/dapp-guide", router: "tutorials/dapp-guide" },
+        { name: "机器人开发指南", path: "tutorials/bot-guide", router: "tutorials/bot-guide" },
+        { name: "全节点加入指南", path: "tutorials/full-node-join", router: "tutorials/full-node-join" },*/
+      ]
+    },
+    {
+      name: "机器人",
+      path: "bot",
+      router: "bot",
+      child: [
+        { name: "简介", path: "bot/overview", router: "bot/overview" },
+        {
+          name: "开始使用", child: [
+            { name: "新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
+          ]
+        },
+        {
+          name: "消息", child: [
+            { name: "简介", path: "bot/message/overview", router: "bot/message/overview" },
+            { name: "发消息", path: "bot/message/send", router: "bot/message/send" },
+            { name: "收消息", path: "bot/message/receive", router: "bot/message/receive" },
+          ]
+        },
+        {
+          name: "交互与设计", child: [
+            { name: "概述", path: "bot/design/overview", router: "bot/design/overview" },
+            { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
+            { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+            { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
+          ]
+        },
+        {
+          name: "API", child: [
+            { name: "个人信息", path: "bot/api/profile", router: "bot/api/profile" },
+            { name: "搜索", path: "bot/api/search", router: "bot/api/search" },
+            { name: "联系人", path: "bot/api/contact", router: "bot/api/contact" },
+            { name: "会话", path: "bot/api/conversation", router: "bot/api/conversation" },
+            { name: "资产", path: "bot/api/asset", router: "bot/api/asset" },
+            { name: "附件", path: "bot/api/attachment", router: "bot/api/attachment" },
+            { name: "已达", path: "bot/api/acknowledgements", router: "bot/api/acknowledgements" },
+            { name: "批量发消息", path: "bot/api/messages", router: "bot/api/messages" },
           ]
         },
       ]
     },
     {
-      name: "教程",
-      path: "tutorials",
-      router: "tutorials",
+      name: "知识库",
+      path: "knowledge",
+      router: "knowledge",
       child: [
-        { name: "钱包开发指南", path: "tutorials/dapp-guide", router: "tutorials/dapp-guide" },
-        { name: "机器人开发指南", path: "tutorials/bot-guide", router: "tutorials/bot-guide" },
-        { name: "全节点加入指南", path: "tutorials/full-node-join", router: "tutorials/full-node-join" },
+        { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
       ]
-    },
-    {
-      name: "API 文档",
-      router: "/api"
     }
   ],
 
