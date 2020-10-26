@@ -164,7 +164,8 @@
   /deep/ {
     .el-menu {
       background: #f5f7fa;
-      width: 14rem;
+      width: 17.5rem;
+      border-radius: 20px;
     }
 
     .el-submenu__title::before {
@@ -220,9 +221,10 @@
 
     .two-path {
 
-      .el-submenu__title {
+      & > .el-submenu__title {
         height: 40px;
         line-height: 40px;
+        padding: 0 40px !important;
       }
 
       .el-submenu__title:before {
@@ -232,11 +234,10 @@
       &.content-path {
         margin: 5px 20px;
       }
-
     }
 
     .content-path {
-      margin: 5px 30px;
+      margin: 5px 40px;
 
       .content-a {
         height: 40px;
@@ -248,7 +249,7 @@
   .content-a {
     display: block;
     width: 100%;
-    padding: 0 10px !important;
+    padding: 0 20px !important;
   }
 
   .container {
