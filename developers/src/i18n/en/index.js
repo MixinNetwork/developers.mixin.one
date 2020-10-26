@@ -196,7 +196,7 @@ export default {
         {
           name: "Payment",
           child: [
-            { name: "Payment", path: "start/payment", router: "start/payment" },
+            { name: "Payment", path: "start/payment-super", router: "start/payment" },
           ]
         },
       ]

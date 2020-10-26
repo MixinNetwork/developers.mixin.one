@@ -108,7 +108,6 @@
     let path = iterate(documentList, originRouter, _path)
     const [one, two, three] = _path
     let active_path
-    console.log(_path)
     if (two === undefined) active_path = `${one}`
     else if (three === undefined) active_path = `${one}-${two}`
     else active_path = `${one}-${two}-${three}`
@@ -120,10 +119,9 @@
     let targetRouter = ""
     for (let i = 0; i < list.length; i++) {
       let { router, path, child } = list[i]
-      console.log(originRouter, router)
-      if (originRouter === router) {
+      if (originRouter === path) {
         _path.push(i)
-        return path
+        return router
       }
       if (child) {
         _path.push(i)
