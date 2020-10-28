@@ -241,10 +241,13 @@ export default {
       path: "bot",
       router: "bot",
       child: [
-        { name: "简介", path: "bot/overview", router: "bot/overview" },
+        { name: "✅ 简介", path: "bot/overview", router: "bot/overview" },
         {
           name: "开始使用", child: [
-            { name: "新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
+            { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
+            { name: "OAuth", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
+            { name: "Schema", path: "bot/get-started/schema", router: "bot/get-started/schema" },
+            { name: "容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
           ]
         },
         {
@@ -264,11 +267,12 @@ export default {
         },
         {
           name: "API", child: [
-            { name: "个人信息", path: "bot/api/profile", router: "bot/api/profile" },
-            { name: "搜索", path: "bot/api/search", router: "bot/api/search" },
-            { name: "联系人", path: "bot/api/contact", router: "bot/api/contact" },
-            { name: "会话", path: "bot/api/conversation", router: "bot/api/conversation" },
-            { name: "资产", path: "bot/api/asset", router: "bot/api/asset" },
+            { name: "✅ 个人信息", path: "bot/api/profile", router: "bot/api/profile" },
+            { name: "✅ 搜索用户", path: "bot/api/search", router: "bot/api/search" },
+            { name: "✅ 联系人", path: "bot/api/contacts", router: "bot/api/contacts" },
+            { name: "✅ 屏蔽名单", path: "bot/api/blocking_users", router: "bot/api/blocking_users" },
+            { name: "会话", path: "bot/api/conversations", router: "bot/api/conversations" },
+            { name: "资产", path: "bot/api/assets", router: "bot/api/assets" },
             { name: "附件", path: "bot/api/attachment", router: "bot/api/attachment" },
             { name: "已达", path: "bot/api/acknowledgements", router: "bot/api/acknowledgements" },
             { name: "批量发消息", path: "bot/api/messages", router: "bot/api/messages" },
@@ -281,7 +285,7 @@ export default {
       path: "knowledge",
       router: "knowledge",
       child: [
-        { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
+        { name: "✅ 比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
       ]
     }
   ],
