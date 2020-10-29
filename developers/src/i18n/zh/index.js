@@ -258,7 +258,9 @@ export default {
         {
           name: "API", child: [
             { name: "✅ 个人信息", path: "bot/api/profile", router: "bot/api/profile" },
-            { name: "用户", child: [
+            { name: "✅ 用户", child: [
+              { name: "✅ 获取用户信息", path: "bot/api/users/user", router: "bot/api/users/user" },
+              { name: "✅ 批量获取用户", path: "bot/api/users/users", router: "bot/api/users/users" },
               { name: "✅ 搜索", path: "bot/api/users/search", router: "bot/api/users/search" },
               { name: "✅ 联系人", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
               { name: "✅ 屏蔽名单", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
@@ -268,12 +270,17 @@ export default {
               { name: "✅ 读取", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
               { name: "✅ 更新", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
             ]},
-            { name: "资产", child: [
+            { name: "✅ 资产", child: [
+              { name: "✅ 资产列表", path: "bot/api/assets/list", router: "bot/api/assets/list" },
+              { name: "✅ 单个资产", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "✅ 手续费", path: "bot/api/assets/fee", router: "bot/api/assets/fee" },
             ]},
             { name: "消息", child: [
-              { name: "附件", path: "bot/api/attachment", router: "bot/api/attachment" },
-              { name: "已达", path: "bot/api/acknowledgements", router: "bot/api/acknowledgements" },
-              { name: "批量发消息", path: "bot/api/messages", router: "bot/api/messages" },
+              { name: "✅ 类型", path: "bot/api/messages/category", router: "bot/api/messages/category" },
+              { name: "✅ 上传附件", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
+              { name: "✅ 下载附件", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
+              { name: "✅ 批量发状态", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
+              { name: "✅ 批量发消息", path: "bot/api/messages/send", router: "bot/api/messages/send" },
             ]},
             { name: "✅ 错误码", path: "bot/api/error-codes", router: "bot/api/error-codes" },
           ]
