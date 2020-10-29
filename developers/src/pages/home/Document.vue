@@ -26,14 +26,45 @@
                 <template slot="title">
                   <span>{{nitem.name}}</span>
                 </template>
-                <el-menu-item
-                  v-for="(nnitem, nnidx) in nitem.child"
-                  :key="nnidx"
-                  :index="`${widx}-${nidx}-${nnidx}`"
-                  class="path three-path content-path"
-                >
-                  <a class="content-a" :href="`/document/${nnitem.path}`"> {{nnitem.name}}</a>
-                </el-menu-item>
+                <!--                <el-menu-item-->
+                <!--                  v-for="(nnitem, nnidx) in nitem.child"-->
+                <!--                  :key="nnidx"-->
+                <!--                  :index="`${widx}-${nidx}-${nnidx}`"-->
+                <!--                  class="path three-path content-path"-->
+                <!--                >-->
+                <!--                  <a class="content-a" :href="`/document/${nnitem.path}`"> {{nnitem.name}}</a>-->
+                <!--                </el-menu-item>-->
+
+
+                <template v-for="(nnitem, nnidx) in nitem.child">
+                  <el-submenu
+                    v-if="nnitem.child"
+                    :key="nnidx"
+                    :index="`${widx}-${nidx}-${nnidx}`"
+                    class="path three-path"
+                  >
+                    <template slot="title">
+                      <span>{{nnitem.name}}</span>
+                    </template>
+                    <el-menu-item
+                      v-for="(nnnitem, nnnidx) in nnitem.child"
+                      :key="nnidx"
+                      :index="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
+                      class="path four-path content-path"
+                    >
+                      <a class="content-a" :href="`/document/${nnnitem.path}`"> {{nnnitem.name}}</a>
+                    </el-menu-item>
+                  </el-submenu>
+                  <el-menu-item
+                    v-else
+                    :index="`${widx}-${nidx}-${nnidx}`"
+                    class="path three-path content-path"
+                  >
+                    <a class="content-a" :href="`/document/${nnitem.path}`"> {{nnitem.name}}</a>
+                  </el-menu-item>
+                </template>
+
+
               </el-submenu>
               <el-menu-item
                 v-else
@@ -106,11 +137,12 @@
     let _path = []
     let documentList = this.$t("documentation")
     let path = iterate(documentList, originRouter, _path)
-    const [one, two, three] = _path
+    const [one, two, three, four] = _path
     let active_path
     if (two === undefined) active_path = `${one}`
     else if (three === undefined) active_path = `${one}-${two}`
-    else active_path = `${one}-${two}-${three}`
+    else if (four === undefined) active_path = `${one}-${two}-${three}`
+    else active_path = `${one}-${two}-${three}-${four}`
     this.active_path = active_path
     return path
   }
@@ -176,7 +208,6 @@
       background-image: url("~@/assets/img/svg/triangle.svg");
       width: 6px;
       height: 10px;
-
     }
 
     .el-submenu.is-opened > .el-submenu__title:before {
@@ -202,9 +233,16 @@
       border-radius: 8px;
     }
 
+    .content-path {
+      margin: 5px 40px;
+
+      .content-a {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
 
     .one-path {
-
       .el-submenu__title {
         height: 56px;
         line-height: 56px;
@@ -218,7 +256,6 @@
 
 
     .two-path {
-
       & > .el-submenu__title {
         height: 40px;
         line-height: 40px;
@@ -234,14 +271,22 @@
       }
     }
 
-    .content-path {
-      margin: 5px 40px;
-
-      .content-a {
+    .three-path {
+      & > .el-submenu__title {
         height: 40px;
         line-height: 40px;
       }
+
+      .el-submenu__title:before {
+        left: 2.25rem;
+      }
+
     }
+
+    .four-path {
+      margin: 5px 60px;
+    }
+
   }
 
   .content-a {

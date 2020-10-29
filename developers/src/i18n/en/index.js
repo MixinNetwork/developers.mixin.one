@@ -209,7 +209,11 @@ export default {
           name: "Concept",
           child: [
             { name: "Overview", path: "wallet/concept/overview", router: "wallet/concept/overview" },
-            { name: "Concept", path: "wallet/concept/concept", router: "wallet/concept/concept" },
+            {
+              name: "Test", child: [
+                { name: "Concept", path: "wallet/concept/concept", router: "wallet/concept/concept" },
+              ]
+            }
           ]
         },
       ]
