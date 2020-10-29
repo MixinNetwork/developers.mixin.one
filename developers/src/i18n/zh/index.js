@@ -169,20 +169,6 @@ export default {
     ]
   },
   documentation: [
-    /*
-    {
-      name: "概念与术语",
-      path: "concepts",
-      router: "concepts",
-      child: [
-        { name: "简介", path: "concepts/chains", router: "concepts/chains" },
-        {
-          name: "公链介绍", path: "concepts/chains", router: "concepts/chains", child: [
-            { name: "比特币", path: "concepts/chains/bitcoin", router: "concepts/chains/bitcoin" },
-          ]
-        },
-      ]
-    },*/
     {
       name: "主网",
       path: "mainnet",
@@ -201,12 +187,13 @@ export default {
       path: "wallet",
       router: "wallet",
       child: [
-        { name: "简介", path: "wallet/overview", router: "wallet/overview" },
+        { name: "✅ 简介", path: "wallet/overview", router: "wallet/overview" },
         {
-          name: "开始使用", path: "wallet/get-started", router: "wallet/get-started", child: [
-            { name: "新建应用", path: "concepts/chain", router: "concepts/chain" },
-            { name: "生成钱包用户", path: "concepts/chain", router: "concepts/chain" },
-            { name: "监听对账", path: "concepts/chain", router: "concepts/chain" },
+          name: "开始使用", child: [
+            { name: "✅ 注册开发者", path: "wallet/get-started/setup", router: "wallet/get-started/setup" },
+            { name: "✅ 新建应用", path: "wallet/get-started/create", router: "wallet/get-started/create" },
+            { name: "生成钱包用户", path: "wallet/get-started/chain", router: "wallet/get-started/chain" },
+            { name: "监听对账", path: "wallet/get-started/chain", router: "wallet/get-started/chain" },
           ]
         },
         {
@@ -244,15 +231,18 @@ export default {
         { name: "✅ 简介", path: "bot/overview", router: "bot/overview" },
         {
           name: "开始使用", child: [
+            { name: "✅ 注册开发者", path: "bot/get-started/setup", router: "bot/get-started/setup" },
             { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
             { name: "OAuth", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
             { name: "Schema", path: "bot/get-started/schema", router: "bot/get-started/schema" },
             { name: "容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
+            { name: "会话", path: "bot/get-started/js", router: "bot/get-started/js" },
           ]
         },
         {
           name: "消息", child: [
             { name: "简介", path: "bot/message/overview", router: "bot/message/overview" },
+            { name: "简介", path: "bot/api/conversations/overview", router: "bot/api/conversations/overview" },
             { name: "发消息", path: "bot/message/send", router: "bot/message/send" },
             { name: "收消息", path: "bot/message/receive", router: "bot/message/receive" },
           ]
@@ -268,14 +258,24 @@ export default {
         {
           name: "API", child: [
             { name: "✅ 个人信息", path: "bot/api/profile", router: "bot/api/profile" },
-            { name: "✅ 搜索用户", path: "bot/api/search", router: "bot/api/search" },
-            { name: "✅ 联系人", path: "bot/api/contacts", router: "bot/api/contacts" },
-            { name: "✅ 屏蔽名单", path: "bot/api/blocking_users", router: "bot/api/blocking_users" },
-            { name: "会话", path: "bot/api/conversations", router: "bot/api/conversations" },
-            { name: "资产", path: "bot/api/assets", router: "bot/api/assets" },
-            { name: "附件", path: "bot/api/attachment", router: "bot/api/attachment" },
-            { name: "已达", path: "bot/api/acknowledgements", router: "bot/api/acknowledgements" },
-            { name: "批量发消息", path: "bot/api/messages", router: "bot/api/messages" },
+            { name: "用户", child: [
+              { name: "✅ 搜索", path: "bot/api/users/search", router: "bot/api/users/search" },
+              { name: "✅ 联系人", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
+              { name: "✅ 屏蔽名单", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
+            ]},
+            { name: "✅ 会话", child: [
+              { name: "✅ 创建", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
+              { name: "✅ 读取", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
+              { name: "✅ 更新", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+            ]},
+            { name: "资产", child: [
+            ]},
+            { name: "消息", child: [
+              { name: "附件", path: "bot/api/attachment", router: "bot/api/attachment" },
+              { name: "已达", path: "bot/api/acknowledgements", router: "bot/api/acknowledgements" },
+              { name: "批量发消息", path: "bot/api/messages", router: "bot/api/messages" },
+            ]},
+            { name: "✅ 错误码", path: "bot/api/error-codes", router: "bot/api/error-codes" },
           ]
         },
       ]
