@@ -233,7 +233,8 @@ export default {
           name: "开始使用", child: [
             { name: "✅ 注册开发者", path: "bot/get-started/setup", router: "bot/get-started/setup" },
             { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
-            { name: "OAuth", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
+            { name: "✅ OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
+            { name: "✅ 访问用户数据", path: "bot/get-started/api", router: "bot/get-started/api" },
             { name: "Schema", path: "bot/get-started/schema", router: "bot/get-started/schema" },
             { name: "容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
             { name: "会话", path: "bot/get-started/js", router: "bot/get-started/js" },
@@ -256,11 +257,12 @@ export default {
           ]
         },
         {
-          name: "API", child: [
+          name: "✅ API", child: [
             { name: "✅ 个人信息", path: "bot/api/profile", router: "bot/api/profile" },
             { name: "✅ 用户", child: [
               { name: "✅ 获取用户信息", path: "bot/api/users/user", router: "bot/api/users/user" },
               { name: "✅ 批量获取用户", path: "bot/api/users/users", router: "bot/api/users/users" },
+              { name: "✅ 关系", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
               { name: "✅ 搜索", path: "bot/api/users/search", router: "bot/api/users/search" },
               { name: "✅ 联系人", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
               { name: "✅ 屏蔽名单", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
@@ -272,16 +274,19 @@ export default {
             ]},
             { name: "✅ 资产", child: [
               { name: "✅ 资产列表", path: "bot/api/assets/list", router: "bot/api/assets/list" },
-              { name: "✅ 单个资产", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "✅ 资产详情", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "✅ 转账记录", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
+              { name: "✅ 转账详情", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
               { name: "✅ 手续费", path: "bot/api/assets/fee", router: "bot/api/assets/fee" },
             ]},
-            { name: "消息", child: [
+            { name: "✅ 消息", child: [
               { name: "✅ 类型", path: "bot/api/messages/category", router: "bot/api/messages/category" },
               { name: "✅ 上传附件", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
               { name: "✅ 下载附件", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
               { name: "✅ 批量发状态", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
               { name: "✅ 批量发消息", path: "bot/api/messages/send", router: "bot/api/messages/send" },
             ]},
+            { name: "✅ 分享机器人", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
             { name: "✅ 错误码", path: "bot/api/error-codes", router: "bot/api/error-codes" },
           ]
         },

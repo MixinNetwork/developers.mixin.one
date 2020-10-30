@@ -1,7 +1,5 @@
 # 批量获取用户
 
-批量获取用户信息
-
 ### `POST /users/fetch` 
 
 请求 Body 数据 `["UUID","UUID","UUID"]` 为用户 ID 数组
