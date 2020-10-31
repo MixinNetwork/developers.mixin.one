@@ -235,17 +235,10 @@ export default {
             { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
             { name: "✅ OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
             { name: "✅ 访问用户数据", path: "bot/get-started/api", router: "bot/get-started/api" },
-            { name: "Schema", path: "bot/get-started/schema", router: "bot/get-started/schema" },
+            { name: "✅ Schema 唤起", path: "bot/get-started/schema", router: "bot/get-started/schema" },
             { name: "容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
-            { name: "会话", path: "bot/get-started/js", router: "bot/get-started/js" },
-          ]
-        },
-        {
-          name: "消息", child: [
-            { name: "简介", path: "bot/message/overview", router: "bot/message/overview" },
-            { name: "简介", path: "bot/api/conversations/overview", router: "bot/api/conversations/overview" },
-            { name: "发消息", path: "bot/message/send", router: "bot/message/send" },
-            { name: "收消息", path: "bot/message/receive", router: "bot/message/receive" },
+            { name: "接收消息", path: "bot/get-started/websocket", router: "bot/get-started/websocket" },
+            { name: "发消息", path: "bot/get-started/message", router: "bot/get-started/message" },
           ]
         },
         {
@@ -276,7 +269,8 @@ export default {
               { name: "✅ 资产列表", path: "bot/api/assets/list", router: "bot/api/assets/list" },
               { name: "✅ 资产详情", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
               { name: "✅ 转账记录", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
-              { name: "✅ 转账详情", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+              { name: "✅ 通过 id 获取转账详情", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+              { name: "✅ 通过 trace 获取转账详情", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
               { name: "✅ 手续费", path: "bot/api/assets/fee", router: "bot/api/assets/fee" },
             ]},
             { name: "✅ 消息", child: [

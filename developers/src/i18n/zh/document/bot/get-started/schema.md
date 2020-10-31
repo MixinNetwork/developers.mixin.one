@@ -1,33 +1,119 @@
-# Schema 交互
+# Schema 唤起
 
-Mixin Messenger 支持机器人通过 schema 唤起支付等特定界面。
+### 分享
+![](./bot-schema-share.png)
 
-- 支付页 `mixin://pay?recipient=&asset=&amount=&memo=&trace=`
+`mixin://send?category=&conversation_id=&data=`
+
+机器人无法自动分享消息，如果指定 conversation_id 并且与用户当前所在会话的 conversation_id 一致会出现上图所示确认框，由用户点确认后发送；未指定 conversation_id 或者与当前会话不一致会出现用户选人的界面，由用户选择分享要分享的会话。
+
+- 分享文字
+
+  ```js
+  const base64 = require('js-base64')
+
+  const data = "hello world!"
+  window.open("mixin://send?category=text&data=" + encodeURIComponent(base64.encode(data)))
+  ```
+
+- 分享图片
+
+  ```js
+  const base64 = require('js-base64')
+
+  const data = '"{"url":"https://mixin-www.zeromesh.net/assets/d9bb777b00f4210e107dd3580fe5bf1a.png"}'
+  window.open("mixin://send?category=image&data=" + encodeURIComponent(base64.encode(data)))
+  ```
+
+- 分享联系人
+
+  ```js
+  const base64 = require('js-base64')
+
+  const data = '{"user_id":"773e5e77-4107-45c2-b648-8fc722ed77f5"}'
+  window.open("mixin://send?category=contact&data=" + encodeURIComponent(base64.encode(data)))
+  ```
+
+- 分享卡片
+
+  ```js
+  const base64 = require('js-base64')
+
+  const data = '{"action":"http://192.168.31.156:3000/circles/9415878/posts/82","app_id":"c1412f68-6152-40ad-a193-f7fadf9328a1","description":"来自debugCircle","icon_url":"https://mixin-images.zeromesh.net/rl_7ufE4eezlZDDjsGz9apzvoa7ULeZLlyixbN04iiaGFng8JL9UtQVZwzHw4Bsh2_7m5WHVPwtWkLKOydGZ4Q=s256","title":"抽奖测试"}'
   
-  memo 和 trace 是可选参数，recipient 是收款人的 user id，trace 参数可以有效防止重复支付。可轮询 `GET https://mixin-api.zeromesh.net/transfers/trace/:traceid` 是否有返回值来判断支付是否已完成，或者轮询 `POST /payments` 是否返回 paid 状态来判断支付是否已完成，参见[文档](https://developers.mixin.one/api/g-transfer/verify-payment)。
+  window.open("mixin://send?category=app_card&data=" + encodeURIComponent(base64.encode(data)))
+  ```
 
-- 用户弹窗 `mixin://users/:userid`
+- 分享直播
 
-- 转账详情界面 `mixin://snapshots?trace=:traceid` 或者 `mixin://snapshots/:snapshotid`
+  ```js
+  const base64 = require('js-base64')
 
-- 机器人弹窗 `mixin://apps/:appid?action=open`
-  action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页
+  const data = '{"height":720,"thumb_url":"https://anchorpost.msstatic.com/cdnimage/anchorpost/1056/41/9771cb5a13901e0ed97514a9cf98e8_1663_1566469032.jpg?imageview/4/0/blur/1/format/webp","url":"https://1400293698.vod2.myqcloud.com/fd69ed6cvodcq1400293698/c1dde9e95285890807215641562/MramAAZccMIA.mp4","width":1280}'
 
-- 新增提现地址 `mixin://address?asset=&label=&destination=&tag=`
+  window.open("mixin://send?category=live&data=" + encodeURIComponent(base64.encode(data)))
+  ```
+
+- 分享文章
+
+  ```js
+  const base64 = require('js-base64')
+
+  const data = '## Markdown简介\n> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。'
+
+  window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encode(data)))
+  ```
+
+
+### 支付
+
+- 支付页 
+
+  `mixin://pay?recipient=&asset=&amount=&memo=&trace=`
+  
+  | 参数       | 说明        |
+  |:------------------:|:-----------------|
+  | recipient | 收款人的 user id |
+  | asset     | 资产编号  |
+  | amount    | 转账金额  |
+  | memo      | 可选，备注 |
+  | trace     | 可选，该参数可有效防止重复支付 |
+
+  可轮询 `GET /transfers/trace/:traceid` 是否有返回值来判断支付是否已完成。
+
+- 转账详情界面
+
+  `mixin://snapshots?trace=:traceid` 或 `mixin://snapshots/:snapshotid`
+
+- 新增提现地址
+
+  `mixin://address?asset=&label=&destination=&tag=`
   
   tag 为可选参数，其他参数必填
 
-- 删除提现地址 `mixin://address?asset=&action=delete&address=`
+- 删除提现地址
+ 
+  `mixin://address?asset=&action=delete&address=`
   
   address 参数为 address id
 
-- 提现 `mixin://withdrawal?address=&asset=&amount=&memo=&trace=`
+- 提现
+
+  `mixin://withdrawal?address=&asset=&amount=&memo=&trace=`
   
   memo 为可选参数，其他参数必填
 
-- 分享文字 `mixin://send?text=`
+### 其他
+
+- 用户弹窗
+
+  `mixin://users/:userid`
+
+- 机器人弹窗
+
+  `mixin://apps/:appid?action=open` 
   
-  可以分享文字内容到 Mixin Messenger 里，客户端会唤起转发的界面
+   action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页
 
 ### 下一步
 

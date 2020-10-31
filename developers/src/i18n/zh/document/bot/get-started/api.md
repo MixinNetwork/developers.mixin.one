@@ -42,3 +42,9 @@ GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me
 建议开发者将 user_id 存入数据库，以便在需要的时候给用户推送信息，例如重要的公告。
 
 - [Schema 交互](./schema)
+
+  机器人可唤起 Mixin Messenger 某些特定功能和界面，例如转账、分享文字等。
+
+- [接收消息](./websocket)
+
+  通过 Websocket 接收用户的留言和用户添加当前机器人为联系人的通知。

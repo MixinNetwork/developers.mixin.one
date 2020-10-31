@@ -20,4 +20,6 @@ Mixin Messenger 除了提供端对端加密聊天和钱包功能，还支持 Tel
 
 ### 下一步
 
-- [新建机器人](/doucument/bot/get-started/create)
+- [注册开发者](/document/bot/get-started/setup)
+
+- [新建机器人](/document/bot/get-started/create)
