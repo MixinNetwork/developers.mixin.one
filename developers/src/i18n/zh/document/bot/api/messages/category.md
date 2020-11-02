@@ -4,272 +4,272 @@ Mixin Messenger 支持发送文字、图片、贴纸、文件等多种消息类�
 
 ### 文字
 ```
-  {
-    "id": "UUID",
-    "action":  "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_TEXT",
-      "status": "SENT",
-      "message_id": "UUID", // 消息唯一标识，每条新消息都需要重新生成
-      "data": "Base64 encoded data" ,
-    }
+{
+  "id": "UUID",
+  "action":  "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_TEXT",
+    "status": "SENT",
+    "message_id": "UUID", // 消息唯一标识，每条新消息都需要重新生成
+    "data": "Base64 encoded data" ,
   }
+}
 ```
 
 ### 表情
 ```
-  {
-    "id":  "UUID",
-    "action":  "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_STICKER",
-      "status": "SENT",
-      "message_id":  "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id":  "UUID",
+  "action":  "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_STICKER",
+    "status": "SENT",
+    "message_id":  "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "sticker_id": "UUID"
-  }
+{
+  "sticker_id": "UUID"
+}
 ```
 
 ### 图片
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID"
-      "category": "PLAIN_IMAGE"
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID"
+    "category": "PLAIN_IMAGE"
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "attachment_id": "Read From POST /attachments"
-    "mime_type": "image/jpeg",
-    "width": 1024,
-    "height": 1024,
-    "size": 1024,
-    "thumbnail": "base64 encoded"
-  }
+{
+  "attachment_id": "Read From POST /attachments"
+  "mime_type": "image/jpeg",
+  "width": 1024,
+  "height": 1024,
+  "size": 1024,
+  "thumbnail": "base64 encoded"
+}
 ```
 
 ### 音频
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_AUDIO",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_AUDIO",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "attachment_id": "Read From POST /attachments"
-    "mime_type": "audio/ogg",
-    "size": 1024,
-    "duration": 60,       // 最长 60 秒
-    "waveform": "QIQQSA...AAIAA"  // 单声道，音频采样率 8 bit
-  }
+{
+  "attachment_id": "Read From POST /attachments"
+  "mime_type": "audio/ogg",
+  "size": 1024,
+  "duration": 60,       // 最长 60 秒
+  "waveform": "QIQQSA...AAIAA"  // 单声道，音频采样率 8 bit
+}
 ```
 
 ### 视频
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_VIDEO",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_VIDEO",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "attachment_id": "Read From POST /attachments"
-    "mime_type": "video/mp4",
-    "width": 1024,
-    "height": 1024,
-    "size": 1024,
-    "duration": 60,
-    "thumbnail": "base64 encoded"     //缩略图
-  }
+{
+  "attachment_id": "Read From POST /attachments"
+  "mime_type": "video/mp4",
+  "width": 1024,
+  "height": 1024,
+  "size": 1024,
+  "duration": 60,
+  "thumbnail": "base64 encoded"     //缩略图
+}
 ```
 
 ### 联系人
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_CONTACT"
-      "status": "SENT",
-      "message_id": "UUID",
-      "data":  "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_CONTACT"
+    "status": "SENT",
+    "message_id": "UUID",
+    "data":  "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "user_id": "UUID"
-  }
+{
+  "user_id": "UUID"
+}
 ```
 
 ### 卡片
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "APP_CARD",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "APP_CARD",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
-    "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
-    "title": "Mixin",
-    "description": "Hello World.",
-    "action": "https://mixin.one"
-  }
+{
+  "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
+  "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
+  "title": "Mixin",
+  "description": "Hello World.",
+  "action": "https://mixin.one"
+}
 ```
 
 ### 文件
 ```
-  {
-    "id":  "UUID",
-    "action":  "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_DATA",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data",
-    }
+{
+  "id":  "UUID",
+  "action":  "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_DATA",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data",
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "attachment_id": "Read From POST /attachments"
-    "mime_type": "application/pdf",
-    "size": 1024,
-    "name": "2020-12-12.pdf"
-  }
+{
+  "attachment_id": "Read From POST /attachments"
+  "mime_type": "application/pdf",
+  "size": 1024,
+  "name": "2020-12-12.pdf"
+}
 ```
 
 ### 直播
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_LIVE",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_LIVE",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "width": 650,
-    "height": 366,
-    "thumb_url": "https://mixin.one/logo.png",
-    "url": "https://mixin.one/live.m3u8"
-  }
+{
+  "width": 650,
+  "height": 366,
+  "thumb_url": "https://mixin.one/logo.png",
+  "url": "https://mixin.one/live.m3u8"
+}
 ```
 
 ### 位置
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_LOCATION",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_LOCATION",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  {
-    "longitude":126.5893955829421,
-    "latitude":53.478451778240661,
-    "name":"China",           // 可选
-    "address":"中国北京市"      // 可选
-  }
+{
+  "longitude":126.5893955829421,
+  "latitude":53.478451778240661,
+  "name":"China",           // 可选
+  "address":"中国北京市"      // 可选
+}
 ```
 
 ### 文章
 ```
-  {
-    "id": "UUID // generated by client", 
-    "action":  "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_POST",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data" ,  // markdown 格式文章
-    }
+{
+  "id": "UUID // generated by client", 
+  "action":  "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "PLAIN_POST",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data" ,  // markdown 格式文章
   }
+}
 ```
 
 ### 按钮
 ```
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "APP_BUTTON_GROUP",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
+{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "APP_BUTTON_GROUP",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
   }
+}
 ```
 data 数据结构
 ```
-  [{
-    "label": "Mixin Website",
-    "color": "#ABABAB",
-    "action": "https://mixin.one"
-  },
-  ...
-  ]
+[{
+  "label": "Mixin Website",
+  "color": "#ABABAB",
+  "action": "https://mixin.one"
+},
+...
+]
 ```

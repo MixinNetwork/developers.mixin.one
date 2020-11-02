@@ -230,15 +230,14 @@ export default {
       child: [
         { name: "✅ 简介", path: "bot/overview", router: "bot/overview" },
         {
-          name: "开始使用", child: [
+          name: "开发教程", child: [
             { name: "✅ 注册开发者", path: "bot/get-started/setup", router: "bot/get-started/setup" },
             { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
             { name: "✅ OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
             { name: "✅ 访问用户数据", path: "bot/get-started/api", router: "bot/get-started/api" },
             { name: "✅ Schema 唤起", path: "bot/get-started/schema", router: "bot/get-started/schema" },
-            { name: "容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
-            { name: "接收消息", path: "bot/get-started/websocket", router: "bot/get-started/websocket" },
-            { name: "发消息", path: "bot/get-started/message", router: "bot/get-started/message" },
+            { name: "✅ JS 容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
+            { name: "✅ 收发消息", path: "bot/get-started/websocket", router: "bot/get-started/websocket" },
           ]
         },
         {

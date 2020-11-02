@@ -117,4 +117,6 @@
 
 ### 下一步
 
-- [授权](/doucument/bot/get-started/create)
+- [JS 容器交互](/doucument/bot/get-started/js)
+
+  获取当前会话 id 能有效的为用户提供不用的应用场景，而获取用户的本地化信息并进行适配能有效提升用户体验。
