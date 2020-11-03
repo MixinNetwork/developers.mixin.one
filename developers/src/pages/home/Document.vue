@@ -90,7 +90,7 @@
   import tools from "@/assets/js/tools"
   import "github-markdown-css"
   import hljs from 'highlight.js'
-  import 'highlight.js/styles/atom-one-light.css'
+  import 'highlight.js/styles/github.css'
 
   export default {
     name: "News",
