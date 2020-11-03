@@ -19,27 +19,17 @@
             <template v-for="(nitem, nidx) in item.child">
               <el-submenu
                 v-if="nitem.child"
-                :key="nidx"
+                :key="`${widx}-${nidx}`"
                 :index="`${widx}-${nidx}`"
                 class="path two-path"
               >
                 <template slot="title">
                   <span>{{nitem.name}}</span>
                 </template>
-                <!--                <el-menu-item-->
-                <!--                  v-for="(nnitem, nnidx) in nitem.child"-->
-                <!--                  :key="nnidx"-->
-                <!--                  :index="`${widx}-${nidx}-${nnidx}`"-->
-                <!--                  class="path three-path content-path"-->
-                <!--                >-->
-                <!--                  <a class="content-a" :href="`/document/${nnitem.path}`"> {{nnitem.name}}</a>-->
-                <!--                </el-menu-item>-->
-
-
                 <template v-for="(nnitem, nnidx) in nitem.child">
                   <el-submenu
                     v-if="nnitem.child"
-                    :key="nnidx"
+                    :key="`${widx}-${nidx}-${nnidx}`"
                     :index="`${widx}-${nidx}-${nnidx}`"
                     class="path three-path"
                   >
@@ -48,7 +38,7 @@
                     </template>
                     <el-menu-item
                       v-for="(nnnitem, nnnidx) in nnitem.child"
-                      :key="nnidx"
+                      :key="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
                       :index="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
                       class="path four-path content-path"
                     >
@@ -57,6 +47,7 @@
                   </el-submenu>
                   <el-menu-item
                     v-else
+                    :key="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
                     :index="`${widx}-${nidx}-${nnidx}`"
                     class="path three-path content-path"
                   >
@@ -68,6 +59,7 @@
               </el-submenu>
               <el-menu-item
                 v-else
+                :key="`${widx}-${nidx}`"
                 :index="`${widx}-${nidx}`"
                 class="path two-path content-path"
               >
@@ -77,6 +69,7 @@
           </el-submenu>
           <el-menu-item
             v-else
+            :key="widx"
             :index="String(widx)"
             class="path one-path content-path"
           >
@@ -96,6 +89,8 @@
   import Footer from "@/components/MainFooter"
   import tools from "@/assets/js/tools"
   import "github-markdown-css"
+  import hljs from 'highlight.js'
+  import 'highlight.js/styles/atom-one-light.css'
 
   export default {
     name: "News",
@@ -118,7 +113,6 @@
     let { locale } = this.$i18n
     let path = getPathByRouter.call(this, pathMatch)
     try {
-      console.log(`@/i18n/${locale}/document/${path}.md`)
       this.page = require(`@/i18n/${locale}/document/${path}.md`)
     } catch (e) {
       try {
@@ -130,6 +124,10 @@
     this.$nextTick(() => {
       let t = require("@/assets/js/animate-up").default
       t()
+      const preEl = document.querySelectorAll('pre')
+      preEl.forEach(el => {
+        hljs.highlightBlock(el)
+      })
     })
   }
 
