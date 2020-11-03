@@ -47,7 +47,7 @@
                   </el-submenu>
                   <el-menu-item
                     v-else
-                    :key="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
+                    :key="`${widx}-${nidx}-${nnidx}`"
                     :index="`${widx}-${nidx}-${nnidx}`"
                     class="path three-path content-path"
                   >
@@ -78,6 +78,7 @@
         </template>
       </el-menu>
       <div class="container markdown-body" v-html="page"></div>
+      <div ref="test"></div>
     </section>
 
     <Footer />
@@ -91,6 +92,10 @@
   import "github-markdown-css"
   import hljs from 'highlight.js'
   import 'highlight.js/styles/github.css'
+  import katex from "katex"
+  import 'katex/dist/katex.min.css'
+  import 'katex/dist/fonts/KaTeX_Main-Regular.ttf'
+  import 'katex/dist/fonts/KaTeX_Main-Bold.ttf'
 
   export default {
     name: "News",
@@ -124,12 +129,11 @@
     this.$nextTick(() => {
       let t = require("@/assets/js/animate-up").default
       t()
-      const preEl = document.querySelectorAll('pre')
-      preEl.forEach(el => {
-        hljs.highlightBlock(el)
-      })
+      handleCodeHighLight()
+
     })
   }
+
 
   function getPathByRouter(originRouter) {
     let _path = []
@@ -161,6 +165,39 @@
     }
     if (!targetRouter) _path.pop()
   }
+
+  function handleCodeHighLight() {
+    const preEl = document.querySelectorAll('code')
+    preEl.forEach(el => {
+      let { innerText } = el
+      if (innerText.startsWith('$$') && innerText.endsWith('$$')) {
+        const isBlock = el.parentNode.tagName === 'PRE'
+        innerText = innerText.slice(2, -2)
+        katex.render(String.raw`${innerText}`, el, {
+          "displayMode": isBlock,
+          "leqno": false,
+          "fleqn": !isBlock,
+          "throwOnError": true,
+          "errorColor": "#cc0000",
+          "strict": "warn",
+          "output": "html",
+          "trust": false,
+          "macros": { "\\f": "#1f(#2)" }
+        })
+        if (isBlock) {
+          el.parentNode.style.background = "transparent"
+        }
+      } else {
+        hljs.highlightBlock(el)
+      }
+    })
+  }
+
+  function handleKaTeX() {
+    const pEl = document.querySelectorAll('p')
+    pEl.forEach(el => {
+    })
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -190,6 +227,10 @@
   }
 
   /deep/ {
+    .markdown-body code {
+      background-color: transparent;
+    }
+
     .el-menu {
       background: #f5f7fa;
       width: 17.5rem;
