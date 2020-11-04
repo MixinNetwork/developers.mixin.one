@@ -320,7 +320,7 @@
 
       .el-submenu__title {
         height: 56px;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 56px;
       }
 
@@ -351,7 +351,7 @@
 
     .three-path {
       .el-submenu__title {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 40px;
         height: 40px;
       }
