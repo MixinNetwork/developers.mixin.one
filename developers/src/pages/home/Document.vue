@@ -130,7 +130,7 @@
       let t = require("@/assets/js/animate-up").default
       t()
       handleCodeHighLight()
-
+      // watchNavMove()
     })
   }
 
@@ -198,6 +198,27 @@
     pEl.forEach(el => {
     })
   }
+
+  // const baseHeight = 100
+
+  // function watchNavMove() {
+  //   const menuDOM = document.getElementsByClassName('one-path')[0]
+  //   const arcticDom = document.getElementsByClassName('container')[0]
+  //   const arcticHeight = arcticDom.clientHeight
+  //
+  //   window.addEventListener('scroll', ev => {
+  //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+  //     let menuHeight = menuDOM.clientHeight
+  //
+  //     if (scrollTop <= baseHeight) {
+  //       menuDOM.style.marginTop = '0px'
+  //     } else if (scrollTop > baseHeight + arcticHeight - menuHeight) {
+  //       menuDOM.style.marginTop = arcticHeight - menuHeight
+  //     } else {
+  //       menuDOM.style.marginTop = scrollTop - baseHeight + 'px'
+  //     }
+  //   })
+  // }
 </script>
 
 <style lang="scss" scoped>
@@ -211,6 +232,7 @@
     margin: 3.25rem auto;
 
     display: flex;
+    align-items: flex-start;
   }
 
   a {
@@ -233,8 +255,17 @@
 
     .el-menu {
       background: #f5f7fa;
-      width: 17.5rem;
+      min-width: 17.5rem;
+      max-width: 17.5rem;
       border-radius: 20px;
+      padding: 8px 4px;
+    }
+
+
+    .container {
+      margin-left: 2rem;
+      flex: 1;
+      width: calc(100% - 17.5rem);
     }
 
     .el-submenu__title::before {
@@ -245,6 +276,7 @@
       transform-origin: 50% 50%;
       right: 1.25rem;
       background-image: url("~@/assets/img/svg/triangle.svg");
+      background-repeat: no-repeat;
       width: 6px;
       height: 10px;
     }
@@ -263,17 +295,19 @@
       min-width: initial;
       height: 40px;
       line-height: 40px;
+      font-size: 16px;
     }
 
 
     .el-menu-item.is-active {
       color: #4B7CDD;
       background-color: #fff;
-      border-radius: 8px;
     }
 
     .content-path {
-      margin: 5px 40px;
+      margin: 5px 30px 5px 40px;
+      border-radius: 8px;
+      overflow: hidden;
 
       .content-a {
         height: 40px;
@@ -282,23 +316,28 @@
     }
 
     .one-path {
+      overflow: hidden;
+
       .el-submenu__title {
         height: 56px;
+        font-size: 18px;
         line-height: 56px;
       }
 
       &.content-path {
         margin: 5px 10px;
       }
-
     }
 
 
     .two-path {
+      font-size: 16px;
+
       & > .el-submenu__title {
         height: 40px;
         line-height: 40px;
-        padding: 0 40px !important;
+        font-size: 16px;
+        padding-left: 40px !important;
       }
 
       .el-submenu__title:before {
@@ -306,38 +345,33 @@
       }
 
       &.content-path {
-        margin: 5px 20px;
+        margin: 5px 25px 5px 20px;
       }
     }
 
     .three-path {
-      & > .el-submenu__title {
-        height: 40px;
+      .el-submenu__title {
+        font-size: 18px;
         line-height: 40px;
+        height: 40px;
       }
 
       .el-submenu__title:before {
         left: 2.25rem;
       }
-
     }
 
     .four-path {
-      margin: 5px 60px;
+      margin: 5px 30px 5px 60px;
     }
-
   }
 
   .content-a {
     display: block;
     width: 100%;
-    padding: 0 20px !important;
-  }
-
-  .container {
-    margin-left: 2rem;
-    flex: 1;
-    width: calc(100% - 17.5rem);
+    padding-left: 20px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
