@@ -230,7 +230,7 @@ export default {
       child: [
         { name: "✅ 简介", path: "bot/overview", router: "bot/overview" },
         {
-          name: "开发教程", child: [
+          name: "✅ 开发教程", child: [
             { name: "✅ 注册开发者", path: "bot/get-started/setup", router: "bot/get-started/setup" },
             { name: "✅ 新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
             { name: "✅ OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
@@ -241,12 +241,19 @@ export default {
           ]
         },
         {
-          name: "交互与设计", child: [
-            { name: "概述", path: "bot/design/overview", router: "bot/design/overview" },
-            { name: "用户交互", path: "bot/design/user-interaction", router: "bot/design/user-interaction" },
-            { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
-            { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
-            { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
+          name: "✅ 设计指南", child: [
+            { name: "✅ 概述", path: "bot/design/overview", router: "bot/design/overview" },
+            { name: "✅ 用户交互", path: "bot/design/user-interaction", router: "bot/design/user-interaction" },
+            { name: "✅ 标题栏", path: "bot/design/title-bar", router: "bot/design/title-bar" },
+            { name: "✅ 菜单", path: "bot/design/floating-menu", router: "bot/design/floating-menu" },
+            { name: "✅ 颜色", path: "bot/design/color", router: "bot/design/color" },
+            { name: "✅ 沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
+            { name: "✅ 暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+          ]
+        },
+        {
+          name: "开源案例", child: [
+            { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
           ]
         },
         {

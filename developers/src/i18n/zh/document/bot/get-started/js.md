@@ -56,6 +56,10 @@
 
 ### 下一步
 
+- 前端优化
+
+  推荐使用 PWA 技术优化机器人 https://developers.google.com/web/ilt/pwa/
+
 - [接收消息](./websocket)
 
   通过 WebSocket 接收用户的留言并予以回复能帮助用户更好的使用机器人提供的各种服务。
