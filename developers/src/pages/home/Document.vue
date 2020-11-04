@@ -227,8 +227,8 @@
   }
 
   /deep/ {
-    .markdown-body code {
-      background-color: transparent;
+    .hljs {
+      display: inline-block;
     }
 
     .el-menu {

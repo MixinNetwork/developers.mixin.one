@@ -8,3 +8,5 @@ $$% \f is defined as #1f(#2) using the macro
 ```
 
 1232`$$1 + 1 = 2$$`123
+
+`test` `intpu:9`
