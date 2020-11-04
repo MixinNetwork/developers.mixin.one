@@ -243,6 +243,7 @@ export default {
         {
           name: "交互与设计", child: [
             { name: "概述", path: "bot/design/overview", router: "bot/design/overview" },
+            { name: "用户交互", path: "bot/design/user-interaction", router: "bot/design/user-interaction" },
             { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
             { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
             { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
