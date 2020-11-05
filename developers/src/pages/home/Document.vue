@@ -42,7 +42,7 @@
                       :index="`${widx}-${nidx}-${nnidx}-${nnnidx}`"
                       class="path four-path content-path"
                     >
-                      <a class="content-a" :href="`/document/${nnnitem.path}`"> {{nnnitem.name}}</a>
+                      <router-link class="content-a" :to="`/document/${nnnitem.path}`">{{nnnitem.name}}</router-link>
                     </el-menu-item>
                   </el-submenu>
                   <el-menu-item
@@ -51,7 +51,7 @@
                     :index="`${widx}-${nidx}-${nnidx}`"
                     class="path three-path content-path"
                   >
-                    <a class="content-a" :href="`/document/${nnitem.path}`"> {{nnitem.name}}</a>
+                    <router-link class="content-a" :to="`/document/${nnitem.path}`"> {{nnitem.name}}</router-link>
                   </el-menu-item>
                 </template>
 
@@ -63,7 +63,7 @@
                 :index="`${widx}-${nidx}`"
                 class="path two-path content-path"
               >
-                <a class="content-a" :href="`/document/${nitem.path}`"> {{nitem.name}}</a>
+                <router-link class="content-a" :to="`/document/${nitem.path}`"> {{nitem.name}}</router-link>
               </el-menu-item>
             </template>
           </el-submenu>
@@ -73,7 +73,7 @@
             :index="String(widx)"
             class="path one-path content-path"
           >
-            <a class="content-a" :href="`/document/${item.path}`"> {{item.name}}</a>
+            <router-link class="content-a" :to="`/document/${item.path}`"> {{item.name}}</router-link>
           </el-menu-item>
         </template>
       </el-menu>
@@ -106,6 +106,12 @@
         active_path: "",
       }
     },
+    watch: {
+      '$route.path'() {
+        let { pathMatch } = this.$route.params
+        handlePathInit.call(this, pathMatch)
+      }
+    },
     mounted() {
       tools.changeTheme("#fff")
       let { pathMatch } = this.$route.params
@@ -130,7 +136,6 @@
       let t = require("@/assets/js/animate-up").default
       t()
       handleCodeHighLight()
-      // watchNavMove()
     })
   }
 
@@ -167,7 +172,7 @@
   }
 
   function handleCodeHighLight() {
-    const preEl = document.querySelectorAll('code')
+    const preEl = document.querySelectorAll('pre code')
     preEl.forEach(el => {
       let { innerText } = el
       if (innerText.startsWith('$$') && innerText.endsWith('$$')) {
@@ -198,27 +203,6 @@
     pEl.forEach(el => {
     })
   }
-
-  // const baseHeight = 100
-
-  // function watchNavMove() {
-  //   const menuDOM = document.getElementsByClassName('one-path')[0]
-  //   const arcticDom = document.getElementsByClassName('container')[0]
-  //   const arcticHeight = arcticDom.clientHeight
-  //
-  //   window.addEventListener('scroll', ev => {
-  //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-  //     let menuHeight = menuDOM.clientHeight
-  //
-  //     if (scrollTop <= baseHeight) {
-  //       menuDOM.style.marginTop = '0px'
-  //     } else if (scrollTop > baseHeight + arcticHeight - menuHeight) {
-  //       menuDOM.style.marginTop = arcticHeight - menuHeight
-  //     } else {
-  //       menuDOM.style.marginTop = scrollTop - baseHeight + 'px'
-  //     }
-  //   })
-  // }
 </script>
 
 <style lang="scss" scoped>
@@ -249,10 +233,6 @@
   }
 
   /deep/ {
-    .hljs {
-      display: inline-block;
-    }
-
     .el-menu {
       background: #f5f7fa;
       min-width: 17.5rem;
@@ -261,12 +241,6 @@
       padding: 8px 4px;
     }
 
-
-    .container {
-      margin-left: 2rem;
-      flex: 1;
-      width: calc(100% - 17.5rem);
-    }
 
     .el-submenu__title::before {
       content: "";
@@ -363,6 +337,17 @@
 
     .four-path {
       margin: 5px 30px 5px 60px;
+    }
+
+    .container {
+      margin-left: 2rem;
+      flex: 1;
+      width: calc(100% - 17.5rem);
+    }
+
+    .hljs {
+      display: inline-block;
+      transform: translateY(7px);
     }
   }
 
