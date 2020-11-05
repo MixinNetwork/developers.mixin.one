@@ -172,11 +172,11 @@
   }
 
   function handleCodeHighLight() {
-    const preEl = document.querySelectorAll('pre code')
+    const preEl = document.querySelectorAll('code')
     preEl.forEach(el => {
       let { innerText } = el
+      const isBlock = el.parentNode.tagName === 'PRE'
       if (innerText.startsWith('$$') && innerText.endsWith('$$')) {
-        const isBlock = el.parentNode.tagName === 'PRE'
         innerText = innerText.slice(2, -2)
         katex.render(String.raw`${innerText}`, el, {
           "displayMode": isBlock,
@@ -193,14 +193,8 @@
           el.parentNode.style.background = "transparent"
         }
       } else {
-        hljs.highlightBlock(el)
+        isBlock && hljs.highlightBlock(el)
       }
-    })
-  }
-
-  function handleKaTeX() {
-    const pEl = document.querySelectorAll('p')
-    pEl.forEach(el => {
     })
   }
 </script>
