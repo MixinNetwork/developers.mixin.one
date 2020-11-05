@@ -253,7 +253,8 @@ export default {
         },
         {
           name: "开源案例", child: [
-            { name: "DonateCafe", path: "bot/sample/donate-cafe", router: "bot/sample/donate-cafe" },
+            { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
+            { name: "Mixin 中文群", path: "bot/samples/super-group", router: "bot/samples/super-group" },
           ]
         },
         {
