@@ -104,6 +104,7 @@
       return {
         page: "",
         active_path: "",
+        path: ""
       }
     },
     watch: {
@@ -121,28 +122,33 @@
 
   function handlePathInit(pathMatch) {
     pathMatch = pathMatch ? pathMatch.substr(1) : "/"
-    let { locale } = this.$i18n
-    let path = getPathByRouter.call(this, pathMatch)
-    try {
-      this.page = require(`@/i18n/${locale}/document/${path}.md`)
-    } catch (e) {
-      try {
-        this.page = require(`@/i18n/en/document/${path}.md`)
-      } catch (e) {
-        console.log('no doc')
-      }
-    }
+    let { locale, messages } = this.$i18n
+    let langCheck = new Set()
+    langCheck.add(locale)
+    langCheck.add('en')
+    langCheck.add('zh')
+    langCheck = Array.from(langCheck)
+    let isFind = langCheck.some(item => getPathByRouter.call(this, pathMatch, messages[item] && messages[item].documentation || []))
+    if (!isFind) return console.log('no doc')
+    isFind = langCheck.some(item => getPageContent.call(this, item))
+    if (!isFind) console.log('no doc2')
     this.$nextTick(() => {
-      let t = require("@/assets/js/animate-up").default
-      t()
+      require("@/assets/js/animate-up").default()
       handleCodeHighLight()
     })
   }
 
+  function getPageContent(locale) {
+    try {
+      this.page = require(`@/i18n/${locale}/document/${this.path}.md`)
+      return true
+    } catch (e) {
+      return false
+    }
+  }
 
-  function getPathByRouter(originRouter) {
+  function getPathByRouter(originRouter, documentList) {
     let _path = []
-    let documentList = this.$t("documentation")
     let path = iterate(documentList, originRouter, _path)
     const [one, two, three, four] = _path
     let active_path
@@ -151,7 +157,8 @@
     else if (four === undefined) active_path = `${one}-${two}-${three}`
     else active_path = `${one}-${two}-${three}-${four}`
     this.active_path = active_path
-    return path
+    this.path = path
+    return !!path
   }
 
   function iterate(list, originRouter, _path) {
