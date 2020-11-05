@@ -155,6 +155,16 @@ WebSocket 连接后必须先发 LIST_PENDING_MESSAGES 消息来接收挂起的�
 
 具体参见[批量发状态](../api/messages/acknowledgements)文档。
 
+### SDK
+
+- Go
+
+  [bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client) 是 Mixin 官方提供的 SDK，除了提供钱包相关的 API 封装，还提供了 Mixin Messenger 消息相关的 API 封装，具体实现参见代码 [blaze.go](https://github.com/MixinNetwork/bot-api-go-client/blob/master/blaze.go)。
+
+- PHP
+
+  [mixin-sdk-php](https://github.com/ExinOne/mixin-sdk-php) 由 ExinOne 团队提供，使用遇到问题可以通过 Mixin Messenger 搜索 26930 联系提供帮助。
+
 ### 注意事项
 
 - 当用户添加当前机器人为好友时系统会自动给机器人发送一体"你好"的消息。
@@ -168,10 +178,6 @@ WebSocket 连接后必须先发 LIST_PENDING_MESSAGES 消息来接收挂起的�
 - 机器人发消息限额每分钟 10 万消息。
 
 ### 下一步
-
-- [SDK](/document/wallet/sdk/overview)
-
-  使用 SDK 实现收发消息的逻辑能事半功倍。
 
 - [设计指南](../design/overview)
 

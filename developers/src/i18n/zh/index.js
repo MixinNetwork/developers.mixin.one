@@ -191,14 +191,16 @@ export default {
         {
           name: "开始使用", child: [
             { name: "✅ 注册开发者", path: "wallet/get-started/setup", router: "wallet/get-started/setup" },
-            { name: "✅ 新建应用", path: "wallet/get-started/create", router: "wallet/get-started/create" },
-            { name: "生成钱包用户", path: "wallet/get-started/chain", router: "wallet/get-started/chain" },
-            { name: "监听对账", path: "wallet/get-started/chain", router: "wallet/get-started/chain" },
+            { name: "✅ 新建钱包", path: "wallet/get-started/create-app", router: "wallet/get-started/create-app" },
+            { name: "生成用户", path: "wallet/get-started/create-network-user", router: "wallet/get-started/create-network-user" },
+            { name: "设置密码", path: "wallet/get-started/pin", router: "wallet/get-started/pin" },
+            { name: "充值提现", path: "wallet/get-started/deposit-withdrawal", router: "wallet/get-started/deposit-withdrawal" },
+            { name: "监听对账", path: "wallet/get-started/transactions", router: "wallet/get-started/transactions" },
           ]
         },
         {
           name: "SDK", child: [
-            { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
+            { name: "✅ Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
             { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
             { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
             { name: "PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
@@ -207,7 +209,7 @@ export default {
           ]
         },
         {
-          name: "APIs", child: [
+          name: "API", child: [
             { name: "用户", path: "bot/wallet/user", router: "bot/wallet/user" },
             { name: "PIN", path: "bot/wallet/pin", router: "bot/wallet/pin" },
             { name: "资产", path: "bot/wallet/asset", router: "bot/wallet/asset" },
