@@ -107,7 +107,7 @@ function _request_new_session() {
     return
   }
   let pin = _get_pin()
-  let { session_secret, private_key } = _get_private_key()
+  let { session_secret, private_key } = _get_ed25519_private_key();
   once_submit = true
   this.loading = true
   this.apis.app_new_session(this.active_app.app_id, pin, session_secret).then(res => {
@@ -115,7 +115,7 @@ function _request_new_session() {
     let { session_id, pin_token } = res
     let jsonObj = { pin, app_id: this.active_app.app_id, session_id, pin_token, private_key }
     this.modal_title = this.$t('secret.session_title')
-    this.modal_content = JSON.stringify(jsonObj, null, ' ')
+    this.modal_content = JSON.stringify(jsonObj, null, 2)
     window.localStorage.removeItem(this.active_app.app_id)
   }).finally(_ => {
     once_submit = false
@@ -130,6 +130,13 @@ function _download_app_json() {
   dom.setAttribute("href", dataStr)
   dom.setAttribute("download", `keystore-${app_number}.json`)
   dom.click()
+}
+
+function _get_ed25519_private_key() {
+  let keypair = forge.pki.ed25519.generateKeyPair();
+  let session_secret = keypair.publicKey.toString("base64");
+  let private_key = keypair.privateKey.toString("base64");
+  return { session_secret, private_key }
 }
 
 function _get_private_key() {

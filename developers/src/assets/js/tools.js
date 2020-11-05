@@ -1,8 +1,7 @@
-
 import moment from 'moment';
 import forge from 'node-forge';
 import jwt from 'jsonwebtoken';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import LittleEndian from "int64-buffer";
 import crypto from 'crypto';
 
