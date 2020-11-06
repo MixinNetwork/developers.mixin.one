@@ -1,6 +1,6 @@
 # Kotlin SDK
 
-##如何使用
+## 如何使用
 
 导入[Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client)
 
@@ -34,11 +34,37 @@ class SecretPinIterator : PinIterator {
 ```kotlin
 // Create HttpClient
 val client = HttpClient(userId, sessionId, privateKey)
-val response = client.userService.getMe()
-println(response.data?.avatarUrl)
+ // create user 将用户注册到 Mixin 网络
+val sessionKey = generateRSAKeyPair()
+val sessionSecret = Base64.encodeBytes(sessionKey.public.encoded)
+val userResponse = client.userService.createUsers(
+    AccountRequest(
+        "User${Random().nextInt(100)}",
+        sessionSecret
+    )
+)
+val user = userResponse.data ?: return
+// 设置当前user token
+client.setUserToken(TokenInfo(user.userId, user.sessionId, sessionKey.private))
+// decrypt pin token
+val userAesKey: String = rsaDecrypt(sessionKey.private, user.sessionId, user.pinToken)
+// 设置初始密码
+val pinResponse = client.userService.createPin(
+        PinRequest(
+            encryptPin(
+                SecretPinIterator(),
+                userAesKey,
+                "131416"
+            )!!
+        )
+    )
+println(pinResponse.isSuccess)
 
-// 使用PIN码时，需要使用PinIterator
-val secretPin = encryptPin(SecretPinIterator(), pinToken, pin) ?: return
-val verifyResponse = client.userService.pinVerify(PinRequest(secretPin))
-println(verifyResponse.isSuccess)
+// 获取用户资产列表
+val assetResponse = client.assetService.assets()
+println(assetResponse.data)
 ```
+更多例子例子参见 SDK [examples](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/example/src/main/java/one/mixin/example/example.kt)。
+
+---
+本 SDK 由 Mixin 团队开发和维护，使用有问题可以通过 Mixin Messenger 搜索 26832、31911 联系我们提供帮助。
