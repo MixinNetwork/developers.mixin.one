@@ -22,6 +22,7 @@ const (
 
 func main() {
 	ctx := context.Background()
+	// RSA PKCS#1 v1.5
 	privateKey, err := rsa.GenerateKey(rand.Reader, 1024)
 	if err != nil {
 		println(err)
@@ -41,10 +42,10 @@ func main() {
 }
 ```
 
-`clientId`、`sessionId`、`privateKey` 从当前钱包应用的 keystore 中获取。
+`clientId`、`sessionId`、`privateKey` 从当前钱包应用的 keystore 中获取，其他语言的 SDK 参见[文档](../sdk/overview)。
 
 ### 下一步
 
-- [创建钱包用户](./create-network-user)
+- [授权访问接口](./authentication-token)
 
-  开发者可以通过授权读取用户个人、资产、转账等信息，据此可为用户提供各种更精细化的信息、金融服务。
+  通过 API 访问和操作用户的数据。

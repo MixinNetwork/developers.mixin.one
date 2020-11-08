@@ -187,60 +187,63 @@ export default {
       path: "wallet",
       router: "wallet",
       child: [
-        { name: "✅ 简介", path: "wallet/overview", router: "wallet/overview" },
+        { name: "简介", path: "wallet/overview", router: "wallet/overview" },
         {
-          name: "开始使用", child: [
-            { name: "✅ 注册开发者", path: "wallet/get-started/setup", router: "wallet/get-started/setup" },
-            { name: "✅ 新建钱包", path: "wallet/get-started/create-app", router: "wallet/get-started/create-app" },
+          name: "开发教程", child: [
+            { name: "注册开发者", path: "wallet/get-started/setup", router: "wallet/get-started/setup" },
+            { name: "新建钱包", path: "wallet/get-started/create-app", router: "wallet/get-started/create-app" },
             { name: "生成用户", path: "wallet/get-started/create-network-user", router: "wallet/get-started/create-network-user" },
+            { name: "授权访问", path: "wallet/get-started/authentication-token", router: "wallet/get-started/authentication-token" },
             { name: "设置密码", path: "wallet/get-started/pin", router: "wallet/get-started/pin" },
+            { name: "用户资产", path: "wallet/get-started/assets", router: "wallet/get-started/assets" },
+            { name: "用户转账", path: "wallet/get-started/transfer", router: "wallet/get-started/transfer" },
             { name: "充值提现", path: "wallet/get-started/deposit-withdrawal", router: "wallet/get-started/deposit-withdrawal" },
-            { name: "监听对账", path: "wallet/get-started/transactions", router: "wallet/get-started/transactions" },
           ]
         },
         {
-          name: "✅ SDK", child: [
-            { name: "✅ Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
-            { name: "✅ Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
-            { name: "✅ Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
-            { name: "✅ PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
-            { name: "✅ Ruby", path: "wallet/sdk/ruby", router: "wallet/sdk/ruby" },
+          name: "SDK", child: [
+            { name: "简介", path: "wallet/sdk/overview", router: "wallet/sdk/overview" },
+            { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
+            { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
+            { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
+            { name: "PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
+            { name: "Ruby", path: "wallet/sdk/ruby", router: "wallet/sdk/ruby" },
           ]
         },
         {
           name: "API", child: [
-            { name: "✅ 注册用户", path: "wallet/api/user", router: "wallet/api/user" },
-            { name: "✅ PIN 密码", path: "wallet/api/pin", router: "wallet/api/pin" },
-            { name: "✅ 资产", child: [
-              { name: "✅ 资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
-              { name: "✅ 资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+            { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
+            { name: "PIN 密码", path: "wallet/api/pin", router: "wallet/api/pin" },
+            { name: "资产", child: [
+              { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
+              { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
             ]},
-            { name: "✅ 转账", child: [
-              { name: "✅ 转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
-              { name: "✅ 转账记录", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
-              { name: "✅ 转账详情", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
+            { name: "转账", child: [
+              { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
+              { name: "转账记录", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
+              { name: "转账详情", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
             ]},
-            { name: "✅ 提现", child: [
-              { name: "✅ 新增提现地址", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
-              { name: "✅ 删除提现地址", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
-              { name: "✅ 提现地址详情", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
-              { name: "✅ 提现地址列表", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
-              { name: "✅ 提现", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
-              { name: "✅ 提现手续费", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
+            { name: "提现", child: [
+              { name: "新增提现地址", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
+              { name: "删除提现地址", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
+              { name: "提现地址详情", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
+              { name: "提现地址列表", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
+              { name: "提现", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
+              { name: "提现手续费", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
             ]},
-            { name: "✅ 多重签名", child: [
-              { name: "✅ 查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
-              { name: "✅ 多签", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
+            { name: "多重签名", child: [
+              { name: "查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+              { name: "多签", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
             ]},
-            { name: "✅ 公开数据", child: [
-              { name: "✅ 全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
-              { name: "✅ 转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
-              { name: "✅ 全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
-              { name: "✅ 资产排名", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
-              { name: "✅ 资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
-              { name: "✅ 搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
+            { name: "公开数据", child: [
+              { name: "全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+              { name: "转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+              { name: "资产排名", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
+              { name: "资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+              { name: "搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
             ]},
-            { name: "✅ 实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
           ]
         },
       ]
