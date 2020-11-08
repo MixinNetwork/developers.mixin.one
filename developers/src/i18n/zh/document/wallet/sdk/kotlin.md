@@ -1,6 +1,6 @@
 # Kotlin SDK
 
-## 如何使用
+### 如何使用
 
 导入[Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client)
 
@@ -11,11 +11,10 @@ val userId = ""
 val sessionId = ""
 val privateKey = getRSAPrivateKeyFromString("")
 val pinToken = rsaDecrypt(privateKey, sessionId, "")
-}
 ```
 
 ### 实现 PinIterator
-对于每个User都需要记录他使用PIN码的次数，每次PIN码加密都需要递增，并在加密时传入
+对于每个用户都需要记录他使用 PIN 码的次数，每次 PIN 码加密都需要递增，并在加密时传入
 ```kotlin
 class SecretPinIterator : PinIterator {
     private var currentCount = 0L

@@ -1,4 +1,4 @@
-### 注册 Mixin Network 用户
+# 注册 Mixin Network 用户
 
 ### `POST /users` 
 

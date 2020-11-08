@@ -199,9 +199,9 @@ export default {
           ]
         },
         {
-          name: "SDK", child: [
+          name: "✅ SDK", child: [
             { name: "✅ Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
-            { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
+            { name: "✅ Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
             { name: "✅ Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
             { name: "✅ PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
             { name: "✅ Ruby", path: "wallet/sdk/ruby", router: "wallet/sdk/ruby" },
@@ -228,20 +228,19 @@ export default {
               { name: "✅ 提现", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
               { name: "✅ 提现手续费", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
             ]},
-            { name: "多重签名", child: [
-              { name: "查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/outputs" },
-              { name: "发起多签", path: "wallet/api/multisigs/request", router: "wallet/api/request" },
-              { name: "多签操作", path: "wallet/api/multisigs/action", router: "wallet/api/action" },
+            { name: "✅ 多重签名", child: [
+              { name: "✅ 查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+              { name: "✅ 多签", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
             ]},
-            { name: "公开数据", child: [
-              { name: "全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
-              { name: "转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
-              { name: "全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
-              { name: "资产排名", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
-              { name: "搜索资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
-              { name: "资产", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
-              { name: "汇率", path: "wallet/api/network/fiats", router: "wallet/api/network/fiats" },
+            { name: "✅ 公开数据", child: [
+              { name: "✅ 全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+              { name: "✅ 转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "✅ 全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+              { name: "✅ 资产排名", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
+              { name: "✅ 资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+              { name: "✅ 搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
             ]},
+            { name: "✅ 实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
           ]
         },
       ]

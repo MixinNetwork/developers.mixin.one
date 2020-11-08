@@ -1,31 +1,40 @@
-### 注册 Mixin Network 用户
+### 全网排名前 100 的资产列表
 
-### `POST /users` 
+查询全网排名前 100 的资产列表，无需授权访问
 
-请求 Body 数据
-
-| 参数 | 类型 | 介绍 |
-| :----- | :----: | :---- |
-| session_secret | String | base64 之后的 RSA 公钥 |
-| full_name | String | 用户名 |
+### `GET /network/assets/top` 
 
 ```
-curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMxMjAyMzAsImlhdCI6MTUyNTM0NDIzMCwianRpIjoiNjEyZDRjYTQtOGUwNC00YTk3LTgwZTMtN2UwMjY0OGE5ZmQ0Iiwic2lkIjoiYTM0YzA3YTktNzU1ZC00YjU0LTk0YzUtZTQ1ZTlhMmRkNDNlIiwic2lnIjoiMTI3YWVhOWU3MmZhMDJiZWE0MDdhZGNiYTA0M2IzMmM0YTRhN2U2NGIzMDU0NzcyMGRlMjk3YjE2NGU5MWVhMiIsInVpZCI6IjA2YWVkMWUzLWJkNzctNGE1OS05OTFhLTViYjVhZTZmYmIwOSJ9.g_sED63nqS_cf68FKh8Ow1-0B4Ew_ojYS76P52hhqcF-gjImI93vM7Q4PI0t8i4ddiePD9vT470pD3obtzpo7eHD1ECfDuQkxqJqvN8elRYLWPYHjzElu0JqHDDIXh1TCtzGLReR4ZmC9g9DkhxDhocP9srWdVDAU_FbJOjznOE" "https://api.mixin.one/users" -X POST --data '{"full_name":"Bot User","session_secret":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMTuli9K9k7F+L7Rq34se23nQeV2yvjVGCZyRTbp8qNASnRq6N679ZflgVxNUsr2qkHN4eqvafrQ9IIcRXfofMlWWIU6MrgVVD0UEVyH4jKA5gUr4smU/SDnVLqb3TojYMELIKHgqnrjqDJ0b+vMUG1Iix4fi+CvjSiJzsWPOavQIDAQAB"}'
+curl -i --header "Content-Type: application/json" --header "Content-length: 0" "https://api.mixin.one/network/assets/top"
 ```
 
 ```json
-{
-  "data":{
-    "type":"user",
-    "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
-    "identity_number":"0",
-    "session_id":"a34c07a9-755d-4b54-94c5-e45e9a2dd43e",
-    "pin_token":"",
-    "phone":"",
-    "full_name":"Bot User",
-    "biography":"",
-    "avatar_url":"",
-    "created_at":"2018-05-03T06:03:56.867971412Z",
+{  
+  "data":{  
+    "assets":[  
+    {  
+      "type": "asset",
+      "asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+      "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "icon_url": "https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
+      "balance": "0",
+      "destination": "",
+      "tag": "",
+      "price_btc": "1",
+      "price_usd": "14996.98",
+      "change_btc": "0",
+      "change_usd": "-0.03773542533280206",
+      "asset_key": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+      "mixin_id": "fe6b7788944d328778f98e3e81588215b5a07de4f9a4a7de4db4535b404e65db",
+      "reserve": "0",
+      "confirmations": 3,
+      "capitalization": 144241811.6455701,    // 市值
+      "liquidity": "9618.05721189"            // 该资产在 Mixin 的数量
+    },
+      ....
+    ]
   }
 }
 ```

@@ -1,4 +1,4 @@
-### 设置或修改 PIN 密码
+# 设置或修改 PIN 密码
 
 ### `POST /pin/update` 
 
@@ -29,3 +29,5 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
   }
 }
 ```
+
+**设置初始密码 old_pin 应传空字符串。**
