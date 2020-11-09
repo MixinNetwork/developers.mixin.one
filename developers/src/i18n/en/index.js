@@ -187,18 +187,8 @@ export default {
     {
       name: "Mainnet",
       child: [
-        {
-          name: "Get Started",
-          child: [
-            { name: "Get Started", path: "start/overview", router: "start/overview" },
-          ]
-        },
-        {
-          name: "Payment",
-          child: [
-            { name: "Payment", path: "start/payment-super", router: "start/payment" },
-          ]
-        },
+        { name: "Overview", path: "mainnet/overview", router: "mainnet/overview" },
+        { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
       ]
     },
     {
