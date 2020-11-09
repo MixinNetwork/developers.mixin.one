@@ -1,6 +1,6 @@
 ## 公链支持
 
-Mixin Network 是 Bitcoin、Ethereum、Monero 等 28 条公链的二层网络，专注于数字资产安全、隐私和极速转账，可以简单理解为所有热门公链的闪电网络。
+Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，专注于数字资产安全、隐私和极速转账，可以简单理解为所有热门公链的闪电网络。
 
 ### 公链浏览器
 
@@ -18,16 +18,18 @@ Mixin Network 本身不支持发币功能，但是支持部分公链的发币功
 
 ### 公链信息
 
-| 公链名称          | 符号    | 唯一编号（chain id）                       | 充值地址                                              |
+| 公链名称          | 符号    | Chain Id                       | 充值地址                                              |
 |:-------------:|:-----:|:------------------------------------:|:-------------------------------------------------:|
 | Bitcoin       | BTC   | c6d0c728-2624-429b-8e0d-d9d19b6592fa | 仅支持 BTC 和 Omni - USDT                             |
 | Ethereum      | ETH   | 43d61dcd-e413-450d-80b8-101d5e903357 | 仅支持 ETH 和 ERC - 20 代币                             |
 | EOS           | EOS   | 6cfe566e-4aad-470b-8c9a-2fd35b49c68d | 支持所有基于 EOS 发行的代币                                  |
 | Monero        | XMR   | 05c5ac01-31f9-4a69-aa8a-ab796de1d041 | 仅支持 XMR                                           |
+| Polkadot        | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | 仅支持 DOT                                           |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | 仅支持 LTC                                           |
 | TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | 仅支持 TRX 和 TRC - 10、TRC - 20 代币，例如 BTT、USDT - TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | 仅支持 XLM                                           |
 | Bytom         | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | 仅支持 BTM                                           |
+| Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | 仅支持 FIL                                           |
 | Bitcoin SV    | BSV   | 574388fd-b93f-4034-a682-01c2bc095d17 | 仅支持 BSV                                           |
 | Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | 仅支持 BNB                                           |
 | BitShares     | BTS   | 05891083-63d2-4f3d-bfbe-d14d7fb9b25a | 支持所有基于 EOS 发行的代币，例如 BitCNY                        |
@@ -45,6 +47,8 @@ Mixin Network 本身不支持发币功能，但是支持部分公链的发币功
 | Horizen       | ZEN   | a2c5d22b-62a2-4c13-b3f0-013290dbac60 | 仅支持 ZEN                                           |
 | Decred        | DCR   | 8f5caf2a-283d-4c85-832a-91e83bbf290b | 仅支持 DCR                                           |
 | Ether Classic | ETC   | 2204c1ee-0ea2-4add-bb9a-b3719cfff93a | 仅支持 ETC                                           |
+| Tezos     | XTZ   | 5649ca42-eb5f-4c0e-ae28-d9a4e77eded3 | 仅支持 XTZ                                           |
 | Dash          | DASH  | 6472e7e3-75fd-48b6-b1dc-28d294ee1476 | 仅支持 DASH                                          |
 | Ravencoin     | RVN   | 6877d485-6b64-4225-8d7e-7333393cb243 | 仅支持 RVN                                           |
+| Namecoin      | NMC   | f8b77dc0-46fd-4ea1-9821-587342475869 | 仅支持 NMC                                           |
 | MassGrid      | MGD   | b207bce9-c248-4b8e-b6e3-e357146f3f4c | 仅支持 MGD                                           |
