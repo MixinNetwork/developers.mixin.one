@@ -125,7 +125,7 @@
       require("@/assets/js/animate-up").default()
       handleCodeHighLight()
     })
-    pathMatch = pathMatch ? pathMatch.substr(1) : "/"
+    pathMatch = pathMatch ? pathMatch.substr(1) : "mainnet/overview"
     let { locale, messages } = this.$i18n
     let langCheck = new Set()
     langCheck.add(locale)
