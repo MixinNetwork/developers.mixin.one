@@ -121,6 +121,10 @@
   }
 
   function handlePathInit(pathMatch) {
+    this.$nextTick(() => {
+      require("@/assets/js/animate-up").default()
+      handleCodeHighLight()
+    })
     pathMatch = pathMatch ? pathMatch.substr(1) : "/"
     let { locale, messages } = this.$i18n
     let langCheck = new Set()
@@ -132,10 +136,6 @@
     if (!isFind) return console.log('no doc')
     isFind = langCheck.some(item => getPageContent.call(this, item))
     if (!isFind) console.log('no doc2')
-    this.$nextTick(() => {
-      require("@/assets/js/animate-up").default()
-      handleCodeHighLight()
-    })
   }
 
   function getPageContent(locale) {
