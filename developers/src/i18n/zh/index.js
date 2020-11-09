@@ -324,7 +324,7 @@ export default {
       path: "knowledge",
       router: "knowledge",
       child: [
-        { name: "✅ 比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
+        { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
       ]
     }
   ],
