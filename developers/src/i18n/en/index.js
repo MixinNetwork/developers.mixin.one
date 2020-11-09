@@ -241,7 +241,49 @@ export default {
           ]
         },
       ]
-    }
+    },
+    {
+      name: "Bot",
+      path: "bot",
+      router: "bot",
+      child: [
+        { name: "Overview", path: "bot/overview", router: "bot/overview" },
+        {
+          name: "API", child: [
+            { name: "Read Profile", path: "bot/api/profile", router: "bot/api/profile" },
+            { name: "User", child: [
+              { name: "Read User", path: "bot/api/users/user", router: "bot/api/users/user" },
+              { name: "Read User List", path: "bot/api/users/users", router: "bot/api/users/users" },
+              { name: "Relationships", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
+              { name: "Search User", path: "bot/api/users/search", router: "bot/api/users/search" },
+              { name: "Friends", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
+              { name: "Blocking Users", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
+            ]},
+            { name: "Conversation", child: [
+              { name: "Create", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
+              { name: "Read", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
+              { name: "Update", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+            ]},
+            { name: "Asset", child: [
+              { name: "Read Asset List", path: "bot/api/assets/list", router: "bot/api/assets/list" },
+              { name: "Read Asset", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "Read Snapshots", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
+              { name: "Read Snapshot", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+              { name: "Read Transfer", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
+            ]},
+            { name: "Message", child: [
+              { name: "Category", path: "bot/api/messages/category", router: "bot/api/messages/category" },
+              { name: "Upload Attachment", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
+              { name: "Download Attachment", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
+              { name: "Create Acknowledgements", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
+              { name: "Create Messages", path: "bot/api/messages/send", router: "bot/api/messages/send" },
+            ]},
+            { name: "Favorite App", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
+            { name: "Error Codes", path: "bot/api/error-codes", router: "bot/api/error-codes" },
+          ]
+        },
+      ]
+    },
   ],
 
   dashboard: {
