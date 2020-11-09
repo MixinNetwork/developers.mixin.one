@@ -196,19 +196,52 @@ export default {
       child: [
         { name: "Overview", path: "wallet/overview", router: "wallet/overview" },
         {
-          name: "Concept",
-          child: [
-            { name: "Overview", path: "wallet/concept/overview", router: "wallet/concept/overview" },
-            {
-              name: "Test", child: [
-                { name: "Concept", path: "wallet/concept/concept", router: "wallet/concept/concept" },
-              ]
-            }
+          name: "SDK", child: [
+            { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
+            { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
+            { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
+            { name: "PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
+            { name: "Ruby", path: "wallet/sdk/ruby", router: "wallet/sdk/ruby" },
+          ]
+        },
+        {
+          name: "API", child: [
+            { name: "App User", path: "wallet/api/user", router: "wallet/api/user" },
+            { name: "PIN", path: "wallet/api/pin", router: "wallet/api/pin" },
+            { name: "Asset", child: [
+              { name: "Read Asset List", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
+              { name: "Read Asset", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+            ]},
+            { name: "Transfer", child: [
+              { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer" },
+              { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
+              { name: "Read Snapshot", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
+            ]},
+            { name: "Withdrawal", child: [
+              { name: "Create Address", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
+              { name: "Delete Address", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
+              { name: "Read Address", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
+              { name: "Addresses By Asset", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
+              { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
+              { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
+            ]},
+            { name: "Multisigs", child: [
+              { name: "Read Multisigs", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+              { name: "Multisigs", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
+            ]},
+            { name: "Network", child: [
+              { name: "Network Snapshots", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+              { name: "Network Snapshot", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "External Transactions", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+              { name: "Top Assets", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
+              { name: "Network Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+              { name: "Search Assets", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
+            ]},
+            { name: "Live Exchange Rates", path: "wallet/api/fiats", router: "wallet/api/fiats" },
           ]
         },
       ]
-    },
-    { name: "API Reference", router: "api/start", path: "api/start" }
+    }
   ],
 
   dashboard: {
