@@ -175,10 +175,10 @@ export default {
       router: "mainnet",
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
-        { name: "加入全节点", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
-        { name: "多重签名", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
-        { name: "公链", path: "mainnet/mtg", router: "mainnet/d3m-pin" },
-        { name: "MTG", path: "mainnet/mtg", router: "mainnet/d3m-pin" },
+        { name: "加入全节点", path: "mainnet/full-node-join", router: "mainnet/full-node-join" },
+        /*{ name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },*/
+        { name: "公链", path: "mainnet/chain", router: "mainnet/chain" },
+        /*{ name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },*/
         { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
       ]
     },

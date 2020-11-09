@@ -1,3 +1,5 @@
+# 加入全节点
+
 Mixin Network 是一个采用 PoS 共识的去中心化网络，全节点使用 XIN 做节点抵押，XIN 发行总量恒定 100 万，50 万作为挖矿奖励，每年做全节点抵押代币数量为流通量的 2%, 节点挖矿收益为矿池剩余 10%。
 
 ### 如何加入全节点？
@@ -72,11 +74,9 @@ xxx
 ```
 ./mixin -n 35.234.74.25:8239 sendrawtransaction -raw 86a756657273696f6e01a54173736574c420a99c2e0e2b1da4d648755ef19bd95139acbbe6564cfb06dec7cd34931ca72cdca6496e707574739185a448617368c42020001842d6eff5129c11f7c053bf1209f0267bf223f1681c9cb9d19fc773a692a5496e6465780ba747656e65736973c0a74465706f736974c0a44d696e74c0a74f7574707574739185a45479706500a6416d6f756e74c7050002addc961da44b65797391c4202902d1f57276eb32882066de06c0d70fc17a3cd8dc801c1c50e6d4918e39344fa6536372697074c403fffe01a44d61736bc4209515d480e6f28b79228c32db33718e1ca03750bbe7748cd3968a5d450cd743d1a54578747261c400aa5369676e6174757265739190
 ```
-运行 mixin kernel
+
+### 运行 Mixin Kernel
 - 下载最新版本 mixin https://github.com/MixinNetwork/mixin/releases
 - config.json 的 listener 里指定好自己的外部 IP 或者域名地址
 - config.json 里指定好 signer private spend key
-- 使用 systemd 运行 mixin
-- https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service
-
-参考链接: https://gist.github.com/myrual/ca5fcd85d0df35c09b3baedb0504a0ca
+- 使用 systemd 运行 mixin https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service
