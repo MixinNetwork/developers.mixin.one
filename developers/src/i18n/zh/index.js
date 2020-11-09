@@ -201,6 +201,12 @@ export default {
           ]
         },
         {
+          name: "开源案例", child: [
+            { name: "OceanONE", path: "wallet/samples/oceanone", router: "wallet/samples/oceanone" },
+            { name: "网页钱包", path: "wallet/samples/online-wallet", router: "wallet/samples/online-wallet" },
+          ]
+        },
+        {
           name: "SDK", child: [
             { name: "简介", path: "wallet/sdk/overview", router: "wallet/sdk/overview" },
             { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
