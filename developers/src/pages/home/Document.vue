@@ -179,7 +179,8 @@
   }
 
   function handleCodeHighLight() {
-    const preEl = document.querySelectorAll('code')
+    let preEl = document.querySelectorAll('code')
+    preEl = Array.from(preEl).filter(item => !!item.className)
     preEl.forEach(el => {
       let { innerText } = el
       const isBlock = el.parentNode.tagName === 'PRE'
@@ -344,11 +345,6 @@
       margin-left: 2rem;
       flex: 1;
       width: calc(100% - 17.5rem);
-    }
-
-    .hljs {
-      display: inline-block;
-      transform: translateY(7px);
     }
   }
 
