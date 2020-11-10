@@ -1,11 +1,13 @@
 # Schema 唤起
 
+机器人可以通过 Schema 唤起 Mixin Messenger 原生窗口来完成业务流程，例如支付。
+
 ### 分享
 ![](./bot-schema-share.png)
 
 `mixin://send?category=&conversation_id=&data=`
 
-机器人无法自动分享消息，如果指定 conversation_id 并且与用户当前所在会话的 conversation_id 一致会出现上图所示确认框，由用户点确认后发送；未指定 conversation_id 或者与当前会话不一致会出现用户选人的界面，由用户选择分享要分享的会话。
+机器人无法自动分享消息，如果指定 `conversation_id` 并且与用户当前所在会话的 `conversation_id` 一致会出现上图所示确认框，由用户点确认后发送；未指定 `conversation_id` 或者与当前会话不一致会出现用户选人的界面，由用户选择分享要分享的会话。
 
 - 分享文字
 
@@ -117,6 +119,6 @@
 
 ### 下一步
 
-- [JS 容器交互](/doucument/bot/get-started/js)
+- [JS 容器交互](./js)
 
-  获取当前会话 id 能有效的为用户提供不用的应用场景，而获取用户的本地化信息并进行适配能有效提升用户体验。
+  获取当前会话 id 能为用户提供不用的应用场景，而获取用户的本地化信息并加以适配能有效提升用户体验。

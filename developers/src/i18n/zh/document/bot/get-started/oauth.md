@@ -43,4 +43,4 @@ POST https://mixin-api.zeromesh.net/oauth/token
 
 ### 下一步
 
-- [获取用户数据](./oauth)
+- [获取用户数据](./api)

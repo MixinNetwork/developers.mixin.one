@@ -20,7 +20,7 @@ Mixin Messenger 除了提供端对端加密聊天和钱包功能，还支持 Tel
 
 ### 下一步
 
-- [开发 Mixin Messenger 机器人](/document/bot/get-started/setup)
+- [开发 Mixin Messenger 机器人](./get-started/create)
 
 ---
 **可以通过 Mixin Messenger 搜索 762532、493230、31911 联系我们提供帮助。**

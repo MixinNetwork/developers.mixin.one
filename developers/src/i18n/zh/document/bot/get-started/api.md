@@ -4,7 +4,7 @@
 
 `GET /me` 
 
-获取授权用户的个人基本信息，需要 `PROFILE:READ` 权限；获取用户的手机号需要 `PHONE:READ` 权限，参考[文档](/document/bot/api/profile)
+获取授权用户的个人基本信息，需要 `PROFILE:READ` 权限；获取用户的手机号需要 `PHONE:READ` 权限，参考[文档](/document/bot/api/profile)。
 
 ```json
 GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me 
@@ -39,7 +39,7 @@ GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me
 
 ### 下一步
 
-建议开发者将 user_id 存入数据库，以便在需要的时候给用户推送信息，例如重要的公告。
+建议开发者将 `user_id` 存入数据库，以便在需要的时候给用户推送信息，例如重要的公告。
 
 - [Schema 交互](./schema)
 
