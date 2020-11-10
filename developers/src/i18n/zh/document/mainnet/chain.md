@@ -12,10 +12,6 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 
 - 提现手续费是动态的，根据网络拥堵情况自动调整
 
-### 发币功能
-
-Mixin Network 本身不支持发币功能，但是支持部分公链的发币功能，所有 ERC-20、TRC-10、TRC-20 和 EOS 代币充值进来就能用。
-
 ### 公链信息
 
 | 公链名称          | 符号    | Chain Id                       | 充值地址                                              |
@@ -52,3 +48,6 @@ Mixin Network 本身不支持发币功能，但是支持部分公链的发币功
 | Ravencoin     | RVN   | 6877d485-6b64-4225-8d7e-7333393cb243 | 仅支持 RVN                                           |
 | Namecoin      | NMC   | f8b77dc0-46fd-4ea1-9821-587342475869 | 仅支持 NMC                                           |
 | MassGrid      | MGD   | b207bce9-c248-4b8e-b6e3-e357146f3f4c | 仅支持 MGD                                           |
+
+---
+Mixin Network 本身不支持发币功能，但是支持部分公链的发币功能，所有 ERC-20、TRC-10、TRC-20 和 EOS 代币充值进来就能用。
