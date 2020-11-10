@@ -56,11 +56,11 @@
 .tips-content {
   margin-left: 1.5rem;
 
-  &>div:first-child {
+  & > div:first-child {
     font-size: 0.9375rem;
   }
 
-  &>div:last-child {
+  & > div:last-child {
     font-size: 0.75rem;
     margin-top: 0.3125rem;
     color: rgba(134, 72, 54, 0.5);
@@ -86,7 +86,7 @@
   font-size: 0.9375rem;
   font-weight: 500;
 
-  &>div:first-child {
+  & > div:first-child {
     margin-bottom: 0.25rem;
   }
 }
@@ -153,13 +153,11 @@
 }
 
 
-
 @media screen and (max-width: 62.4375rem) and (min-width: 48rem) {
   .list .item {
     margin: 1rem auto 0 auto;
     width: 100%;
     max-width: 31.25rem;
-    min-width: 26.25;
   }
 }
 

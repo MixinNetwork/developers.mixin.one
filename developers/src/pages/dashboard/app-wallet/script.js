@@ -33,7 +33,7 @@ export default {
   },
   watch: {
     active_app(val) {
-      if (window.localStorage.getItem(val.app_id)) {
+      if (this.$ls.get(val.app_id)) {
         _get_assets_list.call(this)
       }
     }
@@ -53,77 +53,54 @@ export default {
     }
   },
   mounted() {
-    if (window.localStorage.getItem(this.active_app.app_id)) {
+    if (this.$ls.get(this.active_app.app_id)) {
       _get_assets_list.call(this)
     }
   },
 }
 
-function _get_assets_list() {
+async function _get_assets_list() {
   this.whole_loading = true
-  let _client_info_str = window.localStorage.getItem(this.active_app.app_id)
-  try {
-    let assets_token = _get_assets_token.call(this, _client_info_str)
-    _vm._not_through_interceptor = true
-    this.apis.get_assets(assets_token).then(res => {
-      if (res) {
-        res = res.sort(compare)
-        this.assets_list = res
-        this.is_edited = true
-        this.open_edit_modal = false
-      } else {
-        this.is_edited = false
-        this.open_edit_modal = true
-        window.localStorage.removeItem(this.active_app.app_id)
-      }
-      _vm._not_through_interceptor = false
-    }).finally(_ => {
-      this.whole_loading = false
-    })
-  } catch (e) {
-    window.localStorage.removeItem(this.active_app.app_id)
+  let client_info = this.$ls.get(this.active_app.app_id)
+  if (!client_info) {
+    this.is_edited = false
     this.open_edit_modal = true
     this.whole_loading = false
-    this.is_edited = false
+    return
   }
-}
-
-function _get_assets_token(_client_info_str) {
-  let _client_info = JSON.parse(_client_info_str)
-  let get_token_obj = {
-    uid: this.active_app.app_id,
-    sid: _client_info.sid,
-    privateKey: _client_info.privateKey
+  let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
+  _vm._not_through_interceptor = true
+  try {
+    let res = await this.apis.get_assets(assets_token)
+    if (res) {
+      this.assets_list = res.sort(compare)
+      this.is_edited = true
+      this.open_edit_modal = false
+    } else {
+      this.is_edited = false
+      this.open_edit_modal = true
+      this.$ls.rm(this.active_app.app_id)
+    }
+  } finally {
+    this.whole_loading = false
+    _vm._not_through_interceptor = false
   }
-  return tools.getJwtToken(get_token_obj, 'get', 'https://api.mixin.one/assets')
 }
 
 function compare(a, b) {
-  let cmp = 0;
-  let ap = new BigNumber(a.balance).times(a.price_usd);
-  let bp = new BigNumber(b.balance).times(b.price_usd);
-  if (ap.gt(bp)) {
-    cmp = -1
-  } else if (ap.lt(bp)) {
-    cmp = 1
-  }
-  if (cmp === 0) {
-    ap = new BigNumber(a.balance)
-    bp = new BigNumber(b.balance)
-    if (ap.gt(bp)) {
-      cmp = -1
-    } else if (ap.lt(bp)) {
-      cmp = 1
-    }
-  }
-  if (cmp === 0) {
-    ap = new BigNumber(a.price_usd)
-    bp = new BigNumber(b.price_usd)
-    if (ap.gt(bp)) {
-      cmp = -1
-    } else if (ap.lt(bp)) {
-      cmp = 1
-    }
-  }
+  let cmp = 0
+  let ap = new BigNumber(a.balance).times(a.price_usd)
+  let bp = new BigNumber(b.balance).times(b.price_usd)
+  cmp = calc_cmp(ap, bp)
+  if (cmp === 0) cmp = calc_cmp(a.balance, b.balance)
+  if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
   return cmp
+
+  function calc_cmp(a, b) {
+    a = new BigNumber(a)
+    b = new BigNumber(b)
+    if (a.gt(b)) return -1
+    if (a.lt(b)) return 1
+    return 0
+  }
 }

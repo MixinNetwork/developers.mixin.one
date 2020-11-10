@@ -62,19 +62,18 @@ async function _submit_to_database() {
   let capabilities = this.immersive_status ? ['CONTACT', 'GROUP', 'IMMERSIVE'] : ['CONTACT', 'GROUP']
   let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
-  let icon_base64 = await this.$refs.croppie.crop();
+  let icon_base64 = await this.$refs.croppie.crop()
   if (icon_base64) {
-    parmas.icon_base64 = icon_base64.substring(icon_base64.split('').findIndex(item => item === ',') + 1);
+    parmas.icon_base64 = icon_base64.substring(icon_base64.indexOf(',') + 1)
   }
   if (!resource_patterns) {
     parmas.resource_patterns = []
   } else {
-    if (resource_patterns.includes('\r\n')) {
+    if (resource_patterns.includes('\r\n')) 
       resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
-    }
     parmas.resource_patterns = resource_patterns.split('\n')
   }
-  once_submit = true;
+  once_submit = true
   this.$emit('loading', true)
   try {
     let res = await this.apis.set_app(app_id, parmas)
@@ -93,9 +92,9 @@ function _check_is_finished() {
   let { app_name, active_app } = this
   let { home_uri, redirect_uri, description } = active_app
   if (app_name && home_uri && redirect_uri && description && app_name.length >= 2 && app_name.length <= 64 && description.length >= 16 && description.length <= 128) {
-    this.can_save = true;
+    this.can_save = true
   } else {
-    this.can_save = false;
+    this.can_save = false
   }
 }
 

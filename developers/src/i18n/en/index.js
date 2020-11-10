@@ -317,6 +317,7 @@ export default {
       0: "Network error.",
       401: 'Unauthorized, maybe invalid token.',
       403: "Access denied.",
+      404: "The endpoint is not found.",
       429: "Your requests exceed the rate limit, please try again later.",
       500: "Internal server error.",
       10001: "Internal server error.",

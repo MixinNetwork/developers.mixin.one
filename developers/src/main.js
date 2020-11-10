@@ -8,6 +8,7 @@ import _const from '@/assets/js/const'
 import VueClipboard from 'vue-clipboard2'
 import i18n from '@/i18n'
 import { Message, Loading } from 'element-ui'
+import ls from '@/assets/js/localStorage'
 
 import VueCroppie from 'vue-croppie'
 import 'croppie/croppie.css'
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.apis = apis
 Vue.prototype._const = _const
+Vue.prototype.$ls = ls
 
 new Vue({
   render: h => h(App),
