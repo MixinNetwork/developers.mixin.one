@@ -45,7 +45,7 @@ console.log(assets)
 ```
 
 ### 常见问题
-- query_assets当需要查询所有资产时，请传入空对象
+- `query_assets` 当需要查询所有资产时，请传入空对象
 
 ---
 本 SDK 由 Mixin 团队开发和维护，如有使用问题可以联系 MixinID: `30265`

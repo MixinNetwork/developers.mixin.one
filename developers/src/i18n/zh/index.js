@@ -190,7 +190,6 @@ export default {
         { name: "简介", path: "wallet/overview", router: "wallet/overview" },
         {
           name: "开发教程", child: [
-            { name: "注册开发者", path: "wallet/get-started/setup", router: "wallet/get-started/setup" },
             { name: "新建钱包", path: "wallet/get-started/create-app", router: "wallet/get-started/create-app" },
             { name: "生成用户", path: "wallet/get-started/create-network-user", router: "wallet/get-started/create-network-user" },
             { name: "授权访问", path: "wallet/get-started/authentication-token", router: "wallet/get-started/authentication-token" },

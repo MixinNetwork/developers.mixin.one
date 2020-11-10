@@ -1,6 +1,6 @@
 ### Mixin 钱包
 
-基于 Mixin Network 的钱包可快速构建去中心化钱包、去中心化链上交易所等产品。
+基于 Mixin Network 可快速构建去中心化钱包、去中心化链上交易所等产品。
 
 ### 特点
 - **安全** - 开源的 PoS 去中心化网络，TEE 硬件加固，数万轻节点监督全节点防止作恶
@@ -15,7 +15,7 @@
 
 ### 下一步
 
-- [将 Mixin 钱包集成到您的产品](/document/wallet/get-started/setup)
+- [将 Mixin 钱包集成到您的产品](./get-started/create-app)
 
 ---
 **可以通过 Mixin Messenger 搜索 762532、493230、31911 联系我们提供帮助。**

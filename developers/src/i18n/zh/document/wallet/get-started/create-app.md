@@ -1,12 +1,12 @@
 # 新建 Mixin 钱包
 
-进入[开发者后台](/dashboard)，点左侧「新应用」按提示创建应用，首页网址、验证网址等参数一般用于 Mixin Messenger 这里用不上随意写就行。
+下载 [Mixin Messenger](https://mixin-www.zeromesh.net/messenger)，打开[开发者后台](/dashboard)扫码登录，点左侧「新应用」按提示创建应用，首页网址、验证网址等参数一般用于 Mixin Messenger 这里用不上随意写就行。
 
 每个开发者账号可免费创建 2 个应用，可付费创建更多。
 
 ### 生成密钥
 
-切换到「密钥」点「应用 Session」生成应用的 PIN，Session ID，PinToken，私钥等敏感信息，后面步骤都需要用到，请妥善保管。
+切换到「密钥」点「应用 Session」生成应用的 PIN，Session ID，PinToken，私钥等敏感信息：
 
 ```json
 {

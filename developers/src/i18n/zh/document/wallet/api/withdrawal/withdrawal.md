@@ -5,7 +5,7 @@
 请求 Body 数据
 
 | 参数 | 类型 | 介绍 |
-| :----- | :----: | :---- |
+| :----- | :---- | :---- |
 | address_id | UUID String | 提现地址 id |
 | amount | String | 提现金额，例如"100000" |
 | pin | String | 加密后的 PIN |
