@@ -7,7 +7,7 @@ let instance = axios.create({
 
 instance.interceptors.request.use(config => {
   !config.headers.Authorization && (config.headers.Authorization = 'Bearer ' + window.localStorage.getItem("token"))
-  return config;
+  return config
 })
 
 instance.interceptors.response.use((res) => {
@@ -27,7 +27,7 @@ instance.interceptors.response.use((res) => {
         window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code&redirect_uri=https://developers.mixin.one/auth`
       }, 100)
     }
-    return;
+    return
   }
   return data.data
 }, err => {
@@ -49,8 +49,8 @@ function backOff() {
 
 async function retry(config) {
   await backOff()
-  return await instance(config)
+  return instance(config)
 }
 
-export default instance;
+export default instance
 

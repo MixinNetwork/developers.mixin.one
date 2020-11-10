@@ -25,7 +25,8 @@
           v-if="item.icon_url"
           @click="click_withdrawal(item)"
           class="withdrawal primary"
-        >{{$t('button.withdrawal')}}</button>
+        >{{$t('button.withdrawal')}}
+        </button>
       </div>
       <div v-if="assets_list.length" class="list-bottom-tips">
         <div>{{$t('wallet.des_1')}}</div>
@@ -54,5 +55,5 @@
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
 <style lang='scss' scoped>
-@import "./style.scss";
+  @import "./style.scss";
 </style>
