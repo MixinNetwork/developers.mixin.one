@@ -22,7 +22,7 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOi
       "tag": "",
       "label": "",
       "price_btc":"0",
-      "price_usd":"0"
+      "price_usd":"0",
       "change_btc": "1",
       "change_usd": "2",
       "asset_key": "",

@@ -46,9 +46,8 @@ curl -i --header "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJ
       "data":"",
       "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
       "source":"TRANSFER_INITIALIZED",
-      "type":"snapshot"
-      // Options only for user (or App) who has access.
-      "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
+      "type":"snapshot",
+      "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09", // Options only for user (or App) who has access.
       "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
       "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
       "data":"Transfer!"
