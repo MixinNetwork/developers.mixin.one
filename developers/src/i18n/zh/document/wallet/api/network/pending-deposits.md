@@ -13,7 +13,7 @@
 | offset | String | 分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z` |
 
 ```
-curl -i -H "Content-Type: application/json" "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
+$$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
 ```
 
 ```json

@@ -13,7 +13,7 @@ Read external transactions (pending deposits) by `destination`, `tag` and `asset
 | offset | String | format RFC3339Nano, e.g.: 2006-01-02T15:04:05.999999999Z |
 
 ```
-curl -i -H "Content-Type: application/json" "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
+$$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
 ```
 
 ```json

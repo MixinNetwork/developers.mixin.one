@@ -5,7 +5,7 @@
 ### `GET /network/assets/top` 
 
 ```
-curl -i --header "Content-Type: application/json" --header "Content-length: 0" "https://api.mixin.one/network/assets/top"
+$$XIN:curl$$ "https://api.mixin.one/network/assets/top"
 ```
 
 ```json

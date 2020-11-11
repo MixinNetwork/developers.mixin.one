@@ -5,7 +5,7 @@
 ### `GET /network/assets/search/:q` 
 
 ```
-curl -i -H "Content-Type: application/json" "https://api.mixin.one/network/assets/search/eos"
+$$XIN:curl$$ "https://api.mixin.one/network/assets/search/eos"
 ```
 
 ```json

@@ -9,7 +9,7 @@ GET /snapshots/:id
 ```
 
 ```curl
-curl -i --header "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjc0OTA5MDgsImlhdCI6MTUyNzQ5MDg0OCwianRpIjoiNjNhOWY1NjUtZDA1Zi00NTJjLWFhY2QtY2IxOTUyMDk3YzY1Iiwic2lkIjoiYWM2ZDFmODYtYTY0Yi00NWRkLTllZmEtN2JmMGVjZjI2MDU2Iiwic2lnIjoiZjYyMDU4ZjY2MDRhZTllMjlmZDZiZDExNmM3OGQwZDBhNDVmYzYwZTMwOWY1MWZhYzk3NWY3YzQ4ZjMzNTAzNiIsInVpZCI6IjMxYjFhMTdjLWFiMzgtNGFhNC05YmM5LWY0NjQyNzEyODExMyJ9.ZGOEeOjZ_70YU-VDcZ6e3h_u8q4rBfeMYaTpXGh1VPO3hyfeVHsK4UZpbevta9Z8N9rp3BCL-Mwu1KswhzIM7Wc4gfN7p9sSn5Ik0lI-SsvOlsplgbVrgzk8AE14lXxtOZ_cvbLj6_stOUJq2OQ16wEI7TNBQu6AK0MqxHYSzSU" --header "Content-Type: application/json" --header "Content-length: 0" "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
+$$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
 ```
 
 ```json
@@ -46,7 +46,7 @@ GET /transfers/trace/:id
 该接口只能查询转账，不能查询充值、提现。
 
 ```
-curl -i -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMxMTk4MzMsImlhdCI6MTUyNTM0MzgzMywianRpIjoiNTk0ZTBhNmQtMWI2OC00NzQ4LTg2ZWYtYjM5MzQyMTY5ZGQ3Iiwic2lkIjoiYTM0YzA3YTktNzU1ZC00YjU0LTk0YzUtZTQ1ZTlhMmRkNDNlIiwic2lnIjoiMDJhYTE2MTNjMjVlOTNiMGI2OTE1MmUyNTYxOGIyMDQwMGFhYTYyYWIzNGYxYWM2NWJjYzQ2NmY0YjI0ZTM2MCIsInVpZCI6IjA2YWVkMWUzLWJkNzctNGE1OS05OTFhLTViYjVhZTZmYmIwOSJ9.O73fS4WJJG8sFy3heqZoBGTvkQH8iIswsmm6ZK-yRZZXPRQ_miqjB12Wyc-IzFiUqT_63MeH4PspQZ3I9DEie252eiaRluoLzIWPDeq0Wjsp_MtkX4J0nIluAGtQFLNAf8r6pJaT_qqleUieM4DyndIxlkHtloico0Zqp7b3Q3c" "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
+$$XIN:curl$$ "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
 ```
 
 ```json

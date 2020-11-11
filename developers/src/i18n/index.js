@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import zh from './zh'
 import en from './en'
@@ -10,7 +10,8 @@ let language = lang || (navigator.language.includes('zh') ? 'zh' : 'en')
 if (!lang) window.localStorage.setItem('lang', language)
 const i18n = new VueI18n({
   locale: language,
-  messages: { en, zh }
+  messages: { en, zh },
+  fallbackLocale: 'en'
 })
 
 export default i18n

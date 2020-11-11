@@ -26,7 +26,7 @@
 | tag | OPTION |
 
 ```
-curl -i --header "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjc1ODYyODQsImlhdCI6MTUyNzU4NjIyNCwianRpIjoiMjZlMjQyM2QtZGUzMC00MTA0LTkyZTQtOTk2MzczOWRkZGE5Iiwic2lkIjoiYWM2ZDFmODYtYTY0Yi00NWRkLTllZmEtN2JmMGVjZjI2MDU2Iiwic2lnIjoiMGIxNGJlZTU5YjE1ODU0MjI1ZTc5ZTU4ZDQwMjZkNDJhYWUyY2Q4ODM4OWE1N2RhNjU4YTRlMjVhNzJlNjRlZSIsInVpZCI6IjMxYjFhMTdjLWFiMzgtNGFhNC05YmM5LWY0NjQyNzEyODExMyJ9.0OUDLd0E1SKslsBJ5nHDE3bC9XKQc_6PPSqBD6Z2E9XYMjQyGht3QWF-uQLohCwbtR_Q7w3_my5MoWM4UyHtWlYh8-mJwg54VFWlhLuFLcWTeG8P971WGVc8oOqNspsEnxDxdBezQVqF1N-XjUtJsVsyJkT6ZEX7VazRm2I2xMM" --header "Content-Type: application/json" --header "Content-length: 0" "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
+$$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
 ```
 
 ```json

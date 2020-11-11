@@ -5,7 +5,7 @@ Read public asset information by `asset_id` from Mixin Network.
 ### `GET /network/assets/:id` 
 
 ```
-curl -i --header "Content-Type: application/json" "https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8"
+$$XIN:curl$$ "https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8"
 ```
 
 ```json
