@@ -38,7 +38,7 @@ XIN 是 ERC-20 代币，总量恒定 100 万。
 
 ### 交易
 
-- 4swap，Mixin Messenger 中搜索机器人 7000103537，XIN 相关交易对资金池超过百万美元
+- 4swap，Mixin Messenger 中搜索机器人 7000103537，XIN 相关交易对资金池超过 2 百万美元
 - ExinSwap，Mixin Messenger 中搜索机器人 7000102352，XIN-USDT 交易对资金池超过百万美元
 - [BigONE](https://big.one/trade/XIN-EOS)
 - [WhaleEx 鲸交所](https://www.whaleex.com/trade/XIN_USDT)
