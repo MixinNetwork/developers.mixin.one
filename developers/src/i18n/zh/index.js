@@ -218,6 +218,7 @@ export default {
         },
         {
           name: "API", child: [
+            { name: "简介", path: "wallet/api/overview", router: "wallet/api/overview" },
             { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
             { name: "PIN 密码", path: "wallet/api/pin", router: "wallet/api/pin" },
             { name: "资产", child: [
@@ -250,6 +251,7 @@ export default {
               { name: "搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
             ]},
             { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "错误码", path: "wallet/api/error-codes", router: "wallet/api/error-codes" },
           ]
         },
       ]
