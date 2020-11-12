@@ -91,10 +91,9 @@
                   <span
                     v-for="(item,index) in nav_list"
                     :key="index"
-                    :class="['header-item', (nav_header_index === index ? 'herader-item-active':'')]"
+                    :class="['header-item', (nav_header_index === index ? 'header-item-active':'')]"
                     @click="change_router(index)"
                   >{{$t(item + '.title')}}</span>
-                  <div class="move-slider"></div>
                 </template>
               </div>
             </header>
@@ -149,15 +148,18 @@
         <button
           @click="click_buy_item(1)"
           class="btns-save primary"
-        >{{$t('dashboard.buy.btn',{count:1})}}</button>
+        >{{$t('dashboard.buy.btn',{count:1})}}
+        </button>
         <button
           @click="click_buy_item(2)"
           class="btns-save primary"
-        >{{$t('dashboard.buy.btns',{count:2})}}</button>
+        >{{$t('dashboard.buy.btns',{count:2})}}
+        </button>
         <button
           @click="click_buy_item(5)"
           class="btns-save primary"
-        >{{$t('dashboard.buy.btns',{count:5})}}</button>
+        >{{$t('dashboard.buy.btns',{count:5})}}
+        </button>
       </div>
     </d-modal>
   </div>
@@ -166,5 +168,5 @@
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
 <style lang='scss' scoped>
-@import "./style.scss";
+  @import "./style.scss";
 </style>

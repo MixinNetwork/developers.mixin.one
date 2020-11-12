@@ -170,28 +170,167 @@ export default {
   },
   documentation: [
     {
-      name: "概念",
-      path: "concepts/overview",
-      router: "/",
+      name: "主网",
+      path: "mainnet",
+      router: "mainnet",
       child: [
-        { name: "简介", path: "concepts/overview", router: "concepts/overview" },
-        { name: "公链", path: "concepts/chain", router: "concepts/chain" },
-        { name: "D3M-PIN", path: "concepts/d3m-pin", router: "concepts/d3m-pin" },
+        { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
+        { name: "公链", path: "mainnet/chain", router: "mainnet/chain" },
+        { name: "XIN", path: "mainnet/xin", router: "mainnet/xin" },
+        { name: "加入主网", path: "mainnet/full-node-join", router: "mainnet/full-node-join" },
+        /*{ name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },*/
+        /*{ name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },*/
+        { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
       ]
     },
     {
-      name: "教程",
-      path: "tutorials",
-      router: "tutorials",
+      name: "钱包",
+      path: "wallet",
+      router: "wallet",
       child: [
-        { name: "钱包开发指南", path: "tutorials/dapp-guide", router: "tutorials/dapp-guide" },
-        { name: "机器人开发指南", path: "tutorials/bot-guide", router: "tutorials/bot-guide" },
-        { name: "全节点加入指南", path: "tutorials/full-node-join", router: "tutorials/full-node-join" },
+        { name: "简介", path: "wallet/overview", router: "wallet/overview" },
+        {
+          name: "开发教程", child: [
+            { name: "新建钱包", path: "wallet/get-started/create-app", router: "wallet/get-started/create-app" },
+            { name: "生成用户", path: "wallet/get-started/create-network-user", router: "wallet/get-started/create-network-user" },
+            { name: "授权访问", path: "wallet/get-started/authentication-token", router: "wallet/get-started/authentication-token" },
+            { name: "设置密码", path: "wallet/get-started/pin", router: "wallet/get-started/pin" },
+            { name: "用户资产", path: "wallet/get-started/assets", router: "wallet/get-started/assets" },
+            { name: "用户转账", path: "wallet/get-started/transfer", router: "wallet/get-started/transfer" },
+            { name: "充值提现", path: "wallet/get-started/deposit-withdrawal", router: "wallet/get-started/deposit-withdrawal" },
+          ]
+        },
+        {
+          name: "开源案例", child: [
+            { name: "OceanONE", path: "wallet/samples/oceanone", router: "wallet/samples/oceanone" },
+            { name: "网页钱包", path: "wallet/samples/online-wallet", router: "wallet/samples/online-wallet" },
+          ]
+        },
+        {
+          name: "SDK", child: [
+            { name: "简介", path: "wallet/sdk/overview", router: "wallet/sdk/overview" },
+            { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
+            { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
+            { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
+            { name: "PHP", path: "wallet/sdk/php", router: "wallet/sdk/php" },
+            { name: "Ruby", path: "wallet/sdk/ruby", router: "wallet/sdk/ruby" },
+          ]
+        },
+        {
+          name: "API", child: [
+            { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
+            { name: "PIN 密码", path: "wallet/api/pin", router: "wallet/api/pin" },
+            { name: "资产", child: [
+              { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
+              { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+            ]},
+            { name: "转账", child: [
+              { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
+              { name: "转账记录", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
+              { name: "转账详情", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
+            ]},
+            { name: "提现", child: [
+              { name: "新增提现地址", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
+              { name: "删除提现地址", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
+              { name: "提现地址详情", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
+              { name: "提现地址列表", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
+              { name: "提现", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
+              { name: "提现手续费", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
+            ]},
+            { name: "多重签名", child: [
+              { name: "查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+              { name: "多签", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
+            ]},
+            { name: "公开数据", child: [
+              { name: "全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+              { name: "转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+              { name: "资产排名", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
+              { name: "资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+              { name: "搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
+            ]},
+            { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+          ]
+        },
       ]
     },
     {
-      name: "API 文档",
-      router: "/api"
+      name: "机器人",
+      path: "bot",
+      router: "bot",
+      child: [
+        { name: "简介", path: "bot/overview", router: "bot/overview" },
+        {
+          name: "开发教程", child: [
+            { name: "新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
+            { name: "OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
+            { name: "访问用户数据", path: "bot/get-started/api", router: "bot/get-started/api" },
+            { name: "Schema 唤起", path: "bot/get-started/schema", router: "bot/get-started/schema" },
+            { name: "JS 容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
+            { name: "收发消息", path: "bot/get-started/websocket", router: "bot/get-started/websocket" },
+          ]
+        },
+        {
+          name: "设计指南", child: [
+            { name: "概述", path: "bot/design/overview", router: "bot/design/overview" },
+            { name: "用户交互", path: "bot/design/user-interaction", router: "bot/design/user-interaction" },
+            { name: "标题栏", path: "bot/design/title-bar", router: "bot/design/title-bar" },
+            { name: "悬浮菜单", path: "bot/design/floating-menu", router: "bot/design/floating-menu" },
+            { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
+            { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
+            { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+          ]
+        },
+        {
+          name: "开源案例", child: [
+            { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
+            { name: "Mixin 中文群", path: "bot/samples/super-group", router: "bot/samples/super-group" },
+          ]
+        },
+        {
+          name: "API", child: [
+            { name: "个人信息", path: "bot/api/profile", router: "bot/api/profile" },
+            { name: "用户", child: [
+              { name: "获取用户信息", path: "bot/api/users/user", router: "bot/api/users/user" },
+              { name: "批量获取用户", path: "bot/api/users/users", router: "bot/api/users/users" },
+              { name: "关系", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
+              { name: "搜索", path: "bot/api/users/search", router: "bot/api/users/search" },
+              { name: "联系人", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
+              { name: "屏蔽名单", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
+            ]},
+            { name: "会话", child: [
+              { name: "创建", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
+              { name: "读取", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
+              { name: "更新", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+            ]},
+            { name: "资产", child: [
+              { name: "资产列表", path: "bot/api/assets/list", router: "bot/api/assets/list" },
+              { name: "资产详情", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "转账记录", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
+              { name: "通过 id 获取转账详情", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+              { name: "通过 trace 获取转账详情", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
+              { name: "手续费", path: "bot/api/assets/fee", router: "bot/api/assets/fee" },
+            ]},
+            { name: "消息", child: [
+              { name: "类型", path: "bot/api/messages/category", router: "bot/api/messages/category" },
+              { name: "上传附件", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
+              { name: "下载附件", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
+              { name: "批量发状态", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
+              { name: "批量发消息", path: "bot/api/messages/send", router: "bot/api/messages/send" },
+            ]},
+            { name: "分享机器人", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
+            { name: "错误码", path: "bot/api/error-codes", router: "bot/api/error-codes" },
+          ]
+        },
+      ]
+    },
+    {
+      name: "知识库",
+      path: "knowledge",
+      router: "knowledge",
+      child: [
+        { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
+      ]
     }
   ],
 
@@ -313,6 +452,7 @@ export default {
       0: "网络错误。",
       401: '请求未经授权，可能是无效的令牌。',
       403: "拒绝访问。",
+      404: "请求未找到",
       429: "您的请求超出了速率限制，请稍后重试。",
       500: "服务器内部错误。",
       10001: "服务器内部错误。",

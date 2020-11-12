@@ -1,0 +1,166 @@
+
+.api-page {
+  font-family: "SF Pro Text", sans-serif;
+  background-color: #fff;
+}
+
+section {
+  max-width: 60rem;
+  margin: 3.25rem auto;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+.path {
+  border: 0;
+}
+
+/deep/ {
+  .el-menu {
+    background: #f5f7fa;
+    min-width: 17.5rem;
+    max-width: 17.5rem;
+    border-radius: 20px;
+    padding: 8px 4px;
+  }
+
+
+  .el-submenu__title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+    right: 1.25rem;
+    background-image: url("~@/assets/img/svg/triangle.svg");
+    background-repeat: no-repeat;
+    width: 6px;
+    height: 10px;
+  }
+
+  .el-submenu.is-opened > .el-submenu__title:before {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .el-icon-arrow-down:before {
+    display: none;
+  }
+
+  .el-menu-item {
+    padding: 0 !important;
+    box-sizing: border-box;
+    min-width: initial;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+
+
+  .el-menu-item.is-active {
+    color: #4B7CDD;
+    background-color: #fff;
+  }
+
+  .content-path {
+    margin: 5px 30px 5px 40px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    .content-a {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+
+  .one-path {
+    overflow: hidden;
+
+    .el-submenu__title {
+      height: 56px;
+      font-size: 16px;
+      line-height: 56px;
+    }
+
+    &.content-path {
+      margin: 5px 10px;
+    }
+  }
+
+
+  .two-path {
+    font-size: 16px;
+
+    & > .el-submenu__title {
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      padding-left: 40px !important;
+    }
+
+    .el-submenu__title:before {
+      left: 1.25rem;
+    }
+
+    &.content-path {
+      margin: 5px 25px 5px 20px;
+    }
+  }
+
+  .three-path {
+    .el-submenu__title {
+      font-size: 16px;
+      line-height: 40px;
+      height: 40px;
+    }
+
+    .el-submenu__title:before {
+      left: 2.25rem;
+    }
+  }
+
+  .four-path {
+    margin: 5px 30px 5px 60px;
+  }
+
+  .container {
+    margin-left: 2rem;
+    flex: 1;
+    width: calc(100% - 17.5rem);
+  }
+}
+
+.content-a {
+  display: block;
+  width: 100%;
+  padding-left: 20px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  section {
+    max-width: 50rem;
+  }
+}
+
+@media screen and (max-width: 60rem) {
+  nav {
+    display: none;
+  }
+  section {
+    max-width: 40rem;
+  }
+  .container {
+    margin: 0 2rem;
+  }
+}
