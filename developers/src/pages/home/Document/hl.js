@@ -54,6 +54,6 @@ function handlePartial(el) {
       target = target.replace(space + text, `${space}${JSON.stringify(partial[exp], null, space + '   ').slice(0, -2)}\n${space}}`)
     }
   })
-  el.innerText = target
+  el.innerHTML = target
   return !!el.className
 }
