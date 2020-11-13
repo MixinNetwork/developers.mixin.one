@@ -175,12 +175,23 @@ export default {
       router: "mainnet",
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
-        { name: "公链", path: "mainnet/chain", router: "mainnet/chain" },
-        { name: "XIN", path: "mainnet/xin", router: "mainnet/xin" },
-        { name: "加入主网", path: "mainnet/full-node-join", router: "mainnet/full-node-join" },
-        /*{ name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },*/
-        /*{ name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },*/
-        { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+        { name: "概念", child: [
+          { name: "公链", path: "mainnet/chain", router: "mainnet/chain" },
+          { name: "XIN", path: "mainnet/xin", router: "mainnet/xin" },
+          { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+          /*
+          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/xin" },
+          { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
+          { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
+          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" }
+          { name: "PoS", path: "mainnet/pos", router: "mainnet/pos" }
+          { name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },
+          */
+        ]},
+        { name: "教程", child: [
+          { name: "加入主网", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
+          { name: "提交图标", path: "mainnet/tutorials/submit-asset-icon", router: "mainnet/tutorials/submit-asset-icon" },
+        ]},
       ]
     },
     {
