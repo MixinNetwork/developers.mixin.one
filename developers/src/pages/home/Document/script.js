@@ -36,6 +36,7 @@ function handlePathInit(pathMatch) {
     require("@/assets/js/animate-up").default()
     handleCodeHighLight()
     window.addEventListener('scroll', navAutoMove)
+    document.documentElement.scrollTop = 0
   })
   pathMatch = pathMatch ? pathMatch.substr(1) : "mainnet/overview"
   let { locale, messages } = this.$i18n
