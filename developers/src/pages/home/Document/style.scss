@@ -30,7 +30,6 @@ a:hover {
     background: #f5f7fa;
     min-width: 17.5rem;
     max-width: 17.5rem;
-    border-radius: 20px;
     padding: 8px 4px;
   }
 
@@ -83,7 +82,19 @@ a:hover {
   }
 
   .one-path {
-    overflow: hidden;
+    max-height: 80vh;
+    overflow: hidden auto;
+    border-radius: 10px;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #c8c8c8;
+    }
 
     .el-submenu__title {
       height: 56px;
