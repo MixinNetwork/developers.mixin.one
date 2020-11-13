@@ -6,7 +6,6 @@
       <el-menu
         :default-active="active_path"
         class="path one-path"
-        unique-opened
       >
         <template v-for="(item, widx) in $t('documentation')">
           <el-submenu
