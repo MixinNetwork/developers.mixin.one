@@ -8,7 +8,7 @@ $ git clone https://github.com/MixinNetwork/mixin.git
 $ cd mixin
 $ go build
 ```
-编译成功后使用 `./mixin createaddress -public` 生成两个私钥和地址，一个用来打包签名主网交易称为 signer ，另一个用来接受挖矿收益称为 payee。请妥善备份和保管 address, view key, spend key。
+编译成功后使用 `./mixin createaddress -public` 生成两个私钥和地址，一个用来打包签名主网交易称为 signer ，另一个用来接受挖矿收益称为 payee。请妥善备份和保管 address、view key、spend key。
 ```
 $ ./mixin createaddress -public
 
@@ -19,7 +19,7 @@ spend key: c0619ce9c6fad9d2b6f7f4c0e676aed8f4d07b422e5fa55fee6154961954be0c
 
 发起加入主网的地址可以是 signer、payee 或者别的地址都可以没有要求，但是节点到期或中途退出节点币会退回到 payee 的地址。
 
-**注意：节点每年的迭代必须要更换新的 signer 的 key， payee 的 key 没有要求。**
+`$$\color{red}{注意：节点每年的迭代必须要更换新的\;signer\;的\;key，\;payee\;的\;key\;没有要求。}$$`
 
 ### 中转抵押代币
 
