@@ -9,7 +9,7 @@ export default {
         '<b>安全&nbsp;-&nbsp;</b>所有资产都安全的存储在 PoS-BFT-DAG 分布式网络中',
         '<b>高性能&nbsp;-&nbsp;</b>超过 1,000,000 TPS 的容量，数据最终确认小于 1 秒',
         '<b>隐私&nbsp;-&nbsp;</b>交易使用 CryptoNote 协议，聊天使用 Signal 协议',
-        '<b>强大&nbsp;-&nbsp;</b>支持 28 条公链，例如 BTC，ETH，EOS，DASH，ZEC，XMR 等。',
+        '<b>强大&nbsp;-&nbsp;</b>支持 32 条公链，例如 BTC，ETH，EOS，DASH，ZEC，XMR 等。',
         '<b>免费&nbsp;-&nbsp;</b>没有交易手续费。',
         '<b>便捷&nbsp;-&nbsp;</b>6 位数字密码轻松管理资产',
         '<b>多重签名&nbsp;-&nbsp;</b>适用于多人团队共同管理大额数字资产和 C2C 交易',
@@ -175,12 +175,23 @@ export default {
       router: "mainnet",
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
-        { name: "公链", path: "mainnet/chain", router: "mainnet/chain" },
-        { name: "XIN", path: "mainnet/xin", router: "mainnet/xin" },
-        { name: "加入主网", path: "mainnet/full-node-join", router: "mainnet/full-node-join" },
-        /*{ name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },*/
-        /*{ name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },*/
-        { name: "D3M-PIN", path: "mainnet/d3m-pin", router: "mainnet/d3m-pin" },
+        { name: "概念", child: [
+          { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
+          { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
+          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
+          /*
+          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
+          { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
+          { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
+          { name: "PoS", path: "mainnet/concepts/pos", router: "mainnet/concepts/pos" }
+          { name: "多重签名", path: "mainnet/concepts/multisigs", router: "mainnet/concepts/multisigs" },
+          */
+        ]},
+        { name: "教程", child: [
+          { name: "加入主网", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
+          { name: "提交图标", path: "mainnet/tutorials/submit-asset-icon", router: "mainnet/tutorials/submit-asset-icon" },
+        ]},
       ]
     },
     {
@@ -218,6 +229,7 @@ export default {
         },
         {
           name: "API", child: [
+            { name: "简介", path: "wallet/api/overview", router: "wallet/api/overview" },
             { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
             { name: "PIN 密码", path: "wallet/api/pin", router: "wallet/api/pin" },
             { name: "资产", child: [
@@ -250,6 +262,7 @@ export default {
               { name: "搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
             ]},
             { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "错误码", path: "wallet/api/error-codes", router: "wallet/api/error-codes" },
           ]
         },
       ]
@@ -285,6 +298,7 @@ export default {
           name: "开源案例", child: [
             { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
             { name: "Mixin 中文群", path: "bot/samples/super-group", router: "bot/samples/super-group" },
+            { name: "Mixcoin", path: "bot/samples/mixcoin", router: "bot/samples/mixcoin" },
           ]
         },
         {

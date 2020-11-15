@@ -8,7 +8,7 @@ $ git clone https://github.com/MixinNetwork/mixin.git
 $ cd mixin
 $ go build
 ```
-编译成功后使用 `./mixin createaddress -public` 生成两个私钥和地址，一个用来打包签名主网交易称为 signer ，另一个用来接受挖矿收益称为 payee。请妥善备份和保管 address, view key, spend key。
+编译成功后使用 `./mixin createaddress -public` 生成两个私钥和地址，一个用来打包签名主网交易称为 signer ，另一个用来接受挖矿收益称为 payee。请妥善备份和保管 address、view key、spend key。
 ```
 $ ./mixin createaddress -public
 
@@ -19,7 +19,7 @@ spend key: c0619ce9c6fad9d2b6f7f4c0e676aed8f4d07b422e5fa55fee6154961954be0c
 
 发起加入主网的地址可以是 signer、payee 或者别的地址都可以没有要求，但是节点到期或中途退出节点币会退回到 payee 的地址。
 
-**注意：节点每年的迭代必须要更换新的 signer 的 key， payee 的 key 没有要求。**
+`$$\color{red}{注意：节点每年的迭代必须要更换新的\;signer\;的\;key，\;payee\;的\;key\;没有要求。}$$`
 
 ### 中转抵押代币
 
@@ -98,6 +98,13 @@ pledge 交易是申请加入主网的特殊交易。
   ```
   ./mixin -n 35.234.74.25:8239 sendrawtransaction -raw 86a756657273696f6e01a54173736574c420a99c2e0e2b1da4d648755ef19bd95139acbbe6564cfb06dec7cd34931ca72cdca6496e707574739185a448617368c42020001842d6eff5129c11f7c053bf1209f0267bf223f1681c9cb9d19fc773a692a5496e6465780ba747656e65736973c0a74465706f736974c0a44d696e74c0a74f7574707574739185a45479706500a6416d6f756e74c7050002addc961da44b65797391c4202902d1f57276eb32882066de06c0d70fc17a3cd8dc801c1c50e6d4918e39344fa6536372697074c403fffe01a44d61736bc4209515d480e6f28b79228c32db33718e1ca03750bbe7748cd3968a5d450cd743d1a54578747261c400aa5369676e6174757265739190
   ```
+
+### 硬件配置
+
+- 内存：64G
+- CPU：至少 8 核
+- 硬盘：必须 SSD，至少 512G（现在的数据约为 150G）
+- 带宽：暂时要求不高
 
 ### 运行节点
 - 下载最新版本 mixin https://github.com/MixinNetwork/mixin/releases
