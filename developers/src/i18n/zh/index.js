@@ -179,13 +179,13 @@ export default {
           { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
           { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
+          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
           /*
-          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/xin" },
+          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
-          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" }
-          { name: "PoS", path: "mainnet/pos", router: "mainnet/pos" }
-          { name: "多重签名", path: "mainnet/multisigs", router: "mainnet/multisigs" },
+          { name: "PoS", path: "mainnet/concepts/pos", router: "mainnet/concepts/pos" }
+          { name: "多重签名", path: "mainnet/concepts/multisigs", router: "mainnet/concepts/multisigs" },
           */
         ]},
         { name: "教程", child: [
