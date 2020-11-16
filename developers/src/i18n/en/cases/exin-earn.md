@@ -14,7 +14,7 @@ After searching through in the ExinEarn App, by jumping from ExinEarn to a suppo
 
 Vue is used on the frontend, Laravel is developed on the backend, blockchain and other specific features are supported by Mixin, and the product representation is mobile app. This application makes extensive use of the interface provided by **Mixin Network** for BTC price acquisition, BTC transfer, and other functions.
 
-![](./exin-earn-structure.png)
+![ExinEarn](./exin-earn-structure.png)
 
 ### Super search
 

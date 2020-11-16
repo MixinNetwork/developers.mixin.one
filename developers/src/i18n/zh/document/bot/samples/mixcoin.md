@@ -1,6 +1,6 @@
 # Mixcoin
 
-![](./mixcoin.png)
+![Mixcoin](./mixcoin.png)
 
 - 名称：大胡子交易所 Mixcoin
 - 源码：https://github.com/over140/mixcoin

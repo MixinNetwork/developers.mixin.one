@@ -3,7 +3,7 @@
 
 ### 我信架构
 
-![](./ohmy-structure.jpg)
+![ohmy](./ohmy-structure.jpg)
 
 ### 机器人托管
 

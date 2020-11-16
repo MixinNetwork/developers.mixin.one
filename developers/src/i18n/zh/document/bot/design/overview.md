@@ -20,7 +20,7 @@ Mixin Messenger 机器人设计指南旨在为用户提供易用、高效和一�
 
 每个页面都应有重点，区分主次，以便用户快速理解页面内容，尽量避免页面出现与内容无关的元素。
 
-![](./overview-point.png)
+![重点突出](./overview-point.png)
 
 ### 减少输入
   
@@ -38,7 +38,7 @@ Mixin Messenger 机器人设计指南旨在为用户提供易用、高效和一�
 
 机器人菜单固定漂浮在右上角位置，开发者在设计界面时应预留出该区域空间，避免功能被遮挡造成交互冲突。
 
-![](./overview-nav-capsule.svg)
+![避开机器人菜单](./overview-nav-capsule.svg)
 
 ### 避免过多通知
 

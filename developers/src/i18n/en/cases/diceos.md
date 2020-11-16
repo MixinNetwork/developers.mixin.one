@@ -1,7 +1,7 @@
 ### Introduction
 DICEOS is developed based on Mixin, and now supports BTC, EOS, BOX, XIN, ETH, DOGE betting, beautiful interface, friendly interactive experience, fair and verifiable games.
 
-![](./diceos-screenshot.png)
+![Diceos](./diceos-screenshot.png)
 
 ### Fairness
 DICEOS uses a provably fair cryptographic system which means you don’t need to trust us blindly, each roll is cryptographically fair and can be easily verified.

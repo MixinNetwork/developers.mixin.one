@@ -1,6 +1,6 @@
 # 全币种网页钱包
 
-![](./online-wallet.png)
+![全币种网页钱包](./online-wallet.png)
 
 - 名称：全币种网页钱包
 - 官网：https://wallet.mixcoin.one/

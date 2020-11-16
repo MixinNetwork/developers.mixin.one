@@ -3,7 +3,7 @@
 机器人可以通过 Schema 唤起 Mixin Messenger 原生窗口来完成业务流程，例如支付。
 
 ### 分享
-![](./bot-schema-share.png)
+![分享](./bot-schema-share.png)
 
 `mixin://send?category=&conversation_id=&data=`
 

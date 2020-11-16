@@ -2,7 +2,7 @@
 
 ExinOne 致力于为全球用户提供安全的数字资产金融服务以及优质的用户体验。使用 ExinOne，用户可以在方便的进行交易及使用服务的同时确保资产 100% 由自己掌控，平台目前提供的主要功能包含法币 C2C、币币闪兑、定投、理财、借贷等。本文将着重介绍 C2C 部分的实现和交易流程。
 
-![](./exin-c2c-screenshot.png)
+![ExinOne](./exin-c2c-screenshot.png)
 
 ### ExinOne C2C 优势
 - C2C 功能聚合全球多家交易所，交易深度和流动性更有优势；
@@ -17,7 +17,7 @@ ExinOne 致力于为全球用户提供安全的数字资产金融服务以及优
 
 表现层主要针对移动端，是主要使用 Vue 配合路由、样式库等依赖搭建的单页面应用。
 
-![](./exin-c2c-structure.png)
+![ExinOne C2C 架构](./exin-c2c-structure.png)
 
 ### ExinOne C2C 交易实现
 

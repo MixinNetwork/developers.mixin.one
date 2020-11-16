@@ -1,6 +1,6 @@
 # 去中心化交易所 - Ocean ONE
 
-![](./oceanone.png)
+![OceanONE](./oceanone.png)
 
 - 名称：OceanONE
 - 官网：https://ocean.one/

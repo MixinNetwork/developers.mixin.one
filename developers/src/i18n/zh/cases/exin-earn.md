@@ -14,7 +14,7 @@
 
 前端使用 Vue，后端使用 Laravel 开发，区块链及其他特定功能由 Mixin 提供支持，产品形态是移动端 App 应用。本应用大量使用了 **Mixin Network** 提供的接口来实现 BTC 价格的获取、BTC 转账秒到等功能。
 
-![](./exin-earn-structure.png)
+![ExinEarn](./exin-earn-structure.png)
 
 ### 超级搜索
 

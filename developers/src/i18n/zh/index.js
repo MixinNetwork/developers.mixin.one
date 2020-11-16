@@ -297,6 +297,7 @@ export default {
         {
           name: "开源案例", child: [
             { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
+            { name: "PRSDigg", path: "bot/samples/prsdigg", router: "bot/samples/prsdigg" },
             { name: "Mixin 中文群", path: "bot/samples/super-group", router: "bot/samples/super-group" },
             { name: "Mixcoin", path: "bot/samples/mixcoin", router: "bot/samples/mixcoin" },
           ]

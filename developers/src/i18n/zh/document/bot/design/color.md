@@ -12,7 +12,7 @@
 
 按钮颜色太亮或太暗都会给用户带来较差的体验，设计师专门给开发者调配了一套按钮颜色，该颜色在浅色和深色模式下显示效果均表现良好：
 
-![](./color-app-button.svg)
+![按钮颜色](./color-app-button.svg)
 
 颜色数组：
 
@@ -27,4 +27,4 @@
 
 页面效果：
 
-![](./color-app-button-preview.svg)
+![按钮颜色效果](./color-app-button-preview.svg)

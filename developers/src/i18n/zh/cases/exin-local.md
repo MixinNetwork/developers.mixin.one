@@ -3,12 +3,12 @@
 
 **ExinLocal 是一个全球买卖加密货币的点对点市场**。买卖双方在 ExinLocal 上发布广告，通过多种付款方式交易加密货币。当用户响应广告时，买方和卖方之间直接进行对等交换。ExinLocal 基于 Mixin Network 和 Mixin Messenger。ExinLocal 使用 Mixin Network 的多签功能保障资金的安全，使用 Mixin Messenger 的端对端加密保障用户的隐私。
 
-![](./exin-local-screenshot.png)
+![ExinLocal](./exin-local-screenshot.png)
 
 ### 架构
 前端使用 Vue，后端使用 Laravel 开发，区块链及其他特定功能由 Mixin 提供支持，产品形态是移动端适配的 Web 应用。
 
-![](./exin-local-structure.png)
+![ExinLocal](./exin-local-structure.png)
 
 ### 流程
 

@@ -2,13 +2,13 @@
 
 **ExinLocal is a worldwide peer-to-peer marketplace where buy and sell cryptocurrencies**. Buyers and sellers advertise on ExinLocal to trade cryptocurrencies through multiple payment methods. When a user responds to an advertisement, there is a direct reciprocal exchange between the buyer and seller. ExinLocal is based on the Mixin Network and Mixin Messenger. ExinLocal uses multi-signature feature of Mixin Network to secure funds and end-to-end encryption of Mixin Messenger to protect user's privacy.
 
-![](./exin-local-screenshot.png)
+![ExinLocal](./exin-local-screenshot.png)
 
 ### Architecture.
 
 Vue is used on the frontend, Laravel is developed on the backend, blockchain and other specific features are supported by Mixin, and the product representation is a mobile-adapted web application.
 
-![](./exin-local-structure.png)
+![ExinLocal](./exin-local-structure.png)
 
 ### Process
 
