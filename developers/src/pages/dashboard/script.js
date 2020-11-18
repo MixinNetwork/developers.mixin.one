@@ -109,9 +109,9 @@ export default {
     }
   },
   async mounted() {
-    this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
+    this.is_mobile = document.documentElement.clientWidth < 769
     window.onresize = () => {
-      this.is_mobile = document.documentElement.clientWidth < 769 ? true : false
+      this.is_mobile = document.documentElement.clientWidth < 769
     }
     await init_page.call(this)
   }
@@ -134,8 +134,7 @@ async function init_page() {
 
 async function axios_get_app_list(app_number) {
   this.all_loading = true
-  let res = await this.apis.get_apps()
-  this.app_list = res
+  this.app_list = await this.apis.get_apps()
   app_number = app_number || this.$route.params.app_number
   if (app_number) {
     jump_to_uri.call(this, '/apps/' + app_number, false)
