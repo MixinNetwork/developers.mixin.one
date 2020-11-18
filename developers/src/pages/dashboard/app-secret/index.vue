@@ -14,7 +14,10 @@
           <img src="@/assets/img/svg/session.svg" />
           <span>{{$t('secret.session_title')}}</span>
           <p>{{$t('secret.session_content')}}</p>
-          <button @click="request_new_session" class="primary">{{$t('secret.session_btn')}}</button>
+          <div class="secrets">
+            <button @click="request_new_session" class="primary">{{$t('secret.session_btn')}}</button>
+            <button @click="request_ed25519_session" class="primary">{{$t('secret.session_ed25519_btn')}}</button>
+          </div>
         </div>
       </div>
       <div class="item">
