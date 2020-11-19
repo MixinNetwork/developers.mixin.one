@@ -148,8 +148,8 @@ async function _request_new_session(algo = 'rsa') {
 
   function _get_ed25519_private_key() {
     let keypair = forge.pki.ed25519.generateKeyPair();
-    let session_secret = keypair.publicKey.toString("base64").replace('+', '-').replace('/', '_').replace(/=+$/, '');
-    let private_key = keypair.privateKey.toString("base64").replace('+', '-').replace('/', '_').replace(/=+$/, '');
+    let session_secret = keypair.publicKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
+    let private_key = keypair.privateKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
     return { session_secret, private_key }
   }
 
