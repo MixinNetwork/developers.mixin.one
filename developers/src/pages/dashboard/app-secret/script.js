@@ -133,8 +133,11 @@ async function _request_new_session(algo = 'rsa') {
   try {
     const res = await this.apis.app_new_session(this.active_app.app_id, pin, session_secret)
     this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
-    let { session_id, pin_token } = res
+    let { session_id, pin_token, pin_token_base64 } = res
     let jsonObj = { pin, app_id: this.active_app.app_id, session_id, pin_token, private_key }
+    if (algo == 'ed25519') {
+      jsonObj['pin_token'] = pin_token_base64
+    }
     this.modal_title = this.$t('secret.session_title')
     this.modal_content = JSON.stringify(jsonObj, null, ' ')
     this.$ls.rm(this.active_app.app_id)
