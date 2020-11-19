@@ -47,6 +47,9 @@ export default {
           break
         case 'session':
           _request_new_session.call(this)
+        case 'session_ed25519':
+          this.tmp_action = 'session'
+          _request_new_session.call(this, 'ed25519')
           break
       }
     },
@@ -61,6 +64,11 @@ export default {
     },
     request_new_session() {
       this.tmp_action = 'session'
+      this.confirm_content = this.$t('secret.session_question')
+      this.confirm_modal = true
+    },
+    request_ed25519_session() {
+      this.tmp_action = 'session_ed25519'
       this.confirm_content = this.$t('secret.session_question')
       this.confirm_modal = true
     },
@@ -111,10 +119,15 @@ async function _request_new_secret() {
   }
 }
 
-async function _request_new_session() {
+async function _request_new_session(algo = 'rsa') {
+  console.log(algo);
   if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
   let pin = _get_pin()
-  let { session_secret, private_key } = _get_private_key()
+  let key = _get_private_key()
+  if (algo == 'ed25519')  {
+    key = _get_ed25519_private_key()
+  }
+  let { session_secret, private_key } = key;
   once_submit = true
   this.loading = true
   try {
@@ -128,6 +141,13 @@ async function _request_new_session() {
   } finally {
     once_submit = false
     this.loading = false
+  }
+
+  function _get_ed25519_private_key() {
+    let keypair = forge.pki.ed25519.generateKeyPair();
+    let session_secret = keypair.publicKey.toString("base64").replace('+', '-').replace('/', '_').replace(/=+$/, '');
+    let private_key = keypair.privateKey.toString("base64").replace('+', '-').replace('/', '_').replace(/=+$/, '');
+    return { session_secret, private_key }
   }
 
   function _get_private_key() {
