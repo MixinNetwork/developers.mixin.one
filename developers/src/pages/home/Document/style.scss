@@ -25,6 +25,11 @@ a:hover {
   border: 0;
 }
 
+.one-path {
+  position: sticky;
+  top: 2rem;
+}
+
 /deep/ {
   .el-menu {
     background: #f5f7fa;
