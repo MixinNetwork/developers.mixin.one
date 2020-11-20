@@ -54,8 +54,7 @@ h2 {
 
     .title-dec {
       position: absolute;
-      border-radius: 0.0625rem;
-      border-radius: 2px;
+      border-radius: 0.125rem;
 
       &:nth-child(1) {
         right: -1.7rem;
@@ -102,8 +101,8 @@ h2 {
     padding: 12.025rem 6.8rem 4.6rem 5rem;
 
     background: linear-gradient(180deg,
-        rgba(255, 255, 255, 0) 0%,
-        #f9fbff 100%);
+            rgba(255, 255, 255, 0) 0%,
+            #f9fbff 100%);
 
     li {
       font-weight: normal;
@@ -209,9 +208,9 @@ h2 {
       height: 17.5rem;
 
       background: linear-gradient(180deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(175, 199, 248, 0.6) 78.65%,
-          rgba(255, 255, 255, 0) 100%);
+              rgba(255, 255, 255, 0) 0%,
+              rgba(175, 199, 248, 0.6) 78.65%,
+              rgba(255, 255, 255, 0) 100%);
     }
 
     &.right-line {
@@ -222,8 +221,8 @@ h2 {
       height: 17.5rem;
 
       background: linear-gradient(180.22deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(175, 199, 248, 0.6) 100%);
+              rgba(255, 255, 255, 0) 0%,
+              rgba(175, 199, 248, 0.6) 100%);
       transform: rotate(-180deg);
     }
   }
@@ -647,9 +646,9 @@ h2 {
       margin-top: 3.625rem;
 
       background: linear-gradient(180deg,
-          rgba(248, 250, 255, 0.54) 0%,
-          #f9fbff 95.09%,
-          #f8faff 95.09%);
+              rgba(248, 250, 255, 0.54) 0%,
+              #f9fbff 95.09%,
+              #f8faff 95.09%);
       border-radius: 0.25rem;
 
       li {
@@ -711,7 +710,7 @@ h2 {
   .user-cases {
     ul {
       width: 100%;
-      max-width: 500px;
+      max-width: 31.25rem;
     }
 
     li {
@@ -758,9 +757,9 @@ h2 {
     }
 
     .container {
-      padding: 5rem 0rem 0;
+      padding: 5rem 0 0;
       width: 100%;
-      max-width: 500px;
+      max-width: 31.25rem;
       text-align: center;
       background: #f8faff;
     }
