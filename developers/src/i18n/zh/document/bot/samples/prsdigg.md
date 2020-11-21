@@ -1,6 +1,6 @@
 # PRSDigg
 
-![](./prsdigg.png)
+![PRSDigg](./prsdigg.png)
 
 - 名称：PRSDigg
 - 源码：https://github.com/baizhiheizi/prsdigg
