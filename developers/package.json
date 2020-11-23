@@ -13,7 +13,7 @@
     "element-ui": "^2.13.2",
     "github-markdown-css": "^4.0.0",
     "highlight.js": "^10.4.0",
-    "int64-buffer": "^0.99.1007",
+    "int64-buffer": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "katex": "^0.12.0",
     "moment": "^2.29.1",
