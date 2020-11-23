@@ -66,7 +66,7 @@
     background-color: #fff;
     line-height: 4rem;
     padding: 0 1.25rem;
-    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    box-shadow: 0 1px 0.25rem 0 rgba(28, 77, 174, 0.1);
     border-radius: 0.25rem;
     cursor: pointer;
     position: relative;
@@ -93,8 +93,8 @@
     line-height: 2;
 
     background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.1);
 
     span {
       display: flex;
