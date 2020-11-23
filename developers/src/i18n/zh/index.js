@@ -176,12 +176,13 @@ export default {
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
         { name: "概念", child: [
-          { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
+          { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
           { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
           { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
           /*
-          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
+          { name: "MTG", path: "mainnet/concepts/mtg", router: "mainnet/concepts/mtg" },
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
           { name: "PoS", path: "mainnet/concepts/pos", router: "mainnet/concepts/pos" }
