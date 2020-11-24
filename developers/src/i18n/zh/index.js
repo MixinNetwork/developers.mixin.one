@@ -236,6 +236,7 @@ export default {
             { name: "资产", child: [
               { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
               { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+              { name: "资产历史价格", path: "wallet/api/ticker", router: "wallet/api/assets/ticker" },
             ]},
             { name: "转账", child: [
               { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
