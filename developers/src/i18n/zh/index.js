@@ -348,6 +348,7 @@ export default {
       child: [
         { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
         { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
+        { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
       ]
     }
   ],
