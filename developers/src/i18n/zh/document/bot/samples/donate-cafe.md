@@ -1,6 +1,6 @@
 # DonateCafe
 
-![](./donate-cafe.png)
+![DonateCafe](./donate-cafe.png)
 
 - 名称：DonateCafe
 - 官网：https://donate.cafe/

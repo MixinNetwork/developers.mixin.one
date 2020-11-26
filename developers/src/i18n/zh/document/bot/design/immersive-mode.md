@@ -8,7 +8,7 @@
 
 ### 设计适配
 
-![](./immersive-mode.png)
+![沉浸模式](./immersive-mode.png)
 
 右侧效果图完美的诠释了沉浸模式，注意主题色不支持渐变色。
 

@@ -2,7 +2,7 @@
 ### DICEOS 简介
 DICEOS 骰子游戏基于 Mixin 开发，现支持 BTC、EOS、BOX、XIN、ETH、DOGE 下注，界面美观、交互体验友好，游戏公平可验证。
 
-![](./diceos-screenshot.png)
+![Diceos](./diceos-screenshot.png)
 
 ### 公平性
 DICEOS 使用可验证、公平的加密系统，无需用户盲目信任，每一次掷骰子的结果都是公平的，可以轻松验证结果。

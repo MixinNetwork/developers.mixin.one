@@ -11,7 +11,7 @@ Ocean ONE is a new generation of decentralized exchange based on the Mixin Netwo
 ### Architecture
 Ocean is a high-performance matchmaking engine based on Mixin Network using Go language, while Ocean ONE is a wallet based on Mixin Network + Dapp with the exchange front-end. To execute taking, making, and canceling orders by transfers, effectively isolating users' assets and improving the transparency of transactions to achieve the effect of decentralization.
 
-![](./ocean-one-structure.png)
+![OceanONE](./ocean-one-structure.png)
 
 As shown in the picture, all the Dapps on the Mixin Network can send orders directly to the Ocean matching engine, and you can create a new Dapp by changing the source code of OceanONE, then deploy it to a new exchange, custom trading pairs on your own!
 

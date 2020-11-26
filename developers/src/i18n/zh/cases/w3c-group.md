@@ -9,7 +9,7 @@ WGT 是 W3c.Group 官方唯一通证，是平台价值的体现，总量 1 亿�
 - 在交易所换出 WGT 获得 BTC 等数字货币
 
 ### W3C 架构
-![](./w3c-group-structure.png)
+![W3c.Group](./w3c-group-structure.png)
 
 W3C 的通证系统借助 Mixin 完成，此架构图较为清晰的体现 Mixin 和 W3C 前后端如何交互。
 

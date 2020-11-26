@@ -11,7 +11,7 @@ Uses:
 - Swap out WGT on the exchange to get BTC and other digital currencies.
 
 ### Architecture
-![](./w3c-group-structure.png)
+![W3c.Group](./w3c-group-structure.png)
 
 W3C's token system is completed with Mixin. This architecture diagram clearly shows how Mixin interacts with the W3C front and back ends.
 

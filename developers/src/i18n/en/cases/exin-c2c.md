@@ -2,7 +2,7 @@
 
 ExinOne is committed to providing secure financial services for digital assets and a superior user experience for users worldwide. With ExinOne, users can trade and use the service conveniently while ensuring 100% control of their assets. This article will focus on the implementation and transaction process of the C2C part.
 
-![](./exin-c2c-screenshot.png)
+![ExinOne](./exin-c2c-screenshot.png)
 
 ### ExinOne C2C Advantage
 
@@ -19,7 +19,7 @@ The core part of the business logic layer is mainly built using Laravel, and Nod
 
 The presentation layer is mainly for mobile, which is a single-page application that mainly uses Vue with routing, style library and other dependencies.
 
-![](./exin-c2c-structure.png)
+![ExinOne C2C architecture](./exin-c2c-structure.png)
 
 ### ExinOne C2C Transaction Realization
 

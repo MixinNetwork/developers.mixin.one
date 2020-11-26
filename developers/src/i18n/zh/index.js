@@ -176,12 +176,13 @@ export default {
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
         { name: "概念", child: [
-          { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
+          { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
           { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
           { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
           /*
-          { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
+          { name: "MTG", path: "mainnet/concepts/mtg", router: "mainnet/concepts/mtg" },
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
           { name: "PoS", path: "mainnet/concepts/pos", router: "mainnet/concepts/pos" }
@@ -235,6 +236,7 @@ export default {
             { name: "资产", child: [
               { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
               { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+              { name: "资产历史价格", path: "wallet/api/ticker", router: "wallet/api/assets/ticker" },
             ]},
             { name: "转账", child: [
               { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
@@ -297,6 +299,7 @@ export default {
         {
           name: "开源案例", child: [
             { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
+            { name: "PRSDigg", path: "bot/samples/prsdigg", router: "bot/samples/prsdigg" },
             { name: "Mixin 中文群", path: "bot/samples/super-group", router: "bot/samples/super-group" },
             { name: "Mixcoin", path: "bot/samples/mixcoin", router: "bot/samples/mixcoin" },
           ]
@@ -344,6 +347,9 @@ export default {
       router: "knowledge",
       child: [
         { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
+        { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
+        { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
+        { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
       ]
     }
   ],

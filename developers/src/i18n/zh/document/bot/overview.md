@@ -2,7 +2,7 @@
 
 Mixin Messenger 除了提供端对端加密聊天和钱包功能，还支持 Telegram 机器人、微信小程序类似的机器人功能，开发者能很方便实现交易、收费圈子、商城等功能强大的机器人，可以搜索 7000101700 体验 Mixin 上各种精选的机器人。
 
-![](./bot-overview-samples.png)
+![Mixin Messenger 机器人](./bot-overview-samples.png)
 
 ### 优势
 
