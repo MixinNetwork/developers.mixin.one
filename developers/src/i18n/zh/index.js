@@ -352,6 +352,7 @@ export default {
         { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
         { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
         { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
+        { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
       ]
     }
   ],
