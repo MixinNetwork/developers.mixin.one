@@ -349,6 +349,7 @@ export default {
         { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
         { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
         { name: "EOS", path: "knowledge/chains/eos", router: "knowledge/chains/eos" },
+        { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
         { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
         { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
         { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
