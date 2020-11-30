@@ -54,7 +54,7 @@ Monero 是一个安全、隐私和不可追踪的加密货币，通过使用环�
 
 - IP 地址保护
 
-  Kovri 是基于中心化的隐形互联网项目（I2P）一个专注隐私性的实现，使用加密和复杂的路由技术创造一个分布在互联网的私密网络，可以防止他人将你在门罗网络中的活动和你的物理地址/身份关联起来。
+  用户可以运行 [I2P-zero](https://web.getmonero.org/resources/user-guides/node-i2p-zero.html) 或 [Dandelion++](https://www.monerooutreach.org/stories/dandelion.html) 对 IP 地址进行保护。
 
 - 多重密钥（multiple keys）
 
@@ -68,9 +68,17 @@ Monero 是一个安全、隐私和不可追踪的加密货币，通过使用环�
 
 ### 地址
 
+公布门罗币地址不会危机到隐私，因为门罗币的交易和公开地址是脱钩的，公开地址不会被记录到门罗的区块数据中。
+
+- 子地址（Subaddress）
+
+  子地址以 `8` 开头，95 个字符，例如 `899Ao1NQtu4ezACgw1QKXK4QBf5s8a3WHHtAjFfPm3Nf71mAkREEgAuKzASXHt8E7vVJFKsQJuvApBfu21WY9WN97Put8M5`
+
+  推荐使用子地址作为默认收款地址，方便资金分组，相比集成地址更短同时又能避免交易所漏填付款 ID 导致充值不到账。
+
 - 普通地址 + 付款 ID（Payment ID）
 
-  普通地址以 `4` 开头，95 个字符，例如 `465ZU4vBnQNFuiZn4t4oXAi1smDYaFicFFvW4EtTCMQ1fu87zRhSBTaA3q1m3G6spHBXV2ZwdMtRyTLckH6Af18f4LSSFon`，注意门罗的地址不会记录在区块链上。
+  普通地址以 `4` 开头，95 个字符，用[门罗定制版 Base58](https://monerodocs.org/cryptography/base58/) 进行编码，例如 `465ZU4vBnQNFuiZn4t4oXAi1smDYaFicFFvW4EtTCMQ1fu87zRhSBTaA3q1m3G6spHBXV2ZwdMtRyTLckH6Af18f4LSSFon`。
 
   付款 ID（Payment ID）由 32 个字节组成（64 个十六进制字符），类似其他区块链 `memo` 的概念为交易附加额外的信息，可用于交易所区分用户的充值，参见[文档](https://www.getmonero.org/resources/moneropedia/paymentid.html)。
 
