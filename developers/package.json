@@ -19,7 +19,7 @@
     "moment": "^2.29.1",
     "node-forge": "^0.10.0",
     "uuid": "^8.3.1",
-    "validator": "^13.1.17",
+    "validator": "^13.5.1",
     "vue": "^2.6.12",
     "vue-clipboard2": "^0.3.1",
     "vue-croppie": "^2.0.2",
