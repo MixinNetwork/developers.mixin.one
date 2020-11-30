@@ -1,12 +1,29 @@
 # 返回当前用户的多签 UTXO
 
-### `GET /multisigs/outputs?limit=&offset&state=` 
+### `GET /multisigs/outputs?state=&limit=&offset` 
 
 | 参数 | 类型 | 介绍 |
 | :----- | :----: | :---- |
+| members | String | 可选，与 threshold 一同使用，参与多签成员的 hash |
+| threshold | Integer | 可选，与 members 一同使用，多签的门限值 |
+| state | String | 可选，UTXO 的状态，unspent 未签名, signed 已签名, spent 已花费 |
 | limit | String | 可选，分页每页数据，默认 500，最大 500 |
 | offset | String | 可选，分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z` |
-| state | String | 可选，UTXO 的状态，unspent 未签名, signed 已签名, spent 已花费 |
+
+如果一个账户参与了多个多签，可通过 `members` 和 `threshold` 参数筛选数据，生成多签成员 hash 的代码：
+
+```golang
+func hashMembers(ids []string) string {
+	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
+	var in string
+	for _, id := range ids {
+		in = in + id
+	}
+	return crypto.NewHash([]byte(in)).String()
+}
+```
+
+调用例子
 
 ```
 $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
