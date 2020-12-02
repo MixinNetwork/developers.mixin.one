@@ -12,7 +12,8 @@ export default {
     return {
       page: "",
       active_path: "",
-      path: ""
+      path: "",
+      showNav: false
     }
   },
   watch: {

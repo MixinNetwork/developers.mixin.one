@@ -2,6 +2,7 @@
 .api-page {
   font-family: "SF Pro Text", sans-serif;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 section {
@@ -10,6 +11,14 @@ section {
 
   display: flex;
   align-items: flex-start;
+}
+
+.modal {
+  display: none;
+}
+
+.toggle-nav-btn {
+  display: none;
 }
 
 a {
