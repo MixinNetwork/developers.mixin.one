@@ -14,7 +14,7 @@ Zcash 是首个采用零知识证明机制的区块链系统，与比特币相�
 - 区块大小：2M
 - 区块奖励：3.125 ZEC
 - 区块数据：24.34 GB（截止到 2020/11/26）
-- 交易数据：7,463,476（截止到 2020/11/26）
+- 交易数据：7 百万（截止到 2020/11/26）
 - 最小单位：0.00000001 ZEC（1 zatoshi）
 
 ### 主网特征
@@ -45,7 +45,7 @@ Zcash 是首个采用零知识证明机制的区块链系统，与比特币相�
 
 - 隐私地址
 
-  新地址以 `zs` 开头，伴随 Sapling 网络升级，长度 96 个字符，前 2 位为标记，例如 `zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlkngh9sly`
+  新地址以 `zs` 开头，伴随 Sapling 网络升级，例如 `zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlkngh9sly`
 
   【不推荐】老地址以 `zc` 开头，长度 96 个字符，前 2 位为标记，例如 `zcU1Cd6zYyZCd2VJF8yKgmzjxdiiU1rgTTjEwoN1CGUWCziPkUTXUjXmX7TMqdMNsTfuiGN1jQoVN4kGxUR4sAPN4XZ7pxb`
 
