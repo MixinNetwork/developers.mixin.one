@@ -358,6 +358,7 @@ export default {
           { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
           { name: "古灵币", path: "knowledge/chains/grin", router: "knowledge/chains/grin" },
         ]},
+        { name: "狗狗币", path: "knowledge/chains/dogecoin", router: "knowledge/chains/dogecoin" },
       ]
     }
   ],

@@ -44,7 +44,7 @@
 
   以 `0x` 开头，大小写字母 + 数字混合，例如 `0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb` ，参见[EIP-55 提案](https://github.com/Ethereum/EIPs/blob/master/EIPS/eip-55.md)。
 
-### 充值确认入账参考
+### 入账参考
 
 | 交易所 & 钱包 | 入账区块确认数 | 预计时间 |
 | :-----: | :----: | :---- |

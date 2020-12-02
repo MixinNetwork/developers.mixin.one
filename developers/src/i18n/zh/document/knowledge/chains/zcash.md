@@ -48,7 +48,7 @@ Zcash 是首个采用零知识证明机制的区块链系统，与比特币相�
 
   【不推荐】老地址以 `zc` 开头，长度 96 个字符，前 2 位为标记，例如 `zcU1Cd6zYyZCd2VJF8yKgmzjxdiiU1rgTTjEwoN1CGUWCziPkUTXUjXmX7TMqdMNsTfuiGN1jQoVN4kGxUR4sAPN4XZ7pxb`
 
-### 充值确认入账参考
+### 入账参考
 
 | 交易所 & 钱包 | 入账区块确认数 | 预计时间 |
 | :-----: | :----: | :---- |

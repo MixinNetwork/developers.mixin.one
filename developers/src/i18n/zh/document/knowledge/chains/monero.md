@@ -9,7 +9,6 @@ Monero 是一个安全、隐私和不可追踪的加密货币，通过使用环�
 - 主网代币：Monero（XMR）
 - 最大发行：无上限
 - 出块时间：120 秒
-- 确认入账：15～32 个区块
 - 区块大小：动态区块大小，[最近半年](https://bitinfocharts.com/comparison/monero-size.html#6m)约为 40K ~ 60K
 - 区块奖励：2.1984 XMR（持续到 2021/03/24）
 - 区块数据：[63.75 GB](https://bitinfocharts.com/monero/)（截止到 2020/11/29）
@@ -85,3 +84,11 @@ Monero 是一个安全、隐私和不可追踪的加密货币，通过使用环�
 - 集成地址（Integrated Address）
 
   普通地址 + 付款 ID 合并的地址，例如 `4FdfTRX2yV8MtFngCX8KAjPUKHDtkqa2yJiHgnAAQMisV3YVs9MPFgxhuBUw4wmFM1Q7Jd36Gcvu91mkNo7L5kkbTPMoje2BpacN4swpLH`
+
+### 入账参考
+
+| 交易所 & 钱包 | 入账区块确认数 | 预计时间 |
+| :-----: | :----: | :---- |
+| 币安 | 3 | 6 分钟 |
+| 火币 | 12 | 24 分钟 |
+| OKEx | 3 | 6 分钟 |
