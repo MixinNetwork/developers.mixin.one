@@ -10,7 +10,6 @@ Zcash 是首个采用零知识证明机制的区块链系统，与比特币相�
 - 最大发行：21,000,000
 - 减半周期：约 4 年（84 万个区块）
 - 出块时间：150 秒
-- 确认入账：12～36 个区块
 - 区块大小：2M
 - 区块奖励：3.125 ZEC
 - 区块数据：24.34 GB（截止到 2020/11/26）
@@ -48,6 +47,15 @@ Zcash 是首个采用零知识证明机制的区块链系统，与比特币相�
   新地址以 `zs` 开头，伴随 Sapling 网络升级，例如 `zs1z7rejlpsa98s2rrrfkwmaxu53e4ue0ulcrw0h4x5g8jl04tak0d3mm47vdtahatqrlkngh9sly`
 
   【不推荐】老地址以 `zc` 开头，长度 96 个字符，前 2 位为标记，例如 `zcU1Cd6zYyZCd2VJF8yKgmzjxdiiU1rgTTjEwoN1CGUWCziPkUTXUjXmX7TMqdMNsTfuiGN1jQoVN4kGxUR4sAPN4XZ7pxb`
+
+### 充值确认入账参考
+
+| 交易所 & 钱包 | 入账区块确认数 | 预计时间 |
+| :-----: | :----: | :---- |
+| Coinbase | 24 | 1 小时 |
+| 币安 | 12 | 30 分钟 |
+| 火币 | 12 | 30 分钟 |
+| OKEx | 12 | 30 分钟 |
 
 ### 小知识
 
