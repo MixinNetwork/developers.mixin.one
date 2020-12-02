@@ -152,7 +152,7 @@ button {
   }
 
   .item:last-child {
-    min-width: 280px;
+    min-width: 17.5rem;
   }
 }
 
@@ -184,7 +184,7 @@ textarea {
   .name-category {
     flex-direction: column;
 
-    &>.item:first-child {
+    & > .item:first-child {
       margin-right: 0;
     }
   }
@@ -205,7 +205,7 @@ textarea {
   }
 
   .name-category {
-    &>.item:last-child {
+    & > .item:last-child {
       min-width: initial;
     }
   }

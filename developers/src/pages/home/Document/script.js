@@ -25,13 +25,14 @@ export default {
     tools.changeTheme("#fff")
     let { pathMatch } = this.$route.params
     handlePathInit.call(this, pathMatch)
-  }
+  },
 }
 
 function handlePathInit(pathMatch) {
   this.$nextTick(() => {
     require("@/assets/js/animate-up").default()
     handleCodeHighLight()
+    document.documentElement.scrollTop = 0
   })
   pathMatch = pathMatch ? pathMatch.substr(1) : "mainnet/overview"
   let { locale, messages } = this.$i18n
@@ -45,4 +46,3 @@ function handlePathInit(pathMatch) {
   isFind = langCheck.some(item => getPageContent.call(this, item))
   if (!isFind) console.log('no doc2')
 }
-

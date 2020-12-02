@@ -1,14 +1,34 @@
 # Read Multisigs Outputs
 
-Read user’s multisigs outputs. 
+All mutlisig utxo outputs of the user. The outputs use to build a transaction.
+
+`Members` refers to the members who own the output, and `threshold` refers to the number of member signatures required to spend this output.
+
+### Restriction
+
+Only the outputs with the same members and threshold can be used in the one transaction, meanwhile their state are unspent.
 
 ### `GET /multisigs/outputs?limit=&offset&state=` 
 
 | Name | Type | Description |
 | :----- | :----: | :---- |
-| limit | Integer | OPTION, default 500 |
-| offset | String | format RFC3339Nano, UTC: `2020-12-12T12:12:12.999999999Z` |
+| members | String | OPTION, SHA3-256 of members|
+| threshold | Integer | OPTION |
 | state | String | OPTION, unspent, signed, spent |
+| offset | String | format RFC3339Nano, UTC: `2020-12-12T12:12:12.999999999Z` |
+| limit | Integer | OPTION, default 500 |
+
+```
+// generate hash of the members
+func hashMembers(ids []string) string {
+	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
+	var in string
+	for _, id := range ids {
+		in = in + id
+	}
+	return crypto.NewHash([]byte(in)).String()
+}
+```
 
 ```
 $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"

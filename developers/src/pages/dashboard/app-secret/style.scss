@@ -7,6 +7,10 @@
   margin: 0 auto;
   padding: 2rem 0 0;
 
+  button {
+    height: 2.5rem;
+  }
+
   .item {
     width: 50%;
     padding: 1rem;
@@ -59,8 +63,6 @@
     }
 
     button {
-      max-width: 12rem;
-      width: 100%;
       white-space: nowrap;
       font-weight: 500;
       font-size: 0.9375rem;
@@ -168,9 +170,14 @@
   display: flex;
 
   button {
-    width: 8.125rem;
-    height: 2.5rem;
+    &:first-child {
+      margin-right: 2rem;
+    }
+  }
+}
 
+.secrets {
+  button {
     &:first-child {
       margin-right: 2rem;
     }
