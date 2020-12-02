@@ -353,6 +353,7 @@ export default {
         { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
         { name: "隐私类", child: [
           { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
+          { name: "达世币", path: "knowledge/chains/dash", router: "knowledge/chains/dash" },
           { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
           { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
           { name: "古灵币", path: "knowledge/chains/grin", router: "knowledge/chains/grin" },
