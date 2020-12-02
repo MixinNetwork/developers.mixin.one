@@ -33,6 +33,7 @@
   .float-menu {
     cursor: pointer;
     position: fixed;
+    z-index: 1;
     bottom: 5rem;
     left: 2rem;
     width: 4rem;
