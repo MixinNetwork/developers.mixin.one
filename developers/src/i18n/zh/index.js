@@ -346,19 +346,25 @@ export default {
       path: "knowledge",
       router: "knowledge",
       child: [
-        { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
-        { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
-        { name: "EOS", path: "knowledge/chains/eos", router: "knowledge/chains/eos" },
-        { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
-        { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
-        { name: "隐私类", child: [
-          { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
-          { name: "达世币", path: "knowledge/chains/dash", router: "knowledge/chains/dash" },
-          { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
-          { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
-          { name: "古灵币", path: "knowledge/chains/grin", router: "knowledge/chains/grin" },
+        { name: "术语", child: [
+          { name: "挖矿", path: "knowledge/glossary/mining", router: "knowledge/glossary/mining" },
         ]},
-        { name: "狗狗币", path: "knowledge/chains/dogecoin", router: "knowledge/chains/dogecoin" },
+        { name: "公链", child: [
+          { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
+          { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
+          { name: "EOS", path: "knowledge/chains/eos", router: "knowledge/chains/eos" },
+          { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
+          { name: "隐私类", child: [
+            { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
+            { name: "达世币", path: "knowledge/chains/dash", router: "knowledge/chains/dash" },
+            { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
+            { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
+            { name: "古灵币", path: "knowledge/chains/grin", router: "knowledge/chains/grin" },
+          ]},
+          { name: "莱特币", path: "knowledge/chains/litecoin", router: "knowledge/chains/litecoin" },
+          { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
+          { name: "狗狗币", path: "knowledge/chains/dogecoin", router: "knowledge/chains/dogecoin" },
+        ]},
       ]
     }
   ],
