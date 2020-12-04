@@ -38,7 +38,11 @@ export default {
         { title: 'TUTORIALS', info: 'Walkthrounghs of comomon', href: '#' },
         { title: 'TUTORIALS', info: 'APIs and other tools', href: '#' },
         { title: 'TUTORIALS', info: 'APIs and other tools', href: '#' },
-      ]
+      ],
+      github: {
+        view: "Click here to view on github",
+        edit: "For editing, please click here"
+      }
     },
     nextstep: {
       title: "Next Step",
@@ -208,35 +212,45 @@ export default {
           name: "API", child: [
             { name: "App User", path: "wallet/api/user", router: "wallet/api/user" },
             { name: "PIN", path: "wallet/api/pin", router: "wallet/api/pin" },
-            { name: "Asset", child: [
-              { name: "Read Asset List", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
-              { name: "Read Asset", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
-            ]},
-            { name: "Transfer", child: [
-              { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer" },
-              { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
-              { name: "Read Snapshot", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
-            ]},
-            { name: "Withdrawal", child: [
-              { name: "Create Address", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
-              { name: "Delete Address", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
-              { name: "Read Address", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
-              { name: "Addresses By Asset", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
-              { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
-              { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
-            ]},
-            { name: "Multisigs", child: [
-              { name: "Read Multisigs", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
-              { name: "Multisigs", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
-            ]},
-            { name: "Network", child: [
-              { name: "Network Snapshots", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
-              { name: "Network Snapshot", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
-              { name: "External Transactions", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
-              { name: "Top Assets", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
-              { name: "Network Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
-              { name: "Search Assets", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
-            ]},
+            {
+              name: "Asset", child: [
+                { name: "Read Asset List", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
+                { name: "Read Asset", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+              ]
+            },
+            {
+              name: "Transfer", child: [
+                { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer" },
+                { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
+                { name: "Read Snapshot", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
+              ]
+            },
+            {
+              name: "Withdrawal", child: [
+                { name: "Create Address", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
+                { name: "Delete Address", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
+                { name: "Read Address", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
+                { name: "Addresses By Asset", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
+                { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
+                { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
+              ]
+            },
+            {
+              name: "Multisigs", child: [
+                { name: "Read Multisigs", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+                { name: "Multisigs", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
+              ]
+            },
+            {
+              name: "Network", child: [
+                { name: "Network Snapshots", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+                { name: "Network Snapshot", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+                { name: "External Transactions", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+                { name: "Top Assets", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
+                { name: "Network Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+                { name: "Search Assets", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
+              ]
+            },
             { name: "Live Exchange Rates", path: "wallet/api/fiats", router: "wallet/api/fiats" },
           ]
         },
@@ -251,33 +265,41 @@ export default {
         {
           name: "API", child: [
             { name: "Read Profile", path: "bot/api/profile", router: "bot/api/profile" },
-            { name: "User", child: [
-              { name: "Read User", path: "bot/api/users/user", router: "bot/api/users/user" },
-              { name: "Read User List", path: "bot/api/users/users", router: "bot/api/users/users" },
-              { name: "Relationships", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
-              { name: "Search User", path: "bot/api/users/search", router: "bot/api/users/search" },
-              { name: "Friends", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
-              { name: "Blocking Users", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
-            ]},
-            { name: "Conversation", child: [
-              { name: "Create", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
-              { name: "Read", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
-              { name: "Update", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
-            ]},
-            { name: "Asset", child: [
-              { name: "Read Asset List", path: "bot/api/assets/list", router: "bot/api/assets/list" },
-              { name: "Read Asset", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
-              { name: "Read Snapshots", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
-              { name: "Read Snapshot", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
-              { name: "Read Transfer", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
-            ]},
-            { name: "Message", child: [
-              { name: "Category", path: "bot/api/messages/category", router: "bot/api/messages/category" },
-              { name: "Upload Attachment", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
-              { name: "Download Attachment", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
-              { name: "Create Acknowledgements", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
-              { name: "Create Messages", path: "bot/api/messages/send", router: "bot/api/messages/send" },
-            ]},
+            {
+              name: "User", child: [
+                { name: "Read User", path: "bot/api/users/user", router: "bot/api/users/user" },
+                { name: "Read User List", path: "bot/api/users/users", router: "bot/api/users/users" },
+                { name: "Relationships", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
+                { name: "Search User", path: "bot/api/users/search", router: "bot/api/users/search" },
+                { name: "Friends", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
+                { name: "Blocking Users", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
+              ]
+            },
+            {
+              name: "Conversation", child: [
+                { name: "Create", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
+                { name: "Read", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
+                { name: "Update", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+              ]
+            },
+            {
+              name: "Asset", child: [
+                { name: "Read Asset List", path: "bot/api/assets/list", router: "bot/api/assets/list" },
+                { name: "Read Asset", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+                { name: "Read Snapshots", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
+                { name: "Read Snapshot", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+                { name: "Read Transfer", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
+              ]
+            },
+            {
+              name: "Message", child: [
+                { name: "Category", path: "bot/api/messages/category", router: "bot/api/messages/category" },
+                { name: "Upload Attachment", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
+                { name: "Download Attachment", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
+                { name: "Create Acknowledgements", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
+                { name: "Create Messages", path: "bot/api/messages/send", router: "bot/api/messages/send" },
+              ]
+            },
             { name: "Favorite App", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
             { name: "Error Codes", path: "bot/api/error-codes", router: "bot/api/error-codes" },
           ]

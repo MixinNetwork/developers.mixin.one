@@ -97,6 +97,7 @@
     display: flex;
     justify-content: space-around;
     width: 47.875rem;
+    overflow: hidden;
   }
 
   h6 {
