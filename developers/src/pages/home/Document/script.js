@@ -20,6 +20,7 @@ export default {
     '$route.path'() {
       let { pathMatch } = this.$route.params
       handlePathInit.call(this, pathMatch)
+      this.showNav = false
     }
   },
   mounted() {
