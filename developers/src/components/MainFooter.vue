@@ -96,7 +96,8 @@
   .container {
     display: flex;
     justify-content: space-around;
-    width: calc(100% - 17.5rem);
+    max-width: 63.75rem;
+    width: 100%;
     overflow: hidden;
   }
 
