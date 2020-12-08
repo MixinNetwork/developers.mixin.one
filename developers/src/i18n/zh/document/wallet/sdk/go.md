@@ -13,11 +13,9 @@ package main
 
 import (
 	"context"
+	"crypto/ed25519"
 	"crypto/rand"
-	"crypto/rsa"
-	"crypto/x509"
 	"encoding/base64"
-	"encoding/pem"
 	"fmt"
 	"time"
 
@@ -25,38 +23,30 @@ import (
 )
 
 const (
-	appId         = ""
+	clientId      = ""
 	appSessionId  = ""
 	appPrivateKey = ``
 )
 
 func main() {
 	ctx := context.Background()
-	// 生成用户
-	privateKey, err := rsa.GenerateKey(rand.Reader, 1024)
+	// 生成 Ed25519 私钥对
+	publicKey, privateKey, err := ed25519.GenerateKey(rand.Reader)
 	if err != nil {
-		fmt.Println(err)
+		println(err)
 		return
 	}
-	publicKeyBytes, err := x509.MarshalPKIXPublicKey(privateKey.Public())
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	sessionSecret := base64.StdEncoding.EncodeToString(publicKeyBytes)
+	sessionSecret := base64.RawURLEncoding.EncodeToString(publicKey[:])
 	// 将用户注册到 Mixin 网络
-	user, err := bot.CreateUser(ctx, sessionSecret, "fullname", appId, appSessionId, appPrivateKey)
+	user, err := bot.CreateUser(ctx, sessionSecret, "fullname", clientId, appSessionId, appPrivateKey)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	userSessionKey := string(pem.EncodeToMemory(&pem.Block{
-		Type:  "RSA PRIVATE KEY",
-		Bytes: x509.MarshalPKCS1PrivateKey(privateKey),
-	}))
+	userSessionKey := base64.RawURLEncoding.EncodeToString(privateKey)
 
 	// 加密 PIN
-	encryptedPIN, err := bot.EncryptPIN(ctx, "123456", user.PinToken, user.SessionId, userSessionKey, uint64(time.Now().UnixNano()))
+	encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", user.PinToken, user.SessionId, userSessionKey, uint64(time.Now().UnixNano()))
 	if err != nil {
 		fmt.Println(err)
 		return
