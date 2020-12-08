@@ -6,21 +6,22 @@
 
 ### 生成密钥
 
-切换到「密钥」点「应用 Session」生成应用的 PIN，Session ID，PinToken，私钥等敏感信息：
+切换到「密钥」在应用 Session 里点「Ed25519 私钥」生成应用的 PIN，Session ID，PinToken，私钥等敏感信息：
 
 ```json
 {
- "pin": "123456",
- "client_id": "b08dd779-7366-4d48-bf16-a2ce6014e213",
- "session_id": "6ef85e29-2dac-48ba-899a-cf64593e6ba8",
- "pin_token": "Qc8O7oI0Uw4NZkE1...aF18Y8yOhyGCsZn3n/KaBY66sLbkoLqTvNzwLxxqUYJ12HRaJgyHMql6ezLW5mgfh0wXxH2m3tSvP9qywX0YzuyCUGOrR1h4b8CyOdwm25Rtjdo8OBr6R4V4kJnE8DvY/mBfkpF0WqNLxY=",
- "private_key": "-----BEGIN RSA PRIVATE KEY-----\r\nMIICXAIBAAKBgQCRybXjMUn9OZnxxtfuHPHcK2OADKQmejSDVr/i/3GaqljcVv4H\r\nyTiil/WcO1kVSyOSi8XarcikO5rR8ceM0paZs0drk7+cxdVMSJCsjoGZ6WrdtW9L\r\n5RROJ/Z6vnhKDzaqH43K4JKAeFtH11LDaWb8kC2CAy8RpZSUdI69bm2E4QIDAQAB\r\nAoGAAnXW/fiM+RsJwAzNBBW09zQ8P6L2
- ...
- +5DbmYNpDUMQ9QMVZvmJiJDLk3p41tB6HHxREgW7aB9OL4xo7kcdAHubDRjf48S\r\nLfjKDGyBcFKmpuGP0wJBANP/qrYroIHugYgJ7RumKlbp7ep0ApBLD8R9+HlHOLoh\r\nao6cSE5BlKeEUQzKIGPG1VqZPpaW2gbezpJbfUC+3ao=\r\n-----END RSA PRIVATE KEY-----\r\n"
+  "pin": "123456",
+  "client_id": "96c1460b-c7c4-480a-a342-acaa73995a37",
+  "session_id": "cc2ae4e2-5f74-4c3e-9128-23892b46851a",
+  "pin_token": "YcUaTtLL3PnW7NrBNh...XhOiOIHrhAvAYgXZaNag34",
+  "private_key": "tbcUDgb4glYbyAkx-nOaqc4SpsDd1TFQMQq...2TxNfQiK9PULgod41QVXwVszVOWKi5TRm2gUK0sqch5A"
 }
 ```
 
-「应用密钥」和「应用二维码」主要用于 Mixin Messenger，这里不用管。**注意以上新生成的密钥信息服务器和浏览器都不会保存，请妥善存储。**
+- 应用 Session 密钥生成推荐使用 Ed25519 私钥，不推荐旧的 RSA 私钥，目前正在推进开发者从 RSA 私钥转向 Ed25519 私钥，参见[文档](../api/session-secret)。
+- 「应用密钥」和「应用二维码」主要用于 Mixin Messenger，这里不用管。
+
+**注意以上新生成的密钥信息服务器和浏览器都不会保存，请妥善存储。**
 
 ### 下一步
 
