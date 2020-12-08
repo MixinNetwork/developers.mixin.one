@@ -77,7 +77,13 @@
           </el-menu-item>
         </template>
       </el-menu>
-      <div class="container markdown-body" v-html="page"></div>
+      <div class="container">
+        <div class="markdown-body" v-html="page"></div>
+        <template v-if="path">
+          <a target="_blank" :href="githubView" class="github-view">{{$t('home.documentation.github.view')}}</a><br />
+          <a target="_blank" :href="githubEdit" class="github-edit">{{$t('home.documentation.github.edit')}}</a>
+        </template>
+      </div>
       <div ref="test"></div>
     </section>
 

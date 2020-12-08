@@ -28,7 +28,11 @@ export default {
         { title: '练习', info: '常见演练', href: '' },
         { title: '练习', info: 'API 和其他工具', href: '' },
         { title: '练习', info: 'API 和其他工具', href: '' },
-      ]
+      ],
+      github: {
+        view: "点此此处在 github 上查看",
+        edit: "如需编辑，请点击这里"
+      }
     },
     nextstep: {
       title: "下一步",
