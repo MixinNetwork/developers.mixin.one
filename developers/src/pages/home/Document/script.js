@@ -13,7 +13,18 @@ export default {
       page: "",
       active_path: "",
       path: "",
-      showNav: false
+      showNav: false,
+      locale: 'zh'
+    }
+  },
+  computed: {
+    githubView() {
+      const { locale, path } = this
+      return `https://github.com/MixinNetwork/developers.mixin.one/blob/main/developers/src/i18n/${locale}/document/${path}.md`
+    },
+    githubEdit() {
+      const { locale, path } = this
+      return `https://github.com/MixinNetwork/developers.mixin.one/edit/main/developers/src/i18n/${locale}/document/${path}.md`
     }
   },
   watch: {

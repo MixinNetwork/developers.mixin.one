@@ -96,7 +96,6 @@
   .container {
     display: flex;
     justify-content: space-around;
-    width: 47.875rem;
   }
 
   h6 {

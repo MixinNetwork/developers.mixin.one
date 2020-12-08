@@ -31,6 +31,9 @@ func main() {
 }
 ```
 
+调用 `GET /assets/:id` 可以返回单个资产的详情，包括资产的充值地址。 比如要获取 BTC 的充值地址， 就可以调用 `GET /assets/c6d0c728-2624-429b-8e0d-d9d19b6592fa`
+每种资产 ID 都是固定的，可以从 https://mixin.one/snapshots 里搜索资产符号获取。
+
 ### 下一步
 
 - [用户转账](./transfer)

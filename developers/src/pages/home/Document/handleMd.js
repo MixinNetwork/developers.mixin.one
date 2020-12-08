@@ -2,6 +2,7 @@ import "github-markdown-css"
 
 export function getPageContent(locale) {
   try {
+    this.locale = locale
     this.page = require(`@/i18n/${locale}/document/${this.path}.md`)
     return true
   } catch (e) {

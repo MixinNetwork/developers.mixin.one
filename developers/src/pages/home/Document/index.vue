@@ -81,7 +81,13 @@
       <div class="float-menu" v-if="!showNav" @click="showNav = !showNav">
         <img src="@/assets/img/svg/doc-menus.svg" class="toggle-nav-btn" />
       </div>
-      <div class="container markdown-body" v-html="page"></div>
+      <div class="container">
+        <div class="markdown-body" v-html="page"></div>
+        <template v-if="path">
+          <a target="_blank" :href="githubView" class="github-view">{{$t('home.documentation.github.view')}}</a><br />
+          <a target="_blank" :href="githubEdit" class="github-edit">{{$t('home.documentation.github.edit')}}</a>
+        </template>
+      </div>
     </section>
 
     <Footer />
