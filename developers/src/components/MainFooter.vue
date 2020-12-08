@@ -96,6 +96,8 @@
   .container {
     display: flex;
     justify-content: space-around;
+    width: calc(100% - 17.5rem);
+    overflow: hidden;
   }
 
   h6 {
