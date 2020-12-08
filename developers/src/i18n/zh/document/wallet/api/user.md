@@ -6,7 +6,7 @@
 
 | 参数 | 类型 | 介绍 |
 | :----- | :----: | :---- |
-| session_secret | String | base64 之后的 RSA 公钥 |
+| session_secret | String | base64 之后的 Ed25519 公钥 |
 | full_name | String | 用户名 |
 
 curl 示例
