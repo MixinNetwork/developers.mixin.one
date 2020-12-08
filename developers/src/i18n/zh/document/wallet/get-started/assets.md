@@ -31,8 +31,19 @@ func main() {
 }
 ```
 
-调用 `GET /assets/:id` 可以返回单个资产的详情，包括资产的充值地址。 比如要获取 BTC 的充值地址， 就可以调用 `GET /assets/c6d0c728-2624-429b-8e0d-d9d19b6592fa`
-每种资产 ID 都是固定的，可以从 https://mixin.one/snapshots 里搜索资产符号获取。
+- 调用 `GET /assets/:id` 可以返回单个资产的详情，包括资产的充值地址。 比如要获取 BTC 的充值地址， 就可以调用 `GET /assets/c6d0c728-2624-429b-8e0d-d9d19b6592fa`
+- `asset_id` 资产 id 全网唯一且固定不变，可以从 https://mixin.one/snapshots 里搜索资产符号例如 `btc` 获取；也可以将资产充值进 Mixin Messenger 钱包后找到 `7000103061` 机器人搜索并复制资产信息，格式如下：
+
+  ```json
+  {
+    "name":"Bitcoin",
+    "symbol":"BTC",
+    "asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+    "chain_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+    "chain_icon_url":"https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
+    "icon_url":"https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128"
+  }
+  ```
 
 ### 下一步
 
