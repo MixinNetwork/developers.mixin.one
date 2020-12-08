@@ -264,6 +264,7 @@ export default {
               { name: "搜索热门资产", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
             ]},
             { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "RSA 迁移", path: "wallet/api/session-secret", router: "wallet/api/session-secret" },
             { name: "错误码", path: "wallet/api/error-codes", router: "wallet/api/error-codes" },
           ]
         },
