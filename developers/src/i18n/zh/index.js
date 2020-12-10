@@ -360,6 +360,7 @@ export default {
             { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
             { name: "EOS", path: "knowledge/chains/eos", router: "knowledge/chains/eos" },
             { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
+            { name: "波场", path: "knowledge/chains/tron", router: "knowledge/chains/tron" },
           ]},
           { name: "隐私类", child: [
             { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
