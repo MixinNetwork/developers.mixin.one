@@ -7,24 +7,29 @@
 用 go 语言实现签名授权：
 
 ```go
-func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string, error) {
-  expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
-  sum := sha256.Sum256([]byte(method + uri + body))
-  token := jwt.NewWithClaims(jwt.SigningMethodRS512, jwt.MapClaims{
-    "uid": uid,
-    "sid": sid,
-    "iat": time.Now().UTC().Unix(),
-    "exp": expire.Unix(),
-    "jti": uuid.NewV4().String(),
-    "sig": hex.EncodeToString(sum[:]),
-  })
+func SignAuthenticationToken(uid, sid, privateKey, method, uri, body string) (string, error) {
+	expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
+	sum := sha256.Sum256([]byte(method + uri + body))
 
-  block, _ := pem.Decode([]byte(secret))
-  key, err := x509.ParsePKCS1PrivateKey(block.Bytes)
-  if err != nil {
-    return "", err
-  }
-  return token.SignedString(key)
+	claims := jwt.MapClaims{
+		"uid": uid,
+		"sid": sid,
+		"iat": time.Now().UTC().Unix(),
+		"exp": expire.Unix(),
+		"jti": UuidNewV4().String(),
+		"sig": hex.EncodeToString(sum[:]),
+		"scp": "FULL",
+	}
+	priv, err := base64.RawURLEncoding.DecodeString(privateKey)
+	if err != nil {
+		return "", fmt.Errorf("Bad ed25519 private key %s", privateKey)
+	}
+	// more validate the private key
+	if len(priv) != 64 {
+		return "", fmt.Errorf("Bad ed25519 private key %s", priv)
+	}
+	token := jwt.NewWithClaims(Ed25519SigningMethod, claims)
+	return token.SignedString(ed25519.PrivateKey(priv))
 }
 ```
 

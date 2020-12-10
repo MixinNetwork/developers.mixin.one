@@ -8,19 +8,21 @@
 
 ```go
 func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string, iterator uint64) (string, error) {
-	privBlock, _ := pem.Decode([]byte(privateKey))
-	if privBlock == nil {
-		return "", errors.New("invalid pem private key")
-	}
-	priv, err := x509.ParsePKCS1PrivateKey(privBlock.Bytes)
+	privateBytes, err := base64.RawURLEncoding.DecodeString(privateKey)
 	if err != nil {
 		return "", err
 	}
-	token, _ := base64.StdEncoding.DecodeString(pinToken)
-	keyBytes, err := rsa.DecryptOAEP(sha256.New(), rand.Reader, priv, token, []byte(sessionId))
+
+	private := ed25519.PrivateKey(privateBytes)
+	public, err := base64.RawURLEncoding.DecodeString(pinToken)
 	if err != nil {
 		return "", err
 	}
+	var dst, curve, pub [32]byte
+	PrivateKeyToCurve25519(&curve, private)
+	copy(pub[:], public[:])
+	curve25519.ScalarMult(&dst, &curve, &pub)
+
 	pinByte := []byte(pin)
 	timeBytes := make([]byte, 8)
 	binary.LittleEndian.PutUint64(timeBytes, uint64(time.Now().Unix()))
@@ -31,7 +33,7 @@ func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string
 	padding := aes.BlockSize - len(pinByte)%aes.BlockSize
 	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
 	pinByte = append(pinByte, padtext...)
-	block, err := aes.NewCipher(keyBytes)
+	block, err := aes.NewCipher(dst[:])
 	if err != nil {
 		return "", err
 	}
@@ -43,7 +45,7 @@ func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string
 	}
 	mode := cipher.NewCBCEncrypter(block, iv)
 	mode.CryptBlocks(ciphertext[aes.BlockSize:], pinByte)
-	return base64.StdEncoding.EncodeToString(ciphertext), nil
+	return base64.RawURLEncoding.EncodeToString(ciphertext), nil
 }
 ```
 
@@ -63,7 +65,7 @@ func main() {
     ctx := context.Background()
 
     // 加密 PIN
-	encryptedPIN, err := bot.EncryptPIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
+	encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
 	if err != nil {
 		fmt.Println(err)
 		return

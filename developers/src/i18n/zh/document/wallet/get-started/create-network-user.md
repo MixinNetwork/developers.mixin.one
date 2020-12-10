@@ -22,18 +22,14 @@ const (
 
 func main() {
 	ctx := context.Background()
-	// RSA PKCS#1 v1.5
-	privateKey, err := rsa.GenerateKey(rand.Reader, 1024)
+	// 生成 Ed25519 私钥对
+	publicKey, privateKey, err := ed25519.GenerateKey(rand.Reader)
 	if err != nil {
 		println(err)
 		return
 	}
-	publicKeyBytes, err := x509.MarshalPKIXPublicKey(privateKey.Public())
-	if err != nil {
-		println(err)
-		return
-	}
-	sessionSecret := base64.StdEncoding.EncodeToString(publicKeyBytes)
+	sessionSecret := base64.RawURLEncoding.EncodeToString(publicKey[:])
+	// 注册到 Mixin 网络
 	user, err := bot.CreateUser(ctx, sessionSecret, "fullname", clientId, sessionId, privateKey)
 	if err != nil {
 		println(err)
