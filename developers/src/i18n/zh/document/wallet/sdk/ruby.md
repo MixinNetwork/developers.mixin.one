@@ -9,7 +9,7 @@ gem install mixin_bot
 或者在 `Gemfile` 添加
 
 ```ruby
-gem 'mixin_bot', github: 'an-lee/mixin_bot', branch: 'master'
+gem 'mixin_bot'
 ```
 
 再执行

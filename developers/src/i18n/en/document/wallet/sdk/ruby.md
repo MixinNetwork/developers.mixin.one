@@ -4,7 +4,7 @@
 
 Add to gemfile, and `bundle install`
 ```ruby
-gem 'mixin_bot', github: 'an-lee/mixin_bot', branch: 'master'
+gem 'mixin_bot'
 ```
 
 Or
