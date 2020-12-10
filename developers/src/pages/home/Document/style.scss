@@ -12,6 +12,14 @@ section {
   align-items: flex-start;
 }
 
+.modal {
+  display: none;
+}
+
+.toggle-nav-btn {
+  display: none;
+}
+
 a {
   display: inline-block;
   cursor: pointer;

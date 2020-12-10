@@ -1,11 +1,11 @@
 <template>
-  <div class="api-page">
+  <div :class="['api-page', showNav && 'api-page-locked']">
     <Header />
 
     <section>
       <el-menu
         :default-active="active_path"
-        class="path one-path"
+        :class="['path one-path', showNav && 'one-path_active']"
       >
         <template v-for="(item, widx) in $t('documentation')">
           <el-submenu
@@ -77,6 +77,10 @@
           </el-menu-item>
         </template>
       </el-menu>
+      <div :class="['modal', showNav && 'modal-active']" @click.self="showNav = !showNav"></div>
+      <div class="float-menu" v-if="!showNav" @click="showNav = !showNav">
+        <img src="@/assets/img/svg/doc-menus.svg" class="toggle-nav-btn" />
+      </div>
       <div class="container">
         <div class="markdown-body" v-html="page"></div>
         <template v-if="path">
@@ -84,7 +88,6 @@
           <a target="_blank" :href="githubEdit" class="github-edit">{{$t('home.documentation.github.edit')}}</a>
         </template>
       </div>
-      <div ref="test"></div>
     </section>
 
     <Footer />
@@ -94,5 +97,6 @@
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
 <style lang='scss' scoped>
-  @import "./style.scss";
+  @import "./style";
+  @import "./style_m";
 </style>
