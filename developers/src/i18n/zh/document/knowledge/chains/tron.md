@@ -6,7 +6,7 @@
 - 主网上线：2018/06/25
 - 共识机制：DPoS（TPS 峰值可达到 2000）
 - 主网代币：TRON（TRX）
-- 最大发行：100,000,000,000
+- 最大发行：1000 亿
 - 出块时间：3 秒
 - 区块大小：[动态区块大小](https://tronscan.org/#/data/stats/blockSizeStats)
 - 区块奖励：16 TRX
