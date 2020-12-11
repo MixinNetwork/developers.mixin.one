@@ -353,6 +353,7 @@ export default {
           { name: "资产类", child: [
             { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
             { name: "莱特币", path: "knowledge/chains/litecoin", router: "knowledge/chains/litecoin" },
+            { name: "瑞波币", path: "knowledge/chains/ripple", router: "knowledge/chains/ripple" },
             { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
             { name: "狗狗币", path: "knowledge/chains/dogecoin", router: "knowledge/chains/dogecoin" },
           ]},
