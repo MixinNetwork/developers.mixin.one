@@ -41,6 +41,10 @@ POST https://mixin-api.zeromesh.net/oauth/token
 
 建议开发者将 access token 缓存起来，后续通过 access token 调用 API 访问用户数据，可据此判断用户是否已授权。
 
+### 取消授权
+
+开发者可以在 Mixin Messenger 设置 - 隐私与安全 - 授权里找到机器人取消授权，注意取消授权同时会清空客户端当前机器人的 Cookies 等缓存信息。
+
 ### 下一步
 
 - [获取用户数据](./api)
