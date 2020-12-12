@@ -348,6 +348,7 @@ export default {
       child: [
         { name: "术语", child: [
           { name: "挖矿", path: "knowledge/glossary/mining", router: "knowledge/glossary/mining" },
+          { name: "交易所", path: "knowledge/glossary/exchange", router: "knowledge/glossary/exchange" },
         ]},
         { name: "公链", child: [
           { name: "资产类", child: [
