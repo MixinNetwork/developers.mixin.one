@@ -61,3 +61,9 @@
 | 2014/02/24 | Mt.Gox 交易所 | 850,000 BTC |
 | 2012/09/05 | Bitfloor 交易所 | 24,000 BTC |
 | 2012/03/01 | Bitcoinica 交易所 | 61,457 BTC |
+
+### 小知识
+
+- 在哪看交易所排名？
+
+  https://www.coingecko.com/zh/exchanges 、 https://coinmarketcap.com/rankings/exchanges
