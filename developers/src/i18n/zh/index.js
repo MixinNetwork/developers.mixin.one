@@ -351,6 +351,7 @@ export default {
           { name: "挖矿", path: "knowledge/glossary/mini ng", router: "knowledge/glossary/mining" },
           { name: "交易所", path: "knowledge/glossary/exchange", router: "knowledge/glossary/exchange" },
           { name: "空投", path: "knowledge/glossary/airdrop", router: "knowledge/glossary/airdrop" },
+          { name: "ICO", path: "knowledge/glossary/ico", router: "knowledge/glossary/ico" },
         ]},
         { name: "公链", child: [
           { name: "资产类", child: [
