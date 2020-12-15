@@ -300,6 +300,7 @@ export default {
             { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
             { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
             { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+            { name: "贴纸规范", path: "bot/design/sticker", router: "bot/design/sticker" },
           ]
         },
         {
