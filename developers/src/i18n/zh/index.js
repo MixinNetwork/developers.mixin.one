@@ -348,7 +348,7 @@ export default {
       child: [
         { name: "词典", child: [
           { name: "加密货币", path: "knowledge/glossary/cryptocurrency", router: "knowledge/glossary/cryptocurrency" },
-          { name: "挖矿", path: "knowledge/glossary/mini ng", router: "knowledge/glossary/mining" },
+          { name: "挖矿", path: "knowledge/glossary/mining", router: "knowledge/glossary/mining" },
           { name: "交易所", path: "knowledge/glossary/exchange", router: "knowledge/glossary/exchange" },
           { name: "空投", path: "knowledge/glossary/airdrop", router: "knowledge/glossary/airdrop" },
           { name: "ICO", path: "knowledge/glossary/ico", router: "knowledge/glossary/ico" },
