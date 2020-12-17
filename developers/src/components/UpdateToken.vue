@@ -65,14 +65,15 @@
   }
 
   function _check_date() {
-    if (!validator.isUUID(this.submit_form.session_id, 4)) {
+    const { session_id, pin_token,private_key } = this.submit_form
+    if (!validator.isUUID(session_id, 4)) {
       this.$message.error({
         message: this.$t("message.errors.session_id_format"),
         showClose: true
       })
       return false
     }
-    if (!validator.isBase64(this.submit_form.pin_token)) {
+    if (!validator.isBase64(pin_token) && Buffer.from(pin_token, 'base64').length !== 32) {
       this.$message.error({
         message: this.$t("message.errors.pin_token_format"),
         showClose: true
