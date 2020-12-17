@@ -172,7 +172,6 @@ function privateKeyToCurve25519(privateKey) {
   const sha512 = crypto.createHash('sha512')
   sha512.write(seed, 'binary')
   let digest = sha512.digest()
-  console.log(digest)
   digest[0] &= 248
   digest[31] &= 127
   digest[31] |= 64
