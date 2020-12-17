@@ -330,6 +330,7 @@ export default {
             { name: "圈子", child: [
               { name: "创建圈子", path: "bot/api/circles/create", router: "bot/api/circles/create" },
               { name: "删除圈子", path: "bot/api/circles/delete", router: "bot/api/circles/delete" },
+              { name: "修复圈子名称", path: "bot/api/circles/update", router: "bot/api/circles/update" },
               { name: "查询所有圈子", path: "bot/api/circles/list", router: "bot/api/circles/list" },
               { name: "查询圈子详情", path: "bot/api/circles/detail", router: "bot/api/circles/detail" },
               { name: "查询圈子会话", path: "bot/api/circles/circle-conversations", router: "bot/api/circles/circle-conversations" },

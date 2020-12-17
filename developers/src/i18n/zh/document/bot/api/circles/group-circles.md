@@ -24,6 +24,7 @@ $$XIN:curl$$ "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0
   "data":[
     {
       "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
+      "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
       "name":"Friends",
       "created_at":"2018-05-29T09:31:04.202186212Z"
     },
