@@ -1,8 +1,7 @@
-import moment from 'moment'
 import forge from 'node-forge'
 import jwt from 'jsonwebtoken'
 import { v4 as uuid } from 'uuid'
-import LittleEndian from "int64-buffer"
+import { Int64BE } from "int64-buffer"
 import crypto from 'crypto'
 import crypto_scalarmult from './ed25519'
 
@@ -115,15 +114,14 @@ function base64url(buffer) {
 
 const blockSize = 16
 function signEncryptedPin(pin, pinToken, sessionId, privateKey, iterator) {
-  let Uint64LE = LittleEndian.Int64BE
   let _privateKey = toBuffer(privateKey, 'base64');
   let pinKey = _privateKey.length === 64 ? signEncryptEd25519PIN(pinToken, privateKey) : signPin(pinToken, privateKey, sessionId)
-  let time = new Uint64LE(moment.utc().unix())
+  let time = new Int64BE(Date.now() / 1000 | 0);
   time = [...time.toBuffer()].reverse()
   if (iterator === undefined || iterator === "") {
     iterator = Date.now() * 1000000
   }
-  iterator = new Uint64LE(iterator)
+  iterator = new Int64BE(iterator)
   iterator = [...iterator.toBuffer()].reverse()
   pin = Buffer.from(pin, 'utf8')
   let buf = Buffer.concat([pin, Buffer.from(time), Buffer.from(iterator)])
@@ -132,10 +130,10 @@ function signEncryptedPin(pin, pinToken, sessionId, privateKey, iterator) {
   for (let i = 0; i < padding; i++) {
     paddingArray.push(padding)
   }
-  buf = Buffer.concat([buf, new Buffer(paddingArray)])
+  buf = Buffer.concat([buf, Buffer.from(paddingArray)])
 
   const iv16 = crypto.randomBytes(16)
-  const cipher = crypto.createCipheriv('aes-256-cbc', hexToBytes(forge.util.binary.hex.encode(pinKey)), iv16)
+  const cipher = crypto.createCipheriv('aes-256-cbc', pinKey, iv16)
   cipher.setAutoPadding(false)
   let encrypted_pin_buff = cipher.update(buf, 'utf-8')
   encrypted_pin_buff = Buffer.concat([iv16, encrypted_pin_buff])
@@ -143,19 +141,19 @@ function signEncryptedPin(pin, pinToken, sessionId, privateKey, iterator) {
 }
 
 function signPin(pinToken, privateKey, sessionId) {
-  pinToken = new Buffer(pinToken, 'base64')
+  pinToken = Buffer.from(pinToken, 'base64')
   privateKey = forge.pki.privateKeyFromPem(privateKey)
-  return privateKey.decrypt(pinToken, 'RSA-OAEP', {
+  const pinKey = privateKey.decrypt(pinToken, 'RSA-OAEP', {
     md: forge.md.sha256.create(),
     label: sessionId
   })
+  return hexToBytes(forge.util.binary.hex.encode(pinKey))
 }
 
 function signEncryptEd25519PIN(pinToken, privateKey) {
   privateKey = Buffer.from(privateKey, 'base64')
   pinToken = Buffer.from(pinToken, 'base64')
-  let pinKey = scalarMult(privateKeyToCurve25519(privateKey), pinToken.slice(0, 32))
-  return Uint8ArrayToString(pinKey)
+  return scalarMult(privateKeyToCurve25519(privateKey), pinToken.slice(0, 32))
 }
 
 function scalarMult(curvePriv, publicKey) {
@@ -179,17 +177,10 @@ function privateKeyToCurve25519(privateKey) {
 }
 
 function hexToBytes(hex) {
-  const bytes = []
+  const bytes = new Uint8Array(32)
+  let i = 0
   for (let c = 0; c < hex.length; c += 2) {
-    bytes.push(parseInt(hex.substr(c, 2), 16))
+    bytes[i++] = parseInt(hex.substr(c, 2), 16)
   }
   return bytes
-}
-
-function Uint8ArrayToString(fileData) {
-  var dataString = "";
-  for (var i = 0; i < fileData.length; i++) {
-    dataString += String.fromCharCode(fileData[i]);
-  }
-  return dataString
 }
