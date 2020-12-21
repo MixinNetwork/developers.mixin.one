@@ -189,9 +189,11 @@ export default {
           { name: "MTG", path: "mainnet/concepts/mtg", router: "mainnet/concepts/mtg" },
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
-          { name: "PoS", path: "mainnet/concepts/pos", router: "mainnet/concepts/pos" }
           { name: "多重签名", path: "mainnet/concepts/multisigs", router: "mainnet/concepts/multisigs" },
           */
+        ]},
+        { name: "MTG", child: [
+          { name: "简介", path: "mainnet/mtg/overview", router: "mainnet/mtg/overview" },
         ]},
         { name: "教程", child: [
           { name: "加入主网", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
