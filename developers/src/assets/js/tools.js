@@ -1,7 +1,7 @@
 import forge from 'node-forge'
 import jwt from 'jsonwebtoken'
 import { v4 as uuid } from 'uuid'
-import { Int64BE } from "int64-buffer"
+import { Uint64LE } from "int64-buffer"
 import crypto from 'crypto'
 import crypto_scalarmult from './ed25519'
 
@@ -72,12 +72,12 @@ function environment() {
 function signAuthenticationToken(uid, sid, privateKey, method, uri, body, scp) {
   if (uri.startsWith('https://api.mixin.one')) uri = uri.replace('https://api.mixin.one', '')
   if (uri.startsWith('https://mixin-api.zeromesh.net')) uri = uri.replace('https://mixin-api.zeromesh.net', '')
-  method = method.toLocaleUpperCase();
-  if (typeof (body) === "object") body = JSON.stringify(body);
+  method = method.toLocaleUpperCase()
+  if (typeof (body) === "object") body = JSON.stringify(body)
   let issuedAt = Math.floor(Date.now() / 1000)
-  let md = forge.md.sha256.create();
-  let _privateKey = toBuffer(privateKey, 'base64');
-  md.update(method + uri + body, 'utf8');
+  let md = forge.md.sha256.create()
+  let _privateKey = toBuffer(privateKey, 'base64')
+  md.update(method + uri + body, 'utf8')
   let payload = {
     uid: uid,
     sid: sid,
@@ -86,15 +86,15 @@ function signAuthenticationToken(uid, sid, privateKey, method, uri, body, scp) {
     jti: uuid(),
     sig: md.digest().toHex(),
     scp: scp || 'FULL'
-  };
-  return _privateKey.length === 64 ? getEd25519Sign(payload, _privateKey) : jwt.sign(payload, privateKey, { algorithm: 'RS512' });
+  }
+  return _privateKey.length === 64 ? getEd25519Sign(payload, _privateKey) : jwt.sign(payload, privateKey, { algorithm: 'RS512' })
 }
 
 function getEd25519Sign(payload, privateKey) {
   const header = toBuffer({ alg: "EdDSA", typ: "JWT" }).toString('base64')
-  payload = base64url(toBuffer(payload))
+  payload = base64rawUrl(toBuffer(payload))
   const result = [header, payload]
-  const sign = base64url(forge.pki.ed25519.sign({
+  const sign = base64rawUrl(forge.pki.ed25519.sign({
     message: result.join('.'),
     encoding: 'utf8',
     privateKey
@@ -108,21 +108,19 @@ function toBuffer(content, encoding = 'utf8') {
   return Buffer.from(content, encoding)
 }
 
-function base64url(buffer) {
+function base64rawUrl(buffer) {
   return buffer.toString('base64').replace(/\=/g, '').replace(/\+/g, '-').replace(/\//g, '_')
 }
 
 const blockSize = 16
 function signEncryptedPin(pin, pinToken, sessionId, privateKey, iterator) {
-  let _privateKey = toBuffer(privateKey, 'base64');
+  let _privateKey = toBuffer(privateKey, 'base64')
   let pinKey = _privateKey.length === 64 ? signEncryptEd25519PIN(pinToken, privateKey) : signPin(pinToken, privateKey, sessionId)
-  let time = new Int64BE(Date.now() / 1000 | 0);
-  time = [...time.toBuffer()].reverse()
+  let time = new Uint64LE(Date.now() / 1000 | 0).toBuffer()
   if (iterator === undefined || iterator === "") {
     iterator = Date.now() * 1000000
   }
-  iterator = new Int64BE(iterator)
-  iterator = [...iterator.toBuffer()].reverse()
+  iterator = new Uint64LE(iterator).toBuffer()
   pin = Buffer.from(pin, 'utf8')
   let buf = Buffer.concat([pin, Buffer.from(time), Buffer.from(iterator)])
   const padding = blockSize - buf.length % blockSize
@@ -160,9 +158,9 @@ function scalarMult(curvePriv, publicKey) {
   curvePriv[0] &= 248
   curvePriv[31] &= 127
   curvePriv[31] |= 64
-  var sharedKey = new Uint8Array(32);
-  crypto_scalarmult(sharedKey, curvePriv, publicKey);
-  return sharedKey;
+  var sharedKey = new Uint8Array(32)
+  crypto_scalarmult(sharedKey, curvePriv, publicKey)
+  return sharedKey
 }
 
 function privateKeyToCurve25519(privateKey) {
