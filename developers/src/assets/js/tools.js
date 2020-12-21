@@ -178,9 +178,8 @@ function privateKeyToCurve25519(privateKey) {
 
 function hexToBytes(hex) {
   const bytes = new Uint8Array(32)
-  let i = 0
   for (let c = 0; c < hex.length; c += 2) {
-    bytes[i++] = parseInt(hex.substr(c, 2), 16)
+    bytes[c / 2] = parseInt(hex.substr(c, 2), 16)
   }
   return bytes
 }
