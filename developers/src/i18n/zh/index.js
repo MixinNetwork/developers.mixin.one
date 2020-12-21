@@ -300,6 +300,7 @@ export default {
             { name: "颜色", path: "bot/design/color", router: "bot/design/color" },
             { name: "沉浸模式", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
             { name: "暗黑模式", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+            { name: "贴纸规范", path: "bot/design/sticker", router: "bot/design/sticker" },
           ]
         },
         {
@@ -325,6 +326,16 @@ export default {
               { name: "创建", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
               { name: "读取", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
               { name: "更新", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+            ]},
+            { name: "圈子", child: [
+              { name: "创建圈子", path: "bot/api/circles/create", router: "bot/api/circles/create" },
+              { name: "删除圈子", path: "bot/api/circles/delete", router: "bot/api/circles/delete" },
+              { name: "修复圈子名称", path: "bot/api/circles/update", router: "bot/api/circles/update" },
+              { name: "查询所有圈子", path: "bot/api/circles/list", router: "bot/api/circles/list" },
+              { name: "查询圈子详情", path: "bot/api/circles/detail", router: "bot/api/circles/detail" },
+              { name: "查询圈子会话", path: "bot/api/circles/circle-conversations", router: "bot/api/circles/circle-conversations" },
+              { name: "设置用户圈子", path: "bot/api/circles/user-circles", router: "bot/api/circles/user-circles" },
+              { name: "设置群组圈子", path: "bot/api/circles/group-circles", router: "bot/api/circles/group-circles" },
             ]},
             { name: "资产", child: [
               { name: "资产列表", path: "bot/api/assets/list", router: "bot/api/assets/list" },
