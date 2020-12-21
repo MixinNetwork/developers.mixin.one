@@ -68,9 +68,9 @@ async function _get_assets_list() {
     this.whole_loading = false
     return
   }
-  let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
-  _vm._not_through_interceptor = true
   try {
+    let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
+    _vm._not_through_interceptor = true
     let res = await this.apis.get_assets(assets_token)
     if (res) {
       this.assets_list = res.sort(compare)
@@ -81,6 +81,11 @@ async function _get_assets_list() {
       this.open_edit_modal = true
       this.$ls.rm(this.active_app.app_id)
     }
+  } catch (e) {
+    this.$message.error({ message: this.$t("message.errors.401"), showClose: true })
+    this.is_edited = false
+    this.open_edit_modal = true
+    this.$ls.rm(this.active_app.app_id)
   } finally {
     this.whole_loading = false
     _vm._not_through_interceptor = false
