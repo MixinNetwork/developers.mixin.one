@@ -363,13 +363,18 @@ export default {
       path: "knowledge",
       router: "knowledge",
       child: [
-        { name: "术语", child: [
+        { name: "词典", child: [
+          { name: "加密货币", path: "knowledge/glossary/cryptocurrency", router: "knowledge/glossary/cryptocurrency" },
           { name: "挖矿", path: "knowledge/glossary/mining", router: "knowledge/glossary/mining" },
+          { name: "交易所", path: "knowledge/glossary/exchange", router: "knowledge/glossary/exchange" },
+          { name: "空投", path: "knowledge/glossary/airdrop", router: "knowledge/glossary/airdrop" },
+          { name: "ICO", path: "knowledge/glossary/ico", router: "knowledge/glossary/ico" },
         ]},
         { name: "公链", child: [
           { name: "资产类", child: [
             { name: "比特币", path: "knowledge/chains/bitcoin", router: "knowledge/chains/bitcoin" },
             { name: "莱特币", path: "knowledge/chains/litecoin", router: "knowledge/chains/litecoin" },
+            { name: "瑞波币", path: "knowledge/chains/ripple", router: "knowledge/chains/ripple" },
             { name: "比原链", path: "knowledge/chains/bytom", router: "knowledge/chains/bytom" },
             { name: "狗狗币", path: "knowledge/chains/dogecoin", router: "knowledge/chains/dogecoin" },
           ]},
@@ -377,6 +382,7 @@ export default {
             { name: "以太坊", path: "knowledge/chains/ethereum", router: "knowledge/chains/ethereum" },
             { name: "EOS", path: "knowledge/chains/eos", router: "knowledge/chains/eos" },
             { name: "波卡", path: "knowledge/chains/polkadot", router: "knowledge/chains/polkadot" },
+            { name: "波场", path: "knowledge/chains/tron", router: "knowledge/chains/tron" },
           ]},
           { name: "隐私类", child: [
             { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
