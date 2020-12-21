@@ -9,7 +9,7 @@ gem install mixin_bot
 或者在 `Gemfile` 添加
 
 ```ruby
-gem 'mixin_bot', github: 'an-lee/mixin_bot', branch: 'master'
+gem 'mixin_bot'
 ```
 
 再执行
@@ -25,16 +25,11 @@ bundle install
 MixinBot.client_id = '25696f85-b7b4-4509-8c3f-2684a8fc4a2a'
 MixinBot.client_secret = 'd9dc58107bacde671...'
 MixinBot.session_id ='25696f85-b7b4-4509-8c3f-2684a8fc4a2a'
-MixinBot.pin_token = 'b0pjBUKI0Vp9K+NspaL....'
-MixinBot.private_key = `
------BEGIN RSA PRIVATE KEY-----
-MIICXAIBAAKBgQDQYjiR/Te6Bh/1bk8gWRbQkrX0AIGPja1DLUQHu5Uw9M4P53O3
-f4pDCGoN3R5+LYjODtquOwmEjcMhbhp6XarrnJVXH8WGmJcpjVwGtwIjPTeRMu4Z
-...
------END RSA PRIVATE KEY-----`
+MixinBot.pin_token = 'T-3RhNg36a4rSCZRpkbRzbl5CnslOMDo...'
+MixinBot.private_key = '6rK2AAf3FmDIgNhgPiC-Sn5D5qh7ieq8PuJANnf4-goNRVZPt3cnY0Zr6xF1COaR...'
 
 # 生成用户
-user = MixinBot.api.create_user('New User')
+user = MixinBot.api.create_user('New User', key_type: 'Ed25519')
 puts user
 
 # 得到结果如下：
@@ -47,20 +42,16 @@ puts user
 #     "pin_token": "xxx",
 #     ...
 #   },
-#   rsa_key: {
+#   ed25519_key: {
 #     public_key: "xxx",
 #     private_key: "xxx"
 #   }
 # }
 
-# 或者可以自定义 rsa_key
-user = MixinBot.api.create_user('New User', private_key: 'xxx', public_key: 'xxx')
-
 # 创建用户 api 实例
 # 其中 user_id, private_key, session_id, pin_token, private_key 从上述生成用户的返回值中可以得到
 user_mixin_api = MixinBot::API.new(
   client_id: user_id,
-  client_secret: OpenSSL::PKey::RSA.new(private_key).public_key.to_pem.gsub(/^-----.*PUBLIC KEY-----$/, '').strip,
   session_id: session_id,
   pin_token: pin_token,
   private_key: private_key
