@@ -6,9 +6,8 @@ module.exports = {
       return {
         plugins: [
           new CompressionWebpackPlugin({
-            algorithm: 'gzip',
-            test: /\.(js|css|svg|png|ttf|woff|woff2|jpg)$/,
-            threshold: 2048
+            filename: "[path][base]",
+            test: /\.(js|css|svg|png|ttf|woff|woff2|jpg)$/
           })
         ]
       }
