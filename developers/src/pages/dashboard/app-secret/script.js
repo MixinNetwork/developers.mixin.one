@@ -120,14 +120,10 @@ async function _request_new_secret() {
 }
 
 async function _request_new_session(algo = 'rsa') {
-  console.log(algo);
   if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
   let pin = _get_pin()
-  let key = _get_private_key()
-  if (algo == 'ed25519')  {
-    key = _get_ed25519_private_key()
-  }
-  let { session_secret, private_key } = key;
+  let key = algo === 'ed25519' ? _get_ed25519_private_key() : _get_private_key()
+  let { session_secret, private_key } = key
   once_submit = true
   this.loading = true
   try {
@@ -147,9 +143,9 @@ async function _request_new_session(algo = 'rsa') {
   }
 
   function _get_ed25519_private_key() {
-    let keypair = forge.pki.ed25519.generateKeyPair();
-    let session_secret = keypair.publicKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
-    let private_key = keypair.privateKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
+    let keypair = forge.pki.ed25519.generateKeyPair()
+    let session_secret = keypair.publicKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
+    let private_key = keypair.privateKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
     return { session_secret, private_key }
   }
 
