@@ -9,3 +9,4 @@ test.sh
 *.iml
 .idea
 settings.json
+deploy.production.sh
