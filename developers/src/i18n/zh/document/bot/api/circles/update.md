@@ -1,6 +1,6 @@
-# 修复圈子名称
+# 修改圈子名称
 
-修复圈子名称，需要 `CIRCLES:WRITE` 权限。
+修改圈子名称，需要 `CIRCLES:WRITE` 权限。
 
 ### `POST /circles/:id`
 
