@@ -15,7 +15,7 @@ export default {
         '<b>Multisig&nbsp;-&nbsp;</b>Safer management of large assets',
         '<b>User Friendly&nbsp;-&nbsp;</b>Secured by 6 digit D3M-PIN',
       ],
-      button: ['Get Started', 'API Reference', 'Dashboard']
+      button: ['Get Started', 'Dashboard']
     },
     documentation: {
       title: "Documentation",

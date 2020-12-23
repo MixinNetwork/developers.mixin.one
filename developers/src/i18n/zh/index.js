@@ -15,7 +15,7 @@ export default {
         '<b>多重签名&nbsp;-&nbsp;</b>适用于多人团队共同管理大额数字资产和 C2C 交易',
         '<b>开发友好&nbsp;-&nbsp;</b>标准 REST API 接口，用你熟悉的语言快速开发',
       ],
-      button: ['开始使用', 'API 参考', '开发者后台']
+      button: ['开始使用', '开发者后台']
     },
     documentation: {
       title: "文档资料",

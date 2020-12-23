@@ -156,7 +156,7 @@ export default {
   components: { Header, Footer },
   data() {
     return {
-      mainRoute: ["/document", "/api", "/dashboard"]
+      mainRoute: ["/document", "/dashboard"]
     };
   },
   mounted() {
