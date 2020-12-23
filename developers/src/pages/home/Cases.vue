@@ -4,16 +4,11 @@
 
     <section class="list">
       <ul v-if="reloadState">
-        <li
-          v-for="(item, index) in viewList"
-          :key="index"
-          class="animate-up"
-          :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
-        >
+        <li v-for="(item, index) in viewList" :key="index">
           <a :href="`/cases/${item.filename}`">
             <img :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)" />
             <div class="container">
-              <h4>{{item.title}}</h4>
+              <h4>{{ item.title }}</h4>
               <p v-html="item.info"></p>
             </div>
           </a>
@@ -49,7 +44,6 @@ export default {
       viewList: [],
       currentPage: 1,
       split: 6,
-      refresh: null,
       reloadState: true
     };
   },
@@ -64,7 +58,6 @@ export default {
       this.currentPage = pageNum;
       let start = (pageNum - 1) * this.split;
       this.viewList = this.allList.slice(start, start + this.split);
-      setTimeout(refresh);
     },
     clickReadMore() {
       this.currentPage++;
@@ -72,7 +65,6 @@ export default {
       let start = (currentPage - 1) * this.split;
       let appendList = this.allList.slice(start, start + this.split);
       this.viewList = this.viewList.concat(appendList);
-      setTimeout(refresh);
     },
     casesIndex(index) {
       let { currentPage, split, viewList } = this;
@@ -87,14 +79,8 @@ export default {
     this.reloadState = true;
     this.allList = this.$t("cases.list");
     this.viewList = this.allList.slice(0, this.split);
-    setTimeout(refresh);
   }
 };
-
-function refresh() {
-  let t = require("@/assets/js/animate-up").default;
-  t();
-}
 </script>
 
 <style lang="scss" scoped>

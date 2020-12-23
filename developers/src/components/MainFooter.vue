@@ -2,16 +2,11 @@
   <footer>
     <div class="container">
       <div class="community">
-        <h6
-          class="animate-up"
-          data-animate="fadeInUp,0.5s,easin-in-out"
-        >{{$t('home.footer.community.title')}}</h6>
+        <h6>{{$t('home.footer.community.title')}}</h6>
         <ul>
           <li
-            v-for="(value, key,index) in $t('home.footer.community.list')"
+            v-for="(value, key) in $t('home.footer.community.list')"
             :key="key"
-            class="animate-up"
-            :data-animate="`fadeInUp,0.5s,easin-in-out,${(index+1)/10}s`"
           >
             <a :href="value.href">
               <div>
@@ -23,28 +18,20 @@
         </ul>
       </div>
       <div :class="['resources', lang]">
-        <h6
-          class="animate-up"
-          data-animate="fadeInUp,0.5s,easin-in-out"
-        >{{$t('home.footer.resources.title')}}</h6>
+        <h6>{{$t('home.footer.resources.title')}}</h6>
         <ul>
           <a
             v-for="(item, index) in $t('home.footer.resources.list')"
             :key="index"
             :href="item.href"
-            class="animate-up"
-            :data-animate="`fadeInUp,0.5s,easin-in-out,${(index+1) / 5}s`"
           >{{item.name}}</a>
         </ul>
       </div>
 
       <div class="others">
-        <h6
-          class="animate-up"
-          data-animate="fadeInUp,0.5s,easin-in-out"
-        >{{$t('home.footer.others.title')}}</h6>
+        <h6>{{$t('home.footer.others.title')}}</h6>
         <ul>
-          <li class="i18n animate-up" data-animate="fadeInUp,0.5s,easin-in-out,0.2s">
+          <li class="i18n">
             <div @click="toggleLocale" class="locale">
               {{lang === 'zh' ? '中文':'English'}}
               <ul v-if="showLocale" class="select">

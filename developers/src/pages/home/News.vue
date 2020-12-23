@@ -7,8 +7,6 @@
         <li
           v-for="(item, index) in viewList"
           :key="index"
-          class="animate-up"
-          :data-animate="`fadeInUp,0.5s,easin-in-out,.1s`"
         >
           <a :href="`/news/${item.filename}`">{{item.title}}</a>
           <span>{{item.date}}</span>
@@ -44,7 +42,6 @@ export default {
       viewList: [],
       currentPage: 1,
       split: 10,
-      refresh: null,
       reloadState: true
     };
   },
@@ -59,7 +56,6 @@ export default {
       this.currentPage = pageNum;
       let start = (pageNum - 1) * this.split;
       this.viewList = this.allList.slice(start, start + this.split);
-      setTimeout(refresh);
     },
     clickReadMore() {
       this.currentPage++;
@@ -67,7 +63,6 @@ export default {
       let start = (currentPage - 1) * this.split;
       let appendList = this.allList.slice(start, start + this.split);
       this.viewList = this.viewList.concat(appendList);
-      setTimeout(refresh);
     },
     newsIndex(index) {
       let { currentPage, split, viewList } = this;
@@ -82,14 +77,8 @@ export default {
     this.reloadState = true;
     this.allList = this.$t("news.list");
     this.viewList = this.allList.slice(0, this.split);
-    setTimeout(refresh);
   }
 };
-
-function refresh() {
-  let t = require("@/assets/js/animate-up").default;
-  t();
-}
 </script>
 
 <style lang="scss" scoped>
