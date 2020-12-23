@@ -43,7 +43,6 @@ export default {
 
 function handlePathInit(pathMatch) {
   this.$nextTick(() => {
-    require("@/assets/js/animate-up").default()
     handleCodeHighLight()
     document.documentElement.scrollTop = 0
   })

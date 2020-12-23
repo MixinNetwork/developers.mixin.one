@@ -2,7 +2,7 @@
   <div class="detail-page">
     <Header />
 
-    <section class="page animate-up" data-animate="fadeInUp,0.5s,easin-in-out">
+    <section class="page">
       <!-- <nav>
         <router-link tag="a" :to="`/${path}`">{{route}}</router-link>
         <span>> {{info.title}}</span>
@@ -65,10 +65,6 @@ export default {
         this.desc = require(`@/i18n/en/${path}/${this.info.filename}.md`);
       }
     }
-    this.$nextTick(() => {
-      let t = require("@/assets/js/animate-up").default;
-      t();
-    });
   }
 };
 </script>
