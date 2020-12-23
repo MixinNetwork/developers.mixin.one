@@ -40,7 +40,7 @@
 
 - 提交申请
 
-  将准备好的图标和配置文件附带简要介绍一并提交，然后点 `Merge pull request` 即可，Mixin 开发团队将进行前置审核然后再提交节点审核，确认没有问题就会部署生效。
+  将准备好的图标和配置文件附带简要介绍一并提交，然后点 `Create pull request` 即可，Mixin 开发团队将进行前置审核然后再提交节点审核，确认没有问题就会部署生效。
 
 ---
 更多说明请参考 https://github.com/MixinNetwork/asset-profile 工程首页介绍，还可参考其他人的提交[记录](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6)。
