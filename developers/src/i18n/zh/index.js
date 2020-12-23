@@ -60,8 +60,7 @@ export default {
         title: "资源",
         list: [
           { name: '媒体资源', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
-          { name: '白皮书', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' },
-          { name: 'API 文档', href: 'https://developers.mixin.one/api' }
+          { name: '白皮书', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' }
         ]
       },
       others: {
