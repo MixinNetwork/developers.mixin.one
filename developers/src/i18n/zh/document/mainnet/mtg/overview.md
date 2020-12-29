@@ -2,7 +2,7 @@
 
 结合多重签名技术和 Mixin 网络高速转账的特性，我们提出了一种能够在 Mixin 网络上实现可信的去中心化应用程序的解决方案 — — MTG（Mixin Trusted Group）。
 
-![MTG](./mtg-architecture.svg)
+![MTG](./overview-architecture.svg)
 
 MTG 是分片技术的最佳实践，每个 MTG 实践都是一个 Mixin Network 的平行链，由多个独立节点组成，通过 Mixin 主网的多重签名技术达成共识。
 
@@ -48,7 +48,7 @@ MTG 是分片技术的最佳实践，每个 MTG 实践都是一个 Mixin Network
 
   使用 MTG 方案开发去中心化的应用非常简单，可以按中心化的项目来设计和开发，唯一的区别就是数据需要异步等待其他节点确认和签名后再入库，开发完后将程序分别部署到不同的节点即可，非常适合传统项目升级为区块链项目。
 
-- 公链
+- [公链](./chains)
 
   基于 MTG 开发一条公链（相当于 Mixin 的平行链）可以节省共识、网络和交易等模块的时间和成本，自动获得 Mixin 主网安全、高性能、转账免费秒到、多链支持等诸多特性。
 
@@ -82,7 +82,7 @@ MTG 是分片技术的最佳实践，每个 MTG 实践都是一个 Mixin Network
 
   如果通过 Mixin Messenger 给 Dapp 转账不是一个多签交易，那肯定是中心化的。
 
-  ![Mutisig Trasaction](./mtg-mutisig-transaction.png)
+  ![Mutisig Trasaction](./overview-mutisig-transaction.png)
 
 - 有没有基于 MTG 的产品可以体验？
 
