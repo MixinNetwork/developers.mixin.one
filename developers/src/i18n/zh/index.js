@@ -193,6 +193,7 @@ export default {
         ]},
         { name: "教程", child: [
           { name: "加入主网", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
+          { name: "同步节点", path: "mainnet/tutorials/sync-full-node", router: "mainnet/tutorials/sync-full-node" },
           { name: "提交图标", path: "mainnet/tutorials/submit-asset-icon", router: "mainnet/tutorials/submit-asset-icon" },
         ]},
       ]
