@@ -236,8 +236,11 @@ export default {
           name: "API", child: [
             { name: "简介", path: "wallet/api/overview", router: "wallet/api/overview" },
             { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
-            { name: "修改密码", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
-            { name: "验证密码", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
+            { name: "密码", child: [
+              { name: "修改密码", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
+              { name: "验证密码", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
+              { name: "密码错误日志", path: "wallet/api/logs", router: "wallet/api/logs" },
+            ]},
             { name: "资产", child: [
               { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
               { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
