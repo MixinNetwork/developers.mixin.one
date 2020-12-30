@@ -241,15 +241,17 @@ export default {
               { name: "验证密码", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
               { name: "密码错误日志", path: "wallet/api/logs", router: "wallet/api/logs" },
             ]},
+            { name: "转账", child: [
+              { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
+              { name: "转账到多签", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
+              { name: "转账到主网", path: "wallet/api/transfer-to-mainnet", router: "wallet/api/transfer/transfer-to-mainnet" },
+              { name: "转账记录", path: "wallet/api/snapshots", router: "wallet/api/transfer/snapshots" },
+              { name: "转账详情", path: "wallet/api/snapshot", router: "wallet/api/transfer/snapshot" },
+            ]},
             { name: "资产", child: [
               { name: "资产列表", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
               { name: "资产详情", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
               { name: "资产历史价格", path: "wallet/api/ticker", router: "wallet/api/assets/ticker" },
-            ]},
-            { name: "转账", child: [
-              { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer" },
-              { name: "转账记录", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
-              { name: "转账详情", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
             ]},
             { name: "提现", child: [
               { name: "新增提现地址", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
