@@ -179,6 +179,7 @@ export default {
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
         { name: "概念", child: [
+          { name: "工作原理", path: "mainnet/concepts/how-it-works", router: "mainnet/concepts/how-it-works" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
           { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
