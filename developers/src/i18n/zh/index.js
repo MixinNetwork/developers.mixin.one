@@ -179,6 +179,7 @@ export default {
       child: [
         { name: "简介", path: "mainnet/overview", router: "mainnet/overview" },
         { name: "概念", child: [
+          { name: "工作原理", path: "mainnet/concepts/how-it-works", router: "mainnet/concepts/how-it-works" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
           { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
@@ -235,8 +236,11 @@ export default {
           name: "API", child: [
             { name: "简介", path: "wallet/api/overview", router: "wallet/api/overview" },
             { name: "注册用户", path: "wallet/api/user", router: "wallet/api/user" },
-            { name: "修改密码", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
-            { name: "验证密码", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
+            { name: "密码", child: [
+              { name: "修改密码", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
+              { name: "验证密码", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
+              { name: "密码错误日志", path: "wallet/api/logs", router: "wallet/api/logs" },
+            ]},
             { name: "转账", child: [
               { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
               { name: "转账到多签", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
