@@ -1,11 +1,11 @@
-### 全网排名前 100 的资产列表
+### 多签资产
 
-查询全网排名前 100 的资产列表，无需授权访问
+查询所有支持多重签名的资产列表，无需授权访问
 
-### `GET /network/assets/top` 
+### `GET /network/assets/multisig` 
 
 ```
-$$XIN:curl$$ "https://api.mixin.one/network/assets/top"
+$$XIN:curl$$ "https://api.mixin.one/network/assets/multisig"
 ```
 
 ```json
@@ -19,9 +19,6 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/top"
       "symbol": "BTC",
       "name": "Bitcoin",
       "icon_url": "https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
-      "balance": "0",
-      "destination": "",
-      "tag": "",
       "price_btc": "1",
       "price_usd": "14996.98",
       "change_btc": "0",
@@ -30,8 +27,8 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/top"
       "mixin_id": "fe6b7788944d328778f98e3e81588215b5a07de4f9a4a7de4db4535b404e65db",
       "reserve": "0",
       "confirmations": 3,
-      "capitalization": 144241811.6455701,    // 市值
-      "liquidity": "9618.05721189"            // 该资产在 Mixin 的数量
+      "capitalization": 144241811.6455701,
+      "liquidity": "9618.05721189"
     },
       ....
     ]
