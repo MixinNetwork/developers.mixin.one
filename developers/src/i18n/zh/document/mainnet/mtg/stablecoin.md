@@ -71,4 +71,4 @@
 - 节点数量：5 个
 
 ---
-需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG 参考代码：https://github.com/MixinNetwork/trusted-group，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
