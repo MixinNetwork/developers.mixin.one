@@ -193,6 +193,7 @@ export default {
         { name: "MTG", child: [
           { name: "简介", path: "mainnet/mtg/overview", router: "mainnet/mtg/overview" },
           { name: "公链", path: "mainnet/mtg/chains", router: "mainnet/mtg/chains" },
+          { name: "自动做市商", path: "mainnet/mtg/amm", router: "mainnet/mtg/amm" },
           { name: "稳定币发行", path: "mainnet/mtg/stablecoin", router: "mainnet/mtg/stablecoin" },
         ]},
         { name: "教程", child: [
