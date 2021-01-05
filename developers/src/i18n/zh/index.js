@@ -185,12 +185,20 @@ export default {
           { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
           { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
           { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
-          { name: "MTG", path: "mainnet/concepts/mtg", router: "mainnet/concepts/mtg" },
           /*
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
           { name: "多重签名", path: "mainnet/concepts/multisigs", router: "mainnet/concepts/multisigs" },
           */
+        ]},
+        { name: "MTG", child: [
+          { name: "简介", path: "mainnet/mtg/overview", router: "mainnet/mtg/overview" },
+          { name: "公链", path: "mainnet/mtg/chains", router: "mainnet/mtg/chains" },
+          { name: "借贷", path: "mainnet/mtg/lend", router: "mainnet/mtg/lend" },
+          { name: "交易所", path: "mainnet/mtg/exchange", router: "mainnet/mtg/exchange" },
+          { name: "自动做市商", path: "mainnet/mtg/amm", router: "mainnet/mtg/amm" },
+          { name: "稳定币发行", path: "mainnet/mtg/stablecoin", router: "mainnet/mtg/stablecoin" },
+          { name: "跨链资产锚定", path: "mainnet/mtg/wappercoin", router: "mainnet/mtg/wappercoin" },
         ]},
         { name: "教程", child: [
           { name: "加入主网", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
@@ -335,7 +343,7 @@ export default {
             { name: "圈子", child: [
               { name: "创建圈子", path: "bot/api/circles/create", router: "bot/api/circles/create" },
               { name: "删除圈子", path: "bot/api/circles/delete", router: "bot/api/circles/delete" },
-              { name: "修复圈子名称", path: "bot/api/circles/update", router: "bot/api/circles/update" },
+              { name: "修改圈子名称", path: "bot/api/circles/update", router: "bot/api/circles/update" },
               { name: "查询所有圈子", path: "bot/api/circles/list", router: "bot/api/circles/list" },
               { name: "查询圈子详情", path: "bot/api/circles/detail", router: "bot/api/circles/detail" },
               { name: "查询圈子会话", path: "bot/api/circles/circle-conversations", router: "bot/api/circles/circle-conversations" },
