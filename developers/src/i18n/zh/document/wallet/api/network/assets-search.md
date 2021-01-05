@@ -17,9 +17,6 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/search/eos"
       "symbol":"EOS",
       "name":"eos",
       "icon_url":"https://images.mixin.one/HovctUnrBkLPlDotWvWPsIuFb8qKrLddwF5-f2Fi9q9uO829YB2qGITgOd2YmTMKnGg_z9XrVYzEwFE_rD_REz9C=s128",
-      "balance":"203.975",
-      "destination":"0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
-      "tag": "",
       "price_btc":"0",
       "price_usd":"0"
       "change_btc": "1",
