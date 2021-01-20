@@ -104,19 +104,8 @@ data 数据结构
 
 ### 转账
 ```json
- {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-        "conversation_id": "UUID",
-        "category": "SYSTEM_ACCOUNT_SNAPSHOT",
-        "status": "SENT",
-        "message_id": "UUID",
-        "data": "Base64 encoded data"
-    }
- }
+ $$XIN:category_snapshot$$
 ```
-
 data 数据结构
 ```json
  $$XIN:transfer$$
