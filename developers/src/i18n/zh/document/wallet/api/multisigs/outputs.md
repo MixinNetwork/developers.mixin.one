@@ -1,11 +1,11 @@
 # 返回当前用户的多签 UTXO
 
-### `GET /multisigs/outputs?state=&limit=&offset` 
+### `GET /multisigs/outputs` 
 
 | 参数 | 类型 | 介绍 |
 | :----- | :----: | :---- |
 | members | String | 可选，与 threshold 一同使用，参与多签成员的 hash |
-| threshold | Integer | 可选，与 members 一同使用，多签的门限值 |
+| threshold | Integer | 可选，与 members 一同使用，多签的门限值, 例如 2/3 签，threshold = 2 |
 | state | String | 可选，UTXO 的状态，unspent 未签名, signed 已签名, spent 已花费 |
 | limit | String | 可选，分页每页数据，默认 500，最大 500 |
 | offset | String | 可选，分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z` |
