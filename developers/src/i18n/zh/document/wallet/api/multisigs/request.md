@@ -91,7 +91,7 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin
     "raw": "298281....000180e"
   }
 
-  // 发起多签
+  // 多签请求签名
   POST /multisigs/requests/:id/sign
   ```
 
@@ -105,7 +105,7 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin
     "raw": "298281....000180e"
   }
 
-  // 发起多签
+  // 发起多签取消请求
   POST /multisigs/requests/:id/cancel
   ```
 
@@ -119,7 +119,6 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin
     "raw": "298281....000180e"
   }
 
-  // 发起多签
+  // 发起多签解锁请求
   POST /multisigs/requests/:id/unlock
   ```
-
