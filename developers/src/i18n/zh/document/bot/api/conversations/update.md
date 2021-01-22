@@ -38,7 +38,7 @@
 
   `POST /conversations/:id/rotate`
 
-### 移出群组
+### 退出群组
 
   `POST /conversations/:id/exit`
 
@@ -46,13 +46,13 @@
 只有群主才能设置或取消管理员
 - 设置管理员
 
-  `POST /conversations/:id/ROLE`
+  `POST /conversations/:id/participants/ROLE`
 
   请求 Body 数据 `[{ user_id: "", role: "ADMIN" }]`
 
 - 取消管理员
 
-  `POST /conversations/:id/ROLE`
+  `POST /conversations/:id/participants/ROLE`
 
   请求 Body 数据 `[{ user_id: "", role: "" }]`  
 
