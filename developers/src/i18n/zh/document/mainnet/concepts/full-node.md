@@ -40,4 +40,4 @@
 
 ### 参与 Mixin 全节点
 
-参加文档[节点加入指南](../concepts/full-node-join)。
+参加文档[节点加入指南](../tutorials/full-node-join)。
