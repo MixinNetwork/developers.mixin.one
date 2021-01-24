@@ -101,3 +101,12 @@ data 数据结构
 ```json
  $$XIN:button_data$$
 ```
+
+### 转账
+```json
+ $$XIN:category_snapshot$$
+```
+data 数据结构
+```json
+ $$XIN:transfer$$
+```
