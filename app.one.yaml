@@ -1,0 +1,23 @@
+runtime: python38
+service: developers-mixin-one
+
+handlers:
+- url: /img
+  static_dir: developers/img
+
+- url: /css
+  static_dir: developers/css
+
+- url: /js
+  static_dir: developers/js
+
+- url: /fonts
+  static_dir: developers/fonts
+
+- url: /favicon.ico
+  static_files: developers/favicon.ico
+  upload: developers/favicon.ico
+
+- url: /.*
+  static_files: developers/index.html
+  upload: developers/index.html

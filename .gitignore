@@ -9,4 +9,5 @@ test.sh
 *.iml
 .idea
 settings.json
+app.zone.yaml
 deploy.zone.sh
