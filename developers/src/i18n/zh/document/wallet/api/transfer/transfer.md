@@ -11,7 +11,7 @@
 | amount | String | 转账金额，例如 "0.01"，支持小数点后最多 8 位 |
 | pin | String | 加密后的 PIN 密码 |
 | trace_id | UUID String | 可选，主要用于防止重复支付 |
-| memo | UUID String | 可选，转账备注，最多 140 字符 |
+| memo | UUID String | 可选，转账备注，最多 200 字符 |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46","memo":"hello","pin":"F39IsJmUaZW03VMV/01lHyY2RCoZ7/X764akX+EmthIc4uVsWAWQTM/IxX5Z9C1y","trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf"}'
