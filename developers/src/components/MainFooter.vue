@@ -166,7 +166,7 @@
   .i18n {
     .locale {
       display: inline-block;
-      padding: 0 40px 0 0px;
+      padding: 0 40px 75px 0px;
 
       cursor: pointer;
 
