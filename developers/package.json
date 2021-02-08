@@ -12,7 +12,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.14.1",
     "github-markdown-css": "^4.0.0",
-    "highlight.js": "^10.5.0",
+    "highlight.js": "^10.6.0",
     "int64-buffer": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "katex": "^0.12.0",
