@@ -28,7 +28,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | 仅支持 FIL                                           |
 | Bitcoin SV    | BSV   | 574388fd-b93f-4034-a682-01c2bc095d17 | 仅支持 BSV                                           |
 | Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | 仅支持 BNB                                           |
-| BitShares     | BTS   | 05891083-63d2-4f3d-bfbe-d14d7fb9b25a | 支持所有基于 EOS 发行的代币，例如 BitCNY                        |
+| BitShares     | BTS   | 05891083-63d2-4f3d-bfbe-d14d7fb9b25a | 支持所有基于 BitShares 发行的代币，例如 BitCNY                        |
 | Grin          | GRIN  | 1351e6bd-66cf-40c1-8105-8a8fe518a222 | 仅支持 GRIN                                          |
 | VCash         | VCASH | c3b9153a-7fab-4138-a3a4-99849cadc073 | 仅支持 VCASH                                         |
 | Cosmos        | ATOM  | 7397e9f1-4e42-4dc8-8a3b-171daaadd436 | 仅支持 ATOM                                          |
