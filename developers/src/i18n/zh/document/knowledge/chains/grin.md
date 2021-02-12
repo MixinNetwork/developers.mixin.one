@@ -1,4 +1,4 @@
-# 大零币（Grin）
+# 古灵币（Grin）
 
 Grin 是首个采用 MimbleWimble 协议的隐私币。
 
