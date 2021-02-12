@@ -113,9 +113,10 @@
 
 - 机器人弹窗
 
-  `mixin://apps/:appid?action=open` 
+  `mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...` 
   
-   action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页
+   action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页；`key1=value1&key2=value2&key3=value3...` 参数可在打开机器人首页时带过去，不限制参数的名称和类型，方便开发邀请码、统计来源等功能，该参数在 Mixin Messenger 0.29.0 或以上的版本支持。
+
 
 ### 下一步
 
