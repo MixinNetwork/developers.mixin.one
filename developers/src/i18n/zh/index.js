@@ -181,14 +181,15 @@ export default {
         { name: "概念", child: [
           { name: "工作原理", path: "mainnet/concepts/how-it-works", router: "mainnet/concepts/how-it-works" },
           { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
+          { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
+          { name: "多重签名", path: "mainnet/concepts/multisig", router: "mainnet/concepts/multisig" },
           { name: "公链", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "价格", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
-          { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
-          { name: "全节点", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
           /*
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
-          { name: "多重签名", path: "mainnet/concepts/multisigs", router: "mainnet/concepts/multisigs" },
+          
           */
         ]},
         { name: "MTG", child: [
