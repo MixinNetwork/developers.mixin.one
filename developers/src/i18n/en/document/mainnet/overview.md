@@ -4,6 +4,6 @@ Mixin Network is a new G transaction network. For developers, entrepreneurs, bus
 
 - Powered by PPOS + Open Source + Light witness + TEE
 - Billions TPS capacity and under 1 second final confirmation and ready for larger-scale commercial use
-- Supporting 32 main chains and 40,000+ cryptocurrencies
+- Supporting 33 main chains and 40,000+ cryptocurrencies
 - No cost to transfer within the Mixin Network
 - Mixin Network Kernel utilizes the UTXO model of Bitcoin to handle the transactions
