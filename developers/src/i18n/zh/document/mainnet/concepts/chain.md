@@ -27,7 +27,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | Bytom         | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | 仅支持 BTM                                           |
 | Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | 仅支持 FIL                                           |
 | Bitcoin SV    | BSV   | 574388fd-b93f-4034-a682-01c2bc095d17 | 仅支持 BSV                                           |
-| Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | 仅支持 BNB                                           |
+| Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | 仅支持 BNB 和 BEP2 代币                                          |
 | BitShares     | BTS   | 05891083-63d2-4f3d-bfbe-d14d7fb9b25a | 支持所有基于 BitShares 发行的代币，例如 BitCNY                        |
 | Grin          | GRIN  | 1351e6bd-66cf-40c1-8105-8a8fe518a222 | 仅支持 GRIN                                          |
 | VCash         | VCASH | c3b9153a-7fab-4138-a3a4-99849cadc073 | 仅支持 VCASH                                         |
