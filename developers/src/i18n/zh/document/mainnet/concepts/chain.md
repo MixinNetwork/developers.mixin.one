@@ -22,7 +22,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | Monero        | XMR   | 05c5ac01-31f9-4a69-aa8a-ab796de1d041 | 仅支持 XMR                                           |
 | Polkadot        | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | 仅支持 DOT                                           |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | 仅支持 LTC                                           |
-| TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | 仅支持 TRX 和 TRC - 10、TRC - 20 代币，例如 BTT、USDT - TRON |
+| TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | 仅支持 TRX 和 TRC-10、TRC-20 代币，例如 BTT、USDT-TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | 仅支持 XLM                                           |
 | Bytom         | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | 仅支持 BTM                                           |
 | Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | 仅支持 FIL                                           |
@@ -42,7 +42,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | Nervos CKByte | CKB   | d243386e-6d84-42e6-be03-175be17bf275 | 仅支持 CKB                                           |
 | Horizen       | ZEN   | a2c5d22b-62a2-4c13-b3f0-013290dbac60 | 仅支持 ZEN                                           |
 | Decred        | DCR   | 8f5caf2a-283d-4c85-832a-91e83bbf290b | 仅支持 DCR                                           |
-| Ether Classic | ETC   | 2204c1ee-0ea2-4add-bb9a-b3719cfff93a | 仅支持 ETC                                           |
+| Ethereum Classic | ETC   | 2204c1ee-0ea2-4add-bb9a-b3719cfff93a | 仅支持 ETC                                           |
 | Tezos     | XTZ   | 5649ca42-eb5f-4c0e-ae28-d9a4e77eded3 | 仅支持 XTZ                                           |
 | Dash          | DASH  | 6472e7e3-75fd-48b6-b1dc-28d294ee1476 | 仅支持 DASH                                          |
 | Ravencoin     | RVN   | 6877d485-6b64-4225-8d7e-7333393cb243 | 仅支持 RVN                                           |
