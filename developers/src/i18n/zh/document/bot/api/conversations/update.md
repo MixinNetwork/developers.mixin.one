@@ -56,6 +56,18 @@
 
   请求 Body 数据 `[{ user_id: "", role: "" }]`  
 
+- 添加用户
+
+  `POST /conversations/:id/participants/ADD`
+
+  请求 Body 数据 `[{ user_id: "", role: "" }]`
+
+- 移除用户
+
+  `POST /conversations/:id/participants/REMOVE`
+
+  请求 Body 数据 `[{ user_id: ""}]`    
+
 ### 静音
 被静音的会话仍然会收到消息，但是不会收到通知提醒
 
