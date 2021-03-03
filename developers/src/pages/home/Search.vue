@@ -22,7 +22,11 @@
 
         <ul class="search-list">
           <li v-for="(item,idx) in list" :key="idx" class="search-item">
-            <h4 class="title" @click="$router.push(item.router)">{{item.title}}</h4>
+            <h4 class="title">
+              <router-link :to="item.router">
+                {{item.title}}
+              </router-link>
+            </h4>
             <span>{{item.route}}</span>
             <p>{{item.info}}</p>
           </li>
@@ -69,9 +73,9 @@
     created() {
       const { q } = this.$route.query
       if (q) {
+        this.search = q
+        this.searchKey = q
         const key = q.toLowerCase()
-        this.search = key
-        this.searchKey = key
         const { vm, locale } = this.$i18n
         const { news, cases, documentation } = vm.messages[locale]
         const list = [
@@ -90,8 +94,15 @@
   function getNewsOrCasesItem(origin, info, locale, key) {
     const list = []
     for (const { title, filename, date } of origin.list) {
-      const content = require(`@/i18n/${locale}/${info}/${filename}.md`).replace(/<(?:.|\s)*?>/g, "").toLowerCase()
-      if (content.includes(key)) list.push({ key: info, title, route: `${origin.route} > ${title}`, router: `/${info}/${filename}`, info: content.slice(0, 100) + "...", date: new Date(date) })
+      const content = require(`@/i18n/${locale}/${info}/${filename}.md`).replace(/<(?:.|\s)*?>/g, "")
+      if (content.toLowerCase().includes(key)) list.push({
+        key: info,
+        title,
+        route: `${origin.route} > ${title}`,
+        router: `/${info}/${filename}`,
+        info: content.slice(0, 100) + "...",
+        date: new Date(date)
+      })
     }
     return list
   }
@@ -103,8 +114,8 @@
         route_name += `${name} > `
         getDocumentItem(child, route_name, locale, key, list)
       } else {
-        const content = require(`@/i18n/${locale}/document/${router}.md`).replace(/<(?:.|\s)*?>/g, "").toLowerCase()
-        if (content.includes(key)) list.push({ key: "docs", title: name, route: route + `${name}`, router: `/document/${router}`, info: content.slice(0, 100) + "..." })
+        const content = require(`@/i18n/${locale}/document/${router}.md`).replace(/<(?:.|\s)*?>/g, "")
+        if (content.toLowerCase().includes(key)) list.push({ key: "docs", title: name, route: route + `${name}`, router: `/document/${path}`, info: content.slice(0, 100) + "..." })
       }
     }
   }
@@ -175,7 +186,7 @@
   .search-item {
     margin-bottom: 36px;
 
-    .title {
+    .title a {
       font-size: 22px;
       color: #3D75E3;
       cursor: pointer;

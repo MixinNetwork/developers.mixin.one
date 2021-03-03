@@ -107,12 +107,17 @@
     padding: 0 12px;
     justify-self: flex-end;
 
+    .icon {
+      transform: translateY(-1px);
+    }
+
     input {
       background: transparent;
       width: 100%;
       flex: 1;
       padding: 0 8px;
       color: #9FACC5;
+      font-size: 16px;
     }
 
     .btn-close {
