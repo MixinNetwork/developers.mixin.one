@@ -86,8 +86,12 @@ export default {
       readmore: 'Read More'
     }
   },
-
-
+  search: {
+    all: "All",
+    news: "Last News",
+    cases: "Use Cases",
+    docs: "Docs"
+  },
   news: {
     title: "Latest News",
     route: "Mixin News",
