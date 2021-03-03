@@ -117,7 +117,7 @@
       flex: 1;
       padding: 0 8px;
       color: #9FACC5;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .btn-close {
