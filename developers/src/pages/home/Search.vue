@@ -99,13 +99,13 @@
   function getDocumentItem(origin, route, locale, key, list) {
     for (const { child, name, path, router } of origin) {
       let route_name = route
-      if (!child) {
+      if (child) {
+        route_name += `${name} > `
+        getDocumentItem(child, route_name, locale, key, list)
+      } else {
         const content = require(`@/i18n/${locale}/document/${router}.md`).replace(/<(?:.|\s)*?>/g, "").toLowerCase()
         if (content.includes(key)) list.push({ key: "docs", title: name, route: route + `${name}`, router: `/document/${router}`, info: content.slice(0, 100) + "..." })
-        return
       }
-      route_name += `${name} > `
-      getDocumentItem(child, route_name, locale, key, list)
     }
   }
 
