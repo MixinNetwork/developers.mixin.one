@@ -3356,10 +3356,10 @@ electron-to-chromium@^1.3.585:
   resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.591.tgz?cache=0&sync_timestamp=1604718237551&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.591.tgz#a18892bf1acb93f7b6e4da402705d564bc235017"
   integrity sha1-oYiSvxrLk/e25NpAJwXVZLwjUBc=
 
-element-ui@^2.14.1:
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-2.14.1.tgz#8b5745c7366c1c1a603bb6c021286ea7187e2aa2"
-  integrity sha512-Uje0J12dBaXdyvt/EtuDA8diFbYTdO7uI4QCfl7zmEJmE1WxgCSVKhlRRoL8MDonO8pyNVhB4n0AFAR14g56nw==
+element-ui@^2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-2.15.1.tgz#ada00aa6e32c02774a2e77563dd84668f813cdff"
+  integrity sha512-TqlScAKGH97XndSScUDeEHIzL1x7yg7DvQdKPEOUdiDcyIz3y3FJJBlpHYaJT96FOn1xpIcUZb+I2FJeU9EcrQ==
   dependencies:
     async-validator "~1.8.1"
     babel-helper-vue-jsx-merge-props "^2.0.0"
