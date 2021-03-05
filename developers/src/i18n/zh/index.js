@@ -87,6 +87,8 @@ export default {
     title: "最新公告",
     route: "公告",
     list: [
+      { title: '支持 MobileCoin 公链', filename: 'blockchain-mobilecoin', info: '', date: '2021/03/23', img: '' },
+      { title: '支持 Polkadot 公链', filename: 'blockchain-polkadot', info: '', date: '2020/11/06', img: '' },
       { title: 'Mixin Messenger 机器人支持返回 currency 和 locale ', filename: 'messenger-currency-and-locale', info: '', date: '2020/04/29', img: '' },
       { title: 'Mixin Messenger 支持机器人置顶首页', filename: 'messenger-bottom-navigation', info: '', date: '2020/04/27', img: '' },
       { title: 'Blockchair 支持 Mixin Network', filename: 'network-explorer-blockchair', info: '', date: '2020/04/21', img: '' },
