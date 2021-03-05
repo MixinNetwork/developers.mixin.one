@@ -55,6 +55,11 @@ const routes = [
     component: () => import('./pages/dashboard'),
   },
   {
+    path: '/search',
+    name: 'search',
+    component: () => import('./pages/home/Search'),
+  },
+  {
     path: '*',
     component: () => import('./404')
   }

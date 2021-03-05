@@ -23,3 +23,29 @@
     color: #3d75e3;
   }
 }
+
+
+.content {
+  width: 100%;
+  max-width: 52rem;
+
+  margin: 2.75rem auto 0;
+  padding: 4rem 0;
+}
+
+
+@media screen and (max-width: 75rem) and (min-width: 60.0625rem) {
+  .content {
+    max-width: 40rem;
+  }
+}
+
+
+@media screen and (max-width: 60rem) {
+  .content {
+    max-width: 30rem;
+    width: calc(100% - 2.5rem);
+    margin: 3rem auto;
+    padding: 0;
+  }
+}

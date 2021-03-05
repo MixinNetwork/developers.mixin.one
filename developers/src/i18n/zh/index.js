@@ -76,6 +76,12 @@ export default {
       readmore: '阅读更多'
     },
   },
+  search: {
+    all: "全部",
+    news: "最新资讯",
+    cases: "用户案例",
+    docs: "文档资料"
+  },
 
   news: {
     title: "最新公告",
