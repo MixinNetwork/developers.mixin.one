@@ -407,6 +407,7 @@ export default {
           ]},
           { name: "隐私类", child: [
             { name: "门罗币", path: "knowledge/chains/monero", router: "knowledge/chains/monero" },
+            { name: "MobileCoin", path: "knowledge/chains/mobilecoin", router: "knowledge/chains/mobilecoin" },
             { name: "达世币", path: "knowledge/chains/dash", router: "knowledge/chains/dash" },
             { name: "大零币", path: "knowledge/chains/zcash", router: "knowledge/chains/zcash" },
             { name: "Horizen", path: "knowledge/chains/horizen", router: "knowledge/chains/horizen" },
