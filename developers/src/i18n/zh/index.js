@@ -197,7 +197,6 @@ export default {
           /*
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
-
           */
         ]},
         { name: "MTG", child: [
