@@ -197,7 +197,7 @@ export default {
           /*
           { name: "DAG", path: "mainnet/concepts/dag", router: "mainnet/concepts/dag" },
           { name: "TEE", path: "mainnet/concepts/tee", router: "mainnet/concepts/tee" },
-          
+
           */
         ]},
         { name: "MTG", child: [
@@ -279,6 +279,7 @@ export default {
               { name: "提现手续费", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
             ]},
             { name: "多重签名", child: [
+              { name: "多签教程", path: "wallet/api/multisigs/tutorial", router: "wallet/api/multisigs/tutorial" },
               { name: "查询多签", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
               { name: "多签", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
             ]},
@@ -286,6 +287,7 @@ export default {
               { name: "公链", path: "wallet/api/network/chains", router: "wallet/api/network/chains" },
               { name: "全网转账", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
               { name: "转账详情", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "一次性 keys", path: "wallet/api/network/keys", router: "wallet/api/network/keys" },
               { name: "全网充值", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
               { name: "热门资产", path: "wallet/api/network/assets-top", router: "wallet/api/network/assets-top" },
               { name: "多签资产", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },

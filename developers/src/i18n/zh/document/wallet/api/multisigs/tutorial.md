@@ -33,7 +33,7 @@ API 详细描述 https://developers.mixin.one/document/wallet/api/multisigs/outp
 
 付款完成后签名退款的相关代码： https://github.com/MixinNetwork/trusted-group/blob/master/sample/models/payment.go#L164
 
-构造交易的过程中需要用到 A 的 GhostKeys (注意只能使用一次),  可以通过 
+构造交易的过程中需要用到 A 的 GhostKeys (注意只能使用一次),  可以通过 https://developers.mixin.one/document/wallet/api/network/keys 拿到
 
 ## 4. 取消交易
 

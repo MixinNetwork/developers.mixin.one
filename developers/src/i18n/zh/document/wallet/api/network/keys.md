@@ -1,4 +1,6 @@
-## 返回当前用户的 Ghost Keys
+## 一次性 Ghost Keys
+
+获取用户一次性的 keys
 
 ### `POST /outputs` 
 
@@ -10,7 +12,7 @@
 
 调用例子
 ```
-$$XIN:curl$$ "https://api.mixin.one//outputs"
+$$XIN:curl$$ "https://api.mixin.one/outputs"
 ```
 
 ```json
