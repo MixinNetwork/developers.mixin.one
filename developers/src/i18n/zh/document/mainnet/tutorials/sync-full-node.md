@@ -9,7 +9,8 @@
    - signer-key 设置为签名的 spend key 私钥
    - listener 修改为本机的 IP 和端口 7239, 并允许 7239 穿透防火墙
    - consensus-only 如果只是同步数据节点(archive mode)设置为 false, 如果挖矿节点设置为 true
-5. 启动 `./mixin kernel -d ~/.mixin`
+5. 防火墙打开 UDP 7239 端口，TCP 8239 端口
+6. 启动 `./mixin kernel -d ~/.mixin`
 
 ### FAQ
 
@@ -19,4 +20,12 @@
 
 - failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 2048 kiB, got: 416 kiB). See https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size for details.
 
-  增加 Buffer size 执行 `sysctl -w net.core.rmem_max=2500000`
+  `sudo sysctl -w net.core.rmem_max=8388608`
+
+  `sudo sysctl -w net.core.wmem_max=8388608`
+
+- 测试端口是否连通
+
+  `nc -zuv mixin-node 7239`
+
+  `nc -zv mixin-node 8239`
