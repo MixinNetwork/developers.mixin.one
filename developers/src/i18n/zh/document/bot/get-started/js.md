@@ -54,6 +54,27 @@
 
   关于 theme-color 推荐参考[交互与设计](../design/overview)。
 
+- playlist(audios)
+
+  唤起播放列表，`audios` 参数是一个 mp3 字符串数组，调用方法：
+
+  ```js
+  playlist: function (audios) {
+    switch (this.getMixinContext().platform) {
+      case 'iOS':
+        window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.playlist && window.webkit.messageHandlers.playlist.postMessage(audios);
+        return
+      case 'Android':
+      case 'Desktop':
+        window.MixinContext && (typeof window.MixinContext.playlist === 'function') && window.MixinContext.playlist(audios)
+        return
+    }
+  }
+  ```
+
+  **该方法在 Mixin Messenger 0.30.0 或以上的版本支持。**
+
+
 ### 下一步
 
 - 前端优化
