@@ -4,7 +4,7 @@
 
 1. 从 GitHub 下载 Mixin 最新的版本 https://github.com/MixinNetwork/mixin/releases, 里面包含配置文件和执行程序
 2. 创建一个目录来存储 Mixin 节点数据 `mkdir ~/.mixin`
-3. 把主网的配置 genesis.json, nodes.json, config.example.toml 放入 ～/.mixin 目录
+3. 把主网的配置 genesis.json, nodes.json, config.example.toml 放入 ~/.mixin 目录
 4. 运行 `./mixin creataddress -public` 生成一个新的主网账号
 5. 修改 config.example.toml 重命名为 config.toml, 需要修改其中的几个配置
    - signer-key 设置为上一步生成的账号的 spend key
