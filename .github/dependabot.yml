@@ -1,0 +1,46 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/developers"
+  schedule:
+    interval: weekly
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 100
+  ignore:
+  - dependency-name: katex
+    versions:
+    - 0.13.0
+    - 0.13.2
+  - dependency-name: core-js
+    versions:
+    - 3.10.0
+    - 3.10.1
+    - 3.9.0
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: vue-i18n
+    versions:
+    - 8.24.1
+    - 8.24.2
+  - dependency-name: highlight.js
+    versions:
+    - 10.7.1
+  - dependency-name: html-loader
+    versions:
+    - 2.0.0
+    - 2.1.0
+    - 2.1.1
+  - dependency-name: sass-loader
+    versions:
+    - 11.0.0
+    - 11.0.1
+  - dependency-name: element-ui
+    versions:
+    - 2.15.0
+- package-ecosystem: bundler
+  directory: "/api"
+  schedule:
+    interval: weekly
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 100
