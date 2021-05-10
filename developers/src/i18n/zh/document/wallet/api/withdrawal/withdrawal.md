@@ -8,6 +8,7 @@
 | :----- | :---- | :---- |
 | address_id | UUID String | 提现地址 id |
 | amount | String | 提现金额，例如"100000" |
+| fee | String | 可选参数，提现手续费，从 GET /addresses/:id 获取 |
 | pin | String | 加密后的 PIN |
 | trace_id | UUID String | 防止重复提现 |
 
