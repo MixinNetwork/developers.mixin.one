@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.1",
-    "core-js": "^3.9.1",
+    "core-js": "^3.12.1",
     "element-ui": "^2.15.1",
     "github-markdown-css": "^4.0.0",
     "highlight.js": "^10.7.2",
