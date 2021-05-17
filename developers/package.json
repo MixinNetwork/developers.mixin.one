@@ -15,7 +15,7 @@
     "highlight.js": "^10.7.2",
     "int64-buffer": "^1.0.1",
     "jsonwebtoken": "^8.5.1",
-    "katex": "^0.13.10",
+    "katex": "^0.13.11",
     "node-forge": "^0.10.0",
     "uuid": "^8.3.2",
     "validator": "^13.6.0",
@@ -33,7 +33,7 @@
     "html-loader": "2.1.2",
     "markdown-loader": "^6.0.0",
     "node-sass": "^5.0.0",
-    "sass-loader": "10.1.1",
+    "sass-loader": "11.1.1",
     "vue-template-compiler": "^2.6.12"
   },
   "postcss": {
