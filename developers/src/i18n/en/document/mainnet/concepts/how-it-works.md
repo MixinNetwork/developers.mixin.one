@@ -10,7 +10,7 @@ Mixin's distributed ledger is an open and transparent decentralized ledger, whic
 
 - Nodes
  
-  Each mainnet node needs to mortgage 11,000 XIN (2% of the circulation) to participate in bookkeeping. If it is identified as an attacker, e.g. intentionally broadcasting obvious double-spending transactions, the mortgage will be confiscated into the mining pool.
+  Each mainnet node needs to pledge 11,000 XIN (2% of the circulation) to participate in bookkeeping. If it is identified as an attacker, e.g. intentionally broadcasting obvious double-spending transactions, the collateral will be confiscated into the mining pool.
 
   Mixin utilizes Intel SGX as the implementation of TEE to further improve security. All mainnet nodes must run in a trusted execution environment to ensure that the "running code" of the mainnet node is indeed "the code it claims to be running". Nobody can change the running code in the trusted execution environment without being noticed.
 
@@ -32,7 +32,7 @@ Mixin's distributed ledger is an open and transparent decentralized ledger, whic
 
 - Domain Gateway
 
-  The Mixin Domain plays an important role as a gateway in Mixin Network, managing the deposits and withdrawals of on-chain assets. Unlike mainnet nodes that do not require permission, a Domain gateway needs to mortgage a large amount of XIN, and only be able to join when the unanimous consent of all nodes is granted. As the amount of assets increases, there will be multiple domains to decentralize the management of assets. The existing Domain is managed by the Mixin team with 50,000 XIN pledged(referred to as "The Domain" in the following).
+  The Mixin Domain plays an important role as a gateway in Mixin Network, managing the deposits and withdrawals of on-chain assets. Unlike mainnet nodes that do not require permission, a Domain gateway needs to pledge a large amount of XIN, and only be able to join when the unanimous consent of all nodes is granted. As the amount of assets increases, there will be multiple domains to decentralize the management of assets. The existing Domain is managed by the Mixin team with 50,000 XIN pledged(referred to as "The Domain" in the following).
 
   The Domain does not have the complete private key of an on-chain asset (such as the Bitcoin private key). The private key is kept by nodes and the Domain through key sharding technology. Key shards have multiple backups, so the key will not be lost even some of the backups are lost or leaked. When the user withdraws, mainnet nodes and the Domain separately sign the transaction through (t-n) threshold signature technology, and finally merge everything into a complete signature and send the transaction.
 
