@@ -15,7 +15,7 @@ Mixin is a free, lightning-fast, peer-to-peer, cross-chain transactional network
 ### Features
 __Multilevel Security__
 
-Decentralized network based on POS with slashing mechanism. Hardware-enhanced security with TEE. Supervision of tens of thousands of light nodes to prevent full nodes from doing evil.
+Decentralized network based on punitive POS. Hardware-enhanced security with TEE. Supervision of tens of thousands of light nodes to prevent full nodes from doing evil.
 
 __High Concurrency__ 
 
