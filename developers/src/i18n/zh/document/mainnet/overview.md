@@ -58,6 +58,6 @@ Mixin 是一个免费、快速的点对点跨链数字资产交易网络，可�
   查看 Mixin 具体支持哪些公链。
 
 ### 参与开发
-- [将 Mixin 钱包集成到您的产品](../document/wallet/get-started/create-app)
+- [将 Mixin 钱包集成到您的产品](../wallet/get-started/create-app)
 
-- [基于 Mixin Messenger 开发机器人](../document/bot/get-started/create)
+- [基于 Mixin Messenger 开发机器人](../bot/get-started/create)
