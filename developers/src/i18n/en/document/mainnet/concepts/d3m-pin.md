@@ -102,7 +102,7 @@ Obviously it is safe. First, the registrar usually allows users to download data
 
 Firstly, M provides emergency contact services. After any user loses phone number access rights, he can obtain his own private key seed si through the emergency contact. Secondly, people can go to the telecom operator, authenticate their identity to obtain access to their phone number again. Finally, according to the analysis in question 1, the user device has a copy of si, so that regardless of whether there is phone number access permission, users no longer need to use SMS verification codes to trade or switch devices.
 
--If someone else gets access to the user's phone number, are his assets still safe?
+- If someone else gets access to the user's phone number, are his assets still safe?
 
 After the attacker obtains the phone number access authority, he actually obtained the user's private key seed si. We assume that the attacker is the registrar M, which obviously has the private key seed of all users. Because M does not know the user's PIN, and the PIN has a total of 1 million possibilities due to the 6-digit design. Assuming a total of 30 nodes, each node has a fixed limit of 5 trial and error signature verification times per day, so the time required for M to brute force 1 million possibilities is at least 1000000/30/5/365 = 18 years . Therefore, even if M itself acts as an attacker, it is extremely difficult to steal user assets. If the use of the signature random counter is increased, the probability of being cracked will immediately become zero.
 
