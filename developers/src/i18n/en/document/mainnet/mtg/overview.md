@@ -1,100 +1,102 @@
 # Mixin Trusted Group
 
-结合多重签名技术和 Mixin 网络高速转账的特性，我们提出了一种能够在 Mixin 网络上实现可信的去中心化应用程序的解决方案 — — MTG（Mixin Trusted Group）。
+Combining the multi-signature technology and the high-speed transfer ability of the Mixin network, we propose a solution that enables the deployment of trusted decentralized applications on the Mixin network-MTG (Mixin Trusted Group).
 
 ![MTG](./overview-architecture.svg)
 
-MTG 是分片技术的最佳实践，每个 MTG 实践都是一个 Mixin Network 的平行链，由多个独立节点组成，通过 Mixin 主网的多重签名技术达成共识。
+MTG is the best practice of sharding technology. Each MTG implementation is a para chain of the Mixin Network, composed of multiple independent nodes, and the consensus is reached through the multi-signature technology of the Mixin main network.
 
-### 特点
+### Characteristics
 
-- 安全性
+- Security
 
-   Mixin 主网 Kernel PoS 与应用多共识混合，双重安全保护。
+  Mixin mainnet Kernel PoS is mixed with application consensus, achieving double security protection.
 
-- 健壮性
+- Robustness
 
-  每个节点都会严格审核程序代码，而不是简单的部署和执行，发现程序漏洞可快速响应修复，通过资产冷热隔离进一步提升风险应对能力。
+  Each node will strictly review the program code, rather than simply deploy and execute it. If program vulnerabilities are found, nodes will quickly respond and repair, and the cold and hot isolation of asset storage further enhances the security.
   
-- 多链支持
+- Multi-chain support
 
-  支持所有 Mixin 支持的公链，可轻松实现跨链资产交换。
+  It supports all public chains supported by Mixin, thus cross-chain asset exchange can be implemented easily.
 
-- 高性能
 
-  支持高并发，可大规模应用于海量用户商用场景。
+- High performance
 
-- 免费秒到
+  It supports high concurrency and can be applied to commercial scenarios for a large number of users on a large scale.
 
-  转账免费秒到，可满足小额支付、消费等商业应用场景。
+- Instant Transfers
 
-- 可扩展性
+  Transfers are free and instant, which can meet commercial application scenarios such as micropayments and everyday payment.
 
-  无限可扩展，每个 MTG 都是相互独立的去中心化网络，不占用主网系统资源。
+- Scalability
 
-- 兼容性
+  Being infinitely scalable, each MTG is an independent decentralized network that does not consume the mainnet system resources.
 
-  兼容所有区块链网络和传统中心化的互联网开发技术与生态，例如可在简单修改共识部分后直接部署以太坊的虚拟机，所有的以太坊智能合约都在 Mixin 里可以使用，速度更快，没有转账费用。
+- Compatibility
 
-- 灵活性
+  Compatible with all blockchain networks and traditional centralized Internet technologies and ecosystem. For example, the Ethereum virtual machine can be deployed directly after simple modification of the MTG consensus. All Ethereum smart contracts can be used on Mixin, which is faster. There are no transfer fees.
 
-  开发语言灵活：开发者可以自由使用任何语言（Go、Java、PHP、Rust 等）实现 MTG。
+- Flexibility
+
+   Flexible development language: Developers can freely use any language (Go, Java, PHP, Rust, etc.) to implement MTG.
   
-  数据存储灵活：可以使用区块链技术存储数据，也可直接使用传统数据库例如 MySQL、PostgreSQL、MongoDB、SQL Server 等存储数据，类似分布式数据库但由不同的节点分别存储。
+   Flexible data storage: You can use blockchain technology to store data, or you can directly use traditional databases such as MySQL, PostgreSQL, MongoDB, SQL Server, etc. to store data. The scheme is similar to distributed databases but stored separately by different nodes.
   
-  节点数量灵活：支持分层共识，上层每个节点对应下层 255 个节点，顶层共识最多支持 255 个节点，二层共识最多支持 255 * 255 个节点，依此类推。
+   Flexible number of nodes: MTG supports hierarchical consensus, each node in the upper layer corresponds to 255 nodes in the lower layer, the top-level consensus supports up to 255 nodes, the second-layer consensus supports up to 255 * 255 nodes, and so on.
 
-### 应用场景
+### Use Cases
 
-  使用 MTG 方案开发去中心化的应用非常简单，可以按中心化的项目来设计和开发，唯一的区别就是数据需要异步等待其他节点确认和签名后再入库，开发完后将程序分别部署到不同的节点即可，非常适合传统项目升级为区块链项目。
+Using the MTG to develop decentralized applications is very simple. It can be designed and developed like centralized projects. The only difference is that the data needs to be asynchronously waited for confirmation and signature by other nodes before being stored in the database. After the development is completed, we need to deploy the code to each node. It a good choice if you want to upgrade traditional projects to blockchain projects.
 
-- [公链](./chains)
+- [Public Chains](./chains)
 
-  使用 MTG 方案开发一条 PoS 公链可以节省共识、网络和交易等模块的时间和成本，独立记账并自动获得 Mixin 主网安全、高性能、转账免费秒到、多链支持等诸多特性，相当于 Mixin 的平行链。
+  Using the MTG solution to develop a PoS public chain can save the time and cost of modules such as consensus, network, and transactions. The new chain obtains Mixin mainnet security, high performance, free transfer within seconds, multi-chain support, and many other features while maintaining the independence of accounting. It is a parallel chain of Mixin.
 
-- [稳定币](./stablecoin)
+- [Stable Coins](./stablecoin)
 
-  稳定币的用途非常广泛，除了充当避险资产，在短期借贷、跨境汇款、法币入金等方面都有较大需求，使用 MTG 方案发行、托管稳定币和开发与之配套的 Dapp 具备安全、稳定、高效等特点。
+  Stable coins have a wide range of uses. In addition to serving as a safe-haven asset, there is a great demand in use cases like short-term loans, cross-border remittances, and fiat currency deposits. Using the MTG solution to issue, custody stable coins, and develop supporting Dapps is secure, stable, and efficient.
 
-- [自动做市商](./amm)
+- [Automated Market Maker](./amm)
 
-  相较于传统订单簿交易模式，自动做市商具有自动化、无人工等特点，使用 MTG 方案开发自动做市商相比基于以太坊的 Uniswap 更加高效，且有更高的安全性、稳定性和容错性等。
+  Compared with the traditional order book transactions, automated market makers makes the process automated and free of human interventions. Developing automated market makers with MTG is more efficient than Ethereum-based Uniswap, and has higher security, stability and fault tolerance, etc.
 
-- [抵押借贷](./lend)
+- [Mortgage Loan](./lend)
 
-  基于 MTG 的去中心化抵押借贷产品具备高性能，数据公开透明，币种丰富，免 Gas 费等特点，可秒借秒还。
+  MTG-based decentralized mortgage loans are characterized by high performance, openness, data transparency, currencies richness, gas fee free and instant borrow and repay, etc.
 
-- [去中心化交易所](./exchange)
+- [Decentralized Exchange](./exchange)
 
-  基于 MTG 的去中心化交易所具备高性能，资产隔离（挂单资产和钱包资产分离），数据上链公开透明，币种丰富，挂单、吃单免转账费，自主上币等特点。
+  MTG-based decentralized exchanges are characterized by high performance, asset isolation (separation of pending order assets and wallet assets), openness and transparent data on the chain, currencies richness, free of transfer fee for pending orders and take profit orders, and autonomous currency listings.
 
-- 预言机
+- Oracle
 
-  基于 MTG 的去中心化预言机服务通过链上和链下采集数据，可为其他 Mixin 生态的产品提供低延迟、高性价比的数据服务。
+   By collecting data on and off chain, the decentralized oracle service based on MTG collects can provide low-latency and cost-effective data services for other products in Mixin ecosystem.
 
-- 原子交换
+- Atomic Swap
 
-  基于 MTG 可实现原子交换的功能，资产被安全的锁在节点多签账号中，资产要么成功互换要么各自返还。
+  Atomic swap can be implemented with MTG. Assets are safely locked in the node's multi-signature account, and the assets are either successfully exchanged or returned.
 
-- 混币技术
+- Coin Mixing Technology
 
-  Mixin 转账本身具有很高的隐私性，包括节点也无法知晓某笔转账具体交易双方，如果想进一步希望交易双方也不暴露可通过 MTG 混币技术来实现。
+  Mixin transfers have a high degree of privacy. Nodes cannot know the identities of specific transaction parties. If you want to further enhance the privacy of both parties of the transaction, MTG coin mixing technology is your friend.
 
 ### FAQ
 
-- 如何识别是不是基于 MTG 的 Dapp？
+- How to identify whether it is a Dapp based on MTG?
 
-  如果通过 Mixin Messenger 给 Dapp 转账不是一个多签交易，那肯定是中心化的。
+  If transferring money to Dapp through Mixin Messenger is not a multi-signature transaction, then the Dapp must be centralized.
 
   ![Mutisig Trasaction](./overview-mutisig-transaction.png)
 
-- 有没有基于 MTG 的产品可以体验？
+- Are there any MTG-based products?
 
-  通过 Mixin Messenger 搜索 7000103117 体验 4swap 的 MTG 版本。
+  Search 7000103117 in Mixin Messenger to try the MTG version of 4swap.
 
-- 如何寻找可信的节点团队？
 
-  项目方可通过常规的发币和选举来吸引第三方团队参与节点；也可以直接联系知名度较高的团队，例如交易所、钱包、区块链浏览器、智能合约等团队参与节点。后续 Mixin 上会出现专业的 MTG 节点服务商，提供一键部署等服务。
+- How to find a trustworthy node team?
+
+ Projects can attract third-party teams to participate through regular currency issuance and elections. They can also directly contact well-known teams such as exchanges, wallets, blockchain browsers, smart contract teams, and others to participate. A professional MTG service provider will be on Mixin in the future, providing services such as one-click deployment.
 
 ---
-MTG 为区块链的普及和大规模应用提供了极高的理论和实践价值，这是一种非常成熟的技术方案，相比其他智能合约平台有显著的性能、灵活性等优势，欢迎更多的开发者共同参与 MTG 的建设。
+MTG provides extremely high theoretical and practical value for the popularization and large-scale application of blockchain. This is a very mature technical solution. Compared with other smart contract platforms, it has high performance, flexibility, and other advantages. Welcome to join the construction of MTG.
