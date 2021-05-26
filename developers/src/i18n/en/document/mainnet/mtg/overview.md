@@ -10,7 +10,7 @@ MTG is the best practice of sharding technology. Each MTG implementation is a pa
 
 - Security
 
-  Mixin mainnet Kernel PoS is mixed with application consensus, achieving double security protection.
+  Mixin mainnet Kernel PoS is combined with application consensus, achieving double security.
 
 - Robustness
 
@@ -18,7 +18,7 @@ MTG is the best practice of sharding technology. Each MTG implementation is a pa
   
 - Multi-chain support
 
-  It supports all public chains supported by Mixin, thus cross-chain asset exchange can be implemented easily.
+  It supports all public chains supported by Mixin, cross-chain asset exchange can be achieved easily.
 
 
 - High performance
@@ -27,7 +27,7 @@ MTG is the best practice of sharding technology. Each MTG implementation is a pa
 
 - Instant Transfers
 
-  Transfers are free and instant, which can meet commercial application scenarios such as micropayments and everyday payment.
+  Transfers are free and instant, which meets commercial application scenarios such as micropayments and everyday payment.
 
 - Scalability
 
