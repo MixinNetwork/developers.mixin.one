@@ -22,7 +22,7 @@
 ```
 
 **注意不能用用户的 access_token 去创建会话，需要用当前机器人的 token 去创建会话**
-
+**注意类别为“CONTACT”时， participants 的值应为长度等于 1 的数组，user_id 的取值为对方的 user_id 。**
 ### 生成会话唯一标识
 
 - 单人会话 `category = "CONTACT"`
