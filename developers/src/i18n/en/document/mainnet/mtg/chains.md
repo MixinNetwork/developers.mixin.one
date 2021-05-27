@@ -1,81 +1,86 @@
-# 公链
+# Public Chains
 
-使用 MTG 方案开发一条 PoS 公链可以节省共识、网络和交易等模块的时间和成本，独立记账并自动获得 Mixin 主网安全、高性能、转账免费秒到、多链支持等诸多特性，相当于 Mixin 的平行链。
+Using the MTG solution to develop a PoS public chain can save the time and cost of modules such as consensus, network, and transactions. The new chain obtains Mixin mainnet security, high performance, free transfer within seconds, multi-chain support, and many other features while maintaining the independence of accounting. It is a parallel chain of Mixin.
 
-### 基本信息
 
-- 共识机制：PoS
-- 主网代币：可基于 ERC20、EOS、TRC20 发行主网代币
-- 节点数量：最多支持 255 的节点，最少 5 个
-- 节点抵押：流通量的 (100 / 最大节点数)%
-- 数据存储：MySQL、PostgreSQL、SQL Server 等高性能数据库
-- 挖矿规则：每年矿池剩余 N%
+### Info
 
-### 优势
+- **Consensus** PoS
+- **Mainnet Tokens** Mainnet tokens can be issued based on ERC20, EOS, TRC20
+- **Number of Nodes** supports up to 255 nodes and at least 5
+- **Node Collateral** (100 / maximum number of nodes)% of circulation
+- **Data storage** MySQL, PostgreSQL, SQL Server and other high-performance databases
+- **Mining Rules** N% kept in mining pools every year
 
-- 安全性
+### Advantages
 
-  Mixin 主网 PoS 与应用多共识混合，双重安全保护。
+- Security
 
-- 多链支持
+   Mixin mainnet PoS combined with the application's consensus doubles the security.
 
-  支持所有 Mixin 支持的公链，可轻松实现跨链资产交换。
+- Multi-chain support
 
-- 高性能
+  It supports all public chains supported by Mixin, cross-chain asset exchange can be achieved easily.
 
-  支持高并发，可大规模应用于海量用户商用场景。
+- High performance
 
-- 免费秒到
+  It supports high concurrency and can be applied to commercial scenarios for a large number of users on a large scale.
 
-  转账免费秒到，可满足小额支付、消费等商业应用场景。
+- Free and Instant Transfers
 
-- 开发者友好
+   Transfers are free and instant, which meets the requirement of commercial scenarios such as micropayments and everyday payment.
 
-  开发者可以自由使用任何语言（Go、Java、PHP、Rust 等）实现节点的功能，还可以直接使用 MySQL、PostgreSQL、MongoDB、SQL Server 等传统高性能数据库记账。
+- Developer Friendly
 
-### 步骤
+   Developers can freely pick any language (Go, Java, PHP, Rust, etc.) to implement node functions, and directly use traditional high-performance databases such as MySQL, PostgreSQL, MongoDB, or SQL Server for bookkeeping.
 
-- 生成主网代币
+### Steps
 
-  可基于 ERC20、TRC20、EOS 等支持发币的平台发行主网代币，发币合约设置固定上限或可增发都可以，然后全部充值进 Mixin 网络。
+- Mainnet Token Creation
 
-- 组建节点网络
+  Mainnet tokens can be issued based on ERC20, TRC20, EOS, and other platforms that support the issuance of tokens. The issuance contracts can set a fixed upper limit or not, and then deposit all tokens into the Mixin network.
 
-  通过空投、广告等方式吸引用户和团队参与新公链，并通过投票选出超级节点，最多支持 255 个超级节点，`2/3 + 1` 个节点可借助 Mixin 网络达成共识。
+- Node Network Building
 
-- 开发公链
+  Attract users and teams to participate in the new public chain through airdrops, advertisements, etc., and select super nodes through voting. Up to 255 super nodes are supported, and `2/3 + 1` nodes can reach a consensus through the Mixin network.
 
-  1、用户管理：新公链的每个用户都需要对应在 Mixin 网络创建一个用户并与之关联，该账户主要用来接收用户的充值。因为注册到 Mixin 网络需要时间，可一次性创建 10 万个账户并注册到 Mixin 网络备用。
+- Public Chain Development
 
-  2、节点记账：新公链的节点独立记账，可通过 Mixin 转账记录进行对账校验。当用户转账时，节点发起一个 Mixin 主网多重签名的转账（例如 CNB），附带 Memo 信息包含了转账的双方、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+  1. User management: Each user of the new public chain needs to create a user on the Mixin network and bind the two. This account is mainly used to receive the user's deposits. Because it takes time to register on Mixin network, you can create 100,000 accounts at a time and register on the Mixin network for later use.
+
+  2. Node bookkeeping: The nodes of the new public chain do bookkeeping independently, and can verify the transactions through Mixin transfer records. When a user transfers money, the node initiates a multi-signature transfer on the Mixin mainnet (such as CNB). The attached Memo information contains information such as both parties and the amount of the transfer. The format is as follows (it is recommended to use MessagePack + base64 to compress the data):
+
+
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",      // 资产唯一编号
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",      // 发起人
-    R:"43d61dcd-e413-450d-80b8-101d5e903357",      // 接收人
-    M:"10",                                        // 金额
-    T:"transfer"                                   // 操作类型：transfer、withdrawal、deposit 等
+    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",      // Asset ID
+    S:"43d61dcd-e413-450d-80b8-101d5e903357",      // Sender
+    R:"43d61dcd-e413-450d-80b8-101d5e903357",      // Receiver
+    M:"10",                                        // Amount
+    T:"transfer"                                   // Operation Type: transfer、withdrawal、deposit etc.
   }))
   ```
-  每个节点都需要轮训与自己相关的多签交易，收到以上的信息后先校验数据的合法性（例如是不是多花了）确认无误然后进行签名，一旦多签生效将数据写入到区块或者数据库并更新用户的余额。
 
-  3、资产管理：新公链所有的资产都由节点多签管理，当用户充值到账后，将用户的 Mixin 账户里的资产及时转进多签地址，同时更新用户的余额；当用户提现时从多签的地址往目标地址提现，提现成功后更新用户的余额。注意在产品上多提醒用户充值和提现地址一定不要填错，例如首次提现到一个新的地址建议小额提现。
+  Each node needs to poll for multi-signature transactions related to itself. After receiving the above information, first verify the legality of the data (for example, whether it has over-spent), confirm that it is correct, and then sign it. Once the multi-signature takes effect, write the data to a block or database and update the user's balance.
 
-  4、节点管理：每次有新的节点加入或者退出都需要把所有资产转移至最新节点列表共管，强烈建议节点加入和退出增加排队的机制，例如 1 小时内只能有一个节点加入或退出，确保资产迁移完成。
+  3. Asset management: All assets of the new public chain are managed by the node multi-signature. When the user deposits to the account, the assets in the user's Mixin account are transferred to the multi-signature address right away, and the user's balance is updated at the same time. When the user withdraws cash from the multi-signed address to the target address, the user's balance will be updated after the withdrawal is completed. Make sure to remind users to correctly type in deposit and withdrawal addresses. If it is the first time, it is recommended only to withdraw small amounts to a new address.
 
-  5、挖矿规则：每年矿池剩余 N% 或者增发模型都可以，依据公链的经济模型。
+  4. Node management: Every time a new node joins or exits, all assets need to be transferred to the latest node list for co-management. It is strongly recommended to add the queuing mechanism when nodes join or exit. For example, only one node can join or exit within 1 hour to ensure that the asset migration is complete.
 
-- 节点网络
+  5. Mining rules: According to the economic model of the public chain, either choose to keep N% tokens in the mining pool every year or have an additional issuance each year. 
 
-  如果有新的节点想加入，除了准备好服务器、带宽等硬件，还需要筹集足够的抵押品，然后发起一笔包含了抵押的特殊交易给主网多签地址。多签节点收到转账后就开始检查抵押品和最大节点数等，校验不通过把抵押原路退回，校验通过后就开始安排资产进行迁移，同时停止一段时间内接收新的节点加入和退出。
+- Node network
 
-- 治理
+  If a new node wants to join, in addition to preparing the server, bandwidth, and other hardware, it also needs to raise enough collateral, and then initiate a special transaction that includes the collateral to the main network multi-signature address. After the multi-signature nodes receive the transfer, they start to check the collateral and the maximum number of nodes. If the verification fails, the collateral will be returned. Otherwise, the asset will be arranged for migration, and the network will stop receiving new nodes to join or exit for a period of time.
 
-  持有主网代币可进行投票修改挖矿奖励、项目推广资金用途等。
+- Governance
 
-- 对账
+  Holding the mainnet tokens makes you qualified to vote to modify the mining rewards, the use of project promotion funds, etc.
 
-  由于所有的转账行为都在 Mixin 上有对应的多签转账记录（不可篡改），理论上上可以根据这个转账记录完整的还原所有数据，据此可跟平行链本地的数据进行对比校验，这样也不需要额外的 DAG 图或者区块链技术去关联数据之间的关系，Mixin 上已经记录了交易的顺序，节点数据存起来也比较简单。
+- Reconciliation
+
+  Since all transfers have corresponding multi-signature transfer records on Mixin (cannot be tampered with), in theory, all data can be completely restored based on this transfer record, which can be compared and verified with the local data of the parachain. There is no need for additional DAG graphs or blockchain technology to correlate the data. The sequence of transactions has been recorded on Mixin, and the node data is relatively simple to store.
+   
 
 ---
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG reference code: https://github.com/MixinNetwork/trusted-group . If you need tech support，Please search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.
