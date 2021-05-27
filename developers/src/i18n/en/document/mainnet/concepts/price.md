@@ -1,23 +1,25 @@
-# 价格
+# Price
 
-Mixin API 返回资产的价格主要采集自第三方，优先采集 [CoinGecko](https://www.coingecko.com) 的数据，其次采集 Ocean 和 4swap 的价格：
+The prices of assets returned by Mixin API are collected from a list of third parties, data from [CoinGecko](https://www.coingecko.com) is prioritized, and followed by the prices of Ocean and 4swap.
 
 - [CoinGecko](https://www.coingecko.com)
 
-  自 CoinMarketCap 被币安收购后 Mixin 抓取价格的 API 就切换到了更为独立的 CoinGecko 平台，除了跟踪价格、数量和市值，CoinGecko 还跟踪社区增长情况、开源代码的开发情况、重大事件和链上指标。
+  Since the acquisition of CoinMarketCap by Binance, Mixin's API for capturing prices has been switched to a more independent CoinGecko platform. In addition to tracking price, quantity and market value, CoinGecko also tracks community growth, open source code development, major events and on-chain indicators .
 
 - 4swap
 
-  与 XIN 或者 USDT 的相关的交易对，资金池在 $1500 以上，并且 24 小时交易量在 $160 以上。
+  For trading pairs related to XIN or USDT, the fund pool is more than $1500, and the 24-hour trading volume is more than $160.
 
-- Ocean 撮合引擎
+- Ocean Maching Engine
 
-  每小时抓取一次，1 小时内成交 10 美元即有价格。
+  Crawled every hour, the price will be generated if the trading volume is more than 10 dollars within an hour.
 
 
-### 注意事项
-- 如果突然价格为 0 也不必惊慌资产是安全的不受影响
-- 开发者注意业务不要完全依赖 Mixin API 的价格以避免第三方价格数据故障时带来可能的损失。
+### Precautions
+
+- Don’t panic if the price becomes 0 suddenly, the asset is safe and unaffected
+- Developers should be careful not to rely solely on Mixin API prices to avoid possible losses when third-party price data fails.
+
 
 ---
-项目方如需在 Mixin 显示价格推荐在 4swap 做市提供流动性。
+If any project wants to display its price in Mixin, it is recommended to make a market in 4swap to provide liquidity.
