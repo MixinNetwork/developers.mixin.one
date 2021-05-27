@@ -27,7 +27,7 @@ MTG is the best practice of sharding technology. Each MTG implementation is a pa
 
 - Instant Transfers
 
-  Transfers are free and instant, which meets commercial application scenarios such as micropayments and everyday payment.
+  Transfers are free and instant, which meets the requirement of commercial scenarios such as micropayments and everyday payment.
 
 - Scalability
 
