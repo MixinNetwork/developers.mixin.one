@@ -22,7 +22,7 @@ The collateral loan market based on the demand for crypto assets can greatly imp
 
 ### Steps
 
-- Decentralized multi-signature organization
+- Decentralized Multi-signature Organization
 
   The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
 

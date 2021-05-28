@@ -1,60 +1,61 @@
-# 去中心化链上交易所
+# Decentralized On-Chain Exchange
 
-基于 MTG 方案的下一代高性能去中心化链上交易所具有高性能低延迟、资产安全隔离、多签共管、交易记录上链可查可追溯、秒级挂单和交易无 Gas 费等特点。
+The next-generation high-performance decentralized on-chain exchange based on the MTG feature high performance, low latency, asset isolation, multi-signature co-management, on-chain transactions checkable and traceable, instant pending orders, zero gas fee for transactions.
 
-### 优势
+### Advantages
 
-- 安全去中心化
+- Decentralization with Security
   
-  Mixin 主网安全保护，挂单资产和钱包资产相互独立降低集中风险，托管资产可冷热隔离支持多达 255 方多签共管，撮合引擎可部署在 255 个节点服务器上。
+  Protected by Mixin mainnet, pending order assets and wallet assets are independent of each other to reduce concentration risks. Assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The matching engine can be deployed on 255 node servers.
 
-- 公开透明
+- Openness and transparency
   
-  代码完全开源且通过了第三方机构审计，交易记录上链，可查可追溯。
+  The code is completely open-source and audited by a third-party organization. Transactions are recorded on-chain and kept checkable and traceable.
 
-- 高性能
+- High performance
   
-  去中心化的撮合引擎可部署在高性能的节点服务器上，为用户提供低延迟高效的交易服务。
+  The decentralized matching engine can be deployed on high-performance node servers to provide users with low-latency and efficient transaction services.
 
-- 强大
+- Powerfulness
 
-  天然支持多种跨链资产，挂单无 Gas 费、秒到可支撑海量用户使用。
+  It naturally supports a variety of cross-chain assets. gas-fee free and instant pending orders,  scalability to serve a large number of users.
 
-### 步骤
+### Steps
 
-- 去中心化多签组织
+- Decentralized Multi-signature Organization
 
-  多签组织的工作主要是参与资产共管、审核部署 Dapp 程序、治理等，可联合多家知名的团队、公司共同组建去中心化多签组织，也可以发币通过投票组建去中心化自治组织。再设置一个达成共识的阈值，例如 5 个节点共管资产，需要 3 个节点签名才能动用多签资产，通常设置为三分之二的节点签名才有效，例如 `2/3`、 `3/5`、 `4/7` ... `171/255`。
+  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
 
-- 开发去中心化交易所
+- Decentralized Exchange Development
+  
+  1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
 
-  1、开发环境：使用 Go、Java、PHP 等成熟的语言，使用 Spanner、MySQL、PostgreSQL、MongoDB 等成熟的数据库系统。
+  2. Matching engine: Pending orders, taking orders, and canceling orders are realized through transfers, user assets are effectively isolated while transparency are improved because of transactions recorded on-chain. Nodes need to synchronize related UTXO transactions continuously. Collateral loans and borrowing operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including operation type, amount and others, the format is as follows (recommended to use MessagePack + base64 to compress the data):
 
-  2、撮合引擎：通过转账来实现挂单、吃单和撤单，有效的隔离了用户资产同时交易上链提高透明度。节点需要不间断的同步相关的 UTXO 交易，根据交易的 `Memo` 分别处理抵押贷款和借款等操作，所有操作都需要校验并且数据获得足够的签名才能记录到数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    T: "L",                                    // 现价单
-    P: "0.1",                                  // 价格
-    S: "B",                                    // 买单
-    A: uuid.FromString("c94ac88f-4671-3976-b60a-09064f1811e8"), // 资产唯一编号
+    T: "L",                                    // Limit Order
+    P: "0.1",                                  // Price
+    S: "B",                                    // Purchase Order
+    A: uuid.FromString("c94ac88f-4671-3976-b60a-09064f1811e8"), // Asset ID
   }))
   ```
 
-  3、资产管理：所有资产都由节点多签管理，用户挂单资产直接进入多签地址，吃单和撤单需要多数节点校验钱包才会生效。
+  3. Asset management: All assets are managed by the node multi-signature, and the user's pending order assets are directly saved to the multi-signature address, and taking and canceling orders require most nodes to verify the wallet to take effect.
 
-  4、前端开发：前端可开发允许钱包用户可直接给撮合引擎转账挂单和吃单，不托管资产更安全。
+  4. Front-end development: A front-end can be developed to allow wallet users to directly transfer to the matching engine to post pending orders or take orders because it is safer without custody of assets.
 
-- 安全措施
+- Security Measures
 
-  1、可通过资产冷热隔离分别多签管理进一步提升应对风险能力，限制不可预测风险带来的损失规模。
+  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
 
-  2、所有节点都必须独立审核 Dapp 的代码，减少潜在的 bug 风险，每一个节点对资产都有一份权利和义务。
+  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
 
-  3、节点团队之间保持紧密的联系，一旦发现问题可以及时的暂停服务并迅速修复问题部署新的代码。
+  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
 
-- 治理
+- Governance
 
-  去中心化多签组织可投票决定交易对顺序、手续费等提案。
+  The decentralized multi-signature organizations determine the order of trading pairs, commission fees, and other proposals through voting.
 
 ---
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) .
