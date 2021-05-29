@@ -1,74 +1,76 @@
-# 稳定币
+# Stablecoin
 
-稳定币的用途非常广泛，除了充当避险资产，在短期借贷、跨境汇款、法币入金等方面都有较大需求，使用 MTG 方案发行、托管稳定币和开发与之配套的 Dapp 具备安全、稳定、高效等特点。
+Stable coins have a wide range of uses. In addition to serving as a safe-haven asset, there is a great demand for them at times of short-term loans, cross-border remittances, and fiat currency deposits. Using MTG to issue, host stablecoins and develop supporting Dapps is secure, stable, and highly efficient.
 
-### 优势
+### Advantages
 
-- 安全去中心化
+- Decentralization with Security
   
-  Mixin 主网安全保护，托管资产可冷热隔离支持多达 255 方多签共管，Dapp 程序可部署在 255 个节点服务器上。
+  Protected by Mixin mainnet, assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. Dapps can be deployed on 255 node servers.
 
-- 稳定
+- Stability 
   
-  稳定币 Dapp 可使用更稳定成熟的语言来开发，例如 Go、Java、PHP 等，兑换服务更加稳定和顺畅，没有网络拥堵和高 Gas 的困扰。
+  Stablecoin Dapps can be developed using more stable and mature languages, such as Go, Java, PHP, etc. The exchange service is more stable and smooth, without network congestion and high gas problems. 
 
-- 高效
+
+- High performance
   
-  稳定币 Dapp 可部署在高性能的节点服务器上，为海量用户提供低延迟高效的抵押借贷、清算等服务。
+  Stablecoin Dapps can be deployed on high-performance node servers to provide users with low-latency and efficient collateral loan and clearing services.
 
-- 强大
+- Powerfulness
 
-  天然支持多种跨链资产，交易免费、秒到可支撑海量用户使用。
+  It naturally supports a variety of cross-chain assets. Transactions are free and instant with scalability to serve a large number of users.
 
-### 步骤
+### Steps
 
-- 去中心化多签组织
+- Decentralized Multi-signature Organization
 
-  多签组织的工作主要是参与资产共管、审核部署 Dapp 程序、治理等，可联合多家知名的团队、公司共同组建去中心化多签组织，也可以发币通过投票组建去中心化自治组织。再设置一个达成共识的阈值，例如 5 个节点共管资产，需要 3 个节点签名才能动用多签资产，通常设置为三分之二的节点签名才有效，例如 `2/3`、 `3/5`、 `4/7` ... `171/255`。
+  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
 
-- 生成稳定币
+- Generate Stablecoins
 
-  可基于 ERC20、TRC20、EOS 等支持发币的平台发行稳定币，发币合约设置固定上限或可增发都可以，然后全部充值进 Mixin 网络，然后转移到资产共管账户。
+  Stable coins can be issued based on platforms that support coin issuance such as ERC20, TRC20, EOS, etc. The coin issuance contract can be set with a fixed upper limit or not, and then deposit into the Mixin network, and transfer to the asset co-management account.
 
-- 开发 Dapp
-
-  核心开发团队使用 Go、Java、PHP 等成熟的语言开发稳定币自动化借贷、赎回、用户、清算等核心功能。Dapp 数据独立记录在节点的数据库上，每个节点都需要不间断的同步相关的 UTXO 交易，需要签名的就校验签名，已经生效的签名写入数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含发起人、操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+- Dapp Development
+  
+  The core team uses mature languages like Go, Java or PHP to develop functions, such as automated stablecoin borrowing, redemptation, clearing and so on. Dapp data will be recorded independantly in node database. Nodes need to continuously synchronize related UTXO transactions, write those with valid signatures into databases and sign those without. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+ 
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // 资产唯一编号
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // 发起人
-    M:"10",                                    // 金额
-    T:"mortgage"                               // 抵押、赎回、清算等操作类型
+    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // Asset ID
+    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
+    M:"10",                                    // Amout
+    T:"mortgage"                               // Operation Type
   }))
   ```
 
-  用户抵押资产直接进入多签账户，每一笔转出的资产都需要经过多数节点校验签名。
+  User collateral assets go directly into the multi-signature account, every withdrawal needs to be verified and signed by most nodes.
   
-  开发完成后分别部署到多个节点服务器运行即可，所有开发和运营成本都可预期，没有 Gas 费意味着没有额外不可预期的成本。
+  The program will be deployed to each of the node servers once development is finished. All development and operation cost is foreseeable, since being gas-fee free means no extra unpredictable cost.
 
-- 安全措施
+- Security Measures
 
-  1、可通过资产冷热隔离分别多签管理进一步提升应对风险能力，限制不可预测风险带来的损失规模。
+  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
 
-  2、所有节点都必须独立审核 Dapp 的代码，减少潜在的 bug 风险，每一个节点对资产都有一份权利和义务。
+  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
 
-  3、节点团队之间保持紧密的联系，一旦发现问题可以及时的暂停服务并迅速修复问题部署新的代码。
+  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
 
-- 治理
+- Governance
 
-  去中心化多签组织可投票决定抵押品的类型、费率、清算策略等提案。
+  The decentralized multi-signature organizations determine types of collaterals, commission fees, clearing schemes and other proposals through voting.
 
-### 案例
+### Example
 
-由 Mixin Core、币印、BigONE、Fox、Exin 联合发行的稳定币 Pando USD 近期已上线，5 个团队共同管理资产和 Dapp 程序。
+The stablecoin Pando USD jointly issued by Mixin Core, Biyin, BigONE, Fox, and Exin has been launched recently. Five teams jointly manage assets and Dapp programs.
 
-- 代币名称：Pando USD（pUSD）
-- 最大发行：1 万亿
-- 发行网络：基于以太坊的 ERC20
-- 代币流通：7,500,000 pUSD（2021/01/01）
-- 抵押代币：BTC
-- 抵押方式：超额抵押（200%）
-- 节点数量：5 个
+- **Name** Pando USD (pUSD)
+- **Limit** 1 trillion
+- **Issuance Network** Ethereum ERC20
+- **Circulation** 7,500,000 pUSD (2021/01/01)
+- **Collaterral** BTC
+- **Collateralization** Over-collateralization (200%)
+- **Number Of Nodes** 5
 
 ---
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
