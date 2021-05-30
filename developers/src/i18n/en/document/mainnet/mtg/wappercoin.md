@@ -1,62 +1,64 @@
-# 跨链资产锚定
+# Wrapped Tokens
 
-跨链资产锚定和流动已经形成巨大的市场，WBTC、tBTC 和 RenBTC 锁定的 BTC 市值已超过 10 亿美元，使用 MTG 方案发行、托管跨链资产和开发与之配套的 Dapp 具备安全、稳定、高效等特点。
+The market for wrapped tokens(tokenized blockchain coins anchoring with coins on another blockchain) is now huge. The market value of BTC locked by WBTC, tBTC, and RenBTC has exceeded 1 billion U.S. dollars. Using MTG to issue, host wrapped tokens, and develop supporting Dapps is safe, stable, and efficient.
 
-### 优势
 
-- 安全去中心化
+### Advantages
+
+- Decentralization with Security
   
-  Mixin 主网安全保护，托管资产可冷热隔离支持多达 255 方多签共管，Dapp 程序可部署在 255 个节点服务器上。
+  Protected by Mixin mainnet, assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The Dapps can be deployed on 255 node servers.
 
-- 稳定
+- Stability 
   
-  Dapp 可使用更稳定成熟的语言来开发，例如 Go、Java、PHP 等，兑换服务更加稳定和顺畅，没有网络拥堵和高 Gas 的困扰。
+  The Dapps can be developed using more stable and mature languages, such as Go, Java, PHP, etc. The redeem service is stable and smooth, without network congestion and high gas problems. 
 
-- 高效
+- Efficiency
   
-  Dapp 可部署在高性能的节点服务器上，为海量用户提供低延迟高效的申购和赎回等服务。
+  The Dapps can be deployed on high-performance node servers to provide users with low-latency and efficient subscription and redemption services.
 
-- 强大
+- Powerfulness
 
-  天然支持多种跨链资产，交易免费、秒到可支撑海量用户使用。
+  It naturally supports a variety of cross-chain assets. Transactions are free and instant with scalability to serve a large number of users.
 
-### 步骤
+### Steps
 
-- 去中心化多签组织
+- Decentralized Multi-signature Organization
 
-  多签组织的工作主要是参与资产共管、审核部署 Dapp 程序、治理等，可联合多家知名的团队、公司共同组建去中心化多签组织，也可以发币通过投票组建去中心化自治组织。再设置一个达成共识的阈值，例如 5 个节点共管资产，需要 3 个节点签名才能动用多签资产，通常设置为三分之二的节点签名才有效，例如 `2/3`、 `3/5`、 `4/7` ... `171/255`。
+  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
 
-- 生成锚定币
+- Wrapped Token Generation
 
-  可基于 ERC20、TRC20、EOS 等支持发币的平台发行锚定币，发币合约设置固定上限或可增发都可以，然后全部充值进 Mixin 网络，然后转移到资产共管账户，如果其他平台的 DeFi 支持该锚定币，还可以提现至其他平台参与交易。
+  Wrapped tokens can be issued based on ERC20, TRC20, EOS, and other platforms that support token issuance. The token issuance contract can be set with a fixed limit or not, then deposit into Mixin network, and transfer to the asset co-management account. The tokens can also be withdrawn to other DeFi platforms that support them for trading.
 
-- 开发 Dapp
+- Dapp Development
 
-  1、开发环境：使用 Go、Java、PHP 等成熟的语言，使用 MySQL、PostgreSQL、MongoDB 等成熟的数据库系统。
+  1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
 
-  2、交易处理：节点需要不间断的同步相关的 UTXO 交易，根据交易的 `Memo` 分别处理申购和赎回等操作，所有操作都需要校验并且数据获得足够的签名才能记录到数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含发起人、操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+  2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Subscription and redemptiond operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // 资产唯一编号
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // 发起人
-    M:"10",                                    // 金额
-    T:"subscribe"                              // 申购、赎回等操作类型
+    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // Asset ID
+    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
+    M:"10",                                    // Amout
+    T:"subscribe"                              // Operation Type
   }))
   ```
 
-  3、资产管理：所有资产都由节点多签管理，申购抵押的资产直接进入多签地址，赎回需要多数节点校验钱包才会生效。
+  3. Asset management: All assets are managed by the node multi-signature. Collateral for subscription will be saved to the multi-signature address. Redemptions take effect after most nodes have verified the wallet.
 
-- 安全措施
+- Security Measures
 
-  1、可通过资产冷热隔离分别多签管理进一步提升应对风险能力，限制不可预测风险带来的损失规模。
+  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
 
-  2、所有节点都必须独立审核 Dapp 的代码，减少潜在的 bug 风险，每一个节点对资产都有一份权利和义务。
+  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
 
-  3、节点团队之间保持紧密的联系，一旦发现问题可以及时的暂停服务并迅速修复问题部署新的代码。
+  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
 
-- 治理
+- Governance
 
-  去中心化多签组织可投票决定抵押品的类型、费率等提案。
+  The decentralized multi-signature organizations determine the collateral type, commission fees, and other proposals through voting.
 
 ---
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).

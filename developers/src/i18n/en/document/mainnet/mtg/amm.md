@@ -12,9 +12,9 @@ Compared with the traditional order book transactions, automated market makers m
   
   Automated market maker programs can be developed using more stable and mature languages, such as Go, Java, PHP, etc., without network congestion and high gas problems. It also brings more stability and capacity to the transaction process.
 
-- High performance
+- Efficiency
   
-  Automated market maker programs can be deployed on high-performance node servers to provide users with low-latency and efficient market making services.
+  Automated market maker programs can be deployed on high-performance node servers to provide users with low-latency and efficient exchange and market making services.
 
 - Powerfulness
 
