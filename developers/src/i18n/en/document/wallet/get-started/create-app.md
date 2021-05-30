@@ -1,12 +1,13 @@
-# 新建 Mixin 钱包
+# Create Minxin Wallet
 
-下载 [Mixin Messenger](https://mixin-www.zeromesh.net/messenger)，打开[开发者后台](/dashboard)扫码登录，点左侧「新应用」按提示创建应用，首页网址、验证网址等参数一般用于 Mixin Messenger 这里用不上随意写就行。
+Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [Dashboard](/dashboard), scan the QR code to log in, click "New Application" on the left and follow the prompts to create an application. Things like home page URL, verification URL, and other parameters are for Mixin Messenger. You don’t need to worry about them here, simply type in something random.
 
-每个开发者账号可免费创建 2 个应用，可付费创建更多。
+Each developer account creates 2 applications for free, pay if you need more.
 
-### 生成密钥
+### Key Generation
 
-切换到「密钥」在应用 Session 里点「Ed25519 私钥」生成应用的 PIN，Session ID，PinToken，私钥等敏感信息：
+Switch to "Key" and click "Ed25519 Private Key" in the application session to generate sensitive information such as the application's PIN, Session ID, PinToken, and private key:
+
 
 ```json
 {
@@ -18,14 +19,14 @@
 }
 ```
 
-- 应用 Session 密钥生成推荐使用 Ed25519 私钥，不推荐旧的 RSA 私钥，目前正在推进开发者从 RSA 私钥转向 Ed25519 私钥，参见[文档](../api/session-secret)。
-- 「应用密钥」和「应用二维码」主要用于 Mixin Messenger，这里不用管。
+- It is recommended to use Ed25519 private key rather than old RSA for session key generation. Developers are currently being encouraged to switch from RSA private key to Ed25519 private key. See [document](../api/session-secret).
 
-**注意以上新生成的密钥信息服务器和浏览器都不会保存，请妥善存储。**
+- "App Key" and "App QR Code" are mainly used in Mixin Messenger, so don't worry about them here.
 
-### 下一步
+**Note that the above generated key information will not be saved by the server and browser, please store it properly.**
 
-- [生成钱包用户](./create-network-user)
+### Next Step
 
-  为平台每一个用户对应生成一个钱包账号。
-  
+- [Genenrating Wallet User](./create-network-user)
+
+  Generate a wallet account for each user on the platform.
