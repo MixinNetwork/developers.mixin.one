@@ -1,10 +1,10 @@
-# 设置 PIN 密码
+# Setting PIN code
 
-6 位数字 PIN 密码是用户转移资产的唯一途径，丢失无法找回，作用等同于私钥。
+A 6-digit PIN code is required when a user is trying to transfer assets, the code functions pretty much like a private key, not retrievable if lost.
 
-### 加密 PIN 密码
+### Encrypting PIN Code
 
-为了安全的传输 PIN 密码，PIN 密码必须进行加密，Go 语言实现：
+In order to transmit the PIN code securely, the PIN code must be encrypted. In Go language:
 
 ```go
 func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string, iterator uint64) (string, error) {
@@ -49,9 +49,9 @@ func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string
 }
 ```
 
-其他语言的 SDK 参见[文档](../sdk/overview)。
+For SDKs in other languages, please refer to [Document](../sdk/overview).
 
-### 设置 PIN 密码
+### Setting PIN code
 
 ```go
 const (
@@ -64,14 +64,14 @@ const (
 func main() {
     ctx := context.Background()
 
-    // 加密 PIN
+    // Encrypt PIN
 	encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(encryptedPIN)
-	// 设置初始密码
+	// Set initial code
 	err = bot.UpdatePin(ctx, "", encryptedPIN, userId, sessionId, privateKey)
 	if err != nil {
 		fmt.Println(err)
@@ -80,22 +80,22 @@ func main() {
 }
 ```
 
-### 注意事项
+### Precautions
 
-- `iterator` 参数必须是递增且大于 0，一般推荐用当前系统 Nano 时间，也可以自己计数，每次调用 + 1
+- The parameter `iterator` must be incremental and greater than 0. It is generally recommended to use the current system Nano time, or you can choose a number by yourself, and increment it with each call.
 
-- 加密 PIN 只能使用一次，修改密码时需要生成两次加密 PIN，不能复用
+- The encrypted PIN can only be used once, and it needs to be generated twice when changing the password and cannot be reused.
 
-- PIN 错误有时间锁，一天错 5 次就不要再试了，超过 5 次即使 PIN 正确也会返回错误，重复更多次锁的时间更长，建议用户记一下试过的 PIN 码，隔日再试
+- There is a time lock for PIN errors. If you have failed 5 times a day, do not try again, even the PIN is correct after 5 times, an error will be returned. Repeating more times will cause a longer lock time. It is recommended that users write down the tried PIN code and try again the next day. 
 
-- PIN 丢失无法找回，建议开发者定期让用户输入帮助记忆，初始设置时输入 3 次以上并提醒用户丢失无法找回
+- Once a PIN is lost, it can never be retrieved. It is recommended that the developer let each user enter it regularly to help memorize it. During the initial setting, make sure to let the user enter it more than 3 times and remind the user that it cannot be retrieved if lost
 
-- 为了资产安全，建议提醒用户不要设置简单的 PIN 密码，例如 `123456`、`111222` 类似简单常用的组合
+- For asset security, it is recommended to remind users not to set PIN codes that are too simple or common combinations, such as `123456`, `111222`.
 
-**开发者在转账和修改密码必须非常谨慎，忘记密码无法找回！转错账了也无法撤销！生产环境和测试环境一定要分开，并且进行充分的测试。**
+**Developers must be very cautious when transferring funds or changing PINs. Note that PINs cannot be retrieved! The wrong transfers cannot be undone! The production environment and the test environment must be separated and fully tested**
 
-### 下一步
+### Next Step
 
-- [用户资产](./assets)
+- [User Assets](./assets)
 
-  查询并显示用户资产。
+  Query user assets.
