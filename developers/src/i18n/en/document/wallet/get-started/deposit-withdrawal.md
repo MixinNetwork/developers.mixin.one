@@ -1,61 +1,63 @@
-# 充值与提现
+# Deposit And Withdrawal
 
-充值和提现是钱包最重要的功能之一，也是最容易出错的地方，一旦充值错误或者提现错误均无法找回，请建议用户第一次充值或提现时都小额尝试！
+Deposit and withdrawal are among the most important functions of a wallet, and also the most error-prone. Once the deposit or the withdrawal errors happen, the assets cannot be retrieved. So users should be encouraged to try a small amount depositing or withdrawing for the first time!
 
-### 充值
-- 充值地址
+### Deposit
+- Deposit Addresses
 
-  充值界面根据 destination 和 tag 来显示充值信息，有些资产（例如 EOS、BTS）需要 destination 和 tag 一起使用才能完成充值，可以简单的判断 tag 是否为空来区分处理。
+  The deposit interface displays deposit information by destinations and tags. Some assets (such as EOS, BTS) require both destination and tag to be used to complete the deposit. You can simply check whether the tag is empty to distinguish.
 
-  同一主链的充值地址是相同的，例如可以直接往 BTC 的充值地址充入 Omni USDT，符合 ERC-20 的代币都可以充到 ETH 的充值地址。
+  The deposit address of the same main chain is the same. For example, you can directly deposit Omni USDT to the deposit address of BTC, and all tokens conforming to ERC-20 can be deposited to the deposit address of ETH.
 
-- 获取充值地址
+- Getting Deposit Addresses
 
-  充值地址是按需创建的，调用 `GET /assets` 并不会生成用户的充值地址，调用 `GET /assets/:id` 时如果还没有充值地址，就会帮用户生成充值地址，但是生成充值地址需要时间，不过一般很快，建议钱包显示充值按钮的地方显示转圈等待，后台轮询该接口。可以通过判断 `destination` 字段是否有值来判断充值地址是否准备好了。
+  The deposit addresses are created on demand. Calling `GET /assets` will not generate a new deposit address. When calling `GET /assets/:id`, if the user has no deposit address yet, a new one will be generated for him, it takes some time but generally very fast. It is recommended that the wallet app display a spinner at the place of the deposit button while calling the API in the background. You can check if the address is ready by checking whether the `destination` field has a value or not.
 
-- 充值确认数
+- Required Deposit Confirmations
 
-  Mixin 的充值确认数高于一般钱包和交易所两倍以上，充值会慢一些，主要目的是为了安全，可以有效阻止双花等问题。可以通过 `confirmations` 字段动态获取展示给用户。
+  The required deposit confirmations of Mixin are more than twice that of ordinary wallets and exchanges, so the deposits will be slower for the sake of security, which effectively prevents problems such as double-spending. The number of required confirmations can be dynamically obtained and displayed to users through the `confirmations` field.
 
-- 充值进度
+- Deposit Progress
 
-  可通过 `GET /external/transactions` 并同时指定 `asset`、`destination`、`tag` 来检索当前充值地址是否有正在充值的记录，参见[文档](../api/network/pending-deposits)。
+  You can use `GET /external/transactions` and specify `asset`, `destination`, and `tag` at the same time to retrieve whether the current deposit address has an on-going deposit record, see [document](../api/network/pending-deposits ).
 
-推荐关注 Mixin 数据 7000103056 这个机器人，可以很方便的查看当前公链同步状态，如果充值迟迟不到账可能是因为区块数据同步出现了故障，一般让用户等着就行，Mixin 主网团队会最高优先级的处理此类问题。
+It is recommended to follow Mixin chatbot 7000103056 to check the current public chain synchronization status. If the deposit is delayed, it may be due to the block data synchronization failure. Then no worry and all you need is to let the user wait, it will be the top priority of Mixin mainnet team to solve this.
 
-**强烈建议提醒用户：首次充值请小额尝试！首次充值请小额尝试！首次充值请小额尝试！**
+**It is strongly recommended to remind users: Please try a small amount for the first deposit.**
 
-### 提现
+### Withdrawal
 
-注意提现需要先添加提现地址，提现参见[API 文档](../api/withdrawal)。
+Note that users need to add the withdrawal address before withdrawing, please refer to [API Document](../api/withdrawal).
 
-- 提现地址
 
-  参考[文档](../api/address-add)通过 `POST /addresses` 添加提现地址，注意提现地址只能[新增](../api/address-add)和[删除](../api/address-delete)，想要修改可以先删除后新增。
+- Withdrawal addresses
 
-  不支持提现到 TRON、EOS 的合约地址！
+  Refer to [Document](../api/address-add) to add the withdrawal addresses via `POST /addresses`, note that the  withdrawal addresses can only be [Add](../api/address-add) and [Delete](.. /api/address-delete), if you want to edit, you can delete it first and then add it.
 
-- 提现限制
+  Withdrawal to the contract addresses of TRON and EOS is not supported!
 
-  可根据 `dust` 字段显示最小提现，一般是 0.0001，有的代币提现需要账户留储备金（不能提空），可以根据 `reserve` 判断，例如 XRP。
+- Withdrawal Restrictions
 
-- 提现手续费
+  The minimum withdrawal is displayed with `dust` field, which is generally 0.0001. Some token withdrawals require a reserve in the account (cannot withdraw to zero), which is determined by the `reserve` field, such as XRP.
 
-  根据 `fee` 字段显示提现手续费，手续费是动态的（根据公链的网络拥堵情况动态自动调整），可以根据 fee 获取。
+- Withdrawal Fee
 
-- 内部提现
+  The withdrawal fee is displayed with `fee` field. The fee is dynamic (automatically adjusted according to the network congestion of the public chain) and can be obtained from `fee` field.
 
-  内部充值提现（Mixin Network 的 Dapps 之间充值提现）是免费秒到的，例如从 Mixin Messenger 充值提现到 币印钱包、从 FOX.ONE 充值提现到 Mixin Messenger，个别钱包产品出于业务考虑仍然会收提现手续费。
+- Internal Withdrawal
 
-注意充值地址和提现地址并不相同，提现可能从一个或多个链上资产地址提取，相关细节可以参考 Mixin 的技术白皮书。
+   Internal deposit and withdrawal (deposit and withdrawal between Dapps of Mixin Network) are free and fast. For example, deposit or withdrawal from Mixin Messenger to Poolin Wallet, and from FOX.ONE to Mixin Messenger. Due to business considerations, some wallets will still charge a withdrawal fee.
 
-**强烈建议提醒用户：首次提现到新地址请小额尝试！首次提现到新地址请小额尝试！首次提现到新地址请小额尝试！**
 
-### 下一步
+Note that the deposit and withdrawal addresses are not the same. When withdrawing, a user may withdraw from one or more on-chain asset addresses. For details, please refer to Mixin's technical white paper. 
 
-- 监听对账
+**It is strongly recommended to remind users: Please try a small amount for the first withdrawal.**
 
-  开发者可通过扫码 Mixin 全网的数据并过滤钱包用户的记录实现对账功能，参见 [API 文档](../api/network/snapshots)，注意在请求头附带当前钱包的签名授权令牌。
+### Next Step
+
+- Monitor Reconciliation
+
+  Developers can scan the data on entire network of Mixin and filter wallet user records to do reconciliation, refer to [API Document](../api/network/snapshots). Please attach the current wallet's authentication token in request headers.
 
 ---
-请给充值和提现做好足够的提醒，一旦充值错误资产无法找回，不过目前 Mixin 团队对于用户充值错误的情况提供一定的补助，有需求请在 Mixin Messenger 通过 7000 联系 Mixin 客服。
+Please kindly remind the users that once the deposit fails, the assets cannot be retrieved. The Mixin team currently provides some subsidies for users’ deposit failures. If you need it, please contact Mixin customer service through 7000 in Mixin Messenger.
