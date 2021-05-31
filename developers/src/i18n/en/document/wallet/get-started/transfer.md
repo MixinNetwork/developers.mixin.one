@@ -1,6 +1,6 @@
-# 用户之间转账
+# Transfers
 
-用户之间转账免费并且时时到账，go 语言代码实现：
+Transfers among wallet users are free and instant. In Go:
 
 ```go
 type TransferInput struct {
@@ -57,10 +57,10 @@ func CreateTransfer(ctx context.Context, in *TransferInput, uid, sid, sessionKey
 }
 ```
 
-转账 API `/transfers` 具体参数说明参见[ API 文档](../api/transfer)。
+Refer to[ API Document](../api/transfer) to know the parameters of transfer API `/transfers`.
 
-### 下一步
+### Next Step
 
-- [提现充值](./deposit-withdrawal)
+- [Deposit And Withdrawal](./deposit-withdrawal)
 
-  从外部充值到钱包，从钱包提现到其他交易所和钱包。
+	How to deposit to the wallets, and how to withdraw from them to other exchanges or wallets.
