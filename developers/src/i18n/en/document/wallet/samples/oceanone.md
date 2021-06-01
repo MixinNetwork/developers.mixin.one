@@ -1,21 +1,21 @@
-# 去中心化交易所 - Ocean ONE
+# Decentralized Exchange - Ocean ONE
 
-![OceanONE](./oceanone.png)
+![TODO: English Version Img: OceanONE](./oceanone.png)
 
-- 名称：OceanONE
-- 官网：https://ocean.one/
-- 源码：https://github.com/Mixinnetwork/ocean.one
-- 简介：Ocean ONE 是基于 Mixin Network 构建的新一代去中心化交易所，这是第一个与中心化交易所获得相同体验的去中心化交易所。
-- 推荐：功能完整，性能卓越。
+- **Name** OceanONE
+- **Website** https://ocean.one/
+- **Code** https://github.com/Mixinnetwork/ocean.one
+- **Introduction** Ocean ONE is the next generation decentralized exchange based on Mixin Network, which is the first decentralized exchange that has the same experience as a centralized exchange.
+- **Advantages** Feature-rich and performant.
 
-交易所特点：
+The exchange features:
 
-- 去中心化，用户资产和撮合引擎安全隔离，挂单成交后资产立即返回用户的钱包
-- 交易上链，所有挂单、吃单、退单都对应的交易记录上链，交易真实可查可追溯
-- 安全透明，代码完全开源且通过了第三方机构审计
-- 性能卓越，高性能撮合引擎可满足量化需求，测试 24 小时可完成 10,000,000 笔交易
-- 币种丰富，支持 32 条公链超过 10 万种代币充值、提现和交易
-- 独特优势，所有基于 Mixin Network 的 Dapp 与交易所之间充值和提现都是免费、秒到；上币无须申请，默认全部自动支持；交易手续费全额返还给开发者
+- Decentralization, user assets, and the matching engine are safely isolated, and assets are returned to the user's wallet immediately after the maker order is traded.
+- On-chain transactions, all maker, taker orders, and order cancellations are recorded on-chain in each own transaction, which makes everything traceable.
+- Security and transparency, the code is completely open-source and has passed the audit of third-party organizations.
+- Excellent performance, the high-performance matching engine can meet the needs of quantitative trading, and 10,000,000 transactions can be completed within 24 hours.
+- Currency richness, supporting the deposit, withdrawal, and trading of more than 100,000 tokens on 32 public chains.
+- Uniqueness, all deposits and withdrawals between Mixin Network-based Dapps and exchanges are free and instant; token-listing is permission-less, and all are automatically supported by default; commission fees are fully refunded to the developers.
 
 ---
-挂单资产和钱包资产分离极大降低了风险同时保障了高性能，交易上链确保了所有的交易都是真实有效，代码开源确保了交易的公平性。
+The separation of maker order assets and wallet assets greatly reduces risks while ensuring high performance. Keeping all trades on-chain ensures that all trades are real, and the open-source code ensures fairness in trades.

@@ -67,7 +67,7 @@ Using the MTG to develop decentralized applications is very simple. It can be de
 
 - [Decentralized Exchange](./exchange)
 
-  MTG-based decentralized exchanges are characterized by high performance, asset isolation (separation of pending order assets and wallet assets), openness and transparent data on the chain, currencies richness, free of transfer fee for pending orders and take profit orders, and autonomous currency listings.
+  MTG-based decentralized exchanges are characterized by high performance, asset isolation (separation of maker order assets and wallet assets), openness and transparent data on the chain, currencies richness, free of transfer fee for maker and taker orders, and autonomous currency listings.
 
 - Oracle
 

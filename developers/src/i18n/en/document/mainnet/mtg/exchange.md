@@ -1,12 +1,12 @@
 # Decentralized On-Chain Exchange
 
-The next-generation high-performance decentralized on-chain exchange based on the MTG feature high performance, low latency, asset isolation, multi-signature co-management, on-chain transactions checkable and traceable, instant pending orders, zero gas fee for transactions.
+The next-generation high-performance decentralized on-chain exchange based on the MTG feature high performance, low latency, asset isolation, multi-signature co-management, on-chain transactions checkable and traceable, instant maker orders, zero gas fee for transactions.
 
 ### Advantages
 
 - Decentralization with Security
   
-  Protected by Mixin mainnet, pending order assets and wallet assets are independent of each other to reduce concentration risks. Assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The matching engine can be deployed on 255 node servers.
+  Protected by Mixin mainnet, maker order assets and wallet assets are independent of each other to reduce concentration risks. Assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The matching engine can be deployed on 255 node servers.
 
 - Openness and transparency
   
@@ -18,7 +18,7 @@ The next-generation high-performance decentralized on-chain exchange based on th
 
 - Powerfulness
 
-  It naturally supports a variety of cross-chain assets. gas-fee free and instant pending orders,  scalability to serve a large number of users.
+  It naturally supports a variety of cross-chain assets. gas-fee free and instant maker orders,  scalability to serve a large number of users.
 
 ### Steps
 
@@ -30,7 +30,7 @@ The next-generation high-performance decentralized on-chain exchange based on th
   
   1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
 
-  2. Matching engine: Pending orders, taking orders, and canceling orders are realized through transfers, user assets are effectively isolated while transparency are improved because of transactions recorded on-chain. Nodes need to synchronize related UTXO transactions continuously. Collateral loans and borrowing operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including operation type, amount and others, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+  2. Matching engine: Maker, taker orders, and order cancellations are realized through transfers, user assets are effectively isolated while transparency are improved because of transactions recorded on-chain. Nodes need to synchronize related UTXO transactions continuously. Collateral loans and borrowing operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including operation type, amount and others, the format is as follows (recommended to use MessagePack + base64 to compress the data):
 
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
@@ -41,9 +41,9 @@ The next-generation high-performance decentralized on-chain exchange based on th
   }))
   ```
 
-  3. Asset management: All assets are managed by the node multi-signature, and the user's pending order assets are directly saved to the multi-signature address, and taking and canceling orders require most nodes to verify the wallet to take effect.
+  3. Asset management: All assets are managed by the node multi-signature, and the user's maker order assets are directly saved to the multi-signature address, and taking and canceling orders require most nodes to verify the wallet to take effect.
 
-  4. Front-end development: A front-end can be developed to allow wallet users to directly transfer to the matching engine to post pending orders or take orders because it is safer without custody of assets.
+  4. Front-end development: A front-end can be developed to allow wallet users to directly transfer to the matching engine to post maker orders or take orders because it is safer without custody of assets.
 
 - Security Measures
 
