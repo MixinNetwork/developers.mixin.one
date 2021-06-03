@@ -91,7 +91,7 @@ Using the MTG to develop decentralized applications is very simple. It can be de
 
 - Are there any MTG-based products?
 
-  Search 7000103117 in Mixin Messenger to try the MTG version of 4swap.
+  Search for 7000103117 in Mixin Messenger to try the MTG version of 4swap.
 
 
 - How to find a trustworthy node team?

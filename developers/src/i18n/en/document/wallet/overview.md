@@ -19,4 +19,4 @@ Based on Mixin Network, products such as decentralized wallets and decentralized
 - [Integrate Mixin Wallet](./get-started/create-app)
 
 ---
-**To contact tech support, search 762532、493230、31911 in Mixin Messenger**
+**To contact tech support, search for 762532、493230、31911 in Mixin Messenger**

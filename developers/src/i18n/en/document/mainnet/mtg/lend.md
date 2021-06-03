@@ -58,4 +58,4 @@ The collateral loan market based on the demand for crypto assets can greatly imp
 
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) .
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) .

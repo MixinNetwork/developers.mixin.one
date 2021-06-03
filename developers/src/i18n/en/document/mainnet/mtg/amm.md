@@ -74,4 +74,4 @@ Developed by the Fox team and jointly operated by the Mixin Core, Biyin, BigONE,
 - **How To Use** Search in Mixin Messenger for Chatbot 7000103537
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).

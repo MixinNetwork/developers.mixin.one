@@ -83,4 +83,4 @@ Using the MTG solution to develop a PoS public chain can save the time and cost 
    
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . If you need tech support，Please search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.
+MTG reference code: https://github.com/MixinNetwork/trusted-group . If you need tech support，Please search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.

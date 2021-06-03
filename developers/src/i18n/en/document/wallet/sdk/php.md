@@ -62,4 +62,4 @@ var_dump($assets);
 Fo more examples, see [examples](https://github.com/ExinOne/mixin-sdk-php/tree/master/tests/Feature)。
 
 ---
-This SDK is developed by the Exin team. If you have any questions, you can search for 26930 through Mixin Messenger and contact us for help.
+This SDK is developed by the Exin team. To contact tech support, search for 26930 in Mixin Messenger.

@@ -73,4 +73,4 @@ The stablecoin Pando USD jointly issued by Mixin Core, Biyin, BigONE, Fox, and E
 - **Number Of Nodes** 5
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).

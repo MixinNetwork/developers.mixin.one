@@ -1,6 +1,6 @@
-### Search Assets
+### Search For Assets
 
-Search assets by symbol or name, only popular assets will be list.
+Search for assets by symbol or name, only popular assets will be list.
 
 ### `GET /network/assets/search/:q` 
 

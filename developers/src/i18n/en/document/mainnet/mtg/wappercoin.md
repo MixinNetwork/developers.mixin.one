@@ -61,4 +61,4 @@ The market for wrapped tokens(tokenized blockchain coins anchoring with coins on
   The decentralized multi-signature organizations determine the collateral type, commission fees, and other proposals through voting.
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
