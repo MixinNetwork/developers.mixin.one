@@ -1,10 +1,11 @@
 # Kotlin SDK
 
-### Import
+### Importing
 
-import [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client)
+Importing [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client).
 
-### Config
+### Configuration
+
 ```kotlin
 val pin = ""
 val userId = ""
@@ -14,6 +15,7 @@ val pinToken = rsaDecrypt(privateKey, sessionId, "")
 ```
 
 ### Quick Start
+
 ```kotlin
 // Create HttpClient
 val client = HttpClient(userId, sessionId, privateKey)
@@ -50,4 +52,4 @@ println(assetResponse.data)
 Fo more examples, see [examples](examples](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/example/src/main/java/one/mixin/example/example.kt)。
 
 ---
-This SDK is developed by the Mixin team. If you have any questions, you can search for 26832, 31911 through Mixin Messenger and contact us for help. 
+This SDK is developed by the Mixin team. To contact tech support, search for 26832, 31911 in Mixin Messenger.
