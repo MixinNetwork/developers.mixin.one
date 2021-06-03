@@ -1,10 +1,6 @@
 # PHP SDK
 
-### Requirement
-
-- `Composer`
-
-- `PHP` >= 7.0
+The SDK is based on Composer，it requires PHP version 7.0 or higher to work.
 
 ### Installation
 
@@ -12,7 +8,7 @@
 $ composer require exinone/mixin-sdk-php -vvv
 ```
 
-### Example
+### Quick Start
 
 ```php
 <?php
@@ -33,7 +29,7 @@ $mixinSdk = new \ExinOne\MixinSDK\MixinSDK();
 
 $mixinSdk->setConfig('appConfig', $appConfig);
 
-// Generate user and register to the Mixin Network
+// Create a user, and register him on the Mixin Network.
 $user = $mixinSdk->use('appConfig')->network()->createUser('fullname');
 var_dump($user);
 
@@ -47,12 +43,15 @@ $userConfig = [
 $mixinSdk = new \ExinOne\MixinSDK\MixinSDK();
 $mixinSdk->setConfig('userConfig', $userConfig);
 
+// Set initial PIN.
 $res = $mixinSdk->use('userConfig')->pin()->updatePin('', '123456');
 var_dump($res);
 
+// Read user info.
 $self = $mixinSdk->use('userConfig')->user()->readProfile();
 var_dump($self);
 
+// Get asset list.
 $assets = $mixinSdk->use('userConfig')->wallet()->readAssets();
 var_dump($assets);
 
