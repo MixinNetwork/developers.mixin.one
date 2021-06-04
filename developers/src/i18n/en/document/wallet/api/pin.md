@@ -28,4 +28,4 @@ $$XIN:curl$$ "https://api.mixin.one/pin/update" -X POST --data '{"old_pin":"","p
 }
 ```
 
-**Set the initial PIN old_pin should pass an empty string.**
+**To set the initial PIN, pass an empty string to old_pin.**
