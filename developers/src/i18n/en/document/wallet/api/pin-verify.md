@@ -4,7 +4,7 @@
 
 The HTTP request body:
 
-| Parameter | Type | Introduction |
+| Name | Type | Description |
 | :----- | :----: | :---- |
 | pin | String | Encrypted PIN code |
 
