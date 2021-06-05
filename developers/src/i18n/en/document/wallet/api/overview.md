@@ -1,4 +1,4 @@
-### API Guide
+# API Guide
 
 ### Choosing An API Server
 
