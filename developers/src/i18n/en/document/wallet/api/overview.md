@@ -2,14 +2,14 @@
 
 ### Choosing An API Server
 
-For HTTP request:
+For HTTP requests:
 
 | Domain | Type |
 | :----- | :---- |
 | https://api.mixin.one | Global |
 | https://mixin-api.zeromesh.net |  China |
 
-For webSocket request:
+For webSocket requests:
 
 | Domain | Type |
 | :----- | :---- |

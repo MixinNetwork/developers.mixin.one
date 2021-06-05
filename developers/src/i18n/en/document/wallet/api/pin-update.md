@@ -2,7 +2,7 @@
 
 ### `POST /pin/update` 
 
-The body of the request:
+The HTTP request body:
 
 | Paramters | Type | Introduction |
 | :----- | :----: | :---- |

@@ -2,7 +2,7 @@
 
 ### `POST /users` 
 
-The body of the request:
+The HTTP request body:
 
 | Parameter | Type | Intro |
 | :----- | :----: | :---- |
