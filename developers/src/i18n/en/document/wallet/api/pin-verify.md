@@ -14,7 +14,7 @@ $$XIN:curl$$ "https://api.mixin.one/pin/verify" -X POST --data '{"pin":"+mRm5rm9
 
 The above return an empty json on success.
 
-### Error 20119 Self-inspection
+### Error 20119 Debugging
 - If you forget your PIN code, there is no way to retrieve it. It is recommended to try 5 times a day and write down the tried code on paper.
 - It might be due to the misuse of `iterator`, which should be incremental. Generally, it is recommended to use the current system Nano time, or you can set a number by yourself, and increment it with each call.
 - The encrypted PIN is wrong, such as wrong format, wrong time, etc. It may be a problem of the SDK itself. It is recommended to contact the SDK developer for help.
