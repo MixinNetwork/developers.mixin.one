@@ -6,9 +6,9 @@ Query the user password error log records, based on which developers can remind 
 
 | Parameter | Introduction |
 | :----- | :---- |
-| limit | Pagination limit, maximamlly 500 |
-| offset | Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z` |
-| category | Log type, set to a fixed `PIN_INCORRECT` |
+| limit | Pagination limit, maximamlly 500. |
+| offset | Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z`. |
+| category | Log type, set to a fixed `PIN_INCORRECT`. |
 
 With curl:
 

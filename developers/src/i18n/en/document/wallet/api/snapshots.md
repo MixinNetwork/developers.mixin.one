@@ -1,29 +1,29 @@
-# Transfer
+# Transfer Records
 
-- Get all transfer
+- Get all transfers.
 
   `GET /snapshots?limit=&offset=` 
 
-- Get transfers by asset
+- Get transfers by asset.
 
   `GET /snapshots?limit=&offset=&asset=` 
 
-- Get transfers by opponent
+- Get transfers by opponent.
 
   `GET /snapshots?limit=&offset=&opponent=` 
 
-- Get transfers by destination
+- Get transfers by destination.
 
   `GET /snapshots?limit=&offset=&destination=&tag=` 
 
 | Name | Description |
 | :----- | :---- |
-| limit | Max 500 |
-| offset | format RFC3339Nano, UTC: `2020-12-12T12:12:12.999999999Z` |
-| asset | OPTION, return all network snapshots or specific asset snapshots. |
-| opponent | OPTION |
-| destination | OPTION |
-| tag | OPTION |
+| limit | Pagination limit, maximamlly 500. |
+| offset | Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z`. |
+| asset | Optional, get transfers by asset. |
+| opponent | Optional, get transfers by opponent(user or bot). |
+| destination | Optional, get transfers by destination. |
+| tag | Optional |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
