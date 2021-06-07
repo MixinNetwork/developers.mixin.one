@@ -1,13 +1,15 @@
-# Create Address
+# Creating Addresses
 
 ### `POST /addresses` 
 
+The HTTP request body:
+
 | Name | Type | Description |
 | :----- | :---- | :---- |
-| asset_id | UUID String | asset id |
-| label | String | "Mixin", can’t be blank, max size 64 |
-| destination | String | BTC address or EOS account name like "eoswithmixin" |
-| tag | String | can be blank, EOS account tag or memo |
+| asset_id | UUID String | Asset ID. |
+| label | String | Label for the address. |
+| destination | String | Withdrawal address. |
+| tag | String | Withdrawal memo. |
 | pin | String | Encrypted PIN |
 
 ```
