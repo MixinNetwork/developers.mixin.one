@@ -1,6 +1,4 @@
-# Addresses by Asset
-
-Read addresses by asset ID.
+# Displaying All Withdrawal Addresses Of One Asset
 
 ### `GET /assets/:id/addresses` 
 
