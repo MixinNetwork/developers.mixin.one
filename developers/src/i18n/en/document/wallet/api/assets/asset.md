@@ -1,6 +1,6 @@
-# Read Asset
+# Reading Asset Details
 
-Read asset by `asset_id`.
+Reading one asset by `asset_id`.
 
 ### `GET /assets/:id` 
 
