@@ -1,6 +1,4 @@
-# Fee
-
-Read asset fee by `asset_id`.
+# Withdrawal Fees
 
 ### `GET /assets/:id/fee` 
 
