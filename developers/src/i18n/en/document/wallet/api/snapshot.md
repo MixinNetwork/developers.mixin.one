@@ -1,6 +1,6 @@
-# Read Snapshot
+# Reading Snapshot Details
 
-### Read snapshot by snapshot id
+### Reading One Snapshot By Id
 
 ```
 GET /snapshots/:id
@@ -35,11 +35,13 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 }
 ```
 
-### Read snapshot by trace
+### Reading One Snapshot by Trace
 
 ```
 GET /transfers/trace/:id
 ```
+
+This API is only for querying transfers, not deposits or withdrawals.
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
