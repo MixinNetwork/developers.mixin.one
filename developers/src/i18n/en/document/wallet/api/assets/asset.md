@@ -1,4 +1,4 @@
-# Reading Asset Details
+# Displaying one Asset
 
 Reading one asset by `asset_id`.
 

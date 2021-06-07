@@ -1,4 +1,4 @@
-# Reading Tickers
+# Displaying Tickers
 
 ### `GET /ticker?asset=offset=` 
 

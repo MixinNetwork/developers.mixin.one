@@ -1,4 +1,4 @@
-# Reading Snapshot Details
+# Displaying One Snapshot
 
 ### Reading One Snapshot By Id
 

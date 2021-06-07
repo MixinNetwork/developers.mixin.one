@@ -1,6 +1,4 @@
-# Read Address
-
-Read an address by ID.
+# Displaying One Withdrawal Address
 
 ### `GET /addresses/:id` 
 
