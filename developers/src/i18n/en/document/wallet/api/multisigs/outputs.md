@@ -1,25 +1,18 @@
-# Read Multisigs Outputs
+# Reading Multi-signature UTXO
 
-All mutlisig utxo outputs of the user. The outputs use to build a transaction.
+### `GET /multisigs/outputs` 
 
-`Members` refers to the members who own the output, and `threshold` refers to the number of member signatures required to spend this output.
-
-### Restriction
-
-Only the outputs with the same members and threshold can be used in the one transaction, meanwhile their state are unspent.
-
-### `GET /multisigs/outputs?limit=&offset&state=` 
-
-| Name | Type | Description |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| members | String | OPTION, SHA3-256 of members|
-| threshold | Integer | OPTION |
-| state | String | OPTION, unspent, signed, spent |
-| offset | String | format RFC3339Nano, UTC: `2020-12-12T12:12:12.999999999Z` |
-| limit | Integer | OPTION, default 500 |
+| members | String | Optional, used together with threshold to participate in the hash of multi-signature members. |
+| threshold | Integer | Optional, used with members, multi-signature threshold, for example, 2/3, threshold = 2 |
+| state | String | Optional, the states of UTXO, e.g. unspent, signed, and spent.|
+| limit | String | Optional, pagination per page data limit, 500 by default, maximally 500. |
+| offset | String | Optional, pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`. |
 
-```
-// generate hash of the members
+If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters. Code for generating the multi-signature member hash:
+
+```golang
 func hashMembers(ids []string) string {
 	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
 	var in string
@@ -29,6 +22,8 @@ func hashMembers(ids []string) string {
 	return crypto.NewHash([]byte(in)).String()
 }
 ```
+
+A example:
 
 ```
 $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
@@ -44,8 +39,8 @@ $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-
     "transaction_hash":"29828149577920ccc9d90768012f95768b7d1a925c4189b912c343dbb000180e",
     "output_index":0,
     "amount":"10",
-    "threshold":"2",
-    "members": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
+    "threshold":"2",       // The number of members must reach the threshold to make a transaction effective.
+    "members": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"], // The members participating the multi-signature.
     "memo":"hello",
     "state": "spent",
     "signed_tx": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
@@ -55,3 +50,5 @@ $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-
   }
 }
 ```
+
+`signed_tx` and `signed_by` have values when the state is signed. signed_by represents the transaction hash, and signed_tx is the complete transaction content, signed_by can help sort the corresponding waiting list of transactions.
