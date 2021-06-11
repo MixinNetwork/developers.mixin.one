@@ -1,16 +1,19 @@
 # Multisigs
 
-Before you can operate a raw transaction, it should be created a multisigs request first. 
+Similar to uploading files, multisigs need to first generate a multi-signature request to obtain request_id, and then initiate the multi-signature operation.
 
-### Create Multisigs Request
+### Generating Multisig Requests
+
 ```
 POST /multisigs/requests
 ```
 
-| Name | Type | Description |
+The HTTP request body:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| action | String | OPTION, String: unlock, sign |
-| raw | String | implementation of go and js provided by us [code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils) |
+| action | String | Operations: sign, unlock. |
+| raw | String | For transactions generated in accordance with the mainnet specifications, refer to the implementation in Go and JS provided by us[Code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils) |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/multisigs/requests --data '{"action": "sign", "raw": "298281....4952f95768b7d1a925c4189b912c343dbb000180e"}'
@@ -39,15 +42,18 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests --data '{"action": "sign"
 }
 ```
 
-### Multisigs Actions
+### Initiating A Multi-signature
+
 ```
 POST /multisigs/requests/:id/:action
 ```
 
-| Name | Type | Description |
+The HTTP request body:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| action | String | cancel, sign, unlock |
-| pin | String | encrypted pin |
+| action | String | Operations: sign, cancel, and unlock. |
+| pin | String | Encrypted PIN. |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin": ""}'
@@ -76,41 +82,46 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin
 }
 ```
 
-### Examples
+### Demo
 
-- Sign multisigs
+- Initiate or participate in signing.
 
   ```json
+  // Generate multisig request.
   POST /multisigs/requests
   {
     "action": "sign",
     "raw": "298281....000180e"
   }
 
+  // Sign multisig request.
   POST /multisigs/requests/:id/sign
   ```
 
-- Cancel multisigs
+- Cancel my signature.
 
   ```json
+  // Generate multisig request.
   POST /multisigs/requests
   {
     "action": "sign",
     "raw": "298281....000180e"
   }
 
+  // Send multisig cancelling request.
   POST /multisigs/requests/:id/cancel
   ```
 
-- Revoke multisigs
+- Cancel multisigs.
 
   ```json
+  // Generate multisig request.
   POST /multisigs/requests
   {
     "action": "unlock",
     "raw": "298281....000180e"
   }
 
+  // Send multisig unlocking request.
   POST /multisigs/requests/:id/unlock
   ```
-
