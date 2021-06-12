@@ -1,6 +1,6 @@
-### Network Snapshot
+### Transfter Details
 
-Read public snapshots of Mixin Network by `snapshot_id`.
+Public transfer details, permission-less access.
 
 ### `GET /network/snapshots/:id` 
 
@@ -26,7 +26,7 @@ $$XIN:curl$$ "https://api.mixin.one/network/snapshots/8f5b244e-cf86-4374-8eaa-c5
       // Includes DEPOSIT_CONFIRMED, TRANSFER_INITIALIZED, WITHDRAWAL_INITIALIZED, WITHDRAWAL_FEE_CHARGED, WITHDRAWAL_FAILED 
       "source":"TRANSFER_INITIALIZED",
       "type":"snapshot",
-      // Options only for user (or App) who has access.
+      // If you need to check all wallet generated users' transfers, include the wallet authentication information in the request headers, and then the following fields will be returned.
       "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
       "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
       "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
