@@ -1,4 +1,4 @@
-# Reading Asset List
+# Asset List
 
 ### `GET /assets` 
 
@@ -31,4 +31,4 @@ $$XIN:curl$$ "https://api.mixin.one/assets"
 }
 ```
 
-**该接口只会返回余额大于 0 的资产列表，新用户请求该结果会返回一个空列表。**
+**This interface will only return a list of assets with a balance greater than 0, and an empty list will be returned when a user is new.**
