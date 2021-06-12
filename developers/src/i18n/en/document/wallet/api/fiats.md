@@ -1,7 +1,5 @@
 ### Live Exchange Rates
 
-Read Live Exchange Rates.
-
 ### `GET /fiats` 
 
 ```
