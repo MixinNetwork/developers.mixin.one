@@ -1,8 +1,8 @@
-# 转账详情
+# Snapshot Details
 
-查询转账详情时，如果不是当前用户的转账记录会返回 403，找不到该记录返回 404
+When querying the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
 
-### 通过转账 ID 查询详情
+### Reading Snapshot By Id
 
 ```
 GET /snapshots/:id
@@ -28,7 +28,7 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
       "data":"",
       "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
       "source":"TRANSFER_INITIALIZED",
-      "type":"transfer", // raw 主网转账、 deposit 充值、 transfer 转账、 withdrawal 提现、 fee 手续费、 rebate 退款
+      "type":"transfer",
       "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
       "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
       "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
@@ -37,13 +37,13 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 }
 ```
 
-### 通过 trace 查询详情
+### Reading Snapshot by Trace
 
 ```
 GET /transfers/trace/:id
 ```
 
-该接口只能查询转账，不能查询充值、提现。
+This API is only for querying transfers, not deposits or withdrawals.
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
