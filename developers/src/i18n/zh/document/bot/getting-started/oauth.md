@@ -3,6 +3,7 @@
 要访问 Mixin Messenger 用户的个人信息、资产等数据需要开发者向用户申请授权。
 
 ### 权限列表
+
 | 权限                 | 说明                                 |
 |:------------------:|:----------------------------------|
 | PROFILE:READ       | 获取用户基本信息，例如 user id、Mixin ID、名称、头像 |
@@ -15,10 +16,11 @@
 申请授权至少包含 PROFILE:READ 权限，用户在授权的时候可能会勾掉某些权限，建议开发者只申请必要的权限并在缺失权限的情况下做好界面引导。
 
 ### 申请授权
-当机器人检测到用户没有授权时应跳转至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` 向用户申请授权，参数说明：
+
+当机器人检测到用户没有授权时应跳转至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id={client_id}&scope={scope}&response_type=code&return_to=` 向用户申请授权，参数说明：
 
 - client_id - 机器人唯一标识
-- scope - 申请权限
+- scope - 申请权限，如果需要多个权限，请用 `+` 拼接
 - response_type - 固定写 code 返回授权码
 - return_to - 当前页面链接，授权后可跳转回当前界面
 
