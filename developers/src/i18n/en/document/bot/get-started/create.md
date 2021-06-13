@@ -1,34 +1,37 @@
-# 新建机器人
+# Creating Bots
 
-下载 [Mixin Messenger](https://mixin-www.zeromesh.net/messenger)，打开[开发者后台](/dashboard)扫码登录，点左侧「新应用」按提示创建好机器人，一些重要的参数说明：
+Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [dashboard](/dashboard) and login by scanning the quad code. Click the `New App` button on the left side and create the bot by following the prompt. Below are descriptions of some of the important parameters.
 
-- 分类
+- Category
 
-  请选择合适的机器人分类，当机器人在 Mixin Messenger 被用户置顶到首页底导栏时会显示分类对应的图标
+  Please select a category for the bot, when the bot is placed at the navigation bar on the bottom of the Mixin Messenger homepage, the corresponding icon of the category will be displayed.
 
-- 首页网址
+- Homepage Address
 
-  机器人主页链接
+  Link to the homepage of the bot.
 
-- 验证网址
+- Verification Page Address
 
-  用于 OAuth 授权回调
+  For the callback of OAuth authorization. 
 
-- 域名白名单
+- Domain Whitelist
 
-  用于防止伪造机器人链接，打开卡片跟按钮类型的消息时会校验链接的域名是否在白名单中，对于 APP_CARD 或者 APP_BUTTON_GROUP, 需要保证 action 在白名单中。
+  It is used to prevent fake bot links. When opening card and button type messages, it will check whether the linked domain name is in the whitelist. For APP_CARD or APP_BUTTON_GROUP, you need to ensure that the action is in the whitelist.
 
-- 沉浸模式
 
-  开启沉浸模式将获得更多展示空间，参见[沉浸模式](../design/immersive-mode)文档
+- Immersive Mode
 
-### 下一步
-保存新建的机器人后即可获得当前机器人的 Mixin ID，可以直接在 Mixin Messenger 首页顶部搜索该 ID 即可访问自己的机器人了。
+  Turn on immersive mode to get more display space, refer to [Immersive Mode](../design/immersive-mode)document.
 
-- [申请授权](./oauth)
+### Next Step
 
-  开发者可以通过授权读取用户个人、资产、转账等信息，据此可为用户提供各种更精细化的信息、金融服务。
+After saving the newly created robot, you can get the Mixin ID of the current bot. You can directly search for the ID at the top of the Mixin Messenger homepage to access your own bot.
 
-- [接收消息](./websocket)
+- [Authorization](./oauth)
 
-  如果您开发的是新闻、纯图片等这类不需要读取用户的信息机器人，开发完前端界面即可上线，强烈建议开发者支持客服功能以回复用户的提问。
+  Developers can read the user's personal, asset, transfer, and other information after authorization, and accordingly can provide users with a variety of more refined information and financial services.
+
+- [Receiving Messages](./websocket)
+
+  If you are developing news, images only, and other informational bots that do not need to read user info, all you need is to develop the front-end, and you are ready to go live. It is strongly recommended that developers provide tech support for the users.
+
