@@ -13,7 +13,7 @@ To access personal information, assets, and other data of a Mixin Messenger user
 | MESSAGES:REPRESENT | To allow the bot to send messages on behalf of the user |
 | SNAPSHOTS:READ | To access user's transfer history, including deposits and reminders |
 
-The permissions requested should contain at least the PROFILE:READ permission, and the user may check off certain permissions during the authorization. It is recommended that developers apply for only the necessary permissions and provide interfaces to guide users in case of missing permissions.
+The permissions requested should contain at least the PROFILE:READ permission, and the user may check off certain permissions during the authorization. It is recommended that developers request only the necessary permissions and provide interfaces to guide users in case of missing permissions.
 
 ## Requesting Authorization
 
