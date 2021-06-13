@@ -19,10 +19,19 @@
 
 当机器人检测到用户没有授权时应跳转至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id={client_id}&scope={scope}&response_type=code&return_to=` 向用户申请授权，参数说明：
 
+**必须的参数**
+
 - client_id - 机器人唯一标识
 - scope - 申请权限，如果需要多个权限，请用 `+` 拼接
 - response_type - 固定写 code 返回授权码
 - return_to - 当前页面链接，授权后可跳转回当前界面
+
+**可选的参数**
+
+- return_to - 当前页面链接，授权后可跳转回当前界面
+- state - 任意字符串，你可以用于在 OAuth 完成后验证
+- code_challenge - 你的 app 创建的 code verifier 的 SHA256 摘要，[查看此处](https://www.oauth.com/oauth2-servers/pkce/authorization-request/)了解更多
+- code_challenge_method - 请指定`SHA256`
 
 授权成功后页面会自动跳转至机器人的验证网址，回调 URL 会附带 code 授权码和 return_to 参数，开发者再根据授权码请求令牌：
 
