@@ -35,7 +35,7 @@ When the bot detects that the user is not authorized it should jump to https://m
 After successful authorization, the page will automatically jump to the bot's authentication URL, the callback URL will be accompanied by the authorization code and return_to parameters, and the developer will then request a token based on the authorization code:
 
 ```
-POST https://mixin-api.zeromesh.net/oauth/token
+POST https://api.mixin.one/oauth/token
 {
     "client_id": "unique bot identifier",
     "code": "authorization code returned by the successful authorization callback",
