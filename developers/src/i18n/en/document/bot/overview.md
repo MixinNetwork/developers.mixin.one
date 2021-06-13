@@ -1,26 +1,26 @@
-# Mixin Messenger 机器人
+# Mixin Messenger Bots
 
-Mixin Messenger 除了提供端对端加密聊天和钱包功能，还支持 Telegram 机器人、微信小程序类似的机器人功能，开发者能很方便实现交易、收费圈子、商城等功能强大的机器人，可以搜索 7000101700 体验 Mixin 上各种精选的机器人。
+In addition to providing end-to-end encrypted chat and wallet functions, Mixin Messenger also supports bot functions similar to Telegram bots, WeChat mini-programs. Developers can easily implement powerful bots with functions such as transactions, paid circles, and e-commerce. You can search for 7000101700 to try a variety of selected bots.
 
-![Mixin Messenger 机器人](./bot-overview-samples.png)
+![TODO: English Version IMG, Mixin Messenger Bots](./bot-overview-samples.png)
 
-### 优势
+### Advantages
 
-- 完善
+- Production-ready
 
-  机器人通过授权可以获得用户的基本资料、资产列表、转账记录、联系人列表等数据，开发者可有效的利用这些数据开发相应的产品服务。
+  Given the authorization, the bots can obtain the user's basic information, asset list, transfer records, contact list, and other data. Developers can use the data to develop products and services.
 
-- 开放
+- Open
 
-  无审核，开发测试完即可上线推荐给你的用户使用。
+  You can put your bots online for your users without asking anyone's permission.
 
-- 公平
+- Fair
 
-  没有官方的机器人市场，独立开发者或团队需要自己推广机器人，使用体验和服务做得好用户就会把你的机器人置顶首页获得一级入口！
+  There is no official bot market, independent developers or teams need to promote bots by themselves, and users who have a good experience will put your bots on the top of the homepage to give your bots first-level entrance!
 
-### 下一步
+### Next Step
 
-- [开发 Mixin Messenger 机器人](./get-started/create)
+- [Developing Mixin Messenger Bots](./get-started/create)
 
 ---
-**可以通过 Mixin Messenger 搜索 762532、493230、31911 联系我们提供帮助。**
+**To contact tech support, search for 762532、493230、31911 in Mixin Messenger**
