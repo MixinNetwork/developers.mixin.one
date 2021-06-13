@@ -1,8 +1,8 @@
-# Read Profile
+# 个人信息
 
 ### `GET /me`
 
-Read self profile, `PROFILE:READ` permission is required.
+获取授权用户的个人基本信息，需要 `PROFILE:READ` 权限，获取用户的手机号需要 `PHONE:READ` 权限。
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/me"

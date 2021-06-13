@@ -1,6 +1,6 @@
-# Read Asset
+# 获取用户单个资产信息
 
-Read asset by `asset_id`, `ASSETS:READ` permission is required.
+根据资产 id 获取授权用户单个资产的信息，需要 `ASSETS:READ` 权限。
 
 ### `GET /assets/:id` 
 

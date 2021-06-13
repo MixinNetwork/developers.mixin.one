@@ -1,6 +1,6 @@
-# Read User
+# 获取用户信息
 
-Get user’s information by `user_id`.
+根据 User ID 获取用户信息
 
 ### `GET /users/:id` 
 

@@ -1,6 +1,8 @@
-# Read Snapshot
+# 转账详情
 
 ### `GET /snapshots/:id` 
+
+根据转账 id 获取授权用户某条转账的信息，需要 `SNAPSHOTS:READ` 权限。
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
@@ -17,3 +19,14 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
    }
 }
 ```
+
+type 参数说明
+
+- raw 主网转账
+- deposit 充值
+- transfer 转账
+- withdrawal 提现
+- fee 手续费
+- rebate 退款
+
+**不是当前用户的转账返回 403，找不到该记录返回 404**
