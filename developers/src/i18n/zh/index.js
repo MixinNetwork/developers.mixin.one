@@ -308,12 +308,12 @@ export default {
         { name: "简介", path: "bot/overview", router: "bot/overview" },
         {
           name: "开发教程", child: [
-            { name: "新建机器人", path: "bot/get-started/create", router: "bot/get-started/create" },
-            { name: "OAuth 授权", path: "bot/get-started/oauth", router: "bot/get-started/oauth" },
-            { name: "访问用户数据", path: "bot/get-started/api", router: "bot/get-started/api" },
-            { name: "Schema 唤起", path: "bot/get-started/schema", router: "bot/get-started/schema" },
-            { name: "JS 容器交互", path: "bot/get-started/js", router: "bot/get-started/js" },
-            { name: "收发消息", path: "bot/get-started/websocket", router: "bot/get-started/websocket" },
+            { name: "新建机器人", path: "bot/getting-started/create", router: "bot/getting-started/create" },
+            { name: "OAuth 授权", path: "bot/getting-started/oauth", router: "bot/getting-started/oauth" },
+            { name: "访问用户数据", path: "bot/getting-started/api", router: "bot/getting-started/api" },
+            { name: "Schema 唤起", path: "bot/getting-started/schema", router: "bot/getting-started/schema" },
+            { name: "JS 容器交互", path: "bot/getting-started/js", router: "bot/getting-started/js" },
+            { name: "收发消息", path: "bot/getting-started/websocket", router: "bot/getting-started/websocket" },
           ]
         },
         {
