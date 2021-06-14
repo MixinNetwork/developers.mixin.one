@@ -9,8 +9,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.1",
-    "core-js": "^3.12.1",
-    "element-ui": "^2.15.1",
+    "core-js": "^3.14.0",
+    "element-ui": "^2.15.2",
     "github-markdown-css": "^4.0.0",
     "highlight.js": "^10.7.2",
     "int64-buffer": "^1.0.1",
@@ -19,7 +19,7 @@
     "node-forge": "^0.10.0",
     "uuid": "^8.3.2",
     "validator": "^13.6.0",
-    "vue": "^2.6.12",
+    "vue": "^2.6.14",
     "vue-clipboard2": "^0.3.1",
     "vue-croppie": "^2.0.2",
     "vue-i18n": "^8.24.4",
@@ -34,7 +34,7 @@
     "markdown-loader": "^6.0.0",
     "node-sass": "^5.0.0",
     "sass-loader": "10.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.14"
   },
   "postcss": {
     "plugins": {
