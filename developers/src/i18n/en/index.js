@@ -266,6 +266,12 @@ export default {
       child: [
         { name: "Overview", path: "bot/overview", router: "bot/overview" },
         {
+          name: "Tutorial", child: [
+            { name: "OAuth", path: "bot/getting-started/oauth", router: "bot/getting-started/oauth" },
+            { name: "Javascript Bridge", path: "bot/getting-started/js", router: "bot/getting-started/js" },
+          ]
+        },
+        {
           name: "API", child: [
             { name: "Read Profile", path: "bot/api/profile", router: "bot/api/profile" },
             {
