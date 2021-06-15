@@ -120,6 +120,6 @@ You can poll `GET /transfers/trace/:traceid` to see if there is a return value t
 
 ### Next Step
 
-- [JS Container Interaction](./js)
+- [Webview Javascript Bridge](./js)
 
   Obtaining the current session id makes it possible to provide users with different application scenarios, and obtaining the user's localization settings makes it possible to adapt to it and improve the user experience.

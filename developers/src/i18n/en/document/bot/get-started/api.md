@@ -34,7 +34,7 @@ GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me
 
 * `GET /snapshots/:id` Obtain the details of a transfer, `SNAPSHOTS:READ` permission is required, refer to [document](/document/bot/api/assets/snapshot).
 
-* `GET /conversations/:id` Obtain the information of a certain session of the user, including one to one chat and group chat, refer to [Document](/document/bot/api/conversations/read).
+* `GET /conversations/:id` Obtain the information of a certain conversation of the user, including one to one chat and group chat, refer to [Document](/document/bot/api/conversations/read).
 
 If access to the API returns 401, you need to clean up the cached access token and then apply for authorization again.
 

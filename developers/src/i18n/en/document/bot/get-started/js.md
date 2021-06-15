@@ -1,10 +1,10 @@
-# JavaScript 容器交互
+# Webview Javascript Bridge
 
-客户端 WebView 容器提供一些 JavaScript 方法供机器人网页调用，可以方便读取机器人所处的会话和一些本地化设置信息。
+There are several Javascript methods in the App's WebView, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
 
 - getContext()
 
-  返回客户端用户设置和当前所处的会话，JavaScript 调用方法：
+  This returns the context of the current webpage.
 
   ```js
   getMixinContext: function () {
@@ -20,23 +20,23 @@
   },
   ```
 
-  返回值
+  The response:
 
   ```json
   {
-      "app_version": "0.24.0",      // Mixin Messenger 版本
-      "immersive": true,            // 是否开启沉浸模式
-      "appearance": "dark",         // 暗色主题/浅色主题
-      "currency": "USD",            // 货币类型
-      "locale": "zh-CN",            // 语言
-      "platform": "iOS",            // 客户端类型，Android、iOS、Desktop
-      "conversation_id": ""         // 返回当前所处会话的 ID，没有返回空
+      "app_version": "0.24.0",      // Mixin Messenger Version.
+      "immersive": true,            // Immersive mode on/off.
+      "appearance": "dark",         // Light or dark theme, according to system settings.
+      "currency": "USD",            
+      "locale": "zh-CN",           
+      "platform": "iOS",            // Client type, Android、iOS、Desktop
+      "conversation_id": ""         // The conversation ID. it would be empty if the webpage is not open in a conversation.
   }
   ```
 
 - reloadTheme()
 
-  重新读取机器人的 theme-color 信息并应用，适合机器人动态换肤功能，调用方法：
+  Read the theme-color from the html and apply:
 
   ```js
   reloadTheme: function () {
@@ -52,11 +52,11 @@
   }
   ```
 
-  关于 theme-color 推荐参考[交互与设计](../design/overview)。
+  Please read [Design Guide](../design/overview) for more details about theme.
 
 - playlist(audios)
 
-  唤起播放列表，`audios` 参数是一个 mp3 字符串数组，调用方法：
+  Start the playlist. `audios` is a string array that contains the URI list of mp3 files.
 
   ```js
   playlist: function (audios) {
@@ -72,19 +72,19 @@
   }
   ```
 
-  **该方法在 Mixin Messenger 0.30.0 或以上的版本支持。**
+  **This method is supported in Mixin Messenger 0.30.0 or above.**
 
-### 第三方 SDK
+### Third-Party SDK
 
-为了便于使用，第三方团队将这些 Javascript 方法包装成 JsBridge SDK。该 SDK 提供了统一的访问方式，并且给出了所有 Javascript 方法的列表，和使用示例。请[点击此处查看](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。
+For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method and gives a list of all Javascript methods and examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
 
-### 下一步
+### Next Step
 
-- 前端优化
+- Front-end Optimization
 
-  推荐使用 PWA 技术优化机器人 https://developers.google.com/web/ilt/pwa/
+  PWA is recommended to optimize the bot, refer to  https://developers.google.com/web/ilt/pwa/.
 
-- [接收消息](./websocket)
+- [Receiving Messages](./websocket)
 
-  通过 WebSocket 接收用户的留言并予以回复能帮助用户更好的使用机器人提供的各种服务。
+  Receiving users' messages and replying via WebSocket can help users better the services provided by the bots.
 
