@@ -3,9 +3,9 @@
 客户端 WebView 容器提供一些 JavaScript 方法供机器人网页调用，可以方便读取机器人所处的会话和一些本地化设置信息。
 
 - getContext()
-  
+
   返回客户端用户设置和当前所处的会话，JavaScript 调用方法：
-  
+
   ```js
   getMixinContext: function () {
     let ctx = {};
@@ -23,14 +23,14 @@
   返回值
 
   ```json
-  {                 
+  {
       "app_version": "0.24.0",      // Mixin Messenger 版本
       "immersive": true,            // 是否开启沉浸模式
       "appearance": "dark",         // 暗色主题/浅色主题
       "currency": "USD",            // 货币类型
       "locale": "zh-CN",            // 语言
       "platform": "iOS",            // 客户端类型，Android、iOS、Desktop
-      "conversation_id": ""         // 返回当前所处会话的 ID，没有返回空 
+      "conversation_id": ""         // 返回当前所处会话的 ID，没有返回空
   }
   ```
 
@@ -74,6 +74,9 @@
 
   **该方法在 Mixin Messenger 0.30.0 或以上的版本支持。**
 
+### 第三方 SDK
+
+为了便于使用，第三方团队将这些 Javascript 方法包装成 JsBridge SDK。该 SDK 提供了统一的访问方式，并且给出了所有 Javascript 方法的列表，和使用示例。请[点击此处查看](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。
 
 ### 下一步
 
