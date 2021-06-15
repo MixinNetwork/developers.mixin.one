@@ -1,15 +1,16 @@
-# Schema 唤起
+# Schema Evocation
 
-机器人可以通过 Schema 唤起 Mixin Messenger 原生窗口来完成业务流程，例如支付。
+A bot can invoke the native Mixin Messenger windows through the Schema to implement functions, such as payment.
 
-### 分享
-![分享](./bot-schema-share.png)
+### Sharing
+
+![TODO: English Version IMG, Sharing](./bot-schema-share.png)
 
 `mixin://send?category=&conversation_id=&data=`
 
-机器人无法自动分享消息，如果指定 `conversation_id` 并且与用户当前所在会话的 `conversation_id` 一致会出现上图所示确认框，由用户点确认后发送；未指定 `conversation_id` 或者与当前会话不一致会出现用户选人的界面，由用户选择分享要分享的会话。
+The bot can not automatically share messages. If you specify `conversation_id` and it is the `conversation_id` of the user's current session, the confirmation box shown above will appear, the message will be sent after the user clicks the confirmation; if the `conversation_id` is not specified or is not the `conversation_id` of the current session, an interface where the user chooses which session to share with will show up.
 
-- 分享文字
+- Share text.
 
   ```js
   const base64 = require('js-base64')
@@ -18,7 +19,7 @@
   window.open("mixin://send?category=text&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-- 分享图片
+- Share images.
 
   ```js
   const base64 = require('js-base64')
@@ -27,7 +28,7 @@
   window.open("mixin://send?category=image&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-- 分享联系人
+- Share contacts.
 
   ```js
   const base64 = require('js-base64')
@@ -36,17 +37,17 @@
   window.open("mixin://send?category=contact&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-- 分享卡片
+- Share cards.
 
   ```js
   const base64 = require('js-base64')
 
-  const data = '{"action":"http://192.168.31.156:3000/circles/9415878/posts/82","app_id":"c1412f68-6152-40ad-a193-f7fadf9328a1","description":"来自debugCircle","icon_url":"https://mixin-images.zeromesh.net/rl_7ufE4eezlZDDjsGz9apzvoa7ULeZLlyixbN04iiaGFng8JL9UtQVZwzHw4Bsh2_7m5WHVPwtWkLKOydGZ4Q=s256","title":"抽奖测试"}'
+  const data = '{"action":"http://192.168.31.156:3000/circles/9415878/posts/82","app_id":"c1412f68-6152-40ad-a193-f7fadf9328a1","description":"From debugCircle","icon_url":"https://mixin-images.zeromesh.net/rl_7ufE4eezlZDDjsGz9apzvoa7ULeZLlyixbN04iiaGFng8JL9UtQVZwzHw4Bsh2_7m5WHVPwtWkLKOydGZ4Q=s256","title":"Test"}'
   
   window.open("mixin://send?category=app_card&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-- 分享直播
+- Share live shows.
 
   ```js
   const base64 = require('js-base64')
@@ -56,70 +57,69 @@
   window.open("mixin://send?category=live&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-- 分享文章
+- Share posts.
 
   ```js
   const base64 = require('js-base64')
 
-  const data = '## Markdown简介\n> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。'
+  const data = '## Markdown Intro\n> Markdown is a light weight markup language.'
 
   window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
 
-### 支付
+### Payment
 
-- 支付页 
+- Payment page.
 
   `mixin://pay?recipient=&asset=&amount=&memo=&trace=`
   
-  | 参数       | 说明        |
+  | Parameter    | Description     |
   |:------------------:|:-----------------|
-  | recipient | 收款人的 user id |
-  | asset     | 资产编号  |
-  | amount    | 转账金额  |
-  | memo      | 可选，备注 |
-  | trace     | 可选，该参数可有效防止重复支付 |
+  | recipient | Receivers user id. |
+  | asset     | Asset id.  |
+  | amount    | Transfer amount.  |
+  | memo      | Optional |
+  | trace     | Optional, prevent duplicate payment.|
 
-  可轮询 `GET /transfers/trace/:traceid` 是否有返回值来判断支付是否已完成。
+You can poll `GET /transfers/trace/:traceid` to see if there is a return value to determine whether the payment has been completed.
 
-- 转账详情界面
+- Transfer details interface.
 
-  `mixin://snapshots?trace=:traceid` 或 `mixin://snapshots/:snapshotid`
+  `mixin://snapshots?trace=:traceid` or `mixin://snapshots/:snapshotid`.
 
-- 新增提现地址
+- Add withdrawal addresses.
 
   `mixin://address?asset=&label=&destination=&tag=`
   
-  tag 为可选参数，其他参数必填
+  tag is an optional parameter, other parameters are required.
 
-- 删除提现地址
+- Delete withdrawal addresses.
  
   `mixin://address?asset=&action=delete&address=`
   
-  address 参数为 address id
+   Assign address id to `address`.
 
-- 提现
+- Withdrawal.
 
   `mixin://withdrawal?address=&asset=&amount=&memo=&trace=`
   
-  memo 为可选参数，其他参数必填
+  `memo` is an optional parameter, other parameters are required.
 
-### 其他
+### Others
 
-- 用户弹窗
+- User popups.
 
   `mixin://users/:userid`
 
-- 机器人弹窗
+- Bot popups.
 
   `mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...` 
   
-   action 为可选参数，不传打开机器人弹窗，传 `action=open` 打开机器人首页；`key1=value1&key2=value2&key3=value3...` 参数可在打开机器人首页时带过去，不限制参数的名称和类型，方便开发邀请码、统计来源等功能，该参数在 Mixin Messenger 0.29.0 或以上的版本支持。
+  `action` is an optional parameter, the bot pop-up window will open in the absence of it, passing `action=open` will open the bot homepage; `key1=value1&key2=value2&key3=value3...` Parameters of any name or type can be passed when opening the bot homepage to facilitate the development of features like invitation codes, visitor tracking, etc. This feature is supported in Mixin Messenger 0.29.0 or above.
 
+### Next Step
 
-### 下一步
+- [JS Container Interaction](./js)
 
-- [JS 容器交互](./js)
-
-  获取当前会话 id 能为用户提供不用的应用场景，而获取用户的本地化信息并加以适配能有效提升用户体验。
+  Obtaining the current session id makes it possible to provide users with different application scenarios, and obtaining the user's localization settings makes it possible to adapt to it and improve the user experience.

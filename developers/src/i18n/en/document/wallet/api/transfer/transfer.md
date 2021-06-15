@@ -10,7 +10,7 @@ The HTTP request body:
 | opponent_id | UUID String | Receiver |
 | amount | String | e.g.: "0.01", supports up to 8 digits after the decimal point |
 | pin | String | Encrypted PIN |
-| trace_id | UUID String | Optional, used to prevent double payment |
+| trace_id | UUID String | Optional, used to prevent duplicate payment |
 | memo | UUID String | Optional, maximally 200 characters |
 
 ```
@@ -36,7 +36,7 @@ $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","as
 - Once the transfer API is successfully called, it means that the data has been confirmed by all nodes, and the data is irreversible.
 - One can't transfer money to himself.
 - The encrypted PIN code is one-time, and the PIN must be re-encrypted every time you transfer.
-- It is strongly recommended that developers use `trace_id` to handle repeated transfers, and always attach this parameter to transfers.
+- It is strongly recommended that developers use `trace_id` to handle duplicate transfers, and always attach this parameter to transfers.
 - All you need is to do it over again if you encounter 500 in a transfer.
 - If you need to process a large number of concurrent transactions and process hundreds or thousands of transfers per second, it is recommended to use multiple accounts to transfer and send transactions.
 - When a transfer error happens, pay attention to the "extra" field in the returned error message.
