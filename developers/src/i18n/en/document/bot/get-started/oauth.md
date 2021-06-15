@@ -20,30 +20,49 @@ Application for authorization includes at least PROFILE:READ permission. Users m
 When the bot detects that the user is not authorized, it should jump to `https://mixin-www.zeromesh.net/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` to apply authorization from the user. The parameters:
 
 - client_id - Bot ID.
-- scope - Apply for permissions.
-- response_type - Set to `code` in order to get authorization code.
+- scope - Permissions to apply.
+- response_type - Always set to `code` to get authorization code.
 - return_to - Link to the current page, take the user back to this page after authorization.
 
 After the authorization is successful, the page will automatically jump to the verification URL of the bot. The callback URL will be accompanied by the authorization code and return_to parameter. The developer then requests the token by authorization code:
 
-// TODO: Is there an API to return messages in English?
+The request:
+
 ```
 POST https://mixin-api.zeromesh.net/oauth/token
+```
+
+With the following data:
+
+// TODO: JSON to be completed.
+```
 {
-    "client_id": "机器人唯一标识",
-    "code": "授权成功回调返回的授权码",
-    "client_secret": "机器人密钥"
+    "client_id": "",
+    "code": "",
+    "client_secret": ""
 }
 ```
+
+What's in each field:
+
+- `client_id`: Bot ID.
+- `code`: Authorization code returned by callback.
+- `client_secret`: Bot secret.
+
 
 The response:
 
 ```
 {
-    "access_token": "用户授权令牌",
-    "scope": "用户同意的授权列表，例如'PROFILE:READ ASSETS:READ'"
+    "access_token": "",
+    "scope": ""
 }
 ```
+
+What's in each field:
+
+- `access_token`: The access token.
+- `scope`: Permissions that user granted, e.g. 'PROFILE:READ ASSETS:READ'.
 
 It is recommended that the developer cache the access token, and then use the access token to call the API to access user data, which can determine whether the user is authorized.
 

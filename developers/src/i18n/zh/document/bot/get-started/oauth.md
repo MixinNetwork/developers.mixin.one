@@ -24,20 +24,41 @@
 
 授权成功后页面会自动跳转至机器人的验证网址，回调 URL 会附带 code 授权码和 return_to 参数，开发者再根据授权码请求令牌：
 
-```
+发请求：
+
+```cmd
 POST https://mixin-api.zeromesh.net/oauth/token
+```
+
+附带的数据：
+
+```json
 {
     "client_id": "机器人唯一标识",
     "code": "授权成功回调返回的授权码",
     "client_secret": "机器人密钥"
 }
 
-返回数据
+每个字段的内容：
+
+- `client_id`: 机器人唯一标识
+- `code`: 授权成功回调返回的授权码
+- `client_secret`: 机器人密钥
+
+
+返回数据：
+
+```json
 {
-    "access_token": "用户授权令牌",
-    "scope": "用户同意的授权列表，例如'PROFILE:READ ASSETS:READ'"
+    "access_token": "",
+    "scope": ""
 }
 ```
+
+每个字段的内容：
+
+- `access_token`: 用户授权令牌
+- `scope`: 用户同意的授权列表，例如'PROFILE:READ ASSETS:READ'
 
 建议开发者将 access token 缓存起来，后续通过 access token 调用 API 访问用户数据，可据此判断用户是否已授权。
 
