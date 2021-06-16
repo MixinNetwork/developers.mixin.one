@@ -1,53 +1,55 @@
 # Design Guide
 
-Mixin Messenger 机器人设计指南旨在为用户提供易用、高效和一致的用户体验，帮助开发者更好的适配界面，充分利用容器所支持的特性。
+The Mixin Messenger bot design guide aims to provide users with an easy-to-use, efficient and consistent user experience, to help developers better adapt the interface and make full use of the features supported by the container.
 
-### 一致性
+### Consistency
 
-- 视觉一致性
+- Visual consistency.
 
-  机器人的字体、颜色、按钮、标签等应保持一致。
+  The fonts, colors, buttons, labels, etc. of the bot should be consistent.
 
-- 功能一致性
+- Functional consistency.
 
-  机器人的各页面中的交互方式和交互元素应保持一致。
+  The interaction methods and elements in each page of the bot should be consistent.
 
-- 遵循平台规范
+- Follow platform specifications.
 
-  遵循 Android 和 iOS 界面设计规范，设计符合平台用户的交互和视觉。
+  Follow the Android and iOS interface design specifications, and the design conforms to the interaction and look of platform users.
 
-### 重点突出
 
-每个页面都应有重点，区分主次，以便用户快速理解页面内容，尽量避免页面出现与内容无关的元素。
+### Clear Highlights
 
-![重点突出](./overview-point.png)
+Each page should have clear highlights and hierarchy so that users can quickly understand the content of the page and try to avoid elements that are irrelevant to the content.
 
-### 减少输入
+![TODO: English Version IMG, Highlights](./overview-point.png)
+
+### Minimizing Input
   
-在设计机器人页面时尽量减少用户输入，利用现有接口和一些易于操作的选择控件来改善用户的输入体验。例如需要输入手机号的地方可以通过授权申请来避免用户再次输入。
+Minimize user input when designing the bot page, and use existing interfaces and some easy-to-operate selection controls to improve the user's input experience. For example, where you need to enter your mobile phone number, you can apply for authorization to save users from entering it again.
 
-### 体验流畅
+### Smooth Experience
 
-- 应避免页面长时间等待，通过优化网络和页面性能提升访问速度。
+- Avoid long time waiting for the page, and improve the access speed by optimizing the network and page performance.
 
-- 当操作不可避免需要等待时，应显示加载和等待的动画效果缓解用户情绪。
+- When the operation inevitably requires waiting, the animation effects of loading and waiting should be displayed to ease the user's emotions.
 
-- 若等待时间过长应提供进度条并提供取消操作。
+- If the waiting time is too long, a progress bar and a cancel button should be provided.
 
-### 避开机器人菜单
+### Avoiding Bot Manu
 
-机器人菜单固定漂浮在右上角位置，开发者在设计界面时应预留出该区域空间，避免功能被遮挡造成交互冲突。
+The bot menu is fixed floating in the upper right corner. Developers should reserve space in this area when designing the interface to avoid interaction conflicts caused by occlusion.
 
-![避开机器人菜单](./overview-nav-capsule.png)
+![TODO: English Version IMG, Avoiding Bot Manu](./overview-nav-capsule.png)
 
-### 避免过多通知
+### Avoiding Too Many Notifications
 
-重要的信息才通知用户，过多通知会遭致用户反感，可能会静音甚至拉黑当前机器人。如果确实有许多信息需要通知给用户，应提供选项让用户选择要推送的类型。
+Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types. 
 
-### 下一步
 
-友好的设计是不需要刻意去引导的，用户一看就明白怎么使用，让界面满足用户需求的同时提供良好的体验是我们追求的目标。
+### Next Step
 
-- [用户交互](./user-interaction)
+A friendly design does not need deliberate guidance. Users can understand how to use it at a glance. It is our goal to let the interface meet user needs while providing a good experience.
 
-  熟悉机器人与用户的交互方式有助于设计师优化交互体验。
+- [User Interaction](./user-interaction)
+
+  Being familiar with the way the robot interacts with the user helps designers optimize the interactive experience.
