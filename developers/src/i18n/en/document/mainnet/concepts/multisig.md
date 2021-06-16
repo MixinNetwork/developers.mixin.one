@@ -8,9 +8,9 @@ Different from the Bitcoin multi-signature address starting with `3`, Mixin's mu
 
 Co-management of assets is one of the main use-cases of multi-signature. Each use of funds requires a valid signature by multiple people. No one can move the assets by himself, and this mechanism can also avoid single-point-of-failures causing permanent loss of assets.
 
-- The multi-signature chatbot 7000102367 developed by the Mixin team is very simple, all you need is to set up a chat group and you are good to go, it contains only the front-end and it's open-source https://github.com/MixinNetwork/multisig-bot.
+- The multi-signature bot 7000102367 developed by the Mixin team is very simple, all you need is to set up a chat group and you are good to go, it contains only the front-end and it's open-source https://github.com/MixinNetwork/multisig-bot.
 
-- The multi-signature assistant chatbot 7000102968 developed by the Laomao team is a multi-currency multi-signature wallet with a simple and friendly interface.
+- The multi-signature assistant bot 7000102968 developed by the Laomao team is a multi-currency multi-signature wallet with a simple and friendly interface.
 
 ### E-Commerce
 

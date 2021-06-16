@@ -21,7 +21,7 @@ Deposit and withdrawal are among the most important functions of a wallet, and a
 
   You can use `GET /external/transactions` and specify `asset`, `destination`, and `tag` at the same time to retrieve whether the current deposit address has an on-going deposit record, see [document](../api/network/pending-deposits ).
 
-It is recommended to follow Mixin chatbot 7000103056 to check the current public chain synchronization status. If the deposit is delayed, it may be due to the block data synchronization failure. Then no worry and all you need is to let the user wait, it will be the top priority of Mixin mainnet team to solve this.
+It is recommended to follow Mixin bot 7000103056 to check the current public chain synchronization status. If the deposit is delayed, it may be due to the block data synchronization failure. Then no worry and all you need is to let the user wait, it will be the top priority of Mixin mainnet team to solve this.
 
 **It is strongly recommended to remind users: Please try a small amount for the first deposit.**
 

@@ -1,8 +1,8 @@
-# 通过 WebSocket 接收和发送消息
+# Receiving vs Sending Messages Via WebSocket
 
-### 生成密钥库
+### Generating Keystore
 
-进入[开发者后台](/dashboard)，点刚刚新建的机器人切换 Tab 到「密钥」，点「生成新的 Session」获得 Keystore 文件：
+Goto [dashboard](/dashboard), click the newly created bot, switch to "Key" tab, click "Generate New Session" to get the Keystore file:
 
 ```
 {
@@ -16,17 +16,17 @@
 }
 ```
 
-**请开发者妥善保管好 Keystore 密钥，服务器和浏览器都不会保管该信息。**
+**Developers should keep the keystore safe, neither the server nor the browser will store the information.**
 
-### 生成验证令牌
+### Generating Verification Tokens
 
-go 语言生成验证令牌：
+In Go language:
 
 ```go
 /*
-* uid 对应 Keystore 的 client_id
-* sid 对应 Keystore 的 session_id
-* secret 对应 Keystore 的 private_key
+* uid: client_id of the Keystore.
+* sid: session_id of the Keystore.
+* secret: private_key of the Keystore.
 */
 func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string, error) {
   expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
@@ -49,16 +49,16 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
 }
 ```
 
-### 连接 WebSocket
+### WebSocket Connection
 
-go 语言连接 WebSocket：
+In Go language:
 
 ```go
 func ConnectMixinBlaze(uid, sid, key string) (*websocket.Conn, error) {
   token, err := SignAuthenticationToken(uid, sid, key, "GET", "/", "")
   if err != nil {
-		return nil, err
-	}
+    return nil, err
+  }
   header := make(http.Header)
   header.Add("Authorization", "Bearer "+token)
   u := url.URL{Scheme: "wss", Host: "blaze.mixin.one", Path: "/"}
@@ -73,9 +73,9 @@ func ConnectMixinBlaze(uid, sid, key string) (*websocket.Conn, error) {
 }
 ```
 
-### 发送消息
+### Sending Messages
 
-发消息可以用来实现发公告、回复用户的功能，数据格式：
+The sending message feature can be used to implement functions like sending announcements and replying to users. The data format:
 
 ```json
 {
@@ -91,15 +91,15 @@ func ConnectMixinBlaze(uid, sid, key string) (*websocket.Conn, error) {
 }
 ```
 
-- 机器人发消息需要知道用户的 user id，可以通过接收用户主动发消息、添加当前机器人为好友和授权三种方式获得当前用户的 user id。
+- The bot needs to know the user id of the user to send messages. The user id of the current user can be obtained in three cases: the user sends messages, adds the current bot as a friend, and authorize the bot.
 
-- 发消息前需要确保会话已经创建，通过接收用户主动发消息、添加当前机器人为好友这两种情况不用创建会话，通过机器人授权需要调用 [创建会话](../api/conversations/create) API 来确保会话已经创建。
+- Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, when they authorize a bot, you need to call the [Creating Conversations](../api/conversations/create) API to ensure that the conversation has been created.
 
-- 不能用用户的 access_token 去创建会话，需要用当前机器人的 token 去创建会话。
+- You cannot use the user's access_token to create a conversation, you need to use the current bot's token to create one.
 
-### 接收消息
+### Receiving Messages
 
-WebSocket 连接后必须先发 LIST_PENDING_MESSAGES 消息来接收挂起的消息：
+After the WebSocket is connected, the LIST_PENDING_MESSAGES message must be sent first to receive the pending message:
 
 ```json
 {
@@ -108,44 +108,44 @@ WebSocket 连接后必须先发 LIST_PENDING_MESSAGES 消息来接收挂起的�
 }
 ```
 
-接收的数据格式：
+The data format:
 
 ```json
-// 返回成功
+// On success:
 {
   "id": "UUID",
   "action": "CREATE_MESSAGE",
   "data": {
     "conversation_id": "UUID",
-    "user_id": "UUID",                      // 发消息的人
+    "user_id": "UUID",                      // Sender.
     "message_id": "UUID",
-    "category": "PLAIN_TEXT",               // 消息类型
+    "category": "PLAIN_TEXT",               // Message type.
     "status": "SENT",
     "data": "Base64 decoded data",
     "created_at": "2020-11-02T12:47:32.472333Z",
     "updated_at": "2020-11-02T12:47:32.472333Z",
-    "source": "LIST_PENDING_MESSAGES",      // "LIST_PENDING_MESSAGES" 或空
-    "quote_message_id": "UUID",             // 可选，引用的消息
-    "representative_id": "UUID"             // 可选，被代替发言的用户
+    "source": "LIST_PENDING_MESSAGES",      // "LIST_PENDING_MESSAGES" or empty.
+    "quote_message_id": "UUID",             // Optional, quoted message.
+    "representative_id": "UUID"             // Optional, the user being replaced.
   },
 }
 
-// 返回失败
+// On failure.
 {
   "id": "0623f846-aa86-4664-bb65-0e5559890a5c",
   "action": "CREATE_MESSAGE",
   "error": {
-    "code": 20121,                                  // 错误码
-    "desciption": "Authorization code expired."     // 错误说明
+    "code": 20121,                                  // Error code.
+    "desciption": "Authorization code expired."     
   },
 }
 ```
 
-更多消息类型参见文档[消息类型](../api/messages/category)。
+For more message types, please refer to the document [Message Type](../api/messages/category).
 
-### 消息状态
+### Message Status
 
-当 WebSocket 连接成功机器人收到消息并处理完以后，需要机器人发送消息状态告诉 Messenger 服务器已经收到了这条消息，否则消息会被反复推送，可以批量发送消息状态已提升性能：
+When the WebSocket connection is successful and the bot has received the message and processed it, the bot needs to send the message status to the Messenger server so that the server knows that the message has been received, otherwise the message will be pushed repeatedly. Message status can be sent in batches to improve performance:
 
 ```json
 [
@@ -157,32 +157,34 @@ WebSocket 连接后必须先发 LIST_PENDING_MESSAGES 消息来接收挂起的�
 ]
 ```
 
-具体参见[批量发状态](../api/messages/acknowledgements)文档。
+For details, please refer to the [Sending Status In Batches](../api/messages/acknowledgements) document.
 
 ### SDK
 
 - Go
 
-  [bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client) 是 Mixin 官方提供的 SDK，除了提供钱包相关的 API 封装，还提供了 Mixin Messenger 消息相关的 API 封装，具体实现参见代码 [blaze.go](https://github.com/MixinNetwork/bot-api-go-client/blob/master/blaze.go)。
+  [bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client) is the SDK officially provided by Mixin. In addition to providing wallet-related API encapsulation, it also provides Mixin Messenger message related API encapsulation, see the code [blaze.go](https://github.com/MixinNetwork/bot-api-go-client/blob/master/blaze.go) for a specific implementation.
 
 - PHP
 
-  [mixin-sdk-php](https://github.com/ExinOne/mixin-sdk-php) 由 ExinOne 团队提供，使用遇到问题可以通过 Mixin Messenger 搜索 26930 联系提供帮助。
+  [mixin-sdk-php](https://github.com/ExinOne/mixin-sdk-php) is provided by the ExinOne team. If you encounter any problems, you can search for 26930 in Mixin Messenger for help.
 
-### 注意事项
 
-- 当用户添加当前机器人为好友时系统会自动给机器人发送一句"你好"的消息。
+### Precautions
 
-- 用户消息在服务器只保留 7 天，过期开发者不处理消息就会被丢弃。
+- When the user adds the current bot as a friend, the system will automatically send a "Hello" message to the bot.
 
-- WebSocket 发送消息需要经过了 gzip 压缩，收消息 gzip 解压缩。
+- User messages are only kept on the server for 7 days, and messages that expired will be discarded if the developers do nothing about them.
 
-- WebSocket 建议增加自动重连的逻辑，如遇 401 应该停止 WebSocket 连接，注意系统时间不准超过 5 分钟也会触发 401 错误。
+- The message sent by WebSocket needs to be compressed with gzip, and the message received will be decompressed accordingly.
 
-- 机器人发消息限额每分钟 10 万消息。
+- Automatic reconnections are highly recommended for Websocket. In the case of 401, the WebSocket connection should be stopped. Note that the time should not exceed 5 minutes, which will also trigger a 401 error.
 
-### 下一步
+- The bot’s message quota is 100,000 messages per minute.
 
-- [设计指南](../design/overview)
 
-  好的交互和设计能更好的吸引和留住用户。
+### Next Step
+
+- [Design Guide](../design/overview)
+
+  Good interaction and design can better attract and retain users.

@@ -32,7 +32,7 @@ func main() {
 ```
 
 - Calling `GET /assets/:id` returns the details of a single asset, including the asset's deposit address. For example, to get the deposit address of BTC, call `GET /assets/c6d0c728-2624-429b-8e0d-d9d19b6592fa`
-- The `asset_id` is unique and fixed in the entire network. It can be obtained from https://mixin.one/snapshots by searching for asset code such as `btc`; you can also deposit the asset into the Mixin Messenger wallet and talk to the chatbot `7000103061`, then search for and copy asset information, the format is as follows:
+- The `asset_id` is unique and fixed in the entire network. It can be obtained from https://mixin.one/snapshots by searching for asset code such as `btc`; you can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information, the format is as follows:
 
   ```json
   {

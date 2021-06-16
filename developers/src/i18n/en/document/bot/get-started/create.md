@@ -25,7 +25,7 @@ Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [dash
 
 ### Next Step
 
-After saving the newly created robot, you can get the Mixin ID of the current bot. You can directly search for the ID at the top of the Mixin Messenger homepage to access your own bot.
+After saving the newly created bot, you can get the Mixin ID of the current bot. You can directly search for the ID at the top of the Mixin Messenger homepage to access your own bot.
 
 - [Authorization](./oauth)
 
