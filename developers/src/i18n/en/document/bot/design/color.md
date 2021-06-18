@@ -1,20 +1,21 @@
-# 颜色
+# Colors
 
-### 主题色
+### Theme Color
 
-当用户访问机器人的页面时，内置的浏览器会尝试从 HTML 提取 theme-color meta 标签，状态栏和标题栏会自动适配主题色：
+When a user visits the bot's page, the built-in browser will try to extract the theme-color meta tag from HTML, and the status bar and title bar will automatically adapt the theme color:
 
 ```html
 <meta name="theme-color" content="#673ab8">
 ```
 
-### 按钮颜色
+### Button Colors
 
-按钮颜色太亮或太暗都会给用户带来较差的体验，设计师专门给开发者调配了一套按钮颜色，该颜色在浅色和深色模式下显示效果均表现良好：
 
-![按钮颜色](./color-app-button.png)
+Button colors that are too bright or too dark will bring a poor user experience. The designer has choosen a set of button colors for developers, which performs well in both light and dark modes:
 
-颜色数组：
+![Button Colors](./color-app-button.png)
+
+Color array:
 
 ```
 [
@@ -25,6 +26,6 @@
 ]
 ```
 
-页面效果：
+Demo:
 
-![按钮颜色效果](./color-app-button-preview.png)
+![Button Demo](./color-app-button-preview.png)
