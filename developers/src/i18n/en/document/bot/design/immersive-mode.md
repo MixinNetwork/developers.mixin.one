@@ -1,31 +1,32 @@
-# 沉浸模式
+# Immersive Mode
 
-沉浸模式能够让开发者控制屏幕除状态栏以外所有区域，搭配主题色能实现非凡的全屏效果。
+The immersive mode allows developers to control all areas of the screen except the status bar, with the complementation of the theme color it can achieve extraordinary full-screen effects.
 
-### 后台开启
+### Activation
 
-进入[开发者后台](/dashboard)，点左侧选择当前机器人，「信息」页面滚动至底部购上「沉浸式」复选框，点保持。
+Go to [Dashboard](/dashboard), click on the left to select the current bot, scroll to the bottom of "Information" page to check the "Immersive" checkbox, and click Keep.
 
-### 设计适配
+### Design Adaptation
 
-![沉浸模式](./immersive-mode.png)
+![TODO: English Version Img, Immersive Mode](./immersive-mode.png)
 
-右侧效果图完美的诠释了沉浸模式，注意主题色不支持渐变色。
+The rendering on the right perfectly interprets the immersive mode. Note that the theme color does not support gradient colors.
 
-### 体验
 
-- 搜索 7000103066 体验「DonateCafe」机器人
+### Try
 
-- 搜索 7000103214 体验「红包」机器人
+- Search for 7000103066 to experience the "DonateCafe" bot.
+
+- Search for 7000103214 to experience the "red envelope" bot.
   
-- 搜索 7000103013 体验「TaskWall」机器人
+- Search for 7000103013 to experience the "TaskWall" bot.
 
-### 参考
+### Reference
 
-- [颜色](./color)
+- [Color](./color)
 
-  主题色与沉浸模式完美搭配。
+  The theme color is perfectly matched with the immersive mode.
 
-- [悬浮菜单](./floating-menu)
+-[Floating Menu](./floating-menu)
 
-  开发者开启沉浸模式后需要交互方面需要避开右上角固定悬浮菜单区域。
+  Developers need to avoid the fixed floating menu area in the upper right corner designing the interactions after turning on the immersive mode.
