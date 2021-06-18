@@ -50,6 +50,6 @@ Only important information is notified to the user. Too many notifications will 
 
 A friendly design does not need deliberate guidance. Users can understand how to use it at a glance. It is our goal to let the interface meet user needs while providing a good experience.
 
-- [User Interaction](./user-interaction)
+- [User-bot Interaction](./user-interaction)
 
   Being familiar with the way the robot interacts with the user helps designers optimize the interactive experience.
