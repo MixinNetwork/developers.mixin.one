@@ -1,5 +1,5 @@
-# 悬浮菜单
+# Floating Menu
 
-机器人菜单始终固定显示在右上角位置，包含了分享、浮窗、关于和刷新 4 个功能。当机器人开启沉浸模式时，应预留出该区域空间，避免功能被遮挡造成交互冲突。
+The bot menu is always displayed in the upper right corner, including 4 functions: share, floating window, about and refresh. When the bot turns on the immersive mode, this area should be reserved to avoid interactive conflicts caused by occlusion.
 
-![悬浮菜单](./overview-nav-capsule.png)
+![TODO: English Version Img, Nav-capsule](./overview-nav-capsule.png)
