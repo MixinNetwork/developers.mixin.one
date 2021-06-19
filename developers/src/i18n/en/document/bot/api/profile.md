@@ -1,8 +1,9 @@
-# 个人信息
+# Personal Information
 
 ### `GET /me`
 
-获取授权用户的个人基本信息，需要 `PROFILE:READ` 权限，获取用户的手机号需要 `PHONE:READ` 权限。
+To obtain the basic personal information of a user, the `PROFILE:READ` permission is required, and to obtain the user's mobile phone number, the `PHONE:READ` permission is required.
+
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/me"

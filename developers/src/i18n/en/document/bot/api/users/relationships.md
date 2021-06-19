@@ -1,42 +1,46 @@
-# 修改关系
+# Modifying Relationships
 
-### 添加好友
+### Adding Friends
+
 `POST /relationships`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | 用户 ID |
-| full_name | String | 别名，可选 |
+| user_id | String | User ID |
+| full_name | String | Alias, Optional. |
 | action | String | "ADD" |
 
-### 删除好友
+### Deleting Friends
+
 `POST /relationships`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | 用户 ID |
+| user_id | String | User ID |
 | action | String | "REMOVE" |
 
-### 屏蔽用户
+### Blocking Users
+
 `POST /relationships`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | 用户 ID |
+| user_id | String | User ID |
 | action | String | "BLOCK" |
 
-### 取消用户屏蔽
+### Unblocking Users
+
 `POST /relationships`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | 用户 ID |
+| user_id | String | User ID |
 | action | String | "UNBLOCK" |

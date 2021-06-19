@@ -1,6 +1,6 @@
-# 获取用户信息
+# Getting Information Of One User
 
-根据 User ID 获取用户信息
+Getting user information by user ID.
 
 ### `GET /users/:id` 
 
