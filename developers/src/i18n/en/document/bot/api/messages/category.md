@@ -1,112 +1,138 @@
-# 消息类型
+# Message Types
 
-Mixin Messenger 支持发送文字、图片、贴纸、文件等多种消息类型，注意机器人发消息目前只支持 `PLAIN_` 前缀的消息类型，发送图片、视频、文件、视频需要先上传附件获得 attachment_id 后才能发送。
+Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`. Sending images, files, and videos requires uploading attachments and obtaining attachment_id before sending.
 
-### 文字
+### Texts
+
 ```json
  $$XIN:text$$
 ```
 
-### 表情
+### Stickers
+
 ```json
  $$XIN:sticker$$
 ```
-data 数据结构
+
+data:
+
 ```json
  $$XIN:sticker_data$$
 ```
 
-### 图片
+### Images
+
 ```json
  $$XIN:image$$
 ```
-data 数据结构
+
+data:
+
 ```json
  $$XIN:image_data$$
 ```
 
-### 音频
+### Audios
+
 ```json
  $$XIN:audio$$
 ```
-data 数据结构
+
+data:
+
 ```json
  $$XIN:audio_data$$
 ```
 
-### 视频
+### Videos
+
 ```json
  $$XIN:video$$
 ```
-data 数据结构
+
+data:
 ```json
  $$XIN:video_data$$
 ```
 
-### 联系人
+### Contacts
+
 ```json
  $$XIN:contact$$
 ```
-data 数据结构
+
+data:
+
 ```json
  $$XIN:contact_data$$
 ```
 
-### 卡片
+### Cards
+
 ```json
  $$XIN:card$$
 ```
-data 数据结构
+data:
 ```json
  $$XIN:card_data$$
 ```
 
-### 文件
+### Files
+
 ```json
  $$XIN:file$$
 ```
-data 数据结构
+data:
 ```json
  $$XIN:file_data$$
 ```
 
-### 直播
+### Live Shows
+
 ```json
  $$XIN:live$$
 ```
-data 数据结构
+
+data:
 ```json
  $$XIN:live_data$$
 ```
 
-### 位置
+### Locations
+
 ```json
  $$XIN:location$$
 ```
-data 数据结构
+
+data:
 ```json
  $$XIN:location_data$$
 ```
 
-### 文章
+### Posts
+
 ```json
  $$XIN:post$$
 ```
 
-### 按钮
+### Buttons
+
 ```json
  $$XIN:button$$
 ```
-data 数据结构
+
+data:
 ```json
  $$XIN:button_data$$
 ```
 
-### 转账
+### Transfers
+
 ```json
  $$XIN:category_snapshot$$
 ```
-data 数据结构
+
+data:
 ```json
  $$XIN:transfer$$
 ```

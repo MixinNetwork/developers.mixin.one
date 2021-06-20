@@ -1,22 +1,21 @@
-# 批量发送消息
+# Batch Sending Messages
 
 ### `POST /messages`
 
-请求 Body 数据为消息数组：
-
+Request body data is a message array:
 
 ```json
 [
-  $$XIN:message$$
+   $$XIN:message$$
 ]
 ```
 
-每次最多批量发送 100 条消息，消息 Body 不能超过 128Kb，建议限制单条消息大小，例如：
+A maximum of 100 messages can be sent in batch each time, and the message body cannot exceed 128Kb. It is recommended to limit the size of a single message, for example:
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/attachments" -X POST
 ```
 
-发送成功返回空 JSON。
+Returns empty JSON on success.
 
-**本接口仅限用于机器人批量发消息。**
+**This interface is only used for batch messaging by bots.**

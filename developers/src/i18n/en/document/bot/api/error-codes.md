@@ -1,17 +1,18 @@
-# 错误码
+# Error Codes
 
-API 只会返回 20x 和 500，需要注意 500 错误可能是由 web 服务器本身造成的。
+Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 error, which may be caused by Web Server not Mixin API Server.
 
-| HTTP 状态码 | 错误码 | 错误说明|
+| Status | Code | Description|
 | - | - | :- |
-|202|	400|	请求体参数无效|
-|202|	401|	未经授权的请求|
-|202|	403|	请求拒绝|
-|202|	404|	无法找到请求地址|
-|202|	429|	请求太频繁|
-|202|	10006|	需要更新|
-|202|	20116|	群已满|
-|202|	20133|	会话设置的圈子太多|
-|500|	500| API 服务器出错 |
-|500|	7000 |  WebSocket 服务器错误 |
-|500|	7001 | WebSocket 操作超时 |
+|202|	400|	The request body can’t be pasred as valid data. |
+|202|	401|	Unauthorized. |
+|202|	403|	Forbidden. |
+|202|	404|	The endpoint is not found. |
+|202|	429|	Too Many Requests. |
+|202|	10006|	App update required.|
+|202|	20116|	The group chat is full.|
+|202|	20133|	Too many circles for the conversation. |
+|500|	500| Internal Server Error. |
+|500|	7000 |  Blaze server error. |
+|500|	7001 | The blaze operation timeout. |
+

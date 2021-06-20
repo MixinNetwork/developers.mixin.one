@@ -1,17 +1,17 @@
-# 上传附件
+# Uploading Attachments
 
-我们会将附件存储到亚马逊 S3 服务器，用 HTTP 上传即可，参见 [S3 文档](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html)。
+We upload the attachments using HTTP and store them on the Amazon S3, see [S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html).
 
-### `POST /attachments`
+### `POST /Attachment`
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/attachments" -X POST
 ```
 
 ```json
-{  
-  "data": $$XIN:attachment$$
+{
+    "Data": $$XIN: Attachment$$
 }
 ```
 
-将附件上传到 upload_url 这个地址，然后 attachment_id 就可以用于发图片、视频、附件等消息了。
+Upload the attachment to upload_url, and then the attachment_id can be used sending images, videos, files and other messages.
