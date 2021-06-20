@@ -1,16 +1,16 @@
-# 删除圈子
+# Deleting Cricles
 
-帮授权用户删除圈子，需要 `CIRCLES:WRITE` 权限。
+To help users delete circles, the `CIRCLES:WRITE` permission is required.
 
 ### `POST /circles/:id/delete`
 
-curl 示例
+curl demo:
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46/delete"
 ```
 
-删除成功返回空 json
+An empty json will be returned on success.
 
 ---
-注意删除圈子并不会删除圈子下面的会话和聊天记录。
+Note that deleting a circle will not delete the conversations and chat history under the circle.

@@ -1,27 +1,27 @@
-# 修改圈子名称
+# Editing Circle Names
 
-修改圈子名称，需要 `CIRCLES:WRITE` 权限。
+To modify the circle names, you need the `CIRCLES:WRITE` permission.
 
 ### `POST /circles/:id`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| name | String | 圈子名称 |
+| name | String | Circle name. |
 
-curl 示例
+curl demo:
 
 ```
-$$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46" -XPOST --data '{"name": "Friends"}'
+$$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46" -XPOST --data'{"name": "Friends"}'
 ```
 
-返回数据
+The response:
 
 ```json
 {
-  "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-  "name":"Friends",
-  "created_at":"2018-05-29T09:31:04.202186212Z"
+   "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
+   "name":"Friends",
+   "created_at":"2018-05-29T09:31:04.202186212Z"
 }
 ```

@@ -1,36 +1,36 @@
-# 设置用户所属圈子
+# Setting the Circle A User Belongs To
 
-设置某个用户所属的圈子，可以把用户加入某个圈子或者从某个圈子中移除，需要 `CIRCLES:WRITE` 权限。
+Set the circle to which a user belongs. You can add the user to or remove the user from a circle. The permission of `CIRCLES:WRITE` is required.
 
 ### `POST /users/:id/circles`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| circle_id | String | 圈子 Id |
-| action | String | 更新操作，`ADD` 或 `REMOVE` |
+| circle_id | String | Circle Id |
+| action | String | Update operation, `ADD` or `REMOVE` |
 
-curl 示例
+curl demo:
 
 ```
-$$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/circles -XPOST --data '{"circle_id": "a465ffdb-4441-4cb9-8b45-00cf79dfbc46", "action": "ADD"}'
+$$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/circles -XPOST --data'{"circle_id": "a465ffdb-4441-4cb9-8b45 -00cf79dfbc46", "action": "ADD"}'
 ```
 
-返回用户所属的圈子列表
+The list of circles that the user belongs to is returned:
 
 ```json
 {
-  "data":[
-    {
-      "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-      "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
-      "name":"Friends",
-      "created_at":"2018-05-29T09:31:04.202186212Z"
-    },
-    ...
-  ]
+   "data":[
+     {
+       "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
+       "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
+       "name":"Friends",
+       "created_at":"2018-05-29T09:31:04.202186212Z"
+     },
+     ...
+   ]
 }
 ```
 
-注意同一个用户最多只能加 5 个圈子，超过会报 20133 的错误。
+Note that one user can only be added to 5 circles at most, otherwise error 20133 will be reported.

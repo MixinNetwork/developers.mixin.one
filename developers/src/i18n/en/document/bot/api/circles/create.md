@@ -1,22 +1,22 @@
-# 创建圈子
+# Creating Circles
 
-帮授权用户创建圈子，需要 `CIRCLES:WRITE` 权限。
+To help users create circles, you need the `CIRCLES:WRITE` permission.
 
 ### `POST /circles`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| name | String | 圈子名称 |
+| name | String | Name of the circle. |
 
-curl 示例
+curl demo:
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/circles -XPOST --data '{"name": "Friends"}'
 ```
 
-返回数据
+The response:
 
 ```json
 {
