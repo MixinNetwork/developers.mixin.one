@@ -1,19 +1,20 @@
-# 创建会话
+# Creating Conversations
 
-新建群或与用户第一次会话都需要调用这个 API 确保先创建会话。
+To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
+
 
 ### `POST /conversations`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| category | String | 类别，取值为 "GROUP" 或 "CONTACT" |
-| conversation_id | String | 唯一标识，参见下文生成 |
-| name | String | 群名，当 category 为 "GROUP" 时有效，最大 512 字符 |
-| participants | Array | 成员列表 ```[{ user_id: "" }]```，最多 256 人 |
+| category | String | "GROUP" or "CONTACT" |
+| conversation_id | String | Unique identifier, see below to generate. |
+| name | String | Group name, valid when category is "GROUP", 512 characters at most. |
+| participants | Array | Member list ```[{ user_id: "" }]```, up to 256 people. |
 
-会话创建成功返回
+On success:
 
 ```json
 {
@@ -21,14 +22,15 @@
 }
 ```
 
-**注意不能用用户的 access_token 去创建会话，需要用当前机器人的 token 去创建会话**
+**Note that you cannot use the user's access_token to create a conversation, you need to use the current bot's token to create a conversation**
 
-**注意类别为“CONTACT”时， participants 的值应为长度等于 1 的数组，user_id 的取值为对方的 user_id 。**
-### 生成会话唯一标识
+**Note that when the category is "CONTACT", the value of participants should be an array with length equal to 1, and the value of user_id is the other party's user_id.**
 
-- 单人会话 `category = "CONTACT"`
+### Generating Unique Conversation ID
 
-根据会话双方生成会话唯一标识，算法实现：
+- Single chat `category = "CONTACT"`
+
+  The unique identification of the session is generated according to both parties, in Go:
 
 ```golang
  // Go
@@ -47,10 +49,10 @@
   }
 ```
 
-- 多人会话 `category = "GROUP"`
+- Group chat `category = "GROUP"`
 
 ```Swift
  // Swift
  UUID().uuidString.lowercased()
 ```
-**注意 UUID 字符串统一转成小写**
+**Note that UUID strings are unexceptionally converted to lowercase**

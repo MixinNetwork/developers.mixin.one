@@ -1,84 +1,90 @@
-# 更新会话
+# Updating Conversations
 
-更新会话这里主要指更新群类型的会话，例如更新群公告、入群、离群、静音等操作，以下操作成功后都会返回完整的会话数据，包括群成员。
+Updating here is mainly about group chats, such as updating group announcements, joining groups, exiting, muting, and other operations. After the following operations are successful, complete conversation data will be returned, including group members.
 
-### 群名
+
+### Group Name
+
 `POST /conversations/:id`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| name | String | 新的群名称，最大 512 字符 |
+| name | String | New group name, 512 characters at most. |
 
-### 群公告
+### Group Announcements
+
 `POST /conversations/:id`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| announcement | String | 群公告，最大 1024 字符 |
+| announcement | String | Group Announcements, 1024 characters at most. |
 
-每次更新完该字段所有群成员都能看到一个醒目的群公告提醒条。
+Every time the field is updated, all group members can see an eye-catching group announcement reminder bar.
 
-### 入群
+### Joining
 
-- 通过链接入群
+- Join the group via link.
 
   `POST /conversations/:id/join`
 
-- 管理员或群主直接拉进群
+- Added to the group by administrators or group owners. 
 
   `POST /conversations/:id/participants/ADD`
 
-  请求 Body 数据 `[{ user_id: "" }]`
+  Request body data `[{ user_id: "" }]`
 
-- 重制入群链接
+- Resetting invitation link.
 
   `POST /conversations/:id/rotate`
 
-### 退出群组
+### Exiting
 
   `POST /conversations/:id/exit`
 
-### 管理员
-只有群主才能设置或取消管理员
-- 设置管理员
+### Administrators
+
+Only the owners can set or cancel administrators
+
+- Setting Up An Administrator
 
   `POST /conversations/:id/participants/ROLE`
 
-  请求 Body 数据 `[{ user_id: "", role: "ADMIN" }]`
+  Request body Data: `[{ user_id: "", role: "ADMIN" }]`
 
-- 取消管理员
+- Cancelling An Administrator
 
   `POST /conversations/:id/participants/ROLE`
 
-  请求 Body 数据 `[{ user_id: "", role: "" }]`  
+  Request body Data:  `[{ user_id: "", role: "" }]`  
 
-- 添加用户
+- Adding A User
 
   `POST /conversations/:id/participants/ADD`
 
-  请求 Body 数据 `[{ user_id: "", role: "" }]`
+  Request body Data:  `[{ user_id: "", role: "" }]`
 
-- 移除用户
+- Removing A User
 
   `POST /conversations/:id/participants/REMOVE`
 
-  请求 Body 数据 `[{ user_id: ""}]`    
+  Request body Data:  `[{ user_id: ""}]`    
 
-### 静音
-被静音的会话仍然会收到消息，但是不会收到通知提醒
+### Muting
+
+Muted conversations will still receive messages, but without notifications.
 
 `POST /conversations/:id/mute`
 
-请求 Body 数据
+Request body data:
 
-| 参数 | 类型 | 介绍 |
+| Parameter | Type | Description  |
 | :----- | :----: | :---- |
-| duration | Int64 | 单位秒，设置为 0 表示取消静音，其他值表示静音时间，例如设置 28,800 表示静音 8 个小时  |
-| category | String | 可选，类型 |
-| participants | Array | 可选，参与会话人员 |
+| duration | Int64 | In seconds, setting to 0 means unmute, other values means mute time, for example, setting 28,800 means mute 8 hours |
+| category | String | Optional |
+| participants | Array | Optional, participants in the conversation. |
 
-如果静音用户或者机器人，强烈建议传 category 和 participants 参数，否则两用户直接没有创建 conversation 就直接调用静音接口会返回错误信息。
+If you mute users or bots, it is strongly recommended to pass the category and participants parameters, otherwise calling the mute interface without creating a conversation will return an error.

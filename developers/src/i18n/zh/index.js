@@ -340,7 +340,7 @@ export default {
           name: "API", child: [
             { name: "个人信息", path: "bot/api/profile", router: "bot/api/profile" },
             { name: "用户", child: [
-              { name: "获取用户信息", path: "bot/api/users/user", router: "bot/api/users/user" },
+              { name: "获取用户信息", path: "bot/api/users/user", router: " user" },
               { name: "批量获取用户", path: "bot/api/users/users", router: "bot/api/users/users" },
               { name: "关系", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
               { name: "搜索", path: "bot/api/users/search", router: "bot/api/users/search" },

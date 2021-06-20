@@ -1,6 +1,6 @@
-# 获取会话
+# Getting Coversation Information
 
-根据会话 ID 获取会话信息
+Get conversation information by ID.
 
 ### `GET /conversations/:id`
 
