@@ -1,8 +1,8 @@
-# 获取用户资产列表
+# Getting User Asset List
 
-获取授权用户的资产列表，需要 `ASSETS:READ` 权限。
+To obtain the asset list of a user, the `ASSETS:READ` permission is required.
 
-### `GET /assets` 
+### `GET /assets`
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/assets"
@@ -10,9 +10,9 @@ $$XIN:curl$$ "https://api.mixin.one/assets"
 
 ```json
 {
-  "data":[
-    $$XIN:asset$$,
-    ...
-  ]
+   "data":[
+     $$XIN:asset$$,
+     ...
+   ]
 }
 ```

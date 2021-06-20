@@ -1,31 +1,31 @@
-# 转账记录
+# Transfer Records
 
-获取授权用户转账记录，需要 `SNAPSHOTS:READ` 权限。
+To obtain the transfer records of a user, the `SNAPSHOTS:READ` permission is required.
 
-- 获取所有转账记录
+- Get all transfer records.
 
-  `GET /snapshots?limit=&offset=` 
+  `GET /snapshots?limit=&offset=`
 
-- 获取某个资产的所有转账记录
+- Get all transfer records of an asset.
 
-  `GET /snapshots?limit=&offset=&asset=` 
+  `GET /snapshots?limit=&offset=&asset=`
 
-- 获取某个用户的转账记录
+- Get the transfer records of a certain user.
 
-  `GET /snapshots?limit=&offset=&opponent=` 
+  `GET /snapshots?limit=&offset=&opponent=`
 
-- 获取某个地址的所有提现记录
+- Get all withdrawal records of an address.
 
-  `GET /snapshots?limit=&offset=&destination=&tag=` 
+  `GET /snapshots?limit=&offset=&destination=&tag=`
 
-| 参数 | 说明 |
+| Parameter | Description |
 | :----- | :---- |
-| limit | 分页每页数据，最大 500 |
-| offset | 分页起始时间，例如 `2020-12-12T12:12:12.999999999Z` |
-| asset | 可选，筛选某个资产的转账记录 |
-| opponent | 可选，筛选某个用户或机器人的转账记录 |
-| destination | 可选，筛选某个某个地址的提现记录 |
-| tag | 可选，与 tag 一同使用 |
+| limit | Pagination per page data limit, 500 at most. |
+| offset | Pagination start time, for example, `2020-12-12T12:12:12.999999999Z`. |
+| asset | Optional, get the transfer records of an asset. |
+| opponent | Optional, get the transfer records of a user or bot. |
+| destination | Optional, get the withdrawal records of a certain address. |
+| tag | Optional |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
@@ -45,3 +45,4 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:2
   ]
 }
 ```
+

@@ -1,8 +1,8 @@
-# 转账详情
+# Getting Details Of A Transfter
 
 ### `GET /snapshots/:id` 
 
-根据转账 id 获取授权用户某条转账的信息，需要 `SNAPSHOTS:READ` 权限。
+Obtain a transfer record by ID, the `SNAPSHOTS:READ` permission is required.
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
@@ -20,13 +20,14 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 }
 ```
 
-type 参数说明
+`type` parameter descriptions:
 
-- raw 主网转账
-- deposit 充值
-- transfer 转账
-- withdrawal 提现
-- fee 手续费
-- rebate 退款
+- **raw** Mainnet transfer.
+- **deposit** As the name suggests.
+- **transfer** As the name suggests.
+- **withdrawal** As the name suggests.
+- **fee** As the name suggests.
+- **rebate** refund.
 
-**不是当前用户的转账返回 403，找不到该记录返回 404**
+**If the transfer does not belong the current user, 403 will be returned, and 404 if the record is not found**
+

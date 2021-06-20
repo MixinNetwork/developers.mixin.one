@@ -4,7 +4,7 @@ To get all the conversations under a circle of a user, the `CIRCLES:READ` permis
 
 ### `GET /circles/:id/conversations?limit=&offset=`
 
-| Parameters | Description |
+| Parameter | Description |
 | :----- | :---- |
 | limit | Optional, pagination per page data limit, 500 by default, 500 at most|
 | offset | Optional, pagination start time, such as `2020-12-12T12:12:12.999999999Z` |
