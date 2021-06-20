@@ -55,7 +55,7 @@ Only the owners can set or cancel administrators
 
   Request body Data: `[{ user_id: "", role: "ADMIN" }]`
 
-- Cancelling An Administrator
+- Revoking An Administrator
 
   `POST /conversations/:id/participants/ROLE`
 
