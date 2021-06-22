@@ -1,4 +1,4 @@
-### What is D3M-PIN?
+# What is D3M-PIN?
 D3M-PIN is the abbreviation of Distributed Multiparty Mobile Mixin PIN. Simply put, it is a distributed multi-party mobile hybrid PIN code technology. Different from the simple centralized 6-digit password that is common in traditional centralized applications, D3M-PIN is a distributed password solution that is jointly guaranteed by participants from different parties
 
 The main participants in D3M-PIN include the user (U), trusted registrar (M), and trusted distributed ledger (L). The three D3M-PIN participants cooperate to achieve sufficient decentralization, security, and credibility while ensuring that the user experience is the simplest.
