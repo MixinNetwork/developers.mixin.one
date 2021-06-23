@@ -33,6 +33,7 @@ $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","as
 ```
 
 ### Precautions
+
 - Once the transfer API is successfully called, it means that the data has been confirmed by all nodes, and the data is irreversible.
 - One can't transfer money to himself.
 - The encrypted PIN code is one-time, and the PIN must be re-encrypted every time you transfer.

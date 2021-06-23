@@ -43,7 +43,7 @@ object Config {
         )
     ).data
     user ?: return@runBlocking
-    // user签名授权令牌
+    // The user signs the authorization token.
     client.setUserToken(
         SessionToken.EdDSA(
             user.userId, user.sessionId,

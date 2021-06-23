@@ -1,6 +1,6 @@
-# Search For Popular Assets
+# Searching For Popular Assets
 
-Search for popular assets by symbol or name,  permission-less access.
+Search for popular assets by symbol or name, permission-less access.
 
 ### `GET /network/assets/search/:q` 
 
