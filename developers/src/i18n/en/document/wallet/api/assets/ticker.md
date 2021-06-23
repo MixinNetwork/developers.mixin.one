@@ -1,4 +1,4 @@
-# Querying Historical Asset Prices
+# Reading Historical Asset Prices
 
 ### `GET /ticker?asset=offset=` 
 

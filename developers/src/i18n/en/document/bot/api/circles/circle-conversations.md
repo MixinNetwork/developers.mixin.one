@@ -1,6 +1,6 @@
-# Querying Conversations Under A Circle
+# Reading Conversations in A Circle
 
-To get all the conversations under a circle of a user, the `CIRCLES:READ` permission is required.
+To get all the conversations in a circle of a user, the `CIRCLES:READ` permission is required.
 
 ### `GET /circles/:id/conversations?limit=&offset=`
 

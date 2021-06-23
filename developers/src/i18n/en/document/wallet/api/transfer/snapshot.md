@@ -1,6 +1,6 @@
 # Snapshot Details
 
-When querying the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
+When reading the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
 
 ### Reading Snapshot By Id
 
@@ -43,7 +43,7 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 GET /transfers/trace/:id
 ```
 
-This API is only for querying transfers, not deposits or withdrawals.
+This API is only for reading transfers, not deposits or withdrawals.
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
