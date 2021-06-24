@@ -77,6 +77,9 @@ data:
  $$XIN:card_data$$
 ```
 
+
+Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
+
 ### Files
 
 ```json

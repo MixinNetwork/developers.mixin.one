@@ -61,6 +61,8 @@ data 数据结构
  $$XIN:card_data$$
 ```
 
+可通过设置 `shareable` 字段为 false 来禁止卡片转发，该属性在 Mixin Messenger 0.31.0 或以上的版本支持，不传默认为 true。
+
 ### 文件
 ```json
  $$XIN:file$$
