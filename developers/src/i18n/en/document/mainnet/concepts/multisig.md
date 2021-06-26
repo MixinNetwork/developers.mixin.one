@@ -1,4 +1,4 @@
-# Multi-signature
+# Multi-Signature
 
 Multi-signature is a safe, reliable, and effective practical technology that can effectively improve the security of custody assets and enhance customer trust. Mixin mainnet supports multi-signature based on ed25519, and t/M can be arbitrarily set to participate in multi-signature, where t is threshold, M is members, and M supports up to 255 people to participate in multi-signature. For example, `2/3` multi-signature means that there are three people who jointly manage the assets, and any two people need to sign the transaction to use the assets.
 

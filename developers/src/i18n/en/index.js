@@ -195,15 +195,57 @@ export default {
       name: "Mainnet",
       child: [
         { name: "Overview", path: "mainnet/overview", router: "mainnet/overview" },
-        { name: "MTG", path: "mainnet/mtg", router: "mainnet/mtg" },
+        { name: "Concepts", child: [
+          { name: "How it Works", path: "mainnet/concepts/how-it-works", router: "mainnet/concepts/how-it-works" },
+          { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "Full Node", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
+          { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
+          { name: "Multisig", path: "mainnet/concepts/multisig", router: "mainnet/concepts/multisig" },
+          { name: "Chains", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
+          { name: "Price", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
+        ]},
+        { name: "MTG", child: [
+          { name: "Overview", path: "mainnet/mtg/overview", router: "mainnet/mtg/overview" },
+          { name: "Chains", path: "mainnet/mtg/chains", router: "mainnet/mtg/chains" },
+          { name: "Lend", path: "mainnet/mtg/lend", router: "mainnet/mtg/lend" },
+          { name: "Exchange", path: "mainnet/mtg/exchange", router: "mainnet/mtg/exchange" },
+          { name: "AMM", path: "mainnet/mtg/amm", router: "mainnet/mtg/amm" },
+          { name: "Stablecoin", path: "mainnet/mtg/stablecoin", router: "mainnet/mtg/stablecoin" },
+          { name: "Wappercoin", path: "mainnet/mtg/wappercoin", router: "mainnet/mtg/wappercoin" },
+        ]},
+        { name: "Tutorials", child: [
+          { name: "Become a Node", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
+          { name: "Sync Node Data", path: "mainnet/tutorials/sync-full-node", router: "mainnet/tutorials/sync-full-node" },
+          { name: "Submit Asset Icons", path: "mainnet/tutorials/submit-asset-icon", router: "mainnet/tutorials/submit-asset-icon" },
+        ]},
       ]
     },
     {
       name: "Wallet",
+      path: "wallet",
+      router: "wallet",
       child: [
         { name: "Overview", path: "wallet/overview", router: "wallet/overview" },
         {
+          name: "Tutorials", child: [
+            { name: "Create App", path: "wallet/getting-started/create-app", router: "wallet/getting-started/create-app" },
+            { name: "Generating Wallet User", path: "wallet/getting-started/create-network-user", router: "wallet/getting-started/create-network-user" },
+            { name: "Authentication Token", path: "wallet/getting-started/authentication-token", router: "wallet/getting-started/authentication-token" },
+            { name: "Set PIN", path: "wallet/getting-started/pin", router: "wallet/getting-started/pin" },
+            { name: "Asset", path: "wallet/getting-started/assets", router: "wallet/getting-started/assets" },
+            { name: "Transfer", path: "wallet/getting-started/transfer", router: "wallet/getting-started/transfer" },
+            { name: "Deposit or Withdrawal", path: "wallet/getting-started/deposit-withdrawal", router: "wallet/getting-started/deposit-withdrawal" },
+          ]
+        },
+        {
+          name: "Samples", child: [
+            { name: "OceanONE", path: "wallet/samples/oceanone", router: "wallet/samples/oceanone" },
+            { name: "Online Wallet", path: "wallet/samples/online-wallet", router: "wallet/samples/online-wallet" },
+          ]
+        },
+        {
           name: "SDK", child: [
+            { name: "Overview", path: "wallet/sdk/overview", router: "wallet/sdk/overview" },
             { name: "Go", path: "wallet/sdk/go", router: "wallet/sdk/go" },
             { name: "Kotlin", path: "wallet/sdk/kotlin", router: "wallet/sdk/kotlin" },
             { name: "Node.js", path: "wallet/sdk/nodejs", router: "wallet/sdk/nodejs" },
@@ -213,48 +255,52 @@ export default {
         },
         {
           name: "API", child: [
-            { name: "App User", path: "wallet/api/user", router: "wallet/api/user" },
-            { name: "PIN", path: "wallet/api/pin", router: "wallet/api/pin" },
-            {
-              name: "Asset", child: [
-                { name: "Read Asset List", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
-                { name: "Read Asset", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
-              ]
-            },
-            {
-              name: "Transfer", child: [
-                { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer" },
-                { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/snapshots" },
-                { name: "Read Snapshot", path: "wallet/api/snapshot", router: "wallet/api/snapshot" },
-              ]
-            },
-            {
-              name: "Withdrawal", child: [
-                { name: "Create Address", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
-                { name: "Delete Address", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
-                { name: "Read Address", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
-                { name: "Addresses By Asset", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
-                { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
-                { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
-              ]
-            },
-            {
-              name: "Multisigs", child: [
-                { name: "Read Multisigs", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
-                { name: "Multisigs", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
-              ]
-            },
-            {
-              name: "Network", child: [
-                { name: "Network Snapshots", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
-                { name: "Network Snapshot", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
-                { name: "External Transactions", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
-                { name: "Top Assets", path: "wallet/api/network/top-assets", router: "wallet/api/network/top-assets" },
-                { name: "Network Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
-                { name: "Search Assets", path: "wallet/api/network/search-assets", router: "wallet/api/network/search-assets" },
-              ]
-            },
-            { name: "Live Exchange Rates", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "Overview", path: "wallet/api/overview", router: "wallet/api/overview" },
+            { name: "Create User", path: "wallet/api/user", router: "wallet/api/user" },
+            { name: "PIN", child: [
+              { name: "Upate PIN", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
+              { name: "Verify PIN", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
+              { name: "PIN Logs", path: "wallet/api/logs", router: "wallet/api/logs" },
+            ]},
+            { name: "Transfer", child: [
+              { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
+              { name: "Transfer to Multisigs", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
+              { name: "Transfer to Mainnet", path: "wallet/api/transfer-to-mainnet", router: "wallet/api/transfer/transfer-to-mainnet" },
+              { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/transfer/snapshots" },
+              { name: "Snapshot", path: "wallet/api/snapshot", router: "wallet/api/transfer/snapshot" },
+            ]},
+            { name: "Asset", child: [
+              { name: "Asset List", path: "wallet/api/assets", router: "wallet/api/assets/assets" },
+              { name: "Asset", path: "wallet/api/asset", router: "wallet/api/assets/asset" },
+              { name: "Ticker", path: "wallet/api/ticker", router: "wallet/api/assets/ticker" },
+            ]},
+            { name: "Withdraw", child: [
+              { name: "Create Address", path: "wallet/api/address-add", router: "wallet/api/withdrawal/address-add" },
+              { name: "Delete Address", path: "wallet/api/address-delete", router: "wallet/api/withdrawal/address-delete" },
+              { name: "Address", path: "wallet/api/address", router: "wallet/api/withdrawal/address" },
+              { name: "Address List", path: "wallet/api/addresses", router: "wallet/api/withdrawal/addresses" },
+              { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
+              { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
+            ]},
+            { name: "Multisigs", child: [
+              { name: "Multisigs Guide", path: "wallet/api/multisigs/tutorial", router: "wallet/api/multisigs/tutorial" },
+              { name: "Read", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
+              { name: "Request", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
+            ]},
+            { name: "Network Data", child: [
+              { name: "Chains", path: "wallet/api/network/chains", router: "wallet/api/network/chains" },
+              { name: "Snapshots", path: "wallet/api/network/snapshots", router: "wallet/api/network/snapshots" },
+              { name: "Snapshot", path: "wallet/api/network/snapshot", router: "wallet/api/network/snapshot" },
+              { name: "One Time Keys", path: "wallet/api/network/keys", router: "wallet/api/network/keys" },
+              { name: "Pending Deposits", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
+              { name: "Top Assets", path: "wallet/api/network/assets-top", router: "wallet/api/network/assets-top" },
+              { name: "Multisig Assets", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },
+              { name: "Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
+              { name: "Asset Search", path: "wallet/api/network/assets-search", router: "wallet/api/network/assets-search" },
+            ]},
+            { name: "Fiats", path: "wallet/api/fiats", router: "wallet/api/fiats" },
+            { name: "Migration", path: "wallet/api/session-secret", router: "wallet/api/session-secret" },
+            { name: "Error Codes", path: "wallet/api/error-codes", router: "wallet/api/error-codes" },
           ]
         },
       ]
@@ -266,50 +312,77 @@ export default {
       child: [
         { name: "Overview", path: "bot/overview", router: "bot/overview" },
         {
-          name: "Tutorial", child: [
+          name: "Tutorials", child: [
+            { name: "Create App", path: "bot/getting-started/create", router: "bot/getting-started/create" },
             { name: "OAuth", path: "bot/getting-started/oauth", router: "bot/getting-started/oauth" },
-            { name: "Javascript Bridge", path: "bot/getting-started/js", router: "bot/getting-started/js" },
+            { name: "Getting User Data", path: "bot/getting-started/api", router: "bot/getting-started/api" },
+            { name: "Schema Interactions", path: "bot/getting-started/schema", router: "bot/getting-started/schema" },
+            { name: "JavaScript Bridge", path: "bot/getting-started/js", router: "bot/getting-started/js" },
+            { name: "Receiving Messages", path: "bot/getting-started/websocket", router: "bot/getting-started/websocket" },
+          ]
+        },
+        {
+          name: "Design Guide", child: [
+            { name: "Overview", path: "bot/design/overview", router: "bot/design/overview" },
+            { name: "User Interaction", path: "bot/design/user-interaction", router: "bot/design/user-interaction" },
+            { name: "Title Bar", path: "bot/design/title-bar", router: "bot/design/title-bar" },
+            { name: "Floating Menu", path: "bot/design/floating-menu", router: "bot/design/floating-menu" },
+            { name: "Color", path: "bot/design/color", router: "bot/design/color" },
+            { name: "Immersive Mode", path: "bot/design/immersive-mode", router: "bot/design/immersive-mode" },
+            { name: "Dark Mode", path: "bot/design/dark-mode", router: "bot/design/dark-mode" },
+            { name: "Sticker", path: "bot/design/sticker", router: "bot/design/sticker" },
+          ]
+        },
+        {
+          name: "Samples", child: [
+            { name: "DonateCafe", path: "bot/samples/donate-cafe", router: "bot/samples/donate-cafe" },
+            { name: "PRSDigg", path: "bot/samples/prsdigg", router: "bot/samples/prsdigg" },
+            { name: "Mixin Chinese Group", path: "bot/samples/super-group", router: "bot/samples/super-group" },
+            { name: "Mixcoin", path: "bot/samples/mixcoin", router: "bot/samples/mixcoin" },
           ]
         },
         {
           name: "API", child: [
-            { name: "Read Profile", path: "bot/api/profile", router: "bot/api/profile" },
-            {
-              name: "User", child: [
-                { name: "Read User", path: "bot/api/users/user", router: "bot/api/users/user" },
-                { name: "Read User List", path: "bot/api/users/users", router: "bot/api/users/users" },
-                { name: "Relationships", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
-                { name: "Search User", path: "bot/api/users/search", router: "bot/api/users/search" },
-                { name: "Friends", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
-                { name: "Blocking Users", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
-              ]
-            },
-            {
-              name: "Conversation", child: [
-                { name: "Create", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
-                { name: "Read", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
-                { name: "Update", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
-              ]
-            },
-            {
-              name: "Asset", child: [
-                { name: "Read Asset List", path: "bot/api/assets/list", router: "bot/api/assets/list" },
-                { name: "Read Asset", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
-                { name: "Read Snapshots", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
-                { name: "Read Snapshot", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
-                { name: "Read Transfer", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
-              ]
-            },
-            {
-              name: "Message", child: [
-                { name: "Category", path: "bot/api/messages/category", router: "bot/api/messages/category" },
-                { name: "Upload Attachment", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
-                { name: "Download Attachment", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
-                { name: "Create Acknowledgements", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
-                { name: "Create Messages", path: "bot/api/messages/send", router: "bot/api/messages/send" },
-              ]
-            },
-            { name: "Favorite App", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
+            { name: "Profile", path: "bot/api/profile", router: "bot/api/profile" },
+            { name: "User", child: [
+              { name: "User", path: "bot/api/users/user", router: "bot/api/users/user" },
+              { name: "Users", path: "bot/api/users/users", router: "bot/api/users/users" },
+              { name: "Relationships", path: "bot/api/users/relationships", router: "bot/api/users/relationships" },
+              { name: "Search", path: "bot/api/users/search", router: "bot/api/users/search" },
+              { name: "Contacts", path: "bot/api/users/contacts", router: "bot/api/users/contacts" },
+              { name: "Blocking Users", path: "bot/api/users/blocking", router: "bot/api/users/blocking" },
+            ]},
+            { name: "Conversation", child: [
+              { name: "Create", path: "bot/api/conversations/create", router: "bot/api/conversations/create" },
+              { name: "Read", path: "bot/api/conversations/read", router: "bot/api/conversations/read" },
+              { name: "Update", path: "bot/api/conversations/update", router: "bot/api/conversations/update" },
+            ]},
+            { name: "Circle", child: [
+              { name: "Create Circle", path: "bot/api/circles/create", router: "bot/api/circles/create" },
+              { name: "Delete Circle", path: "bot/api/circles/delete", router: "bot/api/circles/delete" },
+              { name: "Update Circle", path: "bot/api/circles/update", router: "bot/api/circles/update" },
+              { name: "List Circles", path: "bot/api/circles/list", router: "bot/api/circles/list" },
+              { name: "Circle Detail", path: "bot/api/circles/detail", router: "bot/api/circles/detail" },
+              { name: "Circle Conversations", path: "bot/api/circles/circle-conversations", router: "bot/api/circles/circle-conversations" },
+              { name: "User Circles", path: "bot/api/circles/user-circles", router: "bot/api/circles/user-circles" },
+              { name: "Group Circles", path: "bot/api/circles/group-circles", router: "bot/api/circles/group-circles" },
+            ]},
+            { name: "Asset", child: [
+              { name: "Asset Lists", path: "bot/api/assets/list", router: "bot/api/assets/list" },
+              { name: "Asset", path: "bot/api/assets/asset", router: "bot/api/assets/asset" },
+              { name: "Snapshots", path: "bot/api/assets/snapshots", router: "bot/api/assets/snapshots" },
+              { name: "Get Snapshot by ID", path: "bot/api/assets/snapshot", router: "bot/api/assets/snapshot" },
+              { name: "Get Snapshot by Trace", path: "bot/api/assets/trace", router: "bot/api/assets/trace" },
+              { name: "Fee", path: "bot/api/assets/fee", router: "bot/api/assets/fee" },
+            ]},
+            { name: "Message", child: [
+              { name: "Category", path: "bot/api/messages/category", router: "bot/api/messages/category" },
+              { name: "Upload Attachment", path: "bot/api/messages/attachment-upload", router: "bot/api/messages/attachment-upload" },
+              { name: "Download Attachment", path: "bot/api/messages/attachment-download", router: "bot/api/messages/attachment-download" },
+              { name: "Acknowledgements", path: "bot/api/messages/acknowledgements", router: "bot/api/messages/acknowledgements" },
+              { name: "Batch Messages", path: "bot/api/messages/send", router: "bot/api/messages/send" },
+            ]},
+            { name: "Shared Apps", path: "bot/api/shared-apps", router: "bot/api/shared-apps" },
             { name: "Error Codes", path: "bot/api/error-codes", router: "bot/api/error-codes" },
           ]
         },
