@@ -31,7 +31,7 @@ The current 35 nodes can do verification and signing of a transaction in 300 ms.
 
 __Versatility__
 
-Supports for 32 chains, including BTC, ETH, EOS, XMR, etc., and more than 100 thousand tokens.
+Supports for 37 chains, including BTC, ETH, EOS, XMR, etc., and more than 100 thousand tokens.
 
 __Simpler Management__
 

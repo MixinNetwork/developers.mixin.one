@@ -197,11 +197,11 @@ export default {
         { name: "Overview", path: "mainnet/overview", router: "mainnet/overview" },
         { name: "Concepts", child: [
           { name: "How it Works", path: "mainnet/concepts/how-it-works", router: "mainnet/concepts/how-it-works" },
-          { name: "XIN", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
+          { name: "XIN Token", path: "mainnet/concepts/xin", router: "mainnet/concepts/xin" },
           { name: "Full Node", path: "mainnet/concepts/full-node", router: "mainnet/concepts/full-node" },
           { name: "D3M-PIN", path: "mainnet/concepts/d3m-pin", router: "mainnet/concepts/d3m-pin" },
-          { name: "Multisig", path: "mainnet/concepts/multisig", router: "mainnet/concepts/multisig" },
-          { name: "Chains", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
+          { name: "Multi-Signature", path: "mainnet/concepts/multisig", router: "mainnet/concepts/multisig" },
+          { name: "Public Chain Support", path: "mainnet/concepts/chain", router: "mainnet/concepts/chain" },
           { name: "Price", path: "mainnet/concepts/price", router: "mainnet/concepts/price" },
         ]},
         { name: "MTG", child: [
@@ -214,7 +214,7 @@ export default {
           { name: "Wappercoin", path: "mainnet/mtg/wappercoin", router: "mainnet/mtg/wappercoin" },
         ]},
         { name: "Tutorials", child: [
-          { name: "Become a Node", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
+          { name: "Deploy Full Node", path: "mainnet/tutorials/full-node-join", router: "mainnet/tutorials/full-node-join" },
           { name: "Sync Node Data", path: "mainnet/tutorials/sync-full-node", router: "mainnet/tutorials/sync-full-node" },
           { name: "Submit Asset Icons", path: "mainnet/tutorials/submit-asset-icon", router: "mainnet/tutorials/submit-asset-icon" },
         ]},
@@ -264,7 +264,7 @@ export default {
             ]},
             { name: "Transfer", child: [
               { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
-              { name: "Transfer to Multisigs", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
+              { name: "Transfer to Multi-Signature", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
               { name: "Transfer to Mainnet", path: "wallet/api/transfer-to-mainnet", router: "wallet/api/transfer/transfer-to-mainnet" },
               { name: "Snapshots", path: "wallet/api/snapshots", router: "wallet/api/transfer/snapshots" },
               { name: "Snapshot", path: "wallet/api/snapshot", router: "wallet/api/transfer/snapshot" },
@@ -282,8 +282,8 @@ export default {
               { name: "Withdrawal", path: "wallet/api/withdrawal", router: "wallet/api/withdrawal/withdrawal" },
               { name: "Fee", path: "wallet/api/fee", router: "wallet/api/withdrawal/fee" },
             ]},
-            { name: "Multisigs", child: [
-              { name: "Multisigs Guide", path: "wallet/api/multisigs/tutorial", router: "wallet/api/multisigs/tutorial" },
+            { name: "Multi-Signature", child: [
+              { name: "Multi-Signature Guide", path: "wallet/api/multisigs/tutorial", router: "wallet/api/multisigs/tutorial" },
               { name: "Read", path: "wallet/api/multisigs/outputs", router: "wallet/api/multisigs/outputs" },
               { name: "Request", path: "wallet/api/multisigs/request", router: "wallet/api/multisigs/request" },
             ]},
@@ -294,7 +294,7 @@ export default {
               { name: "One Time Keys", path: "wallet/api/network/keys", router: "wallet/api/network/keys" },
               { name: "Pending Deposits", path: "wallet/api/network/pending-deposits", router: "wallet/api/network/pending-deposits" },
               { name: "Top Assets", path: "wallet/api/network/assets-top", router: "wallet/api/network/assets-top" },
-              { name: "Multisig Assets", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },
+              { name: "Multi-Signature Assets", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },
               { name: "Asset", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
               { name: "Asset Search", path: "wallet/api/network/assets-search", router: "wallet/api/network/assets-search" },
             ]},
