@@ -1,10 +1,10 @@
-# Webview Javascript Bridge
+# JavaScript bridge of Webview
 
-There are several Javascript methods in the App's WebView, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
+There are several Javascript methods in App's WebView, which could be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
 
 - getContext()
 
-  This returns the context of the current webpage.
+  return the context of current webpage.
 
   ```js
   getMixinContext: function () {
@@ -19,18 +19,17 @@ There are several Javascript methods in the App's WebView, which can be used by 
     return ctx
   },
   ```
-
   The response:
 
   ```json
   {
-      "app_version": "0.24.0",      // Mixin Messenger Version.
-      "immersive": true,            // Immersive mode on/off.
-      "appearance": "dark",         // Light or dark theme, according to system settings.
-      "currency": "USD",            
-      "locale": "zh-CN",           
-      "platform": "iOS",            // Client type, Android、iOS、Desktop
-      "conversation_id": ""         // The conversation ID. it would be empty if the webpage is not open in a conversation.
+      "app_version": "0.24.0",      // Mixin Messenger version
+      "immersive": true,            // immersive mode on/off
+      "appearance": "dark",         // light or dark theme, according to system settings
+      "currency": "USD",            // currency
+      "locale": "en-US",            // language
+      "platform": "iOS",            // Android | iOS | Desktop
+      "conversation_id": ""         // the conversation ID. it would be empty if the webpage is not open in a conversation
   }
   ```
 
@@ -56,7 +55,7 @@ There are several Javascript methods in the App's WebView, which can be used by 
 
 - playlist(audios)
 
-  Start the playlist. `audios` is a string array that contains the URI list of mp3 files.
+  Invoke the playlist. `audios` is an string array which contains the URI list of mp3 files.
 
   ```js
   playlist: function (audios) {
@@ -76,7 +75,7 @@ There are several Javascript methods in the App's WebView, which can be used by 
 
 ### Third-Party SDK
 
-For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method and gives a list of all Javascript methods and examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
+For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
 
 ### Next Step
 
@@ -87,4 +86,3 @@ For ease of use, a third-party team packaged these Javascript methods into JsBri
 - [Receiving Messages](./websocket)
 
   Receiving users' messages and replying via WebSocket can help users better the services provided by the bots.
-

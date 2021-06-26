@@ -32,6 +32,13 @@
 - code_challenge - 你的 app 创建的 code verifier 的 SHA256 摘要，[查看此处](https://www.oauth.com/oauth2-servers/pkce/authorization-request/)了解更多
 - code_challenge_method - 请指定`SHA256`
 
+**可选的参数**
+
+- return_to - 当前页面链接，授权后可跳转回当前界面
+- state - 任意字符串，你可以用于在 OAuth 完成后验证
+- code_challenge - 你的 app 创建的 code verifier 的 SHA256 摘要，[查看此处](https://www.oauth.com/oauth2-servers/pkce/authorization-request/)了解更多
+- code_challenge_method - 请指定`SHA256`
+
 授权成功后页面会自动跳转至机器人的验证网址，回调 URL 会附带 code 授权码和 return_to 参数，开发者再根据授权码请求令牌：
 
 ```

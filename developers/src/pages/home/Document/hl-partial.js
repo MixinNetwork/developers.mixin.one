@@ -187,7 +187,8 @@ export default {
     "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
     "title": "Mixin",
     "description": "Hello World.",
-    "action": "https://mixin.one"
+    "action": "https://mixin.one",
+    "shareable": true
   },
   file: {
     "id": "UUID",
