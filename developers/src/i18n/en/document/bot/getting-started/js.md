@@ -1,10 +1,10 @@
 # JavaScript Bridge of Webview
 
-There are several Javascript methods in App's WebView, which could be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
+There are several Javascript methods in the App's WebView, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
 
 - getContext()
 
-  return the context of current webpage.
+  This returns the context of current webpage.
 
   ```js
   getMixinContext: function () {
@@ -55,7 +55,7 @@ There are several Javascript methods in App's WebView, which could be used by th
 
 - playlist(audios)
 
-  Invoke the playlist. `audios` is an string array which contains the URI list of mp3 files.
+  Invoke the playlist. `audios` is a string array which contains the URI list of mp3 files.
 
   ```js
   playlist: function (audios) {
