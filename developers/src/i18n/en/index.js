@@ -231,7 +231,7 @@ export default {
             { name: "Creating Minxin Wallet", path: "wallet/getting-started/create-app", router: "wallet/getting-started/create-app" },
             { name: "Generating Wallet User", path: "wallet/getting-started/create-network-user", router: "wallet/getting-started/create-network-user" },
             { name: "Authorizing API Access", path: "wallet/getting-started/authentication-token", router: "wallet/getting-started/authentication-token" },
-            { name: "Setting PIN Code", path: "wallet/getting-started/pin", router: "wallet/getting-started/pin" },
+            { name: "Setting PIN", path: "wallet/getting-started/pin", router: "wallet/getting-started/pin" },
             { name: "User Assets", path: "wallet/getting-started/assets", router: "wallet/getting-started/assets" },
             { name: "Transfer", path: "wallet/getting-started/transfer", router: "wallet/getting-started/transfer" },
             { name: "Deposit and Withdrawal", path: "wallet/getting-started/deposit-withdrawal", router: "wallet/getting-started/deposit-withdrawal" },

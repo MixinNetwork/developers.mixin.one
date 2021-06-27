@@ -93,4 +93,4 @@ func main() {
 
 - [Setting PIN](./pin)
 
-  Set an initial PIN code for the user or guide the user to set a PIN code.
+  Set an initial PIN for the user or guide the user to set a PIN.

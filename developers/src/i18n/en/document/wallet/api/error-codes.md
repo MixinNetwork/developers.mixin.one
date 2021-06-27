@@ -11,7 +11,7 @@ Only 20x and 500 will be used by Mixin API, note that error 500  may be caused b
 |202|	429|	Too many requests. |
 |202|	10002|	Illegal request paramters. |
 |202|	20117|	Insufficient balance。 |
-|202|	20118|	PIN code format error. |
+|202|	20118|	PIN format error. |
 |202|	20119|	PIN error. |
 |202|	20120|	Transfer amount is too small. |
 |202|	20121|	Authorization code has expired. |
