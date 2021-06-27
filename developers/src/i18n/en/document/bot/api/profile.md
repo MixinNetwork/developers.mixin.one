@@ -1,4 +1,4 @@
-# Personal Information
+# Profile
 
 ### `GET /me`
 

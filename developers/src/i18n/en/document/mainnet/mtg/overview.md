@@ -1,4 +1,4 @@
-# Mixin Trusted Group
+# Overview
 
 Combining the multi-signature technology and the high-speed transfer ability of the Mixin network, we propose a solution that enables the deployment of trusted decentralized applications on the Mixin network-MTG (Mixin Trusted Group).
 

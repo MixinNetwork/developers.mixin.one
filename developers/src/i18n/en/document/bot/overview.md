@@ -1,4 +1,4 @@
-# Mixin Messenger Bots
+# Overview
 
 In addition to providing end-to-end encrypted chat and wallet functions, Mixin Messenger also supports bot functions similar to Telegram bots, WeChat mini-programs. Developers can easily implement powerful bots with functions such as transactions, paid circles, and e-commerce. You can search for 7000101700 to try a variety of selected bots.
 

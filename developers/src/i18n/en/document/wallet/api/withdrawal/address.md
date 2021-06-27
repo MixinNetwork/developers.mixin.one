@@ -1,4 +1,4 @@
-# Displaying One Withdrawal Address
+# Withdrawal Address
 
 ### `GET /addresses/:id` 
 

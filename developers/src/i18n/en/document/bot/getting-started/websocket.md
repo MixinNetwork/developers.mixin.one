@@ -1,4 +1,4 @@
-# Receiving vs Sending Messages Via WebSocket
+# Receiving vs. Sending Messages Via WebSocket
 
 ### Generating Keystore
 

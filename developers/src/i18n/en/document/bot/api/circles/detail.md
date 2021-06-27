@@ -1,4 +1,4 @@
-# Reading Details of A Circle
+# Circle
 
 To obtain the details of a certain circle, the `CIRCLES:READ` permission is required.
 

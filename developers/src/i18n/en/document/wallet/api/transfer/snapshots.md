@@ -1,4 +1,4 @@
-# Transfer Records
+# Snapshots
 
 - Get all transfers.
 

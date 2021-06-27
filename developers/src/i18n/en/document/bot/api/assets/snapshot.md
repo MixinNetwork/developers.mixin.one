@@ -1,4 +1,4 @@
-# Getting Details Of A Transfter
+# Getting Snapshot by ID
 
 ### `GET /snapshots/:id` 
 

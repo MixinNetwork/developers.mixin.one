@@ -1,4 +1,4 @@
-# Network-wide Transfer Records
+# Snapshots
 
 Public transfer records, permission-less access.
 

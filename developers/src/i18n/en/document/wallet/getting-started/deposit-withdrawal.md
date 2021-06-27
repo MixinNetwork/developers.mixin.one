@@ -1,4 +1,4 @@
-# Deposit And Withdrawal
+# Deposit and Withdrawal
 
 Deposit and withdrawal are among the most important functions of a wallet, and also the most error-prone. Once the deposit or the withdrawal errors happen, the assets cannot be retrieved. So users should be encouraged to try a small amount depositing or withdrawing for the first time!
 

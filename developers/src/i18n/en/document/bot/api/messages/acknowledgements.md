@@ -1,4 +1,4 @@
-# Batch Sending Delivered Status
+# Acknowledgements
 
 After receiving the message via WebSocket, you need to tell Mixin's message server that it has been delivered, otherwise it will keep pushing the message.
 

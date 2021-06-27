@@ -1,4 +1,4 @@
-# Setting PIN code
+# Setting PIN Code
 
 A 6-digit PIN code is required when a user is trying to transfer assets, the code functions pretty much like a private key, not retrievable if lost.
 

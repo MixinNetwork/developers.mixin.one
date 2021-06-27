@@ -1,4 +1,4 @@
-# Search For Users
+# Search
 
 ### `GET /search/:q`
 

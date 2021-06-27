@@ -1,4 +1,4 @@
-# Public Chains
+# Chains
 
 The API returns the list of all public chains supported by Mixin, no permission needed.
 

@@ -1,4 +1,4 @@
-# Getting Coversation Information
+# Reading
 
 Get conversation information by ID.
 

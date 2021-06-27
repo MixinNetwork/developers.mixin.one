@@ -1,4 +1,4 @@
-# Updating Conversations
+# Updating
 
 Updating here is mainly about group chats, such as updating group announcements, joining groups, exiting, muting, and other operations. After the following operations are successful, complete conversation data will be returned, including group members.
 

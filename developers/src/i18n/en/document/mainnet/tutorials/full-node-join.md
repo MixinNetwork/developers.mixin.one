@@ -1,4 +1,4 @@
-# How To Join The Mainnet As A Full Node
+# Deploying Full Node
 
 Mixin Network is a decentralized network based on PoS consensus. Full nodes use XIN as collateral. The XIN collateralized each year is 2% of the circulation. The first year is 10,000 XIN, and the second year 11,000 XIN, and so on. As long as there are enough mortgage tokens, anyone can apply and anonymously join the Mixin mainnet without any permission. The application steps:
 

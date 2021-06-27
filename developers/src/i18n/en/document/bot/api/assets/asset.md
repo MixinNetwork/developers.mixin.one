@@ -1,4 +1,4 @@
-# Getting Details Of An Asset
+# Asset
 
 To obtain the information of a single asset of a user by asset id, the `ASSETS:READ` permission is required.
 

@@ -1,4 +1,4 @@
-# Getting Information Of One User
+# User
 
 Getting user information by user ID.
 

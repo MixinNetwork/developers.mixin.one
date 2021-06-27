@@ -1,4 +1,4 @@
-# Setting the Circle A Group Belongs To
+# Group Circles
 
 Set the circle to which a certain group belongs. You can add or remove the group from a certain circle. You need the `CIRCLES:WRITE` permission.
 

@@ -1,4 +1,4 @@
-# Reading Multi-signature UTXO
+# Reading
 
 ### `GET /multisigs/outputs` 
 

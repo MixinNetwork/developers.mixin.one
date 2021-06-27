@@ -1,4 +1,4 @@
-# Transfer Records
+# Snapshots
 
 To obtain the transfer records of a user, the `SNAPSHOTS:READ` permission is required.
 

@@ -1,6 +1,6 @@
-# Password Error Log
+# PIN Error Logs
 
-Query the user password error log records, based on which developers can remind the user of the number of errors within 24 hours.
+Query the user PIN error log records, based on which developers can remind the user of the number of errors within 24 hours.
 
 ### `GET /logs?category=&limit=&offset=` 
 

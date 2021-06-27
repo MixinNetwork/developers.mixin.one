@@ -1,4 +1,4 @@
-# Creating Conversations
+# Creating
 
 To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
 

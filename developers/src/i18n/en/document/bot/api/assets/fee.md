@@ -1,4 +1,4 @@
-# Withdrawal Fees
+# Fee
 
 To obtain the withdrawal fee of an asset, the `ASSETS:READ` permission is required.
 

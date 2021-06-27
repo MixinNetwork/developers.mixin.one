@@ -1,4 +1,4 @@
-# Sticker Specification
+# Sticker
 
 Artists can submit sticker works to Mixin Messenger.
 

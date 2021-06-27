@@ -1,4 +1,4 @@
-# Message Types
+# Category
 
 Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`. Sending images, files, and videos requires uploading attachments and obtaining attachment_id before sending.
 

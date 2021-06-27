@@ -1,4 +1,4 @@
-# Reading Conversations in A Circle
+# Circle Conversations 
 
 To get all the conversations in a circle of a user, the `CIRCLES:READ` permission is required.
 

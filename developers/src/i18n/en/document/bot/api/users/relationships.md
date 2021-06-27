@@ -1,4 +1,4 @@
-# Modifying Relationships
+# Relationships
 
 ### Adding Friends
 

@@ -1,4 +1,4 @@
-# Transfer Details
+# Getting Snapshot by Trace
 
 ### `GET /transfers/trace/:id` 
 

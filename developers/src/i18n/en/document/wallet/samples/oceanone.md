@@ -1,4 +1,4 @@
-# Decentralized Exchange - Ocean ONE
+# Ocean ONE
 
 ![TODO: English Version Img: OceanONE](./oceanone.png)
 

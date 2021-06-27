@@ -1,4 +1,4 @@
-# Network-wide Deposit Records
+# Pending Deposits
 
 Public network-wide deposit records, permission-less access.
 

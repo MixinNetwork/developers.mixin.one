@@ -1,4 +1,4 @@
-# Withdrawal Fees
+# Fee
 
 ### `GET /assets/:id/fee` 
 

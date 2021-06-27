@@ -1,4 +1,4 @@
-# JavaScript bridge of Webview
+# JavaScript Bridge of Webview
 
 There are several Javascript methods in App's WebView, which could be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
 

@@ -1,4 +1,4 @@
-#  Reading Users in Batches
+# Users
 
 ### `POST /users/fetch` 
 

@@ -1,4 +1,4 @@
-# Searching For Popular Assets
+# Asset Search
 
 Search for popular assets by symbol or name, permission-less access.
 

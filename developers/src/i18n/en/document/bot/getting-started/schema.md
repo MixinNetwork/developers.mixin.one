@@ -1,4 +1,4 @@
-# Schema Evocation
+# Schema Interactions
 
 A bot can invoke the native Mixin Messenger windows through the Schema to implement functions, such as payment.
 

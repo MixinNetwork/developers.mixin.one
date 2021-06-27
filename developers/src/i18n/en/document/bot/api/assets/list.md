@@ -1,4 +1,4 @@
-# Getting User Asset List
+# Asset List
 
 To obtain the asset list of a user, the `ASSETS:READ` permission is required.
 

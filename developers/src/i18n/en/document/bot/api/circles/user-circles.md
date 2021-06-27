@@ -1,4 +1,4 @@
-# Setting the Circle A User Belongs To
+# User Circles
 
 Set the circle to which a user belongs. You can add the user to or remove the user from a circle. The permission of `CIRCLES:WRITE` is required.
 

@@ -1,4 +1,4 @@
-# Reading User Data
+# Getting User Data
 
 ### Basic User Information
 

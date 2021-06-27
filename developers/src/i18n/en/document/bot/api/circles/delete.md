@@ -1,4 +1,4 @@
-# Deleting Cricles
+# Deleting
 
 To help users delete circles, the `CIRCLES:WRITE` permission is required.
 

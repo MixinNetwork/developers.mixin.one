@@ -1,4 +1,4 @@
-# Mixin Network Multi-signature HOWTO
+# Multi-Signature Guide
 
 A complete 2/3 multi-signature demo: https://github.com/MixinNetwork/trusted-group, online test bot id: 7000101488.
 

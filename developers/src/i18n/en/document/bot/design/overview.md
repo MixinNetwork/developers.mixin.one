@@ -1,4 +1,4 @@
-# Design Guide
+# Overview
 
 The Mixin Messenger bot design guide aims to provide users with an easy-to-use, efficient and consistent user experience, to help developers better adapt the interface and make full use of the features supported by the container.
 

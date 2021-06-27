@@ -1,4 +1,4 @@
-# User-bot Interactions
+# User Interaction
 
 Users interact with bots through web pages and chats.
 

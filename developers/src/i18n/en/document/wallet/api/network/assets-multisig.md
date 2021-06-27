@@ -1,4 +1,4 @@
-# Multisig Assets
+# Multi-Signature Assets
 
 Query the list of all assets that support multi-signature, permission-less access.
 

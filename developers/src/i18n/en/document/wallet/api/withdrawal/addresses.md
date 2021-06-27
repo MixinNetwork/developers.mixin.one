@@ -1,4 +1,4 @@
-# Displaying All Withdrawal Addresses Of One Asset
+# Address List
 
 ### `GET /assets/:id/addresses` 
 

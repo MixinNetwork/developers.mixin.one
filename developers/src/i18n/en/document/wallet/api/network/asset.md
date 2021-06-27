@@ -1,4 +1,4 @@
-# Asset Details
+# Asset
 
 Query public information of assets, permission-less access.
 

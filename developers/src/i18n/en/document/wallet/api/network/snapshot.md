@@ -1,4 +1,4 @@
-### Transfter Details
+### Snapshot
 
 Public transfer details, permission-less access.
 

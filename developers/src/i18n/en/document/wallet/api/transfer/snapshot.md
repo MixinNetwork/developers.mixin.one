@@ -1,4 +1,4 @@
-# Snapshot Details
+# Snapshot
 
 When reading the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
 

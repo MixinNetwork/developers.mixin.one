@@ -1,4 +1,4 @@
-# Transfers
+# Transfer
 
 Transfers among wallet users are free and instant. In Go:
 

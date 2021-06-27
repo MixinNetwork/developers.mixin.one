@@ -1,4 +1,4 @@
-# Batch Sending Messages
+# Batch Messages
 
 ### `POST /messages`
 

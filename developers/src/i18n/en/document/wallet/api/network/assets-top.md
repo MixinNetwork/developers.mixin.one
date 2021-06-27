@@ -1,4 +1,4 @@
-# Network-wide Top 100 Assets
+# Top 100 Assets
 
 Query the list of the top 100 assets on the entire network, permission-less access.
 

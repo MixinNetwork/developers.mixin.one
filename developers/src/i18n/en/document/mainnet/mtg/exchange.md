@@ -1,4 +1,4 @@
-# Decentralized On-Chain Exchange
+# Exchange
 
 The next-generation high-performance decentralized on-chain exchange based on the MTG feature high performance, low latency, asset isolation, multi-signature co-management, on-chain transactions checkable and traceable, instant maker orders, zero gas fee for transactions.
 

@@ -1,4 +1,4 @@
-# All-currency Web Wallet
+# Online Wallet
 
 ![All-currency Web Wallet](./online-wallet.png)
 

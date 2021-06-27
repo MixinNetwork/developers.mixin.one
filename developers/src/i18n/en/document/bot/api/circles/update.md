@@ -1,4 +1,4 @@
-# Editing Circle Names
+# Updating
 
 To modify the circle names, you need the `CIRCLES:WRITE` permission.
 

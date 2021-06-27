@@ -1,4 +1,4 @@
-# Reading All Circles
+# Circle List
 
 To obtain all circles of a user, the `CIRCLES:READ` permission is required.
 

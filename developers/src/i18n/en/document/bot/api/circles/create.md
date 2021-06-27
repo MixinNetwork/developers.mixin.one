@@ -1,4 +1,4 @@
-# Creating Circles
+# Creating
 
 To help users create circles, you need the `CIRCLES:WRITE` permission.
 
