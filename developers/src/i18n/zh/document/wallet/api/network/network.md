@@ -18,7 +18,7 @@ $$XIN:curl$$ "https://api.mixin.one/external/addresses/check?asset=c6d0c728-2624
 {
   "data":{
     "destination":"18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX",
-      "tag":"",
+    "tag":"",
   }
 }
 ```

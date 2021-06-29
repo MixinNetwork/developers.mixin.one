@@ -10,7 +10,7 @@ $$XIN:curl$$ "https://api.mixin.one/attachments" -X POST
 
 ```json
 {
-    "Data": $$XIN: Attachment$$
+  "Data": $$XIN: Attachment$$
 }
 ```
 

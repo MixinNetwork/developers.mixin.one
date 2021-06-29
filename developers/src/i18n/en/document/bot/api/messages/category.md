@@ -5,7 +5,7 @@ Mixin Messenger supports texts, images, stickers, files and other message types.
 ### Texts
 
 ```json
- $$XIN:text$$
+  $$XIN:text$$
 ```
 
 ### Stickers
@@ -121,7 +121,7 @@ data:
 ### Buttons
 
 ```json
- $$XIN:button$$
+  $$XIN:button$$
 ```
 
 data:

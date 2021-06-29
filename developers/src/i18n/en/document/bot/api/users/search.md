@@ -10,7 +10,7 @@ $$XIN:curl$$ "https://api.mixin.one/search/7000"
 
 ```json
 {
-   "data": $$XIN:user$$
+  "data": $$XIN:user$$
 }
 ```
 

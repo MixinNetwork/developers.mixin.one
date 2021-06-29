@@ -10,9 +10,9 @@ $$XIN:curl$$ "https://api.mixin.one/assets"
 
 ```json
 {
-   "data":[
-     $$XIN:asset$$,
-     ...
-   ]
+  "data":[
+    $$XIN:asset$$,
+    ...
+  ]
 }
 ```

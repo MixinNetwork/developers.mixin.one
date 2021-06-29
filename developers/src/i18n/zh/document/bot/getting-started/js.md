@@ -24,13 +24,13 @@
 
   ```json
   {
-      "app_version": "0.24.0",      // Mixin Messenger 版本
-      "immersive": true,            // 是否开启沉浸模式
-      "appearance": "dark",         // 暗色主题/浅色主题
-      "currency": "USD",            // 货币类型
-      "locale": "zh-CN",            // 语言
-      "platform": "iOS",            // 客户端类型，Android、iOS、Desktop
-      "conversation_id": ""         // 返回当前所处会话的 ID，没有返回空
+    "app_version": "0.24.0",      // Mixin Messenger 版本
+    "immersive": true,            // 是否开启沉浸模式
+    "appearance": "dark",         // 暗色主题/浅色主题
+    "currency": "USD",            // 货币类型
+    "locale": "zh-CN",            // 语言
+    "platform": "iOS",            // 客户端类型，Android、iOS、Desktop
+    "conversation_id": ""         // 返回当前所处会话的 ID，没有返回空
   }
   ```
 

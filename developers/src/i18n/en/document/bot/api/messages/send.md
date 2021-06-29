@@ -6,7 +6,7 @@ Request body data is a message array:
 
 ```json
 [
-   $$XIN:message$$
+  $$XIN:message$$
 ]
 ```
 

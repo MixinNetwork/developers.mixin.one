@@ -6,7 +6,7 @@ Attachments can be stored on Amazon S3 and downloaded via HTTP, see [S3 Document
 
 ```json
 {
-   "data": $$XIN:attachment$$
+  "data": $$XIN:attachment$$
 }
 ```
 

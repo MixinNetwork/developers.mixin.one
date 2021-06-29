@@ -23,13 +23,13 @@ There are several Javascript methods in the App's WebView, which can be used by 
 
   ```json
   {
-      "app_version": "0.24.0",      // Mixin Messenger version
-      "immersive": true,            // immersive mode on/off
-      "appearance": "dark",         // light or dark theme, according to system settings
-      "currency": "USD",            // currency
-      "locale": "en-US",            // language
-      "platform": "iOS",            // Android | iOS | Desktop
-      "conversation_id": ""         // the conversation ID. it would be empty if the webpage is not open in a conversation
+    "app_version": "0.24.0",      // Mixin Messenger version
+    "immersive": true,            // immersive mode on/off
+    "appearance": "dark",         // light or dark theme, according to system settings
+    "currency": "USD",            // currency
+    "locale": "en-US",            // language
+    "platform": "iOS",            // Android | iOS | Desktop
+    "conversation_id": ""         // the conversation ID. it would be empty if the webpage is not open in a conversation
   }
   ```
 

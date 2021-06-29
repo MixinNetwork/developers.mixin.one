@@ -11,7 +11,7 @@ $$XIN:curl$$ "https://api.mixin.one/users/fetch" -X POST --data '["06aed1e3-bd77
 ```json
 {
   "data": [   
-     $$XIN:user$$,
+    $$XIN:user$$,
      ...
   ]
 }
