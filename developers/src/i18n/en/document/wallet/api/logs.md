@@ -6,7 +6,7 @@ Query the user PIN error log records, based on which developers can remind the u
 
 | Parameter | Introduction |
 | :----- | :---- |
-| limit | Pagination limit, maximamlly 500. |
+| limit | Pagination limit, maximamlly 100. |
 | offset | Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z`. |
 | category | Log type, set to a fixed `PIN_INCORRECT`. |
 

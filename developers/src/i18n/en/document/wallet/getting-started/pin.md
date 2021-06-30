@@ -55,16 +55,16 @@ For SDKs in other languages, please refer to [Document](../sdk/overview).
 
 ```go
 const (
-    userId     = ""
-    pinToken   = ""
+	userId     = ""
+	pinToken   = ""
 	sessionId  = ""
 	privateKey = ""
 )
 
 func main() {
-    ctx := context.Background()
+	ctx := context.Background()
 
-    // Encrypt PIN
+	// Encrypt PIN
 	encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
 	if err != nil {
 		fmt.Println(err)
