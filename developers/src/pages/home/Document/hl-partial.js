@@ -280,13 +280,12 @@ export default {
         "data": "Base64 encoded data"
     }
   },
-
   asset: {
     "type": "asset",
     "asset_id": "3596ab64-a575-39ad-964e-43b37f44e8cb",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "symbol": "eosDAC",
-    "name": "eosDAC Community Owned EOS Block Producer ERC20 Tokens",
+    "symbol": "eos",
+    "name": "eos",
     "icon_url": "https://images.mixin.one/HovctUnrBkLPlDotWvWPsIuFb8qKrLddwF5-f2Fi9q9uO829YB2qGITgOd2YmTMKnGg_z9XrVYzEwFE_rD_REz9C=s128",
     "balance": "203.975",
     "destination": "0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
@@ -330,5 +329,23 @@ export default {
     "snapshot_id": "529934b0-abfd-43ab-9431-1805773000a4",
     "source": "TRANSFER_INITIALIZED",
     "type": "snapshot",
+  },
+  multisig_body: {
+    "type":"multisig_request",
+    "request_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+    "user_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
+    "amount":"10",
+    "threshold":"2",
+    "senders": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
+    "receivers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
+    "signers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
+    "memo":"hello",
+    "action":"sign",
+    "state": "spent",
+    "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+    "raw_transaction": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+    "created_at":"2018-05-03T10:08:34.859542588Z",
+    "code_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
   }
 }

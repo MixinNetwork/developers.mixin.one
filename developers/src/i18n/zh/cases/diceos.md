@@ -21,4 +21,4 @@ function verify (msg) {
 ```
 
 --- 
-**使用 snapshot id 做随机数非常可靠，得益于 Mixin Network 卓越的性能不会出现交易回滚，可广泛用于游戏、抽奖等。**
+** 用 snapshot id 做随机数非常可靠，得益于 Mixin Network 卓越的性能不会出现交易回滚，可广泛用于游戏、抽奖等。**
