@@ -1,6 +1,9 @@
 # 全网转账记录
 
-公开的转账记录，无需授权访问
+Mixin Network 的转账记录, 注意:
+
+- 默认不返回用户的信息，如果需要返回用户信息, 需要用户的 `authentication token` 签名
+- 机器人用 `authentication token` 可以同时访问，机器人子用户的交易记录
 
 ### `GET /network/snapshots?limit=10&offset=&asset=` 
 

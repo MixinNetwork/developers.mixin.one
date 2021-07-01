@@ -292,6 +292,7 @@ export default {
               { name: "多签资产", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },
               { name: "资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
               { name: "资产搜索", path: "wallet/api/network/assets-search", router: "wallet/api/network/assets-search" },
+              { name: "内部地址", path: "wallet/api/network/network", router: "wallet/api/network/network" },
             ]},
             { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
             { name: "RSA 迁移", path: "wallet/api/session-secret", router: "wallet/api/session-secret" },
