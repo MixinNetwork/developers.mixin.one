@@ -20,10 +20,9 @@ $$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PY
 
 ```json
 {
-  "data":[{
-    $$XIN:transaction$$
-  },
-  ...
+  "data":[
+    $$XIN:transaction$$,
+    ...
   ]
 }
 ```

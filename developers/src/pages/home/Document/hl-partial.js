@@ -330,6 +330,85 @@ export default {
     "source": "TRANSFER_INITIALIZED",
     "type": "snapshot",
   },
+  snapshot_transfer: {
+    "type":"transfer", // TRANSFER
+    "snapshot_id":"f72349a5-663b-41ed-86e2-19cf934c60d5",
+    "opponent_id":"61103d28-3ac2-33a2-ae34-bd956070dab1",
+    "asset_id":"ffb30332-7282-33ff-9af3-a2cca3590423",
+    "amount":"0.00000001",
+    "opening_balance":"0",
+    "closing_balance":"0.00000001",
+    "trace_id":"cda98c38-ec47-4aaa-b878-a1ad3ad9727e",
+    "memo":"Light Up",
+    "created_at":"2021-07-01T16:41:38.943534Z",
+    "counter_user_id":"61103d28-3aa2-44a2-ae34-bd956070dab1",
+  },
+  snapshot_raw: {
+    "type":"raw", // RAW
+    "snapshot_id":"5b5fb326-cc9c-4160-83e9-490f4ff376c2",
+    "opponent_key":"",
+    "opponent_receivers":[
+      "a753e0eb-aa10-4c4a-a7b2-a7bda4063f62",
+      "099627f8-9031-42e3-a846-006ee598c56e",
+    ],
+    "opponent_threshold":3,
+    "asset_id":"965e5c6e-434c-3fa9-b780-c50f43cd955c",
+    "amount":"-1",
+    "opening_balance":"2799307972.00996696",
+    "closing_balance":"2799307971.00996696",
+    "trace_id":"2ab737ff-9cbe-5f61-ac82-48274d4af15e",
+    "memo":"ll",
+    "state":"snapshot",
+    "created_at":"2021-06-25T13:37:10.435437Z",
+    "transaction_hash":"0436d90924c959082176dbaca627ab537bb5f11464f75d85fcc28cc0ca855a43",
+    "snapshot_hash":"6725f9001715bb04765aa7809536fd8bd9edd05f79024539f04ad0f4f903f53e",
+    "snapshot_at":"2021-06-25T13:37:10.951531Z",
+  },
+  snapshot_deposit: {
+    "type":"deposit", // DEPOSIT
+    "snapshot_id":"be57f30a-cbda-460c-9bc8-e3d475d45a92",
+    "asset_id":"eea900a8-b317-488c-8d8d-1428702fe240",
+    "transaction_hash":"d060b6fed07fde0a769ce3929403c15e84580314560f92fd49e3e1060cc6c419",
+    "output_index":0,
+    "sender":"",
+    "amount":"0.001",
+    "opening_balance":"6.90044076",
+    "closing_balance":"6.90144076",
+    "created_at":"2021-06-25T02:37:49.144968Z",
+  },
+  snapshot_withdrawal: {
+    "type":"withdrawal", // WITHDRAWAL
+    "snapshot_id":"745d123d-3716-47da-9a5f-1a46f0939dcb",
+    "receiver":"G57w8Br44AYd6aEKfagTyLFvt4tTLhDdzGsX6PbYwfumwpjc1htSpWfoey2FLYNKMJA28q8YyqYb83dh66A7BTVA4XNZzXsNNUDv1nTmaw",
+    "transaction_hash":"44ed12eebadb3d92fee3e9aca9965fc648a8d553e339bf6904dd5addfa361532",
+    "asset_id":"eea900a8-b327-488c-8d8d-1428702fe240",
+    "amount":"-0.2",
+    "opening_balance":"7.10044076",
+    "closing_balance":"6.90044076",
+    "confirmations":1,
+    "trace_id":"a6a1e454-2456-44e2-bf98-fda5fbb72f00",
+    "memo":"",
+    "created_at":"2021-06-25T02:29:30.017245Z",
+    "state":"confirmed",
+    "fee":{
+      "amount":"-0.02",
+      "asset_id":"eea900a8-b327-488c-8d8d-1428702fe240"
+    },
+  },
+  snapshot_fee: {
+   "type":"fee", // FEE
+   "snapshot_id":"697a49a1-834a-4a19-a0d4-b7a7602e7d1c",
+   "receiver":"G57w8Br44AYd6aEKfagTyLFvt4tTLhDdzGsX6PbYwfumwpjc1htSpWfoey2FLYNKMJA28q8YyqYb83dh66A7BTVA4XNZzXsNNUDv1nTmaw",
+   "transaction_hash":"44ed86eebadb3d92fee3e9aca9965fc648a8d553e339bf6904dd5addfa361532",
+   "asset_id":"eea900a8-b327-488c-8d8d-1428702fe240",
+   "amount":"-0.02",
+   "opening_balance":"7.12044076",
+   "closing_balance":"7.10044076",
+   "confirmations":0,
+   "trace_id":"a6a1e451-2438-44e2-bf98-fda5fbb72f00",
+   "memo":"",
+   "created_at":"2021-06-25T02:29:30.017245Z"
+  },
   multisig_body: {
     "type":"multisig_request",
     "request_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
@@ -383,7 +462,6 @@ export default {
     // Includes DEPOSIT_CONFIRMED, TRANSFER_INITIALIZED, WITHDRAWAL_INITIALIZED, WITHDRAWAL_FEE_CHARGED, WITHDRAWAL_FAILED
     "source":"TRANSFER_INITIALIZED",
     "type":"snapshot",
-    // 如果需要对账查询所有钱包生成用户的转账，需要在请求头里附带钱包的认证鉴权信息，才会返回以下字段信息
     "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
     "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
     "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",

@@ -17,9 +17,7 @@ $$XIN:curl$$ "https://api.mixin.one/network/chains"
 ```json
 {  
   "data":[
-  {
-    $$XIN:asset$$
-  },
+    $$XIN:asset$$,
     ...
   ]
 }

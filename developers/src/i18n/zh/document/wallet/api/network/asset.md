@@ -10,8 +10,6 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064
 
 ```json
 {
-  "data": {
-    $$XIN:network_asset$$
-  }
+  "data": $$XIN:network_asset$$
 }
 ```

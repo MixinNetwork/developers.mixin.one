@@ -12,8 +12,6 @@ $$XIN:curl$$ "https://api.mixin.one/network/snapshots/8f5b244e-cf86-4374-8eaa-c5
 
 ```json
 {
-  "data":{
-    $$XIN:network_snapshot$$
-  }
+  "data": $$XIN:network_snapshot$$
 }
 ```

@@ -12,9 +12,7 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/multisig"
 {
   "data":{
     "assets":[  
-    {
-      $$XIN:asset$$
-    },
+    $$XIN:asset$$,
     ....
     ]
   }

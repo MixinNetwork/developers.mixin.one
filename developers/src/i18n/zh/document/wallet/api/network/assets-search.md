@@ -14,10 +14,8 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/search/eos"
 ```json
 {
   "data":[
-  {
-    $$XIN:asset$$
-  },
-  ...
+    $$XIN:asset$$,
+    ...
   ]
 }
 ```
