@@ -2,11 +2,14 @@
 
 ### `GET /network/ticker?asset=&offset=` 
 
-返回资产的价格，公开 API, offset 不填默认情况下会返回资产当前价格，如果资产价格历史不存在, price_btc 跟 price_usd 都会返回 0
+查询资产的价格, 注意事项:
+
+- 资产的价格价格只是指 Mixin 里存在的资产历史价格，并不是所有历史价格
+- 如果资产价格历史不存在, price_btc 跟 price_usd 都会返回 0
 
 | 参数 | 类型 | 介绍 |
 | :----- | :----: | :---- |
-| asset | UUID String | 筛选某个资产的历史价格 |
+| asset | UUID String | 某个资产 |
 | offset | String | 可选，默认为当前价格，指定查询时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z` |
 
 ```
