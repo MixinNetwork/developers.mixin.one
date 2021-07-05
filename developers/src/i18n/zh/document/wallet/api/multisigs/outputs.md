@@ -3,7 +3,6 @@
 一个用户要花费多签钱包里的资产，需要先拿到管理资产的 outputs, 这个 API 返回跟该用户相关的所有的多签 outputs, 一个交易当中最多可以有 256 个 outputs, 用户需要根据 `asset_id` 跟 `amount` 来获取适合的 output 来发起多签, 需要注意的问题：
 
 - 获取的 outputs 是按更新时间排序的, 所以这里面可能会返回重复的 outputs
-- members_hash 跟 threshold 需要同时使用，查询才有效
 - `signed_tx` 和 `signed_by` 在 state 为 signed 时有值， signed_by 代表交易的 transaction hash，而 signed_tx 则是完整的交易内容，signed_by 可以帮助分类相应的等待完成交易列表。
 - 当一个 output 状态是 `signed`, 用户可以尝试创建 multisig request, 如果进行签名
 - 排序只有按照 updated_at 的正序
@@ -12,8 +11,8 @@
 
 | 参数 | 类型 | 介绍 |
 | :----- | :----: | :---- |
-| members | String | 可选，与 threshold 一同使用，参与多签成员的 hash |
-| threshold | Integer | 可选，与 members 一同使用，多签的门限值, 例如 2/3 签，threshold = 2 |
+| members | String | 与 threshold 一同使用，参与多签成员的 hash |
+| threshold | Integer | 与 members 一同使用，多签的门限值, 例如 2/3 签，threshold = 2 |
 | state | String | 可选，UTXO 的状态，unspent 未签名, signed 已签名, spent 已花费 |
 | limit | String | 可选，分页每页数据，默认 500，最大 500 |
 | offset | String | 可选，分页起始时间, 默认是从第一条记录，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z` |
