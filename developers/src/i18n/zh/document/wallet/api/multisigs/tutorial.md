@@ -1,10 +1,8 @@
-# 如何使用 mixin network 多签
+# Mixin Network 多签
 
-2/3 多签的一个完整示例：https://github.com/MixinNetwork/trusted-group, 线上测试机器人 id: 7000101488
+多签在 Mixin 有非常多的应用，像 4swap, 资产管理等, 举个简单的多签的例子，有一笔资产是属于团队的，团队中有 A, B, C 三个人，需要其中的两个人同意就可以动用这笔资产，这就是最经典的 2/3 签的示例。
 
-简单的描述一下多签可能的应用场景：有一笔资产是属于团队的，团队中有 A, B, C 三个人，需要其中的两个人同意就可以动用这笔资产，这时候就需要用到 2/3 签。
-
-A, B, C 需要是三个不同的机器人或者是 Mixin Network 的用户（需要有私钥跟 pin）。
+一个 2/3 多签的一个完整示例：https://github.com/MixinNetwork/trusted-group, 线上测试机器人 id: 7000101488
 
 ## 1. 将一笔资产转入 A, B, C 共同的账户 POST /transactions
 

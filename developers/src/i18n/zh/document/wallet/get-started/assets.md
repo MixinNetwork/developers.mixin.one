@@ -4,14 +4,14 @@
 
 ```go
 const (
-    userId     = ""
-    pinToken   = ""
+	userId     = ""
+	pinToken   = ""
 	sessionId  = ""
 	privateKey = ""
 )
 
 func main() {
-    ctx := context.Background()
+	ctx := context.Background()
 
 	//签名授权令牌
 	authenticationToken, err := bot.SignAuthenticationToken(user.UserId, user.SessionId, userSessionKey, "GET", "/assets", "")

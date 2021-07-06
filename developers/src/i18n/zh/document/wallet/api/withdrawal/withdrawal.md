@@ -1,5 +1,10 @@
 # 提现
 
+提取资产到外部地址，注意事项：
+
+- 提现资产之前，需要先创建提现地址
+- 资产都有最小提现金额，手续，部分会有保留金额，可以从提现地址里获取
+
 ### `POST /withdrawals` 
 
 请求 Body 数据
@@ -17,15 +22,9 @@ $$XIN:curl$$ "https://api.mixin.one/withdrawals" -XPOST --data '{"amount":"100",
 ```
 
 ```json
-{  
-  "data":{  
-    "type":"withdrawal",
-    "snapshot_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "transaction_hash":"axt..ze",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "amount":"-10",
-    "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
-    "created_at":"2018-05-03T10:08:34.859542588Z"
+{ 
+  "data":{
+    $$XIN:snapshot_withdrawal$$
   }
 }
 ```

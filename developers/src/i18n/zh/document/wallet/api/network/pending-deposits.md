@@ -1,6 +1,8 @@
 ### 全网充值记录
 
-公开的全网充值记录，无需授权访问
+通常区块链里的资产，需要一定的确认数来保证交易不可逆, 例如 BTC 实际需要 6 个确认，在 Mixin Network 中目前需要 2 个(会动态调整)，
+
+Mixin Network 会实时更新这些未达到确认数的交易, 通过这个 API 返回。
 
 ### `GET /external/transactions?asset=&destination=&tag=&limit=&offset=` 
 
@@ -18,20 +20,8 @@ $$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PY
 
 ```json
 {
-  "data":[{
-    "type":"transaction",
-    "transaction_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "transaction_hash":"axt..ze",
-    "sender":"137FkAtj1KcVKKt4tPeP1Djz3Nvc5DEYri",
-    "amount":"10.0",
-    "destination":"1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK",
-    "tag":"",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "confirmations":1,
-    "threshold":12,
-    "created_at":"2018-05-03T10:08:34.859542588Z"
-  },
+  "data":[
+    $$XIN:transaction$$,
     ...
   ]
 }
