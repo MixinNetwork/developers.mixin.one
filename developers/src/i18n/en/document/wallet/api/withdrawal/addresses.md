@@ -1,6 +1,4 @@
-# Addresses by Asset
-
-Read addresses by asset ID.
+# Address List
 
 ### `GET /assets/:id/addresses` 
 

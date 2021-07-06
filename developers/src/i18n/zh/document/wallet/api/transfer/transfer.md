@@ -33,4 +33,3 @@ $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","as
   "data": $$XIN:snapshot_transfer$$
 }
 ```
-

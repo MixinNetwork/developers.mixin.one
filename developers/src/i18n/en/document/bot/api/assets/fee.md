@@ -1,6 +1,6 @@
-# 提现手续费
+# Fee
 
-获取某个资产的提现手续费，需要 `ASSETS:READ` 权限。
+To obtain the withdrawal fee of an asset, the `ASSETS:READ` permission is required.
 
 ### `GET /assets/:id/fee` 
 

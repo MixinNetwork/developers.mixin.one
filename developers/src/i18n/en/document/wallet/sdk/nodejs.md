@@ -1,11 +1,13 @@
 # Node.js SDK
 
 ### Installation
+
 ```shell
 npm install mixin-node-sdk --save
 ```
 
-### Example
+### Quick Start
+
 ```js
 const { Mixin } = require('mixin-node-sdk')
 const CLIENT_CONFIG = {
@@ -18,10 +20,11 @@ const CLIENT_CONFIG = {
 }
 
 // 1. The first parameter is the information of the keystore
-// 2. The second parameter is whether to use Chinese domain name acceleration. It is recommended that Chinese servers fill in true.
+// 2. The second parameter is whether to use Chinese domain name acceleration. It is recommended to set this to true for Chinese servers.
 // 3. The third parameter is whether to enable debug mode, and some log information will be displayed on the console.
 const client = new Mixin(CLIENT_CONFIG, true, true)
 
+// Create user, set session_secret to a RSA public key in Base64. Generate RSA key pair by yourself, and make sure to keep the private key safe.
 const user = client.create_user({
     full_name: 'test',
     session_secret: `MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8wF10XuA2i90YC1peIY4ZzL0N
@@ -31,18 +34,22 @@ const user = client.create_user({
 })
 console.log(user)
 
-// replace PIN
+// Replace PIN.
 client.pin_update({
     old_pin: '918869',
     pin: '918869'
 })
 
-// View details of the asset in the account
+// View details of the asset in the account.
 const assets = client.query_assets({
     asset_id
 })
 console.log(assets)
 ```
 
+## FAQ
+
+If you want to query all assets, set query_assets to null.
+
 ---
-This SDK is developed by the Mixin team. If you have any questions, you can search for 30265 through Mixin Messenger and contact us for help.
+This SDK is developed by the Mixin team. To contact tech support, search for 30265 in Mixin Messenger.

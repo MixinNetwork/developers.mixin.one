@@ -1,15 +1,15 @@
-# Network Snapshots
+# Snapshots
 
-Read public snapshots of Mixin Network.
+Public transfer records, permission-less access.
 
 ### `GET /network/snapshots?limit=10&offset=&asset=` 
 
-| Name | Type | Description |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| limit | Integer | Max 500 |
-| offset | String | format RFC3339Nano, UTC: 2006-01-02T15:04:05.999999999Z |
-| asset | UUID String | OPTION, return all network snapshots or specific asset snapshots. |
-| order | String | OPTION, ASC or DESC. DEFAULT DESC |
+| limit | String | Pagination per page data limit, 500 by default, maximally 500. |
+| offset | String | Pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`. |
+| asset | UUID String |Optional, transfer records of a certain asset. |
+| order | String | Optional, sort in ASC or DESC order, DESC by default. |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/network/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
@@ -33,7 +33,7 @@ $$XIN:curl$$ "https://api.mixin.one/network/snapshots?limit=10&offset=2018-05-29
     "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
     "source":"TRANSFER_INITIALIZED",
     "type":"snapshot",
-    // Options only for user (or App) who has access.
+    // If you need to check all wallet generated users' transfers, include the wallet authentication information in the request headers, and then the following fields will be returned.
     "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
     "trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf",
     "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",

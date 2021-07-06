@@ -1,16 +1,16 @@
-### External Transactions
+# Pending Deposits
 
-Read external transactions (pending deposits) by `destination`, `tag` and `asset_id`.
+Public network-wide deposit records, permission-less access.
 
 ### `GET /external/transactions?asset=&destination=&tag=&limit=&offset=` 
 
-| Name | Type | Description |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| asset | UUID String | OPTION |
-| destination | String | OPTION |
-| tag | String | OPTION |
-| limit | String | Max 500 |
-| offset | String | format RFC3339Nano, e.g.: 2006-01-02T15:04:05.999999999Z |
+| asset | UUID String | Optional, get the deposit records for a cerain asset. |
+| destination | String | Optional, get the records of pending deposits for a certain address. |
+| tag | String | Optional, mark the pending deposit records of an address, used with destination. |
+| limit | String | Pagination per page data limit, 500 by default, maximally 500. |
+| offset | String | Pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`. |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"

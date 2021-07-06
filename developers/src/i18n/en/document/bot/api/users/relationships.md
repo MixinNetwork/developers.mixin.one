@@ -1,36 +1,46 @@
 # Relationships
 
-### Add Friend
+### Adding Friends
+
 `POST /relationships`
 
-请求 Body 数据
+Request body data:
 
-| Name | Type | Description |
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | user id |
-| full_name | String | another name |
+| user_id | String | User ID |
+| full_name | String | Alias, Optional. |
 | action | String | "ADD" |
 
-### Remove Friend
+### Deleting Friends
+
 `POST /relationships`
 
-| Name | Type | Description |
+Request body data:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | user id |
+| user_id | String | User ID |
 | action | String | "REMOVE" |
 
-### Block User
+### Blocking Users
+
 `POST /relationships`
 
-| Name | Type | Description |
+Request body data:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | user id |
+| user_id | String | User ID |
 | action | String | "BLOCK" |
 
-### Unblock User
+### Unblocking Users
+
 `POST /relationships`
 
-| Name | Type | Description |
+Request body data:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| user_id | String | user id |
+| user_id | String | User ID |
 | action | String | "UNBLOCK" |

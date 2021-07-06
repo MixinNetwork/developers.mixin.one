@@ -1,10 +1,10 @@
-# JavaScript bridge of Webview
+# JavaScript Bridge of Webview
 
-There are several Javascript methods in App's WebView, which could be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
+There are several Javascript methods in the App's WebView, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
 
 - getContext()
 
-  return the context of current webpage.
+  This returns the context of current webpage.
 
   ```js
   getMixinContext: function () {
@@ -19,24 +19,23 @@ There are several Javascript methods in App's WebView, which could be used by th
     return ctx
   },
   ```
-
-  Return
+  The response:
 
   ```json
   {
-      "app_version": "0.24.0",      // Mixin Messenger version
-      "immersive": true,            // immersive mode on/off
-      "appearance": "dark",         // light or dark theme, according to system settings
-      "currency": "USD",            // currency
-      "locale": "en-US",            // language
-      "platform": "iOS",            // Android | iOS | Desktop
-      "conversation_id": ""         // the conversation ID. it would be empty if the webpage is not open in a conversation
+    "app_version": "0.24.0",      // Mixin Messenger version
+    "immersive": true,            // immersive mode on/off
+    "appearance": "dark",         // light or dark theme, according to system settings
+    "currency": "USD",            // currency
+    "locale": "en-US",            // language
+    "platform": "iOS",            // Android | iOS | Desktop
+    "conversation_id": ""         // the conversation ID. it would be empty if the webpage is not open in a conversation
   }
   ```
 
 - reloadTheme()
 
-  read the theme-color from the html and apply:
+  Read the theme-color from the html and apply:
 
   ```js
   reloadTheme: function () {
@@ -56,7 +55,7 @@ There are several Javascript methods in App's WebView, which could be used by th
 
 - playlist(audios)
 
-  Invoke the playlist. `audios` is an string array which contains the URI list of mp3 files.
+  Invoke the playlist. `audios` is a string array which contains the URI list of mp3 files.
 
   ```js
   playlist: function (audios) {
@@ -72,13 +71,18 @@ There are several Javascript methods in App's WebView, which could be used by th
   }
   ```
 
-  **This method is supported in Mixin Messenger 0.30.0 or above**
+  **This method is supported in Mixin Messenger 0.30.0 or above.**
 
-### 3rd-party SDK
+### Third-Party SDK
 
-For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。
+For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
 
-### Next
+### Next Step
 
-- Improve the performance by PWA: https://developers.google.com/web/ilt/pwa/
+- Front-end Optimization
 
+  PWA is recommended to optimize the bot, refer to  https://developers.google.com/web/ilt/pwa/.
+
+- [Receiving Messages](./websocket)
+
+  Receiving users' messages and replying via WebSocket can help users better the services provided by the bots.

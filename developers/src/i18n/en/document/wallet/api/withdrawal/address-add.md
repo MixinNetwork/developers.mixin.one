@@ -1,14 +1,16 @@
-# Create Address
+# Creating Addresses
 
 ### `POST /addresses` 
 
+The HTTP request body:
+
 | Name | Type | Description |
 | :----- | :---- | :---- |
-| asset_id | UUID String | asset id |
-| label | String | "Mixin", can’t be blank, max size 64 |
-| destination | String | BTC address or EOS account name like "eoswithmixin" |
-| tag | String | can be blank, EOS account tag or memo |
-| pin | String | Encrypted PIN |
+| asset_id | UUID String | Asset ID. |
+| label | String | Label for the address. |
+| destination | String | Withdrawal address. |
+| tag | String | Withdrawal memo. |
+| pin | String | Encrypted PIN. |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/addresses" -XPOST --data '{"asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","label":"Jason ETH Address","pin":"nRF5OyFmO4REG6lcPk1jwKDJrENim791uLe+HH0g7EwQHXK9FgCMJl5RDKbeCNDW","destination":"0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0", "tag": "", "label": ""}'

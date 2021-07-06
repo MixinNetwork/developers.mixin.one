@@ -1,29 +1,31 @@
 # Snapshots
 
-- Get all transfer
+To obtain the transfer records of a user, the `SNAPSHOTS:READ` permission is required.
 
-  `GET /snapshots?limit=&offset=` 
+- Get all transfer records.
 
-- Get transfers by asset
+  `GET /snapshots?limit=&offset=`
 
-  `GET /snapshots?limit=&offset=&asset=` 
+- Get all transfer records of an asset.
 
-- Get transfers by opponent
+  `GET /snapshots?limit=&offset=&asset=`
 
-  `GET /snapshots?limit=&offset=&opponent=` 
+- Get the transfer records of a certain user.
 
-- Get transfers by destination
+  `GET /snapshots?limit=&offset=&opponent=`
 
-  `GET /snapshots?limit=&offset=&destination=&tag=` 
+- Get all withdrawal records of an address.
 
-| Name | Description |
+  `GET /snapshots?limit=&offset=&destination=&tag=`
+
+| Parameter | Description |
 | :----- | :---- |
-| limit | Max 500 |
-| offset | format RFC3339Nano, UTC: `2020-12-12T12:12:12.999999999Z` |
-| asset | OPTION, return all network snapshots or specific asset snapshots. |
-| opponent | OPTION |
-| destination | OPTION |
-| tag | OPTION |
+| limit | Pagination per page data limit, 500 at most. |
+| offset | Pagination start time, for example, `2020-12-12T12:12:12.999999999Z`. |
+| asset | Optional, get the transfer records of an asset. |
+| opponent | Optional, get the transfer records of a user or bot. |
+| destination | Optional, get the withdrawal records of a certain address. |
+| tag | Optional |
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
@@ -43,3 +45,4 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:2
   ]
 }
 ```
+

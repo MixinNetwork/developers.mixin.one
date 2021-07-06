@@ -1,8 +1,8 @@
-# Friends
+# Contacts
 
 ### `GET /friends`
 
-Get user’s friends, `CONTACTS:READ` permission is required.
+To obtain the contact list of the user, you need the `CONTACTS:READ` permission. The list contains users and bots. You can judge whether it is a bot user by whether there is an app field.
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/friends"
@@ -12,7 +12,7 @@ $$XIN:curl$$ "https://api.mixin.one/friends"
 {
   "data":[
     $$XIN:user$$,
-    ...
+  ...
   ]
 }
 ```

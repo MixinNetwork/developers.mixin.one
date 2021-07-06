@@ -92,7 +92,7 @@ Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 
 ```json
 {
-    "data": {}
+  "data": {}
 }
 ```
 

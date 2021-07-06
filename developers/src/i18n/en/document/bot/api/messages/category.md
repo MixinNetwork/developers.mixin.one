@@ -1,103 +1,141 @@
-# Message Category
+# Category
 
-Mixin Messenger supports sending text, pictures, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`. Sending pictures, videos, files, and videos requires uploading attachments and obtaining attachment id before sending.
+Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`. Sending images, files, and videos requires uploading attachments and obtaining attachment_id before sending.
 
-### Text
+### Texts
+
 ```json
- $$XIN:text$$
+  $$XIN:text$$
 ```
 
-### Sticker
+### Stickers
+
 ```json
  $$XIN:sticker$$
 ```
-data 
+
+data:
+
 ```json
  $$XIN:sticker_data$$
 ```
 
-### Image
+### Images
+
 ```json
  $$XIN:image$$
 ```
-data
+
+data:
+
 ```json
  $$XIN:image_data$$
 ```
 
-### Audio
+### Audios
+
 ```json
  $$XIN:audio$$
 ```
-data
+
+data:
+
 ```json
  $$XIN:audio_data$$
 ```
 
-### Video
+### Videos
+
 ```json
  $$XIN:video$$
 ```
-data
+
+data:
 ```json
  $$XIN:video_data$$
 ```
 
-### Contact
+### Contacts
+
 ```json
  $$XIN:contact$$
 ```
-data
+
+data:
+
 ```json
  $$XIN:contact_data$$
 ```
 
-### App Card
+### Cards
+
 ```json
  $$XIN:card$$
 ```
-data
+data:
 ```json
  $$XIN:card_data$$
 ```
 
-### File
+
+Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
+
+### Files
+
 ```json
  $$XIN:file$$
 ```
-data
+data:
 ```json
  $$XIN:file_data$$
 ```
 
-### LIVE
+### Live Shows
+
 ```json
  $$XIN:live$$
 ```
-data
+
+data:
 ```json
  $$XIN:live_data$$
 ```
 
-### Location
+### Locations
+
 ```json
  $$XIN:location$$
 ```
-data
+
+data:
 ```json
  $$XIN:location_data$$
 ```
 
-### POST
+### Posts
+
 ```json
  $$XIN:post$$
 ```
 
-### App Button Group
+### Buttons
+
 ```json
- $$XIN:button$$
+  $$XIN:button$$
 ```
-data 
+
+data:
 ```json
  $$XIN:button_data$$
+```
+
+### Transfers
+
+```json
+ $$XIN:category_snapshot$$
+```
+
+data:
+```json
+ $$XIN:transfer$$
 ```

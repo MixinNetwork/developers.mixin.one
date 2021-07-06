@@ -1,11 +1,11 @@
-# Read Conversation
+# Reading
 
-Read conversation by `conversation_id`.
+Get conversation information by ID.
 
 ### `GET /conversations/:id`
 
 ```
-$$XIN:curl$$ "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311" -X GET
+$$XIN:curl$$ "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311"
 ```
 
 ```json

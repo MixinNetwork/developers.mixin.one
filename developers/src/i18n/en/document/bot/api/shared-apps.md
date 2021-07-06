@@ -1,10 +1,8 @@
-# Favorite Apps
+# Sharing Bots
 
-Add app to favorite app list. The list will be shown in Messenger user’s Shared Apps. The maximum favorite apps size is 3.
+Both users and bots can be configured to share 3 bots on their personal pages, and they can also be displayed from the + menu in the lower left corner of the chat interface. This feature can greatly promote the spread of bots among users by word of mouth.
 
-### Read Favorite Apps
-
-Returns the favorite apps are recommended by the user.
+### Getting Share List
 
 `GET /users/:id/apps/favorite`
 
@@ -21,9 +19,7 @@ $$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/a
 }
 ```
 
-### Add Favorite App 
-
-Add app to favorite app list.
+### Adding To Shares
 
 `POST /apps/:id/favorite`
 
@@ -31,10 +27,10 @@ Add app to favorite app list.
 $$XIN:curl$$ "https://api.mixin.one/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/favorite"
 ```
 
+Returns the share list on success.
 
-### Remove Favorite App
 
-Remove an app from favorite app list.
+### Deleting Shares
 
 `POST /apps/:id/unfavorite`
 
@@ -42,7 +38,5 @@ Remove an app from favorite app list.
 $$XIN:curl$$ "https://api.mixin.one/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/unfavorite"
 ```
 
-```
-// Sample Response
-{ }
-```
+Returns empty json on success.
+

@@ -11,6 +11,8 @@ Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 err
 |202|	429|	Too Many Requests. |
 |202|	10006|	App update required.|
 |202|	20116|	The group chat is full.|
+|202|	20133|	Too many circles for the conversation. |
 |500|	500| Internal Server Error. |
 |500|	7000 |  Blaze server error. |
 |500|	7001 | The blaze operation timeout. |
+

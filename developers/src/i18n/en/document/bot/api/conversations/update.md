@@ -1,63 +1,90 @@
-# Update Conversation
+# Updating
 
-Update the name and announcement of a Conversation, Group only.
+Updating here is mainly about group chats, such as updating group announcements, joining groups, exiting, muting, and other operations. After the following operations are successful, complete conversation data will be returned, including group members.
+
+
 ### Group Name
+
 `POST /conversations/:id`
 
-| Name | Type | Description |
-| :----- | :----: | :---- |
-| name | String | group name |
+Request body data:
 
-### Group Announcement
+| Parameter | Type | Description |
+| :----- | :----: | :---- |
+| name | String | New group name, 512 characters at most. |
+
+### Group Announcements
+
 `POST /conversations/:id`
 
-| Name | Type | Description |
+Request body data:
+
+| Parameter | Type | Description |
 | :----- | :----: | :---- |
-| announcement | String | group announcement |
+| announcement | String | Group Announcements, 1024 characters at most. |
 
+Every time the field is updated, all group members can see an eye-catching group announcement reminder bar.
 
-### Join Group
+### Joining
 
-- Join the group via link
+- Join the group via link.
 
   `POST /conversations/:id/join`
 
-- Join the group via invite
+- Added to the group by administrators or group owners. 
 
   `POST /conversations/:id/participants/ADD`
 
-  `[{ user_id: "" }]`
+  Request body data `[{ user_id: "" }]`
 
-- Rotate group link
+- Resetting invitation link.
 
   `POST /conversations/:id/rotate`
 
-### Remove group
+### Exiting
 
   `POST /conversations/:id/exit`
 
-### Admin
-Only the owner can set or cancel the admin.
+### Administrators
 
-- Set an admin
+Only the owners can set or cancel administrators
 
-  `POST /conversations/:id/ROLE`
+- Setting Up An Administrator
 
-  `[{ user_id: "", role: "ADMIN" }]`
+  `POST /conversations/:id/participants/ROLE`
 
-- Cancel admin
+  Request body Data: `[{ user_id: "", role: "ADMIN" }]`
 
-  `POST /conversations/:id/ROLE`
+- Revoking An Administrator
 
-  `[{ user_id: "", role: "" }]`  
+  `POST /conversations/:id/participants/ROLE`
 
-### Mute
-Muted conversations will still receive messages, but will not receive notification.
+  Request body Data:  `[{ user_id: "", role: "" }]`  
+
+- Adding A User
+
+  `POST /conversations/:id/participants/ADD`
+
+  Request body Data:  `[{ user_id: "", role: "" }]`
+
+- Removing A User
+
+  `POST /conversations/:id/participants/REMOVE`
+
+  Request body Data:  `[{ user_id: ""}]`    
+
+### Muting
+
+Muted conversations will still receive messages, but without notifications.
 
 `POST /conversations/:id/mute`
 
-| Name | Type | Description |
+Request body data:
+
+| Parameter | Type | Description  |
 | :----- | :----: | :---- |
-| duration | Int64 | The unit is second, set to 0 means unmute, other values mean mute time, for example, set 28,800 means mute 8 hours.  |
-| category | String | OPTION |
-| participants | Array | OPTION |
+| duration | Int64 | In seconds, setting to 0 means unmute, other values means mute time, for example, setting 28,800 means mute 8 hours |
+| category | String | Optional |
+| participants | Array | Optional, participants in the conversation. |
+
+If you mute users or bots, it is strongly recommended to pass the category and participants parameters, otherwise calling the mute interface without creating a conversation will return an error.

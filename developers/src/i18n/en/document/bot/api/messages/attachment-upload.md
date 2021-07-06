@@ -1,15 +1,17 @@
-# Upload Attachment
+# Uploading Attachments
 
-Create an attachment upload address. We use s3 as our storage, you can follow s3 Browser-Based Upload using HTTP POST. https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html.
+We upload the attachments using HTTP and store them on the Amazon S3, see [S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html).
 
-### `POST /attachments`
+### `POST /Attachment`
 
 ```
-$$XIN:curl$$ "https://api.mixin.one/attachments" -XPOST
+$$XIN:curl$$ "https://api.mixin.one/attachments" -X POST
 ```
 
 ```json
-{  
-  "data": $$XIN:attachment$$
+{
+  "Data": $$XIN: Attachment$$
 }
 ```
+
+Upload the attachment to upload_url, and then the attachment_id can be used sending images, videos, files and other messages.

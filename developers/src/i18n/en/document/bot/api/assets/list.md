@@ -1,8 +1,8 @@
-# Read Asset List
+# Asset List
 
-Read the user’s assets list, `ASSETS:READ` permission is required.
+To obtain the asset list of a user, the `ASSETS:READ` permission is required.
 
-### `GET /assets` 
+### `GET /assets`
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/assets"

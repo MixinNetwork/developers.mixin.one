@@ -1,7 +1,5 @@
 # Fee
 
-Read asset fee by `asset_id`.
-
 ### `GET /assets/:id/fee` 
 
 ```
