@@ -1,6 +1,6 @@
 ### 多签资产
 
-查询所有支持多重签名的资产列表，无需授权访问
+少部分的资产目前还不支持多签，这个接口返回 Mixin Netwrok 里支持多重签名的资产列表, 另外所有 erc 20 的代币也都支持多签。
 
 ### `GET /network/assets/multisig` 
 
@@ -9,28 +9,11 @@ $$XIN:curl$$ "https://api.mixin.one/network/assets/multisig"
 ```
 
 ```json
-{  
-  "data":{  
+{
+  "data":{
     "assets":[  
-    {  
-      "type": "asset",
-      "asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
-      "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
-      "symbol": "BTC",
-      "name": "Bitcoin",
-      "icon_url": "https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
-      "price_btc": "1",
-      "price_usd": "14996.98",
-      "change_btc": "0",
-      "change_usd": "-0.03773542533280206",
-      "asset_key": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
-      "mixin_id": "fe6b7788944d328778f98e3e81588215b5a07de4f9a4a7de4db4535b404e65db",
-      "reserve": "0",
-      "confirmations": 3,
-      "capitalization": 144241811.6455701,
-      "liquidity": "9618.05721189"
-    },
-      ....
+    $$XIN:asset$$,
+    ....
     ]
   }
 }

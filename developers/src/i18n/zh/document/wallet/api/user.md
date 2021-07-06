@@ -1,5 +1,17 @@
 # 注册 Mixin Network 用户
 
+Mixin Network 中分为几种用户，Messenger 用户, 机器人用户，机器人子用户:
+
+- Messenger 用户，需要下载 Mixin Messenger, 通过手机号注册
+- 机器人用户，需要通过开发者后台注册，两个免费额度
+- 机器人的子用户
+
+他们之间区别:
+
+- Messenger 用户跟机器人几乎是完全一致，机器人的私钥是由开发者
+- Messenger 用户可以授权给机器人，目前只有读取权限，像个人信息，资产信息等
+- 子用户，只能对资产进行操作，无法发送消息, 打电话, 另外要注意保存好私钥，无法被找回
+
 ### `POST /users` 
 
 请求 Body 数据
@@ -20,13 +32,7 @@ $$XIN:curl$$ "https://api.mixin.one/users" -X POST --data '{"full_name":"Bot Use
 ```json
 {
   "data":{
-    "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",     // 用户 Id
-    "session_id":"a34c07a9-755d-4b54-94c5-e45e9a2dd43e",  // 会话 Id
-    "pin_token":"",                                       // 用于加密 PIN 
-    "full_name":"Bot User",                               // 昵称
-    "biography":"",                                       // 简介
-    "avatar_url":"",                                      // 头像
-    "created_at":"2018-05-03T06:03:56.867971412Z",        // 创建时间
+    $$XIN:user$$
   }
 }
 ```

@@ -1,6 +1,20 @@
-# 多签
+# 多签操作
 
-和上传文件类似，多签需要先生成一个多签请求获得 request_id，然后再发起多签操作。
+在之前已经说过如何拿到多签的 outputs, 在拿到这些 outputs 之后就可以花费，多签有三种操作，分别是 `sign`, `cancel` 跟 `unlock`，注意事项:
+
+- sign, unlock操作, 都需要先生成一个多签请求获得 request_id，然后再进行操作。
+- sign 操作里，不能有已经 spent 的 output
+- cancel 只能用来取消未签名的操作，相当于删除 request
+- unlock 用来取消一个签名中的交易，例如 2/3 签的交易已经完成签名，则不能 unlock
+
+
+整个多签的流程：
+
+1. 转帐到多签帐号, 以 2/3 签为例, A, B, C 共同管理
+2. 拿到相关资产的对应金额的 outputs, 需要少于 256, 如果需要的 outputs 太多，可以先进行一步合并 outputs 操作
+3. A 创建多签 request, 并签名
+4. B 创建多签 request, 并签名
+5. 任何人发现 threshold >= 2 或者 signers 大于等于 2 人完成签名，发送交易
 
 ### 生成多签请求
 ```
@@ -21,22 +35,7 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests --data '{"action": "sign"
 ```json
 {  
   "data":{  
-    "type":"multisig_request",
-    "request_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "user_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "amount":"10",
-    "threshold":"2",
-    "senders": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "receivers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "signers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "memo":"hello",
-    "action":"sign",
-    "state": "spent",
-    "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "raw_transaction": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "created_at":"2018-05-03T10:08:34.859542588Z",
-    "code_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+    $$XIN:multisig_body$$
   }
 }
 ```
@@ -59,22 +58,7 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin
 ```json
 {  
   "data":{  
-    "type":"multisig_request",
-    "request_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "user_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "amount":"10",
-    "threshold":"2",
-    "senders": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "receivers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "signers": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"],
-    "memo":"hello",
-    "action":"sign",
-    "state": "spent",
-    "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "raw_transaction": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "created_at":"2018-05-03T10:08:34.859542588Z",
-    "code_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+    $$XIN:multisig_body$$
   }
 }
 ```

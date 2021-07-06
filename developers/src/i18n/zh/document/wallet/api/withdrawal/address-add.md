@@ -1,5 +1,11 @@
 # 新增提现地址
 
+用户提现操作之前，需要先对相应的资产添加提现地址, 需要注意事项：
+
+- 像 btc, eth 只需要 destination 参数即可
+- eos 需要提供 destination, tag (备注)
+- 每个资产的提现地址只能添加一次
+
 ### `POST /addresses` 
 
 请求 Body 数据
@@ -7,9 +13,9 @@
 | 参数 | 类型 | 介绍 |
 | :----- | :---- | :---- |
 | asset_id | UUID String | 资产 id |
-| label | String | 地址别名 |
+| label | String | 地址名称，长度为 1 ~ 64 |
 | destination | String | 提现地址 |
-| tag | String | 提现备注（Tag） |
+| tag | String | 提现备注（Tag）, 不能大于 128 个字符|
 | pin | String | 加密后的 PIN |
 
 ```
@@ -19,16 +25,7 @@ $$XIN:curl$$ "https://api.mixin.one/addresses" -XPOST --data '{"asset_id":"43d61
 ```json
 {
   "data":{
-    "type":"address",
-    "address_id":"e1524f3c-2e4f-411f-8a06-b5e1b1601308",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "destination":"0x86Fa049857E0209aa7D9e616F7eb3b3B78ECfdb0",
-    "tag": "",
-    "label":"Eth Address",
-    "fee":"0.016",
-    "reserve":"0",
-    "dust":"0.0001",
-    "updated_at":"2018-07-10T03:58:17.5559296Z"
+    $$XIN:address$$
   }
 }
 ```

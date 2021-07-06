@@ -259,7 +259,6 @@ export default {
             ]},
             { name: "转账", child: [
               { name: "转账", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
-              { name: "转账到多签", path: "wallet/api/transfer-to-multisigs", router: "wallet/api/transfer/transfer-to-multisigs" },
               { name: "转账到主网", path: "wallet/api/transfer-to-mainnet", router: "wallet/api/transfer/transfer-to-mainnet" },
               { name: "转账记录", path: "wallet/api/snapshots", router: "wallet/api/transfer/snapshots" },
               { name: "转账详情", path: "wallet/api/snapshot", router: "wallet/api/transfer/snapshot" },
@@ -292,6 +291,7 @@ export default {
               { name: "多签资产", path: "wallet/api/network/assets-multisig", router: "wallet/api/network/assets-multisig" },
               { name: "资产详情", path: "wallet/api/network/asset", router: "wallet/api/network/asset" },
               { name: "资产搜索", path: "wallet/api/network/assets-search", router: "wallet/api/network/assets-search" },
+              { name: "内部地址", path: "wallet/api/network/network", router: "wallet/api/network/network" },
             ]},
             { name: "实时汇率", path: "wallet/api/fiats", router: "wallet/api/fiats" },
             { name: "RSA 迁移", path: "wallet/api/session-secret", router: "wallet/api/session-secret" },

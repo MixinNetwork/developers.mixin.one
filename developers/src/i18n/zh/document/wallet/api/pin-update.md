@@ -1,5 +1,10 @@
 # 设置初始密码或修改密码
 
+PIN 码在 Mixin Network 中相当于私钥的存在，非常重要的，这个接口是用来初始化，或者更新 PIN, 注意事项:
+
+- 设置初始密码 old_pin 应传空字符串。 
+- 更新时，old_pin 跟 pin 的 iterator 也需要递增
+
 ### `POST /pin/update` 
 
 请求 Body 数据
@@ -16,18 +21,7 @@ $$XIN:curl$$ "https://api.mixin.one/pin/update" -X POST --data '{"old_pin":"","p
 ```json
 {
   "data":{
-    "type":"user",
-    "user_id":"06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
-    "identity_number":"0",
-    "session_id":"a34c07a9-755d-4b54-94c5-e45e9a2dd43e",
-    "pin_token":"",
-    "phone":"",
-    "full_name":"Bot User",
-    "biography":"",
-    "avatar_url":"",
-    "created_at":"2018-05-03T06:03:56.867971412Z",
+    $$XIN:user$$
   }
 }
 ```
-
-**设置初始密码 old_pin 应传空字符串。**
