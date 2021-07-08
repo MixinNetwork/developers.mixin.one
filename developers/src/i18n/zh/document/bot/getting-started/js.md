@@ -71,6 +71,7 @@
     }
   }
   ```
+  客户端支持自动读取 mp3 的 Artwork 封面、Title 标题、Artist 艺术家这三个 metadata 信息。
 
   **该方法在 Mixin Messenger 0.30.0 或以上的版本支持。**
 
