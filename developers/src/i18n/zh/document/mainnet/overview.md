@@ -49,15 +49,15 @@ Mixin 是一个免费、快速的点对点跨链数字资产交易网络，可�
 
 ### 更多介绍
 
-- [XIN 代币](./concepts/xin)
+- [XIN 代币](/document/mainnet/concepts/xin)
 
   介绍 XIN 的用途、发行等。
 
-- [公链支持](./concepts/chain)
+- [公链支持](/document/mainnet/concepts/chain)
 
   查看 Mixin 具体支持哪些公链。
 
 ### 参与开发
-- [将 Mixin 钱包集成到您的产品](../wallet/get-started/create-app)
+- [将 Mixin 钱包集成到您的产品](/document/wallet/get-started/create-app)
 
-- [基于 Mixin Messenger 开发机器人](../bot/get-started/create)
+- [基于 Mixin Messenger 开发机器人](/document/bot/getting-started/create)
