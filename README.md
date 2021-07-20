@@ -1,6 +1,6 @@
 This repo is the source code of [https://developers.mixin.one/](https://developers.mixin.one/), which includes:
 
-1. How to create an app and get the access_token of a Mixin Messager user: [https://developers.mixin.one/document/bot/get-started/create](https://developers.mixin.one/document/bot/get-started/create)
+1. How to create an app and get the access_token of a Mixin Messager user: [https://developers.mixin.one/document/bot/getting-started/create](https://developers.mixin.one/document/bot/getting-started/create)
 2. API document of Mixin Network [https://developers.mixin.one/document/wallet/api/overview](https://developers.mixin.one/document/wallet/api/overview)
 
 ## Communication

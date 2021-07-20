@@ -59,16 +59,16 @@ Nodes charge a fee for each API call from DApps, so the income will not be affec
 
 ### More
 
-- [XIN Token](./concepts/xin) 
+- [XIN Token](/document/mainnet/concepts/xin) 
 
   Introduction to the usage and issuance of XIN.
 
-- [Public Chain Support](./concepts/chain)
+- [Public Chain Support](/document/mainnet/concepts/chain)
 
   Get to know which public chains Mixin supports.
 
 ### Development
 
-- [Integrate Mixin Wallet Into Your Own Apps](../wallet/get-started/create-app)
+- [Integrate Mixin Wallet Into Your Own Apps](/document/wallet/get-started/create-app)
 
-- [Chatbot Development Based On Mixin Messenger](../bot/get-started/create)
+- [Chatbot Development Based On Mixin Messenger](/document/bot/getting-started/create)
