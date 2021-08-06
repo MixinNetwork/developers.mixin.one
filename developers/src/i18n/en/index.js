@@ -258,9 +258,9 @@ export default {
             { name: "Overview", path: "wallet/api/overview", router: "wallet/api/overview" },
             { name: "Registering Mixin Network Users", path: "wallet/api/user", router: "wallet/api/user" },
             { name: "PIN", child: [
-              { name: "Setting Initial PIN vs. Changing PIN", path: "wallet/api/pin-update", router: "wallet/api/pin-update" },
-              { name: "PIN Verification", path: "wallet/api/pin-verify", router: "wallet/api/pin-verify" },
-              { name: "PIN Error Logs", path: "wallet/api/logs", router: "wallet/api/logs" },
+              { name: "Setting Initial PIN vs. Changing PIN", path: "wallet/api/pin-update", router: "wallet/api/pin/pin-update" },
+              { name: "PIN Verification", path: "wallet/api/pin-verify", router: "wallet/api/pin/pin-verify" },
+              { name: "PIN Error Logs", path: "wallet/api/logs", router: "wallet/api/pin/logs" },
             ]},
             { name: "Transfer", child: [
               { name: "Transfer", path: "wallet/api/transfer", router: "wallet/api/transfer/transfer" },
