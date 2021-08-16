@@ -20,7 +20,7 @@ In addition to providing end-to-end encrypted chat and wallet functions, Mixin M
 
 ### Next Step
 
-- [Developing Mixin Messenger Bots](./get-started/create)
+- [Developing Mixin Messenger Bots](./getting-started/create)
 
 ---
 **To contact tech support, search for 762532、493230、31911 in Mixin Messenger**
