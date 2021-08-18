@@ -2,6 +2,11 @@
 
 ### `POST /addresses/:id/delete` 
 
+请求 Body 数据
+
+| 参数 | 类型 | 介绍 |
+| :----- | :---- | :---- |
+| pin | String | 加密后的 PIN |
 ```
 $$XIN:curl$$ "https://api.mixin.one/addresses/ba3a2e33-efde-40b9-9cac-c293f0d1a3f2/delete" -XPOST --data '{"pin":"d2EJy5kmt56d3U5PeKm+TJLBnXBuyxBTcWxytL8pk/LXwJEak9r8iVMcASjgvoO+"}'
 ```
