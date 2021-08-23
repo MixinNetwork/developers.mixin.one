@@ -1,0 +1,53 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,200;1,300;1,400&display=swap");
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #3d75e3;
+  --ifm-color-primary-dark: #2463df;
+  --ifm-color-primary-darker: #1f5dd6;
+  --ifm-color-primary-darkest: #194cb0;
+  --ifm-color-primary-light: #5687e7;
+  --ifm-color-primary-lighter: #6390e8;
+  --ifm-color-primary-lightest: #89abee;
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  font-family: Nunito;
+}
+
+.navbar {
+  height: 68px;
+  .navbar__brand {
+    img {
+      width: 2.125rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.main-wrapper aside {
+  background-color: #fafcff;
+}
+
+html[data-theme="dark"] .main-wrapper aside {
+  background-color: #353535;
+}
