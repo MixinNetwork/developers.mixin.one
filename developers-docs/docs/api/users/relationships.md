@@ -3,6 +3,9 @@ title: Relationships
 sidebar_position: 5
 ---
 
+import Request from '../../_partials/request'
+import RespUsers from '../../_partials/_resp.user-extra.md'
+
 ## POST /relationships
 
 **Adding Friends**
@@ -44,19 +47,14 @@ Request body data:
 | user_id | String | User ID |
 | action | String | "UNBLOCK" |
 
+<Request title="Manage Relationships" method="POST" url="/relationships --data REQUEST_BODY"/>
+
+<RespUsers />
+
 ## GET /blocking_users
 
 To obtain the block list of users, the `CONTACTS:READ` permission is required.
 
-```
-$$XIN:curl$$ "https://api.mixin.one/blocking_users"
-```
+<Request title="Read Blocking Users" url="/blocking_users"/>
 
-```json
-{
-  "data":[
-    $$XIN:user$$
-  ...
-  ]
-}
-```
+<RespUsers />
