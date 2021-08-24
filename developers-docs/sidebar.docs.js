@@ -4,6 +4,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Mainnet',
+      collapsed: false,
       items: [
         'mainnet/overview',
         {
@@ -46,6 +47,7 @@ module.exports = {
     {
       type: 'category',
       label: 'dApp',
+      collapsed: false,
       items: [
         "dapp/overview",
         {
