@@ -21,10 +21,10 @@ module.exports = {
       contextualSearch: true,
 
       // Optional: see doc section below
-      appId: '',
+      // appId: '',
 
       // Optional: Algolia search parameters
-      searchParameters: {},
+      // searchParameters: {},
 
       //... other Algolia params
     },
