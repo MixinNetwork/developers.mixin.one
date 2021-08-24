@@ -3,18 +3,13 @@ title: Read Asset
 sidebar_position: 2
 ---
 
-:::info
-To obtain the asset list of a user, the `ASSETS:READ` permission is required.
-:::
+import Request from '../../_partials/request'
+import RespAsset from '../../_partials/_resp.asset.md'
 
 ## GET /assets/:id
 
-```bash
-$$XIN:curl$$ "https://api.mixin.one/assets/3596ab64-a575-39ad-964e-43b37f44e8cb"
-```
+This api obtain the asset list of a user, the `ASSETS:READ` permission is required.
 
-```json
-{
-  "data": $$XIN:asset$$
-}
-```
+<Request title="Get Asset by $ASSET_ID" url="/assets/$ASSET_ID"/>
+
+<RespAsset />

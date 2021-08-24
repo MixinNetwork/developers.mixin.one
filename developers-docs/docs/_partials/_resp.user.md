@@ -1,4 +1,4 @@
-```json
+```json title="Response"
 {
   "data": {
     "type":             "user",

@@ -3,15 +3,15 @@ title: Read Fiat Exchange Rates
 sidebar_position: 24
 ---
 
-### `GET /fiats`
+import Request from '../../_partials/request'
+
+## GET /fiats
 
 Returns a list of all fiat exchange rates based on US Dollar.
 
-```bash
-$$XIN:curl$$ "https://api.mixin.one/fiats"
-```
+<Request title="Get Fiats Rate" url="/fiats"/>
 
-```json
+```json title="Response"
 {
   "data": [
     { "code": "ISK", "rate": 121.13998 },
