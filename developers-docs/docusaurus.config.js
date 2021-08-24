@@ -13,6 +13,22 @@ module.exports = {
   organizationName: 'fox-one', // Usually your GitHub org/user name.
   projectName: 'mixin-dev-docs', // Usually your repo name.
   themeConfig: {
+    algolia: {
+      apiKey: '0658fa0945f44e20e9d148da027a3bd7',
+      indexName: 'mixin',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: see doc section below
+      appId: '',
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      //... other Algolia params
+    },
+
     navbar: {
       title: 'Mixin Developer',
       logo: {
@@ -51,7 +67,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/MixinNetwork',
+              href: 'https://twitter.com/Mixin_Network',
             },
           ],
         },
