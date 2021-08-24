@@ -1,20 +1,18 @@
 ---
-title: Chains
-sidebar_position: 21
+title: Read Chains
+sidebar_position: 1
 ---
-
-# Chains
 
 The API returns the list of all public chains supported by Mixin, no permission needed.
 
-### `GET /network/chains` 
+## GET /network/chains
 
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/network/chains"
 ```
 
 ```json
-{  
+{
   "data":[
   {
     "type": "chain",

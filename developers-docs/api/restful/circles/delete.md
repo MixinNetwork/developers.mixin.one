@@ -1,21 +1,19 @@
 ---
-title: Deleting
-sidebar_position: 11
+title: Delete Circles
+sidebar_position: 4
 ---
 
-# Deleting
+## POST /circles/:id/delete
 
-To help users delete circles, the `CIRCLES:WRITE` permission is required.
+To delete circles, the `CIRCLES:WRITE` permission is required.
 
-### `POST /circles/:id/delete`
+:::info
+Note that deleting a circle will not delete the conversations and chat history under the circle.
+::
 
-curl demo:
-
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46/delete"
 ```
 
 An empty json will be returned on success.
 
----
-Note that deleting a circle will not delete the conversations and chat history under the circle.

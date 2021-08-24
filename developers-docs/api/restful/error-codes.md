@@ -1,6 +1,6 @@
 ---
 title: Error Codes
-sidebar_position: 26
+sidebar_position: 15
 ---
 
 # Error Codes

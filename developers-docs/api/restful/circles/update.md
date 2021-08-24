@@ -1,13 +1,11 @@
 ---
-title: Updating
-sidebar_position: 12
+title: Update Circles
+sidebar_position: 5
 ---
 
-# Updating
+## POST /circles/:id
 
 To modify the circle names, you need the `CIRCLES:WRITE` permission.
-
-### `POST /circles/:id`
 
 Request body data:
 
@@ -15,9 +13,8 @@ Request body data:
 | :----- | :----: | :---- |
 | name | String | Circle name. |
 
-curl demo:
 
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46" -XPOST --data'{"name": "Friends"}'
 ```
 

@@ -1,11 +1,9 @@
 ---
 title: Withdrawal
-sidebar_position: 16
+sidebar_position: 1
 ---
 
-# Withdrawal
-
-### `POST /withdrawals` 
+### `POST /withdrawals`
 
 The HTTP request body:
 
@@ -21,8 +19,8 @@ $$XIN:curl$$ "https://api.mixin.one/withdrawals" -XPOST --data '{"amount":"100",
 ```
 
 ```json
-{  
-  "data":{  
+{
+  "data":{
     "type":"withdrawal",
     "snapshot_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
     "transaction_hash":"axt..ze",
@@ -33,3 +31,7 @@ $$XIN:curl$$ "https://api.mixin.one/withdrawals" -XPOST --data '{"amount":"100",
   }
 }
 ```
+
+:::info
+It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
+:::

@@ -1,19 +1,19 @@
 ---
-title: Category
-sidebar_position: 24
+title: Message Category
+sidebar_position: 2
 ---
 
-# Category
+Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`.
 
-Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`. Sending images, files, and videos requires uploading attachments and obtaining attachment_id before sending.
+To send images, files, and videos, you need to upload attachments and obtain attachment_id before sending.
 
-### Texts
+## Texts
 
 ```json
   $$XIN:text$$
 ```
 
-### Stickers
+## Stickers
 
 ```json
  $$XIN:sticker$$
@@ -25,7 +25,7 @@ data:
  $$XIN:sticker_data$$
 ```
 
-### Images
+## Images
 
 ```json
  $$XIN:image$$
@@ -37,7 +37,7 @@ data:
  $$XIN:image_data$$
 ```
 
-### Audios
+## Audios
 
 ```json
  $$XIN:audio$$
@@ -49,7 +49,7 @@ data:
  $$XIN:audio_data$$
 ```
 
-### Videos
+## Videos
 
 ```json
  $$XIN:video$$
@@ -60,7 +60,7 @@ data:
  $$XIN:video_data$$
 ```
 
-### Contacts
+## Contacts
 
 ```json
  $$XIN:contact$$
@@ -72,7 +72,7 @@ data:
  $$XIN:contact_data$$
 ```
 
-### Cards
+## Cards
 
 ```json
  $$XIN:card$$
@@ -85,7 +85,7 @@ data:
 
 Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
 
-### Files
+## Files
 
 ```json
  $$XIN:file$$
@@ -95,7 +95,7 @@ data:
  $$XIN:file_data$$
 ```
 
-### Live Shows
+## Live Shows
 
 ```json
  $$XIN:live$$
@@ -106,7 +106,7 @@ data:
  $$XIN:live_data$$
 ```
 
-### Locations
+## Locations
 
 ```json
  $$XIN:location$$
@@ -117,13 +117,13 @@ data:
  $$XIN:location_data$$
 ```
 
-### Posts
+## Posts
 
 ```json
  $$XIN:post$$
 ```
 
-### Buttons
+## Buttons
 
 ```json
   $$XIN:button$$
@@ -134,7 +134,7 @@ data:
  $$XIN:button_data$$
 ```
 
-### Transfers
+## Transfers
 
 ```json
  $$XIN:category_snapshot$$

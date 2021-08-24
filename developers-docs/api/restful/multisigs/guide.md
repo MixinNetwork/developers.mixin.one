@@ -1,29 +1,27 @@
 ---
 title: Multi-Signature Guide
-sidebar_position: 18
+sidebar_position: 1
 ---
 
-# Multi-Signature Guide
-
-A complete 2/3 multi-signature demo: https://github.com/MixinNetwork/trusted-group, online test bot id: 7000101488.
+There is a complete 2/3 multi-signature demo: https://github.com/MixinNetwork/trusted-group, the online test bot id: 7000101488.
 
 A scenario where the multi-signature could be used: There is an asset that belongs to a team of three people, A, B, and C. Two of them need to agree to use this asset. In this case, a 2/3 multi-signature is appropriate.
 
 A, B, C need to be three different bots or users of Mixin Network (private keys and PINs required).
 
-### 1. Transfer an asset to the common account of A, B, and C. POST /transactions
+## 1. Transfer an asset to the common account of A, B, and C. POST /transactions
 
 Transfer an asset to a multi-signature account, refer to the following document for more info.
 https://developers.mixin.one/document/wallet/api/transfer-to-multisigs
 
-### 2. Get your own utxo /multisigs/outputs
+## 2. Get your own utxo /multisigs/outputs
 
 It should be noted that in a transaction, threshold and members must map to the same members, and the number of signatures (2 of 2/3)
 API document: https://developers.mixin.one/document/wallet/api/multisigs/outputs
 
-We need to continuously request the api server, get the latest utxo and save it. 
+We need to continuously request the api server, get the latest utxo and save it.
 
-### 3. The withdrawal of assets, as mentioned above, requires at least two signatures to complete, but the process is the same.
+## 3. The withdrawal of assets, as mentioned above, requires at least two signatures to complete, but the process is the same.
 
 There are 3 different operations related to multi-signature，which are signing, cancelling, and unlocking. A request needs to be constructed before every operation. API document: https://developers.mixin.one/document/wallet/api/multisigs/request
 
@@ -39,18 +37,18 @@ Code for signing refund after a payment: https://github.com/MixinNetwork/trusted
 
 During the process of contructing the transaction, A's GhostKeys will be used(one-time key), which can be retrieved at https://developers.mixin.one/document/wallet/api/network/keys .
 
-### 4. Cancelling The Transaction
+## 4. Cancelling The Transaction
 
 1. Construct the request, the process is the same as contructing a transaction.
 2. Send the cancel request, POST /multisigs/requests/:id/cancel，:id is request id. Note, only tx in the unspent state can be cancelled.
 
-### 5. Unlocking The Transaction
+## 5. Unlocking The Transaction
 
 When the tx is signed but not sent, cacelling the tx means to unlock it, the process is a lot like cancelling.
 
 1. Construct the request, the process is the same as contructing a transaction.
 2. Send the request, POST /multisigs/requests/:id/unlock，:id is request id, Note that only signed tx can be cancelled.
 
-### Conclusion
+## Conclusion
 
 In most cases, only step 1, 2, and 3 are relavent. First deposit, then sign the related outputs and send the tx to mainnet to spend.

@@ -1,14 +1,15 @@
 ---
-title: Creating
-sidebar_position: 7
+title: Create Conversations
+sidebar_position: 2
 ---
-
-# Creating
 
 To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
 
+## POST /conversations
 
-### `POST /conversations`
+:::info
+The conversations you created are conversations between your bot/dApp and regular Mixin Messenger users. You cannot use the user's `access_token` to create them. Please use the bot/dApp's token to create conversations
+:::
 
 Request body data:
 
@@ -27,37 +28,41 @@ On success:
 }
 ```
 
-**Note that you cannot use the user's access_token to create a conversation, you need to use the current bot's token to create a conversation**
 
-**Note that when the category is "CONTACT", the value of participants should be an array with length equal to 1, and the value of user_id is the other party's user_id.**
+:::info
+Note that when the category is `CONTACT`, the value of participants should be an array with length equal to 1, and the value of `user_id` is the other party's user_id.
+:::
 
-### Generating Unique Conversation ID
+### Generate Unique Conversation ID
 
-- Single chat `category = "CONTACT"`
+**Single chat: category = "CONTACT"**
 
-  The unique identification of the session is generated according to both parties, in Go:
+The unique identification of the session is generated according to both parties, in Go:
 
-```golang
- // Go
- func UniqueConversationId(userId, recipientId string) string {
-    minId, maxId := userId, recipientId
-    if strings.Compare(userId, recipientId) > 0 {
-      maxId, minId = userId, recipientId
-    }
-    h := md5.New()
-    io.WriteString(h, minId)
-    io.WriteString(h, maxId)
-    sum := h.Sum(nil)
-    sum[6] = (sum[6] & 0x0f) | 0x30
-    sum[8] = (sum[8] & 0x3f) | 0x80
-    return uuid.FromBytesOrNil(sum).String()
+```go
+func UniqueConversationId(userId, recipientId string) string {
+  minId, maxId := userId, recipientId
+  if strings.Compare(userId, recipientId) > 0 {
+    maxId, minId = userId, recipientId
   }
+  h := md5.New()
+  io.WriteString(h, minId)
+  io.WriteString(h, maxId)
+  sum := h.Sum(nil)
+  sum[6] = (sum[6] & 0x0f) | 0x30
+  sum[8] = (sum[8] & 0x3f) | 0x80
+  return uuid.FromBytesOrNil(sum).String()
+}
 ```
 
-- Group chat `category = "GROUP"`
+**Group chat: category = "GROUP"**
 
-```Swift
- // Swift
- UUID().uuidString.lowercased()
+```go title="golang"
+uuid.NewV4().String()
 ```
+
+```swift title="swift"
+UUID().uuidString.lowercased()
+```
+
 **Note that UUID strings are unexceptionally converted to lowercase**

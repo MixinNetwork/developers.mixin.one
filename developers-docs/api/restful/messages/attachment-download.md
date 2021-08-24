@@ -1,13 +1,12 @@
 ---
-title: Downloading Attachment
-sidebar_position: 26
+title: Download Attachment
+sidebar_position: 6
 ---
 
-# Downloading Attachments
+## GET /attachments/:id
 
-Attachments can be stored on Amazon S3 and downloaded via HTTP, see [S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html).
+Attachments can be stored on Amazon S3 and downloaded via HTTP, see [S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html) for more information.
 
-### `GET /attachments/:id`
 
 ```json
 {
@@ -15,4 +14,6 @@ Attachments can be stored on Amazon S3 and downloaded via HTTP, see [S3 Document
 }
 ```
 
-Download the attachment through view_url. If the interface returns a 404, it means that the file does not exist or has expired.
+:::info
+You can download the attachment through view_url. If the API returns a 404, it means that the file does not exist or has expired.
+:::

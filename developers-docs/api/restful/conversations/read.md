@@ -1,20 +1,18 @@
 ---
-title: Reading
-sidebar_position: 8
+title: Read Conversations
+sidebar_position: 1
 ---
 
-# Reading
+## GET /conversations/:id
 
 Get conversation information by ID.
 
-### `GET /conversations/:id`
-
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311"
 ```
 
 ```json
-{  
+{
   "data": $$XIN:conversation$$
 }
 ```

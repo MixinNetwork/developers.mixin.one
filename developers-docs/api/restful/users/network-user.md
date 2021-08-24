@@ -1,11 +1,10 @@
 ---
 title: Create Network Users
-sidebar_position: 17
+sidebar_position: 7
 ---
 
-# Registering Mixin Network Users
 
-### `POST /users`
+## POST /users
 
 The HTTP request body:
 

@@ -1,11 +1,9 @@
 ---
-title: Reading
-sidebar_position: 19
+title: Read Signature Outputs
+sidebar_position: 2
 ---
 
-# Reading
-
-### `GET /multisigs/outputs` 
+## GET /multisigs/outputs
 
 | Parameter | Type | Description |
 | :----- | :----: | :---- |
@@ -30,30 +28,30 @@ func hashMembers(ids []string) string {
 
 A example:
 
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
 ```
 
 ```json
-{  
-  "data":{  
-    "type":"multisig_utxo",
-    "user_id":"ab56be4c-5b20-41c6-a9c3-244f9a433f35",
-    "utxo_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-    "asset_id":"43d61dcd-e413-450d-80b8-101d5e903357",
-    "transaction_hash":"29828149577920ccc9d90768012f95768b7d1a925c4189b912c343dbb000180e",
-    "output_index":0,
-    "amount":"10",
-    "threshold":"2",       // The number of members must reach the threshold to make a transaction effective.
-    "members": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"], // The members participating the multi-signature.
-    "memo":"hello",
-    "state": "spent",
-    "signed_tx": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "signed_by": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
-    "created_at":"2018-05-03T10:08:34.859542588Z",
-    "updated_at":"2018-05-03T10:08:34.859542588Z",
+{
+  "data": {
+    "type": "multisig_utxo",
+    "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+    "utxo_id": "a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
+    "asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+    "transaction_hash": "29828149577920ccc9d90768012f95768b7d1a925c4189b912c343dbb000180e",
+    "output_index": 0,
+    "amount": "10",
+    "threshold": "2",       // The number of members must reach the threshold to make a transaction effective.
+    "members":  ["ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35", "ab56be4c-5b20-41c6-a9c3-244f9a433f35"], // The members participating the multi-signature.
+    "memo": "hello",
+    "state":  "spent",
+    "signed_tx":  "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+    "signed_by":  "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+    "created_at": "2018-05-03T10:08:34.859542588Z",
+    "updated_at": "2018-05-03T10:08:34.859542588Z",
   }
 }
 ```
 
-`signed_tx` and `signed_by` have values when the state is signed. signed_by represents the transaction hash, and signed_tx is the complete transaction content, signed_by can help sort the corresponding waiting list of transactions.
+In which, `signed_tx` and `signed_by` have values when the state is signed. `signed_by` represents the transaction hash, and signed_tx is the complete transaction content, `signed_by` can help sort the corresponding waiting list of transactions.

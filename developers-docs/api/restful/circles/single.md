@@ -1,17 +1,13 @@
 ---
-title: Circle
-sidebar_position: 14
+title: Read Circle
+sidebar_position: 2
 ---
 
-# Circle
+## GET /circles/:id
 
 To obtain the details of a certain circle, the `CIRCLES:READ` permission is required.
 
-### `GET /circles/:id`
-
-curl demo:
-
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46"
 ```
 

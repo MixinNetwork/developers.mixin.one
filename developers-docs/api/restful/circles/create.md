@@ -1,13 +1,11 @@
 ---
-title: Creating
-sidebar_position: 10
+title: Create Circles
+sidebar_position: 3
 ---
 
-# Creating
+## POST /circles
 
-To help users create circles, you need the `CIRCLES:WRITE` permission.
-
-### `POST /circles`
+To create circles, you need the `CIRCLES:WRITE` permission.
 
 Request body data:
 
@@ -15,9 +13,7 @@ Request body data:
 | :----- | :----: | :---- |
 | name | String | Name of the circle. |
 
-curl demo:
-
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/circles -XPOST --data '{"name": "Friends"}'
 ```
 
@@ -25,8 +21,8 @@ The response:
 
 ```json
 {
-  "circle_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-  "name":"Friends",
-  "created_at":"2018-05-29T09:31:04.202186212Z"
+  "circle_id": "a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
+  "name": "Circle Name",
+  "created_at": "2018-05-29T09:31:04.202186212Z"
 }
 ```

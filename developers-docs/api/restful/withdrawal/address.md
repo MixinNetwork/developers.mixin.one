@@ -1,11 +1,11 @@
 ---
-title: Withdrawal Address
-sidebar_position: 14
+title: Read Withdrawal Address
+sidebar_position: 3
 ---
 
 # Withdrawal Address
 
-### `GET /addresses/:id` 
+### `GET /addresses/:id`
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/addresses/e1524f3c-2e4f-411f-8a06-b5e1b1601308"

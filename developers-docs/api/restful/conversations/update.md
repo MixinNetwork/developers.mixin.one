@@ -1,6 +1,6 @@
 ---
-title: Updating
-sidebar_position: 9
+title: Update Conversations
+sidebar_position: 3
 ---
 
 # Updating
@@ -36,7 +36,7 @@ Every time the field is updated, all group members can see an eye-catching group
 
   `POST /conversations/:id/join`
 
-- Added to the group by administrators or group owners. 
+- Added to the group by administrators or group owners.
 
   `POST /conversations/:id/participants/ADD`
 
@@ -64,7 +64,7 @@ Only the owners can set or cancel administrators
 
   `POST /conversations/:id/participants/ROLE`
 
-  Request body Data:  `[{ user_id: "", role: "" }]`  
+  Request body Data:  `[{ user_id: "", role: "" }]`
 
 - Adding A User
 
@@ -76,7 +76,7 @@ Only the owners can set or cancel administrators
 
   `POST /conversations/:id/participants/REMOVE`
 
-  Request body Data:  `[{ user_id: ""}]`    
+  Request body Data:  `[{ user_id: ""}]`
 
 ### Muting
 

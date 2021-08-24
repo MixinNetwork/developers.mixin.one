@@ -1,25 +1,17 @@
 ---
-title: Snapshots
-sidebar_position: 7
+title: Read Snapshot List
+sidebar_position: 3
 ---
 
-# Snapshots
+:::info
+To obtain the asset list of a user, the `SNAPSHOTS:READ` permission is required.
+:::
 
-- Get all transfers.
+## GET /snapshots
 
-  `GET /snapshots?limit=&offset=` 
-
-- Get transfers by asset.
-
-  `GET /snapshots?limit=&offset=&asset=` 
-
-- Get transfers by opponent.
-
-  `GET /snapshots?limit=&offset=&opponent=` 
-
-- Get transfers by destination.
-
-  `GET /snapshots?limit=&offset=&destination=&tag=` 
+```http
+GET /snapshots?limit=&offset=&opponent=&asset=&destination=&tag=
+```
 
 | Name | Description |
 | :----- | :---- |
@@ -30,7 +22,7 @@ sidebar_position: 7
 | destination | Optional, get transfers by destination. |
 | tag | Optional |
 
-```
+```bash
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
 ```
 

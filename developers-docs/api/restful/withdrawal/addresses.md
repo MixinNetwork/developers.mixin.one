@@ -1,11 +1,11 @@
 ---
-title: Address List
-sidebar_position: 15
+title: Read Withdrawal Address List
+sidebar_position: 2
 ---
 
 # Address List
 
-### `GET /assets/:id/addresses` 
+### `GET /assets/:id/addresses`
 
 ```
 $$XIN:curl$$ "https://api.mixin.one/assets/43d61dcd-e413-450d-80b8-101d5e903357/addresses"
