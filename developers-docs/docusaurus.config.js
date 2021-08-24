@@ -10,8 +10,8 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'fox-one', // Usually your GitHub org/user name.
-  projectName: 'mixin-dev-docs', // Usually your repo name.
+  organizationName: 'MixinNetwork', // Usually your GitHub org/user name.
+  projectName: 'developers.mixin.one', // Usually your repo name.
   themeConfig: {
     algolia: {
       apiKey: '0658fa0945f44e20e9d148da027a3bd7',
@@ -36,16 +36,10 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Tutorial',
-        // },
         {to: '/introduction', label: 'Docs', position: 'left'},
         {to: '/api-overview', label: 'API', position: 'left'},
         {
-          href: 'https://github.com/fox-one/mixin-dev-docs',
+          href: 'https://github.com/MixinNetwork/developers.mixin.one',
           label: 'GitHub',
           position: 'right',
         },
@@ -80,12 +74,12 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/MixinNetwork',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Mixin`,
     },
     prism: {
       theme: lightCodeTheme,

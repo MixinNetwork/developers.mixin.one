@@ -32,9 +32,15 @@ function HomepageHeader() {
           </ul>
           <div className={styles.buttons}>
             <Link
-              className="button button--primary button--lg"
-              to="/docs/intro">
+              className={clsx('button button--primary button--lg', styles.button)}
+              to="/introduction">
               GET STARTED
+            </Link>
+            <br/>
+            <Link
+              className={clsx('button button--secondary button--lg', styles.button)}
+              to="/api-overview">
+              API Reference
             </Link>
           </div>
         </div>

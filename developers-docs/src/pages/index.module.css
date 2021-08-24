@@ -38,6 +38,10 @@
   justify-content: left;
 }
 
+.button {
+  margin-right: 16px;
+}
+
 .container {
   display: flex;
 }
