@@ -16,7 +16,7 @@ module.exports = {
     navbar: {
       title: 'Mixin Developer',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Mixin Developer',
         src: 'img/logo.svg',
       },
       items: [
@@ -26,8 +26,8 @@ module.exports = {
         //   position: 'left',
         //   label: 'Tutorial',
         // },
-        {to: '/d/mainnet/overview', label: 'Docs', position: 'left'},
-        {to: '/a/overview', label: 'API', position: 'left'},
+        {to: '/mainnet/overview', label: 'Docs', position: 'left'},
+        {to: '/api-overview', label: 'API', position: 'left'},
         {
           href: 'https://github.com/fox-one/mixin-dev-docs',
           label: 'GitHub',
@@ -78,26 +78,14 @@ module.exports = {
   },
   plugins: [
     'docusaurus-plugin-sass',
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'api',
-        path: 'api',
-        routeBasePath: 'a',
-        editCurrentVersion: false,
-        sidebarPath: require.resolve('./sidebars.js'),
-        showLastUpdateAuthor: false,
-        showLastUpdateTime: true,
-      },
-    ],
     // [
     //   '@docusaurus/plugin-content-docs',
     //   {
     //     id: 'api',
-    //     path: 'api',
-    //     routeBasePath: 'api',
+    //     path: 'docs',
+    //     routeBasePath: '/',
     //     editCurrentVersion: false,
-    //     sidebarPath: require.resolve('./sidebars.js'),
+    //     sidebarPath: require.resolve('./sidebar.api.js'),
     //     showLastUpdateAuthor: false,
     //     showLastUpdateTime: true,
     //   },
@@ -108,18 +96,18 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebar.docs.js'),
           path: 'docs',
-          routeBasePath: 'd',
+          routeBasePath: '/',
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/MixinNetwork/developer.mixin.one/developer-docs/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/MixinNetwork/developer.mixin.one/developer-docs/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
