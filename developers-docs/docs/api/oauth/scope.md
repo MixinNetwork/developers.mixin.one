@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 | Permission         |  Description                      |
-|:------------------:|:----------------------------------|
+|:-------------------|:----------------------------------|
 | PROFILE:READ       | Get basic user information, such as user id, Mixin ID, name, and avatar.|
 | ASSETS:READ        | Read user asset list and balance.            |
 | PHONE:READ         | Read the user's mobile phone number.                   |

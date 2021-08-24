@@ -19,11 +19,16 @@ For webSocket requests:
 | wss://blaze.mixin.one | Global |
 | wss://mixin-blaze.zeromesh.net |  China |
 
+
 ## Calling APIs
 
-The Mixin API utilizes JSON Web Tokens (JWT) secure data transmissions between clients and servers.
+Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilizes secure data transmissions between clients and servers.
 
 ### Signing
+
+:::tip
+Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/dapp/sdk/overview).
+:::
 
 **JWT Header**
 
@@ -82,14 +87,16 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
 eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
 ```
 
-**Send Requests**
+You can decode it at [jwt.io](https://jwt.io/).
 
-Add signed authentication token to the headers of API requests:
+**Send Requests with Token**
+
+Add signed authentication token to the headers of API requests to get current dApp's profile:
 
 ```shell
 curl -i -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
-  "https://mixin-api.zeromesh.net/me"
+        -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+        "https://api.mixin.one/me"
 ```
 
 ### API Responses
@@ -100,7 +107,15 @@ On success:
 
 ```json
 {
-    "data": {}
+  "data": {...}
+}
+```
+
+or
+
+```json
+{
+  "data": [...]
 }
 ```
 
@@ -110,8 +125,8 @@ On error:
 {
   "error":{
     "status": 500,
-    "code": 500,
-    "description":"Internal Server Error"
+    "code":   500,
+    "description":  "Internal Server Error"
   }
 }
 ```

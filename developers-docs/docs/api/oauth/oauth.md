@@ -3,6 +3,7 @@ title: OAuth Authorization
 sidebar_position: 2
 ---
 
+import Request from '../../_partials/request'
 
 To access the profiles, assets, and other data of Mixin Messenger users, the developer needs to apply for authorization from the user.
 
@@ -26,30 +27,26 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
 - code_challenge_method - The code challenge method, please set it to `SHA256`
 
 
-## Exchange Authorization Code for Access Token
+## Get Access Token
 
 After successful authorization, the page will automatically jump to the bot's verification URL, the callback URL will be accompanied by the authorization code and return_to parameters, and the developer will then request a token based on the authorization code:
 
 ### POST /oauth/token
 
-```
-$$XIN:curl$$ "https://api.mixin.one/oauth/token" -X POST
-```
+<Request title="Get access token" method="POST" isPublic url="/oauth/token --data PAYLOAD"/>
 
-```json
+```json title="Payload"
 {
-    "client_id": "unique bot identifier",
-    "code": "authorization code returned by the successful authorization callback",
-    "client_secret": "bot key"
+    "client_id":        "unique bot identifier",
+    "code":             "authorization code returned by the successful authorization callback",
+    "client_secret":    "bot key"
 }
 ```
 
-Returned data:
-
-```json
+```json title="Response"
 {
     "access_token": "user authorization token",
-    "scope": "list of permissions that the user has given, e.g. 'PROFILE:READ ASSETS:READ'"
+    "scope":        "list of permissions that the user has given, e.g. 'PROFILE:READ ASSETS:READ'"
 }
 ```
 
