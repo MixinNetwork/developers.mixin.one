@@ -110,14 +110,12 @@ module.exports = {
           path: 'docs',
           routeBasePath: '/',
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/MixinNetwork/developer.mixin.one/developer-docs/',
+          editUrl: 'https://github.com/MixinNetwork/developers.mixin.one/tree/main/developers-docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/MixinNetwork/developer.mixin.one/developer-docs/blog',
+          editUrl: 'https://github.com/MixinNetwork/developers.mixin.one/tree/main/developers-docs/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),

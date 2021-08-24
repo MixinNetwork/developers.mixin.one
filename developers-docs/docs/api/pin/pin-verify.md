@@ -3,6 +3,9 @@ title: Verify PIN
 sidebar_position: 2
 ---
 
+import Request from '../../_partials/request'
+import RespUser from '../../_partials/_resp.user.md'
+
 ## POST /pin/verify
 
 The HTTP request body:
@@ -11,11 +14,9 @@ The HTTP request body:
 | :----- | :----: | :---- |
 | pin | String | Encrypted PIN |
 
-```bash
-$$XIN:curl$$ "https://api.mixin.one/pin/verify" -X POST --data '{"pin":"+mRm5rm9bkQztvpsaTyz1Rib0BEM0S1FKl/oYaMfbUJM3ZmrxJhafj/tjHi+3kwQ"}'
-```
+<Request title="Verify PIN" method="POST" url="/pin/verify --data PAYLOAD" />
 
-The above return an empty json on success.
+The API returns an empty json on success.
 
 ## Error 20119 Debugging
 

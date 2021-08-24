@@ -3,9 +3,11 @@ title: PIN Error Logs
 sidebar_position: 3
 ---
 
+import Request from '../../_partials/request'
+
 Query the user PIN error log records, based on which developers can remind the user of the number of errors within 24 hours.
 
-## GET /logs?category=&limit=&offset=
+## GET /logs
 
 | Parameter | Introduction |
 | :----- | :---- |
@@ -13,13 +15,9 @@ Query the user PIN error log records, based on which developers can remind the u
 | offset | Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z`. |
 | category | Log type, set to a fixed `PIN_INCORRECT`. |
 
-With curl:
+<Request title="Get PIN Logs" url="/logs?category=PIN_INCORRECT&limit=5" />
 
-```bash
-$$XIN:curl$$ "https://api.mixin.one/logs?category=PIN_INCORRECT&limit=5"
-```
-
-```json
+```json title="Response"
 {
   "data": {
     "log_id": "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
