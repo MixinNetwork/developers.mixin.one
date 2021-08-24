@@ -42,7 +42,7 @@ module.exports = {
         //   position: 'left',
         //   label: 'Tutorial',
         // },
-        {to: '/mainnet/overview', label: 'Docs', position: 'left'},
+        {to: '/introduction', label: 'Docs', position: 'left'},
         {to: '/api-overview', label: 'API', position: 'left'},
         {
           href: 'https://github.com/fox-one/mixin-dev-docs',

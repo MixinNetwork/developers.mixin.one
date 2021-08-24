@@ -1,13 +1,103 @@
 module.exports = {
   docs: [
+    "introduction",
     {
       type: 'category',
       label: 'Mainnet',
-      collapsed: false,
       items: [
         'mainnet/overview',
+        {
+          label: 'Concepts',
+          type: 'category',
+          items: [
+            'mainnet/concepts/how-it-works',
+            'mainnet/concepts/xin',
+            'mainnet/concepts/full-node',
+            'mainnet/concepts/d3m-pin',
+            'mainnet/concepts/multisig',
+            'mainnet/concepts/chain',
+            'mainnet/concepts/price',
+          ]
+        },
+        {
+          label: 'MTG',
+          type: 'category',
+          items: [
+            'mainnet/mtg/overview',
+            'mainnet/mtg/chains',
+            'mainnet/mtg/lend',
+            'mainnet/mtg/exchange',
+            'mainnet/mtg/amm',
+            'mainnet/mtg/stablecoin',
+            'mainnet/mtg/wappercoin',
+          ]
+        },
+        {
+          label: 'Tutorials',
+          type: 'category',
+          items: [
+            'mainnet/tutorials/full-node-join',
+            'mainnet/tutorials/sync-full-node',
+            'mainnet/tutorials/submit-asset-icon',
+          ]
+        },
       ],
     },
+    {
+      type: 'category',
+      label: 'dApp',
+      items: [
+        "dapp/overview",
+        {
+          label: 'Getting Started',
+          type: 'category',
+          items: [
+            'dapp/getting-started/create-dapp',
+            'dapp/getting-started/oauth',
+            'dapp/getting-started/read-info',
+            'dapp/getting-started/messages',
+            'dapp/getting-started/transfer',
+          ]
+        },
+        {
+          label: 'Guide',
+          type: 'category',
+          items: [
+            'dapp/guide/create-network-user',
+            'dapp/guide/deposit-withdrawal',
+            'dapp/guide/generate-jwt-token',
+            'dapp/guide/pin',
+            'dapp/guide/sync-snapshots',
+          ]
+        },
+        {
+          label: 'Design Guide',
+          type: 'category',
+          items: [
+            'dapp/design/overview',
+            'dapp/design/user-interaction',
+            'dapp/design/title-bar',
+            'dapp/design/floating-menu',
+            'dapp/design/color',
+            'dapp/design/immersive-mode',
+            'dapp/design/dark-mode',
+            'dapp/design/sticker',
+          ]
+        },
+        {
+          label: 'SDK',
+          type: 'category',
+          items: [
+            'dapp/sdk/overview',
+            'dapp/sdk/go',
+            'dapp/sdk/kotlin',
+            'dapp/sdk/nodejs',
+            'dapp/sdk/php',
+            'dapp/sdk/ruby',
+          ]
+        },
+      ]
+    }
   ],
   api: [
     'api-overview',
