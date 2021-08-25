@@ -3,6 +3,8 @@ title: Read Outputs
 sidebar_position: 24
 ---
 
+import Request from '../../_partials/request'
+
 ## POST /outputs
 
 Get one-time user keys.
@@ -13,12 +15,9 @@ Get one-time user keys.
 | index | Integer | Output index. |
 | hint | String | Unique ghosts generated for users. |
 
+<Request title="Read outputs" isPublic url="/outputs" />
 
-```bash
-$$XIN:curl$$ "https://api.mixin.one/outputs"
-```
-
-```json
+```json title="Response"
 {
   "data":{
     "type": "ghost_key",
