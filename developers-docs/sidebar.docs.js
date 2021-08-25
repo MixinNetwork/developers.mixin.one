@@ -70,6 +70,7 @@ module.exports = {
             'dapp/guide/generate-jwt-token',
             'dapp/guide/pin',
             'dapp/guide/sync-snapshots',
+            'dapp/guide/multisig-guide',
           ]
         },
         {
@@ -187,7 +188,6 @@ module.exports = {
           label: 'Multi-Signature',
           type: 'category',
           items: [
-            'api/multisigs/guide',
             'api/multisigs/request',
             'api/multisigs/outputs',
           ]
