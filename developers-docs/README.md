@@ -13,7 +13,7 @@
   - [ ] tags for permission and bot
   - [ ] sdk & examples & resources
 - [ ] polish document details:
-  - [ ] [admonitions](https://docusaurus.io/docs/markdown-features/react)
+  - [x] [admonitions](https://docusaurus.io/docs/markdown-features/react)
   - [ ] code blocks
   - [ ] inline editing
   - [ ] live code component
@@ -51,6 +51,12 @@ cp -r docs/** i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
 ### Translate the documents
 
 All the documents are placed in the `i18n/$LANG_CODE/` according to the languages.
+
+- `i18n/$LANG_CODE/code.json`: the translation of the index page and the text used by docusaurus.
+- `i18n/$LANG_CODE/docusaurus-theme-classic/footer.json`: the translation of footer.
+- `i18n/$LANG_CODE/docusaurus-theme-classic/navbar.json`: the translation of navbar.
+- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current.json`: the label of category on sidebar.
+- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current/**`: the markdown files of documents.
 
 **Preview the translation**
 
