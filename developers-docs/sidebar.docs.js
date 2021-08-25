@@ -198,7 +198,7 @@ module.exports = {
           items: [
             'api/conversations/read',
             'api/conversations/create',
-            'api/conversations/update',
+            'api/conversations/group',
           ]
         },
         {

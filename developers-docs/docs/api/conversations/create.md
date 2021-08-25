@@ -3,9 +3,13 @@ title: Create Conversations
 sidebar_position: 2
 ---
 
-To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
+import Request from '../../_partials/request'
+import RespConv from '../../_partials/_resp.conv.md'
 
 ## POST /conversations
+
+To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
+
 
 :::info
 The conversations you created are conversations between your bot/dApp and regular Mixin Messenger users. You cannot use the user's `access_token` to create them. Please use the bot/dApp's token to create conversations
@@ -20,18 +24,15 @@ Request body data:
 | name | String | Group name, valid when category is "GROUP", 512 characters at most. |
 | participants | Array | Member list ```[{ user_id: "" }]```, up to 256 people. |
 
-On success:
-
-```json
-{
-  "data": $$XIN:conversation$$
-}
-```
-
-
 :::info
 Note that when the category is `CONTACT`, the value of participants should be an array with length equal to 1, and the value of `user_id` is the other party's user_id.
 :::
+
+<Request title="Create a Conversation" method="POST" url="/conversations --data PAYLOAD"/>
+
+<RespConv />
+
+
 
 ### Generate Unique Conversation ID
 

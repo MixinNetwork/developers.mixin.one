@@ -3,144 +3,76 @@ title: Message Category
 sidebar_position: 2
 ---
 
+import MsgCatText from '../../_partials/_resp.msg.d/text.md'
+import MsgCatAudio from '../../_partials/_resp.msg.d/audio.md'
+import MsgCatButtons from '../../_partials/_resp.msg.d/buttons.md'
+import MsgCatCard from '../../_partials/_resp.msg.d/card.md'
+import MsgCatContact from '../../_partials/_resp.msg.d/contact.md'
+import MsgCatFile from '../../_partials/_resp.msg.d/file.md'
+import MsgCatImage from '../../_partials/_resp.msg.d/image.md'
+import MsgCatLive from '../../_partials/_resp.msg.d/live.md'
+import MsgCatLocation from '../../_partials/_resp.msg.d/location.md'
+import MsgCatPost from '../../_partials/_resp.msg.d/post.md'
+import MsgCatSticker from '../../_partials/_resp.msg.d/sticker.md'
+import MsgCatTransfer from '../../_partials/_resp.msg.d/transfer.md'
+import MsgCatVideo from '../../_partials/_resp.msg.d/video.md'
+
 Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`.
 
 To send images, files, and videos, you need to upload attachments and obtain attachment_id before sending.
 
 ## Texts
 
-```json
-  $$XIN:text$$
-```
+<MsgCatText />
 
 ## Stickers
 
-```json
- $$XIN:sticker$$
-```
-
-data:
-
-```json
- $$XIN:sticker_data$$
-```
+<MsgCatSticker />
 
 ## Images
 
-```json
- $$XIN:image$$
-```
-
-data:
-
-```json
- $$XIN:image_data$$
-```
+<MsgCatImage />
 
 ## Audios
 
-```json
- $$XIN:audio$$
-```
-
-data:
-
-```json
- $$XIN:audio_data$$
-```
+<MsgCatAudio />
 
 ## Videos
 
-```json
- $$XIN:video$$
-```
-
-data:
-```json
- $$XIN:video_data$$
-```
+<MsgCatVideo />
 
 ## Contacts
 
-```json
- $$XIN:contact$$
-```
-
-data:
-
-```json
- $$XIN:contact_data$$
-```
+<MsgCatContact />
 
 ## Cards
 
-```json
- $$XIN:card$$
-```
-data:
-```json
- $$XIN:card_data$$
-```
+<MsgCatCard />
 
-
+:::tip
 Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
+:::
 
 ## Files
 
-```json
- $$XIN:file$$
-```
-data:
-```json
- $$XIN:file_data$$
-```
+<MsgCatFile />
 
 ## Live Shows
 
-```json
- $$XIN:live$$
-```
-
-data:
-```json
- $$XIN:live_data$$
-```
+<MsgCatLive />
 
 ## Locations
 
-```json
- $$XIN:location$$
-```
-
-data:
-```json
- $$XIN:location_data$$
-```
+<MsgCatLocation />
 
 ## Posts
 
-```json
- $$XIN:post$$
-```
+<MsgCatPost />
 
 ## Buttons
 
-```json
-  $$XIN:button$$
-```
-
-data:
-```json
- $$XIN:button_data$$
-```
+<MsgCatButtons />
 
 ## Transfers
 
-```json
- $$XIN:category_snapshot$$
-```
-
-data:
-```json
- $$XIN:transfer$$
-```
+<MsgCatTransfer />
