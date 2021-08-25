@@ -1,0 +1,90 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Mainnet": {
+    "message": "Mainnet",
+    "description": "The label for category Mainnet in sidebar docs"
+  },
+  "sidebar.docs.category.Concepts": {
+    "message": "Concepts",
+    "description": "The label for category Concepts in sidebar docs"
+  },
+  "sidebar.docs.category.MTG": {
+    "message": "MTG",
+    "description": "The label for category MTG in sidebar docs"
+  },
+  "sidebar.docs.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar docs"
+  },
+  "sidebar.docs.category.dApp": {
+    "message": "dApp",
+    "description": "The label for category dApp in sidebar docs"
+  },
+  "sidebar.docs.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Guide": {
+    "message": "Guide",
+    "description": "The label for category Guide in sidebar docs"
+  },
+  "sidebar.docs.category.Design Guide": {
+    "message": "Design Guide",
+    "description": "The label for category Design Guide in sidebar docs"
+  },
+  "sidebar.docs.category.SDK": {
+    "message": "SDK",
+    "description": "The label for category SDK in sidebar docs"
+  },
+  "sidebar.api.category.API Reference": {
+    "message": "API Reference",
+    "description": "The label for category API Reference in sidebar api"
+  },
+  "sidebar.api.category.OAuth": {
+    "message": "OAuth",
+    "description": "The label for category OAuth in sidebar api"
+  },
+  "sidebar.api.category.User": {
+    "message": "User",
+    "description": "The label for category User in sidebar api"
+  },
+  "sidebar.api.category.PIN": {
+    "message": "PIN",
+    "description": "The label for category PIN in sidebar api"
+  },
+  "sidebar.api.category.Assets": {
+    "message": "Assets",
+    "description": "The label for category Assets in sidebar api"
+  },
+  "sidebar.api.category.Transfer": {
+    "message": "Transfer",
+    "description": "The label for category Transfer in sidebar api"
+  },
+  "sidebar.api.category.Withdrawal": {
+    "message": "Withdrawal",
+    "description": "The label for category Withdrawal in sidebar api"
+  },
+  "sidebar.api.category.Network": {
+    "message": "Network",
+    "description": "The label for category Network in sidebar api"
+  },
+  "sidebar.api.category.Multi-Signature": {
+    "message": "Multi-Signature",
+    "description": "The label for category Multi-Signature in sidebar api"
+  },
+  "sidebar.api.category.Conversations": {
+    "message": "Conversations",
+    "description": "The label for category Conversations in sidebar api"
+  },
+  "sidebar.api.category.Messages": {
+    "message": "Messages",
+    "description": "The label for category Messages in sidebar api"
+  },
+  "sidebar.api.category.Circles": {
+    "message": "Circles",
+    "description": "The label for category Circles in sidebar api"
+  }
+}

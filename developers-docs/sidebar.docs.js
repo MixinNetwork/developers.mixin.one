@@ -49,7 +49,7 @@ module.exports = {
       label: 'dApp',
       collapsed: false,
       items: [
-        "dapp/overview",
+        "dapp/mixin-applications",
         {
           label: 'Getting Started',
           type: 'category',

@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
+import Translate, {translate} from '@docusaurus/Translate';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -15,7 +16,10 @@ function HomepageHeader() {
           <h1 className={clsx("hero__title", styles.title)}> Build any decentralized applications on Mixin </h1>
           <ul className={clsx("hero__subtitle", styles.subtitle)}>
             <li className={styles.subtitle_li}>
-              <strong>Secure</strong> - All assets are stored in PoS-BFT-DAG distributed network
+              <strong>
+                <Translate>features.secure</Translate>
+              </strong>
+              <Translate>features.secure.text</Translate>
             </li>
             <li className={styles.subtitle_li}>
               <strong>Fast</strong> - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.

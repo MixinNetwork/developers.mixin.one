@@ -6,7 +6,7 @@
 - [ ] reorganize the developer docs
   - [ ] docs
   - [x] api
-  - [ ] reusable particles
+  - [x] reusable particles
   - [ ] mtg guide
   - [ ] dapp tutorial
   - [ ] dapp guide
@@ -17,11 +17,43 @@
   - [ ] code blocks
   - [ ] inline editing
   - [ ] live code component
-- [ ] [i18n]((https://docusaurus.io/docs/i18n/crowdin))
+- [x] [i18n]((https://docusaurus.io/docs/i18n/crowdin))
 
-## Migration
+## Translation
 
+### Generate new translation files for new languages
 
+If you're the maintainer of this project, please follow the instructions in the [i18n tutorial](https://docusaurus.io/docs/i18n/tutorial) to add a new language.
 
+**Translate the index page**
 
+Please follow the instructions [here](https://docusaurus.io/docs/i18n/tutorial#use-the-translation-apis) to translate your index page and react components.
 
+**Generate/Update json files**
+
+```bash
+yarn run write-translations -- --locale $LANG_CODE
+```
+
+The `$LANG_CODE` is the language code of the language you want to generate. For example, if you want to generate the translation files for the French language, you should use `fr`.
+
+The translation files are generated in the `i18n/$LANG_CODE/` directory.
+
+**Generate Markdown files**
+
+Copy the docs Markdown files to `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current`, and translate them:
+
+```bash
+mkdir -p i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
+cp -r docs/** i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
+```
+
+### Translate the documents
+
+All the documents are placed in the `i18n/$LANG_CODE/` according to the languages.
+
+**Preview the translation**
+
+```bash
+yarn run start -- --locale $LANG_CODE
+```

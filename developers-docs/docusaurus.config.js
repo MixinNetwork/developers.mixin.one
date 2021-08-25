@@ -12,6 +12,18 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'MixinNetwork', // Usually your GitHub org/user name.
   projectName: 'developers.mixin.one', // Usually your repo name.
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh-CN'],
+    localeConfigs: {
+      'en': {
+        label: 'English',
+      },
+      'zh-CN': {
+        label: '简体中文',
+      }
+    }
+  },
   themeConfig: {
     algolia: {
       apiKey: '0658fa0945f44e20e9d148da027a3bd7',
@@ -41,6 +53,10 @@ module.exports = {
         {
           href: 'https://github.com/MixinNetwork/developers.mixin.one',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
       ],
