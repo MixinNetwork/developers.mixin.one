@@ -3,6 +3,8 @@ title: Overview
 sidebar_position: 10
 ---
 
+Both Mixin Core Team and community have developed SDKs for developers to use Mixin API.
+
 ### Overview
 
 Mixin provides REST APIs. Developers are free to use any language familiar to develop Mixin wallets, such as Go, Java, Ruby, Node.js, PHP, C#, Javascript, Python, Swift, Koltin, etc.

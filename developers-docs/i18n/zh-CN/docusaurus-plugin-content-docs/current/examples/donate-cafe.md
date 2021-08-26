@@ -1,9 +1,6 @@
 ---
 title: DonateCafe
-sidebar_position: 15
 ---
-
-# DonateCafe
 
 ![DonateCafe](./donate-cafe.png)
 

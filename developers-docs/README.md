@@ -32,7 +32,7 @@ Please follow the instructions [here](https://docusaurus.io/docs/i18n/tutorial#u
 **Generate/Update json files**
 
 ```bash
-yarn run write-translations -- --locale $LANG_CODE
+yarn run write-translations --locale $LANG_CODE
 ```
 
 The `$LANG_CODE` is the language code of the language you want to generate. For example, if you want to generate the translation files for the French language, you should use `fr`.
@@ -61,5 +61,5 @@ All the documents are placed in the `i18n/$LANG_CODE/` according to the language
 **Preview the translation**
 
 ```bash
-yarn run start -- --locale $LANG_CODE
+yarn run start --locale $LANG_CODE
 ```

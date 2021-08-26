@@ -100,7 +100,20 @@ module.exports = {
           ]
         },
       ]
-    }
+    },
+    {
+      label: 'Community',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'community/support',
+        {
+          type: 'link',
+          href: '/showcase',
+          label: 'Showcases',
+        },
+      ]
+    },
   ],
   api: [
     'api-overview',

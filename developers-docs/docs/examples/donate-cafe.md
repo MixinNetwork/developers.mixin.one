@@ -1,6 +1,5 @@
 ---
 title: DonateCafe
-sidebar_position: 15
 ---
 
 # DonateCafe
