@@ -1,110 +1,102 @@
 ---
 title: Read Information
-sidebar_position: 3
 ---
 
-# Getting User Data
+In the [previous article](./oauth), I introduced the OAuth2 flow and how to use it to get an access token. In this article, I will show you how to read information of users.
 
-### Basic User Information
+From now on, SDK will be introduced in the following articles. The Mixin team and the community provide various SDKs for developers to use. You can find the SDKs in the [SDK](/dapp/sdk/overview) page.
 
-`GET /me`
+## Read User's Profile
 
-To obtain the basic personal information of a user, the `PROFILE:READ` permission is required; to obtain the user's mobile phone number, the `PHONE:READ` permission is required. Refer to [Document](/document/bot/api/profile).
+:::tip
+To obtain the basic personal information of a user, the `PROFILE:READ` permission is required.
+:::
 
+We can read the user's profile by using the [`/me`](/api/users/profile) endpoint. `/me` is an authenticated endpoint, so we need to obtain an access token first and put it in the HTTP Headers.
 
-```json
-GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me
+Let's send a request:
 
+```bash
+GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
+```
+
+```json title="Response"
 {
   "data": {
-    "type": "user",
-    "user_id": "773e5e77-4107-45c2-b648-8fc722ed77f5",
-    "name": "Team Mixin",
+    "type":            "user",
+    "user_id":         "773e5e77-4107-45c2-b648-8fc722ed77f5",
+    "name":            "Team Mixin",
     "identity_number": "7000"
   }
 }
 ```
 
+:::info
+The `user_id` field is an unique id for each "Account" or "User" in the entire Mixin Network.
 
-# User Assets
+Additionally, if the user is a Mixin Messenger user, you can send messages to them by using [`POST /messages`](/api/messages/send) with the `user_id` field.
+:::
 
-Calling `GET /assets` returns assets with a balance greater than 0. When a new user calls this API, an empty list will be returned, and the wallet can have a built-in asset list.
+## Read User's Assets
+
+:::tip
+To obtain the asset balance of a user, the `ASSETS:READ` permission is required.
+:::
+
+Calling `GET /assets` returns assets with a balance greater than 0. When you calls this API with a token which owned by a new user with zero balance, an empty list will be returned.
+
+```bash
+GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/assets
+```
+
+import RespAssets from '../../_partials/_resp.assets.md'
+
+<RespAssets />
+
+:::info
+The `asset_id` field is an unique id for each asset in the entire Mixin Network.
+
+It can be obtained from https://mixin.one/snapshots by searching for asset code such as `btc`. You can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information.
+:::
+
+## Read Application's Assets
+
+The Mixin Application is a special type of user. It also has a wallet just like a normal user. You can inspect the assets of the application by visiting "Developer Dashboard - Choosing any app - Clicking the `Wallet` tab".
+
+You can also read the assets programmatically by calling the [`/assets`](/api/assets/assets) with the application's access token. The algorithm for generating access token can be found [here](../guide/generate-jwt-token), but you can also use the [SDK](/sdk/overview) to simplify the process.
+
+Here is the example of generating token and reading assets by using the official Go SDK:
 
 ```go
-const (
-    userId     = ""
-    pinToken   = ""
-	sessionId  = ""
-	privateKey = ""
-)
+import "github.com/MixinNetwork/bot-api-go-client"
+import "fmt"
 
 func main() {
-    ctx := context.Background()
+  ctx := context.Background()
 
-	//Sign Authentication Token
-	authenticationToken, err := bot.SignAuthenticationToken(user.UserId, user.SessionId, userSessionKey, "GET", "/assets", "")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	//Query Asset List
-	assets, err := bot.AssetList(ctx, authenticationToken)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	for _, a := range assets {
-		fmt.Println(a.AssetId)
-	}
+  // generate token
+  token, err := bot.SignAuthenticationToken(
+    CLIENT_ID,
+    SESSION_ID,
+    CLIENT_SECRET,
+    "GET",
+    "/assets",
+    ""
+  )
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+
+  // query assets
+  assets, err := bot.AssetList(ctx, token)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  for _, a := range assets {
+    fmt.Println(a.AssetId)
+  }
 }
 ```
 
-- Calling `GET /assets/:id` returns the details of a single asset, including the asset's deposit address. For example, to get the deposit address of BTC, call `GET /assets/c6d0c728-2624-429b-8e0d-d9d19b6592fa`
-- The `asset_id` is unique and fixed in the entire network. It can be obtained from https://mixin.one/snapshots by searching for asset code such as `btc`; you can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information, the format is as follows:
-
-  ```json
-  {
-    "name":"Bitcoin",
-    "symbol":"BTC",
-    "asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa",
-    "chain_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa",
-    "chain_icon_url":"https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
-    "icon_url":"https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128"
-  }
-  ```
-
-### Next Step
-
-- [Transfer](./transfer)
-
-  Transfers among wallet users are free and instant.
-
-### Other Common APIs
-
-* `GET /assets` Obtain asset list of the user, `ASSETS:READ` permission is requied, refer to [document](/document/bot/api/assets/list).
-
-* `GET /assets/:id` Obtain information of an asset, `ASSETS:READ` permission is required, refer to [document](/document/bot/api/assets/asset).
-
-* `GET /friends` Obtain the friend list of the user, `CONTACTS:READ` permission is required, refer to [document](/document/bot/api/users/contacts).
-
-* `GET /blocking_users` Obtain the blocked list of the user, `CONTACTS:READ` permission is required, refer to [document](/document/bot/api/users/blocking).
-
-* `GET /snapshots` Obtain all transfer information of an asset of the user, `SNAPSHOTS:READ` permission is required, refer to [document](/document/bot/api/assets/snapshots).
-
-* `GET /snapshots/:id` Obtain the details of a transfer, `SNAPSHOTS:READ` permission is required, refer to [document](/document/bot/api/assets/snapshot).
-
-* `GET /conversations/:id` Obtain the information of a certain conversation of the user, including one to one chat and group chat, refer to [Document](/document/bot/api/conversations/read).
-
-If access to the API returns 401, you need to clean up the cached access token and then apply for authorization again.
-
-### Next Step
-
-It is recommended that developers store `user_id` in the database so that they can push information to users when needed, such as important announcements.
-
-- [Schema Interactions](./schema)
-
-  The bot can evoke certain functions and interfaces of Mixin Messenger, such as transferring money and sharing text.
-
-- [Receiving Messages](./websocket)
-
-  User messages and the notifications that a user adds the current bot as a contact can be received through Websocket.

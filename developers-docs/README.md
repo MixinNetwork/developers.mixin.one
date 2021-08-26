@@ -4,20 +4,26 @@
 
 - [x] [algolia search](https://docusaurus.io/docs/search)
 - [ ] reorganize the developer docs
-  - [ ] docs
+  - [x] showcases
+  - [x] support
   - [x] api
   - [x] reusable particles
-  - [ ] mtg guide
   - [ ] dapp tutorial
   - [ ] dapp guide
   - [ ] tags for permission and bot
-  - [ ] sdk & examples & resources
+  - [ ] sdk
+  - [ ] docs
 - [ ] polish document details:
   - [x] [admonitions](https://docusaurus.io/docs/markdown-features/react)
   - [ ] code blocks
   - [ ] inline editing
   - [ ] live code component
-- [x] [i18n]((https://docusaurus.io/docs/i18n/crowdin))
+- [ ] i18n
+  - [ ] chinese translation
+  - [ ] [crowdin](https://docusaurus.io/docs/i18n/crowdin)
+- [ ] more guides
+  - [ ] client side oauth
+  - [ ] mtg best practices
 
 ## Translation
 
