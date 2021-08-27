@@ -256,7 +256,7 @@ async function request_transfer_app(step) {
       user_id: this.recipient_user.user_id,
       app_id: this.active_app.app_id,
     })).toString('base64')
-    const trace = tools.getUUID()
+    const trace = tools.dailyUniqueID(this.active_app.app_id)
     const user_id = 'fbd26bc6-3d04-4964-a7fe-a540432b16e2'
     const asset = 'c94ac88f-4671-3976-b60a-09064f1811e8'
     const pay_url = `https://mixin.one/pay?recipient=${user_id}&asset=${asset}&amount=0.01&trace=${trace}&memo=${memo}`
