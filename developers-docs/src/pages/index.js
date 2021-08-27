@@ -16,21 +16,26 @@ function HomepageHeader() {
           <h1 className={clsx("hero__title", styles.title)}> Build any decentralized applications on Mixin </h1>
           <ul className={clsx("hero__subtitle", styles.subtitle)}>
             <li className={styles.subtitle_li}>
+              <span>🛡️ </span>
               <strong>
                 <Translate>features.secure</Translate>
               </strong>
               <Translate>features.secure.text</Translate>
             </li>
             <li className={styles.subtitle_li}>
+              <span>⚡️ </span>
               <strong>Fast</strong> - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.
             </li>
             <li className={styles.subtitle_li}>
+              <span>🔋 </span>
               <strong>Powerful</strong> - Supported 32 blockchians, such as BTC, ETH, XMR.
             </li>
             <li className={styles.subtitle_li}>
+              <span>🆓 </span>
               <strong>Free</strong> - No transaction fee.
             </li>
             <li className={styles.subtitle_li}>
+              <span>🔐 </span>
               <strong>Privacy</strong> - End to end encrypted messages.
             </li>
           </ul>

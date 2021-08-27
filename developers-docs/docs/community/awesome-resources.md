@@ -1,6 +1,0 @@
----
-title: Awesome Resources
----
-
-WIP
-

@@ -27,7 +27,7 @@ Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilizes s
 ### Signing
 
 :::tip
-Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/dapp/sdk/overview).
+Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/resources/sdk).
 :::
 
 **JWT Header**

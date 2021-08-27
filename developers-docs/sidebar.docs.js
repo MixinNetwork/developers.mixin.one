@@ -86,19 +86,15 @@ module.exports = {
             'dapp/design/dark-mode',
             'dapp/design/sticker',
           ]
-        },
-        {
-          label: 'SDK',
-          type: 'category',
-          items: [
-            'dapp/sdk/overview',
-            'dapp/sdk/go',
-            'dapp/sdk/kotlin',
-            'dapp/sdk/nodejs',
-            'dapp/sdk/php',
-            'dapp/sdk/ruby',
-          ]
-        },
+        }
+      ]
+    },
+    {
+      label: 'Resources',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'resources/sdk',
       ]
     },
     {
@@ -107,6 +103,7 @@ module.exports = {
       collapsed: false,
       items: [
         'community/support',
+        'community/articles',
         {
           type: 'link',
           href: '/showcase',
