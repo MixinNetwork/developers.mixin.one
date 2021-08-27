@@ -8,7 +8,7 @@ export default function APIEndpoint({url, base}) {
   return (
     <div className={styles.container}>
       <h3>Endpoint URL</h3>
-      <CodeBlock className={`language-bash`}>
+      <CodeBlock className={`language-sass`}>
           {`${apiBase}${url}`}
       </CodeBlock>
     </div>
