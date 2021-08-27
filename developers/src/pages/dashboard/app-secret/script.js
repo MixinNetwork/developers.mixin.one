@@ -251,7 +251,6 @@ async function request_transfer_app(step) {
     else return
     this.transfer_step = step
   } else if (step === 2) {
-    this.transfer_step = step
     const memo = Buffer.from(JSON.stringify({
       user_id: this.recipient_user.user_id,
       app_id: this.active_app.app_id,
@@ -259,7 +258,17 @@ async function request_transfer_app(step) {
     const trace = tools.dailyUniqueID(this.active_app.app_id)
     const user_id = 'fbd26bc6-3d04-4964-a7fe-a540432b16e2'
     const asset = 'c94ac88f-4671-3976-b60a-09064f1811e8'
-    const pay_url = `https://mixin.one/pay?recipient=${user_id}&asset=${asset}&amount=0.01&trace=${trace}&memo=${memo}`
+    const amount = '0.01'
+    this.show_loading()
+    const isPaid = await check_is_paid.call(this, trace, asset, user_id, amount)
+    this.hide_loading()
+    if (isPaid) {
+      this.show_transfer_step = false
+      this.$message.error({ message: this.$t('message.errors.429'), showClose: true })
+      return
+    }
+    this.transfer_step = step
+    const pay_url = `https://mixin.one/pay?recipient=${user_id}&asset=${asset}&amount=${amount}&trace=${trace}&memo=${memo}`
     this.$nextTick(() => new Qrious({
       element: this.$refs.qr,
       level: 'H',
@@ -268,24 +277,25 @@ async function request_transfer_app(step) {
     }))
     isStopCheck = false
     if (tools.environment()) location.href = pay_url
-    check_is_paid.call(this, trace, asset, user_id, '0.01')
+    loop_check_paid.call(this, trace, asset, user_id, amount)
   }
   if (!this.show_transfer_step) this.show_transfer_step = true
 }
 
-
-async function check_is_paid(trace_id, asset_id, counter_user_id, amount) {
+async function loop_check_paid(trace_id, asset_id, counter_user_id, amount) {
   if (isStopCheck) return false
-  const { status } = await this.apis.check_transfer({ trace_id, asset_id, counter_user_id, amount })
-  if (status === 'paid') {
+  const isPaid = await check_is_paid.call(this, trace_id, asset_id, counter_user_id, amount)
+  if (isPaid) {
     this.$message.success({ message: this.$t('message.success.op'), showClose: true })
-    setTimeout(() => {
-      location.href = '/dashboard'
-    }, 500)
-    return
-  }
-  else {
-    await new Promise(resolve => setTimeout(resolve, 100))
-    return check_is_paid.call(this, trace_id, asset_id, counter_user_id, amount)
+    return setTimeout(() => location.href = '/dashboard', 500)
+  } else {
+    await new Promise(resolve => setTimeout(resolve, 500))
+    return loop_check_paid.call(this, trace_id, asset_id, counter_user_id, amount)
   }
 }
+
+async function check_is_paid(trace_id, asset_id, counter_user_id, amount) {
+  const { status } = await this.apis.check_transfer({ trace_id, asset_id, counter_user_id, amount })
+  return status === 'paid'
+}
+
