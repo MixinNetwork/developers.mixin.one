@@ -47,3 +47,10 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 html[data-theme="dark"] .main-wrapper aside {
   background-color: #353535;
 }
+
+code {
+  padding: 0 0.35em;
+  border-radius: 0.35rem;
+  word-break: break-word;
+  border: none;
+}

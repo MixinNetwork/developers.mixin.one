@@ -4,11 +4,17 @@ title: Mixin Applications
 sidebar_position: 1
 ---
 
+Mixin Application is the application that built on top of Mixin. It is a kind of application that can be used to create, manage, and transfer assets on Mixin Network and can send and receive messages from Mixin message service.
+
+Although Mixin Network is a decentralized network, Mixin Application could be centralized or decentralized.
+
 ## Messenger Bot
 
 In addition to providing end-to-end encrypted chat and wallet functions, Mixin Messenger also supports bot functions similar to [Telegram bots](https://core.telegram.org/bots) and [WhatsApp Buz API](https://www.whatsapp.com/business/api).
 
 Developers can easily implement powerful bots with functions such as transactions, paid content, and e-commerce. You can search for `7000101700` in Mixin Messenger to try a variety of selected bots.
+
+By default, every Mixin application that be created at Developer Dashboard will be a Mixin Messenger bot.
 
 ### Features
 
@@ -26,7 +32,9 @@ Developers can easily implement powerful bots with functions such as transaction
 
 ## Mixin API
 
-Based on Mixin Network, stand-alone products such as decentralized wallets and decentralized on-chain exchanges can be quickly developed.
+Develop with distributed systems are always complex, therefore, interact with Kernel and Domain is a hard. To simplify the development, Mixin core team provide the Wallet APIs to developers.
+
+With the APIs, developers can easily unleash the power of Mixin Network with their dApps. Stand-alone products such as decentralized wallets and decentralized on-chain exchanges can be quickly developed.
 
 ### Features
 

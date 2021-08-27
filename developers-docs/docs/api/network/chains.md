@@ -4,10 +4,13 @@ sidebar_position: 1
 ---
 
 import Request from '../../_partials/request'
+import APIMetaPanel from '@site/src/components/api/APIMetaPanel'
 
 ## GET /network/chains
 
 The API returns the list of all public chains supported by Mixin, no permission needed.
+
+<APIMetaPanel scope=""/>
 
 <Request title="Read chains information" isPublic url="/network/chains" />
 

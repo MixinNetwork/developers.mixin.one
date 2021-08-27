@@ -1,0 +1,30 @@
+.panel {
+  margin-bottom: 24px;
+}
+
+.table {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  border-spacing: 0 0.25rem;
+}
+
+.tbody {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tr {
+  border-bottom: none !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent !important;
+  width: 100%;
+  display: block;
+}
+
+.td {
+  border: none;
+  min-width: 120px;
+  vertical-align: top;
+  padding: 0.6em 1em;
+}
