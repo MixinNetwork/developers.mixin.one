@@ -11,10 +11,10 @@ function Row({name, value, required}) {
   }
   return (
     <tr className={styles.tr}>
-      <td className={styles.td}>
+      <th className={clsx(styles.td, styles.th)}>
         <code className={styles.name}>{name}</code>
         {requiredEl}
-      </td>
+      </th>
       <td className={styles.td}>{value}</td>
     </tr>
   );
@@ -65,7 +65,7 @@ export default function APIParams(props) {
   }
   return (
     <section className={clsx('meta-panel', styles.panel)}>
-      <h3>Parameters</h3>
+      <h3 className={styles.title}>Parameters</h3>
       <table className={clsx('meta-panel-table', styles.table)}>
         <tbody className={styles.tbody}>
           {rows.map((row, idx) => (
