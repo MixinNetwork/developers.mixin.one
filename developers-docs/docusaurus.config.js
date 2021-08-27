@@ -73,10 +73,6 @@ module.exports = {
               href: 'https://stackoverflow.com/questions/tagged/mixin',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/mixin',
-            },
-            {
               label: 'Twitter',
               href: 'https://twitter.com/Mixin_Network',
             },
@@ -85,10 +81,6 @@ module.exports = {
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/MixinNetwork',
