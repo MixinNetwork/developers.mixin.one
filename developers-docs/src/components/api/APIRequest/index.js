@@ -8,7 +8,7 @@ export default function Request({title, url, method, isPublic, base}) {
   return (
     <div className="request">
       <h3>Example requests</h3>
-      <CodeBlock className={`language-bash`} title={title}>
+      <CodeBlock className={`language-bash`}>
 curl -i -X {method || 'GET'} -H "Content-Type: application/json"
           {isPublic ? ' ' : ' -H "Bearer: $TOKEN"'}
           {` ${apiBase}${url}`}

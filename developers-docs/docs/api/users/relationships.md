@@ -6,6 +6,8 @@ sidebar_position: 5
 import Request from '../../_partials/request'
 import RespUsers from '../../_partials/_resp.user-extra.md'
 
+<!-- @TODO refactor this doc -->
+
 ## POST /relationships
 
 **Adding Friends**

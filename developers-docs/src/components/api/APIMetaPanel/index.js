@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 
-export default function APIMetaPanel({scope, scopeNote, isMessengerApi}) {
+export default function APIMetaPanel({scope, scopeNote, limitation}) {
   let authBlock = null;
   if (scope) {
     authBlock =
@@ -25,7 +25,7 @@ export default function APIMetaPanel({scope, scopeNote, isMessengerApi}) {
           </tr>
           <tr className={styles.tr}>
             <th className={clsx("meta-panel-cell", styles.td, styles.th)}>Limitation</th>
-            <td className={clsx("meta-panel-cell", styles.td)}>{isMessengerApi ? 'Messenger only' : 'No limitation'}</td>
+            <td className={clsx("meta-panel-cell", styles.td)}>{limitation ? limitation : 'No limitation'}</td>
           </tr>
         </tbody>
       </table>

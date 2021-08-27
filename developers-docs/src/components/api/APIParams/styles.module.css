@@ -14,12 +14,9 @@
 
 .tbody {
   width: 100%;
-  border-bottom: none !important;
 }
 
 .tr {
-  border-bottom: none !important;
-  border-top: none !important;
   background-color: transparent !important;
   width: 100%;
   display: block;
