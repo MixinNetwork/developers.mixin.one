@@ -3,7 +3,7 @@ import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
 import forge from 'node-forge'
 import tools from '@/assets/js/tools'
-
+import Qrious from 'qrious'
 export default {
   name: 'app-information',
   components: {
@@ -15,16 +15,22 @@ export default {
       default() {
         return {}
       }
+    },
+    is_mobile: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       modal_title: '',
       modal_content: '',
-      loading: false,
       open_edit_modal: false,
       confirm_modal: false,
+      show_transfer_step: false,
+      transfer_step: 0,
       confirm_content: '',
+      recipient_user: {},
       submit_form: {
         session_id: '',
         pin_token: '',
@@ -78,15 +84,27 @@ export default {
       if (!client_info) return this.open_edit_modal = true
       _request_qrcode.call(this, true, client_info)
     },
-    click_download_session() {
-      _download_app_json.call(this)
-    },
     request_rotate_qrcode() {
       this.tmp_action = 'rotate'
       let client_info = this.$ls.get(this.active_app.app_id)
       if (!client_info) return this.open_edit_modal = true
       this.confirm_content = this.$t('secret.rotate_qrcode_question')
       this.confirm_modal = true
+    },
+    request_show_transfer() {
+      this.tmp_action = 'transfer'
+      this.modal_title = this.$t('secret.transfer_title')
+      this.modal_content = 'input'
+    },
+    async click_continue_transfer(step) {
+      request_transfer_app.call(this, step)
+    },
+    click_close_transfer_modal() {
+      this.show_transfer_step = false
+      isStopCheck = true
+    },
+    click_download_session() {
+      _download_app_json.call(this)
     },
     click_copy_success() {
       this.$message.success({ message: this.$t('message.success.copy'), showClose: true })
@@ -96,6 +114,18 @@ export default {
     },
     click_close_new_secret() {
       this.modal_content = ''
+    },
+    show_loading() {
+      const options = this.is_mobile ?
+        { fullscreen: true } :
+        { target: document.getElementsByClassName('dashboard-main')[0] }
+      this.loading = this.$loading(options)
+    },
+    hide_loading() {
+      if (this.loading) {
+        this.loading.close()
+        this.loading = null
+      }
     }
   },
   mounted() {
@@ -106,7 +136,7 @@ let once_submit = false
 
 async function _request_new_secret() {
   if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-  this.loading = true
+  this.show_loading()
   once_submit = true
   try {
     const res = await this.apis.app_new_secret(this.active_app.app_id)
@@ -115,7 +145,7 @@ async function _request_new_secret() {
     this.modal_content = res.app_secret
   } finally {
     once_submit = false
-    this.loading = false
+    this.hide_loading()
   }
 }
 
@@ -125,7 +155,7 @@ async function _request_new_session(algo = 'rsa') {
   let key = algo === 'ed25519' ? _get_ed25519_private_key() : _get_private_key()
   let { session_secret, private_key } = key
   once_submit = true
-  this.loading = true
+  this.show_loading()
   try {
     const res = await this.apis.app_new_session(this.active_app.app_id, pin, session_secret)
     this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
@@ -139,7 +169,7 @@ async function _request_new_session(algo = 'rsa') {
     this.$ls.rm(this.active_app.app_id)
   } finally {
     once_submit = false
-    this.loading = false
+    this.hide_loading()
   }
 
   function _get_ed25519_private_key() {
@@ -182,7 +212,7 @@ function _download_app_json() {
 async function _request_qrcode(is_show, client_info) {
   if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
   client_info = client_info || this.$ls.get(this.active_app.app_id)
-  this.loading = true
+  this.show_loading()
   once_submit = true
   const uri = is_show ? '/me' : '/me/code'
   const api = `app_${is_show ? 'show' : 'rotate'}_qrcode`
@@ -203,7 +233,59 @@ async function _request_qrcode(is_show, client_info) {
     this.modal_content = res.code_url
   } finally {
     once_submit = false
-    this.loading = false
+    this.hide_loading()
     _vm._not_through_interceptor = false
+  }
+}
+
+let isStopCheck = true
+async function request_transfer_app(step) {
+  if (step === 1) {
+    const { identity_number } = this.recipient_user || {}
+    if (!identity_number || identity_number.length < 5)
+      return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
+    this.show_loading()
+    const user = await this.apis.check_user(identity_number, this.$ls.get('token'))
+    this.hide_loading()
+    if (user && user.user_id) this.recipient_user = user
+    else return
+    this.transfer_step = step
+  } else if (step === 2) {
+    this.transfer_step = step
+    const memo = Buffer.from(JSON.stringify({
+      user_id: this.recipient_user.user_id,
+      app_id: this.active_app.app_id,
+    })).toString('base64')
+    const trace = tools.getUUID()
+    const user_id = 'fbd26bc6-3d04-4964-a7fe-a540432b16e2'
+    const asset = 'c94ac88f-4671-3976-b60a-09064f1811e8'
+    const pay_url = `https://mixin.one/pay?recipient=${user_id}&asset=${asset}&amount=0.01&trace=${trace}&memo=${memo}`
+    this.$nextTick(() => new Qrious({
+      element: this.$refs.qr,
+      level: 'H',
+      size: 500,
+      value: pay_url
+    }))
+    isStopCheck = false
+    if (tools.environment()) location.href = pay_url
+    check_is_paid.call(this, trace, asset, user_id, '0.01')
+  }
+  if (!this.show_transfer_step) this.show_transfer_step = true
+}
+
+
+async function check_is_paid(trace_id, asset_id, counter_user_id, amount) {
+  if (isStopCheck) return false
+  const { status } = await this.apis.check_transfer({ trace_id, asset_id, counter_user_id, amount })
+  if (status === 'paid') {
+    this.$message.success({ message: this.$t('message.success.op'), showClose: true })
+    setTimeout(() => {
+      location.href = '/dashboard'
+    }, 500)
+    return
+  }
+  else {
+    await new Promise(resolve => setTimeout(resolve, 100))
+    return check_is_paid.call(this, trace_id, asset_id, counter_user_id, amount)
   }
 }

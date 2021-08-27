@@ -112,6 +112,15 @@
       overflow: auto;
     }
   }
+
+  input {
+    width: 30.75rem;
+    height: 3.75rem;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    background: #F6F9FF;
+    border-radius: 0.25rem;
+  }
 }
 
 .btns {
@@ -166,16 +175,6 @@
   }
 }
 
-.qrcode-btns {
-  display: flex;
-
-  button {
-    &:first-child {
-      margin-right: 2rem;
-    }
-  }
-}
-
 .secrets {
   button {
     &:first-child {
@@ -194,6 +193,37 @@
 
   &:hover {
     color: rgba(50, 119, 255, 0.8);
+  }
+}
+
+.transfer-modal {
+  width: 480px;
+  .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  .transfer-confirm {
+    font-weight: 500;
+  }
+
+  .btn-close {
+    margin-right: 2.5rem;
+  }
+  canvas {
+    width: 15rem;
+    height: 15rem;
+    margin: 1rem 0;
+  }
+  .transfer-info {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .transfer-tips {
+    font-size: 0.75rem;
+    color: #FA596D;
   }
 }
 
@@ -233,6 +263,24 @@
     img {
       top: 1rem;
       right: 1rem;
+    }
+
+    input {
+      width: 260px;
+    }
+  }
+
+  .transfer-modal {
+    width: 19.5rem;
+    max-width: initial;
+    canvas {
+      width: 9.375rem;
+      height: 9.375rem;
+    }
+    .transfer-info {
+      font-size: 15px;
+      font-weight: 600;
+      width: initial;
     }
   }
 

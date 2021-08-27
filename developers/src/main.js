@@ -14,6 +14,7 @@ import VueCroppie from 'vue-croppie'
 import 'croppie/croppie.css'
 
 Vue.prototype.$message = Message
+Vue.prototype.$loading = Loading.service
 Vue.use(Loading.directive)
 Vue.use(VueClipboard)
 Vue.use(VueCroppie)

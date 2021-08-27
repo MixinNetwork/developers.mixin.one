@@ -48,6 +48,9 @@ export default {
     head.appendChild(meta)
     reloadTheme()
   },
+  environment() {
+    return environment()
+  }
 }
 
 function reloadTheme() {

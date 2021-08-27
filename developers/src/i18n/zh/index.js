@@ -520,6 +520,13 @@ export default {
     qrcode_btn2: '重置 QR 码',
     rotate_qrcode_question: '确认重置 QR 码？',
     des: '服务器和浏览器都不保存敏感信息。如果忘记，你可以生成一个新的。',
+    transfer_title: "转移应用",
+    transfer_content: "转移这个应用到另外一个 Mixin 开发者的账户。",
+    transfer_btn: "转移",
+    transfer_input: "接受者的 Mixin ID",
+    transfer_confirm: "确认转移给 {name}({id})?",
+    transfer_info: "扫码支付 0.01 XIN 确认转让 {name}({id}) 给开发者 {r_id}。",
+    transfer_tips: "注意：必须由当前 App 开发者支付才会生效，<br />其他人支付不会成功且不会退回！"
   },
   button: {
     save: '保存',
@@ -529,10 +536,12 @@ export default {
     copy: '复制',
     ok: '是的',
     close: '关闭',
-    download: '下载'
+    download: '下载',
+    continue: "继续",
   },
   message: {
     success: {
+      op: "操作成功",
       save: '保存成功',
       withdrawal: '提现成功',
       reset: '重置成功',

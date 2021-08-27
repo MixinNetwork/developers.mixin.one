@@ -6823,6 +6823,11 @@ q@^1.1.2:
   resolved "https://registry.npm.taobao.org/q/download/q-1.5.1.tgz?cache=0&sync_timestamp=1589682817412&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fq%2Fdownload%2Fq-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
+qrious@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/qrious/-/qrious-4.0.2.tgz#09c4d4079d2b961617f62c69cff3b9bb66a39693"
+  integrity sha512-xWPJIrK1zu5Ypn898fBp8RHkT/9ibquV2Kv24S/JY9VYEhMBMKur1gHVsOiNUh7PHP9uCgejjpZUHUIXXKoU/g==
+
 qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.npm.taobao.org/qs/download/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"

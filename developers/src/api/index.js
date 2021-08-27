@@ -16,5 +16,6 @@ export default {
   transactions: (data, token) => api.post('/transactions', data, getHeader(token)),
   search: (identity_number, token) => api.get('/search/' + identity_number, getHeader(token)),
   check_user: (user_id, token) => api.get('/users/' + user_id, getHeader(token)),
+  check_transfer: (params) => api.post('/payments', params)
 }
 

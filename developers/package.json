@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "katex": "^0.13.3",
     "node-forge": "^0.10.0",
+    "qrious": "^4.0.2",
     "uuid": "^8.3.2",
     "validator": "^13.6.0",
     "vue": "^2.6.14",

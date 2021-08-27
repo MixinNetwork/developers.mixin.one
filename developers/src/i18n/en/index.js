@@ -487,6 +487,13 @@ export default {
     qrcode_btn2: 'Rotate QR code',
     rotate_qrcode_question: 'Do you want to reset QR code?',
     des: 'Mixin server and the browser did not keep the information at all. If you forgot, you can generate a new one.',
+    transfer_title: "Transfer APP",
+    transfer_content: "Transfer your app to another Mixin Developer Account.",
+    transfer_btn: "Transfer",
+    transfer_input: "Recipient's Mixin ID",
+    transfer_confirm: "Confirm to transfer to {name}({id})?",
+    transfer_info: "Scan to pay 0.01 XIN to confirm the transfer of the app ownership from {name}({id}) to the developer {r_id}.",
+    transfer_tips: "Note: Only the current app developer could make the payment to carry out the transfer of the app ownership. Payments made by anyone else could not complete the transfer operation, and such transactions are not refundable."
   },
   button: {
     save: 'Save',
@@ -496,10 +503,12 @@ export default {
     copy: 'Copy',
     ok: 'OK',
     close: 'Close',
-    download: 'Download'
+    download: 'Download',
+    continue: "Continue",
   },
   message: {
     success: {
+      op: "Successful operation",
       withdrawal: 'Withdrawal Success',
       save: 'Save Success',
       reset: 'Reset Success',
