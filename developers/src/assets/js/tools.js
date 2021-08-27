@@ -23,7 +23,7 @@ export default {
   },
   isImmersive() {
     let ctx
-    switch (environment()) {
+    switch (this.environment()) {
       case 'iOS':
         ctx = prompt('MixinContext.getContext()')
         return JSON.parse(ctx).immersive
@@ -46,30 +46,22 @@ export default {
     meta.name = 'theme-color'
     meta.content = color
     head.appendChild(meta)
-    reloadTheme()
+    switch (this.environment()) {
+      case 'iOS':
+        return window.webkit.messageHandlers.reloadTheme && window.webkit.messageHandlers.reloadTheme.postMessage('')
+      case 'Android':
+        return window.MixinContext.reloadTheme()
+    }
   },
   environment() {
-    return environment()
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
+      return 'iOS'
+    }
+    if (window.MixinContext && window.MixinContext.getContext) {
+      return 'Android'
+    }
+    return undefined
   }
-}
-
-function reloadTheme() {
-  switch (environment()) {
-    case 'iOS':
-      return window.webkit.messageHandlers.reloadTheme && window.webkit.messageHandlers.reloadTheme.postMessage('')
-    case 'Android':
-      return window.MixinContext.reloadTheme()
-  }
-}
-
-function environment() {
-  if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
-    return 'iOS'
-  }
-  if (window.MixinContext && window.MixinContext.getContext) {
-    return 'Android'
-  }
-  return undefined
 }
 
 function signAuthenticationToken(uid, sid, privateKey, method, uri, body, scp) {
