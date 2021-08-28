@@ -7,18 +7,17 @@ sidebar_position: 1
 
 For HTTP requests:
 
-| Domain | Type |
-| :----- | :---- |
-| https://api.mixin.one | Global |
-| https://mixin-api.zeromesh.net |  China |
+| Domain                         | Type   |
+| :----------------------------- | :----- |
+| https://api.mixin.one          | Global |
+| https://mixin-api.zeromesh.net | China  |
 
 For webSocket requests:
 
-| Domain | Type |
-| :----- | :---- |
-| wss://blaze.mixin.one | Global |
-| wss://mixin-blaze.zeromesh.net |  China |
-
+| Domain                         | Type   |
+| :----------------------------- | :----- |
+| wss://blaze.mixin.one          | Global |
+| wss://mixin-blaze.zeromesh.net | China  |
 
 ## Calling APIs
 
@@ -32,21 +31,21 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 
 **JWT Header**
 
-| Parameter | Instruction |
-| :----- | :---- |
-| alg | Signature Algorithm, set to `RS512` |
-| typ | Token type, set to `JWT` |
+| Parameter | Instruction                         |
+| :-------- | :---------------------------------- |
+| alg       | Signature Algorithm, set to `RS512` |
+| typ       | Token type, set to `JWT`            |
 
 **JWT Payload**
 
-| Parameter | Instruction |
-| :----- | :---- |
-| uid | User Id |
-| sid | Session Id |
-| iat | Issuance Time |
-| exp | Expiration Time |
-| jti | JWT ID |
-| sig | Signature |
+| Parameter | Instruction     |
+| :-------- | :-------------- |
+| uid       | User Id         |
+| sid       | Session Id      |
+| iat       | Issuance Time   |
+| exp       | Expiration Time |
+| jti       | JWT ID          |
+| sig       | Signature       |
 
 **Sign JWT in Go language**
 
@@ -79,7 +78,6 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
   return token.SignedString(key)
 }
 ```
-
 
 **A example of signed token**
 
@@ -123,10 +121,10 @@ On error:
 
 ```json
 {
-  "error":{
+  "error": {
     "status": 500,
-    "code":   500,
-    "description":  "Internal Server Error"
+    "code": 500,
+    "description": "Internal Server Error"
   }
 }
 ```
