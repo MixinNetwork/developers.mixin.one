@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
-const re = /p-([a-z]+)/;
+const re = /p-([a-zA-Z_]+)/;
 
 function Row({name, value, required}) {
   let requiredEl = '';
