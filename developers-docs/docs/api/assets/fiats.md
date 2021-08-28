@@ -3,13 +3,23 @@ title: Read Fiat Exchange Rates
 sidebar_position: 24
 ---
 
-import Request from '../../_partials/request'
+import {
+  APIMetaPanel,
+  APIRequest,
+  APIEndpoint,
+  APIParams,
+  APIPayload,
+} from "@site/src/components/api";
 
 ## GET /fiats
 
 Returns a list of all fiat exchange rates based on US Dollar.
 
-<Request title="Get Fiats Rate" url="/fiats"/>
+<APIEndpoint url="/fiats" />
+
+<APIMetaPanel scope="Authorized" scopeNote="" />
+
+<APIRequest title="Get Fiats Rate" url="/fiats"/>
 
 ```json title="Response"
 {

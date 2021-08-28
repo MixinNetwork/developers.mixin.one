@@ -157,7 +157,6 @@ module.exports = {
             'api/assets/assets',
             'api/assets/asset',
             'api/assets/fee',
-            'api/assets/ticker',
             'api/assets/fiats',
           ]
         },
@@ -190,6 +189,7 @@ module.exports = {
             'api/network/assets',
             'api/network/snapshots',
             'api/network/snapshot',
+            'api/network/ticker',
             'api/network/outputs',
             'api/network/pending-deposits',
           ]
