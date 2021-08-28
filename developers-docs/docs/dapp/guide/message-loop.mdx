@@ -1,3 +1,6 @@
+---
+title: Handle Message Loop
+---
 
 ## Handle Websocket
 
@@ -25,7 +28,7 @@ func ConnectMixinBlaze(uid, sid, key string) (*websocket.Conn, error) {
 
 Of course, you can use the SDK to simplify the process.
 
-### Receiving Messages
+## Receiving Messages
 
 After the WebSocket is connected, the LIST_PENDING_MESSAGES message must be sent first to receive the pending message:
 
@@ -69,9 +72,9 @@ The data format:
 }
 ```
 
-For more message types, please refer to the document [Message Type](../api/messages/category).
+For more message types, please refer to the document [Message Type](../../api/messages/category).
 
-### Message Status
+## Message Status
 
 When the WebSocket connection is successful and the bot has received the message and processed it, the bot needs to send the message status to the Messenger server so that the server knows that the message has been received, otherwise the message will be pushed repeatedly. Message status can be sent in batches to improve performance:
 
@@ -85,4 +88,4 @@ When the WebSocket connection is successful and the bot has received the message
 ]
 ```
 
-For details, please refer to the [Sending Status In Batches](../api/messages/acknowledgements) document.
+For details, please refer to the [Sending Status In Batches](../../api/messages/send) document.

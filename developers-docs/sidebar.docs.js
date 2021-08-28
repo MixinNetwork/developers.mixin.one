@@ -67,9 +67,10 @@ module.exports = {
           items: [
             'dapp/guide/create-network-user',
             'dapp/guide/deposit-withdrawal',
+            'dapp/guide/sync-snapshots',
+            'dapp/guide/message-loop',
             'dapp/guide/generate-jwt-token',
             'dapp/guide/pin',
-            'dapp/guide/sync-snapshots',
             'dapp/guide/multisig-guide',
           ]
         },
