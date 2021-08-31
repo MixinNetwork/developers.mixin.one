@@ -8,22 +8,20 @@
   - [x] support
   - [x] api
   - [x] reusable particles
-  - [ ] dapp tutorial
-  - [ ] dapp guide
-  - [ ] tags for permission and bot
-  - [ ] sdk
-  - [ ] docs
+  - [x] dapp guide
+  - [x] tags for permission and bot
+  - [x] sdk
+  - [-] dapp tutorial
 - [ ] polish document details:
   - [x] [admonitions](https://docusaurus.io/docs/markdown-features/react)
-  - [ ] code blocks
-  - [ ] inline editing
-  - [ ] live code component
+  - [x] code blocks
+  - [x] more component
 - [ ] i18n
   - [ ] chinese translation
   - [ ] [crowdin](https://docusaurus.io/docs/i18n/crowdin)
 - [ ] more guides
+  - [x] mtg best practices
   - [ ] client side oauth
-  - [ ] mtg best practices
 
 ## Translation
 
