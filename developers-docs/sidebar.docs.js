@@ -34,12 +34,13 @@ module.exports = {
           ]
         },
         {
-          label: 'Tutorials',
+          label: 'Guide',
           type: 'category',
           items: [
-            'mainnet/tutorials/full-node-join',
-            'mainnet/tutorials/sync-full-node',
-            'mainnet/tutorials/submit-asset-icon',
+            'mainnet/guide/full-node-join',
+            'mainnet/guide/sync-full-node',
+            'mainnet/guide/submit-asset-icon',
+            'mainnet/guide/mtg-guide',
           ]
         },
       ],
