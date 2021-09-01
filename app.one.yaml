@@ -15,11 +15,12 @@ handlers:
     static_dir: developers/fonts
 
   - url: /docs
-    static_dir: developers-docs
-
-  - url: /docs
     static_files: developers-docs/index.html
     upload: developers-docs/index.html
+
+  - url: /docs/(.*)
+    static_files: developers-docs/\1/index.html
+    upload: developers-docs/(.*)/index.html
 
   - url: /favicon.ico
     static_files: developers/favicon.ico
