@@ -5,8 +5,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Mixin Developer',
   tagline: 'Mixin Development Documents',
-  url: 'https://developers.mixin.one/',
-  baseUrl: '/',
+  url: 'https://developers.mixin.one',
+  baseUrl: '/docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
