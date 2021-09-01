@@ -18,9 +18,17 @@ handlers:
     static_files: developers-docs/index.html
     upload: developers-docs/index.html
 
+  - url: /docs/(.*\.(gif|png|jpg|svg|css|js|ico))$
+    static_files: developers-docs/\1
+    upload: developers-docs/.*\.(gif|png|jpg|svg|css|js|ico)$
+
   - url: /docs/(.*)
-    static_files: developers-docs/\1/index.html
-    upload: developers-docs/(.*)/index.html
+    static_files: developers-docs/\1.html
+    upload: developers-docs/(.*).html
+
+  - url: /docs/.*
+    static_files: developers-docs/404.html
+    upload: developers-docs/404.html
 
   - url: /favicon.ico
     static_files: developers/favicon.ico

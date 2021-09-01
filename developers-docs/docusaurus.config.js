@@ -12,6 +12,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'MixinNetwork', // Usually your GitHub org/user name.
   projectName: 'developers.mixin.one', // Usually your repo name.
+  trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh-CN'],
