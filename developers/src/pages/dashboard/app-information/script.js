@@ -104,9 +104,15 @@ function notice() {
   if (!app_name) return notice_message.call(this, 'no_app_name')
   if (!home_uri) return notice_message.call(this, 'no_home_uri')
   if (!redirect_uri) return notice_message.call(this, 'no_redirect_uri')
+  if (!check_url_is_legal(home_uri)) return notice_message.call(this, 'home_uri_illegal')
+  if (!check_url_is_legal(redirect_uri)) return notice_message.call(this, 'redirect_uri_illegal')
   if (!description) return notice_message.call(this, 'no_description')
   if (app_name.length < 2 || app_name.length > 64) return notice_message.call(this, 'app_name_length')
   if (description.length < 16 || description.length > 128) return notice_message.call(this, 'description_length')
+}
+
+function check_url_is_legal(url) {
+  return /^http(s)?\:\/\//.test(url)
 }
 
 function notice_message(message) {

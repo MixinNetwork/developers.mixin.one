@@ -478,6 +478,8 @@ export default {
       no_app_name: '应用名称不能为空。',
       no_home_uri: '首页网址不能为空。',
       no_redirect_uri: '验证网站不能为空',
+      home_uri_illegal: '首页网址不合法',
+      redirect_uri_illegal: '验证网址不合法',
       no_description: '简介不能为空',
       app_name_length: '应用名称长度为 2 ~ 64',
       description_length: '简介的长度为 16 ~ 128',
