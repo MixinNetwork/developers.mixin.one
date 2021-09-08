@@ -8,6 +8,7 @@ The HTTP request body:
 | :----- | :----: | :---- |
 | address_id | UUID String | Withdrawal address id. |
 | amount | String | e.g. "100000" |
+| fee | String |  Optional, custom withdrawal fee, you can get the default fee from GET /addresses/:id |
 | pin | String | Encrypted Pin |
 | trace_id | UUID String | Prevent duplicate withdrawals. |
 
