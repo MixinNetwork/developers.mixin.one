@@ -54,7 +54,7 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={styles.right}>
-          <img src="img/home_head.svg" class="main-bg" />
+          <img src="/docs/img/home_head.svg" class="main-bg" />
         </div>
       </div>
     </header>
