@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 import HomepageFeatures from '../components/HomepageFeatures';
 import Translate, {translate} from '@docusaurus/Translate';
 
@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className={clsx("container", styles.container)}>
-        <div className={styles.left}>
+        <div className={clsx("text-part", styles.left)}>
           <h1 className={clsx("hero__title", styles.title)}> Build any decentralized applications on Mixin </h1>
           <ul className={clsx("hero__subtitle", styles.subtitle)}>
             <li className={styles.subtitle_li}>
@@ -53,7 +53,7 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div className={styles.right}>
+        <div className={clsx("image-part", styles.right)}>
           <img src="/docs/img/home_head.svg" class="main-bg" />
         </div>
       </div>

@@ -51,7 +51,7 @@ module.exports = {
       items: [
         {to: '/introduction', label: 'Docs', position: 'left'},
         {to: '/api-overview', label: 'API', position: 'left'},
-        {to: '/showcases', label: 'Showcase', position: 'left'},
+        {to: '/showcase', label: 'Showcase', position: 'left'},
         {
           href: 'https://github.com/MixinNetwork/developers.mixin.one',
           label: 'GitHub',

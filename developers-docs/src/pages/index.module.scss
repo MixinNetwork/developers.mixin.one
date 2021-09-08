@@ -14,8 +14,30 @@
 
 @media screen and (max-width: 966px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 1.5rem;
   }
+  .container {
+    padding: 0;
+  }
+  .left {
+    flex-basis: 0 !important;
+    flex: 1 !important;
+  }
+  .right {
+    display: none;
+  }
+  .buttons {
+    flex-direction: column;
+    .button {
+      width: 80%;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.title,
+.subtitle {
+  word-break: break-word;
 }
 
 .title {
@@ -28,6 +50,7 @@
 }
 
 .subtitle_li {
+  word-break: break-word;
   line-height: 1.5rem;
   margin-bottom: 1.25rem;
 }
