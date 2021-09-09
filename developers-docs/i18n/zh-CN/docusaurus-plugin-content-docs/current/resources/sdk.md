@@ -2,29 +2,29 @@
 title: SDK
 ---
 
-## Official SDK
+## 官方 SDK
 
-Except restful APIs, Mixin core team also provides several SDKs as a simplified way to build your Mixin based dApps.
+除了 Restful APIs，Mixin 核心团队还提供了几个 SDK 作为构建基于 Mixin 的 dApp 的简化方式。
 
-- [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): the official SDK for Golang.
-  - [🥰 Examples](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples), [📖 Documentation](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client), [🧑‍🏫 Tutorial](/dapp/getting-started/create-dapp)
-- [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): the official SDK for Kotlin.
-  - [🥰 Examples](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
-- [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): the official SDK for Node.js.
-- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): the official SDK for Dart, beta version
-  - [🥰 Examples](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test), [📖 Documentation](https://pub.dev/packages/mixin_bot_sdk_dart)
+- [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): 官方 Golang SDK
+  - [🥰 例子](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples)，[📖 文档](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client)，[🧑‍🏫 教程](/dapp/getting-started/create-dapp)
+- [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Kotlin SDK
+  - [🥰 例子](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
+- [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK
+- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK，但是还在 beta version
+  - [🥰 例子](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test)，[📖 文档](https://pub.dev/packages/mixin_bot_sdk_dart)
 
-## 3rd-party SDK
+## 第三方 SDK
 
-The community has also developed several SDKs for developers.
+我们的开发者社区也为开发人员开发了多个 SDK。
 
-- [Mixin SDK Go](https://github.com/fox-one/mixin-sdk-go) - The most widely used 3rd party Golang SDK, developed by Pando, comprehensive API supported for both Mixin Network and Mixin Messenger.
-  - [🥰 Examples](https://github.com/fox-one/mixin-sdk-go/tree/master/_examples), [📖 Documentation](https://pkg.go.dev/github.com/fox-one/mixin-sdk-go), [🧑‍🏫 Tutorial](https://gitpress.io/t/Mixin%20Development)
-- [Mixin SDK PHP](https://github.com/exinone/mixin-sdk-php) - A Mixin-Network SDK for PHP, provided by Exin.One, widely used in Exin's products.
-  - [🥰 Examples](https://github.com/ExinOne/mixin-sdk-php/tree/master/tests)
-- [Mixin SDK Node.js](https://github.com/liuzemei/mixin-node-sdk) - A Mixin-Network SDK for Node.js.
-- [Mixin_bot (Ruby)](https://github.com/an-lee/mixin_bot) - A simple API wrapper for Mixin Network in Ruby, used in Prsdigg.
-  - [🥰 Examples](https://github.com/an-lee/mixin_bot/tree/master/examples)
-- [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - A jsbridge wrapper for Mixin Messenger, make a bridge between your javascript and the Webview of Mixin Messenger, provides a convenient way to call Messenger's code from your webpage or SPA.
-  - [🥰 Example](https://fox-one.github.io/mixin-sdk-jsbridge-bot/), [📖 Documentation](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
+- [Mixin SDK Go](https://github.com/fox-one/mixin-sdk-go) - 使用最广泛的第 3 方 Golang SDK，由 Pando 团队开发，综合性的 API 支持 Mixin Network 和 Mixin Messenger。
+  - [🥰 例子](https://github.com/fox-one/mixin-sdk-go/tree/master/_examples)，[📖 文档](https://pkg.go.dev/github.com/fox-one/mixin-sdk-go)，[🧑‍🏫 教程](https://gitpress.io/t/Mixin%20Development)
+- [Mixin SDK PHP](https://github.com/exinone/mixin-sdk-php) - Exin 团队提供的 PHP Mixin-Network SDK，广泛应用于 Exin 的产品中。
+  - [🥰 例子](https://github.com/ExinOne/mixin-sdk-php/tree/master/tests)
+- [Mixin SDK Node.js](https://github.com/liuzemei/mixin-node-sdk) - Node.js 的 Mixin-Network SDK。
+- [Mixin_bot (Ruby)](https://github.com/an-lee/mixin_bot) - Ruby 中 Mixin Network 的简单 API 包装器，用于 Prsdigg。
+  - [🥰 例子](https://github.com/an-lee/mixin_bot/tree/master/examples)
+- [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - Mixin Messenger 的 jsbridge 包装器，在您的 javascript 和 Mixin Messenger 的 Webview 之间架起一座桥梁，提供了一种从您的网页或 SPA 调用 Messenger 的便捷方式。
+  - [🥰 例子](https://fox-one.github.io/mixin-sdk-jsbridge-bot/)，[📖 文档](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
 

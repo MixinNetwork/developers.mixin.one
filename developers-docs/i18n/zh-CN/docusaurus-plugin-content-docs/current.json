@@ -86,5 +86,17 @@
   "sidebar.api.category.Circles": {
     "message": "圈子",
     "description": "The label for category Circles in sidebar api"
+  },
+  "sidebar.docs.category.Resources": {
+    "message": "资源",
+    "description": "The label for category Resources in sidebar docs"
+  },
+  "sidebar.docs.category.Community": {
+    "message": "社区",
+    "description": "The label for category Community in sidebar docs"
+  },
+  "sidebar.docs.link.Showcases": {
+    "message": "案例展示",
+    "description": "The label for link Showcases in sidebar docs, linking to /showcase"
   }
 }

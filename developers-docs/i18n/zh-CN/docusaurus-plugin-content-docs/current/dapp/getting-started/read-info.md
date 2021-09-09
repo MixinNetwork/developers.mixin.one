@@ -1,20 +1,20 @@
 ---
-title: Read Information
+title: 读取信息
 ---
 
-In the [previous article](./oauth), I introduced the OAuth2 flow and how to use it to get an access token. In this article, I will show you how to read information of users.
+在[上一篇教程文章](./oauth) 中，我们介绍了 OAuth2 流程以及如何使用它来获取 Access Token。本文将向您展示如何读取用户信息。
 
-From now on, SDK will be introduced in the following articles. The Mixin team and the community provide various SDKs for developers to use. You can find the SDKs in the [SDK](/resources/sdk) page.
+为了简化叙述，从现在开始，文章中将会提到 Mixin 的 SDK。 Mixin 团队和社区提供了各种 SDK 供开发者使用。 您可以在 [SDK](/resources/sdk) 页面中找到 SDK。
 
-## Read User's Profile
+## 阅读用户资料
 
 :::tip
-To obtain the basic personal information of a user, the `PROFILE:READ` permission is required.
+要获取用户的基本个人信息，需要`PROFILE:READ`权限。
 :::
 
-We can read the user's profile by using the [`/me`](/api/users/profile) endpoint. `/me` is an authenticated endpoint, so we need to obtain an access token first and put it in the HTTP Headers.
+我们可以使用 [`/me`](/api/users/profile) API 读取用户的个人资料。 `/me` 是一个需要身份验证的 API，因此我们需要先获取 Access Token 并将其放入 HTTP 头中。
 
-Let's send a request:
+我们发这样的一个请求来获取信息：
 
 ```bash
 GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
@@ -32,18 +32,18 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 ```
 
 :::info
-The `user_id` field is an unique id for each "Account" or "User" in the entire Mixin Network.
+`user_id` 字段是整个 Mixin 网络中每个“帐户”或“用户”的唯一 ID。
 
-Additionally, if the user is a Mixin Messenger user, you can send messages to them by using [`POST /messages`](/api/messages/send) with the `user_id` field.
+此外，如果用户是 Mixin Messenger 用户，您可以使用 [`POST /messages`](/api/messages/send) 和 `user_id` 字段向他们发送消息。
 :::
 
-## Read User's Assets
+## 读取用户的资产
 
 :::tip
-To obtain the asset balance of a user, the `ASSETS:READ` permission is required.
+要获取用户的资产余额，需要 `ASSETS:READ` 权限。
 :::
 
-Calling `GET /assets` returns assets with a balance greater than 0. When you calls this API with a token which owned by a new user with zero balance, an empty list will be returned.
+调用 `GET /assets` 只会返回余额大于 0 的资产。当你使用一个零余额的新用户拥有的 Access Token 调用这个 API 时，将返回一个空列表。
 
 ```bash
 GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/assets
@@ -54,18 +54,18 @@ import RespAssets from '../../_partials/_resp.assets.md'
 <RespAssets />
 
 :::info
-The `asset_id` field is an unique id for each asset in the entire Mixin Network.
+`asset_id` 字段是整个 Mixin 网络中每个资产的唯一 ID。
 
-It can be obtained from https://mixin.one/snapshots by searching for asset code such as `btc`. You can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information.
+可以从 https://mixin.one/snapshots 通过搜索`btc`等资产代码获取。 您也可以将资产存入 Mixin Messenger 钱包并与机器人 “7000103061” 对话，然后搜索并复制资产信息。
 :::
 
-## Read Application's Assets
+## 读取应用程序的资产
 
-The Mixin Application is a special type of user. It also has a wallet just like a normal user. You can inspect the assets of the application by visiting "Developer Dashboard - Choosing any app - Clicking the `Wallet` tab".
+Mixin 应用程序是一种特殊类型的用户。 它也有一个像普通用户一样的钱包。 您可以通过访问 开发者仪表板 - 选择任何应用程序 - 单击“钱包”选项卡 来检查应用程序的资产。
 
-You can also read the assets programmatically by calling the [`/assets`](/api/assets/assets) with the application's access token. The algorithm for generating access token can be found [here](../guide/generate-jwt-token), but you can also use the [SDK](/resources/sdk) to simplify the process.
+您还可以通过使用应用程序的 Access Token 调用 [`/assets`](/api/assets/assets) 以编程方式读取资产。 生成 Access Token 的算法可以在[这里](../guide/generate-jwt-token)找到，但你也可以使用[SDK](/resources/sdk)来简化这个过程。
 
-Here is the example of generating token and reading assets by using the official Go SDK:
+下面是使用官方Go SDK生成token和读取资产的例子：
 
 ```go
 import "github.com/MixinNetwork/bot-api-go-client"
