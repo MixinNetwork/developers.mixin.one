@@ -35,15 +35,13 @@ func SignAuthenticationToken(uid, sid, privateKey, method, uri, body string) (st
 }
 ```
 
-An example of a signed  authentication token:
+An example of a signed authentication token:
 
 ```
 eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
 ```
 
 ### Calling APIs
-
-If the product users are mainly in China, it is recommended to use `https://mixin-api.zeromesh.net` to access the APIs, and global users `https://api.mixin.one`.
 
 ```go
 const (
@@ -90,4 +88,3 @@ func main() {
 
 - The signed authorization token cannot be reused, please regenerate it every time you request.
 - `X-Request-Id` is used to identify the current request,
-
