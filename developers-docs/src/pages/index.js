@@ -28,7 +28,7 @@ function HomepageHeader() {
             </li>
             <li className={styles.subtitle_li}>
               <span>🔋 </span>
-              <strong>Powerful</strong> - Supported 32 blockchians, such as BTC, ETH, XMR.
+              <strong>Powerful</strong> - Supported 39 blockchians, such as BTC, ETH, XMR.
             </li>
             <li className={styles.subtitle_li}>
               <span>🆓 </span>
