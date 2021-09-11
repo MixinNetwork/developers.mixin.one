@@ -1,82 +1,81 @@
 ---
-title: Automated Market Maker
-sidebar_position: 12
+title: 自动化做市商
 ---
 
-# Automated Market Maker
+相较于传统订单簿交易模式，自动做市商具有自动化、无人工等特点，使用 MTG 方案开发恒定乘积做市商相比基于以太坊的 Uniswap 更加高效，且有更高的安全性、稳定性和容错性等。
 
-Compared with the traditional order book transactions, automated market makers makes the process automated and free of human interventions. Developing automated market makers with MTG is more efficient than Ethereum-based Uniswap, and has higher security, stability and fault tolerance, etc.
+## 优势
 
-### Advantages
+- 安全去中心化
 
-- Decentralization with Security
-  
-  Protected by Mixin mainnet, assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The automated market maker program can be deployed on 255 node servers.
+  Mixin 主网安全保护，托管资产冷热隔离最多支持 255 方多签共管，自动化做市商程序可部署在 255 个节点服务器上。
 
-- Stability 
-  
-  Automated market maker programs can be developed using more stable and mature languages, such as Go, Java, PHP, etc., without network congestion and high gas problems. It also brings more stability and capacity to the transaction process.
+- 稳定
 
-- Efficiency
-  
-  Automated market maker programs can be deployed on high-performance node servers to provide users with low-latency and efficient exchange and market making services.
+  自动化做市商程序可使用更稳定成熟的语言来开发，例如 Go、Java、PHP 等，没有网络拥堵和高 Gas 的困扰，交易更稳定和容量更大。
 
-- Powerfulness
+- 高效
 
-  It naturally supports a variety of cross-chain assets. Transactions are free and instant with scalability to serve a large number of users.
+  自动化做市商程序可部署在高性能的节点服务器上，为海量用户提供低延迟高效的兑换和做市等服务。
 
-### Steps
+- 强大
 
-- Decentralized Multi-signature Organization
+  天然支持多种跨链资产，交易免费、秒到可支撑海量用户使用。
 
-  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
+## 步骤
 
-- Automated Market Maker Program Development
-  
-  1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
-  2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Maket making, trading and redemptiond operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+- 去中心化多签组织
 
+  多签组织的工作主要是参与资产共管、审核部署 Dapp 程序、治理等，可联合多家知名的团队、公司共同组建去中心化多签组织，也可以发币通过投票组建去中心化自治组织。再设置一个达成共识的阈值，例如 5 个节点共管资产，需要 3 个节点签名才能动用多签资产，通常设置为三分之二的节点签名才有效，例如 `2/3`、 `3/5`、 `4/7` ... `171/255`。
+
+- 开发自动化做市商程序
+
+  1、开发环境：使用 Go、Java、PHP 等成熟的语言，使用 MySQL、PostgreSQL、MongoDB 等成熟的数据库系统。
+
+  2、交易处理：节点需要不间断的同步相关的 UTXO 交易，根据交易的 `Memo` 分别处理做市、交易和赎回等操作，所有操作都需要校验并且数据获得足够的签名才能记录到数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含发起人、操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // ID of the asset to be sold
-    M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // Target Asset ID
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
-    M:"10",                                    // Amount
-    T:"swap"                                   // Operation Type
+    T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // 卖出资产唯一编号
+    M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // 目标资产唯一编号
+    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // 发起人
+    M:"10",                                    // 金额
+    T:"swap"                                   // 兑换、做市等操作类型
   }))
   ```
-  3. Asset management: All assets are managed by the node multi-signature. Assets injected by users for liquidity will be saved to the multi-signature address. Redemptions take effect after most nodes have verified the wallet.
 
-  4. LP tokens: ERC20 tokens can be issued according to the algorithm as proof for liquidity users injected, and users can freely transfer and trade LP tokens.
+  3、资产管理：所有资产都由节点多签管理，用户注入流动性的资产直接进入多签地址，交易和赎回都需要多数节点校验钱包才会生效。
 
-- Security Measures
+  4、LP 代币：可根据算法发行 ERC20 代币来作为用户注入流动性的凭证，用户可以自由转移交换 LP 代币。
 
-  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
+- 安全措施
 
-  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
+  1、可通过资产冷热隔离分别多签管理进一步提升应对风险能力，限制不可预测风险带来的损失规模。
 
-  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
+  2、所有节点都需要严格独立审核 Dapp 的代码，减少潜在的 bug 风险，每一个节点对资产都有一份权利和义务。
 
-- Governance
+  3、节点团队之间保持紧密的联系，一旦发现问题可以及时的暂停服务并迅速修复问题部署新的代码。
 
-  The decentralized multi-signature organizations determine commission fees, rewards, and other proposals through voting.
+- 治理
 
-- Reconciliation
+  去中心化多签组织可投票决定费率、奖励等提案。
 
-  Since all transfers have corresponding multi-signature transfer records(cannot be tampered with) and the order of transactions on Mixin, all data can be completely restored based on this transfer record, which can be compared with the node data to verify. 
+- 对账
 
-### Example
+  由于所有的转账行为都在 Mixin 上有对应的多签转账记录（不可篡改）和交易顺序，可以根据转账记录完整的还原所有数据，据此可跟节点数据进行对比校验。
 
-Developed by the Fox team and jointly operated by the Mixin Core, Biyin, BigONE, Fox, and BOX communities, 4swap has been launched. The five teams jointly manage assets and operate and maintain automated market maker programs.
+## 案例
 
-- **Language** Go
-- **Storage** MySQL
-- **Launched** 2020/12/25
-- **Fund Size** 12,734,286 USD (2021/01/01)
-- **Daily Trading Volume** 500,000 USD (the last week of January 01, 2021)
-- **Number Of Nodes** 5
-- **Supported Transactions** All assets that support multi-signature are supported
-- **How To Use** Search in Mixin Messenger for Chatbot 7000103537
+由 Fox 团队研发，Mixin Core、币印、BigONE、Fox、BOX 社区共同运营的 4swap 已上线，5 个团队共同管理资产和运维自动化做市商程序。
+
+- 开发语言：Go
+- 数据存储：MySQL
+- 上线日期：2020/12/25
+- 资金规模：12,734,286 USD（2021/01/01）
+- 日成交量：500,000 USD（2021/01/01 最近一周）
+- 节点数量：5 个
+- 支持交易：所有支持多重签名的资产都支持
+- 使用方式：通过 Mixin Messenger 搜索机器人 7000103537 体验
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+
+MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。

@@ -1,35 +1,33 @@
 ---
-title: Submitting Asset Icons
+title: 提交资产图标
 sidebar_position: 17
 ---
 
-# Submitting Asset Icons
+所有 ERC-20、TRC-10、TRC-20 和 EOS 代币充值进 Mixin 网络就能直接使用，但是有的币没有图标，开发者可以联系 Mixin 团队补充图标，如果您是项目方请按步骤提交图标：
 
-All ERC-20, TRC-10, TRC-20, and EOS tokens can be used directly after depositing into the Mixin network, but some coins do not have an icon. Developers can contact the Mixin team to submit the icon. If you want to do this, please follow the following steps.
+## 准备代币图标
 
-### Token Icon Format
-  
-- 520x520 pixels, png.
-- Must be round and the background cannot be transparent or white.
-- Clear and great brand recognition.
+- 520x520 像素， png 图片。
+- 图标必须是圆形且背景不能是透明白色。
+- 图标清晰，品牌识别明显。
 
-### Getting Asset ID
+## 获取资产编号
 
-- Deposit the tokens to the Mixin wallet first, find the deposit record from the wallet and copy the `transaction ID`.
-- Open the Mixin block explorer https://mixin.one/snapshots, enter the transaction ID and click search.
-- Copy the link of the token name at the bottom of the transfer details and intercept the string at the end of the link, for example, if you get `https://mixin.one/snapshots/c94ac88f-4671-3976-b60a-09064f1811e8`, then `c94ac88f-4671-3976-b60a-09064f1811e8` is the asset ID.
+- 将代币先充值到 Mixin 钱包，到账后从钱包找到充值记录并复制`交易编号`。
+- 打开 Mixin 区块浏览器 https://mixin.one/snapshots 输入 `交易编号` 点搜索。
+- 复制转账详情底部代币名称的链接并截取链接最后的字符串，例如 `https://mixin.one/snapshots/c94ac88f-4671-3976-b60a-09064f1811e8` 中 `c94ac88f-4671-3976-b60a-09064f1811e8` 就是资产编号。
 
-### Submitting Icon
+## 提交图标
 
-- Log in to your GitHub account and clone the code of project `asset-profile`:
+- 登录你的 GitHub 账号并克隆 `asset-profile` 的项目代码：
 
-   `git clone git@github.com:MixinNetwork/asset-profile.git`
+  `git clone git@github.com:MixinNetwork/asset-profile.git`
 
-- Switch to the `asset-profile` directory and create a token branch
+- 切换到 `asset-profile` 目录并新建代币分支
 
-- Documents to be submitted
-  
-  Create a new directory in the `assets` directory, the name of the directory is the current asset ID, copy the icon to the directory and rename it to "icon.png", and then create a new `index.json` The file format is as follows :
+- 准备提交的文件
+
+  在 `assets` 目录下新建一个文件夹，文件夹的名字与当前资产编号一致，将图标拷贝到该文件夹下并改名为 "icon.png"，然后再新建一个 `index.json` 文件格式如下：
 
   ```
   {
@@ -39,14 +37,14 @@ All ERC-20, TRC-10, TRC-20, and EOS tokens can be used directly after depositing
   }
   ```
 
-  `chain_id` is the public chain ID, if it is an Ethereum ERC 20 token, always set it to `43d61dcd-e413-450d-80b8-101d5e903357`, and if TRON TRC-10 or TRC-20 token, always `25dabac5-056a-48ff -b9f9-f67395dc407c`, for EOS tokens `6cfe566e-4aad-470b-8c9a-2fd35b49c68d`, for others, refer to [document](../concepts/chain).
+  `chain_id` 表示所属公链编号，如果是以太坊 ERC 20 代币固定写 `43d61dcd-e413-450d-80b8-101d5e903357`，波场 TRC-10 或 TRC-20 代币固定写 `25dabac5-056a-48ff-b9f9-f67395dc407c`，EOS 代币固定写 `6cfe566e-4aad-470b-8c9a-2fd35b49c68d`，其他参考[文档](../concepts/chain)。
 
-  `cmc_id` If your asset is not included by coinmarketcap, just set an empty string here.
+  `cmc_id` 您的资产如果没有被 coinmarketcap 收录这里直接设置空字符串即可。
 
-- Application
+- 提交申请
 
-  Submit the prepared icon and configuration file together with a brief introduction, and then click `Create pull request`. The Mixin development team will conduct a pre-review and then pass it to the nodes to review. If there is no problem, the icon will be deployed.
+  将准备好的图标和配置文件附带简要介绍一并提交，然后点 `Create pull request` 即可，Mixin 开发团队将进行前置审核然后再提交节点审核，确认没有问题就会部署生效。
 
 ---
-For more instructions, please refer to https://github.com/MixinNetwork/asset-profile project homepage introduction, and also refer to other the earlier submission [Record](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6 ).
 
+更多说明请参考 https://github.com/MixinNetwork/asset-profile 工程首页介绍，还可参考其他人的提交[记录](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6)。

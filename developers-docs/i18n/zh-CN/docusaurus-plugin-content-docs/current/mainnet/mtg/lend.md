@@ -1,66 +1,62 @@
 ---
-title: Lending
-sidebar_position: 10
+title: 借贷
 ---
 
-# Lending
+基于加密货币资产的供求建立抵押借贷市场能够极大的提高了资产的流动性，提高资本的利用率，使用 MTG 方案实现去中心化的借贷应用具备安全、稳定、高效等特点。
 
-The collateral loan market based on the demand for crypto assets can greatly improve the liquidity of the assets and capital utilization.  Decentralized lending applications based on MTG feature security, stability, and efficiency.
+## 优势
 
-### Advantages
+- 安全去中心化
 
-- Decentralization With Security
-  
-  The Mixin mainnet is very secure supporting up to 255 parties multi-signature co-management of assets. Assets under custody are well protected through the cold and hot wallet isolation. The decentralized lending program can be deployed on 255 node servers.
+  Mixin 主网安全保护，托管资产可冷热隔离支持多达 255 方多签共管，去中心化的借贷程序可部署在 255 个节点服务器上。
 
-- Stability 
-  
-  Decentralized lending programs can be developed using more stable and mature languages, such as Go, Java, PHP, etc., to make lending services more stable and smooth, without network congestion and high gas problems.
+- 稳定
 
-- Efficiency
-  
-  Decentralized lending programs can be deployed on high-performance node servers to provide users with low-latency and efficient collateral lending services.
+  去中心化的借贷程序可使用更稳定成熟的语言来开发，例如 Go、Java、PHP 等，借贷服务更加稳定和顺畅，没有网络拥堵和高 Gas 的困扰。
 
-- Powerfulness
+- 高效
 
-  It naturally supports a variety of cross-chain assets. The transactions are free and instant and can support a large number of users.
+  去中心化的借贷程序可部署在高性能的节点服务器上，为用户提供低延迟高效的抵押借贷服务。
 
-### Steps
+- 强大
 
-- Decentralized Multi-signature Organization
+  天然支持多种跨链资产，交易免费、秒到可支撑海量用户使用。
 
-  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
+## 步骤
 
-- Decentralized Lending Applications Development
-  
-  1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
+- 去中心化多签组织
 
-  2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Collateral loans and borrowing operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+  多签组织的工作主要是参与资产共管、审核部署 Dapp 程序、治理等，可联合多家知名的团队、公司共同组建去中心化多签组织，也可以发币通过投票组建去中心化自治组织。再设置一个达成共识的阈值，例如 5 个节点共管资产，需要 3 个节点签名才能动用多签资产，通常设置为三分之二的节点签名才有效，例如 `2/3`、 `3/5`、 `4/7` ... `171/255`。
 
+- 开发去中心化的借贷应用
+
+  1、开发环境：使用 Go、Java、PHP 等成熟的语言，使用 MySQL、PostgreSQL、MongoDB 等成熟的数据库系统。
+
+  2、交易处理：节点需要不间断的同步相关的 UTXO 交易，根据交易的 `Memo` 分别处理抵押贷款和借款等操作，所有操作都需要校验并且数据获得足够的签名才能记录到数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含发起人、操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // Collateral asset ID
-    M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // Loan asset ID
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
-    M:"10",                                    // Amount
-    T:"lend"                                   // Operation type
+    T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // 抵押资产唯一编号
+    M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // 贷款资产唯一编号
+    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // 发起人
+    M:"10",                                    // 金额
+    T:"lend"                                   // 贷款和借款等操作类型
   }))
   ```
 
-  3. Asset management: All assets are managed by the node multi-signature. User borrowing and collateral will be saved to the multi-signature address. Redemptions take effect after most nodes have verified the wallet.
+  3、资产管理：所有资产都由节点多签管理，用户借款和抵押资产直接进入多签地址，赎回需要多数节点校验钱包才会生效。
 
-- Security Measures
+- 安全措施
 
-  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
+  1、可通过资产冷热隔离分别多签管理进一步提升应对风险能力，限制不可预测风险带来的损失规模。
 
-  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
+  2、所有节点都必须独立审核 Dapp 的代码，减少潜在的 bug 风险，每一个节点对资产都有一份权利和义务。
 
-  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
+  3、节点团队之间保持紧密的联系，一旦发现问题可以及时的暂停服务并迅速修复问题部署新的代码。
 
-- Governance
+- 治理
 
-  The decentralized multi-signature organizations determine the type of collateral, collateral rate, interest rate, and other proposals through voting.
-
+  去中心化多签组织可投票决定抵押品的类型、抵押率、利率等提案。
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) .
+
+MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。

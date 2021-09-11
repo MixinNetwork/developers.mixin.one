@@ -10,15 +10,15 @@ Compared with the traditional order book transactions, automated market makers m
 ### Advantages
 
 - Decentralization with Security
-  
+
   Protected by Mixin mainnet, assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The automated market maker program can be deployed on 255 node servers.
 
-- Stability 
-  
+- Stability
+
   Automated market maker programs can be developed using more stable and mature languages, such as Go, Java, PHP, etc., without network congestion and high gas problems. It also brings more stability and capacity to the transaction process.
 
 - Efficiency
-  
+
   Automated market maker programs can be deployed on high-performance node servers to provide users with low-latency and efficient exchange and market making services.
 
 - Powerfulness
@@ -32,7 +32,7 @@ Compared with the traditional order book transactions, automated market makers m
   The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
 
 - Automated Market Maker Program Development
-  
+
   1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
   2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Maket making, trading and redemptiond operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
 
@@ -63,7 +63,7 @@ Compared with the traditional order book transactions, automated market makers m
 
 - Reconciliation
 
-  Since all transfers have corresponding multi-signature transfer records(cannot be tampered with) and the order of transactions on Mixin, all data can be completely restored based on this transfer record, which can be compared with the node data to verify. 
+  Since all transfers have corresponding multi-signature transfer records(cannot be tampered with) and the order of transactions on Mixin, all data can be completely restored based on this transfer record, which can be compared with the node data to verify.
 
 ### Example
 
