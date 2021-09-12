@@ -24,37 +24,49 @@ function HomepageHeader() {
             </li>
             <li className={styles.subtitle_li}>
               <span>⚡️ </span>
-              <strong>Fast</strong> - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.
+              <strong>
+                <Translate>features.fast</Translate>
+              </strong>
+              <Translate>features.fast.text</Translate>
             </li>
             <li className={styles.subtitle_li}>
               <span>🔋 </span>
-              <strong>Powerful</strong> - Supported 39 blockchians, such as BTC, ETH, XMR.
+              <strong>
+                <Translate>features.powerful</Translate>
+              </strong>
+              <Translate>features.powerful.text</Translate>
             </li>
             <li className={styles.subtitle_li}>
               <span>🆓 </span>
-              <strong>Free</strong> - No transaction fee.
+              <strong>
+                <Translate>features.free</Translate>
+              </strong>
+              <Translate>features.free.text</Translate>
             </li>
             <li className={styles.subtitle_li}>
               <span>🔐 </span>
-              <strong>Privacy</strong> - End to end encrypted messages.
+              <strong>
+                <Translate>features.privacy</Translate>
+              </strong>
+              <Translate>features.privacy.text</Translate>
             </li>
           </ul>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--primary button--lg', styles.button)}
               to="/introduction">
-              Get Started
+              <Translate>buttons.get_started</Translate>
             </Link>
             <br/>
             <Link
               className={clsx('button button--secondary button--lg', styles.button)}
               to="/api-overview">
-              API Reference
+              <Translate>buttons.api_reference</Translate>
             </Link>
           </div>
         </div>
         <div className={clsx("image-part", styles.right)}>
-          <img src="./img/home_head.svg" class="main-bg" />
+          <img src="img/home_head.svg" class="main-bg" />
         </div>
       </div>
     </header>

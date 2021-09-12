@@ -5,6 +5,36 @@
   "features.secure.text": {
     "message": " - All assets are stored in PoS-BFT-DAG distributed network"
   },
+  "features.fast": {
+    "message": "Fast"
+  },
+  "features.fast.text": {
+    "message": " - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second."
+  },
+  "features.powerful": {
+    "message": "Powerful"
+  },
+  "features.powerful.text": {
+    "message": " - Supported 40 blockchians, such as BTC, ETH, XMR."
+  },
+  "features.free": {
+    "message": "Free"
+  },
+  "features.free.text": {
+    "message": " - No transaction fee."
+  },
+  "features.privacy": {
+    "message": "Privacy"
+  },
+  "features.privacy.text": {
+    "message": " - End to end encrypted messages."
+  },
+  "buttons.get_started": {
+    "message": "Get Started"
+  },
+  "buttons.api_reference": {
+    "message": "API Reference"
+  },
   "theme.NotFound.title": {
     "message": "Page Not Found",
     "description": "The title of the 404 page"
