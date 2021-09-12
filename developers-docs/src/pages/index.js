@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.scss';
 import HomepageFeatures from '../components/HomepageFeatures';
 import Translate, {translate} from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -66,7 +67,7 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={clsx("image-part", styles.right)}>
-          <img src="img/home_head.svg" class="main-bg" />
+          <img src={useBaseUrl('img/home_head.svg')} class="main-bg" />
         </div>
       </div>
     </header>
