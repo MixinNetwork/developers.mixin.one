@@ -26,12 +26,12 @@ module.exports = {
     }
   },
   themeConfig: {
-    // algolia: {
-      // apiKey: '0658fa0945f44e20e9d148da027a3bd7',
-      // indexName: 'mixin',
+    algolia: {
+      apiKey: '0658fa0945f44e20e9d148da027a3bd7',
+      indexName: 'mixin',
 
       // Optional: see doc section below
-      // contextualSearch: true,
+      contextualSearch: true,
 
       // Optional: see doc section below
       // appId: '',
@@ -40,7 +40,7 @@ module.exports = {
       // searchParameters: {},
 
       //... other Algolia params
-    // },
+    },
 
     navbar: {
       title: 'Mixin Developer',
@@ -98,19 +98,20 @@ module.exports = {
   },
   plugins: [
     'docusaurus-plugin-sass',
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        language: ["en", "zh"],
-        // ```
-        // When applying `zh` in language, please install `nodejieba` in your project.
-      },
-    ],
+    // [require.resolve('@cmfcmf/docusaurus-search-local'), {
+    //   indexDocs: true,
+    //   docsRouteBasePath: '/',
+    //   language: "en",
+    //   indexDocSidebarParentCategories: 3,
+    // }],
+
+    // '@aldridged/docusaurus-plugin-lunr',
+
+    // [ require.resolve('docusaurus-lunr-search'), {
+    //   languages: ['en', 'de'], // language codes
+    //   indexBaseUrl: true,
+    // }]
+
     // [
     //   '@docusaurus/plugin-content-docs',
     //   {
