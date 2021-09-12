@@ -1,0 +1,47 @@
+.title {
+  margin-bottom: 16px;
+}
+
+.panel {
+  margin-bottom: 32px;
+}
+
+.table {
+  display: flex;
+  width: 100%;
+  border-spacing: 0 0.25rem;
+}
+
+.tbody {
+  width: 100%;
+}
+
+.tr {
+  background-color: transparent !important;
+  width: 100%;
+  display: block;
+}
+
+.td {
+  border: none;
+  min-width: 160px;
+  vertical-align: top;
+  padding: 0.6em 1em 0.6em 0;
+  opacity: 0.7;
+  text-align: left;
+}
+
+.th {
+  opacity: 1;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.required {
+  font-size: 12px;
+}
+
+.name {
+  color: rgb(255, 121, 198);
+}

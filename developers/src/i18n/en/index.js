@@ -70,7 +70,8 @@ export default {
         title: "Resources",
         list: [
           { name: 'PRESS KIT', href: 'https://mixin.one/assets/Mixin-Logo.zip' },
-          { name: 'WHITEPAPER', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' }
+          { name: 'WHITEPAPER', href: 'https://mixin.one/assets/Mixin-Draft-2018-07-01.pdf' },
+          { name: 'Docs', href: '/docs/' }
         ]
       },
       others: {

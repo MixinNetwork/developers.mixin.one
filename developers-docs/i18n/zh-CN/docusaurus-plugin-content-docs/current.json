@@ -1,0 +1,102 @@
+{
+  "version.label": {
+    "message": "下一个",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Mainnet": {
+    "message": "主网",
+    "description": "The label for category Mainnet in sidebar docs"
+  },
+  "sidebar.docs.category.Concepts": {
+    "message": "概念",
+    "description": "The label for category Concepts in sidebar docs"
+  },
+  "sidebar.docs.category.MTG": {
+    "message": "MTG",
+    "description": "The label for category MTG in sidebar docs"
+  },
+  "sidebar.docs.category.Tutorials": {
+    "message": "教程",
+    "description": "The label for category Tutorials in sidebar docs"
+  },
+  "sidebar.docs.category.dApp": {
+    "message": "dApp",
+    "description": "The label for category dApp in sidebar docs"
+  },
+  "sidebar.docs.category.Getting Started": {
+    "message": "立即上手",
+    "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Guide": {
+    "message": "指南",
+    "description": "The label for category Guide in sidebar docs"
+  },
+  "sidebar.docs.category.Design Guide": {
+    "message": "设计指南",
+    "description": "The label for category Design Guide in sidebar docs"
+  },
+  "sidebar.docs.category.SDK": {
+    "message": "SDK",
+    "description": "The label for category SDK in sidebar docs"
+  },
+  "sidebar.api.category.API Reference": {
+    "message": "API 索引",
+    "description": "The label for category API Reference in sidebar api"
+  },
+  "sidebar.api.category.OAuth": {
+    "message": "OAuth",
+    "description": "The label for category OAuth in sidebar api"
+  },
+  "sidebar.api.category.User": {
+    "message": "用户",
+    "description": "The label for category User in sidebar api"
+  },
+  "sidebar.api.category.PIN": {
+    "message": "PIN",
+    "description": "The label for category PIN in sidebar api"
+  },
+  "sidebar.api.category.Assets": {
+    "message": "资产",
+    "description": "The label for category Assets in sidebar api"
+  },
+  "sidebar.api.category.Transfer": {
+    "message": "转账",
+    "description": "The label for category Transfer in sidebar api"
+  },
+  "sidebar.api.category.Withdrawal": {
+    "message": "提现与地址",
+    "description": "The label for category Withdrawal in sidebar api"
+  },
+  "sidebar.api.category.Network": {
+    "message": "主网网络",
+    "description": "The label for category Network in sidebar api"
+  },
+  "sidebar.api.category.Multi-Signature": {
+    "message": "多重签名",
+    "description": "The label for category Multi-Signature in sidebar api"
+  },
+  "sidebar.api.category.Conversations": {
+    "message": "会话",
+    "description": "The label for category Conversations in sidebar api"
+  },
+  "sidebar.api.category.Messages": {
+    "message": "消息",
+    "description": "The label for category Messages in sidebar api"
+  },
+  "sidebar.api.category.Circles": {
+    "message": "圈子",
+    "description": "The label for category Circles in sidebar api"
+  },
+  "sidebar.docs.category.Resources": {
+    "message": "资源",
+    "description": "The label for category Resources in sidebar docs"
+  },
+  "sidebar.docs.category.Community": {
+    "message": "社区",
+    "description": "The label for category Community in sidebar docs"
+  },
+  "sidebar.docs.link.Showcases": {
+    "message": "案例展示",
+    "description": "The label for link Showcases in sidebar docs, linking to /showcase"
+  }
+}
