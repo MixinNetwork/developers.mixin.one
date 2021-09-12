@@ -106,6 +106,7 @@ module.exports = {
       items: [
         'community/support',
         'community/articles',
+        'community/contributing',
         {
           type: 'link',
           href: '/showcase',

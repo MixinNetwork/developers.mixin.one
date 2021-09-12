@@ -62,5 +62,5 @@ Please read [this document](dapp/overview) guide for more details.
 
 ## Something missing?
 
-If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/MixinNetwork/developers.mixin.one) for us, or send a tweet mentioning the @[Mixin_Network](https://twitter.com/Mixin_Network) Twitter account.
+If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/MixinNetwork/developers.mixin.one/issues) for us, or send a tweet mentioning the @[Mixin_Network](https://twitter.com/Mixin_Network) Twitter account.
 

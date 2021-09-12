@@ -63,4 +63,4 @@ Mixin 应用程序使用 Mixin API，这是一个为 Mixin 主网提供接口的
 
 ## 感觉哪里不对劲？
 
-如果您发现文档有问题或对如何改进文档或项目有总体上的建议，请为我们[提交问题](https://github.com/MixinNetwork/developers.mixin.one)，或发送 一条提及@[Mixin_Network](https://twitter.com/Mixin_Network) Twitter 帐户的推文。
+如果您发现文档有问题或对如何改进文档或项目有总体上的建议，请为我们[提交问题](https://github.com/MixinNetwork/developers.mixin.one/issues)，或发送 一条提及@[Mixin_Network](https://twitter.com/Mixin_Network) Twitter 帐户的推文。
