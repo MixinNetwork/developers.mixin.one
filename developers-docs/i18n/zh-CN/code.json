@@ -230,5 +230,32 @@
   },
   "buttons.api_reference": {
     "message": "API 索引"
+  },
+  "com.api_request": {
+    "message": "请求示例"
+  },
+  "com.api_payload": {
+    "message": "请求体"
+  },
+  "com.api_params.required": {
+    "message": "*必须"
+  },
+  "com.api_params.parameters": {
+    "message": "参数"
+  },
+  "com.api_metapanel": {
+    "message": "授权和其他选项"
+  },
+  "com.api_metapanel,public": {
+    "message": "公开访问"
+  },
+  "com.api_metapanel,authorization": {
+    "message": "授权"
+  },
+  "com.api_metapanel,limitation": {
+    "message": "限制"
+  },
+  "com.api_endpoint": {
+    "message": "API 端点 URL"
   }
 }
