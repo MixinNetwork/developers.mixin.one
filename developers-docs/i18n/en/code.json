@@ -35,6 +35,33 @@
   "buttons.api_reference": {
     "message": "API Reference"
   },
+  "com.api_request": {
+    "message": "Example request"
+  },
+  "com.api_payload": {
+    "message": "Payload"
+  },
+  "com.api_params.required": {
+    "message": "*required"
+  },
+  "com.api_params.parameters": {
+    "message": "Parameters"
+  },
+  "com.api_metapanel": {
+    "message": "Authentication and options"
+  },
+  "com.api_metapanel,public": {
+    "message": "Public Access"
+  },
+  "com.api_metapanel,authorization": {
+    "message": "Authorization"
+  },
+  "com.api_metapanel,limitation": {
+    "message": "Limitation"
+  },
+  "com.api_endpoint": {
+    "message": "Endpoint URL"
+  },
   "theme.NotFound.title": {
     "message": "Page Not Found",
     "description": "The title of the 404 page"

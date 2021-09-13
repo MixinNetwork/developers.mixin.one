@@ -1,5 +1,5 @@
 ---
-title: Create Conversations
+title: 创建会话
 sidebar_position: 2
 ---
 
@@ -15,7 +15,7 @@ import RespConv from "../../_partials/_resp.conv.md";
 
 ## POST /conversations
 
-To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
+新建群组或机器人第一次与用户对话之前，需要调用该 API，确保先创建会话。
 
 <APIEndpoint url="/conversations" />
 
@@ -30,12 +30,12 @@ To create a new group or to have a conversation with a user for the first time, 
 `}</APIPayload>
 
 :::info
-The conversations you created are conversations between your bot/dApp and regular Mixin Messenger users.
-You cannot use the user's `access_token` to create them. Please use the bot/dApp's token to create conversations
+您创建的会话是您的 机器人或者 dApp 与普通 Mixin Messenger 用户之间的会话。
+您不能使用用户的 `access_token` 来创建它们。 请使用机器人或者 dApp 的 Access Token 创建会话
 :::
 
 :::info
-When the category is `CONTACT`, the value of participants should be an array with length equal to 1, and the value of `user_id` is the other party's user_id.
+当 category 为`CONTACT`时，参与者的值应该是一个长度等于 1 的数组，`user_id` 的值为对方的 user_id。
 :::
 
 <APIRequest
@@ -46,11 +46,11 @@ When the category is `CONTACT`, the value of participants should be an array wit
 
 <RespConv />
 
-### Generate Unique Conversation ID
+### 生成唯一会话 ID
 
-**Single chat: category = "CONTACT"**
+**单聊: category = "CONTACT"**
 
-The unique identification of the session is generated according to both parties, in Go:
+会话的唯一标识是根据双方生成的，在 Go 中这样实现：
 
 ```go
 func UniqueConversationId(userId, recipientId string) string {
@@ -68,7 +68,7 @@ func UniqueConversationId(userId, recipientId string) string {
 }
 ```
 
-**Group chat: category = "GROUP"**
+**群聊: category = "GROUP"**
 
 ```go title="golang"
 uuid.NewV4().String()
@@ -78,4 +78,4 @@ uuid.NewV4().String()
 UUID().uuidString.lowercased()
 ```
 
-**Note that UUID strings are unexceptionally converted to lowercase**
+**请注意，UUID 字符串会无例外地转换为小写**

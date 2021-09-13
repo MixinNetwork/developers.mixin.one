@@ -1,40 +1,39 @@
 ---
-title: Schema Interactions
-sidebar_position: 4
+title: Schema 唤起
 ---
 
-A bot can invoke the native Mixin Messenger windows through the Schema to implement functions, such as payment.
+机器人可以通过 Schema 调用原生的 Mixin Messenger 窗口来实现支付等功能。
 
-## Sharing
+## 分享
 
 ```
 mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
 ```
 
-The bot can not automatically share messages. If you specify `conversation_id` and it is the `conversation_id` of the user's current session, the confirmation box shown above will appear, the message will be sent after the user clicks the confirmation; if the `conversation_id` is not specified or is not the `conversation_id` of the current session, an interface where the user chooses which session to share with will show up.
+机器人无法自动共享消息。 如果你指定了 `conversation_id` 并且是用户当前会话的`conversation_id`，会出现一个确认框，用户点击确认后会发送消息；如果没有指定`conversation_id` 或者不是当前会话的 `conversation_id`，则会出现用户选择与哪个会话共享的界面。
 
-### Share text
+### 分享文本
 
 ```js
 const data = "hello world!"
 window.open("mixin://send?category=text&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share images
+### 分享图片
 
 ```js
 const data = '{"url":"https://mixin-www.zeromesh.net/assets/d9bb777b00f4210e107dd3580fe5bf1a.png"}'
 window.open("mixin://send?category=image&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share contacts
+### 分享联系人
 
 ```js
 const data = '{"user_id":"773e5e77-4107-45c2-b648-8fc722ed77f5"}'
 window.open("mixin://send?category=contact&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share cards
+### 分享链接卡片
 
 ```js
 const data = {
@@ -47,14 +46,14 @@ const data = {
 window.open("mixin://send?category=app_card&data=" + encodeURIComponent(base64.encode(JSON.stringify(data))))
 ```
 
-### Share live shows
+### 分享直播卡片
 
 ```js
 const data = '{"height":720,"thumb_url":"https://anchorpost.msstatic.com/cdnimage/anchorpost/1056/41/9771cb5a13901e0ed97514a9cf98e8_1663_1566469032.jpg?imageview/4/0/blur/1/format/webp","url":"https://1400293698.vod2.myqcloud.com/fd69ed6cvodcq1400293698/c1dde9e95285890807215641562/MramAAZccMIA.mp4","width":1280}'
 window.open("mixin://send?category=live&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share posts
+### 分享 Post 消息
 
 ```js
 const data = '## Markdown Intro\n> Markdown is a light weight markup language.'
@@ -62,15 +61,15 @@ window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encod
 ```
 
 
-## Payment
+## 支付
 
-### Invoke payment page.
+### 调起支付页面
 
 ```
 mixin://pay?recipient=&asset=&amount=&memo=&trace=
 ```
 
-| Parameter    | Description     |
+| 参数    | 描述     |
 |:------------------:|:-----------------|
 | recipient | Receivers user id. |
 | asset     | Asset id.  |
@@ -78,27 +77,27 @@ mixin://pay?recipient=&asset=&amount=&memo=&trace=
 | memo      | Optional |
 | trace     | Optional, UUID, prevent duplicate payment.|
 
-You can poll `GET /transfers/trace/:traceid` to see if there is a return value to determine whether the payment has been completed.
+可以轮询 `GET /transfers/trace/:traceid` 看看是否有返回值来判断支付是否已经完成。
 
-### Invoke transfer page.
+### 调起转账页面
 
 ```
 mixin://transfer/:recipient_id
 ```
 
-### Transfer details interface.
+### 调起转账详情
 
 ```
 mixin://snapshots?trace=:traceid
 ```
 
-or
+或者
 
 ```
 mixin://snapshots/:snapshotid
 ```
 
-### Add withdrawal addresses.
+### 添加提现地址
 
 ```
 mixin://address?asset=&label=&destination=&tag=
@@ -106,7 +105,7 @@ mixin://address?asset=&label=&destination=&tag=
 
 `tag` is an optional parameter, other parameters are required.
 
-### Delete withdrawal addresses.
+### 删除提现地址
 
 ```
 mixin://address?asset=&action=delete&address=
@@ -114,7 +113,7 @@ mixin://address?asset=&action=delete&address=
 
 Assign address id to `address`.
 
-### Withdrawal.
+### 发起提现
 
 ```
 mixin://withdrawal?address=&asset=&amount=&memo=&trace=
@@ -122,19 +121,18 @@ mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 
 `memo` is an optional parameter, other parameters are required.
 
-## Others
+## 其它
 
-### popups user profile.
+### 调起用户 Profile
 
 ```
 mixin://users/:userid
 ```
 
-### popups bot profile.
+### 调起机器人 Profile
 
 ```
 mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 ```
 
-`action` is an optional parameter, the bot pop-up window will open in the absence of it, passing `action=open` will open the bot homepage; `key1=value1&key2=value2&key3=value3...` Parameters of any name or type can be passed when opening the bot homepage to facilitate the development of features like invitation codes, visitor tracking, etc. This feature is supported in Mixin Messenger 0.29.0 or above.
-
+`action` 是一个可选参数，如果没有它，bot profile 窗口将打开；传递 `action=open` 将打开 bot 主页； `key1=value1&key2=value2&key3=value3...` 打开 bot 主页时可以传入任意名称或类型的参数，方便开发邀请码、访客追踪等功能，Mixin Messenger 0.29 和以上版本支持此功能。

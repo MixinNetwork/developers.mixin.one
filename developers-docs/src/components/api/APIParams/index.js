@@ -1,13 +1,16 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Translate, {translate} from '@docusaurus/Translate';
 
 const re = /p-([a-zA-Z_]+)/;
 
 function Row({name, value, required}) {
   let requiredEl = '';
   if (required) {
-    requiredEl = <div className={styles.required}>*required</div>
+    requiredEl = <div className={styles.required}>
+      <Translate>com.api_params.required</Translate>
+    </div>
   }
   return (
     <tr className={styles.tr}>
@@ -65,7 +68,9 @@ export default function APIParams(props) {
   }
   return (
     <section className={clsx('meta-panel', styles.panel)}>
-      <h3 className={styles.title}>Parameters</h3>
+      <h3 className={styles.title}>
+        <Translate>com.api_params.parameters</Translate>
+      </h3>
       <table className={clsx('meta-panel-table', styles.table)}>
         <tbody className={styles.tbody}>
           {rows.map((row, idx) => (

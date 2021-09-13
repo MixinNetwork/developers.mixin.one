@@ -1,38 +1,39 @@
 ---
-title: Mainnet RPC
+title: 主网 RPC 接口
 sidebar_position: 3
 ---
 
 :::info
-For latest RPC implementation, see [Mixin's source](https://github.com/MixinNetwork/mixin/blob/master/rpc/http.go).
+最新的 RPC 实现参见 [Mixin 的源码](https://github.com/MixinNetwork/mixin/blob/master/rpc/http.go)。
 :::
 
-## Send RPC Request
 
-Mixin Mainnet Node will public a port for RPC, you can use it to interact with Mixin Mainnet Node.
+## 发送 RPC 请求
 
-The default RPC port is the service port + 1000. For example, if the public port is `8001`, the RPC port is `9001`.
+Mixin 主网节点会公开一个用于 RPC 的端口，您可以使用它来与 Mixin 主网节点进行交互。
+
+默认的RPC端口为服务端口+1000。例如，如果公共端口为`8001`，则RPC端口为`9001`。
 
 **RPC Base**
 
-The RPC base is formed by `http://<node_host>:<rpc_port>/`. For example, `http://127.0.0.1:9001/`.
+RPC API Base 由 `http://<node_host>:<rpc_port>/` 构成。 例如，`http://127.0.0.1:9001/`。
 
-**Payload**
+**请求体**
 
-| Parameter | Type | Description |
+| 参数 | 类型 | 描述 |
 | :----- | :----: | :---- |
-| method | String | Supported methods, please see the section below |
-| params | Array | The parameters of the methods |
+| method | String | 支持的 PRC 方法，请参阅下面的部分  |
+| params | Array | PRC 方法的参数  |
 
 
-**Example**
+**例子**
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"method":"getinfo","params":[],"id":1}' http://127.0.0.1:9001
 ```
 
-## RPC Methods
+## RPC 方法
 
 ### getinfo
 

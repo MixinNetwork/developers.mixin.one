@@ -1,5 +1,5 @@
 ---
-title: Read Asset List
+title: 读取加密货币资产列表
 sidebar_position: 1
 ---
 
@@ -15,7 +15,7 @@ import RespAssets from "../../_partials/_resp.assets.md";
 
 ## GET /assets
 
-Get the asset list of current user.
+本 API 返回当前用户的所有加密资产列表。
 
 <APIEndpoint url="/assets" />
 
@@ -26,5 +26,5 @@ Get the asset list of current user.
 <RespAssets />
 
 :::info
-This interface will only return a list of assets with a balance greater than 0, and an empty list will be returned when a user is new.
+该接口只会返回余额大于 0 的资产列表，新用户没有任何资产，因此会返回空列表。
 :::

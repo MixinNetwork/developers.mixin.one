@@ -1,13 +1,13 @@
 ---
-title: JavaScript Bridge
+title: Web 容器 JS API
 sidebar_position: 5
 ---
 
-There are several Javascript methods in the WebView of Mixin Messenger, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
+Mixin Messenger 的 WebView 中有几个 Javascript 方法，可以被 bot 的网页使用。 方便开发人员阅读对话信息和更改区域设置等。
 
 ## getContext()
 
-This returns the context of current webpage.
+这将返回当前网页的上下文。
 
 ```js
 getMixinContext: function () {
@@ -39,7 +39,7 @@ The response:
 
 ## reloadTheme()
 
-Read the theme-color from the html and apply:
+从 html meta 中读取主题颜色并应用：
 
 ```js
 reloadTheme: function () {
@@ -55,11 +55,11 @@ reloadTheme: function () {
 }
 ```
 
-Please read [Design Guide](../design/overview) for more details about theme.
+请阅读[设计指南](../design/overview) 了解更多关于主题的细节。
 
 ## playlist(audios)
 
-Invoke the playlist. `audios` is a string array which contains the URI list of mp3 files.
+调用播放列表。 `audios` 是一个字符串数组，其中包含 mp3 文件的 URI 列表。
 
 ```js
 playlist: function (audios) {
@@ -76,10 +76,9 @@ playlist: function (audios) {
 ```
 
 :::info
-This method is supported in Mixin Messenger 0.30.0 or above.
+Mixin Messenger 0.30.0 或以上版本支持此方法。
 :::
 
-## Third-Party SDK
+## 第三方 SDK
 
-For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
-
+为了方便使用，第三方团队将这些 Javascript 方法打包到 JsBridge SDK 中。 SDK 提供了统一的访问方式，并给出了所有 Javascript 方法和使用示例的列表。 请[访问此处了解更多详情](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。
