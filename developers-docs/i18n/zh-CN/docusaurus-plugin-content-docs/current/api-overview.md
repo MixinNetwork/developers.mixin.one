@@ -3,9 +3,9 @@ title: Mixin API Overview
 sidebar_position: 1
 ---
 
-Mixin provides different APIs for different services and applications.
+Mixin 为不同的服务和应用程序提供了不同的 API。
 
-- [API Reference](./api/guide): An API Reference for the Mixin API layer that provides convenient access to the Mixin Message service and the Mixin Wallet service.
-- [Mainnet RPC](./mainnet-rpc): JSON-RPC API for the mainnet.
-- [JS Bridge](./js-bridge): A JS Bridge for Mixin Messenger's WebView.
-- [Schema](./schema): A schema list for Mixin Messenger.
+- [API 参考](./api/guide)：Mixin API 层的 API 参考，提供对 Mixin 消息服务和 Mixin 钱包服务的便捷访问。
+- [Mainnet RPC](./mainnet-rpc): 主网的 JSON-RPC API。
+- [JS Bridge](./js-bridge): Mixin Messenger 的 WebView 的 JS 桥。
+- [Schema](./schema): Mixin Messenger 的 Schema 列表。

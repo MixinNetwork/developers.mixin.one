@@ -1,53 +1,53 @@
 ---
-title: API Guide
+title: Mixin API 指引
 sidebar_position: 1
 ---
 
-## Choosing An API Server
+## 选择 API 服务器
 
-For HTTP requests:
+对于 HTTP 请求：
 
-| Domain                         | Type   |
-| :----------------------------- | :----- |
-| https://api.mixin.one          | Global |
+| 域名                           | 类型            |
+| :----------------------------- | :-------------- |
+| https://api.mixin.one          | Global          |
 | https://mixin-api.zeromesh.net | China Or Global |
 
-For webSocket requests:
+对于 WebSocket 请求：
 
-| Domain                         | Type   |
-| :----------------------------- | :----- |
-| wss://blaze.mixin.one          | Global |
+| 域名                           | 类型            |
+| :----------------------------- | :-------------- |
+| wss://blaze.mixin.one          | Global          |
 | wss://mixin-blaze.zeromesh.net | China Or Global |
 
-## Calling APIs
+## 调用 API
 
-Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilizes secure data transmissions between clients and servers.
+大多数 API 需要使用 JSON Web 令牌 (JWT) 进行签名才能访问。 它们利用客户端和服务器之间的安全数据传输。
 
-### Signing
+### 签名
 
 :::tip
-Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/resources/sdk).
+大多数 Mixin SDK 已经提供了 JWT 生成器，可以自动处理 JWT 生成和验证。 更多信息请参考 [SDK](/resources/sdk)。
 :::
 
 **JWT Header**
 
-| Parameter | Instruction                         |
-| :-------- | :---------------------------------- |
-| alg       | Signature Algorithm, set to `RS512` |
-| typ       | Token type, set to `JWT`            |
+| 参数 | 说明                                |
+| :--- | :---------------------------------- |
+| alg  | Signature Algorithm, set to `RS512` |
+| typ  | Token type, set to `JWT`            |
 
 **JWT Payload**
 
-| Parameter | Instruction     |
-| :-------- | :-------------- |
-| uid       | User Id         |
-| sid       | Session Id      |
-| iat       | issued at   |
-| exp       | Expiration Time |
-| jti       | JWT ID          |
-| sig       | Signature       |
+| 参数 | 说明            |
+| :--- | :-------------- |
+| uid  | User Id         |
+| sid  | Session Id      |
+| iat  | issued at       |
+| exp  | Expiration Time |
+| jti  | JWT ID          |
+| sig  | Signature       |
 
-**Sign JWT in Go language**
+**使用 Go 语言进行 JWT 签名**
 
 ```go
 /*
@@ -79,17 +79,17 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
 }
 ```
 
-**A example of signed token**
+**一个 JWT 示例**
 
 ```
 eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
 ```
 
-You can decode it at [jwt.io](https://jwt.io/).
+你可以在 [jwt.io](https://jwt.io/) 这样的工具查看 JWT。
 
-**Send Requests with Token**
+**发送携带 JWT 的请求**
 
-Add signed authentication token to the headers of API requests to get current dApp's profile:
+将签名的 JWT 添加到 API 请求的标头以获取当前 dApp 的 profile：
 
 ```shell
 curl -i -H "Content-Type: application/json" \
@@ -97,11 +97,11 @@ curl -i -H "Content-Type: application/json" \
         "https://api.mixin.one/me"
 ```
 
-### API Responses
+### API 返回
 
-The HTTP status codes returned by the Mixin APIs meet the RFC specifications.
+Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 
-On success:
+成功时：
 
 ```json
 {
@@ -109,7 +109,7 @@ On success:
 }
 ```
 
-or
+或者
 
 ```json
 {
@@ -117,7 +117,7 @@ or
 }
 ```
 
-On error:
+失败时：
 
 ```json
 {
@@ -129,4 +129,4 @@ On error:
 }
 ```
 
-For more, please refer to error code [Document](./error-codes)。
+更多请参考[错误码文档](./error-codes)。
