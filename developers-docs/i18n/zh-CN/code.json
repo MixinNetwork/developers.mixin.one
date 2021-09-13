@@ -246,13 +246,13 @@
   "com.api_metapanel": {
     "message": "授权和其他选项"
   },
-  "com.api_metapanel,public": {
+  "com.api_metapanel.public": {
     "message": "公开访问"
   },
-  "com.api_metapanel,authorization": {
+  "com.api_metapanel.authorization": {
     "message": "授权"
   },
-  "com.api_metapanel,limitation": {
+  "com.api_metapanel.limitation": {
     "message": "限制"
   },
   "com.api_endpoint": {

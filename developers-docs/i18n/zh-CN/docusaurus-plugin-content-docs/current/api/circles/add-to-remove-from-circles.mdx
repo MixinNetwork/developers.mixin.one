@@ -1,5 +1,5 @@
 ---
-title: Add to/Remove from Circles
+title: 添加到圈子/从圈子中删除
 sidebar_position: 6
 ---
 
@@ -17,10 +17,10 @@ import RespCircles from "../../_partials/_resp.circles.md";
 
 ### POST /users/:id/circles
 
-Set the circle to which a user belongs. You can add the user to or remove the user from a circle.
+设置用户所属的圈子。 您可以将用户添加到圈子或从圈子中删除用户。
 
 :::info
-Note that one user can only be added to 5 circles at most, otherwise error 20133 will be reported.
+注意一个用户最多只能加入 5 个圈子，否则会 API 会返回 20133 错误。
 :::
 
 <APIEndpoint url="/users/:id/circles" />
@@ -47,7 +47,7 @@ Note that one user can only be added to 5 circles at most, otherwise error 20133
 
 ### POST /conversations/:id/circles
 
-Set the circle to which a certain group belongs. You can add or remove the group from a certain circle.
+设置某个群组所属的圈子。 您可以在某个圈子中添加或删除群组。
 
 <APIEndpoint url="/conversations/:id/circles" />
 

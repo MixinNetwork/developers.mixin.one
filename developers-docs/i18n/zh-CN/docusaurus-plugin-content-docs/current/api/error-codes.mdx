@@ -1,22 +1,20 @@
 ---
-title: Error Codes
+title: 错误码
 sidebar_position: 15
 ---
 
-# Error Codes
+Mixin API 只会使用 20x 和 500，需要注意 500 错误，可能是 Web Server 而非 Mixin API Server 造成的。
 
-Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 error, which may be caused by Web Server not Mixin API Server.
-
-| Status | Code  | Description                                     |
-| ------ | ----- | :---------------------------------------------- |
-| 202    | 400   | The request body can’t be pasred as valid data. |
-| 202    | 401   | Unauthorized.                                   |
-| 202    | 403   | Forbidden.                                      |
-| 202    | 404   | The endpoint is not found.                      |
-| 202    | 429   | Too Many Requests.                              |
-| 202    | 10006 | App update required.                            |
-| 202    | 20116 | The group chat is full.                         |
-| 202    | 20133 | Too many circles for the conversation.          |
-| 500    | 500   | Internal Server Error.                          |
-| 500    | 7000  | Blaze server error.                             |
-| 500    | 7001  | The blaze operation timeout.                    |
+| HTTP 状态码 | Mixin 错误码 | 描述                             |
+| ----------- | ------------ | :------------------------------- |
+| 202         | 400          | 请求正文无法作为有效数据进行解析 |
+| 202         | 401          | 未经授权的访问                   |
+| 202         | 403          | 禁止访问                         |
+| 202         | 404          | 未找到 API 端点                  |
+| 202         | 429          | 请求过多                         |
+| 202         | 10006        | 需要更新 App                     |
+| 202         | 20116        | 群聊已满                         |
+| 202         | 20133        | 对话圈子太多                     |
+| 500         | 500          | 内部服务器错误                   |
+| 500         | 7000         | Blaze 服务器错误                 |
+| 500         | 7001         | Blaze 操作超时                   |
