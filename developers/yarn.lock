@@ -8357,10 +8357,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
-vue-clipboard2@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.npm.taobao.org/vue-clipboard2/download/vue-clipboard2-0.3.1.tgz#6e551fb7bd384889b28b0da3b12289ed6bca4894"
-  integrity sha1-blUft704SImyiw2jsSKJ7WvKSJQ=
+vue-clipboard2@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/vue-clipboard2/-/vue-clipboard2-0.3.3.tgz#331fec85f9d4f175eb0d4feaef4d77338562af36"
+  integrity sha512-aNWXIL2DKgJyY/1OOeITwAQz1fHaCIGvUFHf9h8UcoQBG5a74MkdhS/xqoYe7DNZdQmZRL+TAdIbtUs9OyVjbw==
   dependencies:
     clipboard "^2.0.0"
 
