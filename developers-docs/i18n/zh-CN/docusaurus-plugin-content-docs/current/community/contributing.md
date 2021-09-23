@@ -53,7 +53,7 @@ Mixin 开发人员文档基于 [Docusaurus](https://docusaurus.io/docs/en/latest
 - `<APIPayload>` 是一个渲染 API 负载的组件
 - `<APIRequest>` 是一个渲染 API 请求的组件
 
-它们的使用请参考['API'下的任何文档](/docs/api/guide)。
+它们的使用请参考['API'下的任何文档](/api/guide)。
 
 ### 使用代码片段
 

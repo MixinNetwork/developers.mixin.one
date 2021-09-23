@@ -55,7 +55,7 @@ reloadTheme: function () {
 }
 ```
 
-Please read [Design Guide](../design/overview) for more details about theme.
+Please read [Design Guide](./dapp/design/overview) for more details about theme.
 
 ## playlist(audios)
 

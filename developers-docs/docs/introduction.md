@@ -13,8 +13,8 @@ If you want to build something with the kernel, or create a fork of Mixin Networ
 
 There are some tutorials that useful:
 
-- [Deploying full node](mainnet/tutorials/full-node-join) - run mixin node in lcoal machine.
-- [Sync full node](mainnet/tutorials/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
+- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in lcoal machine.
+- [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
 
 ## Create Mixin Applications
 
@@ -32,7 +32,7 @@ The bot is very similar to Telegram bot. It’s a program running on a server an
 
 Usually, people interacts with bots in a webview, or just chat with bots. Because of that, the bot should host a web service or respond to incoming messages to get its work done.
 
-Here is [a tutorial](dapp/gettting-started/create-dapp) that shows you how to build a bot with the Mixin API:
+Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to build a bot with the Mixin API:
 
 ###  Integrate with Mixin
 
@@ -44,7 +44,7 @@ The first thing you need to do is same as above, creating a bot. And then, it's 
 
 For example, if you have a CMS for multiple users, you want to put a donate button at the bottom of each post and receive money from audiences; you need to learn to create accounts for each author, manage accounts' keystores, sync and handle snapshots for each author in the CMS to transfer money to them.
 
-Please read [this document](dapp/overview) guide for more details.
+Please read [this document](dapp/mixin-applications) guide for more details.
 
 ## Features
 

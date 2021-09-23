@@ -48,7 +48,7 @@ Transfer to specific user.
 - All you need is to do it over again if you encounter `500` error in a transfer.
 - If you need to process a large number of concurrent transactions and process hundreds or thousands of transfers per second, it is recommended to use multiple accounts to transfer and send transactions.
 - When a transfer error happens, pay attention to the "extra" field in the returned error message.
-- If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](../pin-verify) API to confirm.
+- If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](../pin/pin-verify) API to confirm.
 
 :::
 
