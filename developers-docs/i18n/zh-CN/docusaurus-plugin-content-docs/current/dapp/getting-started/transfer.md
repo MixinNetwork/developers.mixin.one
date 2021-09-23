@@ -7,7 +7,7 @@ title: Transfer
 
 In Mixin Network, there are two kinds of transactions we can send: regular transactions between two regular Mixin accounts (like normal users and applications) and the "raw" transaction among the raw Kernel addresses. Of course, both of them are free and instant.
 
-The regular transactions are created by [`/transfer`](http://localhost:3000/api/transfer/transfer) API. Here is a simple example in Golang:
+The regular transactions are created by [`/transfer`](/api/transfer/transfer) API. Here is a simple example in Golang:
 
 ```go
 type TransferInput struct {
@@ -78,7 +78,7 @@ However, we may need to handle the incoming transactions. For example, we may wa
 There are two ways to do this:
 
 1. Handle [SYSTEM_ACCOUNT_SNAPSHOT](/api/messages/category#transfers) messages in message loop;
-2. [Sync all related snapshots](/guide/sync-snapshots) in a background job.
+2. [Sync all related snapshots](../guide/sync-snapshots) in a background job.
 
 This time, we will use the first way.
 

@@ -55,7 +55,7 @@ reloadTheme: function () {
 }
 ```
 
-请阅读[设计指南](../design/overview) 了解更多关于主题的细节。
+请阅读[设计指南](./dapp/design/overview) 了解更多关于主题的细节。
 
 ## playlist(audios)
 

@@ -28,7 +28,7 @@ By default, every Mixin application that be created at Developer Dashboard will 
 ### Getting Started
 
 - [Official Tutorial](getting-started/create-dapp): a tutorial on how to create a Messenger bot.
-- [Understanding the Message Mechanism](guide/send-and-receive-messages): a guide on how to send and receive messages.
+- [Understanding the Message Mechanism](guide/message-loop): a guide on how to send and receive messages.
 
 ## Mixin API
 
