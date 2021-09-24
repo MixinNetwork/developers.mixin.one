@@ -13,7 +13,9 @@ import {
 
 ## POST /acknowledgements
 
-To receive a list of messages from Mixin message service, you need to setup a websocket connection. After receiving the message via WebSocket, you need to call this API to tell Mixin message service that it has been delivered, otherwise it will keep pushing the message.
+To receive a list of messages from Mixin Server, you need to setup a websocket connection. After receiving messages, you need to call tell Mixin Server that it has been delivered or read, otherwise it will keep pushing the message.
+
+This API use to tell Mixin Server the status of messages in bulk.
 
 <APIEndpoint url="/acknowledgements" />
 

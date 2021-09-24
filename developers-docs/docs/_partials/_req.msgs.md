@@ -7,7 +7,8 @@
      "category": "",
      "representative_id": "UUID",
      "quote_message_id": "UUID",
-     "data": "Base64 encoded data"
+     "data_base64": "Base64 encoded data",
+     "silent": false
   },
   ...
 ]
