@@ -15,7 +15,7 @@ import RespAssetsNetwork from "../../_partials/_resp.assets-network.md";
 
 ## GET /network/assets/:asset_id
 
-Query public information of a specified asset.
+Query public information of a asset.
 
 <APIEndpoint url="/network/assets/:asset_id" />
 

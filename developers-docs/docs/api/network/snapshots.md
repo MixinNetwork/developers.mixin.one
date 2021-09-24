@@ -15,7 +15,7 @@ import RespSnapshots from "../../_partials/_resp.snapshots.md";
 
 ## GET /network/snapshots
 
-Get public transfer records.
+Get snapshot records public information, which including transfers, deposits, withdrawals, etc.
 
 <APIEndpoint url="/network/snapshots?offset=:offset&limit=:limit&asset=:asset&order=:order" />
 

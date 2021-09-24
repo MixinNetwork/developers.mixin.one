@@ -15,7 +15,7 @@ import RespSnapshot from "../../_partials/_resp.snapshot.md";
 
 ## GET /network/snapshots/:snapshot_id
 
-Read public transfer details.
+Read snapshot details by id.
 
 <APIEndpoint url="/network/snapshots/:snapshot_id" />
 

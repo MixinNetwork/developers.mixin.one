@@ -13,7 +13,7 @@ import {
 
 ## GET /network/ticker
 
-Get the historical price of a given asset_id.
+Get the historical price of a given asset.
 
 <APIEndpoint url="/network/ticker?asset=:asset&offset=:offset" />
 
