@@ -29,6 +29,7 @@ According to different payload, the API have different behaviors.
 <APIPayload>{`{
   "user_id":    "user's user_id"
   "full_name":  "the alias of the friend, optinal."
+  "phone":  "the phone number the friend, optinal."
   "action":     "ADD"
 }
 `}</APIPayload>

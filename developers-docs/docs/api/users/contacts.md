@@ -18,10 +18,10 @@ Obtaining the contact list of the user.
 
 The list contains users and bots. You can judge whether it is a bot user by whether there is an app field.
 
-<APIEndpoint url="/users/friends" />
+<APIEndpoint url="/friends" />
 
 <APIMetaPanel scope="CONTACTS:READ" />
 
-<APIRequest title="Read Contacts" url="/users/friends" />
+<APIRequest title="Read Contacts" url="/friends" />
 
 <RespUsers />
