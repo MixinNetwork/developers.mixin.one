@@ -66,4 +66,4 @@ It is recommended that developers cache the access token and subsequently call t
 
 ## Revoking Authorization
 
-Developers can find the bot and revoke authorization in Mixin Messenger Settings, Privacy and Security, Authorization. Note that revoking authorization will also clear the cached information of the current bot on the client-side, such as cookies.
+Users can find the bot and revoke authorization in Mixin Messenger Settings, Privacy and Security, Authorization. Note that revoking authorization will also clear the cached information of the current bot on the client-side, such as cookies.
