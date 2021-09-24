@@ -20,4 +20,4 @@ SUM=`md5 -q dist/developers/index.html`
 
 cp app.one.yaml dist/app.yaml
 #sed -i ''  "s/index.html/index.$SUM.html/g" dist/app.yaml || exit
-cd dist && gcloud app deploy app.yaml
+cd dist && gcloud app deploy app.yaml -q
