@@ -33,19 +33,20 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 
 | Parameter | Instruction                         |
 | :-------- | :---------------------------------- |
-| alg       | Signature Algorithm, set to `RS512` |
+| alg       | Signature Algorithm, set to `EdDSA` |
 | typ       | Token type, set to `JWT`            |
 
 **JWT Payload**
 
-| Parameter | Instruction     |
-| :-------- | :-------------- |
-| uid       | User Id         |
-| sid       | Session Id      |
-| iat       | issued at       |
-| exp       | Expiration Time |
-| jti       | JWT ID          |
-| sig       | Signature       |
+| Parameter | Instruction           |
+| :-------- | :--------------       |
+| uid       | User Id               |
+| sid       | Session Id            |
+| iat       | issued at             |
+| exp       | Expiration Time       |
+| jti       | JWT ID                |
+| sig       | Signature             |
+| scp       | FULL or special scope |
 
 **Sign JWT in Go language**
 
@@ -61,21 +62,22 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string, error) {
   expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
   sum := sha256.Sum256([]byte(method + uri + body))
-  token := jwt.NewWithClaims(jwt.SigningMethodRS512, jwt.MapClaims{
+  token := jwt.NewWithClaims(jwt.EdDSA, jwt.MapClaims{
       "uid": uid,
       "sid": sid,
       "iat": time.Now().UTC().Unix(),
       "exp": expire.Unix(),
       "jti": uuid.NewV4().String(),
       "sig": hex.EncodeToString(sum[:]),
+      "scp": "FULL", // or "PROFILE:READ MESSAGES:REPRESENT"
   })
 
-  block, _ := pem.Decode([]byte(secret))
-  key, err := x509.ParsePKCS1PrivateKey(block.Bytes)
+	priv, err := base64.RawURLEncoding.DecodeString(privateKey)
   if err != nil {
-      return "", err
+    return "", err
   }
-  return token.SignedString(key)
+	token, err := jwt.Sign(jwt.EdDSA, ed25519.PrivateKey(priv), claims)
+  return string(token), err
 }
 ```
 
