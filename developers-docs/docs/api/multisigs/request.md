@@ -30,7 +30,7 @@ Generate a multi-signature request.
 `}</APIPayload>
 
 :::info
-`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils)
+`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/main/common)
 :::
 
 <APIRequest

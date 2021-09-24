@@ -116,7 +116,7 @@ Request body data:
 | Parameter    |  Type  | Description                                                                                                         |
 | :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
 | duration     | Int64  | In seconds, setting to 0 means unmute, other values means mute time, for example, setting 28,800 means mute 8 hours |
-| category     | String | Optional                                                                                                            |
-| participants | Array  | Optional, participants in the conversation.                                                                         |
+| category     | String | Optional, only CONTACT is allowed                                                                                   |
+| participants | Array  | Optional, participants in the conversation, only required when category is CONTACT.                                 |
 
 If you mute users or bots, it is strongly recommended to pass the category and participants parameters, otherwise calling the mute interface without creating a conversation will return an error.
