@@ -14,7 +14,7 @@ import RespSnapshot from "../../_partials/_resp.snapshot.md";
 
 ## GET /snapshots/:snapshot_id
 
-Get the asset list of a user.
+Get the snapshot of a user by id.
 
 :::info
 When reading the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.

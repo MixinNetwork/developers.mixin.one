@@ -14,9 +14,9 @@ import RespSnapshots from "../../_partials/_resp.snapshots.md";
 
 ## GET /snapshots
 
-Get the snapshots by several filters.
+Get the snapshots by several filters. `opponent` and `destination`, `tag` can't use together, both of them don't support `order`.
 
-<APIEndpoint url="/snapshots/:snapshot_id" />
+<APIEndpoint url="/snapshots" />
 
 <APIMetaPanel scope="SNAPSHOTS:READ" scopeNote="" />
 
@@ -25,9 +25,10 @@ Get the snapshots by several filters.
   p-limit-required={true}
   p-offset="Pagination start time, e.g. `2020-12-12T12:12:12.999999999Z`."
   p-offset-required={true}
+  p-order="Order snapshots e.g. `ASC or DESC`."
   p-asset="Optional, get transfers by asset. "
-  p-opponent="Optional, get transfers by opponent(user or bot). "
-  p-destination="Optional, get transfers by destination."
+  p-opponent="Optional, get transfers by opponent (user or bot). "
+  p-destination="Optional, get transfers by destination, only withdrawals."
   p-tag="Optional, reversed."
 />
 
