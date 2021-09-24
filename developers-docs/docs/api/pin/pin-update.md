@@ -21,8 +21,8 @@ Change the PIN of the user, or setup a new PIN if it is not set yet.
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "old_pin":  "Empty string or encrypted old PIN"
-  "pin":      "Encrypted PIN"
+  "old_pin":  "Encrypted old PIN or empty for setup a new PIN"
+  "pin":      "Encrypted new PIN"
 }
 `}</APIPayload>
 

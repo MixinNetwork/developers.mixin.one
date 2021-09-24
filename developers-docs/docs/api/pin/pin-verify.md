@@ -14,7 +14,7 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## POST /pin/verify
 
-Verify a user's PIN.
+Verify a user's PIN, notice the iterator of the pin will increment also.
 
 <APIEndpoint url="/pin/verify" />
 

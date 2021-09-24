@@ -30,7 +30,9 @@ Query the user PIN error log records, based on which developers can remind the u
 ```json title="Response"
 {
   "data": {
+    "type": "log",
     "log_id": "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
+    "code": "WITHDRAWAL",
     "ip_address": "124.64.120.192",
     "created_at": "2018-05-03T06:03:56.867971412Z"
   }
