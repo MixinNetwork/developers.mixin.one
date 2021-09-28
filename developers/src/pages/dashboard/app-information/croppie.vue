@@ -1,14 +1,14 @@
 <template>
   <div v-if="toggle_view" class="croppie-page">
-    <div class="file-uploader" v-show="!tmp_file">
-      <input type="file" accept="image/*" @change="croppie" ref="upload_dom" />
+    <input type="file" accept="image/*" @change="croppie" ref="upload_dom" @click="clickInput" />
+    <div class="file-uploader" v-if="!tmp_file">
       <img class="icon-url" :src="icon_url" v-if="icon_url" />
       <template v-else>
         <img src="@/assets/img/svg/img.svg" />
         <p>{{$t('information.icon_desc')}}</p>
       </template>
     </div>
-    <div v-if="tmp_file" class="croppie" @click="reset_img">
+    <div v-else class="croppie" @click="reset_img">
       <vue-croppie
         ref="croppieRef"
         :enableZoom="true"
@@ -50,6 +50,9 @@
       }
     },
     methods: {
+      clickInput(e) {
+        console.log(e)
+      },
       croppie(e) {
         const files = e.target.files || e.dataTransfer.files
         if (!files.length) return
@@ -90,6 +93,18 @@
   .croppie-page {
     width: 15rem;
     height: 15rem;
+    position: relative;
+
+    &>input {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border-radius: 50%;
+    }
   }
 
   .croppie {
@@ -100,7 +115,6 @@
   }
 
   .file-uploader {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,17 +126,6 @@
 
     img {
       border-radius: 0;
-    }
-
-    input {
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      border-radius: 50%;
     }
 
     p {
