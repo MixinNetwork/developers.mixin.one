@@ -446,6 +446,8 @@ export default {
       no_app_name: 'Application name cannot be empty',
       no_home_uri: 'Home URL cannot be empty',
       no_redirect_uri: 'OAuth URL cannot be empty',
+      home_uri_illegal: 'Home URL is illegal',
+      redirect_uri_illegal: 'OAuth URL is illegal',
       no_description: 'Description cannot be empty',
       app_name_length: 'Application name length is 2 to 64',
       description_length: 'Description length is 16 to 128',
