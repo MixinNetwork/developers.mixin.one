@@ -1,7 +1,6 @@
 <template>
   <div v-if="toggle_view" class="croppie-page">
-    <input type="file" accept="image/*" @change="croppie" ref="upload_dom" @click="clickInput" />
-    <div class="file-uploader" v-if="!tmp_file">
+    <div class="file-uploader" v-if="!tmp_file" @click="reset_img">
       <img class="icon-url" :src="icon_url" v-if="icon_url" />
       <template v-else>
         <img src="@/assets/img/svg/img.svg" />
@@ -20,6 +19,7 @@
         :viewport="{ width: size, height: size, 'type':'circle' }"
       ></vue-croppie>
     </div>
+    <input type="file" accept="image/*" @change="croppie" ref="upload_dom" @click="clickInput" />
   </div>
 </template>
 
@@ -96,14 +96,8 @@
     position: relative;
 
     &>input {
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      border-radius: 50%;
+      width: 0;
+      height: 0;
     }
   }
 
