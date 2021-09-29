@@ -612,4 +612,18 @@ export default {
     ...
   ]
 }`,
+
+  payment: `{
+  "data": {
+    "type": "payment",
+    "payment_id": "773e5e77-4107-45c2-b648-8fc722ed77f5",
+    "asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+    "amount": "-10",
+    "trace_id": "7c67e8e8-b142-488b-80a3-61d4d29c90bf",
+    "memo": "hello",
+    "threshold": 2,
+    "receivers": ["7c67e8e8-b142-488b-80a3-61d4d29c90bf", "7c67e8e8-b142-488b-80a3-61d4d29c90bf", "7c67e8e8-b142-488b-80a3-61d4d29c90bf"],
+    "created_at": "2017-12-23T18:23:26.996149Z",
+  }
+}`,
 }

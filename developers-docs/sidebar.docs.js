@@ -171,6 +171,7 @@ module.exports = {
             'api/transfer/raw-transfer',
             'api/transfer/snapshots',
             'api/transfer/snapshot',
+            'api/transfer/payment',
           ]
         },
         {
