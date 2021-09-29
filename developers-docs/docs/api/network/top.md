@@ -1,6 +1,6 @@
 ---
-title: Read Assets
-sidebar_position: 2
+title: Top 100 Assets
+sidebar_position: 30
 ---
 
 import {
@@ -13,11 +13,11 @@ import {
 
 import RespAssetsNetwork from "../../_partials/_resp.assets-network.md";
 
-## GET /network/assets/:asset_id
+## GET /network/assets/top
 
-Query public information of a asset.
+Query the list of the top 100 assets on the entire network, permission-less access.
 
-<APIEndpoint url="/network/assets/:asset_id" />
+<APIEndpoint url="/network/assets/top" />
 
 <APIMetaPanel scope="" />
 
@@ -46,21 +46,17 @@ Query public information of a asset.
 
 ## GET /network/assets/top
 
-Query the list of the top 100 assets on the entire network, a `kind` parameter is used to specify the top assets, for `NORMAL` value will not swap lp tokens..
+Query the list of the top 100 assets on the entire network
 
-<APIEndpoint url="/network/assets/top?kind=NORMAL" />
+<APIEndpoint url="/network/assets/top" />
 
 <APIMetaPanel scope="" />
-
-<APIParams
-  p-kind="ALL, NORMAL, BARREN, ALL by default."
-/>
 
 <APIRequest title="Read top 100 assets" isPublic url="/network/assets/top" />
 
 <RespAssetsNetwork />
 
-## GET /network/assets/search/:q?kind=NORMAL
+## GET /network/assets/search/:q
 
 Search for popular assets by symbol or name.
 
@@ -72,11 +68,7 @@ This API only returns assets with icons or prices.
 
 <APIMetaPanel scope="" />
 
-<APIParams 
-  p-q="the keyword" 
-  p-q-required={true}
-  p-kind="ALL, NORMAL, BARREN, ALL by default."
-/>
+<APIParams p-q="the keyword" p-q-required={true} />
 
 <APIRequest
   title="Search assets by keywords"

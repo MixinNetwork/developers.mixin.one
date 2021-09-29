@@ -3,6 +3,7 @@ import APIRequest from "./APIRequest";
 import APIEndpoint from "./APIEndpoint";
 import APIParams from "./APIParams";
 import APIPayload from "./APIPayload";
+import APIResponse from "./APIResponse";
 
 export {
   APIMetaPanel,
@@ -10,4 +11,5 @@ export {
   APIEndpoint,
   APIParams,
   APIPayload,
+  APIResponse,
 };

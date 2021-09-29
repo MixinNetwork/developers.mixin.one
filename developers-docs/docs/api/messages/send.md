@@ -9,8 +9,8 @@ import {
   APIEndpoint,
   APIParams,
   APIPayload,
+  APIResponse,
 } from "@site/src/components/api";
-import ReqMessages from "../../_partials/_req.msgs.md";
 
 ## POST /messages
 
@@ -43,6 +43,6 @@ A maximum of 100 messages can be sent in batch each time, and the message body c
 
 Request body data is a message array:
 
-<ReqMessages />
+<APIResponse name="msgs" />
 
 It returns empty JSON on success.
