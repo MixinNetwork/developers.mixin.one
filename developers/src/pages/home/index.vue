@@ -81,68 +81,6 @@
       </ul>
       <a class="button" href="cases">{{$t('home.button.readmore')}}</a>
     </section>
-
-    <!--  -->
-    <!-- <section class="documentation">
-      <h2
-       
-        
-      >{{$t('home.documentation.title')}}</h2>
-      <div class="container">
-        <ul class="section1">
-          <li
-            v-for="(item,index) in $t('home.documentation.left')"
-            :key="index"
-           
-            
-          >
-            <h3>{{item.title}}</h3>
-            <p>{{item.info}}</p>
-            <a href="#" class="button">{{item.button}}</a>
-          </li>
-        </ul>
-        <ul class="section2">
-          <li
-            v-for="(item,index) in $t('home.documentation.right')"
-            :key="index"
-           
-            
-          >
-            <p>{{item.title}}</p>
-            <a href="#">{{item.info}}</a>
-          </li>
-        </ul>
-      </div>
-    </section>-->
-
-    <!--  -->
-    <!-- <section class="next-step documentation">
-      <h2>{{$t('home.nextstep.title')}}</h2>
-      <div class="container">
-        <ul class="section1">
-          <li
-            v-for="(item,index) in $t('home.nextstep.left')"
-            :key="index"
-           
-            
-          >
-            <p>{{item.info}}</p>
-            <a href="dashboard" class="button">{{item.button}}</a>
-          </li>
-        </ul>
-        <ul class="section2">
-          <li
-            v-for="(item,index) in $t('home.nextstep.right')"
-            :key="index"
-           
-            
-          >
-            <p>{{item.title}}</p>
-            <a href="#">{{item.info}}</a>
-          </li>
-        </ul>
-      </div>
-    </section>-->
     <Footer />
   </div>
 </template>
@@ -156,7 +94,7 @@ export default {
   components: { Header, Footer },
   data() {
     return {
-      mainRoute: ["/document", "/dashboard"]
+      mainRoute: ["/docs", "/dashboard"]
     };
   },
   mounted() {
