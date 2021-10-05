@@ -31,7 +31,7 @@
     data() {
       return {
         showMenus: false,
-        routerList: ["/news", "/cases", "/document/mainnet/overview", "/dashboard"],
+        routerList: ["/news", "/cases", "/docs/", "/dashboard"],
         search: "",
         focusSearch: false
       }
