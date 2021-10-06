@@ -136,3 +136,11 @@ mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 ```
 
 `action` 是一个可选参数，如果没有它，bot profile 窗口将打开；传递 `action=open` 将打开 bot 主页； `key1=value1&key2=value2&key3=value3...` 打开 bot 主页时可以传入任意名称或类型的参数，方便开发邀请码、访客追踪等功能，Mixin Messenger 0.29 和以上版本支持此功能。
+
+### 打开会话
+
+```
+mixin://conversations/:conversationid?user=:userid
+```
+  
+`user` 是一个可选参数，如果是群组不带 `user` 参数，注意如果用户不在当前群组里无法打开会话；如果是个人会话（包括与机器人会话）强烈建议带上 `user` 参数，如果不带并且用户之间之前没有相互发过消息将无法打开聊天界面，conversations 的 Schema 在 Mixin Messenger 0.31.1 或以上的版本支持。
