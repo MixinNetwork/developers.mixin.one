@@ -50,13 +50,13 @@
   "com.api_metapanel": {
     "message": "Authentication and options"
   },
-  "com.api_metapanel,public": {
+  "com.api_metapanel.public": {
     "message": "Public Access"
   },
-  "com.api_metapanel,authorization": {
+  "com.api_metapanel.authorization": {
     "message": "Authorization"
   },
-  "com.api_metapanel,limitation": {
+  "com.api_metapanel.limitation": {
     "message": "Limitation"
   },
   "com.api_endpoint": {
