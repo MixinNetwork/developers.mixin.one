@@ -61,7 +61,7 @@ It can be obtained from https://mixin.one/snapshots by searching for asset code 
 
 ## Read Application's Assets
 
-The Mixin Application is a special type of user. It also has a wallet just like a normal user. You can inspect the assets of the application by visiting "Developer Dashboard - Choosing any app - Clicking the `Wallet` tab".
+The Mixin Application is a special type of user. It also has a wallet just like a normal user. You can inspect the assets of the application by visiting "Developers Dashboard - Choosing any app - Clicking the `Wallet` tab".
 
 You can also read the assets programmatically by calling the [`/assets`](/api/assets/assets) with the application's access token. The algorithm for generating access token can be found [here](../guide/generate-jwt-token), but you can also use the [SDK](/resources/sdk) to simplify the process.
 

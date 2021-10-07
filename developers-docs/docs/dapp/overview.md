@@ -14,7 +14,7 @@ In addition to providing end-to-end encrypted chat and wallet functions, Mixin M
 
 Developers can easily implement powerful bots with functions such as transactions, paid content, and e-commerce. You can search for `7000101700` in Mixin Messenger to try a variety of selected bots.
 
-By default, every Mixin application that be created at Developer Dashboard will be a Mixin Messenger bot.
+By default, every Mixin application that be created at Developers Dashboard will be a Mixin Messenger bot.
 
 ### Features
 

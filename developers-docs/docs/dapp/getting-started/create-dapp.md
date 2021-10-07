@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## New Application
 
-Download [Mixin Messenger](https://mixin.one/messenger), open [Developer Dashboard](https://developers.mixin.one/dashboard) and login by scanning the QrCode.
+Download [Mixin Messenger](https://mixin.one/messenger), open [Developers Dashboard](https://developers.mixin.one/dashboard) and login by scanning the QrCode.
 
 Click the `New App` button on the left side and create an application by following the prompt, please upload the application icon and fill the form. Below are descriptions of some of the important parameters.
 
