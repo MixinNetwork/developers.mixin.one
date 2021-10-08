@@ -1,4 +1,4 @@
-# Mixin Developer Documents Rebundled
+# Mixin Developers
 
 ## TODO
 

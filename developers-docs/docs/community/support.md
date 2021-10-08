@@ -10,7 +10,7 @@ title: Support
 
 - [GitHub Discussions](https://github.com/MixinNetwork/mixin/discussions)
 - [Reddit Commnunity](https://www.reddit.com/r/mixin)
-- [Mixin Developer Group](https://supergroup.mixin.fan/#/7000104112/home): search `7000104112` in Mixin Messenger to join the group.
+- [Mixin Developers Group](https://supergroup.mixin.fan/#/7000104112/home): search `7000104112` in Mixin Messenger to join the group.
 
 ## News
 

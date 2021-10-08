@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## 新建应用程序
 
-下载[Mixin Messenger](https://mixin.one/messenger)，打开[Developer Dashboard](https://developers.mixin.one/dashboard)，扫描二维码登录。
+下载[Mixin Messenger](https://mixin.one/messenger)，打开[Developers Dashboard](https://developers.mixin.one/dashboard)，扫描二维码登录。
 
 点击左侧的“新建应用程序”按钮，按照提示创建应用程序，请上传应用程序图标并填写表单。下面是一些重要参数的说明。
 

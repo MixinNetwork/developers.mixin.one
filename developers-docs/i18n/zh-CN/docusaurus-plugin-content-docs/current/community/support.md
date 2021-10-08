@@ -11,7 +11,7 @@ title: 开发者支持
 
 - [GitHub Discussions](https://github.com/MixinNetwork/mixin/discussions)
 - [Reddit Commnunity](https://www.reddit.com/r/mixin)
-- [Mixin Developer Group](https://supergroup.mixin.fan/#/7000104112/home): 在 Mixin Messenger 搜索 `7000104112` 加入群。
+- [Mixin Developers Group](https://supergroup.mixin.fan/#/7000104112/home): 在 Mixin Messenger 搜索 `7000104112` 加入群。
 
 ## 新闻
 
