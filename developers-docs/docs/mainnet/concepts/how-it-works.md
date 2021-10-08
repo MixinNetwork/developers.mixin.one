@@ -7,7 +7,7 @@ sidebar_position: 1
 
 Mixin is a free, lightning-fast peer-to-peer cross-chain trading network for digital assets. Through the Domain gateway, Bitcoin, Ethereum, Monero, and a lot more popular public chain assets are brought into Mixin network. All the off-chain transactions are recorded in a public transparent Mixin distributed ledger and written to the blockchain when withdrawals happen.
 
-![TODO: English Version Img](./how-it-works.svg)
+![How it Works](./how-it-works.svg)
 
 ### Distributed Ledger
 
