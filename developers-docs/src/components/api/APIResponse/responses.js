@@ -208,6 +208,24 @@ export default {
   }
 }`,
 
+  pin_message: `{
+  "id": "UUID",
+  "action": "CREATE_MESSAGE",
+  "params": {
+    "conversation_id": "UUID",
+    "category": "MESSAGE_PIN",
+    "status": "SENT",
+    "message_id": "UUID",
+    "data": "Base64 encoded data"
+  }
+}
+
+// data structure
+{
+  "action": "PIN", // PIN or UNPIN
+  "message_ids": ["ab56be4c-5b20-41c6-a9c3-244f9a433f35","ab56be4c-5b20-41c6-a9c3-244f9a433f35"]
+}`,
+
   msg_transfer: `{
   "id": "UUID",
   "action": "CREATE_MESSAGE",

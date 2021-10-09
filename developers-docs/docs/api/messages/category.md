@@ -66,3 +66,7 @@ Card forwarding can be prohibited by setting the `shareable` field to false. Thi
 ## Transfers
 
 <APIResponse name="msg_transfer" />
+
+## Pin Messages
+
+<APIResponse name="pin_message" />
