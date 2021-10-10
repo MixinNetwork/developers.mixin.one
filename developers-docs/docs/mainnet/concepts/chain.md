@@ -5,7 +5,7 @@ sidebar_position: 6
 
 ## Public Chain Support
 
-Mixin Network is a second layer for 32 public chains such as Bitcoin, Ethereum, and Monero. It focuses on digital asset security, privacy, and extremely fast transfers. It can be simply understood as the lightning network of all popular public chains.
+Mixin Network is a second layer for 40 public chains such as Bitcoin, Ethereum, and Monero. It focuses on digital asset security, privacy, and extremely fast transfers. It can be simply understood as the lightning network of all popular public chains.
 
 
 ### Public Chain Browser
@@ -26,11 +26,17 @@ Visit https://mixin.one/network/chains to view the current public chain data blo
 | Ethereum      | ETH   | 43d61dcd-e413-450d-80b8-101d5e903357 | Only Supports ETH and ERC - 20 tokens                             |
 | EOS           | EOS   | 6cfe566e-4aad-470b-8c9a-2fd35b49c68d | Supports all tokens issued on EOS                                  |
 | Monero        | XMR   | 05c5ac01-31f9-4a69-aa8a-ab796de1d041 | Only Supports XMR                                           |
-| Polkadot        | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | Only Supports DOT                                           |
+| Polkadot      | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | Only Supports DOT                                           |
+| Kusama        | KSM   | 9d29e4f6-d67c-4c4b-9525-604b04afbe9f | Only Supports KSM                                           |
+| Solana        | SOL   | 64692c23-8971-4cf4-84a7-4dd1271dd887 | Only Supports SOL                                           |
+| MobileCoin    | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | Only Supports MOB                                           |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | Only Supports LTC                                           |
 | TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | Only Supports TRX, TRC-10、TRC-20 tokens, e.g. BTT、USDT-TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | Only Supports XLM                                           |
-| Bytom         | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | Only Supports BTM                                           |
+| Arweave       | AR    | 882eb041-64ea-465f-a4da-817bd3020f52 | Only Supports AR                                            |
+| Avalanche     | AVAX  | cbc77539-0a20-4666-8c8a-4ded62b36f0a | Only Supports AVAX                                          |
+| Algorand      | ALGO  | 706b6f84-3333-4e55-8e89-275e71ce9803 | Only Supports ALGO                                          |
+| Akash         | AKT   | 9c612618-ca59-4583-af34-be9482f5002d | Only Supports AKT                                           |
 | Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | Only Supports FIL                                           |
 | Bitcoin SV    | BSV   | 574388fd-b93f-4034-a682-01c2bc095d17 | Only Supports BSV                                           |
 | Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | Only Supports BNB and BEP2 tokens                                         |
@@ -53,6 +59,8 @@ Visit https://mixin.one/network/chains to view the current public chain data blo
 | Dash          | DASH  | 6472e7e3-75fd-48b6-b1dc-28d294ee1476 | Only Supports DASH                                          |
 | Ravencoin     | RVN   | 6877d485-6b64-4225-8d7e-7333393cb243 | Only Supports RVN                                           |
 | Namecoin      | NMC   | f8b77dc0-46fd-4ea1-9821-587342475869 | Only Supports NMC                                           |
+| Bytom 1.0 (PoW)  | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | Only Supports BTM                                           |
+| Bytom 2.0 (PoS)  | BTM   | 71a0e8b5-a289-4845-b661-2b70ff9968aa | Only Supports BTM                                           |
 | MassGrid      | MGD   | b207bce9-c248-4b8e-b6e3-e357146f3f4c | Only Supports MGD                                           |
 
 ---
