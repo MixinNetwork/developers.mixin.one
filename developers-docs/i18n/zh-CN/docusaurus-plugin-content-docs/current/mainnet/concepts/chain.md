@@ -2,7 +2,7 @@
 title: 公链支持
 ---
 
-Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，专注于数字资产安全、隐私和极速转账，可以简单理解为所有热门公链的闪电网络。
+Mixin Network 是 Bitcoin、Ethereum、Monero 等 40 条公链的二层网络，专注于数字资产安全、隐私和极速转账，可以简单理解为所有热门公链的闪电网络。
 
 ## 公链浏览器
 
@@ -22,10 +22,16 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | EOS           | EOS   | 6cfe566e-4aad-470b-8c9a-2fd35b49c68d | 支持所有基于 EOS 发行的代币                                  |
 | Monero        | XMR   | 05c5ac01-31f9-4a69-aa8a-ab796de1d041 | 仅支持 XMR                                           |
 | Polkadot        | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | 仅支持 DOT                                           |
+| Kusama           | KSM   | 9d29e4f6-d67c-4c4b-9525-604b04afbe9f | 仅支持 KSM                                           |
+| Solana           | SOL   | 64692c23-8971-4cf4-84a7-4dd1271dd887 | 仅支持 SOL                                           |
+| MobileCoin       | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | 仅支持 MOB                                           |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | 仅支持 LTC                                           |
 | TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | 仅支持 TRX 和 TRC-10、TRC-20 代币，例如 BTT、USDT-TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | 仅支持 XLM                                           |
-| Bytom         | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | 仅支持 BTM                                           |
+| Arweave          | AR    | 882eb041-64ea-465f-a4da-817bd3020f52 | 仅支持 AR                                            |
+| Avalanche        | AVAX  | cbc77539-0a20-4666-8c8a-4ded62b36f0a | 仅支持 AVAX                                          |
+| Algorand         | ALGO  | 706b6f84-3333-4e55-8e89-275e71ce9803 | 仅支持 ALGO                                          |
+| Akash            | AKT   | 9c612618-ca59-4583-af34-be9482f5002d | 仅支持 AKT                                           |
 | Filecoin    | FIL   | 08285081-e1d8-4be6-9edc-e203afa932da | 仅支持 FIL                                           |
 | Bitcoin SV    | BSV   | 574388fd-b93f-4034-a682-01c2bc095d17 | 仅支持 BSV                                           |
 | Binance Chain | BNB   | 17f78d7c-ed96-40ff-980c-5dc62fecbc85 | 仅支持 BNB 和 BEP2 代币                                          |
@@ -48,6 +54,8 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 32 条公链的二层网络，
 | Dash          | DASH  | 6472e7e3-75fd-48b6-b1dc-28d294ee1476 | 仅支持 DASH                                          |
 | Ravencoin     | RVN   | 6877d485-6b64-4225-8d7e-7333393cb243 | 仅支持 RVN                                           |
 | Namecoin      | NMC   | f8b77dc0-46fd-4ea1-9821-587342475869 | 仅支持 NMC                                           |
+| Bytom 1.0 (PoW)  | BTM   | 443e1ef5-bc9b-47d3-be77-07f328876c50 | 仅支持 BTM                                           |
+| Bytom 2.0 (PoS)  | BTM   | 71a0e8b5-a289-4845-b661-2b70ff9968aa | 仅支持 BTM                                           |
 | MassGrid      | MGD   | b207bce9-c248-4b8e-b6e3-e357146f3f4c | 仅支持 MGD                                           |
 
 
