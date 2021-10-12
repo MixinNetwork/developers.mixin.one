@@ -54,7 +54,7 @@ module.exports = {
         {to: '/showcase', label: 'Showcase', position: 'left'},
         {to: '/blog', label: 'News', position: 'left'},
         {
-          href: '/dashboard',
+          href: 'https://developers.mixin.one/dashboard',
           label: 'Dashboard',
           position: 'right',
         },
@@ -89,7 +89,7 @@ module.exports = {
             },
             {
               label: 'Dashboard',
-              href: '/dashboard',
+              href: 'https://developers.mixin.one/dashboard',
             },
           ],
         },
