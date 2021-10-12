@@ -6,7 +6,7 @@ module.exports = {
   title: 'Mixin Developers',
   tagline: 'Mixin Development Documents',
   url: 'https://developers.mixin.one',
-  baseUrl: '/docs',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -49,9 +49,10 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: '/introduction', label: 'Docs', position: 'left'},
-        {to: '/api-overview', label: 'API', position: 'left'},
+        {to: '/docs/introduction', label: 'Docs', position: 'left'},
+        {to: '/docs/api-overview', label: 'API', position: 'left'},
         {to: '/showcase', label: 'Showcase', position: 'left'},
+        {to: '/blog', label: 'News', position: 'left'},
         {
           href: '/dashboard',
           label: 'Dashboard',
@@ -136,7 +137,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebar.docs.js'),
           path: 'docs',
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           // Please change this to your repo.
           editUrl: 'https://github.com/MixinNetwork/developers.mixin.one/tree/main/developers-docs',
         },
