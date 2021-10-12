@@ -6,7 +6,7 @@ module.exports = {
   title: 'Mixin Developers',
   tagline: 'Mixin Development Documents',
   url: 'https://developers.mixin.one',
-  baseUrl: '/',
+  baseUrl: '/docs',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
