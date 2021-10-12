@@ -72,7 +72,7 @@ const Users = [
   {
     title: '4swap',
     description: 'A decentralized protocol implement for automated liquidity provision on Mixin Network',
-    preview: 'img/showcase/4swap.png',
+    preview: 'images/showcase/4swap.png',
     website: 'https://4swap.org',
     source: null,
     tags: ['exchange'],
@@ -80,7 +80,7 @@ const Users = [
   {
     title: 'B.watch',
     description: 'A completely open and transparent fund platform.',
-    preview: 'img/showcase/bwatch.png',
+    preview: 'images/showcase/bwatch.png',
     website: 'https://b.watch',
     source: '',
     tags: ['finance'],
@@ -88,7 +88,7 @@ const Users = [
   {
     title: 'Pando Leaf',
     description: 'A decentralized financial network, implement a derivatives liquidity protocol.',
-    preview: 'img/showcase/leaf.pando.png',
+    preview: 'images/showcase/leaf.pando.png',
     website: 'https://leaf.pando.im/',
     source: 'https://github.com/fox-one/pando',
     tags: ['finance', 'opensource'],
@@ -96,7 +96,7 @@ const Users = [
   {
     title: 'PRSDigg',
     description: ' PRSDigg tries to build a win-win platform for both authors and readers.',
-    preview: 'img/showcase/prsdigg.png',
+    preview: 'images/showcase/prsdigg.png',
     website: 'https://prsdigg.com/',
     source: 'https://github.com/baizhiheizi/prsdigg',
     tags: ['publishing', 'opensource'],

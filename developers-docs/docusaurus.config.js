@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   organizationName: 'MixinNetwork', // Usually your GitHub org/user name.
   projectName: 'developers.mixin.one', // Usually your repo name.
   trailingSlash: false,
@@ -46,7 +46,7 @@ module.exports = {
       title: 'Mixin Developer',
       logo: {
         alt: 'Mixin Developer',
-        src: 'img/logo.svg',
+        src: 'images/logo.svg',
       },
       items: [
         {to: '/docs/introduction', label: 'Docs', position: 'left'},

@@ -5,6 +5,9 @@ handlers:
   - url: /img
     static_dir: developers/img
 
+  - url: /images
+    static_dir: developers-docs/images
+
   - url: /css
     static_dir: developers/css
 
@@ -14,38 +17,38 @@ handlers:
   - url: /fonts
     static_dir: developers/fonts
 
-  - url: /docs
-    static_files: developers-docs/index.html
-    upload: developers-docs/index.html
-
-  - url: /docs/
-    static_files: developers-docs/index.html
-    upload: developers-docs/index.html
-
-  - url: /docs/zh-CN
+  - url: /zh-CN
     static_files: developers-docs/zh-CN/index.html
     upload: developers-docs/zh-CN/index.html
 
-  - url: /docs/zh-CN/
+  - url: /zh-CN/
     static_files: developers-docs/zh-CN/index.html
     upload: developers-docs/zh-CN/index.html
-
-  - url: /docs/(.*\.(gif|png|jpg|svg|css|js|ico))$
-    static_files: developers-docs/\1
-    upload: developers-docs/.*\.(gif|png|jpg|svg|css|js|ico)$
-
-  - url: /docs/(.*)
-    static_files: developers-docs/\1.html
-    upload: developers-docs/(.*).html
-
-  - url: /docs/.*
-    static_files: developers-docs/404.html
-    upload: developers-docs/404.html
 
   - url: /favicon.ico
     static_files: developers/favicon.ico
     upload: developers/favicon.ico
 
-  - url: /.*
+  - url: /assets/(.*\.(gif|png|jpg|svg|css|js|ico))$
+    static_files: developers-docs/assets/\1
+    upload: developers-docs/assets/.*\.(gif|png|jpg|svg|css|js|ico)$
+
+  - url: /auth
     static_files: developers/index.html
     upload: developers/index.html
+
+  - url: /dashboard
+    static_files: developers/index.html
+    upload: developers/index.html
+
+  - url: /apps/*
+    static_files: developers/index.html
+    upload: developers/index.html
+
+  - url: /
+    static_files: developers-docs/index.html
+    upload: developers-docs/index.html
+
+  - url: /(.*)
+    static_files: developers-docs/\1.html
+    upload: developers-docs/(.*).html

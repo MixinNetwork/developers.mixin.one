@@ -67,7 +67,7 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={clsx("image-part", styles.right)}>
-          <img src={useBaseUrl('img/home_head.svg')} class="main-bg" />
+          <img src={useBaseUrl('images/home_head.svg')} class="main-bg" />
         </div>
       </div>
     </header>
