@@ -14,7 +14,7 @@ module.exports = {
             'mainnet/concepts/how-it-works',
             'mainnet/concepts/xin',
             'mainnet/concepts/full-node',
-            'mainnet/concepts/d3m-pin',
+            'mainnet/concepts/tip',
             'mainnet/concepts/multisig',
             'mainnet/concepts/chain',
             'mainnet/concepts/price',

@@ -19,6 +19,10 @@
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/MixinNetwork"
   },
+  "link.item.label.Dashboard": {
+    "message": "Dashboard",
+    "description": "Mixin developers dashboard"
+  },
   "copyright": {
     "message": "Copyright © 2021 Mixin",
     "description": "The footer copyright"

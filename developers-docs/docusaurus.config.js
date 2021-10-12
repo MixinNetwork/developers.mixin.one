@@ -3,10 +3,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Mixin Developer',
+  title: 'Mixin Developers',
   tagline: 'Mixin Development Documents',
   url: 'https://developers.mixin.one',
-  baseUrl: '/docs/',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -53,8 +53,8 @@ module.exports = {
         {to: '/api-overview', label: 'API', position: 'left'},
         {to: '/showcase', label: 'Showcase', position: 'left'},
         {
-          href: 'https://github.com/MixinNetwork/developers.mixin.one',
-          label: 'GitHub',
+          href: '/dashboard',
+          label: 'Dashboard',
           position: 'right',
         },
         {
@@ -85,6 +85,10 @@ module.exports = {
             {
               label: 'GitHub',
               href: 'https://github.com/MixinNetwork',
+            },
+            {
+              label: 'Dashboard',
+              href: '/dashboard',
             },
           ],
         },

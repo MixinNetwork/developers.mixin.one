@@ -14,7 +14,7 @@ import {SortedUsers, Tags, TagList, User, TagType} from '../../data/users';
 const TITLE = 'Mixin Application Showcase';
 const DESCRIPTION = 'List of applications are building with Mixin';
 const EDIT_URL =
-  'https://github.com/MixinNetwork/developers.mixin.one/edit/main/developer-docs/src/data/users.tsx';
+  'https://github.com/MixinNetwork/developers.mixin.one/blob/main/developers-docs/src/data/users.tsx';
 
 function filterUsers(
   users,
