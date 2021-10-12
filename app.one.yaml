@@ -33,6 +33,14 @@ handlers:
     static_files: developers-docs/assets/\1
     upload: developers-docs/assets/.*\.(gif|png|jpg|svg|css|js|ico)$
 
+  - url: /zh-CN/assets/(.*\.(gif|png|jpg|svg|css|js|ico))$
+    static_files: developers-docs/zh-CN/assets/\1
+    upload: developers-docs/zh-CN/assets/.*\.(gif|png|jpg|svg|css|js|ico)$
+
+  - url: /zh-CN/images/(.*\.(gif|png|jpg|svg|css|js|ico))$
+    static_files: developers-docs/zh-CN/images/\1
+    upload: developers-docs/zh-CN/images/.*\.(gif|png|jpg|svg|css|js|ico)$
+
   - url: /auth
     static_files: developers/index.html
     upload: developers/index.html
