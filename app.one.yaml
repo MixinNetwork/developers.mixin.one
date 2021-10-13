@@ -29,6 +29,10 @@ handlers:
     static_files: developers/favicon.ico
     upload: developers/favicon.ico
 
+  - url: /sitemap.xml
+    static_files: developers-docs/sitemap.xml
+    upload: developers-docs/sitemap.xml
+
   - url: /assets/(.*\.(gif|png|jpg|svg|css|js|ico))$
     static_files: developers-docs/assets/\1
     upload: developers-docs/assets/.*\.(gif|png|jpg|svg|css|js|ico)$
