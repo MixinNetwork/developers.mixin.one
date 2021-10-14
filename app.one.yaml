@@ -53,7 +53,7 @@ handlers:
     static_files: developers/index.html
     upload: developers/index.html
 
-  - url: /apps/*
+  - url: /apps/.*
     static_files: developers/index.html
     upload: developers/index.html
 
