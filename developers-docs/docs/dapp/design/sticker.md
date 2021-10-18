@@ -22,7 +22,7 @@ Artists can submit sticker works to Mixin Messenger.
 
 - Stickers Padding
 
-  ![Todo: English Version Img, Sticker-padding](./sticker-padding.png)
+  ![Sticker-padding](./sticker-padding.png)
 
 ### Submitting sticker
 
