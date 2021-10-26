@@ -26,6 +26,11 @@ Delete a specified address by address :addr_id.
   p-addr_id-required={true}
 />
 
+<APIPayload>{`{
+  "pin":          "encrypted PIN",
+}
+`}</APIPayload>
+
 <APIRequest
   title="Delete an ETH address"
   method="POST"
