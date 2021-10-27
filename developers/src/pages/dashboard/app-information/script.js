@@ -22,6 +22,7 @@ export default {
       app_name: '',
       resource_patterns: '',
       immersive_status: false,
+      has_encrypted: false,
       encrypted_status: false,
       toggle_app: 0,
       confirm_modal: false
@@ -62,6 +63,8 @@ export default {
         this.immersive_status = capabilities.includes('IMMERSIVE')
         this.encrypted_status = capabilities.includes('ENCRYPTED')
       }
+      const pubKey = Buffer.from(app.session_secret, 'base64')
+      this.has_encrypted = pubKey.length === 32
       _check_is_finished.call(this)
     }
   },

@@ -104,9 +104,9 @@ button {
   }
 
   h3 {
-    padding: 10px 0;
-    min-height: 72.5px;
-    font-size: 17px;
+    padding: 0.625rem;
+    min-height: 4.5rem;
+    font-size: 1rem;
     font-weight: 500;
     display: flex;
     align-items: center;

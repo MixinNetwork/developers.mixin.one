@@ -70,7 +70,7 @@
         <img v-else src="@/assets/img/ic_v.png" />
         <span>{{$t('information.immersive')}}</span>
       </div>
-      <div @click="click_encrypted" class="des encrypted">
+      <div v-if="has_encrypted" @click="click_encrypted" class="des encrypted">
         <i v-if="!encrypted_status" />
         <img v-else src="@/assets/img/ic_v.png" />
         <span>{{$t('information.encrypted')}}</span>

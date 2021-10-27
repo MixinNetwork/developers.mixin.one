@@ -47,9 +47,6 @@ export default {
           break
         case 'session':
           _request_new_session.call(this)
-        case 'session_ed25519':
-          this.tmp_action = 'session'
-          _request_new_session.call(this, 'ed25519')
           break
       }
     },
@@ -62,13 +59,8 @@ export default {
       this.confirm_content = this.$t('secret.secret_question')
       this.confirm_modal = true
     },
-    request_new_session() {
-      this.tmp_action = 'session'
-      this.confirm_content = this.$t('secret.session_question')
-      this.confirm_modal = true
-    },
     request_ed25519_session() {
-      this.tmp_action = 'session_ed25519'
+      this.tmp_action = 'session'
       this.confirm_content = this.$t('secret.session_question')
       this.confirm_modal = true
     },
@@ -119,10 +111,10 @@ async function _request_new_secret() {
   }
 }
 
-async function _request_new_session(algo = 'rsa') {
+async function _request_new_session() {
   if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
   let pin = _get_pin()
-  let key = algo === 'ed25519' ? _get_ed25519_private_key() : _get_private_key()
+  let key = _get_ed25519_private_key()
   let { session_secret, private_key } = key
   once_submit = true
   this.loading = true
@@ -130,12 +122,10 @@ async function _request_new_session(algo = 'rsa') {
     const res = await this.apis.app_new_session(this.active_app.app_id, pin, session_secret)
     this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
     let { session_id, pin_token, pin_token_base64 } = res
-    let jsonObj = { pin, client_id: this.active_app.app_id, session_id, pin_token, private_key }
-    if (algo == 'ed25519') {
-      jsonObj['pin_token'] = pin_token_base64
-    }
+    let keystore = { pin, client_id: this.active_app.app_id, session_id, pin_token, private_key }
+    keystore['pin_token'] = pin_token_base64
     this.modal_title = this.$t('secret.session_title')
-    this.modal_content = JSON.stringify(jsonObj, null, ' ')
+    this.modal_content = JSON.stringify(keystore, null, ' ')
     this.$ls.rm(this.active_app.app_id)
   } finally {
     once_submit = false
@@ -144,18 +134,15 @@ async function _request_new_session(algo = 'rsa') {
 
   function _get_ed25519_private_key() {
     let keypair = forge.pki.ed25519.generateKeyPair()
-    let session_secret = keypair.publicKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
-    let private_key = keypair.privateKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
+    let session_secret = safeBase64(keypair.publicKey.toString("base64"))
+    let private_key = safeBase64(keypair.privateKey.toString("base64"))
     return { session_secret, private_key }
   }
 
-  function _get_private_key() {
-    let keypair = forge.pki.rsa.generateKeyPair({ bits: 1024, e: 0x10001 })
-    let body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes()
-    let session_secret = forge.util.encode64(body, 64)
-    let private_key = forge.pki.privateKeyToPem(keypair.privateKey)
-    return { session_secret, private_key }
+  function safeBase64(msg) {
+    return msg.replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
   }
+
 
   function _get_pin() {
     let pin = ''
