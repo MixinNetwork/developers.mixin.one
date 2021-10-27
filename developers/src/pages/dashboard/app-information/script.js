@@ -1,11 +1,12 @@
 import MInput from './input.vue'
 import Croppie from './croppie.vue'
 import CategorySelect from './select.vue'
+import Confirm from '@/components/Confirm'
 
 export default {
   name: 'app-information',
   components: {
-    MInput, Croppie, CategorySelect
+    MInput, Croppie, CategorySelect, Confirm
   },
   props: {
     active_app: {
@@ -21,7 +22,9 @@ export default {
       app_name: '',
       resource_patterns: '',
       immersive_status: false,
-      toggle_app: 0
+      encrypted_status: false,
+      toggle_app: 0,
+      confirm_modal: false
     }
   },
   watch: {
@@ -30,6 +33,17 @@ export default {
     }
   },
   methods: {
+    click_encrypted() {
+      if (this.encrypted_status) return
+      this.confirm_modal = true
+    },
+    confirm_action() {
+      this.encrypted_status = true
+      this.close_modal()
+    },
+    close_modal() {
+      this.confirm_modal = false
+    },
     submit_to_database() {
       if (!this.can_save) return notice.call(this)
       _submit_to_database.call(this)
@@ -43,8 +57,11 @@ export default {
       this.toggle_app++
       let { name, resource_patterns, capabilities } = app
       this.app_name = name || ''
-      if (resource_patterns) this.resource_patterns = resource_patterns && resource_patterns.join('\n')
-      if (capabilities) this.immersive_status = capabilities && capabilities.includes('IMMERSIVE')
+      if (resource_patterns) this.resource_patterns = resource_patterns.join('\n')
+      if (capabilities) {
+        this.immersive_status = capabilities.includes('IMMERSIVE')
+        this.encrypted_status = capabilities.includes('ENCRYPTED')
+      }
       _check_is_finished.call(this)
     }
   },
@@ -59,7 +76,9 @@ async function _submit_to_database() {
   if (once_submit) return notice.call(this, 'saving')
   let { app_id, description, home_uri, redirect_uri, category = 'OTHER' } = this.active_app
   let name = this.app_name
-  let capabilities = this.immersive_status ? ['CONTACT', 'GROUP', 'IMMERSIVE'] : ['CONTACT', 'GROUP']
+  const capabilities = ['CONTACT', 'GROUP']
+  this.immersive_status && capabilities.push('IMMERSIVE')
+  this.encrypted_status && capabilities.push('ENCRYPTED')
   let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
   let icon_base64 = await this.$refs.croppie.crop()
@@ -69,7 +88,7 @@ async function _submit_to_database() {
   if (!resource_patterns) {
     parmas.resource_patterns = []
   } else {
-    if (resource_patterns.includes('\r\n')) 
+    if (resource_patterns.includes('\r\n'))
       resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
     parmas.resource_patterns = resource_patterns.split('\n')
   }
