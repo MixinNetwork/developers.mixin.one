@@ -60,17 +60,6 @@ func GenerateUserChecksum(sessions []*Session) string {
 
 <APIMetaPanel scope="Authorized" />
 
-<APIPayload>{`[
-  { message object },
-  { message object },
-  ...
-]
-`}</APIPayload>
-
-:::info
-`message object` is a JSON object, please refer to the [Message Category](./category).
-:::
-
 <APIRequest
   title="Send Messages"
   method="POST"

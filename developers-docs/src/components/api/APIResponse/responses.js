@@ -1,28 +1,30 @@
 export default {
-  msg_audio: `{
-  "id": "UUID",
-  "action": "CREATE_MESSAGE",
-  "params": {
-    "conversation_id": "UUID",
-    "category": "PLAIN_AUDIO",
-    "status": "SENT",
-    "message_id": "UUID",
-    "data": "Base64 encoded data"
+  msg_audio: `
+  {
+    "id": "UUID",
+    "action": "CREATE_MESSAGE",
+    "params": {
+      "conversation_id": "UUID",
+      "category": "PLAIN_AUDIO",
+      "status": "SENT",
+      "message_id": "UUID",
+      "data": "Base64 encoded data"
+    }
   }
-}
 
-// data structure
-{
-  "id": "UUID",
-  "action": "CREATE_MESSAGE",
-  "params": {
-    "conversation_id": "UUID",
-    "category": "PLAIN_AUDIO",
-    "status": "SENT",
-    "message_id": "UUID",
-    "data": "Base64 encoded data"
+  // data structure
+  {
+    "id": "UUID",
+    "action": "CREATE_MESSAGE",
+    "params": {
+      "conversation_id": "UUID",
+      "category": "PLAIN_AUDIO",
+      "status": "SENT",
+      "message_id": "UUID",
+      "data": "Base64 encoded data"
+    }
   }
-}`,
+`,
 
   msg_buttons: `{
   "id": "UUID",
