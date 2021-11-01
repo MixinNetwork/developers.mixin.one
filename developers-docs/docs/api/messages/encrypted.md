@@ -15,7 +15,7 @@ import RespAttachment from "../../_partials/_resp.attachment.md";
 import ReqEncrypted from "../../_partials/_req.encrypted.md";
 import RespEncrypted from "../../_partials/_resp.encrypted.md";
 
-Mixin is very concerned about personal privacy. Before this, the messages between user and bots were not encrypted. Now we supported encrypted messages.
+Mixin is very concerned about personal privacy. In the old day, messages between users and bots were not encrypted. Now we do some changes.
 
 ### Overview of Encrypted Message
 
@@ -37,7 +37,7 @@ A demo of how to encrypt the body of message can be found here: https://github.c
 
 ### checksum of the conversation
 
-The checksum uses to validate if there is any change in this conversation. If there's a device signed in again, there `session_id` will changed.
+The checksum used to validate if there is any change in this conversation. If there's a device signed in again, there `session_id` will change. Checksum is the md5sum of the conversation session_ids in ASC order.
 
 ```
 func GenerateUserChecksum(sessions []*Session) string {
