@@ -41,7 +41,6 @@ As of November 2020, there are about 430,000 XIN uncirculated and kept in mining
 - There are 150,000 XIN in circulation in the market, mainly for exchanges, node queuing, swap market-making, wallets, etc.
 
 ### Trade
-- 4swap, Search for bot 7000103537 in Mixin Messenger. XIN trading pair fund pool has exceeded 2 million dollars.
-- ExinSwap, Search for bot 7000102352, XIN-USDT trading pair fund pool has exceeded 1 million dollars.
+- 4swap, Search for bot 7000103537 in Mixin Messenger. XIN trading pair fund pool has exceeded 7 million dollars.
+- ExinSwap, Search for bot 7000102352, XIN-USDT trading pair fund pool has exceeded 3 million dollars.
 - [BigONE](https://big.one/trade/XIN-EOS)
-- [WhaleEx](https://www.whaleex.com/trade/XIN_USDT)

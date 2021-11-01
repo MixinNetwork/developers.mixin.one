@@ -13,7 +13,7 @@ Go to [Dashboard](/dashboard), click on the left to select the current bot, scro
 
 ### Design Adaptation
 
-![TODO: English Version Img, Immersive Mode](./immersive-mode.png)
+![Immersive Mode](./immersive-mode.png)
 
 The rendering on the right perfectly interprets the immersive mode. Note that the theme color does not support gradient colors.
 
