@@ -103,32 +103,6 @@ module.exports = {
   },
   plugins: [
     'docusaurus-plugin-sass',
-    // [require.resolve('@cmfcmf/docusaurus-search-local'), {
-    //   indexDocs: true,
-    //   docsRouteBasePath: '/',
-    //   language: "en",
-    //   indexDocSidebarParentCategories: 3,
-    // }],
-
-    // '@aldridged/docusaurus-plugin-lunr',
-
-    // [ require.resolve('docusaurus-lunr-search'), {
-    //   languages: ['en', 'de'], // language codes
-    //   indexBaseUrl: true,
-    // }]
-
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'api',
-    //     path: 'docs',
-    //     routeBasePath: '/',
-    //     editCurrentVersion: false,
-    //     sidebarPath: require.resolve('./sidebar.api.js'),
-    //     showLastUpdateAuthor: false,
-    //     showLastUpdateTime: true,
-    //   },
-    // ],
   ],
   presets: [
     [
