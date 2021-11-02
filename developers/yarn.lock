@@ -2614,12 +2614,7 @@ commander@^2.18.0, commander@^2.20.0:
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
 
-commander@^6.0.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
-  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
-
-commander@^8.1.0:
+commander@^8.0.0, commander@^8.1.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
@@ -5079,12 +5074,12 @@ jws@^3.2.2:
     jwa "^1.4.1"
     safe-buffer "^5.0.1"
 
-katex@^0.13.3:
-  version "0.13.11"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.13.11.tgz#66138ebf173f25ef130cd3a3ea3ea1d12a3f1362"
-  integrity sha512-yJBHVIgwlAaapzlbvTpVF/ZOs8UkTj/sd46Fl8+qAf2/UiituPYVeapVD8ADZtqyRg/qNWUKt7gJoyYVWLrcXw==
+katex@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.15.1.tgz#cf4ce2fa1257c3279cc7a7fe0c8d1fab40800893"
+  integrity sha512-KIk+gizli0gl1XaJlCYS8/donGMbzXYTka6BbH3AgvDJTOwyDY4hJ+YmzJ1F0y/3XzX5B9ED8AqB2Hmn2AZ0uA==
   dependencies:
-    commander "^6.0.0"
+    commander "^8.0.0"
 
 killable@^1.0.1:
   version "1.0.1"
