@@ -644,4 +644,88 @@ export default {
     "created_at": "2017-12-23T18:23:26.996149Z",
   }
 }`,
+
+  collectible_request: `{
+    "data": {
+      "type": "non_fungible_request",
+      "request_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+      "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+      "token_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "amount": "10",
+      "senders_threshold": 2,
+      "senders": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "receivers_threshold": 2,
+      "receivers": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "signers": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "action": "sign",
+      "state": "spent",
+      "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      "raw_transaction": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+      "code_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+    }
+  }`,
+
+  collectible_output: `
+    {
+      "data": {
+        "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "output_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "token_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+        "output_index": 0,
+        "amount": "",
+        "senders_threshold": 1,
+        "senders": [
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+        ],
+        "receivers_threshold": 2,
+        "receivers": [
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+        ],
+        "state": "spent",
+        "created_at": "2018-05-03T10:08:34.859542588Z",
+        "updated_at": "2018-05-03T10:08:34.859542588Z",
+        "signed_by": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+        "signed_tx": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      }
+    }
+  `,
+
+  collectible_token: `{
+    "data": {
+      "type": "non_fungible_token",
+      "token_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "group": "",
+      "token": "",
+      "mixin_id": "",
+      "nfo": "",
+      "meta": {
+        "group": "",
+        "name": "",
+        "description": "",
+        "icon_url": "",
+        "media_url": "",
+        "mime": "",
+        "hash": "",
+      },
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+    }
+  }`,
 }

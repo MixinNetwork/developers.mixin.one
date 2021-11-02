@@ -152,7 +152,7 @@ POST /multisigs/requests/:id/sign
 // Generate multisig request.
 POST /multisigs/requests
 {
-  "action": "sign",
+  "action": "cancel",
   "raw":    "298281....000180e"
 }
 

@@ -240,6 +240,14 @@ module.exports = {
             'api/circles/list-items',
           ]
         },
+        {
+          label: 'Collectibles',
+          type: 'category',
+          items: [
+            'api/collectibles/request',
+            'api/collectibles/outputs',
+          ]
+        },
         "api/shared-bots",
         "api/session-secret-migration",
         "api/error-codes",
