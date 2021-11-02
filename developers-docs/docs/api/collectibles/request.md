@@ -89,7 +89,7 @@ POST /collectibles/requests/:id/sign
 // Generate collectible request.
 POST /collectibles/requests
 {
-  "action": "sign",
+  "action": "cancel",
   "raw":    "298281....000180e"
 }
 
