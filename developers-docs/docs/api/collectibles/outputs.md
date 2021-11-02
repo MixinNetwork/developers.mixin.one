@@ -25,7 +25,7 @@ import {
   p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
 />
 
-If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
+If an account participates in collectibles multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
 
 Here is the golang code for generating the multi-signature member hash:
 
