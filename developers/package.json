@@ -18,7 +18,7 @@
     "katex": "^0.15.1",
     "node-forge": "^0.10.0",
     "uuid": "^8.3.2",
-    "validator": "^13.6.0",
+    "validator": "^13.7.0",
     "vue": "^2.6.14",
     "vue-clipboard2": "^0.3.3",
     "vue-croppie": "^2.0.2",
