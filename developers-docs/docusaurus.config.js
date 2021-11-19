@@ -49,8 +49,8 @@ module.exports = {
         src: 'images/logo.svg',
       },
       items: [
-        {to: '/docs/introduction', label: 'Docs', position: 'left'},
         {to: '/docs/api-overview', label: 'API', position: 'left'},
+        {to: '/docs/introduction', label: 'Docs', position: 'left'},
         {to: '/showcase', label: 'Showcase', position: 'left'},
         {to: '/blog', label: 'News', position: 'left'},
         {
