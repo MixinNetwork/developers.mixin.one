@@ -24,7 +24,25 @@ Metamask 安装配置[文档](/zh-CN/docs/mainnet/mvm/metamask)
 
 ## 4. Pubish 一个 MVM APP
 
-下载 Trusted Group 的代码到本地: https://github.com/MixinNetwork/trusted-group
+下载 Trusted Group 的代码到本地: https://github.com/MixinNetwork/trusted-group, 然后编译 ./mvm 的内容，首先需要配置 golang 环境
+
+下载安装 Golang 环境相关[文档](https://go.dev/doc/install)
+
+复制 ./config/config.example.toml 到 config/config.toml, 并修改以下内容
+
+```
+[mtg.genesis]
+members = [
+  "a15e0b6d-76ed-4443-b83f-ade9eca2681a",
+  "b9126674-b07d-49b6-bf4f-48d965b2242b",
+  "15141fe4-1cfd-40f8-9819-71e453054639",
+  "3e72ca0c-1bab-49ad-aa0a-4d8471d375e7"
+]
+threshold = 3
+timestamp = 1637699415378769097
+```
+
+其它内容，在以下命令中并不会用到
 
 ./mvm publish -m config/config.toml -k keystore.json -a 0x2a4630550ad909b90aacd82b5f65e33affa04323 -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
 
