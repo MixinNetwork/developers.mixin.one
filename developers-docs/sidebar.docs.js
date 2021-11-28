@@ -34,6 +34,15 @@ module.exports = {
           ]
         },
         {
+          label: 'MVM',
+          type: 'category',
+          items: [
+            'mainnet/mvm/setup',
+            'mainnet/mvm/metamask',
+            'mainnet/mvm/remix',
+          ]
+        },
+        {
           label: 'Guide',
           type: 'category',
           items: [
