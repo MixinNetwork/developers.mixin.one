@@ -1,5 +1,5 @@
 ---
-title: 如何配置 MVM
+title: 如何配置机器人使用 MVM
 ---
 
 基于 Mixin Trusted Group, 可以构建一个 MTG 的网络，这个网络允许开发者在上面部署智能合约。这个网络是由多个节点利用 POS 共识运行的。
@@ -46,7 +46,7 @@ timestamp = 1637699415378769097
 
 ./mvm publish -m config/config.toml -k keystore.json -a 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323 -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
 
-keystore.json 是从开发者后台下载的密钥文件
+其中 keystore.json 是从开发者后台下载的密钥文件
 -a 是部署合约的地址
 -e 是合约的 Transaction Hash
 

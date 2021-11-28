@@ -2,11 +2,11 @@
 title: 使用 Remix
 ---
 
-输入https://remix.ethereum.org/ 打开Remix。在主画面中，点击Environments，选取Solidity配置Remix来进行Solidity的开发，最后打开File Explorers的画面，如下图所示：
+输入https://remix.ethereum.org/ 打开 Remix。在主画面中，点击 Environments，选取 Solidity 配置 Remix来 进行 Solidity 的开发，最后打开 File Explorers 的画面，如下图所示：
 
 ![using remix](./remix/using-remix-1.png)
 
-我们需要创建一个新的文件夹来储存Solidity智能合约。点击File Explorers下面的 “+” 按钮，接着在弹窗内输入 “refund.sol“：
+我们需要创建一个新的文件夹来储存 Solidity 智能合约。点击File Explorers下面的 “+” 按钮，接着在弹窗内输入 "refund.sol"：
 
 并且写入以下内容:
 
@@ -27,12 +27,11 @@ contract Refund {
 
 ![using remix](./remix/using-remix-2.png)
 
-
 接下来，在编辑器侧边选项，选择并点击“Compile refund.sol” 按钮：
 
 ![using remix](./remix/using-remix-3.png)
 
-现在我们可以通过侧边的Deployment选项来部署合约。您需要将顶端的 “Environment” 从“JavaScript VM”向下拉至“Injected Web3”。如此一来，Remix会使用MetaMask导入的账户并指向一个已导入的 MVM 独立节点。
+现在我们可以通过侧边的 Deployment 选项来部署合约。您需要将顶端的 "Environment" 从 "JavaScript VM" 向下拉至 "Injected Web3 "。如此一来，Remix会使用MetaMask导入的账户并指向一个已导入的 MVM 独立节点。
 
 ![using remix](./remix/using-remix-4.png)
 
