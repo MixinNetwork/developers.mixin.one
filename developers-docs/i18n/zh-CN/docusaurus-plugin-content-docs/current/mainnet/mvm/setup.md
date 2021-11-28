@@ -44,7 +44,7 @@ timestamp = 1637699415378769097
 
 其它内容，在以下命令中并不会用到
 
-./mvm publish -m config/config.toml -k keystore.json -a 0x2a4630550ad909b90aacd82b5f65e33affa04323 -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
+./mvm publish -m config/config.toml -k keystore.json -a 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323 -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
 
 keystore.json 是从开发者后台下载的密钥文件
 -a 是部署合约的地址

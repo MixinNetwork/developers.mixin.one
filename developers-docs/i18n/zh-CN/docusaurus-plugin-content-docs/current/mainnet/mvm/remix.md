@@ -42,3 +42,5 @@ contract Refund {
 
 例如:
 https://testnet.mvmscan.com/tx/0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6/internal-transactions
+
+这里拿到的合约地址是 0x2a4630550ad909b90aacd82b5f65e33affa04323, 需要点进合约，拿到大小写区分的地址，例如: 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323
