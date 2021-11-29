@@ -2,6 +2,10 @@
 title: 如何配置机器人使用 MVM
 ---
 
+:::info
+因 MVM 正式网尚未上线，本文所述的内容和操作都在 MVM 测试网执行。
+:::
+
 基于 Mixin Trusted Group, 可以构建一个 MTG 的网络，这个网络允许开发者在上面部署智能合约。这个网络是由多个节点利用 POS 共识运行的。
 
 该网络不运行任何智能合约虚拟机，而是需要与现有网络一起工作，例如以太坊、EOS 或 Solana。让我们假设智能合约网络是以太坊。
@@ -31,6 +35,7 @@ Metamask 安装配置[文档](/zh-CN/docs/mainnet/mvm/metamask)
 复制 ./config/config.example.toml 到 config/config.toml, 并修改以下内容
 
 ```
+/* 以下内容是测试网的配置项 */
 [mtg.genesis]
 members = [
   "a15e0b6d-76ed-4443-b83f-ade9eca2681a",
