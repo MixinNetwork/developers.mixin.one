@@ -18,6 +18,10 @@ title: 如何配置机器人使用 MVM
 
 创建 DAPP 的[相关文档](/zh-CN/docs/dapp/getting-started/create-dapp)
 
+:::info
+创建完 DAPP 之后，需要给它转入 10 CNB, 作为手续费
+:::
+
 ## 2. 配置 Metamask
 
 Metamask 安装配置[文档](/zh-CN/docs/mainnet/mvm/metamask)
