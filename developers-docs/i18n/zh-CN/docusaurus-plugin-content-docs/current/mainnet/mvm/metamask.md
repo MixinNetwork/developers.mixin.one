@@ -30,4 +30,6 @@ MetaMask可以通过Chrome和Firefox浏览器下载，移动端支持iOS和Andro
 - 符号（Symbol）：RUM
 - 区块浏览器 URL（Block Explorer URL）：https://testnet.mvmscan.com/
 
-在保存（Save）网络并返回主页面后, 就可以正常的转账，调用 web3js 来部署合约了
+在保存（Save）网络并返回主页面后, 就可以正常的转账，调用 web3js 来部署合约了。
+
+如果需要测试币可以通过[https://faucet.mvmscan.com/](https://faucet.mvmscan.com/) 来领取。
