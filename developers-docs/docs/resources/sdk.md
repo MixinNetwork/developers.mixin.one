@@ -25,6 +25,8 @@ The community has also developed several SDKs for developers.
 - [Mixin SDK Node.js](https://github.com/liuzemei/mixin-node-sdk) - A Mixin-Network SDK for Node.js.
 - [Mixin_bot (Ruby)](https://github.com/an-lee/mixin_bot) - A simple API wrapper for Mixin Network in Ruby, used in Prsdigg.
   - [🥰 Examples](https://github.com/an-lee/mixin_bot/tree/master/examples)
+- [Mixin_Python](https://github.com/learnforpractice/mixin-python) - Mixin Python Bindings & Mixin Python Bot SDK.
+  - [🥰 Examples](https://github.com/learnforpractice/mixin-python/tree/main/examples)
 - [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - A jsbridge wrapper for Mixin Messenger, make a bridge between your javascript and the Webview of Mixin Messenger, provides a convenient way to call Messenger's code from your webpage or SPA.
   - [🥰 Example](https://fox-one.github.io/mixin-sdk-jsbridge-bot/), [📖 Documentation](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
 
