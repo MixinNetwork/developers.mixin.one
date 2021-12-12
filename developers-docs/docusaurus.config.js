@@ -140,6 +140,7 @@ module.exports = {
           routeBasePath: '/docs',
           // Please change this to your repo.
           editUrl: 'https://github.com/MixinNetwork/developers.mixin.one/tree/main/developers-docs',
+          editLocalizedFiles: true,
         },
         blog: {
           showReadingTime: true,
