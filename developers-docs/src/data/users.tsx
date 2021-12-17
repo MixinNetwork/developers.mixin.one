@@ -106,7 +106,7 @@ const Users = [
     description: 'ExinOne is the one-stop digital asset financial service platform powered by Exin.',
     preview: 'images/showcase/exinone.png',
     website: 'https://mixin.one/codes/310e1f2b-2fc7-4ae0-ae2c-2f4c189808b1',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance', 'exchange'],
   },
   {
@@ -114,7 +114,7 @@ const Users = [
     description: 'ExinSwap is the automated market making (AMM) trading platform powered by Exin.',
     preview: 'images/showcase/exinswap.png',
     website: 'https://app.exinswap.com/',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance', 'exchange'],
   },
   {
@@ -122,7 +122,7 @@ const Users = [
     description: 'MixSwap is the MiFi DEX aggregation trading platform powered by Exin.',
     preview: 'images/showcase/mixswap.png',
     website: 'https://app.mixswap.exchange',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance', 'exchange'],
   },
   {
@@ -130,7 +130,7 @@ const Users = [
     description: 'ExinLocal is a decentralized peer-to-peer marketplace for the worldwide buy and sell cryptocurrencies.',
     preview: 'images/showcase/exinlocal.png',
     website: 'https://mixin.one/codes/9b19efa3-359f-4dc4-a4c6-df389126bf9b',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance', 'exchange'],
   },
   {
@@ -138,7 +138,7 @@ const Users = [
     description: 'ExinPool is a staking platform powered by Exin.',
     preview: 'images/showcase/exinpool.png',
     website: 'https://mixin.exinpool.com',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance'],
   },
   {
@@ -146,7 +146,7 @@ const Users = [
     description: 'ExinEarn is bitcoin rewards platform powered by Exin.',
     preview: 'images/showcase/exinearn.png',
     website: 'https://app.exinearn.com',
-    source: 'https://github.com/ExinOne',
+    source: '',
     tags: ['finance', 'shopping'],
   },
 
