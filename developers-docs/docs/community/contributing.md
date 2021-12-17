@@ -53,7 +53,7 @@ There are some built-in components that can be used in the documentation in the 
 - `<APIPayload>` is a component that renders an API's payload
 - `<APIRequest>` is a component that renders an API's request
 
-Please refer to the [any document of 'API' section](/api/guide) for the usage of them.
+Please refer to the [any document of 'API' section](/docs/api/guide) for the usage of them.
 
 ### Using partials
 

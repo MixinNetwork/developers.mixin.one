@@ -7,7 +7,7 @@ sidebar_position: 6
 
 The sending message feature can be used to implement functions like sending announcements and replying to users. Before sending a message, you need to create a message structure.
 
-Mixin Messenger supports [various message types](/api/messages/category). A plain-text message's structure should look like this:
+Mixin Messenger supports [various message types](/docs/api/messages/category). A plain-text message's structure should look like this:
 
 ```json
 {
@@ -36,7 +36,7 @@ Here is an example of sending a plain-text message by using the official Golang 
 ```
 
 :::info
-Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, if not, you need to call the [Creating Conversations](/api/conversations/create) API to ensure that the conversation has been created.
+Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, if not, you need to call the [Creating Conversations](/docs/api/conversations/create) API to ensure that the conversation has been created.
 :::
 
 ## Receiving Messages

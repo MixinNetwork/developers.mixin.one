@@ -17,7 +17,7 @@ https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=
 **必需参数**
 
 - **client_id** - 应用的client_id，可以从上一篇提到的keystore中获取。
-- **scope** - 请求的权限，请参阅[本文档](/api/oauth/scope/) 了解更多详细信息。 它应该至少包含`PROFILE:READ` 权限。
+- **scope** - 请求的权限，请参阅[本文档](/docs/api/oauth/scope/) 了解更多详细信息。 它应该至少包含`PROFILE:READ` 权限。
 - **response_type** - 使用 `code` 返回授权码
 
 **可选参数**

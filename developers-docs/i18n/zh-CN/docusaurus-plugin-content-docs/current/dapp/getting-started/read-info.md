@@ -4,7 +4,7 @@ title: 读取信息
 
 在[上一篇教程文章](./oauth) 中，我们介绍了 OAuth2 流程以及如何使用它来获取 Access Token。本文将向您展示如何读取用户信息。
 
-为了简化叙述，从现在开始，文章中将会提到 Mixin 的 SDK。 Mixin 团队和社区提供了各种 SDK 供开发者使用。 您可以在 [SDK](/resources/sdk) 页面中找到 SDK。
+为了简化叙述，从现在开始，文章中将会提到 Mixin 的 SDK。 Mixin 团队和社区提供了各种 SDK 供开发者使用。 您可以在 [SDK](/docs/resources/sdk) 页面中找到 SDK。
 
 ## 阅读用户资料
 
@@ -12,7 +12,7 @@ title: 读取信息
 要获取用户的基本个人信息，需要`PROFILE:READ`权限。
 :::
 
-我们可以使用 [`/me`](/api/users/profile) API 读取用户的个人资料。 `/me` 是一个需要身份验证的 API，因此我们需要先获取 Access Token 并将其放入 HTTP 头中。
+我们可以使用 [`/me`](/docs/api/users/profile) API 读取用户的个人资料。 `/me` 是一个需要身份验证的 API，因此我们需要先获取 Access Token 并将其放入 HTTP 头中。
 
 我们发这样的一个请求来获取信息：
 
@@ -34,7 +34,7 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 :::info
 `user_id` 字段是整个 Mixin 网络中每个“帐户”或“用户”的唯一 ID。
 
-此外，如果用户是 Mixin Messenger 用户，您可以使用 [`POST /messages`](/api/messages/send) 和 `user_id` 字段向他们发送消息。
+此外，如果用户是 Mixin Messenger 用户，您可以使用 [`POST /messages`](/docs/api/messages/send) 和 `user_id` 字段向他们发送消息。
 :::
 
 ## 读取用户的资产
@@ -63,7 +63,7 @@ import RespAssets from '../../_partials/_resp.assets.md'
 
 Mixin 应用程序是一种特殊类型的用户。 它也有一个像普通用户一样的钱包。 您可以通过访问 开发者仪表板 - 选择任何应用程序 - 单击“钱包”选项卡 来检查应用程序的资产。
 
-您还可以通过使用应用程序的 Access Token 调用 [`/assets`](/api/assets/assets) 以编程方式读取资产。 生成 Access Token 的算法可以在[这里](../guide/generate-jwt-token)找到，但你也可以使用[SDK](/resources/sdk)来简化这个过程。
+您还可以通过使用应用程序的 Access Token 调用 [`/assets`](/docs/api/assets/assets) 以编程方式读取资产。 生成 Access Token 的算法可以在[这里](../guide/generate-jwt-token)找到，但你也可以使用[SDK](/docs/resources/sdk)来简化这个过程。
 
 下面是使用官方Go SDK生成token和读取资产的例子：
 

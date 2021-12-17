@@ -41,6 +41,6 @@ Mixin is the first to apply multi-signature technology to blockchain consensus b
 
   MTG is the best practice of sharding technology. Each MTG implementation is a para chain of the Mixin Network, composed of multiple independent nodes, and the consensus is reached through the multi-signature technology of the Mixin main network.
 
-- [Multi-Signature API Document](/api/multisigs/outputs)
+- [Multi-Signature API Document](/docs/api/multisigs/outputs)
 
   Learn how to use the multi-signature API.

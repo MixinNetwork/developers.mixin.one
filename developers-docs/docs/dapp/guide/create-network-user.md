@@ -47,4 +47,4 @@ func main() {
 
 `clientId`, `sessionId`, `privateKey` are obtained from the keystore of the current wallet application.
 
-For SDKs in other languages, please refer to [document](/resources/sdk).
+For SDKs in other languages, please refer to [document](/docs/resources/sdk).

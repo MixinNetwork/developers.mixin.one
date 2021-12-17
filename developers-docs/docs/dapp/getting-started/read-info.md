@@ -4,7 +4,7 @@ title: Read Information
 
 In the [previous article](./oauth), I introduced the OAuth2 flow and how to use it to get an access token. In this article, I will show you how to read information of users.
 
-From now on, SDK will be introduced in the following articles. The Mixin team and the community provide various SDKs for developers to use. You can find the SDKs in the [SDK](/resources/sdk) page.
+From now on, SDK will be introduced in the following articles. The Mixin team and the community provide various SDKs for developers to use. You can find the SDKs in the [SDK](/docs/resources/sdk) page.
 
 ## Read User's Profile
 
@@ -12,7 +12,7 @@ From now on, SDK will be introduced in the following articles. The Mixin team an
 To obtain the basic personal information of a user, the `PROFILE:READ` permission is required.
 :::
 
-We can read the user's profile by using the [`/me`](/api/users/profile) endpoint. `/me` is an authenticated endpoint, so we need to obtain an access token first and put it in the HTTP Headers.
+We can read the user's profile by using the [`/me`](/docs/api/users/profile) endpoint. `/me` is an authenticated endpoint, so we need to obtain an access token first and put it in the HTTP Headers.
 
 Let's send a request:
 
@@ -34,7 +34,7 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 :::info
 The `user_id` field is an unique id for each "Account" or "User" in the entire Mixin Network.
 
-Additionally, if the user is a Mixin Messenger user, you can send messages to them by using [`POST /messages`](/api/messages/send) with the `user_id` field.
+Additionally, if the user is a Mixin Messenger user, you can send messages to them by using [`POST /messages`](/docs/api/messages/send) with the `user_id` field.
 :::
 
 ## Read User's Assets
@@ -63,7 +63,7 @@ It can be obtained from https://mixin.one/snapshots by searching for asset code 
 
 The Mixin Application is a special type of user. It also has a wallet just like a normal user. You can inspect the assets of the application by visiting "Developers Dashboard - Choosing any app - Clicking the `Wallet` tab".
 
-You can also read the assets programmatically by calling the [`/assets`](/api/assets/assets) with the application's access token. The algorithm for generating access token can be found [here](../guide/generate-jwt-token), but you can also use the [SDK](/resources/sdk) to simplify the process.
+You can also read the assets programmatically by calling the [`/assets`](/docs/api/assets/assets) with the application's access token. The algorithm for generating access token can be found [here](../guide/generate-jwt-token), but you can also use the [SDK](/docs/resources/sdk) to simplify the process.
 
 Here is the example of generating token and reading assets by using the official Go SDK:
 

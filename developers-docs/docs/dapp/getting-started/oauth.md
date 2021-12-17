@@ -17,7 +17,7 @@ In which the parameters are:
 **Required Parameters**
 
 - **client_id** - The application's client_id, you can get it from the keystore that previous article has mentioned.
-- **scope** - Requested permissions, please refer to the [this document](/api/oauth/scope/) for more details. It should contain at least the `PROFILE:READ` permission.
+- **scope** - Requested permissions, please refer to the [this document](/docs/api/oauth/scope/) for more details. It should contain at least the `PROFILE:READ` permission.
 - **response_type** - Use `code` to return authorization code
 
 **Optional Parameters**

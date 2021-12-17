@@ -58,7 +58,7 @@ func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string
 }
 ```
 
-For SDKs in other languages, please refer to [Document](/resources/sdk).
+For SDKs in other languages, please refer to [Document](/docs/resources/sdk).
 
 ## Setting PIN
 
