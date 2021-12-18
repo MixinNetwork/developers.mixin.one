@@ -13,15 +13,12 @@ export default {
 
 // data structure
 {
-  "id": "UUID",
-  "action": "CREATE_MESSAGE",
-  "params": {
-    "conversation_id": "UUID",
-    "category": "PLAIN_AUDIO",
-    "status": "SENT",
-    "message_id": "UUID",
-    "data": "Base64 encoded data"
-  }
+  "attachment_id": "read From POST /attachments",
+  "mime_type": "audio/ogg",
+  "size": 1024,
+  "waveform": "audio  waveform",
+  "duration":1024,
+  "created_at":"2021-12-17T12:51:53.252052226Z"
 }`,
 
   msg_buttons: `{
