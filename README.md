@@ -28,6 +28,7 @@ Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 7. Ocean ONE (blockchain exchange): [https://github.com/MixinNetwork/ocean.one](https://github.com/MixinNetwork/ocean.one)
 8. Ruby Demo (non official): [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
 9. PHP SDK (non official) : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
+10.C# (CSharp) SDK (non official) : [c#](https://github.com/wjfree/mixin-csharp-sdk)
 
 ## Mixin bots demo
 
