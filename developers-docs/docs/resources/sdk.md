@@ -29,4 +29,5 @@ The community has also developed several SDKs for developers.
   - [🥰 Examples](https://github.com/learnforpractice/mixin-python/tree/main/examples)
 - [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - A jsbridge wrapper for Mixin Messenger, make a bridge between your javascript and the Webview of Mixin Messenger, provides a convenient way to call Messenger's code from your webpage or SPA.
   - [🥰 Example](https://fox-one.github.io/mixin-sdk-jsbridge-bot/), [📖 Documentation](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
+- [C# (CSharp) SDK](https://github.com/wjfree/mixin-csharp-sdk) Mixin SDK for C#
 
