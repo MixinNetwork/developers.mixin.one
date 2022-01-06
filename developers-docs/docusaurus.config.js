@@ -27,14 +27,14 @@ module.exports = {
   },
   themeConfig: {
     algolia: {
-      apiKey: '0658fa0945f44e20e9d148da027a3bd7',
+      apiKey: '2d81009f52b49499743802eee11ecf11',
       indexName: 'mixin',
 
       // Optional: see doc section below
       contextualSearch: true,
 
       // Optional: see doc section below
-      // appId: '',
+      appId: '3K3D3FYNPZ',
 
       // Optional: Algolia search parameters
       // searchParameters: {},
