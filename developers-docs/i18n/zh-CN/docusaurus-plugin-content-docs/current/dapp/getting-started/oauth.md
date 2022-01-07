@@ -9,7 +9,7 @@ title: OAuth 授权
 当bot检测到自己没有被用户授权时，它应该跳转到以下url向用户请求授权：
 
 ```
-https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
+https://mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
 ```
 
 其中参数为：

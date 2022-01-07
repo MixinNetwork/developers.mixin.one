@@ -23,12 +23,12 @@ Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 2. Mixin Messager Android [https://github.com/MixinNetwork/android-app](https://github.com/MixinNetwork/android-app)
 3. Mixin Messager iOS [https://github.com/MixinNetwork/ios-app](https://github.com/MixinNetwork/ios-app)
 4. Nodejs SDK: [https://github.com/MixinNetwork/bot-api-nodejs-client](https://github.com/MixinNetwork/bot-api-nodejs-client)
-5. Python Demo (non official): [https://github.com/myrual/mixin_client_demo](https://github.com/myrual/mixin_client_demo)
-6. Java Demo (non official): [https://github.com/qige-one/mixin_java_sdk](https://github.com/qige-one/mixin_java_sdk)  
+5. Python SDK (non official): [https://github.com/learnforpractice/mixin-python](https://github.com/learnforpractice/mixin-python)
 7. Ocean ONE (blockchain exchange): [https://github.com/MixinNetwork/ocean.one](https://github.com/MixinNetwork/ocean.one)
 8. Ruby Demo (non official): [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
 9. PHP SDK (non official) : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
-10.C# (CSharp) SDK (non official) : [c#](https://github.com/wjfree/mixin-csharp-sdk)
+10. C# (CSharp) SDK (non official) : [c#](https://github.com/wjfree/mixin-csharp-sdk)
+11. [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): the official SDK for Kotlin.
 
 ## Mixin bots demo
 
