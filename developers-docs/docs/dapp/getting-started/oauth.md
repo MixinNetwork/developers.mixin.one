@@ -9,7 +9,7 @@ In some cases, your applications need to read the profile, assets, snapshots, an
 When the bot detects that it is not authorized by a user, it should jump to following url to request authorization from the user:
 
 ```
-https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
+https://mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
 ```
 
 In which the parameters are:
