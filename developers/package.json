@@ -15,7 +15,7 @@
     "highlight.js": "^11.3.1",
     "int64-buffer": "^1.0.1",
     "jsonwebtoken": "^8.5.1",
-    "katex": "^0.15.1",
+    "katex": "^0.15.2",
     "node-forge": "^0.10.0",
     "uuid": "^8.3.2",
     "validator": "^13.7.0",
