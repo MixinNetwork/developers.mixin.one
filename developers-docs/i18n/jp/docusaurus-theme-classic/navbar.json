@@ -4,23 +4,23 @@
     "description": "The title in the navbar"
   },
   "item.label.API": {
-    "message": "API",
+    "message": "APIドキュメント",
     "description": "Navbar item with label API"
   },
   "item.label.Docs": {
-    "message": "Docs",
+    "message": "開発者ドキュメント",
     "description": "Navbar item with label Docs"
   },
   "item.label.Showcase": {
-    "message": "Showcase",
+    "message": "ユースケース",
     "description": "Navbar item with label Showcase"
   },
   "item.label.News": {
-    "message": "News",
+    "message": "ニュース",
     "description": "Navbar item with label News"
   },
   "item.label.Dashboard": {
-    "message": "Dashboard",
+    "message": "ダッシュボード",
     "description": "Navbar item with label Dashboard"
   }
 }
