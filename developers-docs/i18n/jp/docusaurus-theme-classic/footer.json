@@ -1,10 +1,10 @@
 {
   "link.title.Community": {
-    "message": "Community",
+    "message": "コミュニティ",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
-    "message": "More",
+    "message": "さらに",
     "description": "The title of the footer links column with title=More in the footer"
   },
   "link.item.label.Stack Overflow": {
@@ -20,7 +20,7 @@
     "description": "The label of footer link with label=GitHub linking to https://github.com/MixinNetwork"
   },
   "link.item.label.Dashboard": {
-    "message": "Dashboard",
+    "message": "ダッシュボード",
     "description": "The label of footer link with label=Dashboard linking to https://developers.mixin.one/dashboard"
   },
   "copyright": {
