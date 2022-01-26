@@ -22,6 +22,9 @@ module.exports = {
       },
       'zh-CN': {
         label: '简体中文',
+      },
+      'jp': {
+        label: '日本語',
       }
     }
   },
