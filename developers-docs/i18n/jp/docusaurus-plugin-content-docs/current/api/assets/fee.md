@@ -1,5 +1,5 @@
 ---
-title: Read Fee
+title: 手数料の読み込み
 sidebar_position: 3
 ---
 
@@ -14,7 +14,7 @@ import RespFee from "../../_partials/_resp.fee.md";
 
 ## GET /assets/:asset_id/fee
 
-Get the specified asset's fee.
+指定された資産の手数料を取得します。
 
 <APIEndpoint url="/assets/:asset_id/fee" />
 
