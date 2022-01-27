@@ -1,5 +1,5 @@
 ---
-title: Read Asset List
+title: 資産リストの読み込み
 sidebar_position: 1
 ---
 
@@ -16,6 +16,7 @@ import RespAssets from "../../_partials/_resp.assets.md";
 ## GET /assets
 
 Get the asset list of current user.
+既存ユーザーの資産リストを取得します。
 
 <APIEndpoint url="/assets" />
 
@@ -25,6 +26,6 @@ Get the asset list of current user.
 
 <RespAssets />
 
-:::info
-This interface will only return a list of assets with a balance greater than 0, and an empty list will be returned when a user is new.
+:::注意
+このインターフェイスは、ウォレットの残高が0以上の資産リストのみを返します。新規ユーザーの場合は空のリストを返します。
 :::
