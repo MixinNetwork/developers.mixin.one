@@ -1,5 +1,5 @@
 ---
-title: Read Fiat Exchange Rates
+title: 法定通貨との為替レートの読み込み
 sidebar_position: 24
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /fiats
 
-Returns a list of all fiat exchange rates based on US Dollar.
+米ドルを中心に法定通貨との為替レートを返します。
 
 <APIEndpoint url="/fiats" />
 
