@@ -13,7 +13,7 @@ If you want to build something with the kernel, or create a fork of Mixin Networ
 
 There are some tutorials that useful:
 
-- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in lcoal machine.
+- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in local machine.
 - [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
 
 ## Create Mixin Applications
