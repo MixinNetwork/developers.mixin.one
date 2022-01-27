@@ -1,10 +1,10 @@
 {
   "version.label": {
-    "message": "Next",
+    "message": "次へ",
     "description": "The label for version current"
   },
   "sidebar.docs.category.Mainnet": {
-    "message": "Mainnet",
+    "message": "メインネット",
     "description": "The label for category Mainnet in sidebar docs"
   },
   "sidebar.docs.category.Concepts": {
@@ -20,7 +20,7 @@
     "description": "The label for category MVM in sidebar docs"
   },
   "sidebar.docs.category.Guide": {
-    "message": "Guide",
+    "message": "ガイド",
     "description": "The label for category Guide in sidebar docs"
   },
   "sidebar.docs.category.dApp": {
@@ -28,27 +28,27 @@
     "description": "The label for category dApp in sidebar docs"
   },
   "sidebar.docs.category.Getting Started": {
-    "message": "Getting Started",
+    "message": "はじめに",
     "description": "The label for category Getting Started in sidebar docs"
   },
   "sidebar.docs.category.Design Guide": {
-    "message": "Design Guide",
+    "message": "デザインガイド",
     "description": "The label for category Design Guide in sidebar docs"
   },
   "sidebar.docs.category.Resources": {
-    "message": "Resources",
+    "message": "リソース",
     "description": "The label for category Resources in sidebar docs"
   },
   "sidebar.docs.category.Community": {
-    "message": "Community",
+    "message": "コミュニティ",
     "description": "The label for category Community in sidebar docs"
   },
   "sidebar.docs.link.Showcases": {
-    "message": "Showcases",
+    "message": "ユースケース",
     "description": "The label for link Showcases in sidebar docs, linking to /showcase"
   },
   "sidebar.api.category.API Reference": {
-    "message": "API Reference",
+    "message": "APIリファレンス",
     "description": "The label for category API Reference in sidebar api"
   },
   "sidebar.api.category.OAuth": {
@@ -56,39 +56,39 @@
     "description": "The label for category OAuth in sidebar api"
   },
   "sidebar.api.category.User": {
-    "message": "User",
+    "message": "ユーザー",
     "description": "The label for category User in sidebar api"
   },
   "sidebar.api.category.PIN": {
-    "message": "PIN",
+    "message": "PINコード",
     "description": "The label for category PIN in sidebar api"
   },
   "sidebar.api.category.Assets": {
-    "message": "Assets",
+    "message": "資産",
     "description": "The label for category Assets in sidebar api"
   },
   "sidebar.api.category.Transfer": {
-    "message": "Transfer",
+    "message": "送金",
     "description": "The label for category Transfer in sidebar api"
   },
   "sidebar.api.category.Withdrawal": {
-    "message": "Withdrawal",
+    "message": "出金",
     "description": "The label for category Withdrawal in sidebar api"
   },
   "sidebar.api.category.Network": {
-    "message": "Network",
+    "message": "ネットワーク",
     "description": "The label for category Network in sidebar api"
   },
   "sidebar.api.category.Multi-Signature": {
-    "message": "Multi-Signature",
+    "message": "マルチ・シグネチャ",
     "description": "The label for category Multi-Signature in sidebar api"
   },
   "sidebar.api.category.Conversations": {
-    "message": "Conversations",
+    "message": "グループ",
     "description": "The label for category Conversations in sidebar api"
   },
   "sidebar.api.category.Messages": {
-    "message": "Messages",
+    "message": "メッセージ",
     "description": "The label for category Messages in sidebar api"
   },
   "sidebar.api.category.Circles": {
