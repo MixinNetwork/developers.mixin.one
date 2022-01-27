@@ -2,56 +2,56 @@
 title: Contributing
 ---
 
-Mixin and this documentation are open source. We are now welcoming contributors to collaborate on these.
+Mixinとこのドキュメントはオープンソースです。私たちはあなたの協力を歓迎します。
 
-## Preparation
+## 準備
 
-Mixin developer documentation is based on [Docusaurus](https://docusaurus.io/docs/en/latest/), a static site generator for React.js.
+Mixin開発者向けドキュメントはReact.js用のサイトジェネレーターである[Docusaurus](https://docusaurus.io/docs/en/latest/)をベースにしています。
 
-- You need to ensure that you have Yarn installed
-- Clone the repository of the document
-- Run `yarn` in the root of the `developer-docs`
-- Run `yarn start` to preview the documentation
+- Yarnがインストールされていることを確認してください
+- ドキュメントのリポジトリをクローンしてください
+- `developer-docs`で`yarn`を実行してください
+- `yarn start`を実行してドキュメントをプレビューしてください
 
-## Document Structure
+## ドキュメントの構成
 
-The documentation is organized in the following way:
+このドキュメントは次のように構成されています:
 
-- all source is in the `docs` directory
-- the `docs` directory contains the following subdirectories:
-  - `api` contains all the API documentation
-  - `dapp` contains all the DApp introduction, tutorials, guides
-  - `mainnet` contains all the mainnet documentation
-  - `community` contains all the community documentation
-  - `examples` contains all the examples
+- すべてのソースは`docs`ディレクトリ内にあります 
+- `docs`ディレクトリ内には以下のサブディレクトリが存在します:
+  - `api` にはAPIに関するすべてのドキュメントがあります
+  - `dapp` にはDAppの説明、チュートリアル、ガイドがあります
+  - `mainnet` にはメインネットに関するすべてのドキュメントがあります
+  - `community` にはコミュニティに関するすべてのドキュメントがあります
+  - `examples` には凡例に関するすべてがあります
 
-The `sidebar.docs.js` file contains the sidebar of the documentation, which is separated into 2 sections: 'Docs' and 'API'.
+ `sidebar.docs.js` ファイルにはDocsとAPIの２つのセクションに分かれたドキュメントのサイドバーがあります
 
-## Contributing new content
+## 新しいコンテンツに貢献する
 
-### Writing new documentation
+### 新しいドキュメントを書く
 
-All content is written in Markdown format with react components extension.
+すべてのコンテンツはReactコンポーネントを使ったマークダウン形式で記述されています。
 
-The first step to contribute is to create a new markdown file at the right place in the `docs` directory.
-For example, this document is in `docs/commnuity/contributing.mdx`.
+新しいコンテンツを書き始めるために、まずdocsディレクトリ内の適切な場所に新しいマークダウンファイルを作成しましょう。
+例えば、このドキュメントは`docs/commnuity/contributing.mdx`にあります。
 
-If you are writing new content for specific topics, you can put them in the existed files:
+特定のトピックについて新しいコンテンツを書く場合、以下の情報を既存のファイルに追加することができます:
 
-- `Articles` - for articles, please update the [`articles.mdx`](./articles) file
-- `Showcases` - for showcases, follow the 2 steps below:
-  1. Add the information of showcase at `src/data/users.tsx` in alphabetical order.
-  2. Put a screenshot at `src/data/showcase/`.
+- `Articles` - 記事に関するコンテンツならば、[`articles.mdx`](./articles)ファイルをアップデートしてください
+- `Showcases` - showcaseに関するコンテンツならば以下の２段階の手順に従ってください:
+  1. showcaseに関する情報を`src/data/users.tsx`の中にアルファベット順で追加してください
+  2. `src/data/showcase/`の中にスクリーンショットを追加してください
 
-### Using components
+### コンポーネントの利用
 
-There are some built-in components that can be used in the documentation in the directory `src/components/api`
+`src/components/api`ディレクトリの中にドキュメント内で使用できる組み込み型コンポーネントがあります。
 
-- `<APIEndpoint>` is a component that renders an API endpoint
-- `<APIMetaPanel>` is a component that renders an API's information including the authorizations and limitation
-- `<APIParams>` is a component that renders an API's parameters
-- `<APIPayload>` is a component that renders an API's payload
-- `<APIRequest>` is a component that renders an API's request
+- `<APIEndpoint>`は、APIエンドポイントを表示するコンポーネントです。
+- `<APIMetaPanel>`は、APIの情報を表示するコンポーネントで、権限や制限などが表示されます。
+- `<APIParams>`は、APIのパラメータを表示するコンポーネントです。
+- `<APIPayload>`は、APIのペイロードをレンダリングするコンポーネントです。
+- `<APIRequest>`は、APIのリクエストを表示するコンポーネントです。
 
 Please refer to the [any document of 'API' section](/docs/api/guide) for the usage of them.
 
