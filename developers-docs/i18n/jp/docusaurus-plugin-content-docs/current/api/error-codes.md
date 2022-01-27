@@ -1,13 +1,13 @@
 ---
-title: Error Codes
+title: エラーコード
 sidebar_position: 15
 ---
 
-# Error Codes
+# エラーコード
 
-Only 20x and 500 will be used by Mixin API, you need to pay attention to 500 error, which may be caused by Web Server not Mixin API Server.
+Mixin APIで発生するエラーのステータスは、20Xもしくは500のみです。また、ステータス500のエラーはMixin APIサーバーではなく、Webサーバーによって生じているので、注意してください。
 
-| Status | Code  | Description                                     |
+| ステータス | コード  | 説明                                     |
 | ------ | ----- | :---------------------------------------------- |
 | 202    | 400   | The request body can’t be pasred as valid data. |
 | 202    | 401   | Unauthorized.                                   |
