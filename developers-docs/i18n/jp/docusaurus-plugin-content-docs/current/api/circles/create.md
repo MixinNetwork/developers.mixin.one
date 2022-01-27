@@ -1,5 +1,5 @@
 ---
-title: Create Circles
+title: サークルの作成
 sidebar_position: 3
 ---
 
@@ -15,7 +15,7 @@ import RespCircle from "../../_partials/_resp.circle.md";
 
 ## POST /circles
 
-Create a circle.
+サークルを作成します。
 
 <APIEndpoint url="/circles" />
 
