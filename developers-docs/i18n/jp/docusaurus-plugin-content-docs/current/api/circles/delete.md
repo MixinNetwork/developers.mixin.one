@@ -1,5 +1,5 @@
 ---
-title: Delete Circles
+title: サークルの削除
 sidebar_position: 4
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## POST /circles/:id/delete
 
-Delete a circle.
+サークルを削除します。
 
 :::info
 Note that deleting a circle will not delete the conversations and chat history under the circle.
@@ -31,4 +31,4 @@ Note that deleting a circle will not delete the conversations and chat history u
   url="/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46/delete"
 />
 
-An empty json will be returned on success.
+成功すると、空のjsonファイルが返されます。
