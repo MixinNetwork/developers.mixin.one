@@ -1,5 +1,5 @@
 ---
-title: Add to/Remove from Circles
+title: サークルへ追加/サークルから削除
 sidebar_position: 6
 ---
 
@@ -13,14 +13,15 @@ import {
 
 import RespCircles from "../../_partials/_resp.circles.md";
 
-## Add/Remove a User
+## サークルへ追加/サークルから削除
 
 ### POST /users/:id/circles
 
 Set the circle to which a user belongs. You can add the user to or remove the user from a circle.
+ユーザーが参加するサークルを設定します。ユーザーをサークルに追加したり、削除したりすることができます。
 
-:::info
-Note that one user can only be added to 5 circles at most, otherwise error 20133 will be reported.
+:::注意
+なお、1人のユーザーが追加できるサークル数は最大5つです。それ以上追加しようとすると、エラー（20133）が発生します。
 :::
 
 <APIEndpoint url="/users/:id/circles" />
@@ -43,11 +44,11 @@ Note that one user can only be added to 5 circles at most, otherwise error 20133
 
 <RespCircles />
 
-## Add/Remove a Group
+## グループの追加/削除
 
 ### POST /conversations/:id/circles
 
-Set the circle to which a certain group belongs. You can add or remove the group from a certain circle.
+あるグループが所属するサークルを設定します。グループをサークルに追加したり、削除したりすることができます。
 
 <APIEndpoint url="/conversations/:id/circles" />
 
