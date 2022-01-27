@@ -1,54 +1,54 @@
 ---
-title: API Guide
+title: APIガイド
 sidebar_position: 1
 ---
 
-## Choosing An API Server
+## APIサーバーを選択
 
-For HTTP requests:
+HTTPを選択する場合:
 
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
 | https://api.mixin.one          | Global          |
 | https://mixin-api.zeromesh.net | China Or Global |
 
-For WebSocket requests:
+WebSocketを選択する場合:
 
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
 | wss://blaze.mixin.one          | Global          |
 | wss://mixin-blaze.zeromesh.net | China Or Global |
 
-## Calling APIs
+## APIの呼び出し
 
-Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilizes secure data transmissions between clients and servers.
+ほとんどのAPIは、アクセスする際にJWT（JSON Web Tokens）で署名する必要があります。JWTは、クライアントとサーバー間で安全なデータ通信を実現します。
 
-### Signing
+### 署名
 
-:::tip
-Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/docs/resources/sdk).
+:::ヒント
+多くのMixin SDKでは、すでにJWTジェネレーターが提供されており、JWTの生成と検証を自動で行うことができます。詳しい内容は、[SDK](/docs/resources/sdk)をご覧ください。
 :::
 
-**JWT Header**
+**JWTヘッダー**
 
-| Parameter | Instruction                         |
+| パラメータ | 入力内容                         |
 | :-------- | :---------------------------------- |
-| alg       | Signature Algorithm, set to `EdDSA` |
-| typ       | Token type, set to `JWT`            |
+| alg       | 署名アルゴリズムを`EdDSA`へ設定 |
+| typ       | トークンタイプを`JWT`へ設定            |
 
-**JWT Payload**
+**JWTペイロード**
 
-| Parameter | Instruction           |
+| パラメータ | 入力内容           |
 | :-------- | :--------------       |
-| uid       | User Id               |
-| sid       | Session Id            |
-| iat       | issued at             |
-| exp       | Expiration Time       |
+| uid       | ユーザーID               |
+| sid       | セクションID            |
+| iat       | 発行時刻             |
+| exp       | 有効期限       |
 | jti       | JWT ID                |
-| sig       | Signature             |
+| sig       | 署名             |
 | scp       | FULL or special scope |
 
-**Sign JWT in Go language**
+**Go言語でJWTに署名する場合**
 
 ```go
 /*
@@ -81,17 +81,17 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
 }
 ```
 
-**A example of signed token**
+**署名済みトークンの例**
 
 ```
 eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
 ```
 
-You can decode it at [jwt.io](https://jwt.io/).
+[jwt.io](https://jwt.io/)で解読することができます。
 
-**Send Requests with Token**
+**トークンを使用したリクエストの送信**
 
-Add signed authentication token to the headers of API requests to get current dApp's profile:
+現在のdAppのプロフィールを取得するAPIリクエストのヘッダーに署名付き認証トークンを追加する:
 
 ```shell
 curl -i -H "Content-Type: application/json" \
@@ -99,11 +99,11 @@ curl -i -H "Content-Type: application/json" \
         "https://api.mixin.one/me"
 ```
 
-### API Responses
+### APIレスポンス
 
-The HTTP status codes returned by the Mixin APIs meet the RFC specifications.
+Mixin APIが返すHTTPのステータスコードは、RFCの仕様に準拠しています。
 
-On success:
+成功した場合:
 
 ```json
 {
@@ -111,7 +111,7 @@ On success:
 }
 ```
 
-or
+もしくは
 
 ```json
 {
@@ -119,7 +119,7 @@ or
 }
 ```
 
-On error:
+エラーが発生した場合:
 
 ```json
 {
@@ -131,4 +131,4 @@ On error:
 }
 ```
 
-For more, please refer to error code [Document](./error-codes)。
+詳しい内容は、[エラーコード](./error-codes)をご覧ください。
