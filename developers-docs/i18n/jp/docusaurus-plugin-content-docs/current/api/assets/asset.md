@@ -1,5 +1,5 @@
 ---
-title: Read Asset
+title: 資産の読み込み
 sidebar_position: 2
 ---
 
@@ -14,7 +14,7 @@ import RespAsset from "../../_partials/_resp.asset.md";
 
 ## GET /assets/:asset_id
 
-This api obtain the asset list of a user, the `ASSETS:READ` permission is required.
+ユーザーのアセットリストを取得するAPIです。利用には、`ASSETS:READ` の権限が必要です。
 
 <APIEndpoint url="/assets/:asset_id" />
 
