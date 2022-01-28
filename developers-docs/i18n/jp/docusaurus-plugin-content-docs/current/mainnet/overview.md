@@ -3,10 +3,10 @@ title: Mainnet Overview
 sidebar_position: 1
 ---
 
-### Overview
+### 概要
 Mixinはデジタルアセットのための、無料かつ、高速かつ、P2Pかつ、クロスチェーンのネットワークです。Mixin networkは他のブロックチェーン分散台帳に、高いトランザクション処理能力、秒以下の承認、無料のトランザクションフィー、強固なプライバシー、無限大の拡張性を提供します。
 
-### Info
+### 情報
 - __Launched__ October 2017
 - __Token Supply__ 1,000,000
 - __Consensus Algorithm__ PoS + Asynchronous BFT
