@@ -1,5 +1,5 @@
 ---
-title: Read Collectibles Outputs
+title: コレクティブルのアプトプットの読み込み
 ---
 
 import {
@@ -25,9 +25,10 @@ import {
   p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
 />
 
-If an account participates in collectibles multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
+もし、アカウントがコレクティブルマルチシグネチャに参加している場合、 `members` と `threshold` パラメータでデータをフィルタリングすることができます。
 
-Here is the golang code for generating the multi-signature member hash:
+以下は、GO言語で記述したマルチシグネチャのメンバーハッシュを生成するためのコードです。
+
 
 ```go
 func hashMembers(ids []string) string {
@@ -47,12 +48,12 @@ func hashMembers(ids []string) string {
 
 <APIResponse name="collectible_output" />
 
-In which, `signed_tx` and `signed_by` have values when the state is signed. `signed_by` represents the transaction hash, and signed_tx is the complete transaction content, `signed_by` can help sort the corresponding waiting list of transactions.
+このうち、`signed_tx` と `signed_by` は状態が署名されているときに値を持ちます。`signed_by` はトランザクションのハッシュを、`signed_tx`はトランザクション内の情報を表します。 また、`signed_by` は対応するトランザクションのリストを分類するのに役立ちます。
 
 
 ## GET /collectibles/tokens/UUID
 
-Get the information of the collectible
+コレクティブルの情報を取得します。
 
 <APIEndpoint url="/collectibles/tokens/UUID" />
 
