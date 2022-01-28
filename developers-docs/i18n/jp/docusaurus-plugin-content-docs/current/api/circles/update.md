@@ -1,5 +1,5 @@
 ---
-title: Update Circles
+title: サークルの更新
 sidebar_position: 5
 ---
 
@@ -15,7 +15,7 @@ import RespCircle from "../../_partials/_resp.circle.md";
 
 ## POST /circles/:id
 
-Modify the circle name.
+サークル名を変更します。
 
 <APIEndpoint url="/circles/:id" />
 
