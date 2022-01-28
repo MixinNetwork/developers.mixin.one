@@ -1,5 +1,5 @@
 ---
-title: Read Circle List
+title: サークル一覧の読み込み
 sidebar_position: 1
 ---
 
@@ -15,7 +15,7 @@ import RespCircles from "../../_partials/_resp.circles.md";
 
 ## GET /circles
 
-Obtain all circles of a user.
+ユーザーが参加しているすべてのサークルを取得します。
 
 <APIEndpoint url="/circles" />
 
