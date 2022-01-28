@@ -1,17 +1,17 @@
 ---
-title: Support
+title: サポート
 ---
 
 ## Stack Overflow
 
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mixin) is a popular forum to ask code-level questions or if you're stuck with a specific error. Please feel free to ask the questions, don't forget to tagged them with `mixin`.
+[Stack Overflow](https://stackoverflow.com/questions/tagged/mixin)はコードレベルの質問や、何らかのエラーが発生した際に質問することができるフォーラムです。どうぞお気軽にご質問ください。その際`Mixin`のタグをつけることを忘れないでください。
 
-## Discussion forums
+## ディスカッションフォーラム
 
 - [GitHub Discussions](https://github.com/MixinNetwork/mixin/discussions)
 - [Reddit Commnunity](https://www.reddit.com/r/mixin)
-- [Mixin Developers Group](https://supergroup.mixin.fan/#/7000104112/home): search `7000104112` in Mixin Messenger to join the group.
+- [Mixin Developers Group](https://supergroup.mixin.fan/#/7000104112/home): Mixin messengerで`7000104112`を検索し、参加してください。
 
-## News
+## ニュース
 
-For the latest news about Mixin Network, please follow @[Mixin_Network](https://twitter.com/mixin_network)..
+Mixin networkに関する最新のニュースは、twitterの@[Mixin_Network](https://twitter.com/mixin_network)から入手できます。
