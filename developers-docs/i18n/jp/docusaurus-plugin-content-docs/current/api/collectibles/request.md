@@ -1,5 +1,5 @@
 ---
-title: Send Collectibles Requests
+title: コレクティブルのリクエストの送信
 sidebar_position: 3
 ---
 
@@ -16,7 +16,7 @@ import {
 
 ### POST /collectibles/requests
 
-Generate a collectibles request.
+コレクティブルのリクエストを生成します。
 
 <APIEndpoint url="/collectibles/requests" />
 
@@ -28,8 +28,8 @@ Generate a collectibles request.
 }
 `}</APIPayload>
 
-:::info
-`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/main/common)
+:::注意
+`raw`はメインネット使用のトランザクションです。生成の際には、Mixinが提供するGo言語とJavaScript言語の[コード](https://github.com/MixinNetwork/multisig-bot/tree/main/common)を参照してください。
 :::
 
 <APIRequest
@@ -38,11 +38,11 @@ Generate a collectibles request.
   url='/collectibles/requests --data &apos;{"action": "sign", "raw": "298281....4952f95768b7d1a925c4189b912c343dbb000180e"}&apos;'
 />
 
-Request body data of the request
+リクエストのボディデータを要求する
 
 <APIResponse name="collectible_request" />
 
-## Initiating A Collectible signature
+## コレクティブシグネチャの開始
 
 ### POST /collectibles/requests/:id/:action
 
@@ -63,13 +63,13 @@ Request body data of the request
   url='/collectibles/requests/:id/:action --data &apos;{"pin": "YOUR_PIN"}&apos;'
 />
 
-Request body data of the request
+リクエストのボディデータを要求する
 
 <APIResponse name="collectible_request" />
 
-## Operations
+## 操作方法
 
-### Initiate or participate in signing.
+### 署名の開始/署名へ参加
 
 ```json
 // Generate collectible request.
@@ -83,7 +83,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/sign
 ```
 
-### Cancel my signature.
+### 署名の取消
 
 ```json
 // Generate collectible request.
@@ -97,7 +97,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/cancel
 ```
 
-### Cancel collectibles.
+### コレクティブルの取消
 
 ```json
 // Generate collectible request.
