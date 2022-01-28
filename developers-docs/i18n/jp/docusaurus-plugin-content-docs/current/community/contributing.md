@@ -1,5 +1,5 @@
 ---
-title: Contributing
+title: 貢献
 ---
 
 Mixinとこのドキュメントはオープンソースです。私たちはあなたの協力を歓迎します。
@@ -8,24 +8,24 @@ Mixinとこのドキュメントはオープンソースです。私たちはあ
 
 Mixin開発者向けドキュメントはReact.js用のサイトジェネレーターである[Docusaurus](https://docusaurus.io/docs/en/latest/)をベースにしています。
 
-- Yarnがインストールされていることを確認してください
-- ドキュメントのリポジトリをクローンしてください
-- `developer-docs`で`yarn`を実行してください
-- `yarn start`を実行してドキュメントをプレビューしてください
+- Yarnがインストールされていることを確認してください。
+- ドキュメントのリポジトリをクローンしてください。
+- `developer-docs`で`yarn`を実行してください。
+- `yarn start`を実行してドキュメントをプレビューしてください。
 
 ## ドキュメントの構成
 
-このドキュメントは次のように構成されています:
+このドキュメントは次のように構成されています。:
 
-- すべてのソースは`docs`ディレクトリ内にあります 
-- `docs`ディレクトリ内には以下のサブディレクトリが存在します:
-  - `api` にはAPIに関するすべてのドキュメントがあります
-  - `dapp` にはDAppの説明、チュートリアル、ガイドがあります
-  - `mainnet` にはメインネットに関するすべてのドキュメントがあります
-  - `community` にはコミュニティに関するすべてのドキュメントがあります
-  - `examples` には凡例に関するすべてがあります
+- すべてのソースは`docs`ディレクトリ内にあります。
+- `docs`ディレクトリ内には以下のサブディレクトリが存在します。:
+  - `api` にはAPIに関するすべてのドキュメントがあります。
+  - `dapp` にはDAppの説明、チュートリアル、ガイドがあります。
+  - `mainnet` にはメインネットに関するすべてのドキュメントがあります。
+  - `community` にはコミュニティに関するすべてのドキュメントがあります。
+  - `examples` には凡例に関するすべてがあります。
 
- `sidebar.docs.js` ファイルにはDocsとAPIの２つのセクションに分かれたドキュメントのサイドバーがあります
+ `sidebar.docs.js` ファイルにはDocsとAPIの２つのセクションに分かれたドキュメントのサイドバーがあります。
 
 ## 新しいコンテンツに貢献する
 
@@ -36,12 +36,12 @@ Mixin開発者向けドキュメントはReact.js用のサイトジェネレー�
 新しいコンテンツを書き始めるために、まずdocsディレクトリ内の適切な場所に新しいマークダウンファイルを作成しましょう。
 例えば、このドキュメントは`docs/commnuity/contributing.mdx`にあります。
 
-特定のトピックについて新しいコンテンツを書く場合、以下の情報を既存のファイルに追加することができます:
+特定のトピックについて新しいコンテンツを書く場合、以下の情報を既存のファイルに追加することができます。:
 
-- `Articles` - 記事に関するコンテンツならば、[`articles.mdx`](./articles)ファイルをアップデートしてください
-- `Showcases` - showcaseに関するコンテンツならば以下の２段階の手順に従ってください:
-  1. showcaseに関する情報を`src/data/users.tsx`の中にアルファベット順で追加してください
-  2. `src/data/showcase/`の中にスクリーンショットを追加してください
+- `Articles` - 記事に関するコンテンツならば、[`articles.mdx`](./articles)ファイルをアップデートしてください。
+- `Showcases` - showcaseに関するコンテンツならば以下の２段階の手順に従ってください。:
+  1. showcaseに関する情報を`src/data/users.tsx`の中にアルファベット順で追加してください。
+  2. `src/data/showcase/`の中にスクリーンショットを追加してください。
 
 ### コンポーネントの利用
 
@@ -53,69 +53,70 @@ Mixin開発者向けドキュメントはReact.js用のサイトジェネレー�
 - `<APIPayload>`は、APIのペイロードをレンダリングするコンポーネントです。
 - `<APIRequest>`は、APIのリクエストを表示するコンポーネントです。
 
-Please refer to the [any document of 'API' section](/docs/api/guide) for the usage of them.
+APIの使い方は [any document of 'API' section](/docs/api/guide)をご参照ください。
 
-### Using partials
+### partialの使用
 
-There are code snipples that can be used in the documentation in the directory `docs/partials`. Please consider using them.
+ドキュメントで使用可能なコードスニップルは`doc/partials`ディレクトリ内にあります。是非ご利用をご検討ください。
 
-### Adding to the sidebar
+### サイドバーへの追加
 
-After you have created a new markdown file, you need to add it to the sidebar.
+新しくマークダウンファイルを作成した後には、そのファイルをサイドバーに追加する必要があります。
 
-The sidebar file is `sidebar.docs.js` and it is located in the `docs` directory.
+サイドバーのファイルは`sidebar.docs.js`で、そのファイルは`docs`ディレクトリ内にあります。
 
-### Making a copy of the new file for translation
+### 翻訳用に新しいファイルのコピーを作成する
 
-If you are adding a new documentation, you need to put a translation file at `i18n/$LANG_CODE` directory.
+新しいドキュメントを追加した場合、`i18n/$LANG_CODE`ディレクトリに翻訳ファイルを作る必要があります。
 
-For example, this document is `docs/community/contributing.mdx` and its `zh-CN` translation is `i18n/zh-CN/docusaurus-plugin-content-docs/current/zh-CN/docs/community/contributing.mdx`.
+例えば、このドキュメントは`docs/community/contributing.mdx`の翻訳ファイルになっていますが、元のドキュメントの中文翻訳は、`i18n/zh-CN/docusaurus-plugin-content-docs/current/zh-CN/docs/community/contributing.mdx`になります。
 
-## Translation
+## 翻訳
 
-### Generate new translation files for new languages
+### 新しい言語の翻訳ファイルを作成する
 
-If you're the maintainer of this project, please follow the instructions in the [i18n tutorial](https://docusaurus.io/docs/i18n/tutorial) to add a new language.
+もしあなたがこのプロジェクトの管理者なら、[i18n tutorial](https://docusaurus.io/docs/i18n/tutorial)の指示に従って新しい言語を追加してください。
 
-**Translate the index page**
+**インデックスページの翻訳**
 
-Please follow the instructions [here](https://docusaurus.io/docs/i18n/tutorial#use-the-translation-apis) to translate your index page and react components.
+[こちら](https://docusaurus.io/docs/i18n/tutorial#use-the-translation-apis)の指示に従ってインデックスページとりアクトコンポーネントの翻訳を行ってください。
 
-**Generate/Update json files**
+**ファイルの作成、アップデート**
 
 ```bash
 yarn run write-translations --locale $LANG_CODE
 ```
 
-The `$LANG_CODE` is the language code of the language you want to generate. For example, if you want to generate the translation files for the French language, you should use `fr`.
+`$LANG_CODE`はあなたが作りたい言語の言語コードになります。例えば、フランス語の翻訳ファイルを作成したいならば、`fr`を使いましょう。
 
-The translation files are generated in the `i18n/$LANG_CODE/` directory.
+翻訳ファイルは、`i18n/$LANG_CODE/`ディレクトリ内に生成されます。
 
-**Generate Markdown files**
+**マークダウンファイルの作成**
 
-Copy the docs Markdown files to `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current`, and translate them:
+`i18n/$LANG_CODE/docusaurus-plugin-content-docs/current`にマークダウンファイルをコピーして, それを翻訳してください:
 
 ```bash
 mkdir -p i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
 cp -r docs/** i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
 ```
 
-### Translate the documents
+### ドキュメントの翻訳
 
-All the documents are placed in the `i18n/$LANG_CODE/` according to the languages.
+すべてのドキュメントは言語によって`i18n/$LANG_CODE/`に格納されます。
 
-- `i18n/$LANG_CODE/code.json`: the translation of the index page and the text used by docusaurus.
-- `i18n/$LANG_CODE/docusaurus-theme-classic/footer.json`: the translation of footer.
-- `i18n/$LANG_CODE/docusaurus-theme-classic/navbar.json`: the translation of navbar.
-- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current.json`: the label of category on sidebar.
-- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current/**`: the markdown files of documents.
+- `i18n/$LANG_CODE/code.json`:インデックスページとdocusaurusに使われたテキストの翻訳
+- `i18n/$LANG_CODE/docusaurus-theme-classic/footer.json`:フッターの翻訳
+- `i18n/$LANG_CODE/docusaurus-theme-classic/navbar.json`:ナビゲーションバーの翻訳
+- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current.json`:サイドバーのカテゴリーラベル
+- `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current/**`:ドキュメントのマークダウンファイル
 
-**Preview the translation**
+**翻訳のプレビュー**
 
 ```bash
 yarn run start --locale $LANG_CODE
 ```
 
-## Join our developer group
+##ディベロッパーグループへの参加
 
-To participate in Mixin development, search `7000104112` in Mixin Messenger and join the [developer group](https://supergroup.mixin.fan/#/7000104112/home).
+Mixin developmentに参加するには、Mixin Messengerで`7000104112`を検索し、.[developer group](https://supergroup.mixin.fan/#/7000104112/home)に参加してください。
+
