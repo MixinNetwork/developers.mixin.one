@@ -1,5 +1,5 @@
 ---
-title: Read Conversations
+title: チャットの読み込み
 sidebar_position: 1
 ---
 
@@ -15,7 +15,7 @@ import RespConv from "../../_partials/_resp.conv.md";
 
 ## GET /conversations/:id
 
-Get conversation information by :id.
+チャットグループIDよりチャット情報を取得します。
 
 <APIEndpoint url="/conversations/:id" />
 
