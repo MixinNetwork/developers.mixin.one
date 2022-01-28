@@ -1,5 +1,5 @@
 ---
-title: List Items of Circles
+title: サークルの一覧表示
 sidebar_position: 7
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /circles/:id/conversations
 
-Get all the conversations in a circle of a user.
+ユーザーのサークル内のすべての会話を取得します。
 
 <APIEndpoint url="/circles/:id/conversations" />
 
