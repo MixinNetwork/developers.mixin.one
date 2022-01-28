@@ -1,5 +1,5 @@
 ---
-title: Read Circle
+title: サークルの読み取り
 sidebar_position: 2
 ---
 
@@ -15,7 +15,7 @@ import RespCircle from "../../_partials/_resp.circle.md";
 
 ## GET /circles/:id
 
-Obtain the details of a certain circle
+特定のサークル情報を取得します。
 
 <APIEndpoint url="/circles/:id" />
 
