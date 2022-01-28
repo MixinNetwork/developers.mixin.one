@@ -4,11 +4,11 @@ sidebar_position: 1
 ---
 
 ### Overview
-Mixin is a free, lightning-fast, peer-to-peer, cross-chain transactional network for digital assets, which enables other blockchain distributed ledgers to gain high TPS, sub-second confirmations, zero transaction fee, enhanced privacy, and limitless extensibility.
+Mixinはデジタルアセットのための、無料かつ、高速かつ、P2Pかつ、クロスチェーンのネットワークです。Mixin networkは他のブロックチェーン分散台帳に、高いトランザクション処理能力、秒以下の承認、無料のトランザクションフィー、強固なプライバシー、無限大の拡張性を提供します。
 
 ### Info
 - __Launched__ October 2017
-- __Token Supply__ 1 million
+- __Token Supply__ 1,000,000
 - __Consensus Algorithm__ PoS + Asynchronous BFT
 - __Block Confirmation__ Final confirmation in less than 1 second
 - __Data Storage__ DAG
@@ -17,58 +17,58 @@ Mixin is a free, lightning-fast, peer-to-peer, cross-chain transactional network
 - __Security Enhancement__ Trusted execution environment(TEE)
 - __Cross-Chain Technology__ Sidechain
 
-### Features
-__Multilevel Security__
+### 特徴
+__マルチレベルセキュリティ__
 
-Decentralized network based on punitive POS. Hardware-enhanced security with TEE. Supervision of tens of thousands of light nodes to prevent full nodes from doing evil.
+懲罰的POSに基づく分散型ネットワーク。TEEによるハードウェアセキュリティ強化に加え、数万のライトノードによる監視でフルノードの不正を防止。
 
-__High Concurrency__
+__高い並行計算能力__
 
-Competency in high-frequency real-world transaction use cases. Theoretical performance close to centralized servers. Millions or even higher TPS through hardware upgrade.
+高頻度な実トランザクションのユースケースに強い。集中管理型サーバに近い理論性能を持つ。ハードウェアのアップグレードにより、数百万またはそれ以上のTPSを実現します。
 
-__Zero Fee Transactions__
+__無料のトランザクション手数料__
 
-Zero fee Transactions. Competency in micropayment and everyday payment contexts.
+トランザクション手数料はかかりません。マイクロペイメントや日常の支払いなどのコンテクストに特性があります。
 
-__Realtime Transactions__
+__リアルタイムトランザクション__
 
-The current 35 nodes can do verification and signing of a transaction in 300 ms.
+現在35のノードにより300msでトランザクションの検証と署名を行うことができます。
 
-__Versatility__
+__多方面__
 
-Supports for 37 chains, including BTC, ETH, EOS, XMR, etc., and more than 100 thousand tokens.
+37のチェーン、BTC、ETH、EOS、XMR、などを含む10万以上のトークンをサポートしています。
 
-__Simpler Management__
+__簡単な管理__
 
-Effortless multi-chain asset management with one single account, future public blockchains will also be supported by default.
+1つのアカウントで複数チェーンの資産管理が可能です。将来のパブリックブロックチェーンもデフォルトで対応予定です。
 
-__Multi-signature__
+__マルチシグニチャ__
 
-Support for co-management of multi-signature assets among up to 255 people. Suitability for teams and families who want to co-own a large amount of an asset, and B2C or C2C platforms who want to co-manage the fund to prevent the platform from embezzling the fund.
+最大255人による複数署名資産の共同管理に対応。多額の資産を共同所有したいチームや家族、プラットフォームが資金を横領しないように共同管理したいB2CやC2Cのプラットフォームなどに適しています。
 
-__Transaction Privacy__
+__トランザクションプライバシー__
 
-Except for the parties themselves, even full nodes do not know who are the parties in a transaction, there is no way to know the identities of the parties in a transaction from the transaction itself.
+当事者自身を除いては、たとえフルノードが取引の当事者を知らないとしても、取引自体から取引当事者の身元を知る方法はありません。
 
-__Regulation-Friendly__
+__レギュレーションフレンドリー__
 
-The double-key structure ensures the anonymity of assets, users are free to share the view keys to accountants for taxation or audit purpose without losing the assets or their anonymity.
+二重鍵構造により、資産の匿名性が確保され、ユーザーは資産や匿名性を失うことなく、課税や監査のために会計士とビューキーを自由に共有できます。
 
-__Friendly Ecosystem__
+__フレンドリーなエコシステム__
 
-No permission is necessary to connect to the network through REST APIs. Developers may use any language they are familiar with to achieve rapid product and service development.
+REST APIによるネットワーク接続に許可は必要ありません。開発者は使い慣れた言語を使用することができ、迅速な製品・サービス開発を実現することができます。
 
-__Stable Network__
+__安定したネットワーク__
 
-Nodes charge a fee for each API call from DApps, so the income will not be affected by the fluctuation of XIN price, therefore sustainability and security can be guaranteed. The cost of development based on MIXIN network is predictable, pretty much like using AWS.
+ノードではDAppsからのAPIコールがある度に課金されるため、XINの価格変動に収入が左右されず、持続性と安全性が保証されます。Mixin networkを利用した開発コストは、AWSを利用するのと同じように予測可能です。
 
-### More
+### さらに詳しく
 
 - [XIN Token](./concepts/xin)
 
-  Introduction to the usage and issuance of XIN.
+  XINの使用ならびに発行に関する紹介です。
 
 - [Public Chain Support](./concepts/chain)
 
-  Get to know which public chains Mixin supports.
+  Mixinがサポートしているパブリックチェーンを確認できます。
 
