@@ -1,5 +1,5 @@
 ---
-title: Create Conversations
+title: チャットの作成
 sidebar_position: 2
 ---
 
@@ -15,8 +15,7 @@ import RespConv from "../../_partials/_resp.conv.md";
 
 ## POST /conversations
 
-To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
-
+新しいグループを作成したり、初めてユーザーとチャットをする場合は、まずこのAPIを呼び出して、チャットを作成する必要があります。
 <APIEndpoint url="/conversations" />
 
 <APIMetaPanel scope="Authorized" />
@@ -29,13 +28,13 @@ To create a new group or to have a conversation with a user for the first time, 
 }
 `}</APIPayload>
 
-:::info
-The conversations you created are conversations between your bot/dApp and regular Mixin Messenger users.
-You cannot use the user's `access_token` to create them. Please use the bot/dApp's token to create conversations
+:::注意
+作成されたチャットは、あなたのロボ/dAppと通常のMixinメッセンジャーユーザーとのチャットです。
+ユーザーの `access_token` を使って作成することはできません。ロボ/dAppのトークンを使用してチャットを作成してください。
 :::
 
-:::info
-When the category is `CONTACT`, the value of participants should be an array with length equal to 1, and the value of `user_id` is the other party's user_id.
+:::注意
+`category`が`CONTACT`の場合、`participants`の値は1、`user_id`の値は相手のユーザーIDである必要がある。
 :::
 
 <APIRequest
@@ -46,9 +45,9 @@ When the category is `CONTACT`, the value of participants should be an array wit
 
 <RespConv />
 
-### Generate Unique Conversation ID
+### 固有のチャットグループIDの生成
 
-**Single chat: category = "CONTACT"**
+**個人チャットの場合: category = "CONTACT"**
 
 The unique identification of the session is generated according to both parties, in Go:
 
@@ -68,7 +67,7 @@ func UniqueConversationId(userId, recipientId string) string {
 }
 ```
 
-**Group chat: category = "GROUP"**
+**グループチャットの場合: category = "GROUP"**
 
 ```go title="golang"
 uuid.NewV4().String()
@@ -78,4 +77,4 @@ uuid.NewV4().String()
 UUID().uuidString.lowercased()
 ```
 
-**Note that UUID strings are unexceptionally converted to lowercase**
+**UUID文字列は例外なく小文字に変換されることに注意してください**
