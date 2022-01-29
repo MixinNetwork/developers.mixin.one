@@ -11,4 +11,4 @@ The Mixin Messenger App including the bot interfaces will automatically adapt to
 
 ![Dark Mode](./dark-mode.png)
 
-The bot can also obtain the accurate appearance model of the client through JS, and adapting to it can help users get a better consistent experience, see [document](../get-started/js).
+The bot can also obtain the accurate appearance model of the client through JS, and adapting to it can help users get a better consistent experience.

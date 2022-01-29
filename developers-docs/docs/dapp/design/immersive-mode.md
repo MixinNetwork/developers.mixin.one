@@ -9,7 +9,7 @@ The immersive mode allows developers to control all areas of the screen except t
 
 ### Activation
 
-Go to [Dashboard](/dashboard), click on the left to select the current bot, scroll to the bottom of "Information" page to check the "Immersive" checkbox, and click Keep.
+Go to [Dashboard](//developers.mixin.one/dashboard), click on the left to select the current bot, scroll to the bottom of "Information" page to check the "Immersive" checkbox, and click Keep.
 
 ### Design Adaptation
 

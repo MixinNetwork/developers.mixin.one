@@ -39,4 +39,4 @@ When a node launches an attack for the first time, its rights and interests won'
 
 ## Join As Mixin Full Node
 
-[Full Node Joining Guide](../tutorials/full-node-join)
+[Full Node Joining Guide](../guide/full-node-join)
