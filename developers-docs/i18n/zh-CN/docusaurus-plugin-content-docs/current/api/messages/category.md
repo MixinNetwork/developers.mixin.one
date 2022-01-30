@@ -16,6 +16,7 @@ import MsgCatPost from "../../_partials/_resp.msg.d/post.md";
 import MsgCatSticker from "../../_partials/_resp.msg.d/sticker.md";
 import MsgCatTransfer from "../../_partials/_resp.msg.d/transfer.md";
 import MsgCatVideo from "../../_partials/_resp.msg.d/video.md";
+import MsgEncrypt from "../../_partials/_resp.msg.d/encrypt.md";
 
 Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`.
 
@@ -76,3 +77,5 @@ Card forwarding can be prohibited by setting the `shareable` field to false. Thi
 ## Transfers
 
 <MsgCatTransfer />
+
+<MsgEncrypt />

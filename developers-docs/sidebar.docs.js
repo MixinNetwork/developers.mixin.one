@@ -232,6 +232,7 @@ module.exports = {
             'api/messages/category',
             'api/messages/read',
             'api/messages/send',
+            'api/messages/encrypt',
             'api/messages/attachment-upload',
             'api/messages/attachment-download',
           ]
