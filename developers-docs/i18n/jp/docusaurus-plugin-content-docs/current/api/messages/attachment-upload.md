@@ -1,5 +1,5 @@
 ---
-title: Upload Attachments
+title: 添付ファイルのアップロード
 sidebar_position: 5
 ---
 
@@ -14,7 +14,7 @@ import RespAttachment from "../../_partials/_resp.attachment.md";
 
 ## POST /attachments
 
-To upload an attachment, you must first create a new attachment.
+添付ファイルのアップデートには、まず新規添付ファイルを作成する必要があります。
 
 <APIEndpoint url="/attachments" />
 
@@ -36,10 +36,11 @@ To upload an attachment, you must first create a new attachment.
 
 <RespAttachment />
 
-### Upload the Attachment
+### 添付ファイルのアップロード
 
-You will get the `upload_url` from the previous response. Now upload the attachment to `upload_url`, and then the `attachment_id` can be used sending images, videos, files and other messages.
+上記のレスポンスから `upload_url` を取得します。ここで、添付ファイルを `upload_url` にアップロードすると、 `attachment_id` を使って画像、動画、ファイル、その他メッセージの送信が可能になります。
 
-Mixin Messenger uploads the attachments using HTTP and store them on the Amazon S3, see [S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html) for more information.
 
-Here is a [code snippet](https://github.com/fox-one/mixin-sdk-go/blob/master/attachment.go#L42) to upload an attachment.
+Mixin Messengerは添付ファイルをHTTPでアップロードし、Amazon S3に保存します。詳細は、[S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html)をご覧ください。
+
+右記は、添付ファイルをアップロードする[コードスニペット](https://github.com/fox-one/mixin-sdk-go/blob/master/attachment.go#L42)です。
