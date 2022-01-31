@@ -1,5 +1,5 @@
 ---
-title: Read Snapshots
+title: スナップショットの読み込み
 sidebar_position: 4
 ---
 
@@ -15,7 +15,7 @@ import RespSnapshots from "../../_partials/_resp.snapshots.md";
 
 ## GET /network/snapshots
 
-Get snapshot records public information, which including transfers, deposits, withdrawals, etc.
+公開情報として登録されている送金、入金、出金などのスナップショット記録を取得します。
 
 <APIEndpoint url="/network/snapshots?offset=:offset&limit=:limit&asset=:asset&order=:order" />
 
@@ -38,6 +38,6 @@ Get snapshot records public information, which including transfers, deposits, wi
 
 <RespSnapshots />
 
-:::tip
-If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOT:READ` permission and set correct JWT in the request headers.
+:::注意
+`user_id`、`opponent_id`、`trace_id`、`data` などのプライベートな情報を取得する場合は、dAppに`SNAPSHOT:READ`権限が付与されているか、リクエストヘッダーに正しいJWTが設定されているかを確認する必要があります。
 :::
