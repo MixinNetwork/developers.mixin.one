@@ -1,5 +1,5 @@
 ---
-title: Read Signature Outputs
+title: 署名のアプトプットの読み込み
 ---
 
 import {
@@ -24,9 +24,9 @@ import {
   p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
 />
 
-If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
+あるアカウントが複数のマルチシグネチャに参加している場合、`members`と`threshold`パラメーターでデータをフィルタリングすることができます。
 
-Here is the golang code for generating the multi-signature member hash:
+以下は、マルチシグネチャーのメンバーハッシュを生成するためのGo言語で記述されたコードです。
 
 ```go
 func hashMembers(ids []string) string {
@@ -72,4 +72,4 @@ func hashMembers(ids []string) string {
 }
 ```
 
-In which, `signed_tx` and `signed_by` have values when the state is signed. `signed_by` represents the transaction hash, and signed_tx is the complete transaction content, `signed_by` can help sort the corresponding waiting list of transactions.
+このうち、`signed_tx`と`signed_by`は状態が署名されているときに値を持ちます。`signed_by`はトランザクションのハッシュを、`signed_tx`はトランザクションの内容を表します。`signed_by`は対応するトランザクションのリストを分類することができます。
