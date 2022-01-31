@@ -1,5 +1,5 @@
 ---
-title: Message API Guide
+title: メッセージAPIについて
 sidebar_position: 1
 ---
 
