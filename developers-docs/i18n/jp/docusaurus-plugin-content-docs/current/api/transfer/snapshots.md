@@ -1,5 +1,5 @@
 ---
-title: Read Snapshot List
+title: スナップショットリストの取得
 sidebar_position: 3
 ---
 
@@ -14,7 +14,7 @@ import RespSnapshots from "../../_partials/_resp.snapshots.md";
 
 ## GET /snapshots
 
-Get the snapshots by several filters. `opponent` and `destination`, `tag` can't use together, both of them don't support `order`.
+複数のフィルターでスナップショットを取得します。`opponent`・`destination`・`tag`を一緒に使うことができません。また、どれも`order`をサポートしていません。
 
 <APIEndpoint url="/snapshots" />
 
