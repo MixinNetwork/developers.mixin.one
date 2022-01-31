@@ -1,5 +1,5 @@
 ---
-title: PIN Error Logs
+title: PINコードのエラーログ
 sidebar_position: 3
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /logs
 
-Query the user PIN error log records, based on which developers can remind the user of the number of errors within 24 hours.
+ユーザーのPINコードのエラーログ記録を照会し、それに基づいて開発者が24時間以内にエラーの回数をユーザーに知らせることができます。
 
 <APIEndpoint url="/logs?limit=:limit&offset=:offset&category=:category" />
 
