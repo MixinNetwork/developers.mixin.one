@@ -1,5 +1,5 @@
 ---
-title: Read Snapshot
+title: スナップショットの取得
 sidebar_position: 4
 ---
 
@@ -14,10 +14,10 @@ import RespSnapshot from "../../_partials/_resp.snapshot.md";
 
 ## GET /snapshots/:snapshot_id
 
-Get the snapshot of a user by id.
+ユーザーのスナップショットをidで取得します。
 
-:::info
-When reading the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
+:::注意
+送信内容を取得する際、既存ユーザーの送信記録でない場合は403、見つからない場合は404が返されます。
 :::
 
 <APIEndpoint url="/snapshots/:snapshot_id" />
