@@ -1,5 +1,5 @@
 ---
-title: Message Category
+title: メッセージの種類
 sidebar_position: 2
 ---
 
@@ -7,66 +7,66 @@ import {
   APIResponse,
 } from "@site/src/components/api";
 
-Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`.
+Mixin Messengerは、テキスト、画像、ステッカー、ファイルなどのメッセージタイプに対応しています。ロボは現在、各メッセージタイプの接頭に`PLAIN_`と記入されているメッセージタイプのみをサポートしていることに注意してください。
 
-To send images, files, and videos, you need to upload attachments and obtain attachment_id before sending.
+画像、ファイル、動画を送信するには、送信前に添付ファイルをアップロードし、`attachment_id`を取得する必要があります。
 
-## Texts
+## テキスト
 
 <APIResponse name="msg_text" />
 
-## Stickers
+## ステッカー
 
 <APIResponse name="msg_sticker" />
 
-## Images
+## 画像
 
 <APIResponse name="msg_image" />
 
-## Audios
+## ボイスメッセージ
 
 <APIResponse name="msg_audio" />
 
-## Videos
+## 動画
 
 <APIResponse name="msg_video" />
 
-## Contacts
+## 連絡先
 
 <APIResponse name="msg_contact" />
 
-## Cards
+## カード
 
 <APIResponse name="msg_card" />
 
-:::tip
-Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
+:::注意
+`shareable`を`false`に設定することで、カードの転送を禁止することができます。この機能は Mixin Messenger 0.31.0 以降でサポートされており、デフォルトでは`true`に設定されています。
 :::
 
-## Files
+## ファイル
 
 <APIResponse name="msg_file" />
 
-## Live Shows
+## ライブ配信
 
 <APIResponse name="msg_live" />
 
-## Locations
+## 位置情報
 
 <APIResponse name="msg_location" />
 
-## Posts
+## 記事
 
 <APIResponse name="msg_post" />
 
-## Buttons
+## ボタン
 
 <APIResponse name="msg_buttons" />
 
-## Transfers
+## 送信
 
 <APIResponse name="msg_transfer" />
 
-## Pin Messages
+## ピン留めされたメッセージ
 
 <APIResponse name="pin_message" />
