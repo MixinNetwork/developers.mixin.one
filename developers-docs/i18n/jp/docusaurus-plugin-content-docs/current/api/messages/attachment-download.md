@@ -1,5 +1,5 @@
 ---
-title: Download Attachment
+title: 添付ファイルのダウンロード
 sidebar_position: 6
 ---
 
@@ -14,9 +14,9 @@ import RespAttachment from "../../_partials/_resp.attachment.md";
 
 ## GET /attachments/:id
 
-Use the :id to get a specific attachment.
+添付ファイルを取得する際は、`:id`を利用してください。
 
-All attachments are stored on Amazon S3 and downloaded via HTTP, see [S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html) for more information.
+添付ファイルはすべてAmazon S3に保存され、HTTPでダウンロードされます。詳細は、[S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html)をご覧ください。
 
 <APIEndpoint url="/attachments/:id" />
 
@@ -35,6 +35,6 @@ All attachments are stored on Amazon S3 and downloaded via HTTP, see [S3 Documen
 
 <RespAttachment />
 
-:::info
-You can download the attachment through view_url. If the API returns a 404, it means that the file does not exist or has expired.
+:::注意
+`view_url`から添付ファイルをダウンロードすることができます。APIが404を返した場合、ファイルが存在しないか、ファイルの有効期限が切れています。
 :::
