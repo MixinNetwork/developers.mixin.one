@@ -1,5 +1,5 @@
 ---
-title: Verify PIN
+title: PINコードの認証
 sidebar_position: 2
 ---
 
@@ -14,7 +14,7 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## POST /pin/verify
 
-Verify a user's PIN, notice the iterator of the pin will increment also.
+ユーザーのPINコードを認証すると、PINコードのイテレータもインクリメントされることに注意してください。
 
 <APIEndpoint url="/pin/verify" />
 
@@ -27,12 +27,12 @@ Verify a user's PIN, notice the iterator of the pin will increment also.
 
 <APIRequest title="Verify PIN" method="POST" url="/pin/verify --data PAYLOAD" />
 
-The API returns an empty json on success.
+APIは、成功時に空のjsonを返します。
 
-## Error 20119 Debugging
+## エラー20119のデバッグ
 
-- If you forget your PIN, there is no way to retrieve it. It is recommended to try 5 times a day and write down the tried code on paper.
-- It might be due to the misuse of `iterator`, which should be incremental. Generally, it is recommended to use the current system Nano time, or you can set a number by yourself, and increment it with each call.
-- The encrypted PIN is wrong, such as wrong format, wrong time, etc. It may be a problem of the SDK itself. It is recommended to contact the SDK developer for help.
+- PINコードを忘れてしまった場合、復元する方法はありません。1日5回程度試して、試したPINコードを紙に書き留めておくことをお勧めします。
+- これは、インクリメンタルであるべき`iterator`の使い方を誤ったためと思われます。一般に、現在のシステムナノ時間を使うか、自分で数値を設定して、呼び出すたびにインクリメントすることが推奨されます。
+- コードの形式が違う、または生成された時刻が違うなど、暗号化されたPINコードが間違っています。もしくは、SDK自体の問題である可能性があります。SDKの開発元に問い合わせることをお勧めします。
 
-Pay attention to the `extra` field in the returned error message. The error count will only increase if the PIN is incorrect, and the wrong `iterator` or wrong encrypted PIN will not cause the PIN to be locked.
+返されたエラーメッセージの`extra`に注意してください。エラー数はPINコードが正しくない場合にのみ増加し、間違った`iterator`や暗号化されたPINコードはPINコード自体がロックされる原因にはなりません。
