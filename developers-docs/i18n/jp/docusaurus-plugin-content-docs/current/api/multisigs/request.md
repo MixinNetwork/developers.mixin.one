@@ -1,5 +1,5 @@
 ---
-title: Send Multisigs Requests
+title: マルチシグネチャリクエストの送信
 sidebar_position: 3
 ---
 
@@ -11,13 +11,13 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-Multisigs need to first generate a multi-signature request to obtain request_id, and then initiate the multi-signature operation.
+マルチシグネチャは、まずマルチシグネチャリクエストを生成して`request_id`を取得し、マルチシグネチャの管理を開始する必要があります。
 
-## Generating Multisig Requests
+## マルチシグネチャリクエストの生成
 
 ### POST /multisigs/requests
 
-Generate a multi-signature request.
+マルチシグネチャリクエストを生成します。
 
 <APIEndpoint url="/multisigs/requests" />
 
@@ -29,8 +29,8 @@ Generate a multi-signature request.
 }
 `}</APIPayload>
 
-:::info
-`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/main/common)
+:::注意
+`raw`はメインネット仕様のトランザクションです。詳細は、Mixinが提供するGo言語とJavaScript言語により実装された[コード](https://github.com/MixinNetwork/multisig-bot/tree/main/common)をご覧ください。
 :::
 
 <APIRequest
@@ -74,7 +74,7 @@ Generate a multi-signature request.
 }
 ```
 
-## Initiating A Multi-signature
+## マルチシグネチャの開始
 
 ### POST /multisigs/requests/:id/:action
 
@@ -130,9 +130,9 @@ Generate a multi-signature request.
 }
 ```
 
-## Operations
+## マルチシグネチャの管理
 
-### Initiate or participate in signing.
+### 署名を開始する/署名へ参加する
 
 ```json
 // Generate multisig request.
@@ -146,7 +146,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/sign
 ```
 
-### Cancel my signature.
+### 署名を止める
 
 ```json
 // Generate multisig request.
@@ -160,7 +160,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/cancel
 ```
 
-### Cancel multisigs.
+### マルチシグネチャを止める
 
 ```json
 // Generate multisig request.
