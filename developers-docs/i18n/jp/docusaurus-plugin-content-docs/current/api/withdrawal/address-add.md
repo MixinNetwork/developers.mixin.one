@@ -1,5 +1,5 @@
 ---
-title: Create Withdrawal Addresses
+title: 出金アドレスの作成
 sidebar_position: 4
 ---
 
@@ -15,7 +15,7 @@ import RespAddress from "../../_partials/_resp.addr.md";
 
 ## POST /addresses
 
-Create a new withdrawal address.
+新規出金アドレスを作成します。
 
 <APIEndpoint url="/addresses" />
 
