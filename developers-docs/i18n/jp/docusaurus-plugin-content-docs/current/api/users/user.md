@@ -1,5 +1,5 @@
 ---
-title: Read User
+title: ユーザーの取得
 sidebar_position: 1
 ---
 
@@ -13,7 +13,7 @@ import RespUserExtra from "../../_partials/_resp.user-extra.md";
 
 ## GET /users/:id
 
-Getting user information by user ID.
+ユーザーIDによってユーザー情報を取得します。
 
 <APIEndpoint url="/users/:id" />
 
