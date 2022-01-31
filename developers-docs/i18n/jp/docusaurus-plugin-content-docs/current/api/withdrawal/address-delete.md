@@ -1,5 +1,5 @@
 ---
-title: Delete Withdrawal Addresses
+title: 出金アドレスの削除
 sidebar_position: 5
 ---
 
@@ -15,7 +15,7 @@ import RespAddress from "../../_partials/_resp.addr.md";
 
 ## POST /addresses/:addr_id/delete
 
-Delete a specified address by address :addr_id.
+アドレス`:addr_id`で指定されたアドレスを削除します。
 
 <APIEndpoint url="/addresses/:addr_id/delete" />
 
@@ -41,8 +41,8 @@ Delete a specified address by address :addr_id.
 {}
 ```
 
-The above will return an empty json on success.
+上記は、成功すると空のjsonを返します。
 
-:::info
-There is no API for editing withdrawal addresses. If you want to implement editing in your product, please first delete and then add.
+:::注意
+出金先アドレスを編集するためのAPIはありません。プロダクトに「アドレスの編集」を実装する場合は、まず出金アドレスを削除してから追加してください。
 :::
