@@ -1,5 +1,5 @@
 ---
-title: Read Chains
+title: 各ブロックチェーンの読み込み
 sidebar_position: 1
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /network/chains
 
-The API returns the list of all public chains supported by Mixin, no permission needed.
+このAPIは、Mixinがサポートしているすべてのパブリックブロックチェーンのリストを返します。
 
 <APIEndpoint url="/network/chains" />
 
