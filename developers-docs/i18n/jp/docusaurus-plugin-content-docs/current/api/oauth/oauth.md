@@ -1,5 +1,5 @@
 ---
-title: OAuth Authorization
+title: OAuthの認証
 sidebar_position: 2
 ---
 
@@ -11,9 +11,9 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-To access the profiles, assets, and other data of Mixin Messenger users, the developer needs to apply for authorization from the user.
+Mixin Messengerユーザーのプロフィール、資産、その他のデータにアクセスするためには、開発者はユーザーに対して認可を申請する必要があります。
 
-## Requesting Authorization
+## 認証リクエスト
 
 ```sass
 GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=
@@ -31,13 +31,13 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
   p-code_challenge_method="The code challenge method, please set it to `SHA256`"
 />
 
-## Get Access Token
+## アクセストークンの取得
 
-After successful authorization, the page will automatically jump to the application's OAuth URL, the callback URL will be accompanied by the authorization code and return_to parameters, and the developer will then request a token based on the authorization code:
+認証に成功すると、ページは自動的にアプリケーションのOAuth URLに遷移します。また、コールバックURLには認証コードと`return_to`パラメータが付き、開発者は認証コードに基づいたトークンを要求することになります。
 
 ### POST /oauth/token
 
-return the access token.
+アクセストークンを返します。
 
 <APIEndpoint url="/oauth/token" />
 
@@ -62,8 +62,8 @@ return the access token.
 }
 ```
 
-It is recommended that developers cache the access token and subsequently call the API to access the user data via the access token, to determine whether the user has authorized or not.
+開発者はアクセストークンをキャッシュし、その後APIを呼び出してアクセストークンを介してユーザーデータにアクセスし、ユーザーが認可したかどうかを判断することが推奨されます。
 
-## Revoking Authorization
+## 認証の取り消し
 
-Users can find the bot and revoke authorization in Mixin Messenger Settings, Privacy and Security, Authorization. Note that revoking authorization will also clear the cached information of the current bot on the client-side, such as cookies.
+ユーザーは、Mixin Messengerの「設定」→「プライバシーとセキュリティ」→「認証」で、ロボを見つけて認証を取り消すことができます。認証を取り消すと、クライアント側にある現在のロボのキャッシュ情報（クッキーなど）も削除されることに注意してください。
