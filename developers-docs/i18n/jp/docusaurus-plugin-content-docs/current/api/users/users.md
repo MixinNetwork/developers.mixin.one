@@ -1,5 +1,5 @@
 ---
-title: Read Users
+title: 複数ユーザーの取得
 sidebar_position: 2
 ---
 
@@ -14,10 +14,10 @@ import RespUsers from "../../_partials/_resp.users.md";
 
 ## POST /users/fetch
 
-Getting users' information by user IDs in bulk.
+ユーザーIDによってユーザー情報を一括で取得します。。
 
-:::info
-This API will only return the list of existing users, and ignore those that do not exist.
+:::注意
+このAPIは、存在するユーザーのリストのみを返し、存在しないユーザーは無視します。
 :::
 
 <APIEndpoint url="/users/fetch" />
