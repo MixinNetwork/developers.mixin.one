@@ -1,5 +1,5 @@
 ---
-title: Create Network Users
+title: ネットワークユーザーの作成
 sidebar_position: 7
 ---
 
@@ -15,7 +15,7 @@ import RespUserNet from "../../_partials/_resp.user-net.md";
 
 ## POST /users
 
-Create a network user.
+ネットワークユーザーを作成します。
 
 <APIEndpoint url="/users" />
 
