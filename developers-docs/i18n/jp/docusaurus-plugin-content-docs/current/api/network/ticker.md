@@ -1,5 +1,5 @@
 ---
-title: Read Historical Prices
+title: 資産価格の読み込み
 sidebar_position: 11
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /network/ticker
 
-Get the historical price of a given asset.
+指定した資産の価格を取得します。
 
 <APIEndpoint url="/network/ticker?asset=:asset&offset=:offset" />
 
@@ -41,6 +41,6 @@ Get the historical price of a given asset.
 }
 ```
 
-:::info
-If no ticker found, `price_usd` and `price_usd` will return 0.
+:::注意
+ティッカーが見つからなかった場合、`price_usd`と`price_usd`は0を返します。
 :::
