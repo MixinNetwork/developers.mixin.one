@@ -1,5 +1,5 @@
 ---
-title: Read Contacts
+title: 連絡先の取得
 sidebar_position: 4
 ---
 
@@ -14,9 +14,9 @@ import RespUsers from "../../_partials/_resp.users.md";
 
 ## GET /friends
 
-Obtaining the contact list of the user.
+ユーザーの連絡先リストを取得します。
 
-The list contains users and bots. You can judge whether it is a bot user by whether there is an app field.
+リストには、ユーザーとロボが含まれています。両者の区別は、`app`欄の有無で判断できます。
 
 <APIEndpoint url="/friends" />
 
