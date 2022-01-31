@@ -1,5 +1,5 @@
 ---
-title: Read Assets
+title: 資産の読み込み
 sidebar_position: 2
 ---
 
@@ -15,7 +15,7 @@ import RespAssetsNetwork from "../../_partials/_resp.assets-network.md";
 
 ## GET /network/assets/:asset_id
 
-Query public information of a asset.
+資産の公開情報を照会します。
 
 <APIEndpoint url="/network/assets/:asset_id" />
 
@@ -46,7 +46,7 @@ Query public information of a asset.
 
 ## GET /network/assets/top
 
-Query the list of the top 100 assets on the entire network, a `kind` parameter is used to specify the top assets, for `NORMAL` value will not swap lp tokens..
+ネットワーク全体のTOP100の資産リストを照会します。上位の資産を指定するために`kind`パラメーターを利用します。`kind`を`NORMAL`に設定すると、LPトークンの交換は行われません。
 
 <APIEndpoint url="/network/assets/top?kind=NORMAL" />
 
@@ -62,10 +62,10 @@ Query the list of the top 100 assets on the entire network, a `kind` parameter i
 
 ## GET /network/assets/search/:q?kind=NORMAL
 
-Search for popular assets by symbol or name.
+人気のある資産を通貨シンボルや通貨名で検索できます。
 
-:::info
-This API only returns assets with icons or prices.
+:::注意
+このAPIは、アイコンや価格を持つ暗号資産のみを返します。
 :::
 
 <APIEndpoint url="/network/assets/search/:q" />
@@ -88,10 +88,10 @@ This API only returns assets with icons or prices.
 
 ## GET /network/assets/multisig
 
-Query the list of all assets that support multi-signature.
+マルチシグネチャをサポートする全資産のリストを照会します。
 
-:::caution
-This API is **Obsoleted**.
+:::注意
+このAPIは**現在利用不可能**です。
 :::
 
 <APIEndpoint url="/network/assets/multisig" />
