@@ -1,5 +1,5 @@
 ---
-title: Read Messages
+title: メッセージの読み込み
 sidebar_position: 4
 ---
 
@@ -13,9 +13,9 @@ import {
 
 ## POST /acknowledgements
 
-To receive a list of messages from Mixin Server, you need to setup a websocket connection. After receiving messages, you need to call tell Mixin Server that it has been delivered or read, otherwise it will keep pushing the message.
+Mixin Serverからメッセージのリストを受信するには、ウェブソケット接続を設定する必要があります。また、メッセージの受信後、Mixin Serverにメッセージが送信されたこと、または読み込まれたことを伝える必要があります。
 
-This API use to tell Mixin Server the status of messages in bulk.
+このAPIは、Mixin Serverにメッセージのステータスを一括して伝えるために使用されます。
 
 <APIEndpoint url="/acknowledgements" />
 
