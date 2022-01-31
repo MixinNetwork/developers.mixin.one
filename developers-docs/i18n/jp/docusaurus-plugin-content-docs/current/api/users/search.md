@@ -1,5 +1,5 @@
 ---
-title: Search
+title: 検索
 sidebar_position: 3
 ---
 
@@ -14,7 +14,7 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## GET /search/:q
 
-search users by keyword `:q`
+キーワード `:q` でユーザーを検索することができます。
 
 <APIEndpoint url="/search/:q" />
 
