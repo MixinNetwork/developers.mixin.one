@@ -1,5 +1,5 @@
 ---
-title: Read Profile
+title: プロフィールの取得
 sidebar_position: 1
 ---
 
@@ -12,7 +12,7 @@ import {
 
 ## GET /me
 
-Get the current user's personal information.
+既存ユーザーの個人データを取得します。
 
 <APIEndpoint url="/me" />
 
