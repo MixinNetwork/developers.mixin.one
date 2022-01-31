@@ -1,5 +1,5 @@
 ---
-title: Read Pending Deposits
+title: 入金記録の読み込み
 ---
 
 import {
@@ -12,7 +12,7 @@ import {
 
 ## GET /external/transactions
 
-Get public network-wide deposit records.
+ネットワーク全体の入金記録を取得します。
 
 <APIEndpoint url="/external/transactions?offset=:offset&limit=:limit&asset=:asset&destination=:destination&tag=:tag" />
 
