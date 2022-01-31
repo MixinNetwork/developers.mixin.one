@@ -1,5 +1,5 @@
 ---
-title: Send/Read Transfer
+title: 送信の取得/転送
 sidebar_position: 1
 ---
 
@@ -15,7 +15,7 @@ import RespTransfer from "../../_partials/_resp.transfer.md";
 
 ## POST /transfers
 
-Transfer to specific user.
+特定のユーザーに送信します。
 
 <APIEndpoint url="/transfers" />
 
@@ -39,22 +39,22 @@ Transfer to specific user.
 
 <RespTransfer />
 
-:::caution
+:::注意
 
-- Once the transfer API is successfully called, it means that the data has been confirmed by all nodes, and the data is irreversible.
-- One can't transfer money to themself.
-- The encrypted PIN is one-time, and the PIN must be re-encrypted every time you transfer.
-- It is strongly recommended that developers use `trace_id` to handle duplicate transfers, and always attach this parameter to transfers.
-- All you need is to do it over again if you encounter `500` error in a transfer.
-- If you need to process a large number of concurrent transactions and process hundreds or thousands of transfers per second, it is recommended to use multiple accounts to transfer and send transactions.
-- When a transfer error happens, pay attention to the "extra" field in the returned error message.
-- If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](../pin/pin-verify) API to confirm.
+- 送信APIが正常に呼び出されると、すべてのノードでデータが確認されたことを意味し、データは不可逆的になります。
+- ユーザーは自分自身に送金することはできません。
+- 暗号化されたPINコードは1回限りであり、送金の都度、PINコードを再暗号化する必要があります。
+- 重複した送信を処理するために、開発者は`trace_id`を使用し、常にこのパラメーターを送信に添付することを強くお勧めします。
+- 送信中に`500`エラーが発生した場合、もう一度送信をやり直す必要があります。
+- 多数の同時取引を処理し、1秒間に数百、数千の送金を処理する必要がある場合は、複数のアカウントで送金・送信を行うことをお勧めします。
+- 送信エラーが発生した場合、返されたエラーメッセージの`extra`に注目してください。
+- 送信時にパスワードが間違っていることを意味する`20119`というエラーが表示された場合は、再試行しないでください。この場合は[PINコードの認証](../pin/pin-verify) より、APIを呼び出して確認することをお勧めします。
 
 :::
 
 ## GET /transfers/trace/:id
 
-This API is only for reading transfers, not deposits or withdrawals.
+このAPIは転送の取得のみであり、入出金はできません。
 
 <APIRequest
   title="Read Transfer"
