@@ -1,5 +1,5 @@
 ---
-title: Read Outputs
+title: アウトプットの読み込み
 sidebar_position: 24
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## POST /outputs
 
-Get one-time user keys.
+ワンタイムユーザーキーを取得します。
 
 <APIEndpoint url="/outputs" />
 
