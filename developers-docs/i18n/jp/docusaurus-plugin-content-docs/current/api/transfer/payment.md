@@ -1,5 +1,5 @@
 ---
-title: Generate a payment
+title: 決済の生成
 sidebar_position: 10
 ---
 
@@ -16,7 +16,7 @@ import RespTransfer from "../../_partials/_resp.transfer.md";
 
 ## POST /payments
 
-Generate a multisig payment, user can pay to multisig account through code.
+マルチシグ決済を生成し、ユーザーはコードを介してマルチシグ口座に支払うことができます。
 
 <APIEndpoint url="/payments" />
 
