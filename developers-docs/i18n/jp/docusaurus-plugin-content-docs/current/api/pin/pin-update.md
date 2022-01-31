@@ -27,7 +27,7 @@ import RespUser from "../../_partials/_resp.user.md";
 `}</APIPayload>
 
 :::注意
-初期PINコードを設定するには、`old_pin`に空の文字列を設定します。
+新たにPINコードを設定するには、`old_pin`に空の文字列を設定します。
 :::
 
 <APIRequest title="Update PIN" method="POST" url="/pin/update --data PAYLOAD" />
