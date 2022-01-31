@@ -1,5 +1,5 @@
 ---
-title: Relationships
+title: ユーザー間の関係
 sidebar_position: 5
 ---
 
@@ -16,13 +16,13 @@ import RespUsers from "../../_partials/_resp.user-extra.md";
 
 ## POST /relationships
 
-This API is used to manage the relationship between two users.
+このAPIは、ユーザー間の関係を管理するために利用されます。
 
 <APIEndpoint url="/relationships" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
-According to different payload, the API have different behaviors.
+ペイロードの違いにより、APIの動作は異なります。
 
 ### Add a Friend and set an alias
 
@@ -34,7 +34,7 @@ According to different payload, the API have different behaviors.
 }
 `}</APIPayload>
 
-### Delete a Friend
+### ユーザーの削除
 
 <APIPayload>{`{
   "user_id":    "user's user_id"
@@ -42,7 +42,7 @@ According to different payload, the API have different behaviors.
 }
 `}</APIPayload>
 
-### Block a User
+### ユーザーのブロック
 
 <APIPayload>{`{
   "user_id":    "user's user_id"
@@ -50,7 +50,7 @@ According to different payload, the API have different behaviors.
 }
 `}</APIPayload>
 
-### Unblock a User
+### ユーザーのブロック解除
 
 <APIPayload>{`{
   "user_id":    "user's user_id"
@@ -68,7 +68,7 @@ According to different payload, the API have different behaviors.
 
 ## GET /blocking_users
 
-Get blocked users.
+ブロックしたユーザーを取得します。
 
 <APIEndpoint url="/blocking_users" />
 
