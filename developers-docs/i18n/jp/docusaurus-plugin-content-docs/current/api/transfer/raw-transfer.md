@@ -1,5 +1,5 @@
 ---
-title: Send Raw Transactions
+title: 生トランザクションの送信
 sidebar_position: 2
 ---
 
@@ -15,11 +15,11 @@ import RespTransferMultisig from "../../_partials/_resp.transfer-multisig.md";
 
 ## POST /transactions
 
-It's possible send raw transactions to the mainnet. This API supports two kinds of address: mainnet address and the multisig address.
+メインネットに生トランザクションを送信することができます。メインネットアドレスとマルチシグアドレスの2種類のアドレスをサポートしています。
 
-### Transfer to a Mainnet Address
+### メインネットアドレスへの送信
 
-Transfer to a specified mainnet address.
+指定されたメインネットアドレスに送信します。
 
 <APIEndpoint url="/transactions" />
 
@@ -43,9 +43,9 @@ Transfer to a specified mainnet address.
 
 <RespTransferMainnet />
 
-### Transfer to a Multi-signature Address
+### マルチシグアドレスへの送信
 
-Transfer to a specified multisig address.
+指定されたマルチシグアドレスに送信します。
 
 <APIEndpoint url="/transactions" />
 
