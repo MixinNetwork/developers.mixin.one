@@ -1,5 +1,5 @@
 ---
-title: Send Messages
+title: メッセージの送信
 sidebar_position: 3
 ---
 
@@ -14,10 +14,10 @@ import {
 
 ## POST /messages
 
-Send messages in bulk.
+メッセージを一括送信します。
 
-:::info
-A maximum of 100 messages can be sent in batch each time, and the message body cannot exceed 128Kb.
+:::注意
+一括送信は1回につき最大100通まで行うことができます。また、メッセージ本文は128Kbを超えてはいけません。
 :::
 
 <APIEndpoint url="/messages" />
@@ -31,8 +31,8 @@ A maximum of 100 messages can be sent in batch each time, and the message body c
 ]
 `}</APIPayload>
 
-:::info
-`message object` is a JSON object, please refer to the [Message Category](./category).
+:::注意
+`message object`はJSONオブジェクトです。詳細は、[メッセージカテゴリー](./category)をご覧ください。
 :::
 
 <APIRequest
@@ -41,7 +41,7 @@ A maximum of 100 messages can be sent in batch each time, and the message body c
   url="/messages --data PAYLOAD"
 />
 
-Request body data is a message array:
+リクエストボディデータはメッセージ配列です。
 
 <APIResponse name="msgs" />
 
