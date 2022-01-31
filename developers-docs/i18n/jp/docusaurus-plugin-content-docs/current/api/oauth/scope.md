@@ -1,18 +1,18 @@
 ---
-title: OAuth Scope
+title: OAuthスコープ
 sidebar_position: 1
 ---
 
-| Permission         |  Description                      |
+| 認可項目         |  説明                      |
 |:-------------------|:----------------------------------|
-| PROFILE:READ       | Get basic user information, such as user id, Mixin ID, name, and avatar.|
-| PHONE:READ         | Read the user's mobile phone number.                   |
-| ASSETS:READ        | Read user asset list and balance.            |
-| COLLECTIBLES:READ  | Read user collectible list and balance.            |
-| CONTACTS:READ      | Read user contact list, block list.                 |
-| MESSAGES:REPRESENT | Allow bots to send messages on behalf of users.                    |
-| SNAPSHOTS:READ     | Access user's transfer records, including deposits and reminders.        |
-| CIRCLES:READ       | Read user's circles, hasn't implemented yet        |
-| CIRCLES:WRITE      | Write user's circles, hasn't implemented yet        |
+| PROFILE:READ       | ユーザーID、Mixin ID、名前、アバターなどの基本的なユーザー情報を取得します。|
+| PHONE:READ         | ユーザーの携帯電話番号を取得します。                   |
+| ASSETS:READ        | ユーザーの資産リストと残高を取得します。            |
+| COLLECTIBLES:READ  | ユーザーコレクティブルのリストと残高を取得します。         |
+| CONTACTS:READ      | ユーザーの連絡先/ブロックされた連絡先のリストを取得します。                |
+| MESSAGES:REPRESENT | ロボがユーザーに代わってメッセージを送信できるようにします。                  |
+| SNAPSHOTS:READ     | ユーザーの振込記録（入金、リマインダーなど）を取得します。        |
+| CIRCLES:READ       | まだ実装されていないユーザーのサークルを取得します。        |
+| CIRCLES:WRITE      | まだ実装されていないユーザーのサークルを書き込みます。        |
 
-The permissions requested should contain at least the `PROFILE:READ` permission. Users may uncheck certain permissions when authorizing. It is recommended that developers only apply for necessary permissions and make proper guidance GUIs in the absence of permissions.
+要求される認可は、少なくとも `PROFILE:READ`を含んでいる必要があります。ユーザーは認可する際に、特定の認可項目のチェックを外すことができます。開発者は必要な認可のみを申請し、認可がない場合は適切なガイダンスGUIを作成することが推奨されます。
