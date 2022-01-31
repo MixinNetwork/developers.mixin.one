@@ -1,5 +1,5 @@
 ---
-title: Read Snapshot
+title: スナップショットの読み込み
 sidebar_position: 5
 ---
 
@@ -15,7 +15,7 @@ import RespSnapshot from "../../_partials/_resp.snapshot.md";
 
 ## GET /network/snapshots/:snapshot_id
 
-Read snapshot details by id.
+IDでスナップショットの詳細を読み取ります。
 
 <APIEndpoint url="/network/snapshots/:snapshot_id" />
 
@@ -31,6 +31,6 @@ Read snapshot details by id.
 
 <RespSnapshot />
 
-:::tip
-If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOT:READ` permission and set correct JWT in the request headers.
+:::注意
+`user_id`、`opponent_id`、`trace_id`、`data` などのプライベートな情報を取得する場合は、dAppに`SNAPSHOT:READ`権限が付与されているか、リクエストヘッダーに正しいJWTが設定されているかを確認する必要があります。
 :::
