@@ -1,14 +1,14 @@
 ---
-title: Dark Mode
+title: ダークモード
 sidebar_position: 13
 ---
 
-# Dark Mode
+# ダークモード
 
-The light and dark appearance modes of the Mixin Messenger client adaptive system, and the robot interface is also adapted:
+Mixin Messengerクライアント適応システムのライトモード及びダークモード、ロボットインターフェースも適応しています：
 
-The Mixin Messenger App including the bot interfaces will automatically adapt to the light or dark mode of the native system:
+ボットインターフェースを含むMixinメッセンジャーアプリは、ネイティブシステムのライトモードまたはダークモードに自動的に適応します：
 
 ![Dark Mode](./dark-mode.png)
 
-The bot can also obtain the accurate appearance model of the client through JS, and adapting to it can help users get a better consistent experience, see [document](../get-started/js).
+ボットはJSを通じてクライアントの正確な外観モデルを取得し、それに適応することで、ユーザーがより一貫性のある体験を得ることができます。 [ドキュメント](../get-started/js)を参照してください。
