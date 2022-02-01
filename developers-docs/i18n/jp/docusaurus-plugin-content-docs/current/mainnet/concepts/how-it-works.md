@@ -29,17 +29,17 @@ Mixinの分散型台帳はオープンで透明性が高く、35のメインネ�
  
 - プライバシー
 
-UTXOトランザクションプライバシーは、CryptoNoteテクノロジーによって強化されています。取引の内容を知っているのは両当事者だけで、メインネットノードは取引の当事者を知ることができず、取引そのものから取引当事者の身元を把握することは不可能です。
+　UTXOトランザクションプライバシーは、CryptoNoteテクノロジーによって強化されています。取引の内容を知っているのは両当事者だけで、メインネットノードは取引の当事者を知ることができず、取引そのものから取引当事者の身元を把握することは不可能です。
 
-  **Note that Mixin does not have a currency issuance function and will not generate assets out of thin air. Mainnet tokens have always been ERC-20 tokens.**
+  **なお、Mixinには通貨発行機能はなく、無から資産を生み出すことはありません。メインネットトークンは常にERC-20トークンです。**
 
-### Asset Management
+### アセットマネジメント
 
-- Domain Gateway
+- ドメインゲートウェイ
 
-  The Mixin Domain plays an important role as a gateway in Mixin Network, managing the deposits and withdrawals of on-chain assets. Unlike mainnet nodes that do not require permission, a Domain gateway needs to pledge a large amount of XIN, and only be able to join when the unanimous consent of all nodes is granted. As the amount of assets increases, there will be multiple domains to decentralize the management of assets. The existing Domain is managed by the Mixin team with 50,000 XIN pledged(referred to as "The Domain" in the following).
+　Mixinドメインは、Mixin Networkのゲートウェイとして、オンチェーンアセットの入出金を管理する重要な役割を担っています。許可を必要としないメインネットノードへの参加とは異なり、ドメインのゲートウェイは多額のXINを担保に入れる必要があるほか、全ノードの同意が得られた場合にのみ参加することができます。アセット量の増加に伴い、アセット管理を分散化するため、複数のドメインが存在することになります。現在のドメインは、Mixinチームが5万XINをプレッジして管理しています（以下、「ドメイン」と表記）。
 
-  The Domain does not have the complete private key of an on-chain asset (such as the Bitcoin private key). The private key is kept by nodes and the Domain through key sharding technology. Key shards have multiple backups, so the key will not be lost even some of the backups are lost or leaked. When the user withdraws, mainnet nodes and the Domain separately sign the transaction through (t-n) threshold signature technology, and finally merge everything into a complete signature and send the transaction.
+　ドメインは、オンチェーンアセットの完全な秘密鍵（ビットコインの秘密鍵など）を持っているわけではありません。秘密鍵はKey sharding技術によってノードとドメインが保管します。Key shardsには複数のバックアップがあり、一部のバックアップが失われたり漏洩したりしても、鍵が失われることはありません。ユーザーが出金する際には、メインネットノードとドメインがそれぞれ(t-n)閾値署名技術により署名し、最後にすべてをマージして完全な署名にすることで送金を行います。
 
 - Mainnet Cold Wallet
 
