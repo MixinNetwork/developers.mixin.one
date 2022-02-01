@@ -1,37 +1,40 @@
 ---
-title: Immersive Mode
+title: 没入モード
 sidebar_position: 12
 ---
 
-# Immersive Mode
+# 没入モード
 
-The immersive mode allows developers to control all areas of the screen except the status bar, with the complementation of the theme color it can achieve extraordinary full-screen effects.
-
-### Activation
-
-Go to [Dashboard](/dashboard), click on the left to select the current bot, scroll to the bottom of "Information" page to check the "Immersive" checkbox, and click Keep.
-
-### Design Adaptation
-
-![Immersive Mode](./immersive-mode.png)
-
-The rendering on the right perfectly interprets the immersive mode. Note that the theme color does not support gradient colors.
+没入モードでは、開発者はステータスバー以外の画面のすべての領域をコントロールすることができ、テーマカラーの補完により、フルスクリーン効果を実現することができます。
 
 
-### Try
+### 有効化
 
-- Search for 7000103066 to experience the "DonateCafe" bot.
+ [ダッシュボード](/dashboard)にアクセスし、左をクリックして現在のボットを選択し、「情報」ページを一番下までスクロールして「没入モード」にチェックを入れ、「保存」をクリックします。
 
-- Search for 7000103214 to experience the "red envelope" bot.
+
+
+### デザイン適応
+
+![没入モード](./immersive-mode.png)
+
+右側のレンダリングは、没入モードを完璧に解釈しています。テーマカラーはグラデーションカラーをサポートしないことに注意してください。
+
+
+### 実例
+
+- 7000103066を検索して「DonateCafe」botを体験してください。
+
+- 7000103214を検索して「red envelope」botを体験してください。 
   
-- Search for 7000103013 to experience the "TaskWall" bot.
+- 7000103013を検索して「TaskWall」botを体験してください。 
 
-### Reference
+### 参考
 
-- [Color](./color)
+- [色](./color)
 
-  The theme color is perfectly matched with the immersive mode.
+  没入モードとテーマカラーが絶妙にマッチしています。
 
--[Floating Menu](./floating-menu)
+-[フローティングメニュー](./floating-menu)
 
-  Developers need to avoid the fixed floating menu area in the upper right corner designing the interactions after turning on the immersive mode.
+  開発者は、没入モードをオンにした後のインタラクションを設計する際に、右上隅にある固定フローティングメニューエリアを避ける必要があります。
