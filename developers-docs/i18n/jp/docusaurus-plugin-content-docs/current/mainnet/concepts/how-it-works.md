@@ -1,9 +1,9 @@
 ---
-title: How it Works
+title: 仕組み
 sidebar_position: 1
 ---
 
-# How it Works
+# 仕組み
 
 Mixinは、デジタルアセットのための無料かつ高速なP2Pクロスチェーン取引ネットワークです。ドメインゲートウェイを通じて、Bitcoin、Ethereum、Monero、その他多くのパブリックチェーンアセットがMixinネットワークに持ち込まれます。すべてのオフチェーントランザクションは公開されたMixin分散型台帳に記録され、引き出しが行われる際にブロックチェーンに書き込まれます。
 
