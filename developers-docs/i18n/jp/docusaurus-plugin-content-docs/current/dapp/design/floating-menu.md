@@ -1,10 +1,10 @@
 ---
-title: Floating Menu
+title: フローティングメニュー
 sidebar_position: 10
 ---
 
-# Floating Menu
+# フローティングメニュー
 
-The bot menu is always displayed in the upper right corner, including 4 functions: share, floating window, about and refresh. When the bot turns on the immersive mode, this area should be reserved to avoid interactive conflicts caused by occlusion.
+ボットメニューは常に右上に表示され、共有、フローティングウィンドウ、概要、リフレッシュの4つの機能を含んでいます。ボットが没有モードをオンにした場合、相互衝突を避けるためにこの領域を確保する必要があります。
 
 ![Nav-capsule](./overview-nav-capsule.png)
