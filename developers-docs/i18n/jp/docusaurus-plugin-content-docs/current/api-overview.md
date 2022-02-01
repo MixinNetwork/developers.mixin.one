@@ -1,11 +1,11 @@
 ---
-title: Mixin API Overview
+title: Mixin APIの概要
 sidebar_position: 1
 ---
 
-Mixin provides different APIs for different services and applications.
+Mixinは、サービスやアプリケーションごとに異なるAPIを提供しています。
 
-- [API Reference](./api/guide): An API Reference for the Mixin API layer that provides convenient access to the Mixin Message service and the Mixin Wallet service.
-- [Mainnet RPC](./mainnet-rpc): JSON-RPC API for the mainnet.
-- [JS Bridge](./js-bridge): A JS Bridge for Mixin Messenger's WebView.
-- [Schema](./schema): A schema list for Mixin Messenger.
+- [APIリファレンス](./api/guide): Mixin APIレイヤーのためのAPIリファレンスで、Mixin MessageサービスとMixin Walletサービスへの便利なアクセスを提供するものです。
+- [メインネットRPC](./mainnet-rpc): メインネットのためのJSON-RPC APIです。
+- [JSブリッジ](./js-bridge):  Mixin MessengerのWeb表示のためのJSブリッジです。
+- [スキーマ](./schema): Mixin Messenger用のスキーマリストです。
