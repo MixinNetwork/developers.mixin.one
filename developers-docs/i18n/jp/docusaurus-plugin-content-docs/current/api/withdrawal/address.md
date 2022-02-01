@@ -1,5 +1,5 @@
 ---
-title: Read Withdrawal Address
+title: 出金アドレスの取得
 sidebar_position: 3
 ---
 
@@ -15,7 +15,7 @@ import RespAddress from "../../_partials/_resp.addr.md";
 
 ## GET /addresses/:addr_id
 
-Get an address by :addr_id
+アドレスを`:addr_id`で取得します。
 
 <APIEndpoint url="/addresses/:addr_id" />
 
