@@ -46,9 +46,9 @@ Mixinの分散型台帳はオープンで透明性が高く、35のメインネ�
 ドメインゲートウェイが管理する資産が担保価値を大幅に超えた場合、ドメインの資産は35ノードが共同管理するコールドウォレットアドレスに強制的に移管されます。
 
 
-### Transaction Bookkeeping
+### トランザクションの記録
 
-Once the assets are in the Mixin network, you can immediately enjoy the experience of free and real-time transactions. For the original chain (such as the Bitcoin network), the transactions are off-chain, but they are recorded in the decentralized ledger of Mixin, open, transparent, and irreversible.
+　アセットがMixinネットワーク内に移されると、すぐに手数料無料でリアルタイムな取引を行うことが可能になります。オリジナルのチェーン（ビットコインネットワークなど）では、取引はオフチェーンですが、Mixinの分散型台帳に記録され、オープンで透明性が高く、不可逆的なものとなります。
 
 - Deposit
 
