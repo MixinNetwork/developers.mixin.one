@@ -25,11 +25,11 @@ Mixinの分散型台帳はオープンで透明性が高く、35のメインネ�
 
 - DAG
 
-  Mixin uses DAG as the underlying data structure model. Unlike other public DAG chains (such as IOTA, Bytaball, etc.), Mixin does not have a central authority node, and data does not need to wait for the final confirmation from the central authority node. By limiting the time of referencing data and other mechanisms, asynchronous and efficient operations can be achieved, and the correctness of consensus results is ensured through Asynchronous Byzantine Algorithm. To put it simply, each node of Mixin is a chain with complete data, even though the order of the data may be different, the same result can be derived in the end.
+　Mixinは、データ構造の基本モデルとしてDAGを使用しています。他のパブリックDAGチェーン（IOTA、Bytaballなど）とは異なり、Mixinは中央権威ノードを持たず、データは中央権威ノードからの最終確認を待つ必要がありません。データの参照時間を制限するなどの仕組みにより、非同期で効率的な運用を実現し、Asynchronous Byzantine Algorithmにより合意結果の正しさを保証しています。簡潔に言えば、Mixinの各ノードは完全なデータを持ったチェーンであり、データの順番が違っても最終的に同じ結果を導き出すことが可能です。
  
-- Privacy
+- プライバシー
 
-  UTXO transaction privacy is strengthened through CryptoNote technology. Only both parties know the transaction, and mainnet nodes cannot know the parties to the transaction, and it is impossible to get the identities of parties to the transaction based on the transaction itself.
+UTXOトランザクションプライバシーは、CryptoNoteテクノロジーによって強化されています。取引の内容を知っているのは両当事者だけで、メインネットノードは取引の当事者を知ることができず、取引そのものから取引当事者の身元を把握することは不可能です。
 
   **Note that Mixin does not have a currency issuance function and will not generate assets out of thin air. Mainnet tokens have always been ERC-20 tokens.**
 
