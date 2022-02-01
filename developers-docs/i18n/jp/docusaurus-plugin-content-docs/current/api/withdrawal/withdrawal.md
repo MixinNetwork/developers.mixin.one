@@ -1,5 +1,5 @@
 ---
-title: Withdrawal
+title: 出金
 ---
 
 import {
@@ -12,10 +12,10 @@ import {
 
 ## POST /withdrawals
 
-Submit a withdrawal request.
+出金リクエストの送信
 
-:::info
-It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
+:::注意
+出金には手数料がかかります。手数料を取得するには、[`GET /{asset_id}/fee`](../assets/fee) を使用してください。
 :::
 
 <APIEndpoint url="/withdrawals" />
