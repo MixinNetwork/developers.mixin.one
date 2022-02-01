@@ -1,5 +1,5 @@
 ---
-title: Sharing Bots
+title: ロボの共有
 sidebar_position: 13
 ---
 
@@ -13,13 +13,13 @@ import {
 
 import RespApps from "../_partials/_resp.apps.md";
 
-Both users and bots can be configured to share 3 bots on their personal pages, and they can also be displayed from the + menu in the lower left corner of the chat interface. This feature can greatly promote the spread of bots among users by word of mouth.
+ユーザー、ロボともにホームページで3つのロボを共有できるように設定できるほか、チャット画面左下にある＋メニューから表示することも可能です。この機能により、口コミによるユーザー間でのロボの認知度を大きくあげることができます。
 
-## Get Share List
+## 共有リストの取得
 
 ### GET /users/:user_id/apps/favorite
 
-Get the share bot list
+共有したロボ一覧を取得します。
 
 <APIEndpoint url="/users/:user_id/apps/favorite" />
 
@@ -34,7 +34,7 @@ Get the share bot list
 
 <RespApps />
 
-## Add to Shares
+## 共有の追加
 
 ### POST /apps/:client_id/favorite
 
@@ -55,7 +55,7 @@ Get the share bot list
 
 <RespApps />
 
-## Delete from Shares
+## 共有から削除
 
 ### POST /apps/:client_id/unfavorite
 
@@ -74,4 +74,4 @@ Get the share bot list
   url="/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/unfavorite"
 />
 
-Returns empty json on success.
+成功時は空のjsonファイルを返します。
