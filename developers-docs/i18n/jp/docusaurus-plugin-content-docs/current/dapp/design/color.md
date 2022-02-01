@@ -1,26 +1,26 @@
 ---
-title: Colors
+title: 色
 sidebar_position: 11
 ---
 
-# Colors
+# 色
 
-### Theme Color
+### テーマカラー
 
-When a user visits the bot's page, the built-in browser will try to extract the theme-color meta tag from HTML, and the status bar and title bar will automatically adapt the theme color:
+ユーザーがボットのページにアクセスすると、内蔵ブラウザがHTMLからテーマカラーのメタタグを抽出しようとし、ステータスバーやタイトルバーが自動的にテーマカラーに適応されます：
 
 ```html
 <meta name="theme-color" content="#673ab8">
 ```
 
-### Button Colors
+### ボタンの色
 
 
-Button colors that are too bright or too dark will bring a poor user experience. The designer has choosen a set of button colors for developers, which performs well in both light and dark modes:
+明るすぎたり暗すぎたりするボタンカラーは、ユーザー体験を低下させます。デザイナーは開発者のために、明るいモードでも暗いモードでもうまく機能するボタンカラーを選びました：
 
 ![Button Colors](./color-app-button.png)
 
-Color array:
+色配列：
 
 ```
 [
@@ -31,6 +31,6 @@ Color array:
 ]
 ```
 
-Demo:
+デモ：
 
 ![Button Demo](./color-app-button-preview.png)
