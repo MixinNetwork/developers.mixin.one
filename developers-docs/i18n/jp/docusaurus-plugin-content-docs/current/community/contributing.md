@@ -116,7 +116,7 @@ cp -r docs/** i18n/$LANG_CODE/docusaurus-plugin-content-docs/current
 yarn run start --locale $LANG_CODE
 ```
 
-##ディベロッパーグループへの参加
+## ディベロッパーグループへの参加
 
 Mixin developmentに参加するには、Mixin Messengerで`7000104112`を検索し、[developer group](https://supergroup.mixin.fan/#/7000104112/home)に参加してください。
 
