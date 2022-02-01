@@ -1,5 +1,5 @@
 ---
-title: Read Withdrawal Address List
+title: 出金アドレス一覧の取得
 sidebar_position: 2
 ---
 
@@ -15,7 +15,7 @@ import RespAddresses from "../../_partials/_resp.addrs.md";
 
 ## GET /assets/:asset_id/addresses
 
-Get a list of withdrawal addresses for the given asset.
+指定された資産の出金アドレス一覧を取得します。
 
 <APIEndpoint url="/assets/:asset_id/addresses" />
 
