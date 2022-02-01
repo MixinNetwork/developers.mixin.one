@@ -50,15 +50,15 @@ Mixinの分散型台帳はオープンで透明性が高く、35のメインネ�
 
 　アセットがMixinネットワーク内に移されると、すぐに手数料無料でリアルタイムな取引を行うことが可能になります。オリジナルのチェーン（ビットコインネットワークなど）では、取引はオフチェーンですが、Mixinの分散型台帳に記録され、オープンで透明性が高く、不可逆的なものとなります。
 
-- Deposit
+- 入金
 
-  Each user generates a unique deposit address (or distinguished by Tag/Memo), but the private key of the address is managed by the Domain and collected on demand, and the collected assets are jointly managed by mainnet nodes and the Domain.
+　各ユーザーには固有の入金アドレスを生成（またはタグ/メモで区別）されますが、秘密鍵はドメインが管理し、必要に応じて集められます。また集められた資産はメインネットノードとドメインが共同管理します。
 
-  When the Domain detects a user's deposit and the deposit has reached the required confirmations, it will initiate a transaction containing the user's deposit information to the nodes. After the nodes confirm the transaction, the user will own a new unspent UTXO (asset balance increase) and the transaction will also be recorded in the distributed ledger.
+　ドメインがユーザーの入金を検知し、入金が確認回数に達すると、ユーザーの入金情報を含むトランザクションをノードに開始します。そしてノードがトランザクションを承認すると、ユーザーは新たに未使用のUTXOを所有し（資産残高が増加し）、そのトランザクションも分散台帳に記録されます。
 
-- Transfer
+- 送金
 
-  When a user transfers, a multi-signature transaction will be generated through the 6-digit password + PIN node private key seed and sent to the mainnet nodes. The transaction will reference the historical transactions of the user's node and other nodes. The mainnet nodes will verify the user’s signature, check if there is enough unspent UTXO and other information, and the transaction will be written into the distributed ledger after more than 2/3 + 1 nodes have verified it.
+　ユーザーが送金を行うと、6桁のパスワード＋PINノード秘密鍵のシードを通じてマルチシグネチャトランザクションが生成され、メインネットノードに送信されます。このトランザクションは、ユーザーのノードと他のノードの過去のトランザクションを参照します。メインネットノードによってユーザーの署名の検証、未使用のUTXOが十分にあるかなどが確認され、さらに3分の2プラス1以上のノードが承認した場合にトランザクションは分散台帳に書き込まれます。
 
   ![Transaction](./full-node-transaction.png)
 
