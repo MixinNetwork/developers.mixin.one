@@ -62,25 +62,25 @@ Mixinの分散型台帳はオープンで透明性が高く、35のメインネ�
 
   ![Transaction](./full-node-transaction.png)
 
-- withdrawal
+- 出金
 
-  When a user initiates a withdrawal, the user needs to add a withdrawal address. The process is similar to the transfer process and will be written into the distributed ledger. When the Domain detected the transaction and signature of the mainnet node withdrawal, it will automatically arrange the withdrawal after the transaction and signature are verified. (No manual review).
+　ユーザーが出金を開始する際には、出金先のアドレスを追加する必要があります。この処理は送金処理と同様であり、分散台帳に書き込まれることになります。ドメインはメインネットノードの出金の取引と署名を検出すると、取引と署名が確認された後に自動的に出金を手配します。(手動での審査はありません)。
 
-  If the withdrawal is delayed, besides wrong address, another reason could be that the withdrawal transaction may not be sent due to the Domain failing to synchronize node data (you can subscribe to bot 7000101498 and will receive a failure alarm), or that the assets of the co-managed address are not enough so the collection of temporary assets is triggered, in this case, all it takes is to wait a moment or two.
+　出金が遅れた場合、アドレス間違いに加え。ドメインがノードデータの同期に失敗して出金トランザクションが送信されていない可能性があります。（ID:7000101498のボットに登録すれば、失敗警告を受信できます）また、共同管理アドレスの資産が十分ではなく、一時資産の収集がトリガされたりしますが、この場合は数秒待てば解決します。
 
 ### FAQ
 
-- What is the relationship between Mixin, Mixin Network, and Mixin Messenger?
+- Mixin, Mixin Network, Mixin Messengerの関係は？
   
-  Mixin is short for Mixin Network, and Mixin Messenger is the first open-source Dapp on Mixin Network. Due to historical reasons, Mixin was considered Mixin Messenger for a long time.
+　MixinはMixin Networkの略で、Mixin MessengerはMixin Networkの最初のオープンソースDappです。歴史的な理由により、Mixinは長い間Mixin Messengerとされていました。
 
-- Why does Mixin only allow login via phone number?
+- なぜMixinは電話番号でしかログインできないのですか？
 
-  Mixin Messenger is a Dapp product that only allows login via phone numbers, but other Mixin Network-based products can be logged in by email or Apple Id, etc., it depends on the products themselves, such as [Poolin Wallet](http://poolin.fi).  
+　Mixin Messengerは電話番号でしかログインできないDappプロダクトですが、他のMixin NetworkベースのプロダクトはメールやApple IDなどでもログイン可能で、プロダクトによって異なります。例えば、[Poolin Wallet](http://poolin.fi)などがあります。
 
-- Why aren't airdrops supported? Why can't I get the balance of the BTC deposit address in my wallet with a blockchain browser?
+- なぜエアドロップはサポートされていないのですか？また、ブロックチェーンブラウザでウォレットのBTC入金アドレスの残高が取得できないのはなぜですか？
 
-  The deposit and withdrawal of Mixin do not use the same address. After the user deposits, the assets will be transferred to the address jointly managed by the Domain gateway and the nodes. More than 2/3 + 1 nodes need to verify and sign before withdrawing from the co-managed address to a target address. Therefore all deposit addresses are empty, and the balance cannot be checked and airdrops based on the balance cannot be accepted.
+Mixinの入金と出金は同じアドレスを使用しません。ユーザが入金した後、ドメインゲートウェイとノードが共同で管理するアドレスに資産が転送されます。そして共同管理されたアドレスから目的のアドレスに出金する際には、3分の2+1以上のノードが確認と署名を行う必要があります。そのため、すべての入金先アドレスが空となり、残高の確認できないため、その残高に基づくエアドロップの受付ができないのです。
   
 - Why aren't the BTC withdrawal addresses managed by the Domain multi-signature addresses?
 
