@@ -10,18 +10,17 @@ Mixinは、デジタルアセットのための無料かつ高速なP2Pクロス
 
 ![How it Works](./how-it-works.svg)
 
-### Distributed Ledger
+### 分散型台帳
 
-Mixin's distributed ledger is an open and transparent decentralized ledger, which is collectively booked and maintained by 35 mainnet nodes. All deposits, withdrawals, and transfers are recorded on this decentralized distributed ledger, and each record contains asset type (such as Bitcoin, Ethereum, etc.), transfer amount, and other information.
+Mixinの分散型台帳はオープンで透明性が高く、35のメインネットノードによって一括して記帳・管理されています。すべての入出金や送金はこの分散型台帳に記録され、それぞれの記録には資産の種類（ビットコイン、イーサリアムなど）、送金額などの情報が含まれています。
 
-- Nodes
+- ノード
  
-  Each mainnet node needs to pledge 11,000 XIN (2% of the circulation) to participate in bookkeeping. If it is identified as an attacker, e.g. intentionally broadcasting obvious double-spending transactions, the collateral will be confiscated into the mining pool.
+　各メインネットノードは、帳簿管理に参加するために11,000XIN（流通量の2％）を担保に入れる必要があります。明らかな二重支出の取引を意図的に広めるなど、攻撃者として特定された場合、その担保はマイニングプールに没収されます。
 
-  Mixin utilizes Intel SGX as the implementation of TEE to further improve security. All mainnet nodes must run in a trusted execution environment to ensure that the "running code" of the mainnet node is indeed "the code it claims to be running". Nobody can change the running code in the trusted execution environment without being noticed.
+　Mixinは、TEEの実装にIntel SGXを採用し、さらなるセキュリティの向上を図っています。すべてのメインネットノードは、メインネットノードの「実行中のコード」が真に「実行中と主張するコード」であることを保証するために、信頼できる実行環境で実行されなければなりません。信頼された実行環境では、誰にも気づかれずに実行中のコードを変更することはできません。
 
-  SPV light nodes supervise the main network nodes to prevent evil. Any user who pledges an integer multiple of 0.1 XIN can participate. By recording their UTXO changes and the topology order of the nodes, they can detect whether the nodes are evil.
-
+　SPVライトノードは、メインネットワークノードを監視し、不正を防止します。0.1 XIN単位のXINを担保に入れたユーザーであれば、誰でも参加可能です。自身のUTXO変化とノードのトポロジー順序を記録することで、ノードが不正を働いているかを検出することができます。
   ![Nodes](./how-it-works-nodes.svg)
 
 - DAG
