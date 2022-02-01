@@ -1,5 +1,5 @@
 ---
-title: RSA To Ed25519 Migration
+title: RSAからEd25519への移行
 sidebar_position: 14
 ---
 
@@ -13,7 +13,8 @@ import {
 
 ## POST /session/secret
 
-The upgrade from RSA to Ed25519 mainly involves PIN encryption and API access signature. After the Ed25519 key is generated locally, the successful call of the `POST /session/secret` interface means the migration is successful. Note that the process is irreversible and cannot be rolled back from Ed25519 to RSA.
+RSAからEd25519へのアップグレード内容は、主にPINコードの暗号化とAPIアクセス署名になります。Ed25519がローカルに生成された後、`POST /session/secret`インターフェースの呼び出しに成功すると、移行が成功したことを意味します。このプロセスは不可逆であり、Ed25519からRSAへの移行はできないことに注意してください。
+
 
 <APIEndpoint url="/session/secret" />
 
