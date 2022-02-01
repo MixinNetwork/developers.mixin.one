@@ -5,7 +5,8 @@ sidebar_position: 1
 
 # How it Works
 
-Mixin is a free, lightning-fast peer-to-peer cross-chain trading network for digital assets. Through the Domain gateway, Bitcoin, Ethereum, Monero, and a lot more popular public chain assets are brought into Mixin network. All the off-chain transactions are recorded in a public transparent Mixin distributed ledger and written to the blockchain when withdrawals happen.
+Mixinは、デジタルアセットのための無料かつ高速なP2Pクロスチェーン取引ネットワークです。ドメインゲートウェイを通じて、Bitcoin、Ethereum、Monero、その他多くのパブリックチェーンアセットがMixinネットワークに持ち込まれます。すべてのオフチェーントランザクションは公開されたMixin分散型台帳に記録され、引き出しが行われる際にブロックチェーンに書き込まれます。
+
 
 ![How it Works](./how-it-works.svg)
 
