@@ -42,7 +42,7 @@ DKGプロトコルの終了後、すべてのエンティティは公開鍵Pを�
 
 ネットワークは設定と署名者リストを一般ユーザーまたは潜在的なユーザーに発表し、署名要求を待ちます。各署名者は、同じ制限に基づいて要求を絞り込む必要があります。
 
-- **ID**. This is the base factor to all restrictions, the identity should be a valid BLS public key, and a user should use the same identity for all signers. The signer checks the request and verifies the request signature against the public key, and the signer must reduce the requests quota of this identity for any invalid signature.
+- **ID** IDはすべての制限の基本要因であり、IDは有効なBLS公開鍵でなければならず、ユーザーはすべての署名者に同じIDを使用しなければならない。署名者はリクエストをチェックし、公開鍵に対するリクエスト署名を検証する。署名者が無効な署名を行った場合、このIDのリクエストクォータを減らさなければならない。
 - **Ephemeral**. This parameter is a different random value for each signer, but should remain unchanged for the same signer during the ephemeral grace period. If the ephemeral changes during the grace period, the signer must reduce the ephemeral requests quota of this identity.
 - **Nonce**. For each signing request, the user should increase the nonce during the ephemeral grace period. If the nonce is invalid during the grace period, the signer must reduce the ephemeral requests quota of this identity.
 
