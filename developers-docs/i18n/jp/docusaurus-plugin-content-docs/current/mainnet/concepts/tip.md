@@ -38,11 +38,11 @@ DKGプロトコルの終了後、すべてのエンティティは公開鍵Pを�
 
 このリポジトリは署名者ノードソフトウェアの実装を含んでいます。説明については署名者ディレクトリを参照してください。
 
-### Throttled Secret Derivation
+### 秘密分散法
 
-The network announces the configuration and signers list to the public or potential users, and waits for signing requests. Each signer should throttle the requests based on the same restrictions.
+ネットワークは設定と署名者リストを一般ユーザーまたは潜在的なユーザーに発表し、署名要求を待ちます。各署名者は、同じ制限に基づいて要求を絞り込む必要があります。
 
-- **Identity**. This is the base factor to all restrictions, the identity should be a valid BLS public key, and a user should use the same identity for all signers. The signer checks the request and verifies the request signature against the public key, and the signer must reduce the requests quota of this identity for any invalid signature.
+- **ID**. This is the base factor to all restrictions, the identity should be a valid BLS public key, and a user should use the same identity for all signers. The signer checks the request and verifies the request signature against the public key, and the signer must reduce the requests quota of this identity for any invalid signature.
 - **Ephemeral**. This parameter is a different random value for each signer, but should remain unchanged for the same signer during the ephemeral grace period. If the ephemeral changes during the grace period, the signer must reduce the ephemeral requests quota of this identity.
 - **Nonce**. For each signing request, the user should increase the nonce during the ephemeral grace period. If the nonce is invalid during the grace period, the signer must reduce the ephemeral requests quota of this identity.
 
