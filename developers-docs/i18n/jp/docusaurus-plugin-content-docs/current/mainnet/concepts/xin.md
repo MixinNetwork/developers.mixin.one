@@ -1,46 +1,46 @@
 ---
-title: XIN Token
+title: XINトークン
 sidebar_position: 2
 ---
 
-# XIN Token
+# XINトークン
 
-XIN is the sole token used by many services in Mixin, including node collateral, DApp creation, and so on. 
+XINは、ノードの担保やDAppの作成など、Mixinの多くのサービスで使用される唯一のトークンです。
 
-### Usage
-- Collateral for participating in full-node bookkeeping to obtain mining reward and excess transaction fee.
-- Collateral for being a light node to supervise full-node bookkeeping and arrange automatic voting.
-- Collateral for participating in the management of the Domain assets, and jointly manage assets with nodes.
-- Voting to participate in community governance, such as voting to determine the amount of punishment for malicious nodes, what chains to accept, kernel specifications, or some strategies in the upgrade process, etc.
-- Creating a Dapp requires a one-time consumption of XIN, and the specific cost is determined by the resources that the Dapp claims to consume.
+### 使用例
+- マイニング報酬と超過トランザクション手数料を得られるフルノードの記帳に参加するための担保
+- フルノードの記帳を監視し、自動投票を手配するライトノードになるための担保
+- ドメイン資産の管理に参加し、ノードと共同で資産を管理するための担保
+- 悪意のあるノードに対する処罰額、受け入れるべきチェーン、カーネル仕様、アップグレードプロセスにおける何らかの戦略などを決定する投票等の、コミュニティガバナンスへの参加
+- Dappの作成。Dappを作成するにはXINを1回だけ支払う必要があり、具体的な額はDappが消費するリソースによって決定されます。
 
-## Distribution
-XIN is an ERC-20 token, 1,000,000 permanent total XIN token is issued to the world at one time.
+## ディストリビューション
+XINはERC-20トークンで、発行上限は1,000,000XINです。
 
-- 500,000 XIN 
+- 500,000 XIN
 
-  Incentives for mining pool nodes
+  マイニングプールノードへのインセンティブ
 
 - 400,000 XIN 
 
-  During the period from 2017-11-25 to 2017-12-25, publicly sold to supporters on the exchange at the price of 20 EOS/XIN, not through any middleman
+  2017年11月25日から2017年12月25日までの間に20EOS/XINのレートで中間業者を通さずに取引所の支援者にパブリックセール
 
 - 50,000 XIN 
 
-  The reward for early supporters and whitelisted users
+  早期支援者とホワイトリストユーザーへのリワード
 
-- 50,000 XIN 
+- 50,000 XIN
 
-  For Core Team
+  コアチームへ
+　
 
 ### Circulation
-As of November 2020, there are about 430,000 XIN uncirculated and kept in mining pools. At present, 110 XIN is released every day and the amount decreases year by year. The circulating XIN is about 570,000.
+2020年11月現在、未流通でマイニングプールに保管されているXINは約43万枚です。現在、毎日110XINが放出され、その量は年々減少していきます。現在流通するXINは約57万枚です。
+- 35のノードが385000XINをプレッジし、そのうち15以上が個人向けのクラウドファンディングノードであり、その他は主に機関投資家やOndaグループ、Laomaoチームなどの他のチームです。
+- ドメインに50000XIN。その50000XINはコアチームが寄付したものです。
+- 取引所、ノードキュー、スワップマーケットメイキング、ウォレットなど市場には15万XINが流通しています。
 
-- 35 nodes have pledged 385,000, out of which there are more than 15 retail investor crowdfunding nodes, and the others are mainly institutions and other teams, such as Onda Group, Laomao Team, etc.
-- The Domain has pledged 50,000, and the 50,000 XIN held by the core team has all been pledged.
-- There are 150,000 XIN in circulation in the market, mainly for exchanges, node queuing, swap market-making, wallets, etc.
-
-### Trade
-- 4swap, Search for bot 7000103537 in Mixin Messenger. XIN trading pair fund pool has exceeded 7 million dollars.
-- ExinSwap, Search for bot 7000102352, XIN-USDT trading pair fund pool has exceeded 3 million dollars.
+### トレード
+- 4swap、Mixin MessengerにてID:7000103537を検索、XINトレーディングペアの資金プールが700万ドルを突破しました。
+- ExinSwap、ID：7000102352。XIN-USDTペアの資金プールが300万ドルを突破しました。
 - [BigONE](https://big.one/trade/XIN-EOS)
