@@ -1,19 +1,19 @@
 ---
-title: Full Node
+title: フルノード
 sidebar_position: 3
 ---
 
-# Full Node
-As the Bitcoin network, Ethereum, and other public chains, Mixin is also an open, permissionless network where anyone can become a full node. There is no election, and the only requirement is to pledge 2% of the tokens in circulation the previous year.
+# フルノード
+ビットコインネットワークやイーサリアムなどのパブリックチェーンと同様、Mixinもまた、誰でもフルノードになることができるオープンなパーミッションレスネットワークです。選挙はなく、前年度に流通したトークンの2％を担保に入れることが唯一の条件となっています。
 
-### Recommended configuration
+### 推奨スペック
 - __Memeory__ 64G
-- __CPU__ 16 core
-- __Storage__ 1T SSD(SSD is indispensable)
-- __Bandwidth__ No requirement for now
+- __CPU__ 16コア
+- __Storage__ 1T SSD（SSDは必須です）
+- __Bandwidth__ 現時点では必要なし
 
-### Node Count
-The limited number of nodes is one of the key factors for high performance. Mixin network supports up to 50 full nodes, and at least 7 nodes are required.
+### ノード数
+限られたノード数であることは高いパフォーマンスを発揮する要因の1つです。Mixinネットワークは最大50のフルノードをサポートし、最低で7ノードが必要です。
 
   ### Node Bookkeeping
   The chief job of full nodes is bookkeeping, which is verifying and recording every transaction in the Mixin network.
