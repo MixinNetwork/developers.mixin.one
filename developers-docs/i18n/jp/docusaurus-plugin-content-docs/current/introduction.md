@@ -1,66 +1,66 @@
 ---
 title: イントロダクション
-description: Mixin Network, a free, lightning fast and decentralized network for transferring digital assets.
+description: 「Mixin Network」は、デジタルアセットを無料かつ高速に送金することを可能にした分散型ネットワークです。
 ---
 
-Mixin Network is a open network, it's open to the developers at both Kernel (aka, the Mainnet) and Mixin API levels.
+Mixin Networkはオープンなネットワークで、開発者はカーネル（別名：メインネット）とMixin APIの両方の開発に自由に参加することができます。
 
-According to the business needs and requirements, developers can choose the appropriate way to develop their dApps, chains, and any applications based on Mixin Network.
+開発者は、Mixin NetworkをベースにしたdApps、チェーン、またあらゆるアプリケーションを適切な方法で開発することができます。
 
-## Dive into the Kernel
+## カーネルの利用
 
-If you want to build something with the kernel, or create a fork of Mixin Network with some modifications you like, you can read the [source code of Mixin Mainnet](https://github.com/MixinNetwork/mixin).
+カーネルを使って何かを作りたい、あるいはMixin Networkのフォークを作りたいという場合は[Mixin Mainnetのソースコード](https://github.com/MixinNetwork/mixin) を読むとよいでしょう。
 
-There are some tutorials that useful:
+以下はチュートリアルです。
 
-- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in lcoal machine.
-- [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
+- [Deploying full node](mainnet/guide/full-node-join) - ローカルでmixinノードを実行します。
+- [Sync full node](mainnet/guide/sync-full-node) - mixinノードを同期モードで実行し、カーネルからすべてのスナップショットを同期させます。
 
-## Create Mixin Applications
+## Mixinアプリケーションの作成
 
-Mixin Applications are applications that use the Mixin Network. It could be a website, an App, a messenger bot, or any other form of application that uses Mixin API or interacts with Kernel.
+Mixinアプリケーションとは、Mixinネットワークを利用したアプリケーションのことです。ウェブサイト、アプリ、メッセンジャーボットなど、Mixin APIを利用する、あるいはカーネルとインタラクションを行うあらゆる形態のアプリケーションのことを指します。
 
-:::info
-Mixin Application uses the Mixin API, a API set that provides the interface for the Mixin Mainnet, simplifys the development of Mixin. Please read [Mixin API Reference](api/guide) for more details.
+:::注意
+Mixinアプリケーションは、Mixinメインネットのインターフェイスを提供し、Mixinの開発を容易にするAPIであるMixin APIを使用します。詳細は、[Mixin API リファレンス](api/guide)をご覧ください。
 :::
 
-### Messenger Bot
+### メッセンジャーロボ
 
-Most Mixin Applications have an interface called "Messenger bot"(shortened to "bot").
+ほとんどのMixinアプリケーションは、「メッセンジャーロボ」（略称：ロボ）と呼ばれるインターフェースを持っています。
 
-The bot is very similar to Telegram bot. It’s a program running on a server and interact with human being users with Mixin API.
+このロボは、Telegramボットに非常によく似ています。サーバー上で動作するプログラムで、Mixin APIを使ってユーザーと対話します。
 
-Usually, people interacts with bots in a webview, or just chat with bots. Because of that, the bot should host a web service or respond to incoming messages to get its work done.
+通常、ユーザーはウェブビューでロボと接する、あるいはロボとチャットするだけです。そのため、ロボはウェブサービスをホストしたり、受信したメッセージに応答したりする必要があります。
 
-Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to build a bot with the Mixin API:
+Mixin APIを使ったロボの作成方法を紹介する[チュートリアル](dapp/getting-started/create-dapp)はこちらです。
 
-###  Integrate with Mixin
+###  Mixinとの連携
 
-Some Mixin Applications don't need the bot interface. They could be a website or a standalone mobile App.
+Mixinアプリケーションの中には、インターフェースが必要ないものもあります。それらはウェブサイトであったり、独立したモバイルアプリであったりします。
 
-A common scene is that your business runs well, but you want to make it cooler with cryptocurrency. So you need to integrate an existed system with Mixin.
+よくあるケースは、ビジネスはうまくいっているが、暗号資産をもっと活用したいというケースです。そこで、実在するシステムをMixinと統合することで、暗号資産を活用したサービスの構築が可能になります。。
 
-The first thing you need to do is same as above, creating a bot. And then, it's time to think about the way to integrate with Mixin.
+まずやるべきことは上記と同じで、ロボを作成することです。そして、次にMixinと統合する方法を考える必要があります。
 
-For example, if you have a CMS for multiple users, you want to put a donate button at the bottom of each post and receive money from audiences; you need to learn to create accounts for each author, manage accounts' keystores, sync and handle snapshots for each author in the CMS to transfer money to them.
+例えば、複数のユーザーが利用するCMSがあり、各投稿の下に寄付ボタンを設置し、聴衆からお金を受け取りたい場合、各著者のアカウントを作成し、アカウントのキーストアを管理し、CMSで各著者のスナップショットを同期して処理し、お金を送金する方法を学ぶ必要があります。
 
-Please read [this document](dapp/mixin-applications) guide for more details.
+詳細は、[ドキュメント](dapp/mixin-applications) をお読みください。
 
-## Features
+## Mixinの特徴
 
-- Secure - All assets are stored in PoS-BFT-DAG distributed network
-- Fast - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.
-- Powerful - Supported 32 blockchians, such as BTC, ETH, XMR.
-- Free - No transaction fee.
-- Privacy - End to end encrypted messages.
+- 安全性 - 全ての資産はPoS-BFT-DAGの分散ネットワークに格納されています。
+- 高速処理性能 - 100万TPS以上のキャパシティを持ち、取引にかかる時間は1秒未満です。
+- ネットワークの相互運用性 - BTC, ETH, XMRなどの32個のブロックチェーンとの相互運用性があります。
+- 手数料無料 - トランザクション手数料が発生しません。
+- プライバシーの保護 - エンドツーエンドでメッセージは暗号化されています。
 
-## Staying informed
+## Mixinについての情報
 
 - [Github](https://github.com/MixinNetwork)
 - [Twitter](https://twitter.com/Mixin_Network)
 - [Discussions](https://github.com/MixinNetwork/mixin/discussions)
 
-## Something missing?
+## お問い合わせ
 
-If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/MixinNetwork/developers.mixin.one/issues) for us, or send a tweet mentioning the @[Mixin_Network](https://twitter.com/Mixin_Network) Twitter account.
+もし、ドキュメントに問題を見つけたり、ドキュメントやプロジェクト全般の改善について提案があれば、私たちに [該当するファイルを送信](https://github.com/MixinNetwork/developers.mixin.one/issues) するか、Twitterアカウントの @[Mixin_Network](https://twitter.com/Mixin_Network) にツイートを送ってください。
 
