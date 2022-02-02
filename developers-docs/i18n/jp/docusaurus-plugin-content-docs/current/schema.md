@@ -1,9 +1,9 @@
 ---
-title: Schema Interactions
+title: スキーマの相互作用
 sidebar_position: 4
 ---
 
-A bot can invoke the native Mixin Messenger windows through the Schema to implement functions, such as payment.
+ロボは、スキーマを通じてネイティブのMixinメッセンジャーウィンドウを呼び出し、支払いなどの機能を実装することができます。
 
 ## Sharing
 
