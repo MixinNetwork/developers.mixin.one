@@ -1,38 +1,39 @@
 ---
-title: Mainnet RPC
+title: メインネットRPC
 sidebar_position: 3
 ---
 
-:::info
-For latest RPC implementation, see [Mixin's source](https://github.com/MixinNetwork/mixin/blob/master/rpc/http.go).
+:::注意
+最新のRPCの実装については、[Mixinのソース](https://github.com/MixinNetwork/mixin/blob/master/rpc/http.go)をご覧ください。
 :::
 
-## Send RPC Request
+## RPCリクエストの送信
 
-Mixin Mainnet Node will public a port for RPC, you can use it to interact with Mixin Mainnet Node.
+MixinメインネットノードはRPC用のポートを公開しますので、それを使ってMixinメインネットノードとやりとりすることができます。
 
 The default RPC port is the service port + 1000. For example, if the public port is `8001`, the RPC port is `9001`.
+RPCポートのデフォルトは、サービスポート＋1000です。例えば、公開ポートが `8001` であれば、RPCポートは `9001` となります。
 
-**RPC Base**
+**RPCベース**
 
-The RPC base is formed by `http://<node_host>:<rpc_port>/`. For example, `http://127.0.0.1:9001/`.
+RPCベースは、`http://<node_host>:<rpc_port>/`で形成されます。例：`http://127.0.0.1:9001/`
 
-**Payload**
+**ペイロード**
 
-| Parameter | Type | Description |
+| パラメータ | タイプ | 説明 |
 | :----- | :----: | :---- |
-| method | String | Supported methods, please see the section below |
-| params | Array | The parameters of the methods |
+| method | String | サポートされているメソッドは、以下のセクションを参照してください。 |
+| params | Array | メソッドのパラメータ |
 
 
-**Example**
+**利用例**
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"method":"getinfo","params":[],"id":1}' http://127.0.0.1:9001
 ```
 
-## RPC Methods
+## RPCメソッド
 
 ### getinfo
 
@@ -42,7 +43,7 @@ curl -X POST -H "Content-Type: application/json" \
 []
 ```
 
-**return**: the information of current node
+**return**: 現在のノードの情報
 
 ### dumpgraphhead
 
@@ -52,7 +53,7 @@ curl -X POST -H "Content-Type: application/json" \
 []
 ```
 
-**return**: the graph head of current node
+**return**: 現在のノードのグラフヘッド
 
 ### sendrawtransaction
 
