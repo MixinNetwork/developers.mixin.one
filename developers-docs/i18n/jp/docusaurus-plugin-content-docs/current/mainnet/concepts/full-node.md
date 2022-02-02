@@ -15,28 +15,31 @@ sidebar_position: 3
 ### ノード数
 限られたノード数であることは高いパフォーマンスを発揮する要因の1つです。Mixinネットワークは最大50のフルノードをサポートし、最低で7ノードが必要です。
 
-  ### Node Bookkeeping
-  The chief job of full nodes is bookkeeping, which is verifying and recording every transaction in the Mixin network.
+  ### ノード記帳
+  フルノードの主な仕事は、Mixinネットワーク上のすべての取引を検証し記録する記帳作業です。
 
-- Every transaction needs to reference a record of this node and other nodes, and the referenced height must be increasing
+- 各トランザクションは、このノードと他のノードの記録を参照する必要があり、参照の高さは増加している必要があります
 
   ![Trasanction Reference](./full-node-transaction.png)
 
-- The order in which each node records transactions may be different, to realize asynchronous and concurrent processing of transactions. It can be understood that each node is an independent blockchain
+- 各ノードは異なる順序で取引を記録することができるため、取引の非同期同時処理が可能であり、これは各ノードが独立したブロックチェーンであると理解することができます。
 
   ![DAG](./full-node-dag.png)
 
-## Asset Management
-When the assets managed by the Domain exceed its collateral, the assets will be forcibly transferred to the multi-signature cold wallet address jointly managed by the mainnet nodes.
+## アセット管理
+ドメインが担保する以上の資産を管理する場合、メインネットノードが共同管理するマルチシグネチャーのコールドウォレットアドレスに資産を強制的に移管することになります。
 
-## Node Rewards
+## ノード報酬
 90% of 10% of all leftover mining pool tokens from last year will be given to full nodes(10% for light nodes). The distribution cycle is once a day, the nodes are distributed equally. Currently, the daily income of each node is 110.95890408 XIN / 35 nodes = 3.1702544 XIN.
+マイニングプールにおける前年度残存トークンの10%のうち90%がフルノードに（ライトノードには10%）付与されます。1日1回の配布サイクルで、各ノードに均等に配布すると、各ノードの1日の収入は110.95890408 XIN / 35ノード = 3.1702544 XINとなります。
 
-### Punishment Of Evil
+### 不正行為に対する罰則規定
 If a full node commits evil, such as broadcasting an obvious double-spending transaction, it will be marked as a potential attacker. Once a full node is confirmed as an attacker, all its collateral will be recycled into the mining pool and it will be kicked out of the node network.
+あるノードが明らかな二重支出のトランザクションをブロードキャストするなど不正を働いた場合、そのノードは潜在的な攻撃者として疑いがかけられ、攻撃者として特定されるとすべての担保はマイニングプールに没収され、ノードネットワークから追放されます。
 
 When a node launches an attack for the first time, its rights and interests won't be revoked immediately, but it will be marked as a potential attacker. The number of kernel consensus nodes will temporarily decrease by 1. Note that this decrease is invisible to potential attackers. If the potentially attacking node continues to broadcast illegal transactions, the kernel will mark the node and the collateral of the node will be transferred to the mining pool. The marked node can appeal within a period.
+あるノードが初めて攻撃を行った場合、そのノードの権利や利益はすぐには剥奪されませんが、潜在的な攻撃者として疑いがかけられ、カーネルのコンセンサスノード数が一時的に1つ減らされます（この減少は潜在的な攻撃者には見えないことに注意してください）。 潜在的な攻撃ノードが違法な取引をブロードキャストし続けた場合、カーネルはそのノードをマークし、そのノードの担保はマイニングプールに移されることになります。マークされたノードは一定期間不服を申し立てることができます。
 
-## Join As Mixin Full Node
+## Mixinフルノードとして参加
 
 [Full Node Joining Guide](../tutorials/full-node-join)
