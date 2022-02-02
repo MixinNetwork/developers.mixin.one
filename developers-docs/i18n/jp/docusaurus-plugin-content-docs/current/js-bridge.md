@@ -1,13 +1,13 @@
 ---
-title: JavaScript Bridge
+title: JavaScriptブリッジ
 sidebar_position: 5
 ---
 
-There are several Javascript methods in the WebView of Mixin Messenger, which can be used by the bot's webpage. It's convenient for the developers to read conversation information and change locale settings.
+MixinメッセンジャーのウェブビューにはいくつかのJavascriptメソッドがあり、ロボのウェブページから利用することができます。開発者が会話情報を取得したり、ロケール設定を変更したりするのに便利です。
 
 ## getContext()
 
-This returns the context of current webpage.
+現在のWebページのコンテキストを返します。
 
 ```js
 getMixinContext: function () {
@@ -23,7 +23,7 @@ getMixinContext: function () {
 },
 ```
 
-The response:
+レスポンス:
 
 ```json
 {
@@ -39,7 +39,7 @@ The response:
 
 ## reloadTheme()
 
-Read the theme-color from the html and apply:
+htmlからテーマカラーを取得して適用する
 
 ```js
 reloadTheme: function () {
@@ -55,11 +55,11 @@ reloadTheme: function () {
 }
 ```
 
-Please read [Design Guide](./dapp/design/overview) for more details about theme.
+テーマの詳細については、[デザインガイド](./dapp/design/overview)をご覧ください。
 
-## playlist(audios)
+## プレイリスト(音声)
 
-Invoke the playlist. `audios` is a string array which contains the URI list of mp3 files.
+プレイリストを呼び出します。`Audios`はmp3ファイルのURIリストを含む文字列配列です。
 
 ```js
 playlist: function (audios) {
@@ -75,13 +75,13 @@ playlist: function (audios) {
 }
 ```
 
-:::info
-This method is supported in Mixin Messenger 0.30.0 or above.
+:::注意
+このメソッドは、Mixinメッセンジャーの0.30.0以降でサポートされています。
 :::
 
 ## close()
 
-Close the window:
+ウィンドウを閉じます。
 
 ```js
 close: function () {
@@ -97,11 +97,10 @@ close: function () {
 }
 ```
 
-:::info
-This method is supported in Mixin Messenger 0.33.0 or above.
+:::注意
+このメソッドは、Mixinメッセンジャーの0.33.0以降でサポートされています。
 :::
 
-## Third-Party SDK
+## サードパーティSDK
 
-For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
-
+これらのJavascriptメソッドを使いやすくするために、JsBridge SDKとしてパッケージ化しました。このSDKは、アクセス方法を統一し、すべてのJavascriptメソッドのリストと使用例を提供しています。[詳細はこちらをご覧ください](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。
