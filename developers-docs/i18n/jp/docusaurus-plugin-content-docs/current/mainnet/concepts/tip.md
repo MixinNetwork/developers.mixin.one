@@ -5,38 +5,38 @@ sidebar_position: 4
 
 # Throttled Identity Protocol
 
-Throttled Identity Protocol (TIP) is a decentralized key derivation protocol, which allows people to obtain a strong secret key through a very simple passphrase, e.g. a six-digit PIN.
+Throttled Identity Protocol (TIP) は、分散型の鍵生成プロトコルであり、6桁の暗証番号など非常にシンプルなパスフレーズで強力な秘密鍵を得ることができます。
 
 
-### Mission and Overview
+### ミッションと概要
 
-Along with the rising of Bitcoin and other cryptocurrencies, the saying "not your keys, not your coins" has become well-known. That's true, very true and definitely true, that's the right and freedom Bitcoin has given people. Whoever can access the key can move the money, and nobody without the key is able to do that.
+ビットコインをはじめとする暗号通貨の隆盛とともに、「not your keys, not your coins」という言葉がよく知られるようになりました。それは、真実で、間違いなくビットコインが人々に与えた権利であり自由です。鍵にアクセスできる人はお金を動かすことができ、鍵を持っていない人はそれができないのです。
 
-That said it's better to manage your own Bitcoin private key than let your coins lie in some centralized exchanges. However it's admitted that key management requires superior skills, which most people lack. And the result is people who own their keys lose the coins permanently due to various accidents, and those who opened a Coinbase account years ago can still get back their assets easily.
+このことはつまり、中央集権的な取引所にコインを眠らせておくよりは、自分でビットコインの秘密鍵を管理するほうがいいということを示唆しています。しかし、鍵の管理には優れたスキルが必要であり、ほとんどの人はそのスキルを持ち合わせていません。その結果、鍵を自身で所有している人は様々なアクシデントでコインを永久に失うことになり、何年も前にコインベースのアカウントを開設した人は今でも簡単に資産を取り戻すことができます。
 
-The embarrassing result doesn't prove the security of centralized exchanges, yet exposes the drawbacks of key management. The key grants people the right to truly own their properties, but people lose money due to poor key management skills. People should not be blamed for that, it's the problem of the key itself.
+この恥ずかしい結果は、中央集権的な取引所の安全性を証明するものではありませんが、鍵管理の欠点を露呈しています。鍵は人々に自分の財産を真に所有する権利を与えますが、人々は鍵の管理能力の低さのために損失を被ることになります。しかし、その原因は人にあるのではなく、鍵そのものに問題があるのです。
 
-Bitcoin gives people the right and freedom to own their properties, and people deserve the convenience to manage their keys. Current private key or mnemonic phrase design are over complicated for people to keep properly. Instead of fearing the corruption of centralized financial institutions, people become slave of private key.
+ビットコインは人々に自分の財産を所有する権利と自由を与え、人々は自分の鍵を管理する利便性を得るに値します。現在の秘密鍵やニモニックフレーズのデザインは、人々が適切に管理するには複雑すぎます。中央集権的な金融機関の腐敗を恐れる代わりに、人々は秘密鍵の奴隷になるのです。
 
-It's what TIP strives to do. Let people truly own their coins with a six-digit PIN. This decentralized PIN is easy to remember for any people, doesn't require any special skills or hardware, and people can manage their coins with more confidence than ever.
+TIPの目指すところはここにあります。6桁の暗証番号で人々が本当に自分のコインを所有できるようにするのです。この分散型PINはどんな人でも覚えやすく、特別なスキルやハードウェアを必要とせず、人々はこれまで以上に自信を持って自分のコインを管理できるようになります。
 
-### Protocol Design
+### プロトコルデザイン
 
-TIP involves three independent parties to make the protocol work. A decentralized signer network authenticates signing requests from user, and throttles malicious attempts; A trusted account manager serves user an identity seed, which typically authenticates user by email or phone verification code; The user who remembers a PIN and combines the identity seed from account manager, then makes independent requests to enough signer network nodes, and finally derives their secret key.
+TIPは、プロトコルを動作させるために3つの独立した要素を含んでいます。分散型署名ネットワークは、ユーザーからの署名要求を認証し、悪意のある試みを抑制します。信頼できるアカウントマネージャーはユーザーにIDシードを提供し、通常、電子メールまたは電話認証コードによってユーザーを認証します。PINを覚えているユーザーは、アカウントマネージャーからのIDシードを組み合わせて、十分な数の署名ネットワークノードに独立して要求を行い、最後に自分の秘密鍵を導出します。
 
 ![protocol design workflow diagram](./workflow.jpg)
 
-### Decentralized Network Setup
+### 分散型ネットワークの構築
 
-The decentralized signer network is launched cooperatively by many different entities. Specifically, those entities gather and reach a consensus to run some node software, those nodes interactively run a distributed key generation protocol. For TIP, the DKG is threshold Boneh-Lynn-Shacham (BLS) signatures.
+分散型署名ネットワークは、多くの異なる主体によって協調的に立ち上げられます。具体的には、これらの主体が集まり、コンセンサスを得て、ノードソフトウェアを実行し、そのノードは対話的に分散鍵生成プロトコルを実行します。TIPの場合、DKGは閾値ボネ・リン・シャチャム(BLS)署名です。
 
-Assume n entities agree to launch the network, they generate an asymmetric key pair respectively and configure their node software to include all the entities public keys in a deterministic order. Then they boot the nodes to run a t-of-n (where t = n * 2 / 3 + 1) DKG protocol to setup a collective public key P and private key shares si respectively.
+n個のエンティティがネットワークを立ち上げることに合意したとすると、それぞれ非対称鍵ペアを生成し、すべてのエンティティの公開鍵を決定論的な順序で含むようにノードソフトウェアを構成します。次にノードを起動し、t-of-n（ここでt = n * 2 / 3 + 1）のDKGプロトコルを実行して、公開鍵Pと秘密鍵shares siをそれぞれセットアップします。
 
-After the DKG protocol finishes, all entities should share the public key P to ensure they hold they same one, and keep their private key shares si cautiously, and should make professional backups.
+DKGプロトコルの終了後、すべてのエンティティは公開鍵Pを共有して同じものを保持していることを確認し、秘密鍵shares siを慎重に保管し、専門的なバックアップを取る必要があります。
 
-Finally all entities should boot their node software to accept throttled signing requests from users. And again, they should safeguard the node servers and defend all malicious attacks.
+最後に、すべてのエンティティは、ユーザからスロットルされた署名要求を受け入れるために、ノードソフトウェアを起動する必要があります。そしてまた、ノードサーバーを保護し、すべての悪意ある攻撃を防御しなければなりません。
 
-This repository includes an implementation of the signer node software, for instructions please see the signer directory.
+このリポジトリは署名者ノードソフトウェアの実装を含んでいます。説明については署名者ディレクトリを参照してください。
 
 ### Throttled Secret Derivation
 
