@@ -1,76 +1,77 @@
 ---
-title: User Interaction
+title: ユーザーインタラクション
 sidebar_position: 8
 ---
 
-# User Interaction
+# ユーザーインタラクション
 
-Users interact with bots through web pages and chats.
+ユーザーは、ウェブページやチャットを通じてボットと対話することが可能です。
 
-### Web Page Interaction
+### Webページインタラクション
 
-Users can open the bot homepage for interaction through the following 4 ways:
+ユーザーは、以下の4つの方法でボットホームページを開き、対話することができます。
 
-- Homepage Super Entrance
+- ホームページスーパーエントランス
 
-  Telegram, Facebook Messenger, WeChat, and other chat software all support the function of bots (or mini-programs). As an extension of the basic chat functions, they all attach great importance to it. Mixin further delegates the right to the homepage navigation menu to the user, leaving the first-level entry to the bot development. Users can put their favorite and most commonly used bots on the homepage, and because bots are now first-level entrances, users are very likely to use them more.
+  Telegram、Facebook Messenger、WeChatなどのチャットソフトは、すべてボット（またはミニプログラム）機能をサポートしています。基本的なチャット機能の延長線上にあるものとして、いずれも重要視されています。Mixinはさらに、ホームページのナビゲーションメニューの権利をユーザーに委ね、第一階層の入口をボット開発に委ねます。ユーザーは自分の好きなボットや、よく使うボットをホームに載せることができ、ボットが第一階層の入り口となることで、ユーザーはよりボットを使う頻度が高くなりました。
   
-  ![Press and drag](./user-interaction-drag.png)
+  ![プレス及びドラッグ](./user-interaction-drag.png)
 
-  Users can press and drag to pin the icon to the menu at the bottom of the homepage, then click the icon to open the bot homepage.
+  ユーザーは、アイコンを長押ししてホームページ下部のメニューに固定することができ、アイコンをクリックすることでボットホームページを開くことが可能です。
   
-  **Starting from version 0.28.0, the bottom menu of the homepage supports 3 bot pins (the previous version supports 2).**
+  **バージョン0.28.0から、ホームページ下部メニューは3つのボットピンに対応しています（旧バージョンは2つ）。**
 
-- Chat Bottom Menu
+- チャット下部メニュー
 
-  ![Click On The Bot Icon](./user-interaction-chat-bot.png)
+  ![ボットアイコンをクリック](./user-interaction-chat-bot.png)
 
-  When the user opens the conversation interface of the bot, click the bot icon at the bottom to open the bot homepage.
+  ユーザーがボットのチャットインターフェースを開いたとき、下部にあるボットアイコンをクリックすると、ボットのホームページが表示されます。
 
-- Menu In The Lower Left Corner Of The Chat
+- チャット左下のメニュー
 
-  ![Tab + Icon](./user-interaction-chat-menu.png)
+  ![タブ + アイコン](./user-interaction-chat-menu.png)
 
-  When a bot is added as a group member or set as a shared bot by a user, it will show up if you click the menu in the lower-left corner of the chat interface. clicking the icon will take you to the bot homepage.
+  ボットをグループメンバーに追加したり、ユーザーから共有ボットとして設定された場合、チャットインターフェースの左下にあるメニューをクリックすると表示されます。アイコンをクリックすると、ボットのホームページが表示されます。
 
-- Bot Popup
+- ボットポップアップ
 
-  ![Click The Bot Icon](./user-interaction-profile.png)
+  ![ボットアイコンのクリック](./user-interaction-profile.png)
 
-  On the personal page of the bot, clicking the bot icon in the lower-left corner will open the homepage of the bot.
+  ボットの個人ページで、左下のボットアイコンをクリックすると、ボットのホームページが表示されます。
 
-### Chat Window Interaction
+### チャットウィンドウインタラクション
 
-Click on the bot from the chat list on the homepage or click on the conversation from the bot pop-up window to enter the interactive mode of the chat window. Usually, the user will leave a message and ask a question. The bot will automatically or manually reply to the user with text, pictures, cards, and other content. The following prompt will be displayed when the user opens the chat window with a bot for the first time:
+ホームページのチャットリストからボットをクリックするか、ボットのポップアップウィンドウから会話をクリックすると、チャットウィンドウの対話モードに入ります。通常、ユーザーはメッセージを残したり、質問をしたりします。ボットは、テキスト、画像、カード、その他のコンテンツでユーザーに自動的または手動で返信します。ユーザーが初めてボットとのチャットウィンドウを開くと、次のようなプロンプトが表示されます：
 
-![Welcome](./user-interaction-welcome.png)
+![ようこそ](./user-interaction-welcome.png)
 
-Click the "Open Homepage" button to open the bot homepage, and click "Hello" to send a text message of `Hi` to the bot.
+「ホームページを開く」をクリックすると、ボットのホームページが開きます。「こんにちは」をクリックすると、ボットに「こんにちは」というテキストメッセージが送信されます。
 
-- Passive Response
+- 受動的応答
 
-  When the user adds the current bot as a contact, the bot will receive a message "Hello" from the system. The bot will reply with the introduction of itself and guide the user on how to use it. Furthermore, a paragraph of text, plus one or more buttons could be sent to the user, so that the user can click a button to open the bot homepage or get more introduction information, for example:
+  ユーザーが現在のボットを連絡先として追加すると、ボットはシステムから「こんにちは」というメッセージを受け取ります。ボットは自己紹介を兼ねて返信し、使い方を案内します。さらに、テキストの段落と1つ以上のボタンをユーザーに送信し、ユーザーがボタンをクリックすることで、ボットのホームページを開いたり、より詳しい紹介情報を得たりできるようにすることも可能です。
 
-  ![Adding Bots](./user-interaction-add-bot.png)
+  ![ボットの追加](./user-interaction-add-bot.png)
 
-  When a user encounters a problem and leaves a message to the bot, the bot should set some keywords to automatically reply. If the question cannot be answered with keywords, it should be forwarded to the customer service or the developer to help the user solve the problem.
+  ユーザーが何か問題に遭遇し、ボットにメッセージを送信した際に、ボットはいくつかの設定されたキーワードを自動的に返信します。キーワードで答えられない質問は、カスタマーサービスや開発者に転送し、ユーザーが問題を解決できるようにします。
 
-  ![Reply](./user-interaction-reply.png)
+  ![返信](./user-interaction-reply.png)
 
-  Bot Team Mixin 7000 is the official customer service bot for Mixin Messenger. If users have questions, they can leave a message, or send "download" to get automatic response content.
+  Bot Team Mixin 7000は、Mixin Messengerの公式カスタマーサービスボットです。ユーザーが質問をした場合、メッセージを残したり、「ダウンロード」と送信することで自動応答コンテンツを取得することができます。
 
-- Active Push
+- アクティブプッシュ
 
-  Bots will push important notifications to users, such as new events or announcements:
+  ボットは、新しいイベントやお知らせなど、重要なお知らせをユーザーにプッシュします。
 
-  ![Notice](./user-interaction-notice.png)
 
-  If the content is short, it is recommended to push text messages. If the content is long, it is recommended to push as a POST article message， which supports the markdown format. Send the markdown content to the 7000103014 bot to convert it to the POST article message format.
+  ![お知らせ](./user-interaction-notice.png)
+
+  コンテンツが短い場合は、テキストメッセージをプッシュすることをお勧めします。コンテンツが長い場合は、マークダウン形式をサポートするPOST article messageとしてプッシュすることをお勧めします。マークダウンコンテンツを7000103014ボットに送信し、POST articleメッセージ形式に変換します。
   
-- Command Interaction
+- コマンドインタラクション
 
-  Command interaction is cool, but it is a steep learning curve on the user side. Set the action of APP_BUTTON in the format `input:SOMETHING` to get the ability to automatically send messages by clicking the button, which is very practical. For example, the action of the current App Button is `input:subscribe`. When the user clicks this button, the client will automatically send a message with the text `subscribe` to the bot, and the developer can arbitrarily specify the text after `input`.
+  コマンドによる対話は便利ですが、ユーザー側の負担は大きくなります。APP_BUTTON のアクションを 「input:SOMETHING」 というフォーマットで設定すると、ボタンをクリックすることで自動的にメッセージを送信する機能を得ることができ、非常に実用的です。例えば、現在のApp Buttonのアクションは 「input:subscribe`」です。ユーザーがこのボタンをクリックすると、クライアントは自動的に 「subscribe」 というテキストを含むメッセージをボットに送信します。開発者は 「input`」の後に任意でテキストを指定することができます。
 
-  ![Command interaction](./user-interaction-cmd.png)
+  ![コマンドインタラクション](./user-interaction-cmd.png)
 
-  The actions of the above 4 buttons are `input:8 A`, `input:8 B`, `input:8 C`, and `input:8 D`. When the user clicks the button, the client will automatically send `8 A`, `8 B`, `8 C`, and `8 D`.
+  上記の4つのボタンのアクションは 「input:8 A」、「input:8 B」、「input:8 C」、「input:8 D」です。ユーザーがボタンをクリックすると、クライアントは自動的に 「8 A」、 「8 B」、「8 C」、「8 D」を送信します。
