@@ -1,23 +1,23 @@
 ---
-title: Public Chain Support
+title: パブリックチェーンサポート
 sidebar_position: 6
 ---
 
-## Public Chain Support
+## パブリックチェーンサポート
 
-Mixin Network is a second layer for 40 public chains such as Bitcoin, Ethereum, and Monero. It focuses on digital asset security, privacy, and extremely fast transfers. It can be simply understood as the lightning network of all popular public chains.
+Mixin Networkは、Bitcoin、Ethereum、Moneroなど40のパブリックチェーン向けのセカンドレイヤーです。デジタル資産のセキュリティ、プライバシー、超高速転送に重点を置いています。簡単に言えば、著名なパブリックチェーンのライトニングネットワークとして理解することができます。
 
 
-### Public Chain Browser
+### パブリックチェーンブラウザ
 
-Visit https://mixin.one/network/chains to view the current public chain data block synchronization, transaction fees, and other information.
+現在のパブリックチェーンのデータブロック同期、取引手数料などの情報は、https://mixin.one/network/chains をご覧ください。
 
 ![Public Chain Browser](./chain.png)
 
-- Green status means normal, red means abnormal block synchronization.
-- Withdrawal fees are dynamic and automatically adjusted according to network traffic conditions.
+- 緑色は正常、赤色は異常なブロック同期を意味します。
+- 出金手数料は動的で、ネットワークのトラフィック状況に応じて自動的に調整されます。
 
-### Public Chain Information
+### パブリックチェーン情報
 
 
 | Name          | Code    | Chain Id                       | Deposit Address                                             |
@@ -65,4 +65,4 @@ Visit https://mixin.one/network/chains to view the current public chain data blo
 
 ---
 
-The Mixin Network does not have the token issuance function, but it supports the issuance function of some public chains. All ERC-20, TRC-10, TRC-20, and EOS tokens can be used after recharge.
+Mixin Networkはトークン発行機能を有していませんが、一部のパブリックチェーンの発行機能をサポートしています。ERC-20、TRC-10、TRC-20、EOSの全てのトークンがリチャージ後に使用可能です。
