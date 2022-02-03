@@ -1,30 +1,30 @@
 ---
-title: Price
+title: 価格
 sidebar_position: 7
 ---
 
-# Price
+# 価格
 
-The prices of assets returned by Mixin APIs are collected from a list of third parties, data from [CoinGecko](https://www.coingecko.com) is prioritized, and followed by the prices of Ocean and 4swap.
+Mixin APIが返すアセットの価格は、第三者のリストから収集されています。[CoinGecko](https://www.coingecko.com)のデータが優先され、Oceanと4swapの価格がそれに続きます。
 
 - [CoinGecko](https://www.coingecko.com)
 
-  Since the acquisition of CoinMarketCap by Binance, Mixin's APIs for capturing prices has been switched to a more independent CoinGecko platform. In addition to tracking price, quantity and market value, CoinGecko also tracks community growth, open source code development, major events and on-chain indicators .
+  CoinMarketCapがBinanceに買収されて以来、Mixinの価格取得用APIはより独立したCoinGeckoプラットフォームに切り替わりました。CoinGeckoは価格、数量、市場価値の追跡に加え、コミュニティの成長、オープンソースコードの開発、主要イベント、オンチェーン指標を追跡しています。
 
 - 4swap
 
-  For trading pairs related to XIN or USDT, the fund pool is more than $1500, and the 24-hour trading volume is more than $160.
+  XINやUSDTに関連する取引ペアの場合、資金プールは1500ドル以上、24時間取引量は160ドル以上あります。
 
 - Ocean Maching Engine
 
-  Crawled every hour, the price will be generated if the trading volume is more than 10 dollars within an hour.
+  1時間ごとにクロールされ、1時間以内に10ドル以上の取引量がある場合に価格が発生します。
 
 
-### Precautions
+### 注意事項
 
-- Don’t panic if the price becomes 0 suddenly, the asset is safe and unaffected
-- Developers should be careful not to rely solely on Mixin API prices to avoid possible losses when third-party price data fails.
+- 突然価格が0になっても慌てないでください、資産は安全で影響を受けません。
+- 開発者は、Mixin API の価格のみに依存しないように注意し、第三者の価格データに障害が発生した場合の損失を避ける必要があります。
 
 
 ---
-If any project wants to display its price in Mixin, it is recommended to make a market in 4swap to provide liquidity.
+Mixinで価格を表示したいプロジェクトがあれば、流動性を持たせるために4swapでマーケットを作ることが推奨されます。
