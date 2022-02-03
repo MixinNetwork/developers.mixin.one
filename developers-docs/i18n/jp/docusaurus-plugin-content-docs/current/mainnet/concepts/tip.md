@@ -38,19 +38,19 @@ DKGプロトコルの終了後、すべてのエンティティは公開鍵Pを�
 
 このリポジトリは署名者ノードソフトウェアの実装を含んでいます。説明については署名者ディレクトリを参照してください。
 
-### 秘密分散法
+### スロットル秘密分散法
 
 ネットワークは設定と署名者リストを一般ユーザーまたは潜在的なユーザーに発表し、署名要求を待ちます。各署名者は、同じ制限に基づいて要求を絞り込む必要があります。
 
-- **ID** IDはすべての制限の基本要因であり、IDは有効なBLS公開鍵でなければならず、ユーザーはすべての署名者に同じIDを使用しなければならない。署名者はリクエストをチェックし、公開鍵に対するリクエスト署名を検証する。署名者が無効な署名を行った場合、このIDのリクエストクォータを減らさなければならない。
-- **Ephemeral**. This parameter is a different random value for each signer, but should remain unchanged for the same signer during the ephemeral grace period. If the ephemeral changes during the grace period, the signer must reduce the ephemeral requests quota of this identity.
-- **Nonce**. For each signing request, the user should increase the nonce during the ephemeral grace period. If the nonce is invalid during the grace period, the signer must reduce the ephemeral requests quota of this identity.
+- **ID** IDはすべての制限の基本要因であり、IDは有効なBLS公開鍵でなければならず、ユーザーはすべての署名者に同じIDを使用しなければなりません。署名者はリクエストをチェックし、公開鍵に対するリクエスト署名を検証します。署名者は、無効な署名が行われた場合、このIDのリクエストクォータを減らさなければなりません。
+- **エフェメラル** このパラメータは署名者ごとに異なるランダムな値であるが、エフェメラル猶予期間中は同じ署名者ならば変更しないでおくべきです。猶予期間中にエフェメラルが変更された場合、署名者はこのIDのエフェメラルリクエストクォータを減らさなければなりません。
+- **ノンス** 署名要求のたびに、ユーザはエフェメラル猶予期間中にノンスを増加させる必要があります。猶予期間中にノンスが無効になった場合、署名者はこのIDのエフェメラルリクエストクウォータを減らさなければなりません。
 
-After the signing request passes all throttle checks, the signer responds back a partial of the t-of-n threshold BLS signature by signing the identity. Whenever the user collects t valid partials, they can recover the final collective signature and verify it with the collective public key.
+署名要求がすべてのスロットルチェックを通過した後、署名者はIDに署名することによってt-of-n閾値BLS署名の一部を返します。ユーザーが有効なパーシャルをt個集めると、最終的な集合署名を復元し、集合公開鍵で検証することができる。
 
-The final collective signature is the seed to the secret key of the user. Then it's up to the user to use different algorithm to generate their private key for Bitcoin or other usages. It doesn't need any further requests to use this secret key, and in case of the loss the user can recover it by making the same requests.
+最終的な集合署名は、ユーザーの秘密鍵のシードとなります。その後、ビットコインや他の用途のために別のアルゴリズムを使って秘密鍵を生成するかどうかは、ユーザー次第です。この秘密鍵を使用するために追加のリクエストは必要なく、万が一紛失した場合でも、ユーザーは同じリクエストをすることで回復することが可能です。
 
-For details of the throttle restrictions, please see the keeper directory.
+スロットル制限の詳細については、Keeperディレクトリを参照してください。
 
 ## Threshold Identity Generation
 
