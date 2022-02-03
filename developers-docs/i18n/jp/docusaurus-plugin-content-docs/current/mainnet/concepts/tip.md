@@ -59,10 +59,10 @@ TIPネットワークのミッションは、人々が6桁の暗証番号を覚�
 
 1. ユーザーは、電子メールまたは電話による認証コードを通じて、トラステッドアカウントマネージャーにより本人認証を行い、マネージャーはIDシードSiを返します。
 2. ユーザーは非常に遅いハッシュ関数Hs、例えばargon2idを選択し、ID I = Hs(PIN || Si)を生成します。
-3.ユーザーはランダムなエフェメラルシードSeを生成し、そのシードをデバイスに安全に保存します。
-4.公開鍵Piを持つネットワーク上の各署名者iに対して、ユーザーはエフェメラルei = Hs(I || Se || Pi)を生成します。
-5.ユーザは署名要求（I, ei, nonce, grace）を各署名者iに送り、十分な部分署名を集めた後、最終的な集合署名を復元する。
-6.ユーザは、このプロセスをしばらく繰り返し、エフェメラル猶予期間を更新する必要があります。
+3. ユーザーはランダムなエフェメラルシードSeを生成し、そのシードをデバイスに安全に保存します。
+4. 公開鍵Piを持つネットワーク上の各署名者iに対して、ユーザーはエフェメラルei = Hs(I || Se || Pi)を生成します。
+5. ユーザは署名要求（I, ei, nonce, grace）を各署名者iに送り、十分な部分署名を集めた後、最終的な集合署名を復元する。
+6. ユーザは、このプロセスをしばらく繰り返し、エフェメラル猶予期間を更新する必要があります。
 
 IDシードはすべてのなりすましを禁止し、デバイス上のランダムなエフェメラルシードはアカウントマネージャと署名者の共謀を防止し、エフェメラル猶予期間はデバイス紛失時に秘密鍵を回復することを可能にします。
 
@@ -70,33 +70,35 @@ IDシードはすべてのなりすましを禁止し、デバイス上のラン
 
 そして、ユーザは従来の鍵管理方法と同様に、自分のシードをバックアップすることができ、このバックアップは紛失や盗難に対してより安全であると考えられています。
 
-### ネットワークの進化
+### ネットワークのエヴォリューション
 
-DKGプロトコルは、すべてのシェアが変化しない場合にのみ有効であるため、分散型署名ネットワークを立ち上げた後は、その署名者は一定であるべきで、新しいエンティティが署名者に加わることや古い署名者に代わることは許可されません。しかし、人々はネットワークが強くなることを必要とし、そのためにはより多くの主体がネットワークに参加する必要があります。そこでTIPは、ネットワークの進化を可能にします。
+DKGプロトコルは、すべてのシェアが変化しない場合にのみ有効であるため、分散型署名ネットワークを立ち上げた後は、その署名者は一定であるべきで、新しいエンティティが署名者に加わることや古い署名者に代わることは許可されません。しかし、人々はネットワークが強くなることを必要とし、そのためにはより多くの主体がネットワークに参加する必要があります。そこでTIPは、ネットワークのエボリューションを可能にします。
 
 
-新しいエンティティがネットワークに受け入れられると、古い署名者を置き換えた場合でも、新しい署名者として参加した場合でも、進化が起こります。実際、進化は前の進化と同じプロセスで新しいDKGプロトコルを開始しますが、署名者が異なるため、署名者ごとに全く異なるシェアになります。エンティティがネットワークを離れても、残りのシェアはまだリクエストに応えることができるので、進化は起きないことに注意してください。
+新しいエンティティがネットワークに受け入れられると、古い署名者を置き換えた場合でも、新しい署名者として参加した場合でも、エボリューションが起こります。実際、エボリューションは前のエボリューションと同じプロセスで新しいDKGプロトコルを開始しますが、署名者が異なるため、署名者ごとに全く異なるシェアになります。エンティティがネットワークを離れても、残りのシェアはまだリクエストに応えることができるので、エボリューションは起きないことに注意してください。
 
-In a new evolution, all signers should reference the number and the hash of signers list from previous evolution. After a new evolution starts, the previous evolution still works. For each signer in the new evolution, if it is a signer of previous evolution, it must maintain its availability to serve signing requests to previous evolution, otherwise it should be punished.
 
-Any user requests for the throttled secret derivation should include the evolution number to get the correct signature. And in any case of the network changes, the user is assured their key security due to various backups discussed in previous sections.
+新しいエボリューションでは、すべての署名者は前のエボリューションでの署名者リストの番号とハッシュを参照する必要があります。新しいエボリューションが始まった後でも、前のエボリューションはまだ動作します。新しいエボリューションにおける各署名者は、前以前から署名者である場合、 前のエボリューションへの署名要求を満たせるような状態を維持しなければなりません。 それが守られない場合罰せられます。
 
-### Incentive and Punishment
 
-The code doesn't include any incentive or punishment for the entities running the signer node software. It's up to their consensus on their mission, either to serve their customers better user experience, or charge a small key signing request fee, or they could make some tokens to do community development.
+ユーザがスロットルされた秘密分散を要求する場合、正しい署名を得るために、 エボリューション番号を含める必要があります。また、ネットワークが変更された場合でも、前のセクションで説明した様々なバックアップにより、ユーザは鍵の安全性を保証されます。
 
-### Security
+### 賞罰
 
-All the cryptography libraries used in this repository are being developed and used by industry leading institutions, notably the drand project and its league of entropy that includes Cloudflare, EPFL, Kudelski Security, Protocol Labs, Celo, UCL, and UIUC.
+コードには、署名者ノードのソフトウェアを実行する主体に対するインセンティブや罰は含まれていません。彼らの使命は、顧客によりよいユーザー体験を提供するか、少額の鍵署名要求料を請求するか、あるいはコミュニティ開発のためにトークンを作るか、彼らのコンセンサス次第です。
 
-However there are no finished audits for this repository yet. This code is offered as-is, and without warranty of any kind. It will need an independent security review before it should be considered ready for use in security-critical applications.
+### セキュリティ
 
-### Contribution
+このリポジトリで使用されている暗号ライブラリはすべて、業界をリードする機関、特にdrand projectと、Cloudflare、EPFL、Kudelski Security、Protocol Labs、Celo、UCL、UIUCを含むentropyリーグで開発・使用されています。
 
-The project doesn't accept feature requests, and welcome all security improvement contributions. Shall you find any security issues, please email security@mixin.one before any public disclosures or pull requests.
+しかし、このリポジトリには、まだ完成した監査はありません。このコードは現状のまま提供され、いかなる類の保証もありません。セキュリティが重要なアプリケーションで使用する前に、独立したセキュリティレビューが必要です。
 
-The core team highly values the contributions and provides at most $100K bounty for any vulnerability report according to the severity.
+### 貢献
 
-### Code and License
+このプロジェクトは機能要求を受け付けておらず、セキュリティ向上のためのあらゆる貢献を歓迎します。セキュリティ上の問題を発見した場合は、公開やプルリクエストの前に security@mixin.one にメールを送ってください。
 
-The TIP implementation https://github.com/MixinNetwork/tip is released under Apache 2.0 license.
+コアチームはこの貢献を高く評価し、脆弱性報告の重大性に応じて最大10万ドルの懸賞金を提供します。
+
+### コードとライセンス
+
+TIPの実装https://github.com/MixinNetwork/tip はApache 2.0 licenseで公開されています。
