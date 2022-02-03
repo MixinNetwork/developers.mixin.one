@@ -1,60 +1,65 @@
 ---
-title: Overview
+title: 概要
 sidebar_position: 7
 ---
 
-# Overview
+# 概要
 
-The Mixin Messenger bot design guide aims to provide users with an easy-to-use, efficient and consistent user experience, to help developers better adapt the interface and make full use of the features supported by the container.
+Mixin Messengerボットデザインガイドは、ユーザーに使いやすく、効率的かつ一貫したユーザー体験を提供し、開発者がインターフェースをより良く適応させ、コンテナがサポートする機能を十分に活用できるようにすることを目的としています。
 
-### Consistency
+### 整合性
 
-- Visual consistency.
+- 視覚的整合性
 
-  The fonts, colors, buttons, labels, etc. of the bot should be consistent.
+  ボットのフォント、色、ボタン、ラベルなどは統一されている必要があります。
 
-- Functional consistency.
+- 機能の整合性
 
-  The interaction methods and elements in each page of the bot should be consistent.
+  ボット各ページにおけるインタラクションの方法と要素は一貫している必要があります。
 
-- Follow platform specifications.
+- プラットフォーム仕様に従う
 
-  Follow the Android and iOS interface design specifications, and the design conforms to the interaction and look of platform users.
+  AndroidとiOSのインターフェースデザイン仕様に準拠し、プラットフォームユーザーのインタラクションとルックに適合したデザインを提供します。
 
 
-### Clear Highlights
+### 明確なハイライト
 
-Each page should have clear highlights and hierarchy so that users can quickly understand the content of the page and try to avoid elements that are irrelevant to the content.
+ユーザーが容易に内容を理解できるように、ハイライトや階層を明確にし、内容と無関係な要素はなるべく避けるようにします。
 
-![Highlights](./overview-point.png)
 
-### Minimizing Input
+![ハイライト](./overview-point.png)
+
+### インプットの最小化
   
-Minimize user input when designing the bot page, and use existing interfaces and some easy-to-operate selection controls to improve the user's input experience. For example, where you need to enter your mobile phone number, you can apply for authorization to save users from entering it again.
-
-### Smooth Experience
-
-- Avoid long time waiting for the page, and improve the access speed by optimizing the network and page performance.
-
-- When the operation inevitably requires waiting, the animation effects of loading and waiting should be displayed to ease the user's emotions.
-
-- If the waiting time is too long, a progress bar and a cancel button should be provided.
-
-### Avoiding Bot Manu
-
-The bot menu is fixed floating in the upper right corner. Developers should reserve space in this area when designing the interface to avoid interaction conflicts caused by occlusion.
-
-![Avoiding Bot Manu](./overview-nav-capsule.png)
-
-### Avoiding Too Many Notifications
-
-Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types. 
+ボットを設計する際のユーザーの入力を最小限にとどめ、既存のインターフェースや操作しやすいいくつかの選択肢を利用して、ユーザーの入力体験を向上させます。例えば、携帯電話番号の入力が必要なところでは、ユーザーが再度入力する手間を省くために、認証を申請することができます。
 
 
-### Next Step
+### スムースな体験
 
-A friendly design does not need deliberate guidance. Users can understand how to use it at a glance. It is our goal to let the interface meet user needs while providing a good experience.
+- 長時間のページ待ちを回避し、ネットワークとページのパフォーマンスを最適化することで、アクセス速度を向上させることができます。
 
-- [User-bot Interaction](./user-interaction)
 
-  Being familiar with the way the robot interacts with the user helps designers optimize the interactive experience.
+
+- やむなく操作に待ち時間が発生する場合は、読み込みや待ち時間にアニメーション効果を表示することで、ユーザーの気持ちを和らげることが可能です。
+
+
+- 待ち時間が長くなる場合は、プログレスバーやキャンセルボタンを設けることが望ましいです。
+
+### ボットマヌの回避
+
+ボットメニューは右上に固定されています。オクルージョンによるインタラクションの衝突を避けるため、開発者はインターフェイスを設計する際にこの領域にスペースを確保する必要があります。
+
+![ボットマヌの回避](./overview-nav-capsule.png)
+
+### 通知過多の回避
+
+重要な情報のみユーザーに通知されます。通知が多すぎると、ユーザー体験が下がりボットをミュートしたり、ブロックしたりすることがあります。通知すべき情報が多い場合は、ユーザーがプッシュ通知の種類を選べるようにすべきです。
+
+
+### 次のステップ
+
+親しみやすいデザインは、意図的な誘導を必要としません。私たちが目指すのは、ユーザーのニーズに応えつつ、ユーザーが一目で使い方を理解できる使い勝手の良いインターフェイスを提供することです。
+
+- [ユーザーボットインタラクション](./user-interaction)
+
+  ロボットとユーザーとのインタラクションを熟知することで、デザイナーはインタラクティブな体験を最適化することができます。
