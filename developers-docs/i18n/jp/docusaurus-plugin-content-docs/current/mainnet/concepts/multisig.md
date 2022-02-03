@@ -21,26 +21,26 @@ sidebar_position: 5
 
 ### Eコマース
 
-2/3 マルチシグネチャは、eコマース業界で一般的に使用されています。買い手、売り手、プラットフォームがマルチシグネチャーの参加者です。買い手はまずマルチシグネチャーの口座に資金を振り込み、その後のトランザクション確認や返金処理を買い手と売り手が確認することができます。紛争が発生した場合、プラットフォームは2/3の仲裁を行う。電子商取引プラットフォームは、マルチシグネチャーの取引を実施することで、両者の整合性を保証し、取引リスクを低減させ、効率性を向上させることができます。
+2/3 マルチシグネチャは、eコマース業界で一般的に使用されています。買い手、売り手、プラットフォームがマルチシグネチャーの参加者です。買い手はまずマルチシグネチャーの口座に資金を振り込み、その後のトランザクション確認や返金処理を買い手と売り手が確認することができます。紛争が発生した場合、プラットフォームは2/3の仲裁を行います。電子商取引プラットフォームは、マルチシグネチャーの取引を実施することで、両者の整合性を保証し、取引リスクを低減させ、効率性を向上させることができます。
 
 - ExinLocal（7000000015）は、Mixin Networkをベースとした暗号通貨の売買を行うグローバルなP2P取引市場です。マルチシグネチャーの技術をP2PのOTC取引市場に応用することに成功しました。ユーザーはこのプラットフォーム上で自由かつ安全に資産を交換することができます。[詳しくはこちら](https://w3c.group/c/1581684681212744)
 
-### E-government
+### Eガバーメント
 
-Multi-signature technology can also be applied to the e-government system of level-by-level approval, where multi-signature transfers are associated with the approval process and electronic contracts. Process participants sign the transaction level-by-level until the electronic signature finally becomes effective and the certificate is stored on-chain. For example, set up a 4/4 financial expenditure approval process, in which the participants are marketing people, department leaders, finance staff, and cashiers. Marketing people initiate and participate in multi-signatures, after the department leaders, finance staff, and cashiers review and sign in turn, automated lending can be realized, and the entire process is automatically recorded on-chain.
+マルチシグネチャ技術は、Eガバーメントシステムのレベル別承認にも適用でき、マルチシグネチャの転送は承認プロセスや電子契約と関連するものです。プロセス参加者は、電子署名が最終的に有効になり、証明書がオンチェーンに保存されるまで、レベルごとに取引に署名します。例えば、4/4の財務支出承認プロセスを設定し、その参加者はマーケティング担当者、部門リーダー、財務担当者、出納担当者とする。マーケティング担当者がマルチ署名を開始し、部門リーダー、財務担当者、出納担当者が順番に確認し署名した後、自動融資を実現し、プロセス全体が自動的にオンチェーンに記録されます。
 
-### Consensus building
+### 合意形成
 
-Mixin is the first to apply multi-signature technology to blockchain consensus building, based on which an infinitely expandable sharding network can be realized. Every node participating in multi-signature runs the same code and stores the same data. For example, decentralized applications based on Mixin Network, such as public chains, decentralized exchanges, AMM, and decentralized lending Apps, and so on.
+Mixinは、ブロックチェーンの合意形成にマルチシグネチャー技術を初めて適用し、無限に拡張可能なシャーディングネットワークを実現しました。マルチシグネチャに参加するすべてのノードは、同じコードを実行し、同じデータを保存します。例えば、Mixin Networkに基づく分散型アプリケーションのパブリックチェーン、分散型取引所、AMM、分散型融資Appなどが挙げられます。
 
-4swap 7000103537 is a decentralized exchange that provides automated market makers, developed by the Fox team, and the Mixin Core, Biyin, BigONE, Fox, and BOX communities jointly manage assets and operations.
+4swap（7000103537）は、Foxチームが開発した自動マーケットメーカーを提供する分散型取引所で、Mixin Core、Biyin、BIGONE、Fox、BOXコミュニティが共同で資産と運営を管理しています。
 
 ### Next Step
 
 - [Decentralized Application Solution MTG](../mtg/overview)
 
-  MTG is the best practice of sharding technology. Each MTG implementation is a para chain of the Mixin Network, composed of multiple independent nodes, and the consensus is reached through the multi-signature technology of the Mixin main network.
+  MTGはシャーディング技術のベストプラクティスです。各MTGの実装は、複数の独立したノードからなるMixin Networkのパラチェーンで、Mixinメインネットワークのマルチシグネチャ技術によりコンセンサスが得られます。
 
 - [Multi-Signature API Document](/docs/api/multisigs/outputs)
 
-  Learn how to use the multi-signature API.
+  マルチシグネチャAPIの使用方法をご紹介します。
