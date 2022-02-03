@@ -22,7 +22,7 @@ TIPの目指すところはここにあります。6桁の暗証番号で人々�
 
 ### プロトコルデザイン
 
-TIPは、プロトコルを動作させるために3つの独立した要素を含んでいます。分散型署名ネットワークは、ユーザーからの署名要求を認証し、悪意のある試みを抑制します。信頼できるアカウントマネージャーはユーザーにIDシードを提供し、通常、電子メールまたは電話認証コードによってユーザーを認証します。PINを覚えているユーザーは、アカウントマネージャーからのIDシードを組み合わせて、十分な数の署名ネットワークノードに独立して要求を行い、最後に自分の秘密鍵を導出します。
+TIPは、プロトコルを動作させるために3つの独立した要素を含んでいます。分散型署名ネットワークは、ユーザーからの署名要求を認証し、悪意のある試みを抑制します。トラステッドアカウントマネージャーはユーザーにIDシードを提供し、通常、電子メールまたは電話認証コードによってユーザーを認証します。PINを覚えているユーザーは、アカウントマネージャーからのIDシードを組み合わせて、十分な数の署名ネットワークノードに独立して要求を行い、最後に自分の秘密鍵を導出します。
 
 ![protocol design workflow diagram](./workflow.jpg)
 
@@ -52,29 +52,30 @@ DKGプロトコルの終了後、すべてのエンティティは公開鍵Pを�
 
 スロットル制限の詳細については、Keeperディレクトリを参照してください。
 
-## Threshold Identity Generation
+## 閾値IDの生成
 
-The mission of TIP network is to let people truly own their coins by only remembering a 6-digit PIN, so they should not have the duty to store identity, ephemeral or nonce. They is capable of achieving this goal through the threshold identity generation process with the help from the trusted account manager.
+TIPネットワークのミッションは、人々が6桁の暗証番号を覚えるだけでコインを真に所有できるようにすることで、IDやエフェメラル、ノンスなどを保存する義務があるべきではありません。TIPネットワークは、トラステッドアカウントマネージャーの助けを借り、閾値のID生成プロセスを通じて、この目標を達成することが可能です。
 
 
-1. User authenticates themself with trusted account manager through email or phone verification code, and the manager responds the identity seed Si.
-2. User chooses a very slow hash function Hs, e.g. argon2id, and generates the identity I = Hs(PIN || Si).
-3. User generates a random ephemeral seed Se, and stores the seed on its device securely.
-4. For each signer i in the network with public key Pi, user generates the ephemeral ei = Hs(I || Se || Pi).
-5. User sends signing requests (I, ei, nonce, grace) to each signer i and gathers enough partial signatures, then recover the final collective signature.
-6. User must repeat the process every a while to refresh ephemeral grace period.
+1. ユーザーは、電子メールまたは電話による認証コードを通じて、トラステッドアカウントマネージャーにより本人認証を行い、マネージャーはIDシードSiを返します。
+2. ユーザーは非常に遅いハッシュ関数Hs、例えばargon2idを選択し、ID I = Hs(PIN || Si)を生成します。
+3.ユーザーはランダムなエフェメラルシードSeを生成し、そのシードをデバイスに安全に保存します。
+4.公開鍵Piを持つネットワーク上の各署名者iに対して、ユーザーはエフェメラルei = Hs(I || Se || Pi)を生成します。
+5.ユーザは署名要求（I, ei, nonce, grace）を各署名者iに送り、十分な部分署名を集めた後、最終的な集合署名を復元する。
+6.ユーザは、このプロセスをしばらく繰り返し、エフェメラル猶予期間を更新する必要があります。
 
-The identity seed should prohibit all impersonation, and the on device random ephemeral seed should prevent the account manager collude with some signer, and the ephemeral grace period allows user to recover its secret key when device loss.
+IDシードはすべてのなりすましを禁止し、デバイス上のランダムなエフェメラルシードはアカウントマネージャと署名者の共謀を防止し、エフェメラル猶予期間はデバイス紛失時に秘密鍵を回復することを可能にします。
 
-Furthermore, the user can make their threshold identity generation more secure by cooperating with another user to combine their identity to increase the entropy especially when the account manager manages lots of identities.
+さらに、アカウント管理者が多数のIDを管理する場合、他のユーザーと協力してIDを結合し、エントロピーを増大させることで、閾値ID生成をより安全にすることができます。
 
-And finally, the user can just backup his seeds like any traditional key management process, and this backup is considered more secure against loss or theft.
+そして、ユーザは従来の鍵管理方法と同様に、自分のシードをバックアップすることができ、このバックアップは紛失や盗難に対してより安全であると考えられています。
 
-### Network Evolution
+### ネットワークの進化
 
-Once the decentralized signer network is launched, its signers should remain constant, no new entity is permitted to join the signers or replace an old signer, because the DKG protocol remains valid only when all shares remain unchanged. But people need the network to become stronger, and that requires more entities to join the network. So TIP allows network evolution.
+DKGプロトコルは、すべてのシェアが変化しない場合にのみ有効であるため、分散型署名ネットワークを立ち上げた後は、その署名者は一定であるべきで、新しいエンティティが署名者に加わることや古い署名者に代わることは許可されません。しかし、人々はネットワークが強くなることを必要とし、そのためにはより多くの主体がネットワークに参加する必要があります。そこでTIPは、ネットワークの進化を可能にします。
 
-Whenever a new entity is accepted to the network, either replaces an old signer or joins as a new one, an evolution happens. Indeed, an evolution starts a fresh DKG protocol in the same process as the previous evolution, but with different signers, thus results in absolutely different shares for each signer. It's noted that an entity leaves the network doesn't result in any evolution, because the remaining shares can still serve requests.
+
+新しいエンティティがネットワークに受け入れられると、古い署名者を置き換えた場合でも、新しい署名者として参加した場合でも、進化が起こります。実際、進化は前の進化と同じプロセスで新しいDKGプロトコルを開始しますが、署名者が異なるため、署名者ごとに全く異なるシェアになります。エンティティがネットワークを離れても、残りのシェアはまだリクエストに応えることができるので、進化は起きないことに注意してください。
 
 In a new evolution, all signers should reference the number and the hash of signers list from previous evolution. After a new evolution starts, the previous evolution still works. For each signer in the new evolution, if it is a signer of previous evolution, it must maintain its availability to serve signing requests to previous evolution, otherwise it should be punished.
 
