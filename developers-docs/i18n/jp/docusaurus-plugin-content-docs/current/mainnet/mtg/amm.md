@@ -1,40 +1,41 @@
 ---
-title: Automated Market Maker
+title: 自動マーケットメイカー（AMM）
 sidebar_position: 12
 ---
 
-# Automated Market Maker
+# 自動マーケットメイカー（AMM）
 
-Compared with the traditional order book transactions, automated market makers makes the process automated and free of human interventions. Developing automated market makers with MTG is more efficient than Ethereum-based Uniswap, and has higher security, stability and fault tolerance, etc.
+従来のオーダーブック取引と比較して、自動マーケットメーカーは、プロセスを自動化し、取引における人の介入を不要にします。MTGによる自動マーケットメーカーの開発は、イーサリアム基盤のユニスワップよりも効率的かつ高い安全性、安定性、耐障害性などを備えています。
 
-### Advantages
+### 優位性
 
-- Decentralization with Security
+- 分散化とセキュリティ
 
-  Protected by Mixin mainnet, assets under custody are well protected through the cold and hot wallet isolation and co-managed by up to 255 party multi-signature. The automated market maker program can be deployed on 255 node servers.
+  ユーザーの資産は、Mixinメインネットによって保護され、コールドウォレットとホットウォレットの分離や最大255人のマルチシグネチャによる共同管理等によって十分に保護されています。自動マーケットメーカープログラムは、255台のノードサーバーに展開することが可能です。
 
-- Stability
+- 安定性
 
-  Automated market maker programs can be developed using more stable and mature languages, such as Go, Java, PHP, etc., without network congestion and high gas problems. It also brings more stability and capacity to the transaction process.
+  自動マーケットメーカープログラムは、Go、Java、PHPなどの完成度の高いプログラミング言語を使って開発することができ、ネットワークの混雑や高いガス代の問題もありません。また、取引プロセスにさらなる安定性とキャパシティをもたらします。
 
-- Efficiency
+- 効率性
 
-  Automated market maker programs can be deployed on high-performance node servers to provide users with low-latency and efficient exchange and market making services.
+  自動マーケットメーカープログラムは、高性能なノードサーバー上に配置され、低遅延で効率的な取引所およびマーケットメーキングサービスをユーザーに提供することができます。
+  
 
-- Powerfulness
+- 強靭性
 
-  It naturally supports a variety of cross-chain assets. Transactions are free and instant with scalability to serve a large number of users.
+  また、自動マーケットメーカープログラムは様々なクロスチェーン資産に対応しています。取引は無料かつ高速で、多数のユーザーに対応できるスケーラビリティを備えています。
 
-### Steps
+### ステップ
 
-- Decentralized Multi-signature Organization
+- 分散型マルチシグネチャ組織
 
-  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
+  マルチシグネチャ組織の仕事は、主にDappプログラムのアセット共同管理、レビュー、展開、ガバナンスなどに参加することです。複数の著名なチームや企業を束ねて分散型マルチシグネチャ組織を形成したり、暗号資産を発行して投票による分散型の自律組織を形成したりすることができます。例えば、5つのノードがある資産を共同管理する場合、資産を動かすには3つのノードの署名が必要である等の合意形成の設定などが可能です。合意形成の閾値は、`3/5`、`4/7`...`171/255`といったように、一般的にノードの3分の2を設定します。
 
-- Automated Market Maker Program Development
+- 自動マーケットメーカープログラムの開発
 
-  1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
-  2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Maket making, trading and redemptiond operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
+  1. 開発環境: Go、Java、PHPなどのプログラミング言語と、MySQL、PostgreSQL、MongoDBなどのデータベースシステムを扱える必要があります。
+  2. トランザクション処理: ノードは、関連するUTXOトランザクションを継続的に同期させる必要があります。マーケットメイキング、取引、償還の各操作は、トランザクションの`Memo`に従って別々に処理されます。すべての操作は検証される必要があり、データはデータベースに記録されるために十分なノードによって署名される必要があります。また、すべての操作はMixinメインネットのマルチシグネチャを開始する必要があり、作成者、操作タイプ、金額、その他の情報を含むMemo情報は、以下のようなフォーマットになっています。（データを圧縮するためにMessagePack+base64を使うことが推奨されます）
 
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
@@ -45,38 +46,39 @@ Compared with the traditional order book transactions, automated market makers m
     T:"swap"                                   // Operation Type
   }))
   ```
-  3. Asset management: All assets are managed by the node multi-signature. Assets injected by users for liquidity will be saved to the multi-signature address. Redemptions take effect after most nodes have verified the wallet.
+  3. 資産管理: すべての資産は、ノードによるマルチシグネチャで管理されます。ユーザーが流動性のために入金した資産は、マルチシグネチャのアドレスに保存されます。償還は、ほとんどのノードがウォレットを検証した後に有効になります。
 
-  4. LP tokens: ERC20 tokens can be issued according to the algorithm as proof for liquidity users injected, and users can freely transfer and trade LP tokens.
+  4. LPトークン: ユーザーが注入した流動性の証明として、アルゴリズムに従ってERC20トークンを発行することができ、ユーザーはLPトークンを自由に譲渡・取引することができます。
 
-- Security Measures
+- セキュリティ対策
 
-  1. The ability to deal with risks can be further improved through multi-signature management and cold and hot wallet isolation. Try to limit the scale of losses caused by unpredictable risks.
+  1. マルチシグネチャによる資産管理やコールドウォレットとホットウォレットの分離により、リスクへの対応力をさらに高めることができます。このような対策を行うことで、予測不可能なリスクによる損失規模を抑えることが可能です。
 
-  2. All nodes must independently review the Dapp code to reduce potential risks. Every node has a right and obligation to assets.
+  2. すべてのノードは、潜在リスクを減らすために、独立してDappコードをレビューする必要があります。また、すべてのノードには資産管理に対する権利と義務があります。
 
-  3. Node teams should keep close contact. Once a problem is found, the service can be suspended in time, the problem can be quickly fixed with new code deployed.
+  3. ノードを運営するチームは密に連絡を取り合う必要があります。問題が見つかれば、その時点でサービスを停止し、新しいコードをデプロイして迅速に問題を修正することができます。
 
-- Governance
+- ガバナンス
 
-  The decentralized multi-signature organizations determine commission fees, rewards, and other proposals through voting.
+  分散型マルチシグネチャ組織では、手数料や報酬などの提案を投票によって決定しています。
 
-- Reconciliation
+- 照合
 
-  Since all transfers have corresponding multi-signature transfer records(cannot be tampered with) and the order of transactions on Mixin, all data can be completely restored based on this transfer record, which can be compared with the node data to verify.
+  すべての送金には、改ざんできないマルチシグネチャの送金記録とMixin上の取引順序が対応するため、この送金記録をもとにすべてのデータを完全に復元し、ノードのデータと比較して検証することが可能です。
 
-### Example
+### 利用例
 
-Developed by the Fox team and jointly operated by the Mixin Core, Biyin, BigONE, Fox, and BOX communities, 4swap has been launched. The five teams jointly manage assets and operate and maintain automated market maker programs.
+Foxチームが開発し、Mixin Core、Biyin、BIGONE、Fox、BOXの各コミュニティが共同で運営する「4swap」がローンチされました。5つのチームが共同で資産を管理し、自動マーケットメーカープログラムを運営・維持します。
 
-- **Language** Go
-- **Storage** MySQL
-- **Launched** 2020/12/25
-- **Fund Size** 12,734,286 USD (2021/01/01)
-- **Daily Trading Volume** 500,000 USD (the last week of January 01, 2021)
-- **Number Of Nodes** 5
-- **Supported Transactions** All assets that support multi-signature are supported
-- **How To Use** Search in Mixin Messenger for Chatbot 7000103537
+- **使用言語** Go
+- **データベース** MySQL
+- **ローンチした日** 2020/12/25
+- **ファンド規模** 12,734,286 USD (2021/01/01)
+- **1日あたりの取引量** 500,000 USD (2021/01/01時点)
+- **ノード数** 5
+- **対応資産** マルチシグネチャに対応した全ての資産
+- **使い方** Mixin Messenger内でMixin ID:`7000103537`を検索してください。
+
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTGリファレンスコード: https://github.com/MixinNetwork/trusted-group . テクニカルサポートへのお問い合わせは、[Mixin Messenger](https://w3c.group/c/1609251387450619)でMixin ID：`762532`を検索してください。
