@@ -18,6 +18,7 @@ sidebar_position: 14
 - manifest.json 文件, 如下
 
 manifest.json 格式
+
 ```
 {
   "name": "piggy", // 不能为空，最大 64 字符
@@ -25,6 +26,16 @@ manifest.json 格式
   "description": "piggy is lovely", // 可以为空，最大 256 个字符
 }
 ```
+
+## ZIP 目录结构
+
+- 01.happy.png
+- 02.exciting.png
+- ...
+- 30.sobbing.png
+- banner.png
+- manifest.json
+- thumb.png
 
 ## 创作指南
 
