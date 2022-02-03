@@ -1,29 +1,29 @@
 ---
-title: Multi-Signature
+title: マルチシグネチャー
 sidebar_position: 5
 ---
 
-# Multi-Signature
+# マルチシグネチャー
 
-Multi-signature is a safe, reliable, and effective practical technology that can effectively improve the security of custody assets and enhance customer trust. Mixin mainnet supports multi-signature based on ed25519, and t/M can be arbitrarily set to participate in multi-signature, where t is threshold, M is members, and M supports up to 255 people to participate in multi-signature. For example, `2/3` multi-signature means that there are three people who jointly manage the assets, and any two people need to sign the transaction to use the assets.
+マルチシグネチャは、安全・確実・効果的な実用技術であり、保管資産のセキュリティを効果的に向上させ、お客様の信頼性を高めることができます。Mixinメインネットはed25519に基づくマルチシグネチャをサポートしており、マルチシグネチャへの参加者をt/Mで任意に設定できます。tは閾値、Mはメンバー、Mは最大255人までのマルチシグネチャへの参加をサポートしています。例えば、「2/3」のマルチシグネチャーとは、資産を共同管理する人が3人いることを意味し、資産を利用するためには、任意の2人が取引に署名する必要があります。
 
-Different from the Bitcoin multi-signature address starting with `3`, Mixin's multi-signature is based on UTXO but there is no distinctive address for multi-signature. A transfer is sent to multiple people. The transfer needs to specify a set of payees and a threshold. The asset is co-owned by all parties participating in the multi-signature, and the same user can participate in different multi-signature groups at the same time. To facilitate the explanation below, the `multi-signature account` is still used to refer to the encrypted assets jointly managed by multiple people.
+ビットコインの「3」で始まるマルチシグネチャーのアドレスとは異なり、MixinのマルチシグネチャーはUTXOをベースにしていますが、マルチシグネチャーに特徴的なアドレスはありません。複数の人に送金が行われます。送金には、受取人のセットと閾値を指定する必要があります。資産はマルチシグネチャに参加するすべての関係者の共有となり、同じユーザーが同時に異なるマルチシグネチャーグループに参加することが可能です。続く説明を容易にするため、複数人で共同管理する暗号化資産を指す場合は、「マルチシグネチャーアカウント」と表記します。
 
-### Asset Management
+### 資産管理
 
-Co-management of assets is one of the main use-cases of multi-signature. Each use of funds requires a valid signature by multiple people. No one can move the assets by himself, and this mechanism can also avoid single-point-of-failures causing permanent loss of assets.
+資産の共同管理は、マルチシグネチャーの主なユースケースの一つです。資金を使用するたびに、複数人による有効な署名が必要です。また、この仕組みにより、一度の失敗による資産の永続的な損失を回避することができます。
 
-- The multi-signature bot 7000102367 developed by the Mixin team is very simple, all you need is to set up a chat group and you are good to go, it contains only the front-end and it's open-source https://github.com/MixinNetwork/multisig-bot.
+- Mixinチームが開発したマルチ署名ボット（ID:7000102367）は非常にシンプルで、チャットグループを設定するだけで作成可能です。フロントエンドのみを含み、そのオープンソースは以下通りです。https://github.com/MixinNetwork/multisig-bot
 
-- The multi-signature assistant bot 7000102968 developed by the Laomao team is a multi-currency multi-signature wallet with a simple and friendly interface.
-- The multi-signature wallet called "CoWallet"(id: 7000103970) developed by Pando Team is a multi-currency multi-signature wallet with a simple and friendly interface. It's also open-source https://github.com/fox-one/cowallet
+- Laomaoチームによって開発されたマルチシグネチャーアシスタントボット（ID:7000102968）は、シンプルでフレンドリーなインターフェースを持つ多通貨マルチシグネチャーウォレットです。
+- Pandoチームが開発した「CoWallet」（id: 7000103970）というマルチシグネチャーウォレットは、シンプルでフレンドリーなインターフェースを持つ他通貨マルチシグネチャーウォレットです。こちらもオープンソースで、以下より参照可能です。https://github.com/fox-one/cowallet
 
 
-### E-Commerce
+### Eコマース
 
-2/3 multi-signature is commonly used in the e-commerce industry. Buyers, sellers, and platforms are the multi-signature participants. Buyers first transfer funds to the multi-signature account, and then the buyer and seller can confirm the subsequent transaction confirmation and refund process. When disputes arise, the platform will do 2/3 arbitration. The e-commerce platform effectively guarantees the integrity of the two parties by implementing multi-signature transactions, reducing transaction risks and improving efficiency.
+2/3 マルチシグネチャは、eコマース業界で一般的に使用されています。買い手、売り手、プラットフォームがマルチシグネチャーの参加者です。買い手はまずマルチシグネチャーの口座に資金を振り込み、その後のトランザクション確認や返金処理を買い手と売り手が確認することができます。紛争が発生した場合、プラットフォームは2/3の仲裁を行う。電子商取引プラットフォームは、マルチシグネチャーの取引を実施することで、両者の整合性を保証し、取引リスクを低減させ、効率性を向上させることができます。
 
-- ExinLocal 7000000015 is a global peer-to-peer trading market for buying and selling cryptocurrencies based on Mixin Network. It has successfully applied multi-signature technology to the peer-to-peer OTC trading market. Users can exchange assets freely and securely on this platform, [learn more](https://w3c.group/c/1581684681212744).
+- ExinLocal（7000000015）は、Mixin Networkをベースとした暗号通貨の売買を行うグローバルなP2P取引市場です。マルチシグネチャーの技術をP2PのOTC取引市場に応用することに成功しました。ユーザーはこのプラットフォーム上で自由かつ安全に資産を交換することができます。[詳しくはこちら](https://w3c.group/c/1581684681212744)
 
 ### E-government
 
