@@ -1,40 +1,40 @@
 ---
-title: スキーマの相互作用
+title: スキーマのインテラクション
 sidebar_position: 4
 ---
 
 ロボは、スキーマを通じてネイティブのMixinメッセンジャーウィンドウを呼び出し、支払いなどの機能を実装することができます。
 
-## Sharing
+## 共有
 
 ```
 mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
 ```
 
-The bot can not automatically share messages. If you specify `conversation_id` and it is the `conversation_id` of the user's current session, the confirmation box shown above will appear, the message will be sent after the user clicks the confirmation; if the `conversation_id` is not specified or is not the `conversation_id` of the current session, an interface where the user chooses which session to share with will show up.
+ロボは、メッセージを自動的に共有することはできません。`conversation_id`を指定し、それがユーザの現在のセッションの`conversation_id`であれば、上記のような確認ボックスが表示され、ユーザが確認をクリックした後にメッセージが送信されます。`conversation_id`を指定しないか、現在のセッションの`conversation_id`でない場合は、ユーザがどのセッションと共有するかを選択するインターフェースが表示されます。
 
-### Share text
+### テキストの共有
 
 ```js
 const data = "hello world!"
 window.open("mixin://send?category=text&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share images
+### 画像の共有
 
 ```js
 const data = '{"url":"https://mixin-www.zeromesh.net/assets/d9bb777b00f4210e107dd3580fe5bf1a.png"}'
 window.open("mixin://send?category=image&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share contacts
+### 連絡先の共有
 
 ```js
 const data = '{"user_id":"773e5e77-4107-45c2-b648-8fc722ed77f5"}'
 window.open("mixin://send?category=contact&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share cards
+### カードの共有
 
 ```js
 const data = {
@@ -47,14 +47,14 @@ const data = {
 window.open("mixin://send?category=app_card&data=" + encodeURIComponent(base64.encode(JSON.stringify(data))))
 ```
 
-### Share live shows
+### ライブ配信の共有
 
 ```js
 const data = '{"height":720,"thumb_url":"https://anchorpost.msstatic.com/cdnimage/anchorpost/1056/41/9771cb5a13901e0ed97514a9cf98e8_1663_1566469032.jpg?imageview/4/0/blur/1/format/webp","url":"https://1400293698.vod2.myqcloud.com/fd69ed6cvodcq1400293698/c1dde9e95285890807215641562/MramAAZccMIA.mp4","width":1280}'
 window.open("mixin://send?category=live&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-### Share posts
+### 記事の共有
 
 ```js
 const data = '## Markdown Intro\n> Markdown is a light weight markup language.'
@@ -62,15 +62,15 @@ window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encod
 ```
 
 
-## Payment
+## 決済
 
-### Invoke payment page.
+### 決済画面の呼び出し
 
 ```
 mixin://pay?recipient=&asset=&amount=&memo=&trace=
 ```
 
-| Parameter    | Description     |
+| パラメーター    | 説明     |
 |:------------------:|:-----------------|
 | recipient | Receivers user id. |
 | asset     | Asset id.  |
@@ -80,13 +80,13 @@ mixin://pay?recipient=&asset=&amount=&memo=&trace=
 
 You can poll `GET /transfers/trace/:traceid` to see if there is a return value to determine whether the payment has been completed.
 
-### Invoke transfer page.
+### 送金画面の呼び出し
 
 ```
 mixin://transfer/:recipient_id
 ```
 
-### Transfer details interface.
+### 送金情報のインターフェース
 
 ```
 mixin://snapshots?trace=:traceid
@@ -98,7 +98,7 @@ or
 mixin://snapshots/:snapshotid
 ```
 
-### Add withdrawal addresses.
+### 出金アドレスの追加
 
 ```
 mixin://address?asset=&label=&destination=&tag=
@@ -106,7 +106,7 @@ mixin://address?asset=&label=&destination=&tag=
 
 `tag` is an optional parameter, other parameters are required.
 
-### Delete withdrawal addresses.
+### 出金アドレスの削除
 
 ```
 mixin://address?asset=&action=delete&address=
@@ -114,7 +114,7 @@ mixin://address?asset=&action=delete&address=
 
 Assign address id to `address`.
 
-### Withdrawal.
+### 出金
 
 ```
 mixin://withdrawal?address=&asset=&amount=&memo=&trace=
@@ -122,15 +122,15 @@ mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 
 `memo` is an optional parameter, other parameters are required.
 
-## Others
+## その他
 
-### popups user profile.
+### ユーザープロフィールのポップアップ
 
 ```
 mixin://users/:userid
 ```
 
-### popups bot profile.
+### ロボのプロフィールのポップアップ
 
 ```
 mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
