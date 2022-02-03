@@ -1,34 +1,34 @@
 ---
-title: Create a dApp
+title: dAppの作成
 sidebar_position: 1
 ---
 
-## New Application
+## 新アプリケーション
 
-Download [Mixin Messenger](https://mixin.one/messenger), open [Developers Dashboard](https://developers.mixin.one/dashboard) and login by scanning the QrCode.
+[Mixin Messenger](https://mixin.one/messenger)をダウンロードし、[開発者ダッシュボード](https://developers.mixin.one/dashboard)を開き、Qrコードを読み取ってログインしてください。
 
-Click the `New App` button on the left side and create an application by following the prompt, please upload the application icon and fill the form. Below are descriptions of some of the important parameters.
+左側の「New App」ボタンをクリックし、プロンプトに従ってアプリケーションを作成し、アプリケーションアイコンをアップロードし、フォームを記入してください。以下は、重要なパラメータの説明です。
 
-- **Category**:
-  Please select a category for the bot, when the bot is placed at the navigation bar on the bottom of the Mixin Messenger homepage, the corresponding icon of the category will be displayed.
-- **Home URL**:
-  Link to the homepage of the bot.
+- **カテゴリー**:
+  ボットのカテゴリーを選択してください。ボットがMixinメッセンジャートップページ下部のナビゲーションバーに配置されると、カテゴリーに対応したアイコンが表示されます。
+- **ホームURL**:
+  ボットのトップページへのリンクです。
 - **OAuth URL**
-  For the callback of OAuth authorization.
-- **Resource Patterns**
-  It is a whitelist that used to prevent fake bot links. When opening card and button type messages, it will check whether the linked domain name is in the whitelist. For `APP_CARD` or `APP_BUTTON_GROUP` messages, you need to ensure that the `action` is in the whitelist.
-- **Immersive Mode**
-  Turn on immersive mode to get more display space, refer to [Immersive Mode](../design/immersive-mode).
+  OAuth認証のコールバックに使用します。
+- **リソースパターン**
+  偽のボットリンクを防ぐために使用されるホワイトリストです。カード型やボタン型のメッセージを開く際に、リンク先のドメイン名がホワイトリストに登録されているかどうかを確認します。「APP_CARD」や 「APP_BUTTON_GROUP」のメッセージでは、「action」 がホワイトリストに含まれていることを確認する必要があります。
+- **没入モード**
+  没入モードをオンにすると、表示領域がより広くなります。[Immersive Mode](../design/immersive-mode)をご参照ください。
 
-:::tip
-Each developer account can creates 2 applications for free, pay if you need more.
+::ヒント
+1つの開発者アカウントにつき、2つのアプリケーションを無料で作成することができます。
 :::
 
-## Generate Keys
+## キーの生成
 
-Switch to "Secret" and tap "Generate a new secret" button to generate a new app secret, which is a 64-bit string.
+「Secret」に切り替え「Generate a new secret」ボタンをタップすると、64ビットの文字列の、新しいアプリの秘密鍵が生成されます。
 
-Click "Ed25519 session" button to generate a new keystore, which includes sensitive information such as the application's PIN, Session ID, PinToken, and private key:
+「Ed25519 session」をクリックすると、アプリケーションPIN、セッションID、PinToken、秘密鍵などの機密情報を含む新しいキーストアが生成されます。
 
 ```json
 {
@@ -40,14 +40,14 @@ Click "Ed25519 session" button to generate a new keystore, which includes sensit
 }
 ```
 
-Please save the keystore file and the app secret in a safe place.
+キーストアファイルとアプリのシークレットキーは安全な場所に保存してください。
 
-:::caution
-Note that the above generated key information will not be saved by the server and browser, please store it properly.**
+:::注意
+上記の生成されたキー情報は、サーバーやブラウザには保存されませんので、適切に保存してください。**
 :::
 
-:::tip
-It is recommended to use Ed25519 private key rather than old RSA session. Developers are currently being encouraged to switch from RSA private key to Ed25519 private key. See this [document](/docs/api/session-secret-migration) for more information.
+:::ヒント
+旧来のRSAセッションではなく、Ed25519秘密鍵を使用することが推奨されます。現在、RSA秘密鍵からEd25519秘密鍵への切り替えが開発者に推奨されています。詳しくはこちらの[ドキュメント](/docs/api/session-secret-migration)をご参照ください。
 :::
 
-In the next step, you will understand the oauth process, and get the access token.
+次のステップでは、oauthの処理を理解し、アクセストークンを取得します。
