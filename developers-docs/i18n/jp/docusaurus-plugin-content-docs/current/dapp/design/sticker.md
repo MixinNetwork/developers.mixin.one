@@ -1,29 +1,29 @@
 ---
-title: Sticker
+title: ステッカー
 sidebar_position: 14
 ---
 
-# Sticker
+# ステッカー
 
-Artists can submit sticker works to Mixin Messenger.
+アーティストは自作のステッカーをMixinメッセンジャーに提出することが可能です。
 
-### Requirements
+### 要求
 
-- Work copyright: the submitter must own the copyright of the work。
-- Sticker size: minimum 128 pixels, maximum 512 pixels, 360 x 360 pixels recommended。
-- Number of stickers: 9 sheets, 12 sheets, 15 sheets, 18 sheets, 21 sheets, 24 sheets, 27 sheets, 30 sheets。
-- Sticker format: png, jpg, gif, Lottie, WebP, Animated WebP.
-- Sticker banner: aspect ratio 16:10, recommended 320 x 200 pixels.
-- Label icon: 40 x 40 pixels recommended.
-- File size: minimum 1 kb, maximum 800kb.
-- Naming convention: The sticker file must be named with numbers, such as "01.png", "02.png", "30.png"; the banner file name must be "banner.png"; the label must be "thumb.png".
+- 作品の著作権：投稿者が作品の著作権を有していること。
+- ステッカーサイズ：最小128ピクセル、最大512ピクセル、360×360ピクセル推奨。
+- ステッカーの数：9シート、12シート、15シート、18シート、21シート、24シート、27シート、30シート。
+- ステッカーフォーマット：png、jpg、gif、Lottie、WebP、Animated WebP。
+- ステッカーバナー：アスペクト比16:10、推奨320×200ピクセル。
+- ラベルアイコン: 40x40ピクセル推奨。
+- ファイルサイズ：最小1kb、最大800kb。
+- 命名規則：ステッカーファイル名は "01.png", "02.png", "30.png "などの数字で、バナーファイル名は "banner.png"、ラベルは "thumb.png "である必要があります。
 
-### Creation Guide
+### 作成ガイド
 
-- Stickers Padding
+- ステッカーパディング
 
-  ![Sticker-padding](./sticker-padding.png)
+  ![ステッカーパディング](./sticker-padding.png)
 
-### Submitting sticker
+### ステッカーの提出
 
-Name the stickers, label icons, and banner images according to the requirements, and then compress them together with the copyright file ([download template](http://www.mixinbots.com/docs/sticker-copyright-notice.doc)) into a zip or 7z format. Send to Mixin Messenger 1039549.
+ステッカー、ラベルアイコン、バナー画像に名前を付け、著作権ファイル([テンプレートダウンロード](http://www.mixinbots.com/docs/sticker-copyright-notice.doc)) と一緒にZIP形式または7z形式に圧縮し、Mixin Messenger 1039549に送信してください。
