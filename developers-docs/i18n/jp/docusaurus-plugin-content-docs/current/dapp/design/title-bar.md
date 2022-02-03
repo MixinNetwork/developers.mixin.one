@@ -1,12 +1,12 @@
 ---
-title: Title Bar
+title: タイトルバー
 sidebar_position: 9
 ---
 
-# Title Bar
+# タイトルバー
 
-The bot has a title bar by default and is not controlled by the bot. The icon and name of the current bot are displayed.
+ボットにはデフォルトでタイトルバーがあり、ボットごとのコントロールは行えません。現在のボットのアイコンと名前が表示されます。
 
-![Title Bar](./title-bar.png)
+![タイトルバー](./title-bar.png)
 
 
