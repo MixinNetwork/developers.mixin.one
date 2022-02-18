@@ -60,7 +60,7 @@ mvm publish -m config/config.toml -k keystore.json \
 ```
 
 - **-k** 是从开发者后台下载的密钥文件。
-- **-a** 是部署的合约地址，必须是大小心标准的格式。
+- **-a** 是部署的合约地址，必须是大小写标准的格式。
 - **-e** 是合约创建时的 TXID。
 
 :::info
