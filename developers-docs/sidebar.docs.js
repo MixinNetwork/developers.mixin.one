@@ -259,6 +259,7 @@ module.exports = {
           ]
         },
         "api/shared-bots",
+        "api/zip-album",
         "api/session-secret-migration",
         "api/error-codes",
       ]

@@ -1,6 +1,6 @@
 ---
 title: 错误码
-sidebar_position: 15
+sidebar_position: 50
 ---
 
 Mixin API 只会使用 20x 和 500，需要注意 500 错误，可能是 Web Server 而非 Mixin API Server 造成的。
