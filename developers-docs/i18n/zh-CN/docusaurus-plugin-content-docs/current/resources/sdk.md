@@ -11,7 +11,7 @@ title: SDK
 - [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Kotlin SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK
-- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK，但是还在 beta version
+- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK
   - [🥰 例子](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test)，[📖 文档](https://pub.dev/packages/mixin_bot_sdk_dart)
 
 ## 第三方 SDK
