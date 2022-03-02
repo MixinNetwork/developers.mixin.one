@@ -10,7 +10,7 @@ Artists can submit sticker works to Mixin Messenger.
 ### Requirements
 
 - Work copyright: the submitter must own the copyright of the work。
-- Sticker size: minimum 128 pixels, maximum 512 pixels, 512 x 512 pixels recommended。
+- Sticker size: minimum 256 pixels, maximum 512 pixels, 512 x 512 pixels recommended。
 - Number of stickers: 9 sheets, 12 sheets, 15 sheets, 18 sheets, 21 sheets, 24 sheets, 27 sheets, 30 sheets。
 - Sticker format: png, jpg, gif, Lottie, WebP, Animated WebP.
 - Sticker banner: aspect ratio 16:10, recommended 960 x 600 pixels.
