@@ -1,26 +1,27 @@
 ---
 title: 安装配置 Metamask
+sidebar_position: 1
 ---
 
-MetaMask可以通过Chrome和Firefox浏览器下载，移动端支持iOS和Android平台。在本教程中，我们将使用Firefox版本进行演示，不同平台的流程大致相同。
+MetaMask 可以通过 Chrome 和 Firefox 浏览器下载，移动端支持 iOS 和 Android 平台。在本教程中，我们将使用 Firefox 版本进行演示，不同平台的流程大致相同。
 
-首先，请跳转至MetaMask[下载](https://metamask.io/download.html)页面。选择您使用的平台，然后按以下步骤在设备中安装MetaMask。
+首先，请跳转至 MetaMask [下载](https://metamask.io/download.html)页面。选择您使用的平台，然后按以下步骤在设备中安装 MetaMask。
 
-接下来，按照App指定的设置进行操作。点击"创建钱包”（ Create a Wallet）。在私密性较强的设备（最好是与网络断连的设备）中输入备份的助记词（seed phrase）。如果没有妥善存储助记词，在设备损坏或丢失时，很可能无法找回资金。因此，请在下一页确认已将助记词写下并妥善保管。
+接下来，按照 App 指定的设置进行操作。点击"创建钱包”（ Create a Wallet）。在私密性较强的设备（最好是与网络断连的设备）中输入备份的助记词（seed phrase）。如果没有妥善存储助记词，在设备损坏或丢失时，很可能无法找回资金。因此，请在下一页确认已将助记词写下并妥善保管。
 
-![initialize](./initialize.png)
+![initialize](./images/initialize.png)
 
 ## 配置钱包
 
 默认情况下 Metamask 连接的是 ETH 的主网，我们需要对设置进行调整。访问“设置”（Settings）页面，将钱包指向 MVM 节点。
 
-![setting](./setting.png)
+![setting](./images/setting.png)
 
 在下拉菜单中选择“设置”（Settings）。
 
 在设置页面中，找到“网络”（Networks）菜单。
 
-![network](./network.png)
+![network](./images/network.png)
 
 点击右上角的“添加网络”（Add Networks），我们需要在这里手动添加 MVM 主网络
 

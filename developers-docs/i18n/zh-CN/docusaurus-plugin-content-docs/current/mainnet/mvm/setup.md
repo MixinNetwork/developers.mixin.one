@@ -1,5 +1,6 @@
 ---
 title: 如何配置机器人使用 MVM
+sidebar_position: 5
 ---
 
 :::info

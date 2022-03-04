@@ -1,12 +1,13 @@
 ---
 title: 使用 Remix
+sidebar_position: 3
 ---
 
-输入https://remix.ethereum.org/ 打开 Remix。在主画面中，点击 Environments，选取 Solidity 配置 Remix来 进行 Solidity 的开发，最后打开 File Explorers 的画面，如下图所示：
+输入 https://remix.ethereum.org/ 打开 Remix。在主画面中，点击 Environments，选取 Solidity 配置 Remix 来 进行 Solidity 的开发，最后打开 File Explorers 的画面，如下图所示：
 
 ![using remix](./remix/using-remix-1.png)
 
-我们需要创建一个新的文件夹来储存 Solidity 智能合约。点击File Explorers下面的 “+” 按钮，接着在弹窗内输入 "refund.sol"：
+我们需要创建一个新的文件夹来储存 Solidity 智能合约。点击 File Explorers 下面的 “+” 按钮，接着在弹窗内输入 "refund.sol"：
 
 并且写入以下内容:
 
