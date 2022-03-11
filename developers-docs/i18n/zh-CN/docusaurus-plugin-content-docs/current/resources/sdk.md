@@ -8,7 +8,7 @@ title: SDK
 
 - [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): 官方 Golang SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples)，[📖 文档](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client)，[🧑‍🏫 教程](/dapp/getting-started/create-dapp)
-- [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Kotlin SDK
+- [Java/Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Java/Kotlin SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK
 - [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK
