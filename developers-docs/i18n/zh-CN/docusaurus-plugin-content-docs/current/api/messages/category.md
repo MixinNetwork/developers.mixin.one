@@ -18,7 +18,7 @@ import MsgCatTransfer from "../../_partials/_resp.msg.d/transfer.md";
 import MsgCatVideo from "../../_partials/_resp.msg.d/video.md";
 import MsgEncrypt from "../../_partials/_resp.msg.d/encrypt.md";
 
-Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_`.
+Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_` and `ENCRYPTED_`.
 
 To send images, files, and videos, you need to upload attachments and obtain attachment_id before sending.
 
