@@ -28,7 +28,7 @@ Select 'Settings' from the drop-down menu, then find the 'Networks' menu.
 Click 'Add Networks',and input the information below in the corresponding inputs.
 
 - Network Name：Quorum Test
-- New RPC URL：http://104.197.245.214:8545
+- New RPC URL：https://quorum-testnet.mixin.zone/
 - ChainID：83927
 - Symbol：RUM
 - Block Explorer URL：https://testnet.mvmscan.com/

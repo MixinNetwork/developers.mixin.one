@@ -26,10 +26,12 @@ MetaMask 可以通过 Chrome 和 Firefox 浏览器下载，移动端支持 iOS �
 点击右上角的“添加网络”（Add Networks），我们需要在这里手动添加 MVM 主网络
 
 - 网络名称（Network Name）：Quorum Test
-- 新的 RPC URL（New RPC URL）：http://104.197.245.214:8545
+- 新的 RPC URL（New RPC URL）：https://quorum-testnet.mixin.zone/
 - 智能链 ID（ChainID）：83927
 - 符号（Symbol）：RUM
 - 区块浏览器 URL（Block Explorer URL）：https://testnet.mvmscan.com/
+
+也可以通过 https://chainlist.info/?search==rum 来一键添加。
 
 在保存（Save）网络并返回主页面后, 就可以正常的转账，调用 web3js 来部署合约了。
 
