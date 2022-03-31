@@ -11,7 +11,8 @@ Importing [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client).
 
 Add the dependency
 Get from [Mixin Dashboard](https://developers.mixin.one/dashboard).
-```
+
+```gradle
 dependencies {
     implementation 'com.github.MixinNetwork:bot-api-kotlin-client:v0.1.0'
 }
@@ -19,7 +20,7 @@ dependencies {
 
 ### Configuration
 
-```
+```gradle
 object Config {
     const val pin = ""
     const val userId = ""
@@ -79,6 +80,7 @@ object Config {
         println("Get assets fail")
     }
 ```
+
 For more examples, check SDK [Sample](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)。
 
 ---

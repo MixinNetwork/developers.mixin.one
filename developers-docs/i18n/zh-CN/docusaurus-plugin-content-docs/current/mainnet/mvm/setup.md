@@ -33,13 +33,13 @@ Metamask 安装配置[文档](/zh-CN/docs/mainnet/mvm/metamask)。
 
 ## 4. Pubish 一个 MVM APP
 
-下载 Trusted Group 的代码到本地: https://github.com/MixinNetwork/trusted-group, 然后编译 ./mvm 的内容，首先需要配置 Golang 环境。
+下载 Trusted Group 的代码到本地: <https://github.com/MixinNetwork/trusted-group>, 然后编译 ./mvm 的内容，首先需要配置 Golang 环境。
 
 下载安装 Golang 环境相关[文档](https://go.dev/doc/install)。
 
 复制 ./config/config.example.toml 到 config/config.toml, 并修改以下内容
 
-```
+```toml
 /* 以下内容是测试网的配置项 */
 [mtg.genesis]
 members = [
@@ -54,7 +54,7 @@ timestamp = 1637699415378769097
 
 其它内容，在以下命令中并不会用到
 
-```
+```shell
 mvm publish -m config/config.toml -k keystore.json \
   -a 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323 \
   -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
@@ -72,7 +72,7 @@ mvm publish -m config/config.toml -k keystore.json \
 
 下面的命令可以生成一个方便的二维码来调用相应的 MVM 进程。
 
-```
+```shell
 mvm invoke -m config/config.toml -k keystore.json \
   -p b9126674-b07d-49b6-bf4f-48d965b2242b
 ```

@@ -6,7 +6,7 @@ To obtain all circles of a user, the `CIRCLES:READ` permission is required.
 
 curl demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/circles"
 ```
 

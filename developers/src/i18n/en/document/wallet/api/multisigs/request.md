@@ -4,7 +4,7 @@ Similar to uploading files, multisigs need to first generate a multi-signature r
 
 ### Generating Multisig Requests
 
-```
+```text
 POST /multisigs/requests
 ```
 
@@ -15,7 +15,7 @@ The HTTP request body:
 | action | String | Operations: sign, unlock. |
 | raw | String | For transactions generated in accordance with the mainnet specifications, refer to the implementation in Go and JS provided by us[Code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils) |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/multisigs/requests --data '{"action": "sign", "raw": "298281....4952f95768b7d1a925c4189b912c343dbb000180e"}'
 ```
 
@@ -44,7 +44,7 @@ $$XIN:curl$$ "https://api.mixin.one/multisigs/requests --data '{"action": "sign"
 
 ### Initiating A Multi-signature
 
-```
+```text
 POST /multisigs/requests/:id/:action
 ```
 
@@ -55,7 +55,7 @@ The HTTP request body:
 | action | String | Operations: sign, cancel, and unlock. |
 | pin | String | Encrypted PIN. |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/multisigs/requests/:id/:action --data '{"pin": ""}'
 ```
 

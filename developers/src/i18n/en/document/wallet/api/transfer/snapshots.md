@@ -2,19 +2,19 @@
 
 - Get all transfers.
 
-  `GET /snapshots?limit=&offset=` 
+  `GET /snapshots?limit=&offset=`
 
 - Get transfers by asset.
 
-  `GET /snapshots?limit=&offset=&asset=` 
+  `GET /snapshots?limit=&offset=&asset=`
 
 - Get transfers by opponent.
 
-  `GET /snapshots?limit=&offset=&opponent=` 
+  `GET /snapshots?limit=&offset=&opponent=`
 
 - Get transfers by destination.
 
-  `GET /snapshots?limit=&offset=&destination=&tag=` 
+  `GET /snapshots?limit=&offset=&destination=&tag=`
 
 | Name | Description |
 | :----- | :---- |
@@ -25,7 +25,7 @@
 | destination | Optional, get transfers by destination. |
 | tag | Optional |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
 ```
 

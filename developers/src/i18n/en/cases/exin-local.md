@@ -4,7 +4,7 @@
 
 ![ExinLocal](./exin-local-screenshot.png)
 
-### Architecture.
+### Architecture
 
 Vue is used on the frontend, Laravel is developed on the backend, blockchain and other specific features are supported by Mixin, and the product representation is a mobile-adapted web application.
 
@@ -38,7 +38,7 @@ ExinLocal homepage displays the ads posted by the user, the number of valid orde
 - Download and install [http://mixin.one/messenger](http://mixin.one/messenge) Mixin Messenger and log in
 - Search **7000000015** to find ExinLocal and start trading
 
-### Reference.
+### Reference
 
 - [Little things about multiple-sign](https://w3c.group/c/1581363093875579)
 - [Why ExinLocal](https://w3c.group/c/1587127323846677)
@@ -47,4 +47,3 @@ ExinLocal homepage displays the ads posted by the user, the number of valid orde
 ***
 
 I'm ExinLocal Robin, welcome to contact me via Mixin Messenger, my Mixin ID: [26930](https://mixin.one/codes/89f7e832-ff53-4fff-ad47-10c68ec96ae2).
-

@@ -3,7 +3,7 @@ title: Use Remix
 sidebar_position: 3
 ---
 
-Input https://remix.ethereum.org/ in your browser. click 'Environments'，choose Solidity，then open 'File Explorers' like below：
+Input <https://remix.ethereum.org/> in your browser. click 'Environments'，choose Solidity，then open 'File Explorers' like below：
 
 ![using remix](./remix/using-remix-1.png)
 
@@ -11,7 +11,7 @@ There should be a new folder for saving solidity contracts, then click "+" under
 
 The content of the "resund.sol"
 
-```
+```solidity
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity >=0.7.0 <0.9.0;
@@ -40,6 +40,6 @@ After deploy, you can find the detail of the contract in Metamask.
 
 ![using remix](./remix/using-remix-5.png)
 
-https://testnet.mvmscan.com/tx/0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6/internal-transactions
+<https://testnet.mvmscan.com/tx/0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6/internal-transactions>
 
 We can get the contract address the case-sensitive format in the detail page which will be used later: 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323

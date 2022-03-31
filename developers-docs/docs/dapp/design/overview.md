@@ -21,7 +21,6 @@ The Mixin Messenger bot design guide aims to provide users with an easy-to-use, 
 
   Follow the Android and iOS interface design specifications, and the design conforms to the interaction and look of platform users.
 
-
 ### Clear Highlights
 
 Each page should have clear highlights and hierarchy so that users can quickly understand the content of the page and try to avoid elements that are irrelevant to the content.
@@ -48,8 +47,7 @@ The bot menu is fixed floating in the upper right corner. Developers should rese
 
 ### Avoiding Too Many Notifications
 
-Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types. 
-
+Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types.
 
 ### Next Step
 

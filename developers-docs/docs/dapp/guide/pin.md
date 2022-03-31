@@ -17,44 +17,44 @@ In order to transmit the PIN securely, the PIN must be encrypted. In Go language
 
 ```go
 func EncryptPIN(ctx context.Context, pin, pinToken, sessionId, privateKey string, iterator uint64) (string, error) {
-	privateBytes, err := base64.RawURLEncoding.DecodeString(privateKey)
-	if err != nil {
-		return "", err
-	}
+ privateBytes, err := base64.RawURLEncoding.DecodeString(privateKey)
+ if err != nil {
+  return "", err
+ }
 
-	private := ed25519.PrivateKey(privateBytes)
-	public, err := base64.RawURLEncoding.DecodeString(pinToken)
-	if err != nil {
-		return "", err
-	}
-	var dst, curve, pub [32]byte
-	PrivateKeyToCurve25519(&curve, private)
-	copy(pub[:], public[:])
-	curve25519.ScalarMult(&dst, &curve, &pub)
+ private := ed25519.PrivateKey(privateBytes)
+ public, err := base64.RawURLEncoding.DecodeString(pinToken)
+ if err != nil {
+  return "", err
+ }
+ var dst, curve, pub [32]byte
+ PrivateKeyToCurve25519(&curve, private)
+ copy(pub[:], public[:])
+ curve25519.ScalarMult(&dst, &curve, &pub)
 
-	pinByte := []byte(pin)
-	timeBytes := make([]byte, 8)
-	binary.LittleEndian.PutUint64(timeBytes, uint64(time.Now().Unix()))
-	pinByte = append(pinByte, timeBytes...)
-	iteratorBytes := make([]byte, 8)
-	binary.LittleEndian.PutUint64(iteratorBytes, iterator)
-	pinByte = append(pinByte, iteratorBytes...)
-	padding := aes.BlockSize - len(pinByte)%aes.BlockSize
-	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
-	pinByte = append(pinByte, padtext...)
-	block, err := aes.NewCipher(dst[:])
-	if err != nil {
-		return "", err
-	}
-	ciphertext := make([]byte, aes.BlockSize+len(pinByte))
-	iv := ciphertext[:aes.BlockSize]
-	_, err = io.ReadFull(rand.Reader, iv)
-	if err != nil {
-		return "", err
-	}
-	mode := cipher.NewCBCEncrypter(block, iv)
-	mode.CryptBlocks(ciphertext[aes.BlockSize:], pinByte)
-	return base64.RawURLEncoding.EncodeToString(ciphertext), nil
+ pinByte := []byte(pin)
+ timeBytes := make([]byte, 8)
+ binary.LittleEndian.PutUint64(timeBytes, uint64(time.Now().Unix()))
+ pinByte = append(pinByte, timeBytes...)
+ iteratorBytes := make([]byte, 8)
+ binary.LittleEndian.PutUint64(iteratorBytes, iterator)
+ pinByte = append(pinByte, iteratorBytes...)
+ padding := aes.BlockSize - len(pinByte)%aes.BlockSize
+ padtext := bytes.Repeat([]byte{byte(padding)}, padding)
+ pinByte = append(pinByte, padtext...)
+ block, err := aes.NewCipher(dst[:])
+ if err != nil {
+  return "", err
+ }
+ ciphertext := make([]byte, aes.BlockSize+len(pinByte))
+ iv := ciphertext[:aes.BlockSize]
+ _, err = io.ReadFull(rand.Reader, iv)
+ if err != nil {
+  return "", err
+ }
+ mode := cipher.NewCBCEncrypter(block, iv)
+ mode.CryptBlocks(ciphertext[aes.BlockSize:], pinByte)
+ return base64.RawURLEncoding.EncodeToString(ciphertext), nil
 }
 ```
 
@@ -64,28 +64,28 @@ For SDKs in other languages, please refer to [Document](/docs/resources/sdk).
 
 ```go
 const (
-	userId     = ""
-	pinToken   = ""
-	sessionId  = ""
-	privateKey = ""
+ userId     = ""
+ pinToken   = ""
+ sessionId  = ""
+ privateKey = ""
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	// Encrypt PIN
-	encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(encryptedPIN)
-	// Set initial code
-	err = bot.UpdatePin(ctx, "", encryptedPIN, userId, sessionId, privateKey)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+ // Encrypt PIN
+ encryptedPIN, err := bot.EncryptEd25519PIN(ctx, "123456", pinToken, sessionId, privateKey, uint64(time.Now().UnixNano()))
+ if err != nil {
+  fmt.Println(err)
+  return
+ }
+ fmt.Println(encryptedPIN)
+ // Set initial code
+ err = bot.UpdatePin(ctx, "", encryptedPIN, userId, sessionId, privateKey)
+ if err != nil {
+  fmt.Println(err)
+  return
+ }
 }
 ```
 

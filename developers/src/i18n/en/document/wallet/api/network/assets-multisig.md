@@ -2,9 +2,9 @@
 
 Query the list of all assets that support multi-signature, permission-less access.
 
-### `GET /network/assets/multisig` 
+### `GET /network/assets/multisig`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/assets/multisig"
 ```
 

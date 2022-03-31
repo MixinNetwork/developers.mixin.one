@@ -1,10 +1,10 @@
 # Users
 
-### `POST /users/fetch` 
+### `POST /users/fetch`
 
 HTTP body data, `["UUID","UUID","UUID"]` is a array of user IDs.
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/users/fetch" -X POST --data '["06aed1e3-bd77-4a59-991a-5bb5ae6fbb09"]'
 ```
 
@@ -18,4 +18,3 @@ $$XIN:curl$$ "https://api.mixin.one/users/fetch" -X POST --data '["06aed1e3-bd77
 ```
 
 **Only return the list of existing users, and ignore those that do not exist**
-

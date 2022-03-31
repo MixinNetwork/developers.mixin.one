@@ -29,22 +29,23 @@ Compared with the traditional order book transactions, automated market makers m
 
 - Decentralized Multi-signature Organization
 
-  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5 `, `4/7` ... `171/255`.
+  The work of a multi-signature organization is mainly to participate in asset co-management, review, and deployment of Dapp programs, governance, etc. It can unite multiple well-known teams and companies to form a decentralized multi-signature organization or issue coins to form a decentralized autonomous organization through voting. Then set a consensus threshold, for example, if 5 nodes are co-managing some assets, 3 node signatures are required to move the assets. A common setting is to require two-thirds of the nodes to sign, such as `3/5`, `4/7` ... `171/255`.
 
 - Automated Market Maker Program Development
 
   1. Development Environment: Mature languages such as Go, Java, PHP, and mature database systems such as MySQL, PostgreSQL, and MongoDB.
   2. Transaction processing: Nodes need to synchronize related UTXO transactions continuously. Maket making, trading and redemptiond operations are processed separately according to the `Memo` of the transaction. All operations need to be verified and the data must be signed by enough nodes to be recorded in the database. All operations need to initiate a Mixin mainnet multi-signature, with Memo information including initiator, operation type, amount and other information, the format is as follows (recommended to use MessagePack + base64 to compress the data):
 
-  ```golang
-  memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // ID of the asset to be sold
-    M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // Target Asset ID
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
-    M:"10",                                    // Amount
-    T:"swap"                                   // Operation Type
-  }))
-  ```
+      ```golang
+      memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
+        T:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // ID of the asset to be sold
+        M:"c6d0c728-2624-429b-8e0d-d9d19b6592fa",  // Target Asset ID
+        S:"43d61dcd-e413-450d-80b8-101d5e903357",  // Initiator
+        M:"10",                                    // Amount
+        T:"swap"                                   // Operation Type
+      }))
+      ```
+
   3. Asset management: All assets are managed by the node multi-signature. Assets injected by users for liquidity will be saved to the multi-signature address. Redemptions take effect after most nodes have verified the wallet.
 
   4. LP tokens: ERC20 tokens can be issued according to the algorithm as proof for liquidity users injected, and users can freely transfer and trade LP tokens.
@@ -79,4 +80,4 @@ Developed by the Fox team and jointly operated by the Mixin Core, Biyin, BigONE,
 - **How To Use** Search in Mixin Messenger for Chatbot 7000103537
 
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTG reference code: <https://github.com/MixinNetwork/trusted-group> . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).

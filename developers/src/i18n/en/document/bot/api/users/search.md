@@ -4,7 +4,7 @@
 
 - Parameter `:q`: Mixin ID or mobile phone number.
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/search/7000"
 ```
 
@@ -15,4 +15,3 @@ $$XIN:curl$$ "https://api.mixin.one/search/7000"
 ```
 
 **In order to avoid malicious crawling of user data, this API has a request frequency limit. If a 429 error occurs, wait 12 hours and try again.**
-

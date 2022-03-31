@@ -34,7 +34,7 @@ Usually, people interacts with bots in a webview, or just chat with bots. Becaus
 
 Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to build a bot with the Mixin API:
 
-###  Integrate with Mixin
+### Integrate with Mixin
 
 Some Mixin Applications don't need the bot interface. They could be a website or a standalone mobile App.
 
@@ -63,4 +63,3 @@ Please read [this document](dapp/mixin-applications) guide for more details.
 ## Something missing?
 
 If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/MixinNetwork/developers.mixin.one/issues) for us, or send a tweet mentioning the @[Mixin_Network](https://twitter.com/Mixin_Network) Twitter account.
-

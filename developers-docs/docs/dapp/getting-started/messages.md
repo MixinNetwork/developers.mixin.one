@@ -45,8 +45,8 @@ Before sending a message, you need to make sure that the conversation has been c
 // @TODO an example.
 ```
 
-
 :::info
+
 1. When the user adds the current bot as a friend, the system will automatically send a "Hello" message to the bot.
 2. User messages are only kept on the server for 7 days, and messages that expired will be discarded if the developers do nothing about them.
 3. The message sent by Websocket needs to be compressed with gzip, and the message received will be decompressed accordingly.

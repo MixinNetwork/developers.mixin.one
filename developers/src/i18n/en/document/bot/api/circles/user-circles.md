@@ -13,7 +13,7 @@ Request body data:
 
 curl demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/circles -XPOST --data'{"circle_id": "a465ffdb-4441-4cb9-8b45 -00cf79dfbc46", "action": "ADD"}'
 ```
 

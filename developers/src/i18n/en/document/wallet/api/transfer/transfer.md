@@ -1,6 +1,6 @@
 # Transfer
 
-### `POST /transfers` 
+### `POST /transfers`
 
 The HTTP request body:
 
@@ -13,7 +13,7 @@ The HTTP request body:
 | trace_id | UUID String | Optional, used to prevent duplicate payment |
 | memo | UUID String | Optional, maximally 200 characters |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46","memo":"hello","pin":"F39IsJmUaZW03VMV/01lHyY2RCoZ7/X764akX+EmthIc4uVsWAWQTM/IxX5Z9C1y","trace_id":"7c67e8e8-b142-488b-80a3-61d4d29c90bf"}'
 ```
 
@@ -42,4 +42,3 @@ $$XIN:curl$$ "https://api.mixin.one/transfers" -XPOST --data '{"amount":"10","as
 - If you need to process a large number of concurrent transactions and process hundreds or thousands of transfers per second, it is recommended to use multiple accounts to transfer and send transactions.
 - When a transfer error happens, pay attention to the "extra" field in the returned error message.
 - If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](../pin-verify) API to confirm.
-

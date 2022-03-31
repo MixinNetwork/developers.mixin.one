@@ -40,7 +40,6 @@ Content of the manifest.json
 - manifest.json
 - thumb.png
 
-
 ### Creation Guide
 
 - Stickers Padding

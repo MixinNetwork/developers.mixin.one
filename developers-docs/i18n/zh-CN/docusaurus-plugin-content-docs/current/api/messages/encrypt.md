@@ -16,8 +16,8 @@ import ReqMessages from "../../_partials/_resp.msgs-encrypted.md";
 
 批量创建加密消息接口
 
-
 :::info
+
 1. 最多创建 100 条消息
 2. 兼容不加密消息
 :::
@@ -53,7 +53,7 @@ import ReqMessages from "../../_partials/_resp.msgs-encrypted.md";
   version || session size || sender public key || encrypted message key for receiver session 1 || encrypted message key for receiver session 2 || nonce || encrypted message data
 ```
 
-1. version 1 byte and session size (2 bytes) in LittleEndian format, 
+1. version 1 byte and session size (2 bytes) in LittleEndian format,
 2. sender public key is bot's curve25519 public key
 3. encrypted message key for receiver session = session id || AESCBC(message key, shared secret key, iv)
 4. shared secret key = ECDH(sender private key, receiver session public key)

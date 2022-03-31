@@ -2,7 +2,7 @@
 
 Public transfer records, permission-less access.
 
-### `GET /network/snapshots?limit=10&offset=&asset=` 
+### `GET /network/snapshots?limit=10&offset=&asset=`
 
 | Parameter | Type | Description |
 | :----- | :----: | :---- |
@@ -11,7 +11,7 @@ Public transfer records, permission-less access.
 | asset | UUID String |Optional, transfer records of a certain asset. |
 | order | String | Optional, sort in ASC or DESC order, DESC by default. |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
 ```
 

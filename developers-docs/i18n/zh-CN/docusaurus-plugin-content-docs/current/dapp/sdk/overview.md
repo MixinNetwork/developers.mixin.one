@@ -19,7 +19,7 @@ Mixin provides REST APIs. Developers are free to use any language familiar to de
 
 - [Kotlin SDK](./kotlin)
 
-The above SDKs are maintained by the Mixin team or third-party active developers. For other versions of the SDK, please refer to https://github.com/awesome-mixin-network/mixin_network_sdk_resource
+The above SDKs are maintained by the Mixin team or third-party active developers. For other versions of the SDK, please refer to <https://github.com/awesome-mixin-network/mixin_network_sdk_resource>
 
 - Go
 

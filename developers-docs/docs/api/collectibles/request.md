@@ -69,7 +69,7 @@ Request body data of the request
 
 ## Operations
 
-### Initiate or participate in signing.
+### Initiate or participate in signing
 
 ```json
 // Generate collectible request.
@@ -83,7 +83,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/sign
 ```
 
-### Cancel my signature.
+### Cancel my signature
 
 ```json
 // Generate collectible request.
@@ -97,7 +97,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/cancel
 ```
 
-### Cancel collectibles.
+### Cancel collectibles
 
 ```json
 // Generate collectible request.

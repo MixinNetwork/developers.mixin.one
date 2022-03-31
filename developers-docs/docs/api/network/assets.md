@@ -72,8 +72,8 @@ This API only returns assets with icons or prices.
 
 <APIMetaPanel scope="" />
 
-<APIParams 
-  p-q="the keyword" 
+<APIParams
+  p-q="the keyword"
   p-q-required={true}
   p-kind="ALL, NORMAL, BARREN, ALL by default."
 />

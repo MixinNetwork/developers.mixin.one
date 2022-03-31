@@ -64,4 +64,3 @@ POST https://api.mixin.one/oauth/token
 :::tip
 建议开发者缓存 Access Token，然后调用API通过 Access Token 访问用户数据，判断用户是否已经授权。
 :::
-

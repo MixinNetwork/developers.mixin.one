@@ -27,4 +27,3 @@ title: SDK
   - [🥰 例子](https://github.com/an-lee/mixin_bot/tree/master/examples)
 - [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - Mixin Messenger 的 jsbridge 包装器，在您的 javascript 和 Mixin Messenger 的 Webview 之间架起一座桥梁，提供了一种从您的网页或 SPA 调用 Messenger 的便捷方式。
   - [🥰 例子](https://fox-one.github.io/mixin-sdk-jsbridge-bot/)，[📖 文档](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
-

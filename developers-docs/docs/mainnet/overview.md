@@ -4,9 +4,11 @@ sidebar_position: 1
 ---
 
 ### Overview
+
 Mixin is a free, lightning-fast, peer-to-peer, cross-chain transactional network for digital assets, which enables other blockchain distributed ledgers to gain high TPS, sub-second confirmations, zero transaction fee, enhanced privacy, and limitless extensibility.
 
 ### Info
+
 - __Launched__ October 2017
 - __Token Supply__ 1 million
 - __Consensus Algorithm__ PoS + Asynchronous BFT
@@ -18,6 +20,7 @@ Mixin is a free, lightning-fast, peer-to-peer, cross-chain transactional network
 - __Cross-Chain Technology__ Sidechain
 
 ### Features
+
 __Multilevel Security__
 
 Decentralized network based on punitive POS. Hardware-enhanced security with TEE. Supervision of tens of thousands of light nodes to prevent full nodes from doing evil.
@@ -71,4 +74,3 @@ Nodes charge a fee for each API call from DApps, so the income will not be affec
 - [Public Chain Support](./concepts/chain)
 
   Get to know which public chains Mixin supports.
-

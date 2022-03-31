@@ -1,6 +1,6 @@
 # Setting Initial PIN vs. Changing PIN
 
-### `POST /pin/update` 
+### `POST /pin/update`
 
 The HTTP request body:
 
@@ -9,7 +9,7 @@ The HTTP request body:
 | old_pin | String | Empty string or encrypted old PIN |
 | pin | String | Encrypted new PIN |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/pin/update" -X POST --data '{"old_pin":"","pin":"+mRm5rm9bkQztvpsaTyz1Rib0BEM0S1FKl/oYaMfbUJM3ZmrxJhafj/tjHi+3kwQ"}'
 ```
 

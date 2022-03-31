@@ -51,6 +51,7 @@ data:
 ```
 
 data:
+
 ```json
  $$XIN:video_data$$
 ```
@@ -72,11 +73,12 @@ data:
 ```json
  $$XIN:card$$
 ```
+
 data:
+
 ```json
  $$XIN:card_data$$
 ```
-
 
 Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
 
@@ -85,7 +87,9 @@ Card forwarding can be prohibited by setting the `shareable` field to false. Thi
 ```json
  $$XIN:file$$
 ```
+
 data:
+
 ```json
  $$XIN:file_data$$
 ```
@@ -97,6 +101,7 @@ data:
 ```
 
 data:
+
 ```json
  $$XIN:live_data$$
 ```
@@ -108,6 +113,7 @@ data:
 ```
 
 data:
+
 ```json
  $$XIN:location_data$$
 ```
@@ -125,6 +131,7 @@ data:
 ```
 
 data:
+
 ```json
  $$XIN:button_data$$
 ```
@@ -136,6 +143,7 @@ data:
 ```
 
 data:
+
 ```json
  $$XIN:transfer$$
 ```

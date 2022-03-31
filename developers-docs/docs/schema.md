@@ -7,7 +7,7 @@ A bot can invoke the native Mixin Messenger windows through the Schema to implem
 
 ## Sharing
 
-```
+```text
 mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
 ```
 
@@ -61,12 +61,11 @@ const data = '## Markdown Intro\n> Markdown is a light weight markup language.'
 window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-
 ## Payment
 
-### Invoke payment page.
+### Invoke payment page
 
-```
+```text
 mixin://pay?recipient=&asset=&amount=&memo=&trace=
 ```
 
@@ -80,43 +79,43 @@ mixin://pay?recipient=&asset=&amount=&memo=&trace=
 
 You can poll `GET /transfers/trace/:traceid` to see if there is a return value to determine whether the payment has been completed.
 
-### Invoke transfer page.
+### Invoke transfer page
 
-```
+```text
 mixin://transfer/:recipient_id
 ```
 
-### Transfer details interface.
+### Transfer details interface
 
-```
+```text
 mixin://snapshots?trace=:traceid
 ```
 
 or
 
-```
+```text
 mixin://snapshots/:snapshotid
 ```
 
-### Add withdrawal addresses.
+### Add withdrawal addresses
 
-```
+```text
 mixin://address?asset=&label=&destination=&tag=
 ```
 
 `tag` is an optional parameter, other parameters are required.
 
-### Delete withdrawal addresses.
+### Delete withdrawal addresses
 
-```
+```text
 mixin://address?asset=&action=delete&address=
 ```
 
 Assign address id to `address`.
 
-### Withdrawal.
+### Withdrawal
 
-```
+```text
 mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 ```
 
@@ -124,17 +123,16 @@ mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 
 ## Others
 
-### popups user profile.
+### popups user profile
 
-```
+```text
 mixin://users/:userid
 ```
 
-### popups bot profile.
+### popups bot profile
 
-```
+```text
 mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 ```
 
 `action` is an optional parameter, the bot pop-up window will open in the absence of it, passing `action=open` will open the bot homepage; `key1=value1&key2=value2&key3=value3...` Parameters of any name or type can be passed when opening the bot homepage to facilitate the development of features like invitation codes, visitor tracking, etc. This feature is supported in Mixin Messenger 0.29.0 or above.
-

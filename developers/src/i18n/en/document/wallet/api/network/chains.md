@@ -2,9 +2,9 @@
 
 The API returns the list of all public chains supported by Mixin, no permission needed.
 
-### `GET /network/chains` 
+### `GET /network/chains`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/chains"
 ```
 

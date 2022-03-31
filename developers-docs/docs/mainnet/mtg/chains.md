@@ -7,7 +7,6 @@ sidebar_position: 9
 
 Using the MTG solution to develop a PoS public chain can save the time and cost of modules such as consensus, network, and transactions. The new chain obtains Mixin mainnet security, high performance, free transfer within seconds, multi-chain support, and many other features while maintaining the independence of accounting. It is a parallel chain of Mixin.
 
-
 ### Info
 
 - **Consensus** PoS
@@ -55,18 +54,17 @@ Using the MTG solution to develop a PoS public chain can save the time and cost 
 
   2. Node bookkeeping: The nodes of the new public chain do bookkeeping independently, and can verify the transactions through Mixin transfer records. When a user transfers money, the node initiates a multi-signature transfer on the Mixin mainnet (such as CNB). The attached Memo information contains information such as both parties and the amount of the transfer. The format is as follows (it is recommended to use MessagePack + base64 to compress the data):
 
+      ```golang
+      memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
+        A:"3596ab64-a575-39ad-964e-43b37f44e8cb",      // Asset ID
+        S:"43d61dcd-e413-450d-80b8-101d5e903357",      // Sender
+        R:"43d61dcd-e413-450d-80b8-101d5e903357",      // Receiver
+        M:"10",                                        // Amount
+        T:"transfer"                                   // Operation Type: transfer、withdrawal、deposit etc.
+      }))
+      ```
 
-  ```golang
-  memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
-    A:"3596ab64-a575-39ad-964e-43b37f44e8cb",      // Asset ID
-    S:"43d61dcd-e413-450d-80b8-101d5e903357",      // Sender
-    R:"43d61dcd-e413-450d-80b8-101d5e903357",      // Receiver
-    M:"10",                                        // Amount
-    T:"transfer"                                   // Operation Type: transfer、withdrawal、deposit etc.
-  }))
-  ```
-
-  Each node needs to poll for multi-signature transactions related to itself. After receiving the above information, first verify the legality of the data (for example, whether it has over-spent), confirm that it is correct, and then sign it. Once the multi-signature takes effect, write the data to a block or database and update the user's balance.
+      Each node needs to poll for multi-signature transactions related to itself. After receiving the above information, first verify the legality of the data (for example, whether it has over-spent), confirm that it is correct, and then sign it. Once the multi-signature takes effect, write the data to a block or database and update the user's balance.
 
   3. Asset management: All assets of the new public chain are managed by the node multi-signature. When the user deposits to the account, the assets in the user's Mixin account are transferred to the multi-signature address right away, and the user's balance is updated at the same time. When the user withdraws cash from the multi-signed address to the target address, the user's balance will be updated after the withdrawal is completed. Make sure to remind users to correctly type in deposit and withdrawal addresses. If it is the first time, it is recommended only to withdraw small amounts to a new address.
 
@@ -86,6 +84,5 @@ Using the MTG solution to develop a PoS public chain can save the time and cost 
 
   Since all transfers have corresponding multi-signature transfer records on Mixin (cannot be tampered with), in theory, all data can be completely restored based on this transfer record, which can be compared and verified with the local data of the parachain. There is no need for additional DAG graphs or blockchain technology to correlate the data. The sequence of transactions has been recorded on Mixin, and the node data is relatively simple to store.
 
-
 ---
-MTG reference code: https://github.com/MixinNetwork/trusted-group . If you need tech support，Please search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.
+MTG reference code: <https://github.com/MixinNetwork/trusted-group> . If you need tech support，Please search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.

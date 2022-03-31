@@ -3,7 +3,7 @@
 ![TODO: English Version Img, Mixin Chinese Group](./super-group.png)
 
 - **Name** Mixin Chinese Group.
-- **Source code** https://github.com/MixinNetwork/supergroup.mixin.one.
+- **Source code** <https://github.com/MixinNetwork/supergroup.mixin.one>.
 - **Robot** 7000101317.
 - **Technology stack** front-end VUE, back-end Go.
 - **Introduction** Chinese group managed by Mixin core developers.

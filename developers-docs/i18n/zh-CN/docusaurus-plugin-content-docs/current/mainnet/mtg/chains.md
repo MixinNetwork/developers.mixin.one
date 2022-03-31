@@ -50,6 +50,7 @@ title: 公链
   1、用户管理：新公链的每个用户都需要对应在 Mixin 网络创建一个用户并与之关联，该账户主要用来接收用户的充值。因为注册到 Mixin 网络需要时间，可一次性创建 10 万个账户并注册到 Mixin 网络备用。
 
   2、节点记账：新公链的节点独立记账，可通过 Mixin 转账记录进行对账校验。当用户转账时，节点发起一个 Mixin 主网多重签名的转账（例如 CNB），附带 Memo 信息包含了转账的双方、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
     A:"3596ab64-a575-39ad-964e-43b37f44e8cb",      // 资产唯一编号
@@ -59,6 +60,7 @@ title: 公链
     T:"transfer"                                   // 操作类型：transfer、withdrawal、deposit 等
   }))
   ```
+
   每个节点都需要轮训与自己相关的多签交易，收到以上的信息后先校验数据的合法性（例如是不是多花了）确认无误然后进行签名，一旦多签生效将数据写入到区块或者数据库并更新用户的余额。
 
   3、资产管理：新公链所有的资产都由节点多签管理，当用户充值到账后，将用户的 Mixin 账户里的资产及时转进多签地址，同时更新用户的余额；当用户提现时从多签的地址往目标地址提现，提现成功后更新用户的余额。注意在产品上多提醒用户充值和提现地址一定不要填错，例如首次提现到一个新的地址建议小额提现。
@@ -81,4 +83,4 @@ title: 公链
 
 ---
 
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG 参考代码：<https://github.com/MixinNetwork/trusted-group> ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。

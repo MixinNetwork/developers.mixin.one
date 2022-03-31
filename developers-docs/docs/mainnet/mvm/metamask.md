@@ -28,10 +28,10 @@ Select 'Settings' from the drop-down menu, then find the 'Networks' menu.
 Click 'Add Networks',and input the information below in the corresponding inputs.
 
 - Network Name：Quorum Test
-- New RPC URL：https://quorum-testnet.mixin.zone/
+- New RPC URL：<https://quorum-testnet.mixin.zone/>
 - ChainID：83927
 - Symbol：RUM
-- Block Explorer URL：https://testnet.mvmscan.com/
+- Block Explorer URL：<https://testnet.mvmscan.com/>
 
 And then you can use the transfer function and deploy contract with web3jd.
 

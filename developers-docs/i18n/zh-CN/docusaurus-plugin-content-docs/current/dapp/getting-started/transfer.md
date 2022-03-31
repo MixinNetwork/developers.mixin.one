@@ -11,63 +11,62 @@ The regular transactions are created by [`/transfer`](/docs/api/transfer/transfe
 
 ```go
 type TransferInput struct {
-	AssetId     string
-	RecipientId string
-	Amount      number.Decimal
-	TraceId     string
-	Memo        string
-	OpponentKey string
+ AssetId     string
+ RecipientId string
+ Amount      number.Decimal
+ TraceId     string
+ Memo        string
+ OpponentKey string
 }
 
 func CreateTransfer(ctx context.Context, in *TransferInput, uid, sid, sessionKey, pin, pinToken string) error {
-	if in.Amount.Exhausted() {
-		return fmt.Errorf("Amount exhausted")
-	}
+ if in.Amount.Exhausted() {
+  return fmt.Errorf("Amount exhausted")
+ }
 
-	encryptedPIN, err := EncryptPIN(ctx, pin, pinToken, sid, sessionKey, uint64(time.Now().UnixNano()))
-	if err != nil {
-		return err
-	}
-	data, err := json.Marshal(map[string]interface{}{
-		"asset_id":    in.AssetId,
-		"opponent_id": in.RecipientId,
-		"amount":      in.Amount.Persist(),
-		"trace_id":    in.TraceId,
-		"memo":        in.Memo,
-		"pin":         encryptedPIN,
-	})
-	if err != nil {
-		return err
-	}
+ encryptedPIN, err := EncryptPIN(ctx, pin, pinToken, sid, sessionKey, uint64(time.Now().UnixNano()))
+ if err != nil {
+  return err
+ }
+ data, err := json.Marshal(map[string]interface{}{
+  "asset_id":    in.AssetId,
+  "opponent_id": in.RecipientId,
+  "amount":      in.Amount.Persist(),
+  "trace_id":    in.TraceId,
+  "memo":        in.Memo,
+  "pin":         encryptedPIN,
+ })
+ if err != nil {
+  return err
+ }
 
-	path := "/transfers"
-	token, err := SignAuthenticationToken(uid, sid, sessionKey, "POST", path, string(data))
-	if err != nil {
-		return err
-	}
-	body, err := Request(ctx, "POST", path, data, token)
-	if err != nil {
-		return err
-	}
+ path := "/transfers"
+ token, err := SignAuthenticationToken(uid, sid, sessionKey, "POST", path, string(data))
+ if err != nil {
+  return err
+ }
+ body, err := Request(ctx, "POST", path, data, token)
+ if err != nil {
+  return err
+ }
 
-	var resp struct {
-		Error Error `json:"error"`
-	}
-	err = json.Unmarshal(body, &resp)
-	if err != nil {
-		return err
-	}
-	if resp.Error.Code > 0 {
-		return resp.Error
-	}
-	return nil
+ var resp struct {
+  Error Error `json:"error"`
+ }
+ err = json.Unmarshal(body, &resp)
+ if err != nil {
+  return err
+ }
+ if resp.Error.Code > 0 {
+  return resp.Error
+ }
+ return nil
 }
 ```
 
 :::caution
 The field `trace_id` should be an UUID, but in most cases, using a random UUID may lead to a problem. Please read this article for more details: [Top 10 Most Common Mistakes That Mixin Developers Make](https://gitpress.io/@lyric/top-10-most-common-mistakes-that-mixin-developers-make).
 :::
-
 
 ## Handle Incoming Transactions
 

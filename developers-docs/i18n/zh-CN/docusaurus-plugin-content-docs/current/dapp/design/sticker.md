@@ -20,7 +20,7 @@ sidebar_position: 14
 
 manifest.json 格式
 
-```
+```json
 {
   "name": "piggy", // 不能为空，最大 64 字符
   "locale": "zh", // und 通用， en 英文， zh 中文

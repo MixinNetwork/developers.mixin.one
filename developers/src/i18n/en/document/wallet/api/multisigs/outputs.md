@@ -1,6 +1,6 @@
 # Reading
 
-### `GET /multisigs/outputs` 
+### `GET /multisigs/outputs`
 
 | Parameter | Type | Description |
 | :----- | :----: | :---- |
@@ -14,18 +14,18 @@ If an account participates in multiple multi-signatures, the data can be filtere
 
 ```golang
 func hashMembers(ids []string) string {
-	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
-	var in string
-	for _, id := range ids {
-		in = in + id
-	}
-	return crypto.NewHash([]byte(in)).String()
+ sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
+ var in string
+ for _, id := range ids {
+  in = in + id
+ }
+ return crypto.NewHash([]byte(in)).String()
 }
 ```
 
 A example:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one//multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
 ```
 

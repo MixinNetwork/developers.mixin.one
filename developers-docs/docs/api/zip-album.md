@@ -16,7 +16,6 @@ upload custom album, [album sticker format](/docs/dapp/design/sticker)
 
 ## POST /album
 
-
 <APIEndpoint url="/album" />
 
 <APIMetaPanel scope="Authorized" />

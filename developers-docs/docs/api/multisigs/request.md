@@ -132,7 +132,7 @@ Generate a multi-signature request.
 
 ## Operations
 
-### Initiate or participate in signing.
+### Initiate or participate in signing
 
 ```json
 // Generate multisig request.
@@ -146,7 +146,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/sign
 ```
 
-### Cancel my signature.
+### Cancel my signature
 
 ```json
 // Generate multisig request.
@@ -160,7 +160,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/cancel
 ```
 
-### Cancel multisigs.
+### Cancel multisigs
 
 ```json
 // Generate multisig request.

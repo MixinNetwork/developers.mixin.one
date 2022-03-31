@@ -7,11 +7,9 @@ Mixin Network 是一个开放的去中心化网络，它在内核（也称为“
 
 开发者可以根据业务需求和要求，选择合适的方式来开发自己的 dApp、链以及任何基于 Mixin Network 的应用。
 
-
 ## 深入内核
 
 如果你想用内核构建一些东西，或者通过你喜欢的一些修改创建一个 Mixin Network 的分支，你可以阅读 Mixin Mainnet 的[源代码](https://github.com/MixinNetwork/mixin)。
-
 
 有一些有用的教程：
 

@@ -30,12 +30,12 @@ Here is the golang code for generating the multi-signature member hash:
 
 ```go
 func hashMembers(ids []string) string {
-	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
-	var in string
-	for _, id := range ids {
-		in = in + id
-	}
-	return crypto.NewHash([]byte(in)).String()
+ sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
+ var in string
+ for _, id := range ids {
+  in = in + id
+ }
+ return crypto.NewHash([]byte(in)).String()
 }
 ```
 

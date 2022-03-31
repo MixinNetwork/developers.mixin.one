@@ -12,7 +12,6 @@ Under the premise of ensuring independence, all nodes always keep the same in th
 
 ## Sync utxo
 
-
 Mixin provides api [GET /multisigs/outputs](https://developers.mixin.one/document/wallet/api/multisigs/outputs) to get all utxo updates in a multi-signature Group, the utso list is sorted in ascending order by utxo's **updated_at**.Because every time the utxo state changes, **updated_at** will be updated, which means that the result of ```GET /multisigs/outputs``` is not idempotent. Even if the same ```offset``` parameter is used, calling this api at different times will result in different utxo lists.
 
 In order for the nodes in the multi-signature group to get the utxo list in the same order, the utxo can be divided into two groups ```[pending, commited]```. The utxo obtained through ```/multisigs/outputs```  is put into the ```pending```  group first, until the number of utxo returned by ```/multisigs/outputs```  is less than **limit** (it has been synchronized to the latest state), and then transfer all utxo in the ```pending```  group to the  ```commited```  group in ascending order of ```(created_at, transaction_hash, output_index)``` .

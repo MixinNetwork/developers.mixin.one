@@ -67,7 +67,6 @@ The bot can not automatically share messages. If you specify `conversation_id` a
   window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encode(data)))
   ```
 
-
 ### Payment
 
 - Payment page.
@@ -95,7 +94,7 @@ You can poll `GET /transfers/trace/:traceid` to see if there is a return value t
   tag is an optional parameter, other parameters are required.
 
 - Delete withdrawal addresses.
- 
+
   `mixin://address?asset=&action=delete&address=`
   
    Assign address id to `address`.
@@ -114,7 +113,7 @@ You can poll `GET /transfers/trace/:traceid` to see if there is a return value t
 
 - Bot popups.
 
-  `mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...` 
+  `mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...`
   
   `action` is an optional parameter, the bot pop-up window will open in the absence of it, passing `action=open` will open the bot homepage; `key1=value1&key2=value2&key3=value3...` Parameters of any name or type can be passed when opening the bot homepage to facilitate the development of features like invitation codes, visitor tracking, etc. This feature is supported in Mixin Messenger 0.29.0 or above.
 

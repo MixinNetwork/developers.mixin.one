@@ -43,7 +43,6 @@ It is strongly recommended to remind users: Please try a small amount for the fi
 
 Note that users need to add the withdrawal address before withdrawing, please refer to [API Document](../../api/withdrawal/withdrawal).
 
-
 - Withdrawal addresses
 
   Refer to [Document](../../api/withdrawal/address-add) to add the withdrawal addresses via `POST /addresses`, note that the  withdrawal addresses can only be [Add](../../api/withdrawal/address-add) and [Delete](../../api/withdrawal/address-delete), if you want to edit, you can delete it first and then add it.
@@ -62,13 +61,11 @@ Note that users need to add the withdrawal address before withdrawing, please re
 
    Internal deposit and withdrawal (deposit and withdrawal between Dapps of Mixin Network) are free and fast. For example, deposit or withdrawal from Mixin Messenger to Poolin Wallet, and from FOX.ONE to Mixin Messenger. Due to business considerations, some wallets will still charge a withdrawal fee.
 
-
 Note that the deposit and withdrawal addresses are not the same. When withdrawing, a user may withdraw from one or more on-chain asset addresses. For details, please refer to Mixin's technical white paper.
 
 :::caution
 It is strongly recommended to remind users: Please try a small amount for the first withdrawal.
 :::
-
 
 :::tip
 Please kindly remind the users that once the deposit fails, the assets cannot be retrieved. The Mixin team currently provides some subsidies for users’ deposit failures. If you need it, please contact Mixin customer service through 7000 in Mixin Messenger.

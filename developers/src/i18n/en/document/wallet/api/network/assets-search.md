@@ -2,9 +2,9 @@
 
 Search for popular assets by symbol or name, permission-less access.
 
-### `GET /network/assets/search/:q` 
+### `GET /network/assets/search/:q`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/assets/search/eos"
 ```
 

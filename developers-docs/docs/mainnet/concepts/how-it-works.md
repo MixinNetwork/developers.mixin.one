@@ -14,7 +14,7 @@ Mixin is a free, lightning-fast peer-to-peer cross-chain trading network for dig
 Mixin's distributed ledger is an open and transparent decentralized ledger, which is collectively booked and maintained by 35 mainnet nodes. All deposits, withdrawals, and transfers are recorded on this decentralized distributed ledger, and each record contains asset type (such as Bitcoin, Ethereum, etc.), transfer amount, and other information.
 
 - Nodes
- 
+
   Each mainnet node needs to pledge 11,000 XIN (2% of the circulation) to participate in bookkeeping. If it is identified as an attacker, e.g. intentionally broadcasting obvious double-spending transactions, the collateral will be confiscated into the mining pool.
 
   Mixin utilizes Intel SGX as the implementation of TEE to further improve security. All mainnet nodes must run in a trusted execution environment to ensure that the "running code" of the mainnet node is indeed "the code it claims to be running". Nobody can change the running code in the trusted execution environment without being noticed.
@@ -26,7 +26,7 @@ Mixin's distributed ledger is an open and transparent decentralized ledger, whic
 - DAG
 
   Mixin uses DAG as the underlying data structure model. Unlike other public DAG chains (such as IOTA, Bytaball, etc.), Mixin does not have a central authority node, and data does not need to wait for the final confirmation from the central authority node. By limiting the time of referencing data and other mechanisms, asynchronous and efficient operations can be achieved, and the correctness of consensus results is ensured through Asynchronous Byzantine Algorithm. To put it simply, each node of Mixin is a chain with complete data, even though the order of the data may be different, the same result can be derived in the end.
- 
+
 - Privacy
 
   UTXO transaction privacy is strengthened through CryptoNote technology. Only both parties know the transaction, and mainnet nodes cannot know the parties to the transaction, and it is impossible to get the identities of parties to the transaction based on the transaction itself.
@@ -44,7 +44,6 @@ Mixin's distributed ledger is an open and transparent decentralized ledger, whic
 - Mainnet Cold Wallet
 
   When the assets managed by the Domain gateway significantly exceed the value of its collateral, the assets of the Domain will be forcibly transferred to the cold wallet address jointly managed by 35 nodes.
-
 
 ### Transaction Bookkeeping
 
@@ -88,6 +87,6 @@ Once the assets are in the Mixin network, you can immediately enjoy the experien
 
 - Where is the Mixin blockchain browser?
 
-  Blockchair, third party, https://blockchair.com/mixin
+  Blockchair, third party, <https://blockchair.com/mixin>
 
-  Mixin core team, https://mixin.one/snapshots
+  Mixin core team, <https://mixin.one/snapshots>

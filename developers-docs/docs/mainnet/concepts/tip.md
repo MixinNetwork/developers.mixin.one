@@ -7,7 +7,6 @@ sidebar_position: 4
 
 Throttled Identity Protocol (TIP) is a decentralized key derivation protocol, which allows people to obtain a strong secret key through a very simple passphrase, e.g. a six-digit PIN.
 
-
 ### Mission and Overview
 
 Along with the rising of Bitcoin and other cryptocurrencies, the saying "not your keys, not your coins" has become well-known. That's true, very true and definitely true, that's the right and freedom Bitcoin has given people. Whoever can access the key can move the money, and nobody without the key is able to do that.
@@ -56,7 +55,6 @@ For details of the throttle restrictions, please see the keeper directory.
 
 The mission of TIP network is to let people truly own their coins by only remembering a 6-digit PIN, so they should not have the duty to store identity, ephemeral or nonce. They is capable of achieving this goal through the threshold identity generation process with the help from the trusted account manager.
 
-
 1. User authenticates themself with trusted account manager through email or phone verification code, and the manager responds the identity seed Si.
 2. User chooses a very slow hash function Hs, e.g. argon2id, and generates the identity I = Hs(PIN || Si).
 3. User generates a random ephemeral seed Se, and stores the seed on its device securely.
@@ -98,4 +96,4 @@ The core team highly values the contributions and provides at most $100K bounty 
 
 ### Code and License
 
-The TIP implementation https://github.com/MixinNetwork/tip is released under Apache 2.0 license.
+The TIP implementation <https://github.com/MixinNetwork/tip> is released under Apache 2.0 license.

@@ -2,9 +2,9 @@
 
 Public transfer details, permission-less access.
 
-### `GET /network/snapshots/:id` 
+### `GET /network/snapshots/:id`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
 ```
 

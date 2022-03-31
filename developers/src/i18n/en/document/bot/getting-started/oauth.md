@@ -33,7 +33,7 @@ When the bot detects that it is not authorized by a user, it should jump to `htt
 
 After successful authorization, the page will automatically jump to the bot's verification URL, the callback URL will be accompanied by the authorization code and return_to parameters, and the developer will then request a token based on the authorization code:
 
-```
+```shell
 POST https://api.mixin.one/oauth/token
 {
     "client_id": "unique bot identifier",
@@ -53,7 +53,6 @@ It is recommended that developers cache the access token and subsequently call t
 ### Revoking Authorization
 
 Developers can find the bot and revoke authorization in Mixin Messenger Settings, Privacy and Security, Authorization. Note that revoking authorization will also clear the cached information of the current bot on the client-side, such as cookies.
-
 
 ### Next Step
 

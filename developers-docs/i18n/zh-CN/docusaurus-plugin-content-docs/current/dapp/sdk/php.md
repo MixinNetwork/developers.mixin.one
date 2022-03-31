@@ -9,8 +9,8 @@ The SDK is based on Composer，it requires PHP version 7.0 or higher to work.
 
 ### Installation
 
-```
-$ composer require exinone/mixin-sdk-php -vvv
+```shell
+composer require exinone/mixin-sdk-php -vvv
 ```
 
 ### Quick Start

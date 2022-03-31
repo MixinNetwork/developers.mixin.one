@@ -1,10 +1,10 @@
 # Getting Snapshot by ID
 
-### `GET /snapshots/:id` 
+### `GET /snapshots/:id`
 
 Obtain a transfer record by ID, the `SNAPSHOTS:READ` permission is required.
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd83"
 ```
 
@@ -30,4 +30,3 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 - **rebate** refund.
 
 **If the transfer does not belong the current user, 403 will be returned, and 404 if the record is not found**
-

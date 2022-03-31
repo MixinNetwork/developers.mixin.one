@@ -27,19 +27,19 @@ After create the Dapp，you should transfer 10 CNB for transaction fee
 
 How to setup Metamask [guide](/docs/mainnet/mvm/metamask)
 
-## 3. How to use Remix 
+## 3. How to use Remix
 
 How to deploy a contract with Remix [gide](/docs/mainnet/mvm/remix)
 
 ## 4. Pubish a MVM APP
 
-Clone Trusted Group to local, url https://github.com/MixinNetwork/trusted-group, build ./mvm
+Clone Trusted Group to local, url <https://github.com/MixinNetwork/trusted-group>, build ./mvm
 
 How to install golang [guide](https://go.dev/doc/install)
 
 Copy ./config/config.example.toml to config/config.toml
 
-```
+```shell
 mvm publish -m config/config.toml -k keystore.json \
   -a 0x2A4630550Ad909B90aAcD82b5f65E33afFA04323 \
   -e 0x1938e2332d7963eff041af4f67586572899c7c7d279c07ac29feb745f8d9b6d6
@@ -57,7 +57,7 @@ Notice: an app can only deploy one contract address, and the contract cannot be 
 
 Generate a QR code for user to payment, in order to invoke contract.
 
-```
+```shell
 mvm invoke -m config/config.toml -k keystore.json \
   -p b9126674-b07d-49b6-bf4f-48d965b2242b
 ```

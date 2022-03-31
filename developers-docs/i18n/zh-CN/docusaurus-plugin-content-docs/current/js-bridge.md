@@ -79,10 +79,9 @@ playlist: function (audios) {
 Mixin Messenger 0.30.0 或以上版本支持此方法。
 :::
 
-
 ## close()
 
-关闭当前机器人窗口： 
+关闭当前机器人窗口：
 
 ```js
 close: function () {

@@ -2,10 +2,9 @@
 
 Mixin Network is a second layer for 32 public chains such as Bitcoin, Ethereum, and Monero. It focuses on digital asset security, privacy, and extremely fast transfers. It can be simply understood as the lightning network of all popular public chains.
 
-
 ### Public Chain Browser
 
-Visit https://mixin.one/network/chains to view the current public chain data block synchronization, transaction fees, and other information.
+Visit <https://mixin.one/network/chains> to view the current public chain data block synchronization, transaction fees, and other information.
 
 ![TODO: English Version Img. Public Chain Browser](https://mixin-assets.zeromesh.net/mixin/attachments/1594295020-60035455dce2aea21e02d7f4a42ea1a2b230413083f28bc4608a7e10dc762823)
 
@@ -13,7 +12,6 @@ Visit https://mixin.one/network/chains to view the current public chain data blo
 - Withdrawal fees are dynamic and automatically adjusted according to network traffic conditions.
 
 ### Public Chain Information
-
 
 | Name          | Code    | Chain Id                       | Deposit Address                                             |
 |:-------------:|:-----:|:------------------------------------:|:-------------------------------------------------:|

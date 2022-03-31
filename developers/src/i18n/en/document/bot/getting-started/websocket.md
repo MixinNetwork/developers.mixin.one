@@ -4,7 +4,7 @@
 
 Goto [dashboard](/dashboard), click the newly created bot, switch to "Key" tab, click "Generate New Session" to get the Keystore file:
 
-```
+```json
 {
   "pin": "123456",
   "client_id": "82d20bc7-9a97-4a69-bcd0-4da502374f6c",
@@ -169,7 +169,6 @@ For details, please refer to the [Sending Status In Batches](../api/messages/ack
 
   [mixin-sdk-php](https://github.com/ExinOne/mixin-sdk-php) is provided by the ExinOne team. If you encounter any problems, you can search for 26930 in Mixin Messenger for help.
 
-
 ### Precautions
 
 - When the user adds the current bot as a friend, the system will automatically send a "Hello" message to the bot.
@@ -181,7 +180,6 @@ For details, please refer to the [Sending Status In Batches](../api/messages/ack
 - Automatic reconnections are highly recommended for Websocket. In the case of 401, the WebSocket connection should be stopped. Note that the time should not exceed 5 minutes, which will also trigger a 401 error.
 
 - The bot’s message quota is 100,000 messages per minute.
-
 
 ### Next Step
 

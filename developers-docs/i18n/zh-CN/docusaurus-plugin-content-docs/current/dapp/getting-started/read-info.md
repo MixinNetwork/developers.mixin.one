@@ -56,7 +56,7 @@ import RespAssets from '../../_partials/_resp.assets.md'
 :::info
 `asset_id` 字段是整个 Mixin 网络中每个资产的唯一 ID。
 
-可以从 https://mixin.one/snapshots 通过搜索`btc`等资产代码获取。 您也可以将资产存入 Mixin Messenger 钱包并与机器人 “7000103061” 对话，然后搜索并复制资产信息。
+可以从 <https://mixin.one/snapshots> 通过搜索`btc`等资产代码获取。 您也可以将资产存入 Mixin Messenger 钱包并与机器人 “7000103061” 对话，然后搜索并复制资产信息。
 :::
 
 ## 读取应用程序的资产
@@ -99,4 +99,3 @@ func main() {
   }
 }
 ```
-

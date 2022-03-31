@@ -4,7 +4,7 @@ When reading the transfer details, if it is not the transfer record of the curre
 
 ### Reading Snapshot By Id
 
-```
+```text
 GET /snapshots/:id
 ```
 
@@ -39,13 +39,13 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots/8f5b244e-cf86-4374-8eaa-c551fd70cd
 
 ### Reading Snapshot by Trace
 
-```
+```text
 GET /transfers/trace/:id
 ```
 
 This API is only for reading transfers, not deposits or withdrawals.
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
 ```
 

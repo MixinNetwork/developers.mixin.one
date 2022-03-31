@@ -33,6 +33,7 @@ title: 去中心化链上交易所
   1、开发环境：使用 Go、Java、PHP 等成熟的语言，使用 Spanner、MySQL、PostgreSQL、MongoDB 等成熟的数据库系统。
 
   2、撮合引擎：通过转账来实现挂单、吃单和撤单，有效的隔离了用户资产同时交易上链提高透明度。节点需要不间断的同步相关的 UTXO 交易，根据交易的 `Memo` 分别处理抵押贷款和借款等操作，所有操作都需要校验并且数据获得足够的签名才能记录到数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
     T: "L",                                    // 现价单
@@ -60,4 +61,4 @@ title: 去中心化链上交易所
 
 ---
 
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG 参考代码：<https://github.com/MixinNetwork/trusted-group> ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
