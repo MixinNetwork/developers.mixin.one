@@ -89,7 +89,7 @@
   },
   "sidebar.api.category.Collectibles": {
     "message": "NFT",
-    "description": "The label for category Circles in sidebar api"
+    "description": "The label for category Collectible in sidebar api"
   },
   "sidebar.docs.category.Resources": {
     "message": "资源",

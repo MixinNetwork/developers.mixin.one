@@ -29,7 +29,7 @@ import {
 `}</APIPayload>
 
 :::info
-`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/main/common)
+`raw` 是按照主网要求生成的一个交易的 hash 值。可以参考 Go 跟 JS 的代码  [code](https://github.com/MixinNetwork/multisig-bot/tree/main/common)
 :::
 
 <APIRequest
@@ -83,7 +83,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/sign
 ```
 
-### 未签名，取消签名
+### 未签名时，取消签名请求
 
 ```json
 // Generate collectible request.
@@ -97,7 +97,7 @@ POST /collectibles/requests
 POST /collectibles/requests/:id/cancel
 ```
 
-### 签名后取消，需要未达到签名数
+### 签名后取消签名，需要未达到签名数
 
 ```json
 // Generate collectible request.

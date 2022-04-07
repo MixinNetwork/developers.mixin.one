@@ -19,13 +19,13 @@ import {
 
 <APIParams
   p-state="可选, UTXO 状态, 例如 unspent, signed, and spent."
-  p-offset="可选, 开始时间, RFC3339Nano 格式, e.g. `2020-12-12T12:12:12.999999999Z`."
-  p-limit="可选, 分布条数限制, 默认 500 , 最大 500"
+  p-offset="可选, 开始时间, RFC3339Nano 格式, 例如 `2020-12-12T12:12:12.999999999Z`."
+  p-limit="可选, 分页条数限制, 默认 500 , 最大 500"
   p-members="需要跟 threshold 一起使用, 多签成员的 hash 值"
   p-threshold="需要跟多签成员的 hash 值一起使用, 比如 2/3, threshold 是 2"
 />
 
-以下是生成成员 hash 的 Golang 示例。
+以下是生成多签成员 hash 的 Golang 示例。
 
 ```go
 func hashMembers(ids []string) string {
@@ -62,7 +62,7 @@ func hashMembers(ids []string) string {
 
 ## GET /collectibles/collections/UUID
 
-获取单个 NFT 的集合信息
+获取整个 NFT 的集合信息
 
 <APIEndpoint url="/collectibles/collections/UUID" />
 
