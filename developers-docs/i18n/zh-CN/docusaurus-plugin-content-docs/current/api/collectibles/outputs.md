@@ -1,5 +1,5 @@
 ---
-title: Read Collectibles Outputs
+title: 获取 NFT Outputs
 ---
 
 import {
@@ -15,19 +15,17 @@ import {
 
 <APIEndpoint url="/collectibles/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
 
-<APIMetaPanel scope="Authorized" />
+<APIMetaPanel scope="Authorized" scopeNote=""/>
 
 <APIParams
-  p-state="Optional, the states of UTXO, e.g. unspent, signed, and spent."
-  p-offset="Optional, pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
-  p-limit="Optional, pagination per page data limit, 500 by default, maximally 500"
-  p-members="used together with threshold to participate in the hash of multi-signature members."
-  p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
+  p-state="可选, UTXO 状态, 例如 unspent, signed, and spent."
+  p-offset="可选, 开始时间, RFC3339Nano 格式, 例如 `2020-12-12T12:12:12.999999999Z`."
+  p-limit="可选, 分页条数限制, 默认 500 , 最大 500"
+  p-members="需要跟 threshold 一起使用, 多签成员的 hash 值"
+  p-threshold="需要跟多签成员的 hash 值一起使用, 比如 2/3, threshold 是 2"
 />
 
-If an account participates in collectibles multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
-
-Here is the golang code for generating the multi-signature member hash:
+以下是生成多签成员 hash 的 Golang 示例。
 
 ```go
 func hashMembers(ids []string) string {
@@ -47,11 +45,11 @@ func hashMembers(ids []string) string {
 
 <APIResponse name="collectible_output" />
 
-In which, `signed_tx` and `signed_by` have values when the state is signed. `signed_by` represents the transaction hash, and signed_tx is the complete transaction content, `signed_by` can help sort the corresponding waiting list of transactions.
+只有 `state` 是 `signed` 的时候, `signed_tx` 跟 `signed_by` 才会有值。
 
 ## GET /collectibles/tokens/UUID
 
-Get the information of the collectible
+获取单个 NFT 的信息
 
 <APIEndpoint url="/collectibles/tokens/UUID" />
 
@@ -64,7 +62,7 @@ Get the information of the collectible
 
 ## GET /collectibles/collections/UUID
 
-Get the information of the collectible collection.
+获取整个 NFT 的集合信息
 
 <APIEndpoint url="/collectibles/collections/UUID" />
 

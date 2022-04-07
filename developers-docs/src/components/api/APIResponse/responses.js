@@ -725,4 +725,15 @@ export default {
       "created_at": "2018-05-03T10:08:34.859542588Z",
     }
   }`,
+
+  collectible_collection: `{
+    "data": {
+      "type": "collection",
+      "collection_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "name": "",
+      "description": "",
+      "icon_url": "",
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+    }
+  }`,
 }
