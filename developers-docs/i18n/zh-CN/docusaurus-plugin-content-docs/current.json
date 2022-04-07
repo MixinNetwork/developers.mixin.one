@@ -87,6 +87,10 @@
     "message": "圈子",
     "description": "The label for category Circles in sidebar api"
   },
+  "sidebar.api.category.Collectibles": {
+    "message": "NFT",
+    "description": "The label for category Circles in sidebar api"
+  },
   "sidebar.docs.category.Resources": {
     "message": "资源",
     "description": "The label for category Resources in sidebar docs"
