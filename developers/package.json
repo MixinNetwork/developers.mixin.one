@@ -10,7 +10,7 @@
     "axios": "^0.24.0",
     "bignumber.js": "^9.0.1",
     "core-js": "^3.19.2",
-    "element-ui": "^2.15.6",
+    "element-ui": "^2.15.8",
     "github-markdown-css": "^5.1.0",
     "highlight.js": "^11.3.1",
     "int64-buffer": "^1.0.1",
