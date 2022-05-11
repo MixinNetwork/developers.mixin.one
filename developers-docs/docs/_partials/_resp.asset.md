@@ -16,8 +16,8 @@
     "tag":          "",
     "price_btc":    "0",
     "price_usd":    "0",
-    "change_btc":   "1",
-    "change_usd":   "2",
+    "change_btc":   "1", // change percent compare to 24 hours before
+    "change_usd":   "2", // change percent compare to 24 hours before
     "asset_key":    "",
     "mixin_id":     "b6b8d99b7cecf810980aaeef17a48f82ed573f2552517d4932d195181bc6ba11",
     "reserve": "",
