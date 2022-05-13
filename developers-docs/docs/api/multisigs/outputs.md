@@ -41,7 +41,7 @@ func hashMembers(ids []string) string {
 
 <APIRequest
   title="Get Multisig Outputs"
-  url="/multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
+  url="/multisigs/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
 />
 
 ```json title="Response"
