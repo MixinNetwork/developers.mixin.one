@@ -16,7 +16,7 @@ Artists can submit sticker works to Mixin Messenger.
 - Sticker banner: aspect ratio 16:10, recommended 960 x 600 pixels.
 - Label icon: 96 x 96 pixels recommended.
 - File size: minimum 1 kb, maximum 800kb.
-- Naming convention: The sticker file must be named with numbers, such as "01.happy.png", "02.exciting.png", "30.sobbing.png"; the banner file name must be "banner.png"; the label must be "thumb.png".
+- Naming convention: The sticker file must be named with numbers, such as "01.happy.png", "02.exciting.png", "30.sobbing.png"; the banner file name must be "banner.png"; the thumb must be "thumb.png".
 - manifest.json file, which contains the name, locale and description of the album.
 - Only `is_verified` album will be list sticker album store, you can contact 7000, if you want to list in album store., if you want to list in album store., if you want to list in album store., if you want to list in album store.
 

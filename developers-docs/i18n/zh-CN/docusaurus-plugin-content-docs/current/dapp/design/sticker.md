@@ -14,7 +14,7 @@ sidebar_position: 14
 - 贴纸横幅：长宽比 16 : 10，推荐 960 x 600 像素
 - 标签图标：推荐 96 x 96 像素
 - 文件大小：最小 1 kb，最大 800kb
-- 命名规范：贴纸文件名必须按照数字编号进行命名，例如 "01.happy.png"、"02.exciting.png"、"30.sobbing.png", 前面是贴纸的显示顺序，后面是名字；横幅文件名必须是 "banner.png"；标签必须是 "thumb.png"。
+- 命名规范：贴纸文件名必须按照数字编号进行命名，例如 "01.happy.png"、"02.exciting.png"、"30.sobbing.png", 前面是贴纸的显示顺序，后面是名字；横幅文件名必须是 "banner.png"；缩略图必须是 "thumb.png"。
 - manifest.json 文件, 如下
 - 注意，只有 `is_verified` 的表情，出出现在商店里，如果需要可以跟管理员联系。
 
