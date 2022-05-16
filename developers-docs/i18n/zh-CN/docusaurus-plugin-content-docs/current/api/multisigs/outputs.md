@@ -17,12 +17,12 @@ import {
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
+  p-members="参与多签的人的哈希，参考示例 hashMembers"
+  p-threshold="integer, 跟 members 一起用, 多签的 threshold, 例如 2/3, threshold = 2"
   p-state="可选项，UTXO 的状态, 包含: unspent, signed, spent."
   p-offset="可选项，分页起始时间, RFC3339Nano format, 例如 `2020-12-12T12:12:12.999999999Z`."
   p-limit="可选项，分页返回的数量, 默认 500 条, 最多 500 条"
   p-order="可选项, 'created' || 'updated', 默认是 updated_at, 只有 asc"
-  p-members="参与多签的人的哈希，参考示例 hashMembers"
-  p-threshold="integer, 跟 members 一起用, 多签的 threshold, 例如 2/3, threshold = 2"
 />
 
 用户只能拿到自己所有多签的 outputs, 请注意，一个人的话 members 是 1/1 的签名，threshold 是 1.

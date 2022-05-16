@@ -17,12 +17,12 @@ import {
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
+  p-members="used together with threshold to participate in the hash of multi-signature members."
+  p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
   p-state="Optional, the states of UTXO, e.g. unspent, signed, and spent."
   p-offset="Optional, pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
   p-limit="Optional, pagination per page data limit, 500 by default, maximally 500"
   p-order="Optional, 'created' || 'updated', updated_at by default, asc only"
-  p-members="used together with threshold to participate in the hash of multi-signature members."
-  p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
 />
 
 If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
