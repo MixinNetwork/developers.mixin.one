@@ -12,7 +12,7 @@ import {
 
 ## GET /multisigs/outputs
 
-<APIEndpoint url="/multisigs/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
+<APIEndpoint url="/multisigs/outputs?members=:members&threshold=:threshold&state=:state&offset=:offset&limit=:limit&order=created" />
 
 <APIMetaPanel scope="Authorized" />
 
@@ -20,6 +20,7 @@ import {
   p-state="Optional, the states of UTXO, e.g. unspent, signed, and spent."
   p-offset="Optional, pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
   p-limit="Optional, pagination per page data limit, 500 by default, maximally 500"
+  p-order="Optional, 'created' || 'updated', updated_at by default, asc only"
   p-members="used together with threshold to participate in the hash of multi-signature members."
   p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
 />
@@ -41,7 +42,7 @@ func hashMembers(ids []string) string {
 
 <APIRequest
   title="Get Multisig Outputs"
-  url="/multisigs/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
+  url="/multisigs/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent&order=created"
 />
 
 ```json title="Response"

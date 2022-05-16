@@ -1,5 +1,5 @@
 ---
-title: Read Signature Outputs
+title: 读取多签的 Outputs
 ---
 
 import {
@@ -12,21 +12,22 @@ import {
 
 ## GET /multisigs/outputs
 
-<APIEndpoint url="/multisigs/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
+<APIEndpoint url="/multisigs/outputs?members=:members&threshold=:threshold&state=:state&offset=:offset&limit=:limit&order=created" />
 
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-state="the states of UTXO, e.g. unspent, signed, and spent."
-  p-offset="pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
-  p-limit="pagination per page data limit, 500 by default, maximally 500"
-  p-members="used together with threshold to participate in the hash of multi-signature members."
-  p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
+  p-state="可选项，UTXO 的状态, 包含: unspent, signed, spent."
+  p-offset="可选项，分页起始时间, RFC3339Nano format, 例如 `2020-12-12T12:12:12.999999999Z`."
+  p-limit="可选项，分页返回的数量, 默认 500 条, 最多 500 条"
+  p-order="可选项, 'created' || 'updated', 默认是 updated_at, 只有 asc"
+  p-members="参与多签的人的哈希，参考示例 hashMembers"
+  p-threshold="integer, 跟 members 一起用, 多签的 threshold, 例如 2/3, threshold = 2"
 />
 
-If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
+用户只能拿到自己所有多签的 outputs, 请注意，一个人的话 members 是 1/1 的签名，threshold 是 1.
 
-Here is the golang code for generating the multi-signature member hash:
+下面是 member hash 的 golang 代码示例:
 
 ```go
 func hashMembers(ids []string) string {
@@ -41,7 +42,7 @@ func hashMembers(ids []string) string {
 
 <APIRequest
   title="Get Multisig Outputs"
-  url="/multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
+  url="/multisigs/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent&order=created"
 />
 
 ```json title="Response"
@@ -72,4 +73,4 @@ func hashMembers(ids []string) string {
 }
 ```
 
-In which, `signed_tx` and `signed_by` have values when the state is signed. `signed_by` represents the transaction hash, and signed_tx is the complete transaction content, `signed_by` can help sort the corresponding waiting list of transactions.
+如果 `signed_tx` 跟 `signed_by` 有值 state 是 signed. `signed_by` 是谁完成签名, signed_tx 是交易的签名内容
