@@ -25,7 +25,7 @@ Create a new withdrawal address.
   "asset_id":     "the asset's asset_id",
   "label":        "the label for the address, Min: 1, Max: 64",
   "destination":  "the withdrawal address, Max 128",
-  "tag":          "the withdrawal memo",
+  "tag":          "Optional, the withdrawal memo",
   "pin":          "encrypted PIN",
 }
 `}</APIPayload>
