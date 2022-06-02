@@ -99,7 +99,7 @@ The request body of setting admin privileges:
 [{ "user_id": "", "role": "ADMIN" }]
 ```
 
-The request body of setting admin privileges:
+The request body of remove admin privileges:
 
 ```json
 [{ "user_id": "", "role": "" }]
