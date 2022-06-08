@@ -8,10 +8,10 @@ A bot can invoke the native Mixin Messenger windows through the Schema to implem
 ## Sharing
 
 ```text
-mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
+mixin://send?category=CATEGORY&conversation=CONV_ID&data=DATA
 ```
 
-The bot can not automatically share messages. If you specify `conversation_id` and it is the `conversation_id` of the user's current session, the confirmation box shown above will appear, the message will be sent after the user clicks the confirmation; if the `conversation_id` is not specified or is not the `conversation_id` of the current session, an interface where the user chooses which session to share with will show up.
+The bot can not automatically share messages. If you specify `conversation` and it is the `conversation` of the user's current session, the confirmation box shown above will appear, the message will be sent after the user clicks the confirmation; if the `conversation` is not specified or is not the `conversation` of the current session, an interface where the user chooses which session to share with will show up.
 
 ### Share text
 
