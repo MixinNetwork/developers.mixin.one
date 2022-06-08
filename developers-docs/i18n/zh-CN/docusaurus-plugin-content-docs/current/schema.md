@@ -7,10 +7,10 @@ title: Schema 唤起
 ## 分享
 
 ```text
-mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
+mixin://send?category=CATEGORY&conversation=CONV_ID&data=DATA
 ```
 
-机器人无法自动共享消息。 如果你指定了 `conversation_id` 并且是用户当前会话的`conversation_id`，会出现一个确认框，用户点击确认后会发送消息；如果没有指定`conversation_id` 或者不是当前会话的 `conversation_id`，则会出现用户选择与哪个会话共享的界面。
+机器人无法自动共享消息。 如果你指定了 `conversation` 并且是用户当前会话的`conversation`，会出现一个确认框，用户点击确认后会发送消息；如果没有指定`conversation` 或者不是当前会话的 `conversation`，则会出现用户选择与哪个会话共享的界面。
 
 ### 分享文本
 
