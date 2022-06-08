@@ -258,7 +258,7 @@ module.exports = {
             'api/collectibles/outputs',
           ]
         },
-	"api/codes",
+        "api/codes",
         "api/shared-bots",
         "api/zip-album",
         "api/session-secret-migration",

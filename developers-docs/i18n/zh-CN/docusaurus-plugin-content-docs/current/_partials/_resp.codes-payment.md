@@ -1,0 +1,20 @@
+```json title="Response (Payment)"
+{
+  "data":{
+    {
+      "type":"payment",
+      "trace_id":"7a9aac77-528d-470f-9e6a-ce6ff0826b2b",
+      "asset_id":"965e5c6e-434c-3fa9-b780-c50f43cd955c",
+      "amount":"0.00000002",
+      "threshold":3,
+      "receivers":[
+        "a15e0b6d-76ed-4443-b83f-ade9eca2681a","b9126674-b07d-49b6-bf4f-48d965b2242b","15141fe4-1cfd-40f8-9819-71e453054639","3e72ca0c-1bab-49ad-aa0a-4d8471d375e7"
+        ],
+      "memo":"AAGGxYdl7IE8pKNbh181oK19AAAAAAA5AFSFbhSxW7QF4tfjywX2ansSCryLYxRjqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "created_at":"2022-06-06T12:40:53.857926164Z",
+      "status":"pending",
+      "code_id":"9ce76edb-6fc9-4a4e-b01c-567cb7ae0aa2"
+    }
+  }
+}
+```
