@@ -13,12 +13,13 @@ gem install mixin_bot
 
 Or, add the following to gemfile:
 
-```ruby
+```shell
 gem 'mixin_bot'
 ```
-and 
 
-```
+and
+
+```shell
 bundle install
 ```
 

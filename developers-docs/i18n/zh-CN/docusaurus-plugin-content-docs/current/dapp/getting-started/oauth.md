@@ -9,7 +9,7 @@ title: OAuth 授权
 当bot检测到自己没有被用户授权时，它应该跳转到以下url向用户请求授权：
 
 ```
-https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
+https://mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
 ```
 
 其中参数为：
@@ -17,7 +17,7 @@ https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=
 **必需参数**
 
 - **client_id** - 应用的client_id，可以从上一篇提到的keystore中获取。
-- **scope** - 请求的权限，请参阅[本文档](/api/oauth/scope/) 了解更多详细信息。 它应该至少包含`PROFILE:READ` 权限。
+- **scope** - 请求的权限，请参阅[本文档](/docs/api/oauth/scope/) 了解更多详细信息。 它应该至少包含`PROFILE:READ` 权限。
 - **response_type** - 使用 `code` 返回授权码
 
 **可选参数**
@@ -64,4 +64,3 @@ POST https://api.mixin.one/oauth/token
 :::tip
 建议开发者缓存 Access Token，然后调用API通过 Access Token 访问用户数据，判断用户是否已经授权。
 :::
-

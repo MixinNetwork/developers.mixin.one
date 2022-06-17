@@ -36,6 +36,7 @@ sidebar_position: 13
 - 开发 Dapp
 
   核心开发团队使用 Go、Java、PHP 等成熟的语言开发稳定币自动化借贷、赎回、用户、清算等核心功能。Dapp 数据独立记录在节点的数据库上，每个节点都需要不间断的同步相关的 UTXO 交易，需要签名的就校验签名，已经生效的签名写入数据库。所有操作都需要发起一个 Mixin 主网多重签名，附带 Memo 信息包含发起人、操作类型、金额等信息，格式参考如下（推荐用 MessagePack + base64 压缩数据）：
+
   ```golang
   memo = base64.StdEncoding.EncodeToString(msgpack(OrderAction{
     A:"3596ab64-a575-39ad-964e-43b37f44e8cb",  // 资产唯一编号
@@ -75,4 +76,4 @@ sidebar_position: 13
 
 ---
 
-MTG 参考代码：https://github.com/MixinNetwork/trusted-group ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。
+MTG 参考代码：<https://github.com/MixinNetwork/trusted-group> ，需要提供技术和产品支持，请通过 [Mixin Messenger](https://w3c.group/c/1609251387450619) 搜索 762532 联系。

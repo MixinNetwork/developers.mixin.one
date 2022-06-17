@@ -13,7 +13,7 @@ If you want to build something with the kernel, or create a fork of Mixin Networ
 
 There are some tutorials that useful:
 
-- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in lcoal machine.
+- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in local machine.
 - [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
 
 ## Create Mixin Applications
@@ -34,7 +34,7 @@ Usually, people interacts with bots in a webview, or just chat with bots. Becaus
 
 Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to build a bot with the Mixin API:
 
-###  Integrate with Mixin
+### Integrate with Mixin
 
 Some Mixin Applications don't need the bot interface. They could be a website or a standalone mobile App.
 
@@ -63,4 +63,3 @@ Please read [this document](dapp/mixin-applications) guide for more details.
 ## Something missing?
 
 If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/MixinNetwork/developers.mixin.one/issues) for us, or send a tweet mentioning the @[Mixin_Network](https://twitter.com/Mixin_Network) Twitter account.
-

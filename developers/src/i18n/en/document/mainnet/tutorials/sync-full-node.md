@@ -4,7 +4,7 @@
 
 You need to synchronize the data from the MixinNetwork full nodes first.
 
-1. Get the latest release from https://github.com/MixinNetwork/mixin/releases .
+1. Get the latest release from <https://github.com/MixinNetwork/mixin/releases> .
 2. Create a directory to store all data `mkdir ~/.mixin`.
 3. Extract the downloaded release, then `cp genesis.json nodes.json config.example.toml ~/.mixin`.
 4. Run `./mixin creataddress -public` to create a Mixin mainnet address.
@@ -20,7 +20,7 @@ You need to synchronize the data from the MixinNetwork full nodes first.
 
   Increase the allowed open files to 65535, check with `ulimit -n`.
 
-- How to fix 'failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 2048 kiB, got: 416 kiB). See https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size for details.'?
+- How to fix 'failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 2048 kiB, got: 416 kiB). See <https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size> for details.'?
 
   `sudo sysctl -w net.core.rmem_max=8388608`
 

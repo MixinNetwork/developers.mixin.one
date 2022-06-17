@@ -14,7 +14,7 @@ sidebar_position: 17
 ## 获取资产编号
 
 - 将代币先充值到 Mixin 钱包，到账后从钱包找到充值记录并复制`交易编号`。
-- 打开 Mixin 区块浏览器 https://mixin.one/snapshots 输入 `交易编号` 点搜索。
+- 打开 Mixin 区块浏览器 <https://mixin.one/snapshots> 输入 `交易编号` 点搜索。
 - 复制转账详情底部代币名称的链接并截取链接最后的字符串，例如 `https://mixin.one/snapshots/c94ac88f-4671-3976-b60a-09064f1811e8` 中 `c94ac88f-4671-3976-b60a-09064f1811e8` 就是资产编号。
 
 ## 提交图标
@@ -29,7 +29,7 @@ sidebar_position: 17
 
   在 `assets` 目录下新建一个文件夹，文件夹的名字与当前资产编号一致，将图标拷贝到该文件夹下并改名为 "icon.png"，然后再新建一个 `index.json` 文件格式如下：
 
-  ```
+  ```json
   {
     "asset_id": "7b55bf4e-3f37-3cfa-bca5-3d30d72ab820",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
@@ -47,4 +47,4 @@ sidebar_position: 17
 
 ---
 
-更多说明请参考 https://github.com/MixinNetwork/asset-profile 工程首页介绍，还可参考其他人的提交[记录](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6)。
+更多说明请参考 <https://github.com/MixinNetwork/asset-profile> 工程首页介绍，还可参考其他人的提交[记录](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6)。

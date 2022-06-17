@@ -24,7 +24,6 @@ The RPC base is formed by `http://<node_host>:<rpc_port>/`. For example, `http:/
 | method | String | Supported methods, please see the section below |
 | params | Array | The parameters of the methods |
 
-
 **Example**
 
 ```bash

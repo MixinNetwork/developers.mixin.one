@@ -1,4 +1,5 @@
 # D3M-PIN
+
 D3M-PIN is the abbreviation of Distributed Multiparty Mobile Mixin PIN. Simply put, it is a distributed multi-party mobile hybrid PIN technology. Different from the simple centralized 6-digit password that is common in traditional centralized applications, D3M-PIN is a distributed password solution that is jointly guaranteed by participants from different parties
 
 The main participants in D3M-PIN include the user (U), trusted registrar (M), and trusted distributed ledger (L). The three D3M-PIN participants cooperate to achieve sufficient decentralization, security, and credibility while ensuring that the user experience is the simplest.
@@ -10,6 +11,7 @@ A trusted registrar (M) refers to a service provider that provides SMS verificat
 Distributed ledger (L) is a distributed ledger network that uses open and trusted computing. The most obvious one is the PoS consensus BFT-DAG network provided by Mixin Network.
 
 ### D3M-PIN Computation Process
+
 Every user who uses Mixin Messenger will have a mainnet multi-signature private key on Mixin Kernel. For the convenience of explanation, we have the following assumptions and conventions:
 
 - The number of nodes in L is n, and we assume that U's multi-signature private key also needs exactly these n nodes to complete, and these n nodes are fixed and unchanged.

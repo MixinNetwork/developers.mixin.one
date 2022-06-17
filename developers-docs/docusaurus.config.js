@@ -27,19 +27,14 @@ module.exports = {
   },
   themeConfig: {
     algolia: {
-      apiKey: '0658fa0945f44e20e9d148da027a3bd7',
+      apiKey: '2d81009f52b49499743802eee11ecf11',
       indexName: 'mixin',
 
       // Optional: see doc section below
       contextualSearch: true,
 
       // Optional: see doc section below
-      // appId: '',
-
-      // Optional: Algolia search parameters
-      // searchParameters: {},
-
-      //... other Algolia params
+      appId: '3K3D3FYNPZ',
     },
 
     navbar: {
@@ -49,8 +44,8 @@ module.exports = {
         src: 'images/logo.svg',
       },
       items: [
-        {to: '/docs/introduction', label: 'Docs', position: 'left'},
         {to: '/docs/api-overview', label: 'API', position: 'left'},
+        {to: '/docs/introduction', label: 'Docs', position: 'left'},
         {to: '/showcase', label: 'Showcase', position: 'left'},
         {to: '/blog', label: 'News', position: 'left'},
         {
@@ -114,6 +109,7 @@ module.exports = {
           routeBasePath: '/docs',
           // Please change this to your repo.
           editUrl: 'https://github.com/MixinNetwork/developers.mixin.one/tree/main/developers-docs',
+          editLocalizedFiles: true,
         },
         blog: {
           showReadingTime: true,

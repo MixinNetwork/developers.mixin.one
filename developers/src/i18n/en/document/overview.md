@@ -4,7 +4,6 @@ If you want to develop your Dapp on Mixin Network, there is no better way than t
 
 **Things you will learn in this section.**
 
-
 1. How to register an APP.
 2. Sign an authentication token.
 3. Generate an encrypted pin for managing assets.

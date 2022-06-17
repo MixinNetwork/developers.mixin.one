@@ -13,7 +13,7 @@ export default function Request({title, url, method, isPublic, base}) {
       </h3>
       <CodeBlock className={`language-bash`}>
 curl -i -X {method || 'GET'} -H "Content-Type: application/json"
-          {isPublic ? ' ' : ' -H "Bearer: $TOKEN"'}
+          {isPublic ? ' ' : ' -H "Authorization: Bearer $TOKEN"'}
           {` ${apiBase}${url}`}
       </CodeBlock>
     </div>

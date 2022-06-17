@@ -2,9 +2,9 @@
 
 Query public information of assets, permission-less access.
 
-### `GET /network/assets/:id` 
+### `GET /network/assets/:id`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8"
 ```
 

@@ -7,7 +7,7 @@ sidebar_position: 6
 
 The sending message feature can be used to implement functions like sending announcements and replying to users. Before sending a message, you need to create a message structure.
 
-Mixin Messenger supports [various message types](/api/messages/category). A plain-text message's structure should look like this:
+Mixin Messenger supports [various message types](/docs/api/messages/category). A plain-text message's structure should look like this:
 
 ```json
 {
@@ -36,7 +36,7 @@ Here is an example of sending a plain-text message by using the official Golang 
 ```
 
 :::info
-Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, if not, you need to call the [Creating Conversations](/api/conversations/create) API to ensure that the conversation has been created.
+Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, if not, you need to call the [Creating Conversations](/docs/api/conversations/create) API to ensure that the conversation has been created.
 :::
 
 ## Receiving Messages
@@ -45,8 +45,8 @@ Before sending a message, you need to make sure that the conversation has been c
 // @TODO an example.
 ```
 
-
 :::info
+
 1. When the user adds the current bot as a friend, the system will automatically send a "Hello" message to the bot.
 2. User messages are only kept on the server for 7 days, and messages that expired will be discarded if the developers do nothing about them.
 3. The message sent by Websocket needs to be compressed with gzip, and the message received will be decompressed accordingly.

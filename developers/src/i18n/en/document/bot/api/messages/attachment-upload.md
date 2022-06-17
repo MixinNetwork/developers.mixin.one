@@ -4,7 +4,7 @@ We upload the attachments using HTTP and store them on the Amazon S3, see [S3 do
 
 ### `POST /Attachment`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/attachments" -X POST
 ```
 

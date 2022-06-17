@@ -2,9 +2,9 @@
 
 Reading one asset by `asset_id`.
 
-### `GET /assets/:id` 
+### `GET /assets/:id`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/assets/3596ab64-a575-39ad-964e-43b37f44e8cb"
 ```
 

@@ -13,11 +13,10 @@ Different from the Bitcoin multi-signature address starting with `3`, Mixin's mu
 
 Co-management of assets is one of the main use-cases of multi-signature. Each use of funds requires a valid signature by multiple people. No one can move the assets by himself, and this mechanism can also avoid single-point-of-failures causing permanent loss of assets.
 
-- The multi-signature bot 7000102367 developed by the Mixin team is very simple, all you need is to set up a chat group and you are good to go, it contains only the front-end and it's open-source https://github.com/MixinNetwork/multisig-bot.
+- The multi-signature bot 7000102367 developed by the Mixin team is very simple, all you need is to set up a chat group and you are good to go, it contains only the front-end and it's open-source <https://github.com/MixinNetwork/multisig-bot>.
 
 - The multi-signature assistant bot 7000102968 developed by the Laomao team is a multi-currency multi-signature wallet with a simple and friendly interface.
-- The multi-signature wallet called "CoWallet"(id: 7000103970) developed by Pando Team is a multi-currency multi-signature wallet with a simple and friendly interface. It's also open-source https://github.com/fox-one/cowallet
-
+- The multi-signature wallet called "CoWallet"(id: 7000103970) developed by Pando Team is a multi-currency multi-signature wallet with a simple and friendly interface. It's also open-source <https://github.com/fox-one/cowallet>
 
 ### E-Commerce
 
@@ -41,6 +40,6 @@ Mixin is the first to apply multi-signature technology to blockchain consensus b
 
   MTG is the best practice of sharding technology. Each MTG implementation is a para chain of the Mixin Network, composed of multiple independent nodes, and the consensus is reached through the multi-signature technology of the Mixin main network.
 
-- [Multi-Signature API Document](/api/multisigs/outputs)
+- [Multi-Signature API Document](/docs/api/multisigs/outputs)
 
   Learn how to use the multi-signature API.

@@ -26,7 +26,7 @@ sidebar_position: 1
 ### 签名
 
 :::tip
-大多数 Mixin SDK 已经提供了 JWT 生成器，可以自动处理 JWT 生成和验证。 更多信息请参考 [SDK](/resources/sdk)。
+大多数 Mixin SDK 已经提供了 JWT 生成器，可以自动处理 JWT 生成和验证。 更多信息请参考 [SDK](/docs/resources/sdk)。
 :::
 
 **JWT Header**

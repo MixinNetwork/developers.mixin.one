@@ -6,8 +6,8 @@ For HTTP requests:
 
 | Domain | Type |
 | :----- | :---- |
-| https://api.mixin.one | Global |
-| https://mixin-api.zeromesh.net |  China |
+| <https://api.mixin.one> | Global |
+| <https://mixin-api.zeromesh.net> |  China |
 
 For webSocket requests:
 
@@ -16,7 +16,7 @@ For webSocket requests:
 | wss://blaze.mixin.one | Global |
 | wss://mixin-blaze.zeromesh.net |  China |
 
-### Calling APIs 
+### Calling APIs
 
 The Mixin API utilizes JSON Web Tokens (JWT) secure data transmissions between clients and servers.
 
@@ -72,10 +72,9 @@ The Mixin API utilizes JSON Web Tokens (JWT) secure data transmissions between c
   }
   ```
 
-
   A example of signed token:
 
-  ```
+  ```text
   eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
   ```
 

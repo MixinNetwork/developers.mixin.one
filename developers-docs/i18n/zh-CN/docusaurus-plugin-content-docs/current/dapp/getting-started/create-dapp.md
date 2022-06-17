@@ -47,7 +47,7 @@ sidebar_position: 1
 :::
 
 :::tip
-建议使用 Ed25519 私钥而不是旧的 RSA Keystore。 目前 Mixin 鼓励开发人员从 RSA 私钥切换到 Ed25519 私钥。 有关更多信息，请参阅此[文档](/api/session-secret-migration)。
+建议使用 Ed25519 私钥而不是旧的 RSA Keystore。 目前 Mixin 鼓励开发人员从 RSA 私钥切换到 Ed25519 私钥。 有关更多信息，请参阅此[文档](/docs/api/session-secret-migration)。
 :::
 
 在下一步中，您将了解 OAuth 过程，并获取访问令牌。

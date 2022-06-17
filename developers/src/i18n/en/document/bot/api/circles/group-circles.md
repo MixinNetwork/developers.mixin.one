@@ -13,12 +13,11 @@ Request body data:
 
 curl demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/conversations/928c5c40-769c-3e97-8387-fb1ae0645311/circles -XPOST --data'{"circle_id": "a465ffdb-4441-4cb9-8b45 -00cf79dfbc46", "action": "ADD"}'
 ```
 
 The list of circles that the group belongs to is returned:
-
 
 ```json
 {

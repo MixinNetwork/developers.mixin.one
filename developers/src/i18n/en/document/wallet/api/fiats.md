@@ -1,8 +1,8 @@
 ### Live Exchange Rates
 
-### `GET /fiats` 
+### `GET /fiats`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/fiats"
 ```
 

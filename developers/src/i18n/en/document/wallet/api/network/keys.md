@@ -2,7 +2,7 @@
 
 Get one-time user keys.
 
-### `POST /outputs` 
+### `POST /outputs`
 
 | Parameter | Type | Description |
 | :----- | :----: | :---- |
@@ -12,7 +12,7 @@ Get one-time user keys.
 
 Demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/outputs"
 ```
 

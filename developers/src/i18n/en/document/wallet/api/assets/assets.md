@@ -1,8 +1,8 @@
 # Asset List
 
-### `GET /assets` 
+### `GET /assets`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/assets"
 ```
 

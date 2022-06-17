@@ -10,14 +10,13 @@ When a user visits the bot's page, the built-in browser will try to extract the 
 
 ### Button Colors
 
-
 Button colors that are too bright or too dark will bring a poor user experience. The designer has choosen a set of button colors for developers, which performs well in both light and dark modes:
 
 ![Button Colors](./color-app-button.png)
 
 Color array:
 
-```
+```json
 [
     0x7983C2, 0x8F7AC5, 0xC5595A, 0xC97B46, 0x76A048, 0x3D98D0,
     0x5979F0, 0x8A64D0, 0xB76753, 0xAA8A46, 0x9CAD23, 0x6BC0CE,

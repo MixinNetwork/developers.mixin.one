@@ -2,7 +2,7 @@
 
 Public network-wide deposit records, permission-less access.
 
-### `GET /external/transactions?asset=&destination=&tag=&limit=&offset=` 
+### `GET /external/transactions?asset=&destination=&tag=&limit=&offset=`
 
 | Parameter | Type | Description |
 | :----- | :----: | :---- |
@@ -12,7 +12,7 @@ Public network-wide deposit records, permission-less access.
 | limit | String | Pagination per page data limit, 500 by default, maximally 500. |
 | offset | String | Pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`. |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/external/transactions?destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK"
 ```
 

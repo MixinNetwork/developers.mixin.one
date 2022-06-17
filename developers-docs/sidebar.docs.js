@@ -34,6 +34,15 @@ module.exports = {
           ]
         },
         {
+          label: 'MVM',
+          type: 'category',
+          items: [
+            'mainnet/mvm/setup',
+            'mainnet/mvm/metamask',
+            'mainnet/mvm/remix',
+          ]
+        },
+        {
           label: 'Guide',
           type: 'category',
           items: [
@@ -223,6 +232,7 @@ module.exports = {
             'api/messages/category',
             'api/messages/read',
             'api/messages/send',
+            'api/messages/encrypt',
             'api/messages/attachment-upload',
             'api/messages/attachment-download',
             'api/messages/encrypted',
@@ -241,7 +251,17 @@ module.exports = {
             'api/circles/list-items',
           ]
         },
+        {
+          label: 'Collectibles',
+          type: 'category',
+          items: [
+            'api/collectibles/request',
+            'api/collectibles/outputs',
+          ]
+        },
+        "api/codes",
         "api/shared-bots",
+        "api/zip-album",
         "api/session-secret-migration",
         "api/error-codes",
       ]

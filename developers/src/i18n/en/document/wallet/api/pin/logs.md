@@ -2,7 +2,7 @@
 
 Query the user PIN error log records, based on which developers can remind the user of the number of errors within 24 hours.
 
-### `GET /logs?category=&limit=&offset=` 
+### `GET /logs?category=&limit=&offset=`
 
 | Parameter | Introduction |
 | :----- | :---- |
@@ -12,7 +12,7 @@ Query the user PIN error log records, based on which developers can remind the u
 
 With curl:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/logs?category=PIN_INCORRECT&limit=5"
 ```
 

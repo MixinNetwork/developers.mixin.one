@@ -12,7 +12,6 @@ Go to [Dashboard](/dashboard), click on the left to select the current bot, scro
 
 The rendering on the right perfectly interprets the immersive mode. Note that the theme color does not support gradient colors.
 
-
 ### Try
 
 - Search for 7000103066 to experience the "DonateCafe" bot.

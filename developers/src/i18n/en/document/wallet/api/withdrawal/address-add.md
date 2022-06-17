@@ -1,6 +1,6 @@
 # Creating Addresses
 
-### `POST /addresses` 
+### `POST /addresses`
 
 The HTTP request body:
 
@@ -12,7 +12,7 @@ The HTTP request body:
 | tag | String | Withdrawal memo. |
 | pin | String | Encrypted PIN. |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/addresses" -XPOST --data '{"asset_id":"43d61dcd-e413-450d-80b8-101d5e903357","label":"Jason ETH Address","pin":"nRF5OyFmO4REG6lcPk1jwKDJrENim791uLe+HH0g7EwQHXK9FgCMJl5RDKbeCNDW","destination":"0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0", "tag": "", "label": ""}'
 ```
 

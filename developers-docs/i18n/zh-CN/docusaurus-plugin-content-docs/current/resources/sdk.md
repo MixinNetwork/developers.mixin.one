@@ -8,10 +8,10 @@ title: SDK
 
 - [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): 官方 Golang SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples)，[📖 文档](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client)，[🧑‍🏫 教程](/dapp/getting-started/create-dapp)
-- [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Kotlin SDK
+- [Java/Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Java/Kotlin SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK
-- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK，但是还在 beta version
+- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK
   - [🥰 例子](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test)，[📖 文档](https://pub.dev/packages/mixin_bot_sdk_dart)
 
 ## 第三方 SDK
@@ -27,4 +27,3 @@ title: SDK
   - [🥰 例子](https://github.com/an-lee/mixin_bot/tree/master/examples)
 - [Mixin JS Bridge](https://github.com/fox-one/mixin-sdk-jsbridge) - Mixin Messenger 的 jsbridge 包装器，在您的 javascript 和 Mixin Messenger 的 Webview 之间架起一座桥梁，提供了一种从您的网页或 SPA 调用 Messenger 的便捷方式。
   - [🥰 例子](https://fox-one.github.io/mixin-sdk-jsbridge-bot/)，[📖 文档](https://fox-one.github.io/mixin-sdk-jsbridge/#/2)
-

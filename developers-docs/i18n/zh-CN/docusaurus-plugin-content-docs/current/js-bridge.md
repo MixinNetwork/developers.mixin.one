@@ -79,6 +79,28 @@ playlist: function (audios) {
 Mixin Messenger 0.30.0 或以上版本支持此方法。
 :::
 
+## close()
+
+关闭当前机器人窗口：
+
+```js
+close: function () {
+  switch (this.getMixinContext().platform) {
+    case 'iOS':
+      window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.close && window.webkit.messageHandlers.close.postMessage('');
+      return
+    case 'Android':
+    case 'Desktop':
+      window.MixinContext && (typeof window.MixinContext.close === 'function') && window.MixinContext.close()
+      return
+  }
+}
+```
+
+:::info
+Mixin Messenger 0.33.0 或以上版本支持此方法。
+:::
+
 ## 第三方 SDK
 
 为了方便使用，第三方团队将这些 Javascript 方法打包到 JsBridge SDK 中。 SDK 提供了统一的访问方式，并给出了所有 Javascript 方法和使用示例的列表。 请[访问此处了解更多详情](https://fox-one.github.io/mixin-sdk-jsbridge/#/)。

@@ -12,7 +12,7 @@ Request body data:
 
 curl demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/circles -XPOST --data '{"name": "Friends"}'
 ```
 

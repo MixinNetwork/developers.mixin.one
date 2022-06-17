@@ -11,7 +11,7 @@ All ERC-20, TRC-10, TRC-20, and EOS tokens can be used directly after depositing
 ### Getting Asset ID
 
 - Deposit the tokens to the Mixin wallet first, find the deposit record from the wallet and copy the `transaction ID`.
-- Open the Mixin block explorer https://mixin.one/snapshots, enter the transaction ID and click search.
+- Open the Mixin block explorer <https://mixin.one/snapshots>, enter the transaction ID and click search.
 - Copy the link of the token name at the bottom of the transfer details and intercept the string at the end of the link, for example, if you get `https://mixin.one/snapshots/c94ac88f-4671-3976-b60a-09064f1811e8`, then `c94ac88f-4671-3976-b60a-09064f1811e8` is the asset ID.
 
 ### Submitting Icon
@@ -26,7 +26,7 @@ All ERC-20, TRC-10, TRC-20, and EOS tokens can be used directly after depositing
   
   Create a new directory in the `assets` directory, the name of the directory is the current asset ID, copy the icon to the directory and rename it to "icon.png", and then create a new `index.json` The file format is as follows :
 
-  ```
+  ```json
   {
     "asset_id": "7b55bf4e-3f37-3cfa-bca5-3d30d72ab820",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
@@ -43,5 +43,4 @@ All ERC-20, TRC-10, TRC-20, and EOS tokens can be used directly after depositing
   Submit the prepared icon and configuration file together with a brief introduction, and then click `Create pull request`. The Mixin development team will conduct a pre-review and then pass it to the nodes to review. If there is no problem, the icon will be deployed.
 
 ---
-For more instructions, please refer to https://github.com/MixinNetwork/asset-profile project homepage introduction, and also refer to other the earlier submission [Record](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6 ).
-
+For more instructions, please refer to <https://github.com/MixinNetwork/asset-profile> project homepage introduction, and also refer to other the earlier submission [Record](https://github.com/MixinNetwork/asset-profile/commit/37c50161cbb0d9cdfd2387b1adb5837a601260a6 ).

@@ -9,8 +9,8 @@ For HTTP requests:
 
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
-| https://api.mixin.one          | Global          |
-| https://mixin-api.zeromesh.net | China Or Global |
+| <https://api.mixin.one>          | Global          |
+| <https://mixin-api.zeromesh.net> | China Or Global |
 
 For WebSocket requests:
 
@@ -26,17 +26,17 @@ Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilizes s
 ### Signing
 
 :::tip
-Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/resources/sdk).
+Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/docs/resources/sdk).
 :::
 
-**JWT Header**
+#### JWT Header
 
 | Parameter | Instruction                         |
 | :-------- | :---------------------------------- |
 | alg       | Signature Algorithm, set to `EdDSA` |
 | typ       | Token type, set to `JWT`            |
 
-**JWT Payload**
+#### JWT Payload
 
 | Parameter | Instruction           |
 | :-------- | :--------------       |
@@ -48,7 +48,7 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 | sig       | Signature             |
 | scp       | FULL or special scope |
 
-**Sign JWT in Go language**
+#### Sign JWT in Go language
 
 ```go
 /*
@@ -72,24 +72,24 @@ func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string
       "scp": "FULL", // or "PROFILE:READ MESSAGES:REPRESENT"
   })
 
-	priv, err := base64.RawURLEncoding.DecodeString(privateKey)
+ priv, err := base64.RawURLEncoding.DecodeString(privateKey)
   if err != nil {
     return "", err
   }
-	token, err := jwt.Sign(jwt.EdDSA, ed25519.PrivateKey(priv), claims)
+ token, err := jwt.Sign(jwt.EdDSA, ed25519.PrivateKey(priv), claims)
   return string(token), err
 }
 ```
 
-**A example of signed token**
+#### A example of signed token
 
-```
+```text
 eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ4NSwianRpIjoiMjU5NGFkNTctOWRhZC00MjRmLTg1OTUtYjE0NzI3ZTI0ZTYxIiwic2lkIjoiYzA5Y2YzMTMtN2RlZC00MjVkLWFkM2YtYTFjZTRjZmQ1ZTVlIiwic2lnIjoiODVkZDIzOGE5ODM0NzE3ZGMxM2QzODQ0ZjYzYTFmZWUxM2Q4MmQyZTZjMmVlNDRlYWM3Yzc5MGY1ZGIyNWY4OCIsInVpZCI6Ijg5ZTBiZGVlLWMzNTUtNDdmMi05NDVhLWJlNDhiZTg3NTYwNiJ9.PYg6Cx5grs0flJe862R3VLEWKyTZPcXOGYF9RouztgR_mi3kleIzJt4vCwUZI9F7QrHBFMtTc3_wG_ymnnjsmnm0pBdoON4I-RxeaztIlyc1Ey9lLFe6_ARRUBXo_15ZORilS1hRdMREd84eQOLlO0ChieBPY0tSSiVqTaFZt3Q
 ```
 
 You can decode it at [jwt.io](https://jwt.io/).
 
-**Send Requests with Token**
+#### Send Requests with Token
 
 Add signed authentication token to the headers of API requests to get current dApp's profile:
 

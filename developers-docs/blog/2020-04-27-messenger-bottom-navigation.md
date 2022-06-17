@@ -14,7 +14,7 @@ Mixin Messenger has supported to pin the bot on the home page since the version 
 - Wallet, QR code scanner, and camera will be used as built-in bots. Wallets and camera icon will be set on the top by default, and users can replace them at will.
 - The bots are sorted by name by default, and the built-in bots are always at the top.
 
-## Recommendations for developers:
+## Recommendations for developers
 
 Want your bot topped on the home page by users? In addition to meeting the users' functional needs, better user experience is also an important reason for users' favor, so come and optimize:
 

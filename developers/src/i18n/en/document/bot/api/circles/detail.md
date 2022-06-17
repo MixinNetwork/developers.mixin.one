@@ -6,7 +6,7 @@ To obtain the details of a certain circle, the `CIRCLES:READ` permission is requ
 
 curl demo:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/circles/a465ffdb-4441-4cb9-8b45-00cf79dfbc46"
 ```
 

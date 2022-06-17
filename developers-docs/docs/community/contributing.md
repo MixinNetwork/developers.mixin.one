@@ -53,7 +53,7 @@ There are some built-in components that can be used in the documentation in the 
 - `<APIPayload>` is a component that renders an API's payload
 - `<APIRequest>` is a component that renders an API's request
 
-Please refer to the [any document of 'API' section](/api/guide) for the usage of them.
+Please refer to the [any document of 'API' section](/docs/api/guide) for the usage of them.
 
 ### Using partials
 
@@ -77,11 +77,11 @@ For example, this document is `docs/community/contributing.mdx` and its `zh-CN` 
 
 If you're the maintainer of this project, please follow the instructions in the [i18n tutorial](https://docusaurus.io/docs/i18n/tutorial) to add a new language.
 
-**Translate the index page**
+#### Translate the index page
 
 Please follow the instructions [here](https://docusaurus.io/docs/i18n/tutorial#use-the-translation-apis) to translate your index page and react components.
 
-**Generate/Update json files**
+#### Generate/Update json files
 
 ```bash
 yarn run write-translations --locale $LANG_CODE
@@ -91,7 +91,7 @@ The `$LANG_CODE` is the language code of the language you want to generate. For 
 
 The translation files are generated in the `i18n/$LANG_CODE/` directory.
 
-**Generate Markdown files**
+#### Generate Markdown files
 
 Copy the docs Markdown files to `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current`, and translate them:
 
@@ -110,7 +110,7 @@ All the documents are placed in the `i18n/$LANG_CODE/` according to the language
 - `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current.json`: the label of category on sidebar.
 - `i18n/$LANG_CODE/docusaurus-plugin-content-docs/current/**`: the markdown files of documents.
 
-**Preview the translation**
+#### Preview the translation
 
 ```bash
 yarn run start --locale $LANG_CODE

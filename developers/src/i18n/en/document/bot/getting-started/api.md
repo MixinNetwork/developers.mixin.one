@@ -2,10 +2,9 @@
 
 ### Basic User Information
 
-`GET /me` 
+`GET /me`
 
 To obtain the basic personal information of a user, the `PROFILE:READ` permission is required; to obtain the user's mobile phone number, the `PHONE:READ` permission is required. Refer to [Document](/document/bot/api/profile).
-
 
 ```json
 GET -H "Authorization: Bearer ACCESS_TOKEN" https://mixin-api.zeromesh.net/me 
@@ -42,10 +41,10 @@ If access to the API returns 401, you need to clean up the cached access token a
 
 It is recommended that developers store `user_id` in the database so that they can push information to users when needed, such as important announcements.
 
-- [Schema Interactions](./schema)
+* [Schema Interactions](./schema)
 
   The bot can evoke certain functions and interfaces of Mixin Messenger, such as transferring money and sharing text.
 
-- [Receiving Messages](./websocket)
+* [Receiving Messages](./websocket)
 
   User messages and the notifications that a user adds the current bot as a contact can be received through Websocket.

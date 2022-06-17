@@ -8,7 +8,6 @@ Each developer account creates 2 applications for free, pay if you need more.
 
 Switch to "Key" and click "Ed25519 Private Key" in the application session to generate sensitive information such as the application's PIN, Session ID, PinToken, and private key:
 
-
 ```json
 {
   "pin": "123456",

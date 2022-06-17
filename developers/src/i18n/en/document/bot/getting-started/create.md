@@ -12,12 +12,11 @@ Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [dash
 
 - Verification Page Address
 
-  For the callback of OAuth authorization. 
+  For the callback of OAuth authorization.
 
 - Domain Whitelist
 
   It is used to prevent fake bot links. When opening card and button type messages, it will check whether the linked domain name is in the whitelist. For APP_CARD or APP_BUTTON_GROUP, you need to ensure that the action is in the whitelist.
-
 
 - Immersive Mode
 
@@ -34,4 +33,3 @@ After saving the newly created bot, you can get the Mixin ID of the current bot.
 - [Receiving Messages](./websocket)
 
   If you are developing news, images only, and other informational bots that do not need to read user info, all you need is to develop the front-end, and you are ready to go live. It is strongly recommended that developers provide tech support for the users.
-

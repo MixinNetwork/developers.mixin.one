@@ -2,7 +2,6 @@
 
 To create a new group or to have a conversation with a user for the first time, you need to call this API to ensure that the conversation is created first.
 
-
 ### `POST /conversations`
 
 Request body data:
@@ -55,4 +54,5 @@ On success:
  // Swift
  UUID().uuidString.lowercased()
 ```
+
 **Note that UUID strings are unexceptionally converted to lowercase**

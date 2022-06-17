@@ -21,12 +21,11 @@ The Mixin Messenger bot design guide aims to provide users with an easy-to-use, 
 
   Follow the Android and iOS interface design specifications, and the design conforms to the interaction and look of platform users.
 
-
 ### Clear Highlights
 
 Each page should have clear highlights and hierarchy so that users can quickly understand the content of the page and try to avoid elements that are irrelevant to the content.
 
-![TODO: English Version IMG, Highlights](./overview-point.png)
+![Highlights](./overview-point.png)
 
 ### Minimizing Input
   
@@ -44,12 +43,11 @@ Minimize user input when designing the bot page, and use existing interfaces and
 
 The bot menu is fixed floating in the upper right corner. Developers should reserve space in this area when designing the interface to avoid interaction conflicts caused by occlusion.
 
-![TODO: English Version IMG, Avoiding Bot Manu](./overview-nav-capsule.png)
+![Avoiding Bot Manu](./overview-nav-capsule.png)
 
 ### Avoiding Too Many Notifications
 
-Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types. 
-
+Only important information is notified to the user. Too many notifications will make the user disgusted and may mute or even block the current bot. If there is indeed a lot of information that needs to be notified, users should be allowed to choose the push types.
 
 ### Next Step
 

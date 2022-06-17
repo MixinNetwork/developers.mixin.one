@@ -2,9 +2,9 @@
 
 Query the list of the top 100 assets on the entire network, permission-less access.
 
-### `GET /network/assets/top` 
+### `GET /network/assets/top`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/network/assets/top"
 ```
 

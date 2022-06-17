@@ -12,19 +12,15 @@ export default {
     }
   }
 
-  // data structure
-  {
-    "id": "UUID",
-    "action": "CREATE_MESSAGE",
-    "params": {
-      "conversation_id": "UUID",
-      "category": "PLAIN_AUDIO",
-      "status": "SENT",
-      "message_id": "UUID",
-      "data": "Base64 encoded data"
-    }
-  }
-`,
+// data structure
+{
+  "attachment_id": "read From POST /attachments",
+  "mime_type": "audio/ogg",
+  "size": 1024,
+  "waveform": "audio  waveform",
+  "duration":1024,
+  "created_at":"2021-12-17T12:51:53.252052226Z"
+}`,
 
   msg_buttons: `{
   "id": "UUID",
@@ -64,8 +60,8 @@ export default {
 {
   "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
   "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
-  "title": "Mixin",
-  "description": "Hello World.",
+  "title": "Mixin", // 1 <= size(title) <= 36
+  "description": "Hello World.", // 1 <= size(description) <= 128
   "action": "https://mixin.one",
   "shareable": true
 }`,
@@ -646,4 +642,99 @@ export default {
     "created_at": "2017-12-23T18:23:26.996149Z",
   }
 }`,
+
+  collectible_request: `{
+    "data": {
+      "type": "non_fungible_request",
+      "request_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+      "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+      "token_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "amount": "10",
+      "senders_threshold": 2,
+      "senders": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "receivers_threshold": 2,
+      "receivers": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "signers": [
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+      ],
+      "action": "sign",
+      "state": "spent",
+      "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      "raw_transaction": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+      "code_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+    }
+  }`,
+
+  collectible_output: `
+    {
+      "data": {
+        "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "output_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "token_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+        "transaction_hash": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+        "output_index": 0,
+        "amount": "",
+        "senders_threshold": 1,
+        "senders": [
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+        ],
+        "receivers_threshold": 2,
+        "receivers": [
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
+          "ab56be4c-5b20-41c6-a9c3-244f9a433f35"
+        ],
+        "state": "spent",
+        "created_at": "2018-05-03T10:08:34.859542588Z",
+        "updated_at": "2018-05-03T10:08:34.859542588Z",
+        "signed_by": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+        "signed_tx": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
+      }
+    }
+  `,
+
+  collectible_token: `{
+    "data": {
+      "type": "non_fungible_token",
+      "token_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "group": "",
+      "token": "",
+      "mixin_id": "",
+      "nfo": "",
+      "meta": {
+        "group": "",
+        "name": "",
+        "description": "",
+        "icon_url": "",
+        "media_url": "",
+        "mime": "",
+        "hash": "",
+      },
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+    }
+  }`,
+
+  collectible_collection: `{
+    "data": {
+      "type": "collection",
+      "collection_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+      "name": "",
+      "description": "",
+      "icon_url": "",
+      "created_at": "2018-05-03T10:08:34.859542588Z",
+    }
+  }`,
 }

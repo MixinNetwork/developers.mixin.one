@@ -47,4 +47,4 @@ func main() {
 
 `clientId`, `sessionId`, `privateKey` 从当前钱包应用程序的密钥库中获取。
 
-其他语言的 SDK 请参考[文档](/resources/sdk)。
+其他语言的 SDK 请参考[文档](/docs/resources/sdk)。

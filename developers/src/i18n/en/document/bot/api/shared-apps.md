@@ -6,7 +6,7 @@ Both users and bots can be configured to share 3 bots on their personal pages, a
 
 `GET /users/:id/apps/favorite`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/apps/favorite"
 ```
 
@@ -23,20 +23,18 @@ $$XIN:curl$$ "https://api.mixin.one/users/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/a
 
 `POST /apps/:id/favorite`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/favorite"
 ```
 
 Returns the share list on success.
 
-
 ### Deleting Shares
 
 `POST /apps/:id/unfavorite`
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/unfavorite"
 ```
 
 Returns empty json on success.
-

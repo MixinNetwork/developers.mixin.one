@@ -42,4 +42,4 @@ title: 全节点
 
 ## 参与 Mixin 全节点
 
-参考文档[节点加入指南](../guide/full-node-join)。
+参考文档[节点加入指南](../guide/full-node-join)

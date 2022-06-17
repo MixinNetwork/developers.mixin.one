@@ -79,7 +79,28 @@ playlist: function (audios) {
 This method is supported in Mixin Messenger 0.30.0 or above.
 :::
 
+## close()
+
+Close the window:
+
+```js
+close: function () {
+  switch (this.getMixinContext().platform) {
+    case 'iOS':
+      window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.close && window.webkit.messageHandlers.close.postMessage('');
+      return
+    case 'Android':
+    case 'Desktop':
+      window.MixinContext && (typeof window.MixinContext.close === 'function') && window.MixinContext.close()
+      return
+  }
+}
+```
+
+:::info
+This method is supported in Mixin Messenger 0.33.0 or above.
+:::
+
 ## Third-Party SDK
 
 For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
-

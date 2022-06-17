@@ -20,7 +20,6 @@ MTG is the best practice of sharding technology. Each MTG implementation is a pa
 
   It supports all public chains supported by Mixin, cross-chain asset exchange can be achieved easily.
 
-
 - High performance
 
   It supports high concurrency and can be applied to commercial scenarios for a large number of users on a large scale.
@@ -92,7 +91,6 @@ Using the MTG to develop decentralized applications is very simple. It can be de
 - Are there any MTG-based products?
 
   Search for 7000103117 in Mixin Messenger to try the MTG version of 4swap.
-
 
 - How to find a trustworthy node team?
 

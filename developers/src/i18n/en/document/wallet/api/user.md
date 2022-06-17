@@ -1,6 +1,6 @@
 # Registering Mixin Network Users
 
-### `POST /users` 
+### `POST /users`
 
 The HTTP request body:
 
@@ -11,7 +11,7 @@ The HTTP request body:
 
 With curl:
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/users" -X POST --data '{"full_name":"Bot User","session_secret":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMTuli9K9k7F+L7Rq34se23nQeV2yvjVGCZyRTbp8qNASnRq6N679ZflgVxNUsr2qkHN4eqvafrQ9IIcRXfofMlWWIU6MrgVVD0UEVyH4jKA5gUr4smU/SDnVLqb3TojYMELIKHgqnrjqDJ0b+vMUG1Iix4fi+CvjSiJzsWPOavQIDAQAB"}'
 ```
 

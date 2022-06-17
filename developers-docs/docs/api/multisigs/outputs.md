@@ -12,16 +12,17 @@ import {
 
 ## GET /multisigs/outputs
 
-<APIEndpoint url="/multisigs/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
+<APIEndpoint url="/multisigs/outputs?members=:members&threshold=:threshold&state=:state&offset=:offset&limit=:limit&order=created" />
 
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-state="the states of UTXO, e.g. unspent, signed, and spent."
-  p-offset="pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
-  p-limit="pagination per page data limit, 500 by default, maximally 500"
   p-members="used together with threshold to participate in the hash of multi-signature members."
   p-threshold="integer, used with members, multi-signature threshold, for example, 2/3, threshold = 2"
+  p-state="Optional, the states of UTXO, e.g. unspent, signed, and spent."
+  p-offset="Optional, pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`."
+  p-limit="Optional, pagination per page data limit, 500 by default, maximally 500"
+  p-order="Optional, 'created' || 'updated', updated_at by default, asc only"
 />
 
 If an account participates in multiple multi-signatures, the data can be filtered through the `members` and `threshold` parameters.
@@ -30,18 +31,18 @@ Here is the golang code for generating the multi-signature member hash:
 
 ```go
 func hashMembers(ids []string) string {
-	sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
-	var in string
-	for _, id := range ids {
-		in = in + id
-	}
-	return crypto.NewHash([]byte(in)).String()
+ sort.Slice(ids, func(i, j int) bool { return ids[i] < ids[j] })
+ var in string
+ for _, id := range ids {
+  in = in + id
+ }
+ return crypto.NewHash([]byte(in)).String()
 }
 ```
 
 <APIRequest
   title="Get Multisig Outputs"
-  url="/multisigs/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
+  url="/multisigs/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent&order=created"
 />
 
 ```json title="Response"
@@ -64,6 +65,7 @@ func hashMembers(ids []string) string {
     ],
     "memo": "hello",
     "state": "spent",
+    "sender: "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
     "signed_tx": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
     "signed_by": "298281....4952f95768b7d1a925c4189b912c343dbb000180e",
     "created_at": "2018-05-03T10:08:34.859542588Z",

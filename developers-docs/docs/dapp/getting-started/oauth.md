@@ -8,8 +8,8 @@ In some cases, your applications need to read the profile, assets, snapshots, an
 
 When the bot detects that it is not authorized by a user, it should jump to following url to request authorization from the user:
 
-```
-https://oauth.mixin.one/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
+```text
+https://mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=SCOPE&response_type=code&return_to=
 ```
 
 In which the parameters are:
@@ -17,7 +17,7 @@ In which the parameters are:
 **Required Parameters**
 
 - **client_id** - The application's client_id, you can get it from the keystore that previous article has mentioned.
-- **scope** - Requested permissions, please refer to the [this document](/api/oauth/scope/) for more details. It should contain at least the `PROFILE:READ` permission.
+- **scope** - Requested permissions, please refer to the [this document](/docs/api/oauth/scope/) for more details. It should contain at least the `PROFILE:READ` permission.
 - **response_type** - Use `code` to return authorization code
 
 **Optional Parameters**
@@ -35,13 +35,13 @@ It is recommended that developers only apply for necessary permissions and make 
 
 After successful authorization, the page will automatically jump to the application's `OAuth URL`, which will be accompanied by the authorization code and return_to parameters:
 
-```
+```text
 YOUR_APP_OAUTH_URL?code=AUTHORIZATION_CODE&return_to=YOUR_APP_RETURN_URL
 ```
 
 The developer need to read the `AUTHORIZATION_CODE` and exchange the access token with it:
 
-```
+```text
 POST https://api.mixin.one/oauth/token
 ```
 
@@ -63,4 +63,3 @@ POST https://api.mixin.one/oauth/token
 :::tip
 It is recommended that developers cache the access token and subsequently call the API to access the user data via the access token, to determine whether the user has authorized or not.
 :::
-

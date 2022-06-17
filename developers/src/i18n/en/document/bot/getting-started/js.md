@@ -19,6 +19,7 @@ There are several Javascript methods in the App's WebView, which can be used by 
     return ctx
   },
   ```
+
   The response:
 
   ```json
@@ -81,7 +82,7 @@ For ease of use, a third-party team packaged these Javascript methods into JsBri
 
 - Front-end Optimization
 
-  PWA is recommended to optimize the bot, refer to  https://developers.google.com/web/ilt/pwa/.
+  PWA is recommended to optimize the bot, refer to  <https://developers.google.com/web/ilt/pwa/>.
 
 - [Receiving Messages](./websocket)
 

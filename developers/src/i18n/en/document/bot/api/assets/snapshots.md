@@ -27,7 +27,7 @@ To obtain the transfer records of a user, the `SNAPSHOTS:READ` permission is req
 | destination | Optional, get the withdrawal records of a certain address. |
 | tag | Optional |
 
-```
+```shell
 $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:24.845515732%2B08:00"
 ```
 
@@ -45,4 +45,3 @@ $$XIN:curl$$ "https://api.mixin.one/snapshots?limit=10&offset=2018-05-29T16:30:2
   ]
 }
 ```
-

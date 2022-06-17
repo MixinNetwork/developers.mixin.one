@@ -6,11 +6,11 @@ title: Schema 唤起
 
 ## 分享
 
-```
-mixin://send?category=CATEGORY&conversation_id=CONV_ID&data=DATA
+```text
+mixin://send?category=CATEGORY&conversation=CONV_ID&data=DATA
 ```
 
-机器人无法自动共享消息。 如果你指定了 `conversation_id` 并且是用户当前会话的`conversation_id`，会出现一个确认框，用户点击确认后会发送消息；如果没有指定`conversation_id` 或者不是当前会话的 `conversation_id`，则会出现用户选择与哪个会话共享的界面。
+机器人无法自动共享消息。 如果你指定了 `conversation` 并且是用户当前会话的`conversation`，会出现一个确认框，用户点击确认后会发送消息；如果没有指定`conversation` 或者不是当前会话的 `conversation`，则会出现用户选择与哪个会话共享的界面。
 
 ### 分享文本
 
@@ -60,12 +60,11 @@ const data = '## Markdown Intro\n> Markdown is a light weight markup language.'
 window.open("mixin://send?category=post&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
-
 ## 支付
 
 ### 调起支付页面
 
-```
+```text
 mixin://pay?recipient=&asset=&amount=&memo=&trace=
 ```
 
@@ -81,25 +80,25 @@ mixin://pay?recipient=&asset=&amount=&memo=&trace=
 
 ### 调起转账页面
 
-```
+```text
 mixin://transfer/:recipient_id
 ```
 
 ### 调起转账详情
 
-```
+```text
 mixin://snapshots?trace=:traceid
 ```
 
 或者
 
-```
+```text
 mixin://snapshots/:snapshotid
 ```
 
 ### 添加提现地址
 
-```
+```text
 mixin://address?asset=&label=&destination=&tag=
 ```
 
@@ -107,7 +106,7 @@ mixin://address?asset=&label=&destination=&tag=
 
 ### 删除提现地址
 
-```
+```text
 mixin://address?asset=&action=delete&address=
 ```
 
@@ -115,7 +114,7 @@ Assign address id to `address`.
 
 ### 发起提现
 
-```
+```text
 mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 ```
 
@@ -125,13 +124,13 @@ mixin://withdrawal?address=&asset=&amount=&memo=&trace=
 
 ### 调起用户 Profile
 
-```
+```text
 mixin://users/:userid
 ```
 
 ### 调起机器人 Profile
 
-```
+```text
 mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 ```
 
@@ -139,7 +138,7 @@ mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 
 ### 打开会话
 
-```
+```text
 mixin://conversations/:conversationid?user=:userid
 ```
   

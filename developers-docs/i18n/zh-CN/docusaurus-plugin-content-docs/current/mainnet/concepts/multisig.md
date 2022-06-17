@@ -10,8 +10,8 @@ title: 多重签名
 
 多人共同管理资产是多重签名技术主要的应用场景之一，每笔资金动用都需要多人有效签名才能使用，任何一个人无法直接动用资产，同时也能很好的避免单点故障导致资产丢失甚至无法找回的问题。
 
-- Mixin 团队开发的简易多签机器人 7000102367 拉个群就能使用，纯前端且开源 https://github.com/MixinNetwork/multisig-bot
-- Pando 团队开发的 CoWallet 7000103970 也是一个多币种多签钱包，使用简单界面设计友好，并且开源 https://github.com/fox-one/cowallet
+- Mixin 团队开发的简易多签机器人 7000102367 拉个群就能使用，纯前端且开源 <https://github.com/MixinNetwork/multisig-bot>
+- Pando 团队开发的 CoWallet 7000103970 也是一个多币种多签钱包，使用简单界面设计友好，并且开源 <https://github.com/fox-one/cowallet>
 
 ## 电子商务
 
