@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import CodeBlock from '@theme/CodeBlock';
 import styles from './styles.module.css';
 import Translate, {translate} from '@docusaurus/Translate';
-import resposnes from './responses.js';
+import responses from './responses.js';
 
 function getCode(name) {
-  if (resposnes.hasOwnProperty(name)) {
-    return resposnes[name];
+  if (responses.hasOwnProperty(name)) {
+    return responses[name];
   }
   return 'None'
 }

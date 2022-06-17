@@ -235,6 +235,7 @@ module.exports = {
             'api/messages/encrypt',
             'api/messages/attachment-upload',
             'api/messages/attachment-download',
+            'api/messages/encrypted',
           ]
         },
         {

@@ -6,6 +6,7 @@ export default {
   get_apps_property: () => api.get('/apps/property'),
   get_me: () => api.get('/me'),
   get_apps: () => api.get('/apps'),
+  get_app_by_id: app_id => api.get('/apps/' + app_id),
   set_app: (app_id, data) => api.post(app_id ? '/apps/' + app_id : '/apps', data),
   app_new_secret: app_id => api.post('/apps/' + app_id + '/secret'),
   app_new_session: (app_id, pin, session_secret) => api.post(`/apps/${app_id}/session`, { pin, session_secret }),

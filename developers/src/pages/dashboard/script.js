@@ -21,7 +21,6 @@ export default {
       loading: false,
       all_loading: false,
       init_status: false,
-      timer: null,
       balance_modal: false,
       tmp_money: 0,
       is_immersive: false,
@@ -51,16 +50,13 @@ export default {
       this.nav_header_index = nav_header_index
       this.tmp_component = this.nav_list[nav_header_index]
     },
-    click_app_list_item(index) {
+    async click_app_list_item(item) {
       this.is_welcome = false
       this.is_new_app = false
-      this.active_app = this.app_list[index]
-      jump_to_uri.call(this, '/apps', true)
-      clearTimeout(this.timer)
       this.loading = true
-      this.timer = setTimeout(() => {
-        this.loading = false
-      }, 500)
+      await update_active_app.call(this, item.app_number)
+      jump_to_uri.call(this, '/apps', true)
+      this.loading = false
     },
     async click_new_app() {
       this.all_loading = true
@@ -160,10 +156,10 @@ function mounted_select_active_router() {
   }
 }
 
-function update_active_app(app_number) {
+async function update_active_app(app_number) {
   if (!app_number) return
-  let active_index = this.app_list.findIndex(item => item.app_number === app_number)
-  this.active_app = this.app_list[active_index] || {}
+  let { app_id } = this.app_list.find(item => item.app_number === app_number) || {}
+  this.active_app = await this.apis.get_app_by_id(app_id) || {}
 }
 
 function jump_to_uri(uri, has_app_number) {
