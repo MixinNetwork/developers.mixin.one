@@ -42,6 +42,7 @@
       @close_modal="close_modal"
     />
     <withdrawal-modal
+      :client="client"
       @update-list="update_list"
       :app_id="active_app.app_id"
       :active_asset="active_asset"

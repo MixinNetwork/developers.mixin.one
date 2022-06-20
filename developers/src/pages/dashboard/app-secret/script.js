@@ -2,7 +2,8 @@ import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
 import forge from 'node-forge'
-import tools from '@/assets/js/tools'
+import { MixinApi } from "@mixin.dev/mixin-node-sdk";
+import defaultApiConfig from "@/api";
 
 export default {
   name: 'app-information',
@@ -15,6 +16,9 @@ export default {
       default() {
         return {}
       }
+    },
+    client: {
+      type: Object
     }
   },
   data() {
@@ -109,7 +113,7 @@ async function _request_new_secret() {
   this.loading = true
   once_submit = true
   try {
-    const res = await this.apis.app_new_secret(this.active_app.app_id)
+    const res = await this.client.app.updateSecret(this.active_app.app_id)
     this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
     this.modal_title = this.$t('secret.secret_title')
     this.modal_content = res.app_secret
@@ -127,7 +131,7 @@ async function _request_new_session(algo = 'rsa') {
   once_submit = true
   this.loading = true
   try {
-    const res = await this.apis.app_new_session(this.active_app.app_id, pin, session_secret)
+    const res = await this.client.app.updateSession(this.active_app.app_id, pin, session_secret)
     this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
     let { session_id, pin_token, pin_token_base64 } = res
     let jsonObj = { pin, client_id: this.active_app.app_id, session_id, pin_token, private_key }
@@ -186,11 +190,23 @@ async function _request_qrcode(is_show, client_info) {
   once_submit = true
   const uri = is_show ? '/me' : '/me/code'
   const api = `app_${is_show ? 'show' : 'rotate'}_qrcode`
-  let { uid } = client_info
-  let token = tools.getJwtToken(client_info, 'GET', uri, '')
+
+  let { uid, sid, pinToken, privateKey } = client_info
+  const keystore = {
+    user_id: uid,
+    session_id: sid,
+    pin_token: pinToken,
+    private_key: privateKey
+  }
+  const config = {
+    ...defaultApiConfig,
+    keystore
+  }
+  const client = MixinApi(config)
+
   _vm._not_through_interceptor = true
   try {
-    const res = await this.apis[api](token)
+    const res = is_show ? await this.client.user.profile() : await client.user.rotateCode()
     if (!res) {
       this.$ls.rm(uid)
       this.open_edit_modal = true

@@ -81,11 +81,13 @@
   import { validate } from 'uuid'
   import tools from "@/assets/js/tools"
   import DHeader from "@/components/DHeader"
+  import defaultApiConfig from "@/api";
+  import {MixinApi} from "@mixin.dev/mixin-node-sdk";
 
   export default {
     name: "withdrawal-modal",
     components: { DHeader },
-    props: ["active_asset", "app_id", "show"],
+    props: ["active_asset", "app_id", "show", "client"],
     data() {
       return {
         submit_form: {
@@ -170,8 +172,21 @@
     const type = is_transfers ? 'transfer' : 'raw'
     let params = await _build_transfers_params.call(this, client_info, is_transfers)
     if (!params.pin) return false
-    const token = tools.getJwtToken(client_info, "post", "/" + url, params)
-    let res = await this.apis[url](params, token)
+
+    console.log(params)
+    let { uid, sid, pinToken, privateKey } = client_info
+    const keystore = {
+      user_id: uid,
+      session_id: sid,
+      pin_token: pinToken,
+      private_key: privateKey
+    }
+    const config = {
+      ...defaultApiConfig,
+      keystore
+    }
+    const client = MixinApi(config)
+    let res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params)
     !is_transfers && (this.transaction_info = res)
     return res && res.type === type
   }
@@ -186,7 +201,7 @@
     return {
       amount,
       asset_id: this.active_asset.asset_id,
-      pin: tools.signPin(pin, pinToken, sid, privateKey),
+      pin,
       trace_id: tools.getUUID(),
       ...opponent
     }
@@ -198,7 +213,7 @@
     const uri = is_uuid ? '/users/' : '/search/'
     const api = is_uuid ? 'check_user' : 'search'
     let token = tools.getJwtToken(client_info, 'get', uri + opponent_id)
-    let { user_id } = await this.apis[api](opponent_id, token) || {}
+    let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
     return user_id
   }
 

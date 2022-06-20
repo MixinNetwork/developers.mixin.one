@@ -100,6 +100,7 @@
             <div class="dashboard-main">
               <component
                 :is="tmp_component"
+                :client="client"
                 :active_app="active_app"
                 @add_new_app="add_new_app"
                 @loading="change_loading"

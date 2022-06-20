@@ -10,6 +10,7 @@ let tmp_uri = ''
 export default {
   name: 'dashboard-container',
   components: { Information, Secret, Wallet, DModal, DHeader },
+  props: ['client', 'setKeystore'],
   data() {
     return {
       show_click_user: false,
@@ -73,7 +74,7 @@ export default {
         this.is_new_app = true
         jump_to_uri.call(this, '/apps/new', false)
       } else {
-        let { count, price } = await this.apis.get_apps_property()
+        let { count, price } = await this.client.app.properties()
         add_one_app_price = (app_nums + 1 - Number(count)) * Number(price)
         if (add_one_app_price > 0) {
           this.tmp_money = add_one_app_price
@@ -94,6 +95,7 @@ export default {
     },
     click_sign_out() {
       window.localStorage.clear()
+      this.$emit('set-keystore')
       this.show_click_user = false
       setTimeout(() => {
         window.location.href = window.location.origin
@@ -124,17 +126,17 @@ async function init_page() {
   this.all_loading = true
   tmp_uri = this.$route.path
   mounted_select_active_router.call(this)
-  this.user_info = await this.apis.get_me()
+  this.user_info = await this.client.user.profile()
   if (!this.user_info) return
   let app_number = await axios_get_app_list.call(this)
   update_active_app.call(this, app_number)
   this.init_status = true
-  this.apps_property = await this.apis.get_apps_property()
+  this.apps_property = await this.client.app.properties()
 }
 
 async function axios_get_app_list(app_number) {
   this.all_loading = true
-  this.app_list = await this.apis.get_apps()
+  this.app_list = await this.client.app.fetchList()
   app_number = app_number || this.$route.params.app_number
   if (app_number) {
     jump_to_uri.call(this, '/apps/' + app_number, false)

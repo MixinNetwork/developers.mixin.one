@@ -13,6 +13,9 @@ export default {
       default() {
         return {}
       }
+    },
+    client: {
+      type: Object
     }
   },
   data() {
@@ -71,7 +74,7 @@ async function _get_assets_list() {
   try {
     let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
     _vm._not_through_interceptor = true
-    let res = await this.apis.get_assets(assets_token)
+    let res = await this.client.asset.fetchList()
     if (res) {
       this.assets_list = res.sort(compare)
       this.is_edited = true

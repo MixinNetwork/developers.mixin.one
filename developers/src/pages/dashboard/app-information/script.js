@@ -13,6 +13,9 @@ export default {
       default() {
         return {}
       }
+    },
+    client: {
+      type: Object
     }
   },
   data() {
@@ -76,7 +79,8 @@ async function _submit_to_database() {
   once_submit = true
   this.$emit('loading', true)
   try {
-    let res = await this.apis.set_app(app_id, parmas)
+    console.log(parmas)
+    let res = app_id ? await this.client.app.update(app_id, parmas) : await this.client.app.create(parmas)
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
       this.$emit('add_new_app', res.app_number)
