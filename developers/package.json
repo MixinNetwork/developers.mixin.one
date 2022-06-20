@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@mixin.dev/mixin-node-sdk": "^4.1.0",
     "axios": "^0.24.0",
     "bignumber.js": "^9.0.1",
     "core-js": "^3.19.2",
