@@ -13,7 +13,7 @@ const responseCallback = (err) => {
     setTimeout(() => {
       window.localStorage.clear()
       window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE+ASSETS:READ&response_type=code&redirect_uri=localhost:8080/auth`
-    }, 1000 * 20)
+    }, 100)
   }
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {

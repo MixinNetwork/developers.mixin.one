@@ -1,8 +1,9 @@
+import { MixinApi } from "@mixin.dev/mixin-node-sdk";
+import forge from 'node-forge'
+import FileSaver from 'file-saver'
 import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
-import forge from 'node-forge'
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 import defaultApiConfig from "@/api";
 
 export default {
@@ -175,12 +176,14 @@ async function _request_new_session(algo = 'rsa') {
 }
 
 function _download_app_json() {
-  const dom = this.$refs.download_session_json
   const { app_number } = this.active_app
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(this.modal_content)
-  dom.setAttribute("href", dataStr)
-  dom.setAttribute("download", `keystore-${app_number}.json`)
-  dom.click()
+
+  const blob = new Blob(
+    [this.modal_content],
+    { type: 'text/json;charset=utf-8' }
+  )
+  FileSaver.saveAs(blob, `keystore-${app_number}.json`)
+  console.log('file save download')
 }
 
 async function _request_qrcode(is_show, client_info) {

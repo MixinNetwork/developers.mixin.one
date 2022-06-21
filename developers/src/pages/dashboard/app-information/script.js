@@ -66,9 +66,7 @@ async function _submit_to_database() {
   let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
   let icon_base64 = await this.$refs.croppie.crop()
-  if (icon_base64) {
-    parmas.icon_base64 = icon_base64.substring(icon_base64.indexOf(',') + 1)
-  }
+  parmas.icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
   if (!resource_patterns) {
     parmas.resource_patterns = []
   } else {
