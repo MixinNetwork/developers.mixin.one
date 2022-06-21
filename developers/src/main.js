@@ -24,8 +24,10 @@ Vue.config.productionTip = false
 Vue.prototype._const = _const
 Vue.prototype.$ls = ls
 
-new Vue({
+const _vm = new Vue({
   render: h => h(App),
   router,
   i18n
 }).$mount('#app')
+
+window._vm = _vm
