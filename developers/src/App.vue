@@ -18,6 +18,9 @@ export default {
       client: MixinApi(defaultApiConfig)
     }
   },
+  mounted() {
+    window._vm = this
+  },
   methods: {
     updateClient(keystore) {
       const config = keystore
