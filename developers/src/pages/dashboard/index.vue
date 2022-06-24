@@ -49,7 +49,7 @@
                 <li
                   v-for="(item,index) in app_list"
                   :key="index"
-                  @click="click_app_list_item(index)"
+                  @click="click_app_list_item(item)"
                   :class="['app-item', active_app.app_id === item.app_id ? 'app-item-active': '']"
                 >
                   <img :src="item.icon_url || _const.default.app_icon_url" />
@@ -126,7 +126,7 @@
               <li
                 v-for="(item,index) in app_list"
                 :key="index"
-                @click="click_app_list_item(index)"
+                @click="click_app_list_item(item)"
                 class="has-app-item"
               >
                 <img :src="item.icon_url || _const.default.app_icon_url" />

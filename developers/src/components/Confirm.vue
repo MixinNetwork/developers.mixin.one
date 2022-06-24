@@ -47,9 +47,8 @@ export default {
 }
 
 .confirm-content {
-  padding: 3.125rem 0;
+  padding: 3.125rem 2rem;
   width: 26.125rem;
-  height: 12.25rem;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -97,7 +96,6 @@ button {
   .confirm-content {
     padding: 0;
     width: 16.875rem;
-    height: 7.3125rem;
     border-radius: 0.75rem;
     overflow: hidden;
   }
@@ -106,10 +104,13 @@ button {
   }
 
   h3 {
-    line-height: 72.5px;
-    font-size: 17px;
+    padding: 0.625rem;
+    min-height: 4.5rem;
+    font-size: 1rem;
     font-weight: 500;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-bottom: 1px solid #cbcbcb;
   }
   .btns {

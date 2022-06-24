@@ -1,5 +1,4 @@
 import { v4 as uuid } from 'uuid'
-import forge from "node-forge";
 import BigNumber from "bignumber.js";
 
 export default {
@@ -40,18 +39,11 @@ export default {
     reloadTheme()
   },
   get_pin() {
-  let pin = ''
-  for (let i = 0; i < 6; i++) {
-    pin += i ? _get_pin_num(9) + 1 : _get_pin_num(10)
-  }
-  return pin
-},
-  get_private_key() {
-    let keypair = forge.pki.rsa.generateKeyPair({ bits: 1024, e: 0x10001 })
-    let body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes()
-    let session_secret = forge.util.encode64(body, 64)
-    let private_key = forge.pki.privateKeyToPem(keypair.privateKey)
-    return { session_secret, private_key }
+    let pin = ''
+    for (let i = 0; i < 6; i++) {
+      pin += i ? _get_pin_num(9) + 1 : _get_pin_num(10)
+    }
+    return pin
   },
   assetSortCompare(a, b) {
     let cmp = 0
@@ -61,14 +53,6 @@ export default {
     if (cmp === 0) cmp = calc_cmp(a.balance, b.balance)
     if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
     return cmp
-
-    function calc_cmp(a, b) {
-      a = new BigNumber(a)
-      b = new BigNumber(b)
-      if (a.gt(b)) return -1
-      if (a.lt(b)) return 1
-      return 0
-    }
   }
 }
 
@@ -93,4 +77,12 @@ function environment() {
 
 function _get_pin_num(max) {
   return max * Math.random() | 0
+}
+
+function calc_cmp(a, b) {
+  a = new BigNumber(a)
+  b = new BigNumber(b)
+  if (a.gt(b)) return -1
+  if (a.lt(b)) return 1
+  return 0
 }

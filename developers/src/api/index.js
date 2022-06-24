@@ -16,7 +16,8 @@ const responseCallback = (err) => {
   if (!_vm._not_through_interceptor && code === 401) {
     setTimeout(() => {
       window.localStorage.clear()
-      window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE+ASSETS:READ&response_type=code&redirect_uri=localhost:8080/auth`
+      console.log('redirect')
+      window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE+ASSETS:READ&response_type=code`
     }, 100)
   }
 };
@@ -25,4 +26,3 @@ const defaultApiConfig = {};
 defaultApiConfig.requestConfig = { responseCallback }
 
 export default defaultApiConfig
-

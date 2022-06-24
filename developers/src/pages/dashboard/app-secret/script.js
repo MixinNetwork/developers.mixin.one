@@ -55,10 +55,6 @@ export default {
         case 'session':
           this._request_new_session()
           break
-        case 'session_ed25519':
-          this.tmp_action = 'session'
-          this._request_new_session('ed25519')
-          break
         default:
           break
       }
@@ -72,13 +68,8 @@ export default {
       this.confirm_content = this.$t('secret.secret_question')
       this.confirm_modal = true
     },
-    request_new_session() {
-      this.tmp_action = 'session'
-      this.confirm_content = this.$t('secret.session_question')
-      this.confirm_modal = true
-    },
     request_ed25519_session() {
-      this.tmp_action = 'session_ed25519'
+      this.tmp_action = 'session'
       this.confirm_content = this.$t('secret.session_question')
       this.confirm_modal = true
     },
@@ -118,23 +109,26 @@ export default {
         this.loading = false
       }
     },
-    async _request_new_session(algo = 'rsa') {
+    async _request_new_session() {
       if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
       let pin = tools.get_pin()
-      let key = algo === 'ed25519' ? getED25519KeyPair() : tools.get_private_key()
-      let { publicKey: session_secret, private_key } = key
+      let { publicKey: session_secret, privateKey } = getED25519KeyPair()
+
       once_submit = true
       this.loading = true
       try {
         const res = await this.client.app.updateSession(this.active_app.app_id, pin, session_secret)
         this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
-        let { session_id, pin_token, pin_token_base64 } = res
-        let jsonObj = { pin, client_id: this.active_app.app_id, session_id, pin_token, private_key }
-        if (algo === 'ed25519') {
-          jsonObj['pin_token'] = pin_token_base64
+        const keystore = {
+          pin,
+          client_id: this.active_app.app_id,
+          session_id: res.session_id,
+          pin_token: res.pin_token_base64,
+          private_key: privateKey
         }
+
         this.modal_title = this.$t('secret.session_title')
-        this.modal_content = JSON.stringify(jsonObj, null, ' ')
+        this.modal_content = JSON.stringify(keystore, null, ' ')
         this.$ls.rm(this.active_app.app_id)
       } finally {
         once_submit = false

@@ -64,15 +64,28 @@
       <label>{{$t('information.resource_patterns')}}</label>
       <textarea :placeholder="$t('information.resource_patterns_desc')" v-model="resource_patterns"></textarea>
     </div>
-    <div @click="immersive_status=!immersive_status" class="des immersive">
-      <i v-if="!immersive_status" />
-      <img v-else src="@/assets/img/ic_v.png" />
-      <span>{{$t('information.immersive')}}</span>
+    <div class="f">
+      <div @click="immersive_status=!immersive_status" class="des immersive">
+        <i v-if="!immersive_status" />
+        <img v-else src="@/assets/img/ic_v.png" />
+        <span>{{$t('information.immersive')}}</span>
+      </div>
+      <div v-if="has_encrypted" @click="click_encrypted" class="des encrypted">
+        <i v-if="!encrypted_status" />
+        <img v-else src="@/assets/img/ic_v.png" />
+        <span>{{$t('information.encrypted')}}</span>
+      </div>
     </div>
     <button
       @click="submit_to_database"
       :class="['primary',!can_save ? 'not-finished' : '' ]"
     >{{$t('button.save')}}</button>
+    <confirm
+      :confirm_content="$t('information.encrypted_confirm')"
+      :confirm_modal="confirm_modal"
+      @confirm="confirm_action"
+      @close_modal="close_modal"
+    />
   </div>
 </template>
 

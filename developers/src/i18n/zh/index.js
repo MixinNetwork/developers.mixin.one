@@ -475,6 +475,8 @@ export default {
     resource_patterns: '域名白名单',
     resource_patterns_desc: '您应用的域名白名单，按行划分，最多 10 个域名。',
     immersive: '沉浸式',
+    encrypted: '消息加密',
+    encrypted_confirm: '请确保您已升级您的机器人代码以支持加密消息，此选项一旦启用便无法关闭。',
     errors: {
       no_app_name: '应用名称不能为空。',
       no_home_uri: '首页网址不能为空。',
