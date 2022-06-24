@@ -63,22 +63,21 @@ async function _submit_to_database() {
   let { app_id, description, home_uri, redirect_uri, category = 'OTHER' } = this.active_app
   let name = this.app_name
   let capabilities = this.immersive_status ? ['CONTACT', 'GROUP', 'IMMERSIVE'] : ['CONTACT', 'GROUP']
-  let parmas = { capabilities, description, home_uri, name, redirect_uri, category }
+  let params = { capabilities, description, home_uri, name, redirect_uri, category }
   let { resource_patterns } = this
   let icon_base64 = await this.$refs.croppie.crop()
-  parmas.icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
+  params.icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
   if (!resource_patterns) {
-    parmas.resource_patterns = []
+    params.resource_patterns = []
   } else {
     if (resource_patterns.includes('\r\n')) 
       resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
-    parmas.resource_patterns = resource_patterns.split('\n')
+    params.resource_patterns = resource_patterns.split('\n')
   }
   once_submit = true
   this.$emit('loading', true)
   try {
-    console.log(parmas)
-    let res = app_id ? await this.client.app.update(app_id, parmas) : await this.client.app.create(parmas)
+    let res = app_id ? await this.client.app.update(app_id, params) : await this.client.app.create(params)
     if (res && res.type === 'app') {
       this.$message.success({ message: this.$t('message.success.save'), showClose: true })
       this.$emit('add_new_app', res.app_number)

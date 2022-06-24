@@ -164,16 +164,13 @@
     }
   }
 
-
   async function submit_withdrawal() {
     const client_info = this.$ls.get(this.uid)
     const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
-    const url = is_transfers ? 'transfers' : 'transactions'
     const type = is_transfers ? 'transfer' : 'raw'
     let params = await _build_transfers_params.call(this, client_info, is_transfers)
     if (!params.pin) return false
 
-    console.log(params)
     let { uid, sid, pinToken, privateKey } = client_info
     const keystore = {
       user_id: uid,
@@ -207,12 +204,9 @@
     }
   }
 
-  async function _get_opponent_id(client_info) {
+  async function _get_opponent_id() {
     const { opponent_id } = this.submit_form
     const is_uuid = validate(opponent_id)
-    const uri = is_uuid ? '/users/' : '/search/'
-    const api = is_uuid ? 'check_user' : 'search'
-    let token = tools.getJwtToken(client_info, 'get', uri + opponent_id)
     let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
     return user_id
   }

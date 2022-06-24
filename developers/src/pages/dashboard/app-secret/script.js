@@ -191,8 +191,6 @@ async function _request_qrcode(is_show, client_info) {
   client_info = client_info || this.$ls.get(this.active_app.app_id)
   this.loading = true
   once_submit = true
-  const uri = is_show ? '/me' : '/me/code'
-  const api = `app_${is_show ? 'show' : 'rotate'}_qrcode`
 
   let { uid, sid, pinToken, privateKey } = client_info
   const keystore = {

@@ -72,7 +72,6 @@ async function _get_assets_list() {
     return
   }
   try {
-    let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
     _vm._not_through_interceptor = true
     let res = await this.client.asset.fetchList()
     if (res) {
