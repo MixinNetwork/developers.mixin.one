@@ -1,6 +1,6 @@
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
-import forge from 'node-forge'
+import { MixinApi, getED25519KeyPair } from "@mixin.dev/mixin-node-sdk";
 import FileSaver from 'file-saver'
+import tools from '@/assets/js/tools'
 import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
@@ -120,9 +120,9 @@ export default {
     },
     async _request_new_session(algo = 'rsa') {
       if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-      let pin = _get_pin()
-      let key = algo === 'ed25519' ? _get_ed25519_private_key() : _get_private_key()
-      let { session_secret, private_key } = key
+      let pin = tools.get_pin()
+      let key = algo === 'ed25519' ? getED25519KeyPair() : tools.get_private_key()
+      let { publicKey: session_secret, private_key } = key
       once_submit = true
       this.loading = true
       try {
@@ -139,33 +139,6 @@ export default {
       } finally {
         once_submit = false
         this.loading = false
-      }
-
-      function _get_ed25519_private_key() {
-        let keypair = forge.pki.ed25519.generateKeyPair()
-        let session_secret = keypair.publicKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
-        let private_key = keypair.privateKey.toString("base64").replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
-        return { session_secret, private_key }
-      }
-
-      function _get_private_key() {
-        let keypair = forge.pki.rsa.generateKeyPair({ bits: 1024, e: 0x10001 })
-        let body = forge.asn1.toDer(forge.pki.publicKeyToAsn1(keypair.publicKey)).getBytes()
-        let session_secret = forge.util.encode64(body, 64)
-        let private_key = forge.pki.privateKeyToPem(keypair.privateKey)
-        return { session_secret, private_key }
-      }
-
-      function _get_pin() {
-        let pin = ''
-        for (let i = 0; i < 6; i++) {
-          pin += i ? _get_pin_num(9) + 1 : _get_pin_num(10)
-        }
-        return pin
-      }
-
-      function _get_pin_num(max) {
-        return max * Math.random() | 0
       }
     },
     _download_app_json() {

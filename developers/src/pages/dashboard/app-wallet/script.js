@@ -1,6 +1,6 @@
 import WithdrawalModal from './withdrawal'
 import UpdateToken from '@/components/UpdateToken'
-import BigNumber from 'bignumber.js'
+import tools from '@/assets/js/tools'
 
 export default {
   components: {
@@ -63,7 +63,7 @@ export default {
         _vm._not_through_interceptor = true
         let res = await this.client.asset.fetchList()
         if (res) {
-          this.assets_list = res.sort(this.compare)
+          this.assets_list = res.sort(tools.assetSortCompare)
           this.is_edited = true
           this.open_edit_modal = false
         } else {
@@ -81,23 +81,6 @@ export default {
         _vm._not_through_interceptor = false
       }
     },
-    compare(a, b) {
-      let cmp = 0
-      let ap = new BigNumber(a.balance).times(a.price_usd)
-      let bp = new BigNumber(b.balance).times(b.price_usd)
-      cmp = calc_cmp(ap, bp)
-      if (cmp === 0) cmp = calc_cmp(a.balance, b.balance)
-      if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
-      return cmp
-
-      function calc_cmp(a, b) {
-        a = new BigNumber(a)
-        b = new BigNumber(b)
-        if (a.gt(b)) return -1
-        if (a.lt(b)) return 1
-        return 0
-      }
-    }
   },
   mounted() {
     if (this.$ls.get(this.active_app.app_id)) {
