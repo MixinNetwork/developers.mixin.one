@@ -32,17 +32,17 @@
       </div>
     </div>
     <div class="tips">{{$t('secret.des')}}</div>
-    <d-modal class="secret-modal" :show="modal_content ? true : false">
+    <d-modal class="secret-modal" :show="!!modal_content">
       <div class="new-secret-modal">
         <h3>{{modal_title}}</h3>
         <span :class="tmp_action==='session' && 'session'">{{modal_content}}</span>
         <div class="btns">
           <button v-if="tmp_action==='secret'" @click="click_close_new_secret" class="btn-close primary">{{$t('button.cancel')}}</button>
-          <button v-if="tmp_action==='session'" @click="click_download_session" class="btn-close primary">{{$t('button.download')}}</button>
+          <button v-if="tmp_action==='session'" @click="_download_app_json" class="btn-close primary">{{$t('button.download')}}</button>
           <button
             v-clipboard:copy="modal_content"
-            　　v-clipboard:success="click_copy_success"
-            　　v-clipboard:error="click_copy_error"
+            v-clipboard:success="click_copy_success"
+            v-clipboard:error="click_copy_error"
             class="btn-copy primary"
           >{{$t('button.copy')}}
           </button>

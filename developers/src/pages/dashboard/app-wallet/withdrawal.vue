@@ -116,7 +116,7 @@
       },
       async click_submit() {
         this.loading = true
-        let transfer_status = await submit_withdrawal.call(this)
+        let transfer_status = await this.submit_withdrawal()
         this.loading = false
         if (transfer_status) {
           this.$message.success({
@@ -157,60 +157,54 @@
           _pin += "*"
         }
         this.$refs.pin_token.value = _pin
+      },
+      async _get_opponent_id() {
+        const { opponent_id } = this.submit_form
+        const is_uuid = validate(opponent_id)
+        let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
+        return user_id
+      },
+      async submit_withdrawal() {
+        if (!this.tmp_pin) return false
+
+        const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
+        const type = is_transfers ? 'transfer' : 'raw'
+
+        let { amount, opponent_id } = this.submit_form
+        opponent_id = is_transfers ? await this._get_opponent_id() : opponent_id
+        if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
+        const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
+
+        const params = {
+          amount,
+          asset_id: this.active_asset.asset_id,
+          pin: this.tmp_pin,
+          trace_id: tools.getUUID(),
+          ...opponent
+        };
+
+        const { uid, sid, pinToken, privateKey } = this.$ls.get(this.uid)
+        const keystore = {
+          user_id: uid,
+          session_id: sid,
+          pin_token: pinToken,
+          private_key: privateKey
+        }
+        const config = {
+          ...defaultApiConfig,
+          keystore
+        }
+        const client = MixinApi(config)
+
+        let res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params)
+        !is_transfers && (this.transaction_info = res)
+        return res && res.type === type
       }
     },
     mounted() {
       this.uid = this.app_id
     }
   }
-
-  async function submit_withdrawal() {
-    const client_info = this.$ls.get(this.uid)
-    const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
-    const type = is_transfers ? 'transfer' : 'raw'
-    let params = await _build_transfers_params.call(this, client_info, is_transfers)
-    if (!params.pin) return false
-
-    let { uid, sid, pinToken, privateKey } = client_info
-    const keystore = {
-      user_id: uid,
-      session_id: sid,
-      pin_token: pinToken,
-      private_key: privateKey
-    }
-    const config = {
-      ...defaultApiConfig,
-      keystore
-    }
-    const client = MixinApi(config)
-    let res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params)
-    !is_transfers && (this.transaction_info = res)
-    return res && res.type === type
-  }
-
-  async function _build_transfers_params(client_info, is_transfers) {
-    let { amount, opponent_id } = this.submit_form
-    opponent_id = is_transfers ? await _get_opponent_id.call(this, client_info) : opponent_id
-    if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
-    const { pinToken, privateKey, sid } = client_info
-    const pin = this.tmp_pin
-    const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
-    return {
-      amount,
-      asset_id: this.active_asset.asset_id,
-      pin,
-      trace_id: tools.getUUID(),
-      ...opponent
-    }
-  }
-
-  async function _get_opponent_id() {
-    const { opponent_id } = this.submit_form
-    const is_uuid = validate(opponent_id)
-    let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
-    return user_id
-  }
-
 </script>
 
 <style lang="scss" scoped>
