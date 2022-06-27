@@ -55,6 +55,7 @@ export default {
       this.is_welcome = false
       this.is_new_app = false
       this.loading = true
+
       await this.update_active_app(item.app_number)
       this.jump_to_uri('/apps', true)
       this.loading = false

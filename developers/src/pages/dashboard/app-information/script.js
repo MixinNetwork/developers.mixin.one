@@ -3,6 +3,7 @@ import Croppie from './croppie.vue'
 import CategorySelect from './select.vue'
 import Confirm from '@/components/Confirm'
 
+
 let once_submit = false
 
 export default {
@@ -71,7 +72,6 @@ export default {
       this.toggle_app++
       let { name, resource_patterns, capabilities } = app
       this.app_name = name || ''
-
       if (resource_patterns) this.resource_patterns = resource_patterns.join('\n')
       if (capabilities) {
         this.immersive_status = capabilities.includes('IMMERSIVE')

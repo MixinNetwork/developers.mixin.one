@@ -8,7 +8,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@mixin.dev/mixin-node-sdk": "^4.1.2",
+    "@mixin.dev/mixin-node-sdk": "https://github.com/MixinNetwork/bot-api-nodejs-client.git",
     "axios": "^0.24.0",
     "bignumber.js": "^9.0.1",
     "core-js": "^3.19.2",
