@@ -1,5 +1,8 @@
 import { v4 as uuid } from 'uuid'
 import BigNumber from "bignumber.js";
+import { WebviewApi } from "@mixin.dev/mixin-node-sdk";
+
+const client = WebviewApi()
 
 export default {
   getUrlParameter(name) {
@@ -12,17 +15,8 @@ export default {
     return uuid()
   },
   isImmersive() {
-    let ctx
-    switch (environment()) {
-      case 'iOS':
-        ctx = prompt('MixinContext.getContext()')
-        return JSON.parse(ctx).immersive
-      case 'Android':
-        ctx = window.MixinContext.getContext()
-        return JSON.parse(ctx).immersive
-      default:
-        return false
-    }
+    const ctx = client.getMixinContext()
+    return ctx.immersive ? ctx.immersive : false
   },
   changeTheme(color) {
     const head = document.getElementsByTagName('head')[0]
@@ -36,7 +30,8 @@ export default {
     meta.name = 'theme-color'
     meta.content = color
     head.appendChild(meta)
-    reloadTheme()
+
+    client.reloadTheme()
   },
   get_pin() {
     let pin = ''
@@ -54,25 +49,6 @@ export default {
     if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
     return cmp
   }
-}
-
-function reloadTheme() {
-  switch (environment()) {
-    case 'iOS':
-      return window.webkit.messageHandlers.reloadTheme && window.webkit.messageHandlers.reloadTheme.postMessage('')
-    case 'Android':
-      return window.MixinContext.reloadTheme()
-  }
-}
-
-function environment() {
-  if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
-    return 'iOS'
-  }
-  if (window.MixinContext && window.MixinContext.getContext) {
-    return 'Android'
-  }
-  return undefined
 }
 
 function _get_pin_num(max) {
