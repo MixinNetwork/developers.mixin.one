@@ -13,8 +13,6 @@
         "destination": "", 
         "tag": ""
       },
-      "destination":  "0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
-      "tag":          "",
       "price_btc":    "0",
       "price_usd":    "0",
       "change_btc":   "1", // change percent compare to 24 hours before
@@ -25,6 +23,13 @@
       "confirmations":    10,
       "capitalization":   1000.3,
       "liquidity": "",
+      "deposit_entries": [
+        {
+          "destination":  "0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
+          "tag":          "",
+          "properties": "",
+        },
+      ],
     },
     ...
   ]
