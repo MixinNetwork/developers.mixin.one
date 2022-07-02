@@ -19,6 +19,14 @@
       "mixin_id":     "b6b8d99b7cecf810980aaeef17a48f82ed573f2552517d4932d195181bc6ba11",
       "confirmations":    10,
       "capitalization":   1000.3
+      "liquidity": "",
+      "deposit_entries": [
+        {
+          "destination":  "0x2CEab41716F4ce0Db36B6FdABEdc6a0BE5DC442B",
+          "tag":          "",
+          "properties": "",
+        },
+      ],
     },
     ...
   ]
