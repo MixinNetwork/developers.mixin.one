@@ -13,6 +13,7 @@ title: SDK
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK
 - [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): 官方 Dart SDK
   - [🥰 例子](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test)，[📖 文档](https://pub.dev/packages/mixin_bot_sdk_dart)
+- [Swift SDK](https://github.com/MixinNetwork/bot-api-swift-client): 官方 swift SDK
 
 ## 第三方 SDK
 

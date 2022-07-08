@@ -14,6 +14,7 @@ Except restful APIs, Mixin core team also provides several SDKs as a simplified 
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-nodejs-client): the official SDK for Node.js.
 - [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): the official SDK for Dart
   - [🥰 Examples](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test), [📖 Documentation](https://pub.dev/packages/mixin_bot_sdk_dart)
+- [Swift SDK](https://github.com/MixinNetwork/bot-api-swift-client): the official SDK for swift
 
 ## 3rd-party SDK
 
