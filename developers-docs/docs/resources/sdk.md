@@ -10,8 +10,9 @@ Except restful APIs, Mixin core team also provides several SDKs as a simplified 
   - [🥰 Examples](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples), [📖 Documentation](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client), [🧑‍🏫 Tutorial](/docs/dapp/getting-started/create-dapp)
 - [Kotlin/Java SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): the official SDK for Java/Kotlin.
   - [🥰 Examples](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
+- [Swift SDK](https://github.com/MixinNetwork/bot-api-swift-client): the official SDK for Swift
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-nodejs-client): the official SDK for Node.js.
-- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): the official SDK for Dart, beta version
+- [Dart SDK](https://github.com/MixinNetwork/mixin_bot_sdk_dart): the official SDK for Dart
   - [🥰 Examples](https://github.com/MixinNetwork/mixin_bot_sdk_dart/tree/master/test), [📖 Documentation](https://pub.dev/packages/mixin_bot_sdk_dart)
 
 ## 3rd-party SDK
