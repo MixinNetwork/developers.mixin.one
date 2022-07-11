@@ -37,6 +37,7 @@
         authorization_id,
         private_key: privateKey,
       }
+      this.$ls.set('token', keystore)
       this.$emit('set-keystore', keystore)
 
       this.$router.push("/dashboard")

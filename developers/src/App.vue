@@ -20,6 +20,10 @@ export default {
   },
   mounted() {
     window._vm = this
+    const keystore = this.$ls.get('token');
+    if (this.isValidKeystore(keystore)) {
+      this.updateClient(keystore);
+    }
   },
   methods: {
     updateClient(keystore) {
@@ -30,6 +34,12 @@ export default {
           }
         : defaultApiConfig
       this.client = MixinApi(config)
+    },
+    isValidKeystore(keystore) {
+      return !!(keystore &&
+        keystore.scope &&
+        keystore.authorization_id &&
+        keystore.private_key);
     }
   }
 };
