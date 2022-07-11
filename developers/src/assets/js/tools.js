@@ -33,29 +33,25 @@ export default {
 
     client.reloadTheme()
   },
-  get_pin() {
-    let pin = ''
-    for (let i = 0; i < 6; i++) {
-      pin += i ? _get_pin_num(9) + 1 : _get_pin_num(10)
+  randomPin() {
+    let r = Math.random();
+    while(r < 0.1) {
+      r = Math.random();
     }
-    return pin
+    return Math.floor((Math.random() * 1000000)).toString()
   },
   assetSortCompare(a, b) {
     let cmp = 0
     let ap = new BigNumber(a.balance).times(a.price_usd)
     let bp = new BigNumber(b.balance).times(b.price_usd)
-    cmp = calc_cmp(ap, bp)
-    if (cmp === 0) cmp = calc_cmp(a.balance, b.balance)
-    if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
+    cmp = cmp(ap, bp)
+    if (cmp === 0) cmp = cmp(a.balance, b.balance)
+    if (cmp === 0) cmp = cmp(a.price_usd, b.price_usd)
     return cmp
   }
 }
 
-function _get_pin_num(max) {
-  return max * Math.random() | 0
-}
-
-function calc_cmp(a, b) {
+function cmp(a, b) {
   a = new BigNumber(a)
   b = new BigNumber(b)
   if (a.gt(b)) return -1

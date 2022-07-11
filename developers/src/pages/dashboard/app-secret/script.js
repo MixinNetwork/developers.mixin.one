@@ -111,7 +111,7 @@ export default {
     },
     async _request_new_session() {
       if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-      let pin = tools.get_pin()
+      let pin = tools.randomPin()
       let { publicKey: session_secret, privateKey } = getED25519KeyPair()
 
       once_submit = true
