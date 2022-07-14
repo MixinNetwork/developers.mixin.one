@@ -15,10 +15,10 @@
         <textarea v-model="submit_form.private_key"></textarea>
       </div>
       <div class="btns">
-        <button @click="click_submit" class="btns-save primary">{{$t('button.save')}}</button>
-        <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+        <button @click="clickSubmit" class="btns-save primary">{{$t('button.save')}}</button>
+        <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
       </div>
-      <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+      <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
     </div>
   </d-modal>
 </template>
@@ -26,9 +26,10 @@
 <script>
   import DModal from "./DModal"
   import validator from "validator"
+  import Confirm from "@/components/Confirm";
 
   export default {
-    components: { DModal },
+    components: {Confirm, DModal },
     props: {
       open_edit_modal: {
         type: Boolean,
@@ -52,43 +53,41 @@
       }
     },
     methods: {
-      click_submit() {
-        if (!_check_date.call(this)) return
-        _set_token_obj.call(this)
+      clickSubmit() {
+        if (!this.checkToken()) return
+        this.saveToken()
         this.$emit("close_modal")
         this.$emit("success")
       },
-      click_cancel() {
+      clickCancel() {
         this.$emit("close_modal")
+      },
+      checkToken() {
+        const { session_id, pin_token } = this.submit_form
+        if (!validator.isUUID(session_id, 4)) {
+          this.$message.error({
+            message: this.$t("message.errors.session_id_format"),
+            showClose: true
+          })
+          return false
+        }
+        if (!validator.isBase64(pin_token) && Buffer.from(pin_token, 'base64').length !== 32) {
+          this.$message.error({
+            message: this.$t("message.errors.pin_token_format"),
+            showClose: true
+          })
+          return false
+        }
+        return true
+      },
+      saveToken() {
+        const {
+          active_app: { app_id: uid },
+          submit_form: { session_id: sid, pin_token: pinToken, private_key }
+        } = this
+        this.$ls.set(uid, { uid, sid, pinToken, privateKey: private_key.replace(/\\r\\n/g, "\r\n") })
       }
     }
-  }
-
-  function _check_date() {
-    const { session_id, pin_token,private_key } = this.submit_form
-    if (!validator.isUUID(session_id, 4)) {
-      this.$message.error({
-        message: this.$t("message.errors.session_id_format"),
-        showClose: true
-      })
-      return false
-    }
-    if (!validator.isBase64(pin_token) && Buffer.from(pin_token, 'base64').length !== 32) {
-      this.$message.error({
-        message: this.$t("message.errors.pin_token_format"),
-        showClose: true
-      })
-      return false
-    }
-    return true
-  }
-
-  function _set_token_obj() {
-    const {
-      active_app: { app_id: uid },
-      submit_form: { session_id: sid, pin_token: pinToken, private_key }
-    } = this
-    this.$ls.set(uid, { uid, sid, pinToken, privateKey: private_key.replace(/\\r\\n/g, "\r\n") })
   }
 </script>
 
