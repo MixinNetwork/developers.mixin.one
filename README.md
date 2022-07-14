@@ -4,7 +4,7 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 2. API document of Mixin Network [https://developers.mixin.one/docs/api-overview](https://developers.mixin.one/docs/api-overview)
 
 ## Communication
-
+Mixin Developer group: [https://supergroup.mixin.fan/#/7000104112](https://supergroup.mixin.fan/#/7000104112)
 Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 
 ## Mixin news
@@ -20,29 +20,20 @@ Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 ## Resources
 
 1. Golang SDK: [https://github.com/MixinNetwork/bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client)
-2. Mixin Messager Android [https://github.com/MixinNetwork/android-app](https://github.com/MixinNetwork/android-app)
-3. Mixin Messager iOS [https://github.com/MixinNetwork/ios-app](https://github.com/MixinNetwork/ios-app)
-4. Nodejs SDK: [https://github.com/MixinNetwork/bot-api-nodejs-client](https://github.com/MixinNetwork/bot-api-nodejs-client)
-5. Python SDK (non official): [https://github.com/learnforpractice/mixin-python](https://github.com/learnforpractice/mixin-python)
-7. Ocean ONE (blockchain exchange): [https://github.com/MixinNetwork/ocean.one](https://github.com/MixinNetwork/ocean.one)
-8. Ruby Demo (non official): [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
-9. PHP SDK (non official) : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
-10. C# (CSharp) SDK (non official) : [c#](https://github.com/wjfree/mixin-csharp-sdk)
-11. [Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): the official SDK for Kotlin.
+2. Nodejs SDK: [https://github.com/MixinNetwork/bot-api-nodejs-client](https://github.com/MixinNetwork/bot-api-nodejs-client)
+3. [Kotlin/Java SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): the official SDK for Kotlin/Java.
+4. Python SDK: [https://github.com/learnforpractice/mixin-python](https://github.com/learnforpractice/mixin-python)
+5. Ruby Demo: [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
+6. PHP SDK : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
+7. C# (CSharp) SDK : [c#](https://github.com/wjfree/mixin-csharp-sdk)
 
 ## Mixin bots demo
 
 Hancker News: Mixin ID 7000100124, repo [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)  
-Mixin Channel: Mixin ID 7000100150, repo [https://github.com/crossle/channel-father-mixin-bot](https://github.com/crossle/channel-father-mixin-bot)  
 Mixin Roulette: Mixin ID 7000100168, repo [https://github.com/virushuo/mixin-roulette](https://github.com/virushuo/mixin-roulette)  
 Mixin super group: Mixin ID 7000101317, repo [https://github.com/MixinNetwork/supergroup.mixin.one](https://github.com/MixinNetwork/supergroup.mixin.one)
 
 
-## Mixin app store (non official)
-
-App store address [https://app.mixin.news/](https://app.mixin.news/)
-
 ## Forums
 
 Reddit: [https://www.reddit.com/r/mixin/](https://www.reddit.com/r/mixin/)  
-Non official: [http://mixin.news/](http://mixin.news/)  
