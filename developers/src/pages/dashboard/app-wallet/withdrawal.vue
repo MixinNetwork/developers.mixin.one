@@ -102,7 +102,6 @@
         },
         sid: "",
         uid: "",
-        remember_token_status: false,
         snap_status: false,
         loading: false,
         tmp_pin: "",
