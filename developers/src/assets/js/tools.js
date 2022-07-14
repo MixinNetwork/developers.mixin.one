@@ -4,6 +4,14 @@ import { WebviewApi } from "@mixin.dev/mixin-node-sdk";
 
 const client = WebviewApi()
 
+function cmpBalance(a, b) {
+  a = new BigNumber(a)
+  b = new BigNumber(b)
+  if (a.gt(b)) return -1
+  if (a.lt(b)) return 1
+  return 0
+}
+
 export default {
   getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
@@ -44,17 +52,11 @@ export default {
     let cmp = 0
     let ap = new BigNumber(a.balance).times(a.price_usd)
     let bp = new BigNumber(b.balance).times(b.price_usd)
-    cmp = cmp(ap, bp)
-    if (cmp === 0) cmp = cmp(a.balance, b.balance)
-    if (cmp === 0) cmp = cmp(a.price_usd, b.price_usd)
+    cmp = cmpBalance(ap, bp)
+    if (cmp === 0) cmp = cmpBalance(a.balance, b.balance)
+    if (cmp === 0) cmp = cmpBalance(a.price_usd, b.price_usd)
     return cmp
   }
 }
 
-function cmp(a, b) {
-  a = new BigNumber(a)
-  b = new BigNumber(b)
-  if (a.gt(b)) return -1
-  if (a.lt(b)) return 1
-  return 0
-}
+
