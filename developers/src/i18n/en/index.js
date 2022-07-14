@@ -473,7 +473,8 @@ export default {
       account: 'ACCOUNT',
       amount: 'AMOUNT',
       transaction_hash: 'TRANSACTION HASH'
-    }
+    },
+    withdrawal_confirm: 'Withdrawal {amount} {token} to {opponent}?'
   },
   secret: {
     title: 'Secret',

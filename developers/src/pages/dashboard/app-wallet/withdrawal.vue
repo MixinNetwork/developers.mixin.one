@@ -30,11 +30,17 @@
             </ul>
             <footer>
               <div class="btns">
-                <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-                <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+                <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
+                <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
               </div>
             </footer>
-            <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+            <confirm
+              :confirm_content="confirm_content"
+              :confirm_modal="showWithdrawalConfirm"
+              @confirm="confirmWithdrawal"
+              @close_modal="closeWithdrawalConfirm"
+            />
+            <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
         </div>
         <div v-if="show && snap_status" class="main snap-main">
@@ -67,11 +73,11 @@
               <p>{{transaction_info.transaction_hash}}</p>
             </div>
             <footer class="btns">
-              <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-              <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+              <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
+              <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
             </footer>
           </div>
-          <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+          <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
         </div>
       </transition>
     </div>
@@ -81,19 +87,18 @@
   import { validate } from 'uuid'
   import tools from "@/assets/js/tools"
   import DHeader from "@/components/DHeader"
-  import defaultApiConfig from "@/api";
-  import {MixinApi} from "@mixin.dev/mixin-node-sdk";
+  import Confirm from "@/components/Confirm";
 
   export default {
     name: "withdrawal-modal",
-    components: { DHeader },
+    components: { Confirm, DHeader },
     props: ["active_asset", "app_id", "show", "client"],
     data() {
       return {
         submit_form: {
-          amount: "",
+          amount: "1",
           pin: "",
-          opponent_id: ""
+          opponent_id: "40870688"
         },
         sid: "",
         uid: "",
@@ -101,7 +106,8 @@
         snap_status: false,
         loading: false,
         tmp_pin: "",
-        transaction_info: {}
+        transaction_info: {},
+        showWithdrawalConfirm: false,
       }
     },
     watch: {
@@ -110,14 +116,39 @@
         this.uid = val
       }
     },
+    computed: {
+      confirm_content() {
+        const msg = this.$t('wallet.withdrawal_confirm');
+        return msg
+          .replace('{amount}', this.submit_form.amount)
+          .replace('{token}', this.active_asset.symbol)
+          .replace('{opponent}', this.submit_form.opponent_id)
+      }
+    },
     methods: {
       back() {
         this.$emit("close-modal")
       },
-      async click_submit() {
+      isValidPin() {
+        return this.tmp_pin && this.tmp_pin.length === 6 && parseInt(this.tmp_pin) > 100000;
+      },
+      async clickSubmit() {
+        if (!this.isValidPin()) return this.$message.error({ message: this.$t('message.errors.pin_token_format'), showClose: true })
+        this.showWithdrawalConfirm = true
+      },
+      clickCancel() {
+        this.tmp_pin = ""
+        this.snap_status = false
+        this.transaction_info = {}
+        this.$emit("close-modal")
+      },
+      async confirmWithdrawal() {
+        this.closeWithdrawalConfirm()
+
         this.loading = true
         let transfer_status = await this.submit_withdrawal()
         this.loading = false
+
         if (transfer_status) {
           this.$message.success({
             message: this.$t("message.success.withdrawal"),
@@ -134,11 +165,8 @@
           this.submit_form = {}
         }
       },
-      click_cancel() {
-        this.tmp_pin = ""
-        this.snap_status = false
-        this.transaction_info = {}
-        this.$emit("close-modal")
+      closeWithdrawalConfirm() {
+        this.showWithdrawalConfirm = false
       },
       change_style() {
         let originVal = this.$refs.pin_token.value
@@ -183,26 +211,14 @@
           ...opponent
         };
 
-        const { uid, sid, pinToken, privateKey } = this.$ls.get(this.uid)
-        const keystore = {
-          user_id: uid,
-          session_id: sid,
-          pin_token: pinToken,
-          private_key: privateKey
-        }
-        const config = {
-          ...defaultApiConfig,
-          keystore
-        }
-        const client = MixinApi(config)
-
-        let res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params)
+        let res = is_transfers ? await this.client.transfer.toUser(params.pin, params) : await this.client.transfer.toAddress(params.pin, params)
         !is_transfers && (this.transaction_info = res)
         return res && res.type === type
       }
     },
     mounted() {
       this.uid = this.app_id
+
     }
   }
 </script>

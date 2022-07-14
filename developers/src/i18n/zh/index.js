@@ -506,7 +506,8 @@ export default {
       account: '帐户',
       amount: '数量',
       transaction_hash: '交易哈希'
-    }
+    },
+    withdrawal_confirm: '提现 {amount} {token} 至 {opponent}？'
   },
   secret: {
     title: '密钥',

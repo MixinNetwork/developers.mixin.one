@@ -1,6 +1,8 @@
 import WithdrawalModal from './withdrawal'
 import UpdateToken from '@/components/UpdateToken'
 import tools from '@/assets/js/tools'
+import defaultApiConfig from "@/api";
+import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 
 export default {
   components: {
@@ -12,9 +14,6 @@ export default {
       default() {
         return {}
       }
-    },
-    client: {
-      type: Object
     }
   },
   data() {
@@ -30,7 +29,8 @@ export default {
       loading: false,
       whole_loading: false,
       show_withdrawal: false,
-      active_asset: {}
+      active_asset: {},
+      client: null,
     }
   },
   watch: {
@@ -50,6 +50,20 @@ export default {
         this.show_withdrawal = true
       }, 200)
     },
+    getClient(client_info) {
+      const { uid, sid, pinToken, privateKey } = client_info
+      const keystore = {
+        user_id: uid,
+        session_id: sid,
+        pin_token: pinToken,
+        private_key: privateKey
+      }
+      const config = {
+        ...defaultApiConfig,
+        keystore
+      }
+      this.client = MixinApi(config)
+    },
     async _get_assets_list() {
       this.whole_loading = true
       let client_info = this.$ls.get(this.active_app.app_id)
@@ -59,6 +73,8 @@ export default {
         this.whole_loading = false
         return
       }
+
+      this.getClient(client_info)
       try {
         _vm._not_through_interceptor = true
         let res = await this.client.asset.fetchList()
