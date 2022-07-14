@@ -4,8 +4,8 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 2. API document of Mixin Network [https://developers.mixin.one/docs/api-overview](https://developers.mixin.one/docs/api-overview)
 
 ## Communication
-Mixin Developer group: [https://supergroup.mixin.fan/#/7000104112](https://supergroup.mixin.fan/#/7000104112)
-Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
+- Mixin Developer group: [https://supergroup.mixin.fan/#/7000104112](https://supergroup.mixin.fan/#/7000104112)
+- Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 
 ## Mixin news
 
