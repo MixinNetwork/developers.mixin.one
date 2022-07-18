@@ -6,8 +6,6 @@ import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
 import defaultApiConfig from "@/api";
 
-let once_submit = false
-
 export default {
   name: 'app-information',
   components: {
@@ -29,6 +27,7 @@ export default {
       modal_title: '',
       modal_content: '',
       loading: false,
+      submitting: false,
       open_edit_modal: false,
       confirm_modal: false,
       confirm_content: '',
@@ -96,25 +95,25 @@ export default {
       this.modal_content = ''
     },
     async _request_new_secret() {
-      if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
       this.loading = true
-      once_submit = true
+      this.submitting = true
       try {
         const res = await this.client.app.updateSecret(this.active_app.app_id)
         this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
         this.modal_title = this.$t('secret.secret_title')
         this.modal_content = res.app_secret
       } finally {
-        once_submit = false
+        this.submitting = false
         this.loading = false
       }
     },
     async _request_new_session() {
-      if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
       let pin = tools.randomPin()
       let { publicKey: session_secret, privateKey } = getED25519KeyPair()
 
-      once_submit = true
+      this.submitting = true
       this.loading = true
       try {
         const res = await this.client.app.updateSession(this.active_app.app_id, pin, session_secret)
@@ -131,7 +130,7 @@ export default {
         this.modal_content = JSON.stringify(keystore, null, ' ')
         this.$ls.rm(this.active_app.app_id)
       } finally {
-        once_submit = false
+        this.submitting = false
         this.loading = false
       }
     },
@@ -140,16 +139,15 @@ export default {
 
       const blob = new Blob(
         [this.modal_content],
-        { type: 'text/json;charset=utf-8' }
+        { type: 'text/plain;charset=utf-8' }
       )
       FileSaver.saveAs(blob, `keystore-${app_number}.json`)
-      console.log('file save download')
     },
     async _request_qrcode(is_show, client_info) {
-      if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
       client_info = client_info || this.$ls.get(this.active_app.app_id)
       this.loading = true
-      once_submit = true
+      this.submitting = true
 
       let { uid, sid, pinToken, privateKey } = client_info
       const keystore = {
@@ -172,13 +170,13 @@ export default {
           this.open_edit_modal = true
         }
         if (!res.code_url) {
-          once_submit = false
+          this.submitting = false
           return is_show && this._request_qrcode(false, client_info)
         }
         this.modal_title = this.$t('secret.qrcode_title')
         this.modal_content = res.code_url
       } finally {
-        once_submit = false
+        this.submitting = false
         this.loading = false
         _vm._not_through_interceptor = false
       }
