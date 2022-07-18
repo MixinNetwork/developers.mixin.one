@@ -96,9 +96,9 @@
     data() {
       return {
         submit_form: {
-          amount: "1",
+          amount: "",
           pin: "",
-          opponent_id: "40870688"
+          opponent_id: ""
         },
         sid: "",
         uid: "",
