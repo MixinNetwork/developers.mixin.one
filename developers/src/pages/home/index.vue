@@ -99,7 +99,6 @@ export default {
   },
   mounted() {
     tools.changeTheme("#fff");
-    require("@/assets/js/resize-first");
   }
 };
 </script>

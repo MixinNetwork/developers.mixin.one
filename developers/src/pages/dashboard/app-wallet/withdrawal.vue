@@ -30,11 +30,17 @@
             </ul>
             <footer>
               <div class="btns">
-                <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-                <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+                <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
+                <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
               </div>
             </footer>
-            <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+            <confirm
+              :confirm_content="confirm_content"
+              :confirm_modal="showWithdrawalConfirm"
+              @confirm="confirmWithdrawal"
+              @close_modal="closeWithdrawalConfirm"
+            />
+            <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
         </div>
         <div v-if="show && snap_status" class="main snap-main">
@@ -67,11 +73,11 @@
               <p>{{transaction_info.transaction_hash}}</p>
             </div>
             <footer class="btns">
-              <button @click="click_submit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-              <button @click="click_cancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+              <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
+              <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
             </footer>
           </div>
-          <img @click="click_cancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+          <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
         </div>
       </transition>
     </div>
@@ -81,11 +87,12 @@
   import { validate } from 'uuid'
   import tools from "@/assets/js/tools"
   import DHeader from "@/components/DHeader"
+  import Confirm from "@/components/Confirm";
 
   export default {
     name: "withdrawal-modal",
-    components: { DHeader },
-    props: ["active_asset", "app_id", "show"],
+    components: { Confirm, DHeader },
+    props: ["active_asset", "app_id", "show", "client"],
     data() {
       return {
         submit_form: {
@@ -95,11 +102,11 @@
         },
         sid: "",
         uid: "",
-        remember_token_status: false,
         snap_status: false,
         loading: false,
         tmp_pin: "",
-        transaction_info: {}
+        transaction_info: {},
+        showWithdrawalConfirm: false,
       }
     },
     watch: {
@@ -108,14 +115,39 @@
         this.uid = val
       }
     },
+    computed: {
+      confirm_content() {
+        const msg = this.$t('wallet.withdrawal_confirm');
+        return msg
+          .replace('{amount}', this.submit_form.amount)
+          .replace('{token}', this.active_asset.symbol)
+          .replace('{opponent}', this.submit_form.opponent_id)
+      }
+    },
     methods: {
       back() {
         this.$emit("close-modal")
       },
-      async click_submit() {
+      isValidPin() {
+        return this.tmp_pin && this.tmp_pin.length === 6 && parseInt(this.tmp_pin) > 100000;
+      },
+      async clickSubmit() {
+        if (!this.isValidPin()) return this.$message.error({ message: this.$t('message.errors.pin_token_format'), showClose: true })
+        this.showWithdrawalConfirm = true
+      },
+      clickCancel() {
+        this.tmp_pin = ""
+        this.snap_status = false
+        this.transaction_info = {}
+        this.$emit("close-modal")
+      },
+      async confirmWithdrawal() {
+        this.closeWithdrawalConfirm()
+
         this.loading = true
-        let transfer_status = await submit_withdrawal.call(this)
+        let transfer_status = await this.submit_withdrawal()
         this.loading = false
+
         if (transfer_status) {
           this.$message.success({
             message: this.$t("message.success.withdrawal"),
@@ -132,11 +164,8 @@
           this.submit_form = {}
         }
       },
-      click_cancel() {
-        this.tmp_pin = ""
-        this.snap_status = false
-        this.transaction_info = {}
-        this.$emit("close-modal")
+      closeWithdrawalConfirm() {
+        this.showWithdrawalConfirm = false
       },
       change_style() {
         let originVal = this.$refs.pin_token.value
@@ -155,53 +184,42 @@
           _pin += "*"
         }
         this.$refs.pin_token.value = _pin
+      },
+      async _get_opponent_id() {
+        const { opponent_id } = this.submit_form
+        const is_uuid = validate(opponent_id)
+        let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
+        return user_id
+      },
+      async submit_withdrawal() {
+        if (!this.tmp_pin) return false
+
+        const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
+        const type = is_transfers ? 'transfer' : 'raw'
+
+        let { amount, opponent_id } = this.submit_form
+        opponent_id = is_transfers ? await this._get_opponent_id() : opponent_id
+        if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
+        const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
+
+        const params = {
+          amount,
+          asset_id: this.active_asset.asset_id,
+          pin: this.tmp_pin,
+          trace_id: tools.getUUID(),
+          ...opponent
+        };
+
+        let res = is_transfers ? await this.client.transfer.toUser(params.pin, params) : await this.client.transfer.toAddress(params.pin, params)
+        !is_transfers && (this.transaction_info = res)
+        return res && res.type === type
       }
     },
     mounted() {
       this.uid = this.app_id
+
     }
   }
-
-
-  async function submit_withdrawal() {
-    const client_info = this.$ls.get(this.uid)
-    const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
-    const url = is_transfers ? 'transfers' : 'transactions'
-    const type = is_transfers ? 'transfer' : 'raw'
-    let params = await _build_transfers_params.call(this, client_info, is_transfers)
-    if (!params.pin) return false
-    const token = tools.getJwtToken(client_info, "post", "/" + url, params)
-    let res = await this.apis[url](params, token)
-    !is_transfers && (this.transaction_info = res)
-    return res && res.type === type
-  }
-
-  async function _build_transfers_params(client_info, is_transfers) {
-    let { amount, opponent_id } = this.submit_form
-    opponent_id = is_transfers ? await _get_opponent_id.call(this, client_info) : opponent_id
-    if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
-    const { pinToken, privateKey, sid } = client_info
-    const pin = this.tmp_pin
-    const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
-    return {
-      amount,
-      asset_id: this.active_asset.asset_id,
-      pin: tools.signPin(pin, pinToken, sid, privateKey),
-      trace_id: tools.getUUID(),
-      ...opponent
-    }
-  }
-
-  async function _get_opponent_id(client_info) {
-    const { opponent_id } = this.submit_form
-    const is_uuid = validate(opponent_id)
-    const uri = is_uuid ? '/users/' : '/search/'
-    const api = is_uuid ? 'check_user' : 'search'
-    let token = tools.getJwtToken(client_info, 'get', uri + opponent_id)
-    let { user_id } = await this.apis[api](opponent_id, token) || {}
-    return user_id
-  }
-
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
-import apis from '@/api'
 import '@/assets/font/dashboard.css'
 import '@/assets/font/home.css'
 import _const from '@/assets/js/const'
@@ -22,7 +21,6 @@ Vue.use(Submenu)
 Vue.use(MenuItem)
 Vue.config.productionTip = false
 
-Vue.prototype.apis = apis
 Vue.prototype._const = _const
 Vue.prototype.$ls = ls
 

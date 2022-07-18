@@ -3,34 +3,55 @@
 </template>
 
 <script>
+  import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk'
   import tools from "@/assets/js/tools"
 
   export default {
+    props: ['client', 'setKeystore'],
     async mounted() {
-      let { getUrlParameter } = tools
+      const { getUrlParameter } = tools
       const error = getUrlParameter("error")
-      if (error === "access_denied") return handle_access_denied.call(this)
+      if (error === "access_denied") return this.handleAccessDenied()
+
       const code = getUrlParameter("code")
-      const resp = await this.apis.authenticate(code)
-      if (!resp) return handle_access_denied.call(this)
-      const { scope, access_token } = resp
+      const { privateKey, publicKey } = getED25519KeyPair()
+
+      const resp = await this.client.oauth.getToken(
+          process.env.VUE_APP_CLIENT_ID,
+          code,
+          publicKey,
+      )
+      if (!resp) return this.handleAccessDenied()
+
+      const { scope, authorization_id } = resp
       if (
         !scope ||
         scope.indexOf("APPS:READ") < 0 ||
-        scope.indexOf("APPS:WRITE") < 0
-      )
-        return handle_access_denied.call(this)
-      this.$ls.set("token", access_token)
-      this.$router.push("/dashboard")
-    }
-  }
+        scope.indexOf("APPS:WRITE") < 0 ||
+        scope.indexOf("ASSETS:READ") < 0
+      ) return this.handleAccessDenied()
 
-  function handle_access_denied() {
-    this.$message.error({
-      message: this.$t("message.errors.403"),
-      showClose: true
-    })
-    return this.$router.push("/")
+      const keystore = {
+        user_id: process.env.VUE_APP_CLIENT_ID,
+        scope,
+        authorization_id,
+        private_key: privateKey,
+      }
+      this.$ls.set('token', keystore)
+      this.$emit('set-keystore', keystore)
+
+      this.$router.push("/dashboard")
+    },
+    methods: {
+      handleAccessDenied() {
+        this.$message.error({
+          message: this.$t("message.errors.403"),
+          showClose: true
+        })
+
+        this.$router.push("/")
+      }
+    }
   }
 </script>
 

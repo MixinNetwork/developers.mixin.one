@@ -38,11 +38,12 @@
       :loading="loading"
       :active_app="active_app"
       :submit_form="submit_form"
-      @success="update_list"
+      @success="_get_assets_list"
       @close_modal="close_modal"
     />
     <withdrawal-modal
-      @update-list="update_list"
+      :client="client"
+      @update-list="_get_assets_list"
       :app_id="active_app.app_id"
       :active_asset="active_asset"
       @close-modal="show_withdrawal=false"

@@ -1,7 +1,8 @@
 import WithdrawalModal from './withdrawal'
-import tools from '@/assets/js/tools'
 import UpdateToken from '@/components/UpdateToken'
-import BigNumber from 'bignumber.js'
+import tools from '@/assets/js/tools'
+import defaultApiConfig from "@/api";
+import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 
 export default {
   components: {
@@ -28,13 +29,14 @@ export default {
       loading: false,
       whole_loading: false,
       show_withdrawal: false,
-      active_asset: {}
+      active_asset: {},
+      client: null,
     }
   },
   watch: {
     active_app(val) {
       if (this.$ls.get(val.app_id)) {
-        _get_assets_list.call(this)
+        this._get_assets_list()
       }
     }
   },
@@ -48,64 +50,57 @@ export default {
         this.show_withdrawal = true
       }, 200)
     },
-    update_list() {
-      _get_assets_list.call(this, true)
-    }
+    getClient(client_info) {
+      const { uid, sid, pinToken, privateKey } = client_info
+      const keystore = {
+        user_id: uid,
+        session_id: sid,
+        pin_token: pinToken,
+        private_key: privateKey
+      }
+      const config = {
+        ...defaultApiConfig,
+        keystore
+      }
+      this.client = MixinApi(config)
+    },
+    async _get_assets_list() {
+      this.whole_loading = true
+      let client_info = this.$ls.get(this.active_app.app_id)
+      if (!client_info) {
+        this.is_edited = false
+        this.open_edit_modal = true
+        this.whole_loading = false
+        return
+      }
+
+      this.getClient(client_info)
+      try {
+        _vm._not_through_interceptor = true
+        let res = await this.client.asset.fetchList()
+        if (res) {
+          this.assets_list = res.sort(tools.assetSortCompare)
+          this.is_edited = true
+          this.open_edit_modal = false
+        } else {
+          this.is_edited = false
+          this.open_edit_modal = true
+          this.$ls.rm(this.active_app.app_id)
+        }
+      } catch (e) {
+        this.$message.error({ message: this.$t("message.errors.401"), showClose: true })
+        this.is_edited = false
+        this.open_edit_modal = true
+        this.$ls.rm(this.active_app.app_id)
+      } finally {
+        this.whole_loading = false
+        _vm._not_through_interceptor = false
+      }
+    },
   },
   mounted() {
     if (this.$ls.get(this.active_app.app_id)) {
-      _get_assets_list.call(this)
+      this._get_assets_list()
     }
   },
-}
-
-async function _get_assets_list() {
-  this.whole_loading = true
-  let client_info = this.$ls.get(this.active_app.app_id)
-  if (!client_info) {
-    this.is_edited = false
-    this.open_edit_modal = true
-    this.whole_loading = false
-    return
-  }
-  try {
-    let assets_token = tools.getJwtToken(client_info, 'get', '/assets')
-    _vm._not_through_interceptor = true
-    let res = await this.apis.get_assets(assets_token)
-    if (res) {
-      this.assets_list = res.sort(compare)
-      this.is_edited = true
-      this.open_edit_modal = false
-    } else {
-      this.is_edited = false
-      this.open_edit_modal = true
-      this.$ls.rm(this.active_app.app_id)
-    }
-  } catch (e) {
-    this.$message.error({ message: this.$t("message.errors.401"), showClose: true })
-    this.is_edited = false
-    this.open_edit_modal = true
-    this.$ls.rm(this.active_app.app_id)
-  } finally {
-    this.whole_loading = false
-    _vm._not_through_interceptor = false
-  }
-}
-
-function compare(a, b) {
-  let cmp = 0
-  let ap = new BigNumber(a.balance).times(a.price_usd)
-  let bp = new BigNumber(b.balance).times(b.price_usd)
-  cmp = calc_cmp(ap, bp)
-  if (cmp === 0) cmp = calc_cmp(a.balance, b.balance)
-  if (cmp === 0) cmp = calc_cmp(a.price_usd, b.price_usd)
-  return cmp
-
-  function calc_cmp(a, b) {
-    a = new BigNumber(a)
-    b = new BigNumber(b)
-    if (a.gt(b)) return -1
-    if (a.lt(b)) return 1
-    return 0
-  }
 }

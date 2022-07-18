@@ -1,8 +1,10 @@
+import { MixinApi, getED25519KeyPair } from "@mixin.dev/mixin-node-sdk";
+import FileSaver from 'file-saver'
+import tools from '@/assets/js/tools'
 import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
-import forge from 'node-forge'
-import tools from '@/assets/js/tools'
+import defaultApiConfig from "@/api";
 
 export default {
   name: 'app-information',
@@ -15,6 +17,9 @@ export default {
       default() {
         return {}
       }
+    },
+    client: {
+      type: Object
     }
   },
   data() {
@@ -22,6 +27,7 @@ export default {
       modal_title: '',
       modal_content: '',
       loading: false,
+      submitting: false,
       open_edit_modal: false,
       confirm_modal: false,
       confirm_content: '',
@@ -37,16 +43,18 @@ export default {
     confirm_action() {
       switch (this.tmp_action) {
         case 'show':
-          _request_qrcode.call(this, true)
+          this._request_qrcode(true)
           break
         case 'rotate':
-          _request_qrcode.call(this, false)
+          this._request_qrcode(false)
           break
         case 'secret':
-          _request_new_secret.call(this)
+          this._request_new_secret()
           break
         case 'session':
-          _request_new_session.call(this)
+          this._request_new_session()
+          break
+        default:
           break
       }
     },
@@ -68,10 +76,7 @@ export default {
       this.tmp_action = 'show'
       let client_info = this.$ls.get(this.active_app.app_id)
       if (!client_info) return this.open_edit_modal = true
-      _request_qrcode.call(this, true, client_info)
-    },
-    click_download_session() {
-      _download_app_json.call(this)
+      this._request_qrcode(true, client_info)
     },
     request_rotate_qrcode() {
       this.tmp_action = 'rotate'
@@ -88,109 +93,96 @@ export default {
     },
     click_close_new_secret() {
       this.modal_content = ''
+    },
+    async _request_new_secret() {
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      this.loading = true
+      this.submitting = true
+      try {
+        const res = await this.client.app.updateSecret(this.active_app.app_id)
+        this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
+        this.modal_title = this.$t('secret.secret_title')
+        this.modal_content = res.app_secret
+      } finally {
+        this.submitting = false
+        this.loading = false
+      }
+    },
+    async _request_new_session() {
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      let pin = tools.randomPin()
+      let { publicKey: session_secret, privateKey } = getED25519KeyPair()
+
+      this.submitting = true
+      this.loading = true
+      try {
+        const res = await this.client.app.updateSession(this.active_app.app_id, pin, session_secret)
+        this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
+        const keystore = {
+          pin,
+          client_id: this.active_app.app_id,
+          session_id: res.session_id,
+          pin_token: res.pin_token_base64,
+          private_key: privateKey
+        }
+
+        this.modal_title = this.$t('secret.session_title')
+        this.modal_content = JSON.stringify(keystore, null, ' ')
+        this.$ls.rm(this.active_app.app_id)
+      } finally {
+        this.submitting = false
+        this.loading = false
+      }
+    },
+    _download_app_json() {
+      const { app_number } = this.active_app
+
+      const blob = new Blob(
+        [this.modal_content],
+        { type: 'text/plain;charset=utf-8' }
+      )
+      FileSaver.saveAs(blob, `keystore-${app_number}.json`)
+    },
+    async _request_qrcode(is_show, client_info) {
+      if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
+      client_info = client_info || this.$ls.get(this.active_app.app_id)
+      this.loading = true
+      this.submitting = true
+
+      let { uid, sid, pinToken, privateKey } = client_info
+      const keystore = {
+        user_id: uid,
+        session_id: sid,
+        pin_token: pinToken,
+        private_key: privateKey
+      }
+      const config = {
+        ...defaultApiConfig,
+        keystore
+      }
+      const client = MixinApi(config)
+
+      _vm._not_through_interceptor = true
+      try {
+        const res = is_show ? await this.client.user.profile() : await client.user.rotateCode()
+        if (!res) {
+          this.$ls.rm(uid)
+          this.open_edit_modal = true
+        }
+        if (!res.code_url) {
+          this.submitting = false
+          return is_show && this._request_qrcode(false, client_info)
+        }
+        this.modal_title = this.$t('secret.qrcode_title')
+        this.modal_content = res.code_url
+      } finally {
+        this.submitting = false
+        this.loading = false
+        _vm._not_through_interceptor = false
+      }
     }
   },
   mounted() {
     !(this.active_app.app_id || this.$route.params.app_number) && this.$router.push('/dashboard')
   },
-}
-let once_submit = false
-
-async function _request_new_secret() {
-  if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-  this.loading = true
-  once_submit = true
-  try {
-    const res = await this.apis.app_new_secret(this.active_app.app_id)
-    this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
-    this.modal_title = this.$t('secret.secret_title')
-    this.modal_content = res.app_secret
-  } finally {
-    once_submit = false
-    this.loading = false
-  }
-}
-
-async function _request_new_session() {
-  if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-  let pin = _get_pin()
-  let key = _get_ed25519_private_key()
-  let { session_secret, private_key } = key
-  once_submit = true
-  this.loading = true
-  try {
-    const res = await this.apis.app_new_session(this.active_app.app_id, pin, session_secret)
-    this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
-    let { session_id, pin_token, pin_token_base64 } = res
-    let keystore = { pin, client_id: this.active_app.app_id, session_id, pin_token, private_key }
-    keystore['pin_token'] = pin_token_base64
-    this.modal_title = this.$t('secret.session_title')
-    this.modal_content = JSON.stringify(keystore, null, ' ')
-    this.$ls.rm(this.active_app.app_id)
-  } finally {
-    once_submit = false
-    this.loading = false
-  }
-
-  function _get_ed25519_private_key() {
-    let keypair = forge.pki.ed25519.generateKeyPair()
-    let session_secret = safeBase64(keypair.publicKey.toString("base64"))
-    let private_key = safeBase64(keypair.privateKey.toString("base64"))
-    return { session_secret, private_key }
-  }
-
-  function safeBase64(msg) {
-    return msg.replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
-  }
-
-
-  function _get_pin() {
-    let pin = ''
-    for (let i = 0; i < 6; i++) {
-      pin += i ? _get_pin_num(9) + 1 : _get_pin_num(10)
-    }
-    return pin
-  }
-
-  function _get_pin_num(max) {
-    return max * Math.random() | 0
-  }
-}
-
-function _download_app_json() {
-  const dom = this.$refs.download_session_json
-  const { app_number } = this.active_app
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(this.modal_content)
-  dom.setAttribute("href", dataStr)
-  dom.setAttribute("download", `keystore-${app_number}.json`)
-  dom.click()
-}
-
-async function _request_qrcode(is_show, client_info) {
-  if (once_submit) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-  client_info = client_info || this.$ls.get(this.active_app.app_id)
-  this.loading = true
-  once_submit = true
-  const uri = is_show ? '/me' : '/me/code'
-  const api = `app_${is_show ? 'show' : 'rotate'}_qrcode`
-  let { uid } = client_info
-  let token = tools.getJwtToken(client_info, 'GET', uri, '')
-  _vm._not_through_interceptor = true
-  try {
-    const res = await this.apis[api](token)
-    if (!res) {
-      this.$ls.rm(uid)
-      this.open_edit_modal = true
-    }
-    if (!res.code_url) {
-      once_submit = false
-      return is_show && _request_qrcode.call(this, false, client_info)
-    }
-    this.modal_title = this.$t('secret.qrcode_title')
-    this.modal_content = res.code_url
-  } finally {
-    once_submit = false
-    this.loading = false
-    _vm._not_through_interceptor = false
-  }
 }

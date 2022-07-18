@@ -10,8 +10,8 @@
     <img
       v-if="isCopied"
       v-clipboard:copy="value"
-      　　v-clipboard:success="click_copy_success"
-      　　v-clipboard:error="click_copy_error"
+      v-clipboard:success="click_copy_success"
+      v-clipboard:error="click_copy_error"
       src="@/assets/img/ic_copy.png"
     />
   </div>
