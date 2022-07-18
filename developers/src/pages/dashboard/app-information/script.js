@@ -39,10 +39,8 @@ export default {
   },
   methods: {
     click_encrypted() {
-      if (this.encrypted_status) {
-        this.encrypted_status = !this.encrypted_status
-        return
-      }
+      if (this.encrypted_status) return
+
       this.confirm_modal = true
     },
     confirm_action() {
