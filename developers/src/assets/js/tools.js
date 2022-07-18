@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid'
 import BigNumber from "bignumber.js";
-import { WebviewApi } from "@mixin.dev/mixin-node-sdk";
+import { WebViewApi } from "@mixin.dev/mixin-node-sdk";
 
-const client = WebviewApi()
+const client = WebViewApi()
 
 function cmpBalance(a, b) {
   a = new BigNumber(a)
