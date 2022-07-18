@@ -3,9 +3,6 @@ import Croppie from './croppie.vue'
 import CategorySelect from './select.vue'
 import Confirm from '@/components/Confirm'
 
-
-let once_submit = false
-
 export default {
   name: 'app-information',
   components: {
@@ -25,6 +22,7 @@ export default {
   data() {
     return {
       can_save: false,
+      submiting: false,
       app_name: '',
       resource_patterns: '',
       immersive_status: false,
@@ -85,7 +83,7 @@ export default {
       this.check_is_finished()
     },
     async _submit_to_database() {
-      if (once_submit) return this.notice('saving')
+      if (this.submiting) return this.notice('saving')
       let { app_id, description, home_uri, redirect_uri, category = 'OTHER' } = this.active_app
       let name = this.app_name
       const capabilities = ['CONTACT', 'GROUP']
@@ -102,7 +100,7 @@ export default {
           resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
         params.resource_patterns = resource_patterns.split('\n')
       }
-      once_submit = true
+      this.submiting = true
       this.$emit('loading', true)
       try {
         let res = app_id ? await this.client.app.update(app_id, params) : await this.client.app.create(params)
@@ -111,7 +109,7 @@ export default {
           this.$emit('add_new_app', res.app_number)
         }
       } finally {
-        once_submit = false
+        this.submiting = false
         this.$emit('loading', false)
       }
     },
