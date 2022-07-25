@@ -46,22 +46,20 @@
     align-items: center;
   }
 
-  /deep/ {
-    .one-path {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      background: #f5f7fa;
-      padding: 0.5rem 0.25rem;
-      max-height: initial;
-      transform: translate(-100%);
-      transition: transform .2s ease-in-out;
-      z-index: 2;
+  :deep(.one-path) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #f5f7fa;
+    padding: 0.5rem 0.25rem;
+    max-height: initial;
+    transform: translate(-100%);
+    transition: transform .2s ease-in-out;
+    z-index: 2;
 
-      &_active {
-        transform: translate(0);
-      }
+    &_active {
+      transform: translate(0);
     }
   }
 }

@@ -10,7 +10,7 @@
         <template v-for="(item, widx) in $t('documentation')">
           <el-submenu
             v-if="item.child"
-            :key="widx"
+            :key="`${widx}-submenu`"
             :index="String(widx)"
           >
             <template slot="title">
@@ -69,7 +69,7 @@
           </el-submenu>
           <el-menu-item
             v-else
-            :key="widx"
+            :key="`${widx}-menuitem`"
             :index="String(widx)"
             class="path one-path content-path"
           >

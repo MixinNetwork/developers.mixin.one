@@ -5,7 +5,7 @@
         <h6>{{$t('home.footer.community.title')}}</h6>
         <ul>
           <li
-            v-for="(value, key) in $t('home.footer.community.list')"
+            v-for="(value, key) in $tm('home.footer.community.list')"
             :key="key"
           >
             <a :href="value.href">
@@ -21,7 +21,7 @@
         <h6>{{$t('home.footer.resources.title')}}</h6>
         <ul>
           <a
-            v-for="(item, index) in $t('home.footer.resources.list')"
+            v-for="(item, index) in $tm('home.footer.resources.list')"
             :key="index"
             :href="item.href"
           >{{item.name}}</a>

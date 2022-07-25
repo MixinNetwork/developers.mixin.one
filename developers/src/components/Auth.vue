@@ -27,8 +27,7 @@
       if (
         !scope ||
         scope.indexOf("APPS:READ") < 0 ||
-        scope.indexOf("APPS:WRITE") < 0 ||
-        scope.indexOf("ASSETS:READ") < 0
+        scope.indexOf("APPS:WRITE") < 0
       ) return this.handleAccessDenied()
 
       const keystore = {

@@ -1,7 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-Vue.use(VueRouter)
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -60,11 +57,15 @@ const routes = [
     component: () => import('./pages/home/Search'),
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
     component: () => import('./404')
-  }
+  },
 ]
 
-const router = new VueRouter({ routes, mode: 'history' })
+const router = createRouter({
+  routes,
+  history: createWebHistory()
+})
 
 export default router

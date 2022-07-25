@@ -15,7 +15,7 @@
     <img @click.stop="toggleMenus" class="menus-icon" src="@/assets/img/svg/menus.svg" />
     <ul :class="['menus', showMenus ? 'show' : '']">
       <li
-        v-for="(item,index) in $t('home.menus')"
+        v-for="(item,index) in $tm('home.menus')"
         :key="index"
         :class="$route.path.startsWith(routerList[index]) ? 'acvie': ''"
       >
@@ -60,7 +60,7 @@
       document.addEventListener('click', this.closeSearch)
       document.addEventListener("click", this.closeMenus)
     },
-    destroyed() {
+    unmounted() {
       document.removeEventListener("click", this.closeMenus)
       document.removeEventListener('click', this.closeSearch)
     }

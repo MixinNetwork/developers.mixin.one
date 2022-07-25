@@ -2,83 +2,85 @@
   <div v-show="show" class="modal">
     <div class="mask">
       <transition name="fade-up">
-        <div v-if="show && !snap_status" v-loading="loading" class="main">
-          <d-header class="header">
-            <div class="header-back" @click="back" slot="left">
-              <img src="@/assets/img/app-svg/left.svg" />
+        <template>
+          <div v-if="show && !snap_status" v-loading="loading" class="main">
+            <d-header class="header">
+              <div class="header-back" @click="back" slot="left">
+                <img src="@/assets/img/app-svg/left.svg" />
+              </div>
+              <div slot="center">{{$t('wallet.title')}}</div>
+            </d-header>
+            <div class="content">
+              <header :style="{opacity: active_asset.icon_url ? '1':'0'}">
+                <img :src="active_asset.icon_url" />
+                <p>{{active_asset.balance}} {{active_asset.symbol}}</p>
+              </header>
+              <ul>
+                <li>
+                  <label>{{$t('wallet.amount')}}</label>
+                  <input v-model="submit_form.amount" />
+                </li>
+                <li>
+                  <label>PIN</label>
+                  <input maxlength="6" ref="pin_token" @input="change_style" />
+                </li>
+                <li>
+                  <label>Mixin ID / Mainnet Address</label>
+                  <input v-model="submit_form.opponent_id" />
+                </li>
+              </ul>
+              <footer>
+                <div class="btns">
+                  <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
+                  <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
+                </div>
+              </footer>
+              <confirm
+                :confirm_content="confirm_content"
+                :confirm_modal="showWithdrawalConfirm"
+                @confirm="confirmWithdrawal"
+                @close_modal="closeWithdrawalConfirm"
+              />
+              <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
             </div>
-            <div slot="center">{{$t('wallet.title')}}</div>
-          </d-header>
-          <div class="content">
-            <header :style="{opacity: active_asset.icon_url ? '1':'0'}">
-              <img :src="active_asset.icon_url" />
-              <p>{{active_asset.balance}} {{active_asset.symbol}}</p>
-            </header>
-            <ul>
-              <li>
-                <label>{{$t('wallet.amount')}}</label>
-                <input v-model="submit_form.amount" />
-              </li>
-              <li>
-                <label>PIN</label>
-                <input maxlength="6" ref="pin_token" @input="change_style" />
-              </li>
-              <li>
-                <label>Mixin ID / Mainnet Address</label>
-                <input v-model="submit_form.opponent_id" />
-              </li>
-            </ul>
-            <footer>
-              <div class="btns">
+          </div>
+          <div v-if="show && snap_status" class="main snap-main">
+            <d-header class="header">
+              <div class="header-back" @click="back" slot="left">
+                <img src="@/assets/img/app-svg/left.svg" />
+              </div>
+              <div slot="center">{{$t('wallet.snapshot_info')}}</div>
+            </d-header>
+            <div class="content snapshot">
+              <h3>{{$t('wallet.snapshot_info')}}</h3>
+              <div>
+                <label>{{$t('wallet.snapshot.snapshot_id')}}</label>
+                <p>{{transaction_info.snapshot_id}}</p>
+              </div>
+              <div>
+                <label>{{$t('wallet.snapshot.trace_id')}}</label>
+                <p>{{transaction_info.trace_id}}</p>
+              </div>
+              <div>
+                <label>{{$t('wallet.snapshot.account')}}</label>
+                <p>{{transaction_info.opponent_key}}</p>
+              </div>
+              <div>
+                <label>{{$t('wallet.snapshot.amount')}}</label>
+                <p>{{transaction_info.amount}}</p>
+              </div>
+              <div>
+                <label>{{$t('wallet.snapshot.transaction_hash')}}</label>
+                <p>{{transaction_info.transaction_hash}}</p>
+              </div>
+              <footer class="btns">
                 <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
                 <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-              </div>
-            </footer>
-            <confirm
-              :confirm_content="confirm_content"
-              :confirm_modal="showWithdrawalConfirm"
-              @confirm="confirmWithdrawal"
-              @close_modal="closeWithdrawalConfirm"
-            />
+              </footer>
+            </div>
             <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
-        </div>
-        <div v-if="show && snap_status" class="main snap-main">
-          <d-header class="header">
-            <div class="header-back" @click="back" slot="left">
-              <img src="@/assets/img/app-svg/left.svg" />
-            </div>
-            <div slot="center">{{$t('wallet.snapshot_info')}}</div>
-          </d-header>
-          <div class="content snapshot">
-            <h3>{{$t('wallet.snapshot_info')}}</h3>
-            <div>
-              <label>{{$t('wallet.snapshot.snapshot_id')}}</label>
-              <p>{{transaction_info.snapshot_id}}</p>
-            </div>
-            <div>
-              <label>{{$t('wallet.snapshot.trace_id')}}</label>
-              <p>{{transaction_info.trace_id}}</p>
-            </div>
-            <div>
-              <label>{{$t('wallet.snapshot.account')}}</label>
-              <p>{{transaction_info.opponent_key}}</p>
-            </div>
-            <div>
-              <label>{{$t('wallet.snapshot.amount')}}</label>
-              <p>{{transaction_info.amount}}</p>
-            </div>
-            <div>
-              <label>{{$t('wallet.snapshot.transaction_hash')}}</label>
-              <p>{{transaction_info.transaction_hash}}</p>
-            </div>
-            <footer class="btns">
-              <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-              <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-            </footer>
-          </div>
-          <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
-        </div>
+        </template>
       </transition>
     </div>
   </div>

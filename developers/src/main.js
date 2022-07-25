@@ -1,31 +1,30 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { ElMessage, ElLoading, ElMenu, ElSubMenu, ElMenuItem } from 'element-plus'
+import VueClipboard from 'vue-clipboard2'
+import VueCroppie from 'vue-croppie'
+
 import App from '@/App.vue'
 import router from '@/router'
+import i18n from '@/i18n'
+import ls from '@/assets/js/localStorage'
+import _const from '@/assets/js/const'
+
+import 'croppie/croppie.css'
 import '@/assets/font/dashboard.css'
 import '@/assets/font/home.css'
-import _const from '@/assets/js/const'
-import VueClipboard from 'vue-clipboard2'
-import i18n from '@/i18n'
-import { Message, Loading, Menu, Submenu, MenuItem } from 'element-ui'
-import ls from '@/assets/js/localStorage'
 
-import VueCroppie from 'vue-croppie'
-import 'croppie/croppie.css'
+const app = createApp(App);
+app.use(router)
+   .use(i18n)
+   .use(ElMenu)
+   .use(ElLoading)
+   .use(ElSubMenu)
+   .use(ElMenuItem)
+   .use(VueClipboard)
+// .use(VueCroppie) // todo: vue2 only
 
-Vue.prototype.$message = Message
-Vue.use(Loading.directive)
-Vue.use(VueClipboard)
-Vue.use(VueCroppie)
-Vue.use(Menu)
-Vue.use(Submenu)
-Vue.use(MenuItem)
-Vue.config.productionTip = false
+app.config.globalProperties.$message = ElMessage
+app.config.globalProperties.$ls = ls
+app.config.globalProperties._const = _const
 
-Vue.prototype._const = _const
-Vue.prototype.$ls = ls
-
-new Vue({
-  render: h => h(App),
-  router,
-  i18n
-}).$mount('#app')
+app.mount('#app');

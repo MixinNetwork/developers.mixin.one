@@ -139,7 +139,7 @@
     display: none;
   }
 
-  /deep/ footer {
+  :deep(footer) {
     margin-top: 11.25rem;
   }
 
@@ -202,11 +202,11 @@
       }
     }
 
-    /deep/ .pages {
+    :deep(.pages) {
       display: none;
     }
 
-    /deep/ footer {
+    :deep(footer) {
       margin-top: 0;
     }
   }

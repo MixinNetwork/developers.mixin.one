@@ -113,7 +113,7 @@ h2 {
       width: 22rem;
       margin-bottom: 1.25rem;
 
-      /deep/ b {
+      :deep(b) {
         color: #2f3032;
       }
 
@@ -337,7 +337,7 @@ h2 {
 
     color: #333;
 
-    /deep/ a {
+    :deep(a) {
       color: #3d75e3;
     }
   }

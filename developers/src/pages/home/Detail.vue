@@ -108,7 +108,7 @@
       color: #c7c9d2;
     }
 
-    /deep/ .desc {
+    :deep(.desc) {
       margin-top: 2.75rem;
 
       li {
@@ -121,7 +121,7 @@
       margin: 1.75rem 0 5rem;
     }
 
-    /deep/ footer {
+    :deep(footer) {
       margin-top: 10rem;
     }
   }
@@ -165,7 +165,7 @@
         margin: 1.75rem 1.25rem 0 0;
       }
 
-      /deep/ footer {
+      :deep(footer) {
         margin-top: 7.5rem;
       }
     }

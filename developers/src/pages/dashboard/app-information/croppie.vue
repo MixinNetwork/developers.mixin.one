@@ -85,7 +85,7 @@
 </script>
 
 <style lang="scss" scoped>
-  /deep/ .cr-viewport {
+  :deep(.cr-viewport) {
     border: 0 !important;
     box-shadow: none !important;
   }

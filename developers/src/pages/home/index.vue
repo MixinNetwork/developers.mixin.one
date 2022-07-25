@@ -16,7 +16,7 @@
       </h2>
       <ul>
         <li
-          v-for="(item, index) in $t('home.main.info')"
+          v-for="(item, index) in $tm('home.main.info')"
           :key="index"
           v-html="item"
         ></li>
@@ -38,7 +38,7 @@
         </div>
         <div class="router-list">
           <a
-            v-for="(item,index) in $t('home.main.button')"
+            v-for="(item,index) in $tm('home.main.button')"
             :key="index"
             :href="mainRoute[index]"
             :target="'_blank'"
@@ -53,7 +53,7 @@
       <h2>{{$t('news.title')}}</h2>
       <ul>
         <li
-          v-for="(item,index) in $t('news.list').slice(0,6)"
+          v-for="(item,index) in $tm('news.list').slice(0,6)"
           :key="index"
         >
           <a :href="'/news/'+item.filename" class="title">{{item.title}}</a>
@@ -71,7 +71,7 @@
     <section class="user-cases">
       <h2>{{$t('cases.title')}}</h2>
       <ul>
-        <li v-for="(item,index) in $t('cases.list').slice(0,2)" :key="index">
+        <li v-for="(item,index) in $tm('cases.list').slice(0,2)" :key="index">
           <div class="title">{{item.title}}</div>
           <img
             :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)"
