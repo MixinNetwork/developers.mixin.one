@@ -94,10 +94,11 @@ export default {
       params.icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
       if (!resource_patterns) {
         params.resource_patterns = []
-      } else if (resource_patterns.includes('\r\n')) {
-          resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
+      } else {
+        if (resource_patterns.includes('\r\n')) resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
         params.resource_patterns = resource_patterns.split('\n')
       }
+
       this.submiting = true
       this.$emit('loading', true)
       try {
