@@ -1412,10 +1412,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mixin.dev/mixin-node-sdk@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-4.5.0.tgz#dc702fe4971de47b16a05651dc5dc9aad0fe6886"
-  integrity sha512-S4E3jZ6OVovE1ZW//VFjgSvFTK5notXqCgR4yhsB0dTC1/dVMm62c91LpSuJ7LzAYQiL2hg++FdyOMaQ1sCseg==
+"@mixin.dev/mixin-node-sdk@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-4.6.0.tgz#8a822d5e1e050d4c7c08c0449a79e09c26f98ddd"
+  integrity sha512-2QpTv7whbvuzpAAboAVju0hj6CnNFvpRZiat0c3ldYKLlv9NAfco9csj2dQA8qaXRyDXNgM/xQNIuVgfDWj3Rg==
   dependencies:
     "@ethersproject/abi" "^5.6.3"
     "@ethersproject/providers" "^5.6.8"
