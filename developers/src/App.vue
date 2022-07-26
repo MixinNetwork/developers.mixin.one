@@ -1,47 +1,15 @@
 <template>
-  <div id="app">
-    <router-view
-      :client="client"
-      @set-keystore="updateClient"
-    ></router-view>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
-import defaultApiConfig from "@/api";
-
 export default {
   name: "app",
-  data() {
-    return {
-      client: MixinApi(defaultApiConfig)
-    }
-  },
   mounted() {
     window._vm = this
-    const keystore = this.$ls.get('token');
-    if (this.isValidKeystore(keystore)) {
-      this.updateClient(keystore);
-    }
   },
-  methods: {
-    updateClient(keystore) {
-      const config = keystore
-        ? {
-            ...defaultApiConfig,
-            keystore
-          }
-        : defaultApiConfig
-      this.client = MixinApi(config)
-    },
-    isValidKeystore(keystore) {
-      return !!(keystore &&
-        keystore.scope &&
-        keystore.authorization_id &&
-        keystore.private_key);
-    }
-  }
 };
 </script>
 
