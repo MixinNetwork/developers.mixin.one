@@ -89,15 +89,16 @@ export default {
       this.encrypted_status && capabilities.push('ENCRYPTED')
 
       let params = { capabilities, description, home_uri, name, redirect_uri, category }
-      let { resource_patterns } = this
       let icon_base64 = await this.$refs.croppie.crop()
       params.icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
-      if (!resource_patterns) {
-        params.resource_patterns = []
-      } else if (resource_patterns.includes('\r\n')) {
-          resource_patterns = resource_patterns.replace(/\r\n/g, '\n')
-        params.resource_patterns = resource_patterns.split('\n')
-      }
+      let { resource_patterns } = this
+      resource_patterns = resource_patterns || '';
+      resource_patterns = resource_patterns.replace(/\r\n/g, '\n');
+      params.resource_patterns = resource_patterns.split('\n').map((r) => {
+        return r.trim();
+      }).filter((r) => {
+        return !!r;
+      });
       this.submiting = true
       this.$emit('loading', true)
       try {
