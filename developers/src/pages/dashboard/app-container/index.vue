@@ -6,7 +6,7 @@
       <p>{{ $t('dashboard.welcome_d') }}</p>
       <button @click="newAppClickHandler" class="primary">{{ $t('dashboard.create_btn') }}</button>
     </div>
-    <div v-else v-loading="loadingApp">
+    <div v-else>
       <d-header v-if="$route.name!=='dashboard'" class="app-header">
         <template #left>
           <div class="header-back" @click="backward">
@@ -34,6 +34,7 @@
       </header>
       <div class="dashboard-main">
         <component
+          v-loading="loadingApp"
           :is="currentNav"
           :client="client"
           :active_app="appInfo"
@@ -67,28 +68,16 @@ export default {
     }
   },
   watch: {
-    '$route.path'(val) {
-      this.fetchAppInfo()
+    async appId() {
+      if (this.appId) {
+        this.loadingApp = true
+        this.appInfo = await this.client.app.fetch(this.appId)
+        this.loadingApp = false
+      }
     }
-  },
-  async mounted() {
-    this.fetchAppInfo()
   },
   methods: {
     add_new_app() {},
-    fetchAppInfo() {
-      const { app_number } = this.$route.params
-      if (this.$route.path.includes('/apps') && app_number) {
-        this.currentNavIndex = 0
-        this.loadingApp = true
-        if (this.appId) {
-          this.client.app.fetch(this.appId).then(app => this.appInfo = app)
-        } else {
-          this.client.app.fetchList().then(list => list.find(app => this.appInfo = app))
-        }
-        this.loadingApp = false
-      }
-    },
     newAppClickHandler() {
       this.$emit('add-new-app')
     },
