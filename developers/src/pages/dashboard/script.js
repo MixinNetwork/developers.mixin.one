@@ -34,8 +34,6 @@ export default {
     }
   },
   async created() {
-
-    console.log('mount', this.currentAppId)
     this.isImmersive = tools.isImmersive()
 
     this.isMobile = document.documentElement.clientWidth < 769
@@ -50,7 +48,6 @@ export default {
   },
   methods: {
     mountRouterStatus(route) {
-      console.log(route)
       switch (route) {
         case '/dashboard':
           this.showWelcome = true
@@ -68,7 +65,6 @@ export default {
         default:
           const { app_number } = this.$route.params
           this.currentAppId = this.appList.find(app => app.app_number === app_number).app_id
-          console.log('dashboard', app_number, this.currentAppId)
           this.showWelcome = false
           this.isNewApp = false
       }
@@ -125,7 +121,7 @@ export default {
         document.onclick = () => this.showLogoutPanel = false
       }
     },
-    signOut() {
+    signOutClickHandler() {
       window.localStorage.clear()
       this.showLogoutPanel = false
       setTimeout(() => {

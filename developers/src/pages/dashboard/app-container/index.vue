@@ -68,31 +68,31 @@ export default {
   },
   watch: {
     '$route.path'(val) {
-      let { app_number } = this.$route.params
-      if (val.includes('/apps') && app_number) {
-        this.currentNavIndex = 0
-        this.loadingApp = true
-        this.client.app.fetch(this.appId).then(app => this.appInfo = app)
-        this.loadingApp = false
-      }
+      this.fetchAppInfo()
     }
   },
   async mounted() {
-    let { app_number } = this.$route.params
-    if (app_number) {
-      this.currentNavIndex = 0
-      this.loadingApp = true
-      this.client.app.fetchList().then(list => list.find(app => this.appInfo = app))
-      this.loadingApp = false
-    }
+    this.fetchAppInfo()
   },
   methods: {
     add_new_app() {},
+    fetchAppInfo() {
+      const { app_number } = this.$route.params
+      if (this.$route.path.includes('/apps') && app_number) {
+        this.currentNavIndex = 0
+        this.loadingApp = true
+        if (this.appId) {
+          this.client.app.fetch(this.appId).then(app => this.appInfo = app)
+        } else {
+          this.client.app.fetchList().then(list => list.find(app => this.appInfo = app))
+        }
+        this.loadingApp = false
+      }
+    },
     newAppClickHandler() {
       this.$emit('add-new-app')
     },
     navItemClickHandler(index) {
-      console.log(index)
       this.currentNavIndex = index
     },
     changeAppLoadingState(state) {
