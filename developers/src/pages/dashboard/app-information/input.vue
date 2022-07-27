@@ -21,9 +21,10 @@
   export default {
     name: "t-input",
     props: ["value", "label", "disabled", "placeholder", "isCopied"],
+    emits: ['update:value'],
     methods: {
       change(event) {
-        this.$emit("input", event.target.value)
+        this.$emit("update:value", event.target.value)
       },
       click_copy_success() {
         this.$message.success({

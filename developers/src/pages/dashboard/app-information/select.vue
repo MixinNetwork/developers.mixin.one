@@ -11,7 +11,7 @@
       <transition name="fade">
         <div v-if="show_options" class="options">
           <span
-            v-for="(item, key) in $t('information.category_list')"
+            v-for="(item, key) in $tm('information.category_list')"
             :key="key"
             :class="key === value ? 'active' : ''"
             @click="click_category(key)"
@@ -33,6 +33,7 @@
         default: ""
       }
     },
+    emits: ['update:value'],
     data() {
       return {
         show_options: false
@@ -44,7 +45,7 @@
         document.onclick = () => (this.show_options = false)
       },
       click_category(key) {
-        this.$emit("input", key)
+        this.$emit("update:value", key)
       }
     }
   }

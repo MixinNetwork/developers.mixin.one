@@ -7,7 +7,7 @@
           label="Mixin ID"
           disabled
           is-copied="true"
-          v-model="active_app.app_number"
+          v-model:value="active_app.app_number"
           class="mixin-id"
         />
         <div class="icon">
@@ -22,7 +22,7 @@
             :label="$t('information.app_id')"
             disabled
             is-copied="true"
-            v-model="active_app.app_id"
+            v-model:value="active_app.app_id"
             class="item"
           />
           <div class="name-category">
@@ -30,23 +30,23 @@
               @input="check_is_finished"
               :label="$t('information.name')"
               :placeholder="$t('information.name_desc')"
-              v-model="app_name"
+              v-model:value="app_name"
               class="item"
             />
-            <CategorySelect class="item" v-model="active_app.category" />
+            <CategorySelect class="item" v-model:value="active_app.category" />
           </div>
           <MInput
             :label="$t('information.home_url')"
             :placeholder="$t('information.home_url_desc')"
             @input="check_is_finished"
-            v-model="active_app.home_uri"
+            v-model:value="active_app.home_uri"
             class="item"
           />
           <MInput
             @input="check_is_finished"
             :label="$t('information.oauth_url')"
             :placeholder="$t('information.oauth_url_desc')"
-            v-model="active_app.redirect_uri"
+            v-model:value="active_app.redirect_uri"
             class="item"
           />
         </div>
