@@ -21,7 +21,7 @@ app.use(router)
    .use(ElSubMenu)
    .use(ElMenuItem)
    .use(VueClipboard)
-// .use(VueCroppie) // todo: vue2 only
+   .use(VueCroppie)
 
 app.config.globalProperties.$message = ElMessage
 app.config.globalProperties.$ls = ls
