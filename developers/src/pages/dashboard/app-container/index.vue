@@ -68,8 +68,8 @@ export default {
     }
   },
   watch: {
-    async appId() {
-      if (this.appId) {
+    async appId(val) {
+      if (val) {
         this.loadingApp = true
         this.appInfo = await this.client.app.fetch(this.appId)
         this.loadingApp = false

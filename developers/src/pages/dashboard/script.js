@@ -54,10 +54,8 @@ export default {
           this.isNewApp = false
           break
         case '/apps/new':
-          const hasCredit = this.checkAppCredit()
-          if (!hasCredit) {
+          if (!this.checkAppCredit()) {
             this.showBuyPanel = true
-            this.jump('/dashboard')
           }
           this.showWelcome = false
           this.isNewApp = true
