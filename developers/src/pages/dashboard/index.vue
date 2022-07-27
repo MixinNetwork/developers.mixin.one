@@ -4,7 +4,7 @@
       <nav v-if="!isMobile">
         <div class="top-logo-title">
           <a href="/" class="home">
-            <img src="@/assets/img/logo.svg"/>
+            <img src="@/assets/img/logo.svg" alt="mixin-logo"/>
           </a>
           <span>{{ $t('dashboard.title') }}</span>
         </div>
@@ -13,7 +13,7 @@
             @click="newAppHandler"
             :class="['create-app', isNewApp ? 'create-app-active' : '' ]"
           >
-            <img src="@/assets/img/svg/add.svg"/>
+            <img src="@/assets/img/svg/add.svg" alt="add-new-app-logo"/>
             <span>{{ $t('dashboard.new_app') }}</span>
           </div>
           <div class="app-list-container" v-if="appList.length">
@@ -25,22 +25,22 @@
                 @click="appItemClickHandler(item)"
                 :class="['app-item', currentAppId === item.app_id ? 'app-item-active': '']"
               >
-                <img :src="item.icon_url || _const.default.app_icon_url"/>
+                <img :src="item.icon_url || _const.default.app_icon_url" alt="app-logo"/>
                 <span>{{ item.name }}</span>
               </li>
             </ul>
           </div>
         </div>
         <div @click.stop="userClickHandler" class="bottom-info middle">
-          <img :src="userInfo.avatar_url || _const.default.avatar_url"/>
+          <img :src="userInfo.avatar_url || _const.default.avatar_url" alt="user-avatar"/>
           <div class="user-name-id">
             <div>{{ userInfo.full_name }}</div>
             <div>ID: {{ userInfo.identity_number }}</div>
           </div>
           <div :class="['bottom-more', (showLogoutPanel ? 'bottom-more-active' : '')]">
             <div class="bottom-button-list">
-              <div @click.stop="signOut" class="bottom-button-item">
-                <img src="@/assets/img/svg/logout.svg"/>
+              <div @click.stop="signOutClickHandler" class="bottom-button-item">
+                <img src="@/assets/img/svg/logout.svg" alt="logout-logo"/>
                 <span>{{ $t('dashboard.sign_out') }}</span>
               </div>
             </div>
@@ -57,6 +57,7 @@
               class="header-slot-img"
               @click.stop="userClickHandler"
               :src="userInfo.avatar_url || _const.default.avatar_url"
+              alt="user-avatar"
             />
             <div
               :class="[
@@ -67,7 +68,7 @@
             >
               <ul class="right-button-list">
                 <li @click.stop="signOutClickHandler" class="right-button-item">
-                  <img class="icondengchu" src="@/assets/img/app-svg/logout.svg"/>
+                  <img class="icondengchu" src="@/assets/img/app-svg/logout.svg" alt="logout-logo"/>
                   <span>{{ $t('dashboard.sign_out') }}</span>
                 </li>
               </ul>
@@ -79,7 +80,7 @@
           <div class="no-app-content">{{ $t('dashboard.welcome_d') }}</div>
           <div @click="newAppHandler" class="no-app-button">
             {{ $t('dashboard.create_btn1') }}
-            <img src="@/assets/img/app-svg/right.svg"/>
+            <img src="@/assets/img/app-svg/right.svg" alt="add-new-app-logo"/>
           </div>
         </div>
         <div v-else class="has-app">
@@ -94,7 +95,7 @@
               @click="appItemClickHandler(item)"
               class="has-app-item"
             >
-              <img :src="item.icon_url || _const.default.app_icon_url"/>
+              <img :src="item.icon_url || _const.default.app_icon_url" alt="app-logo"/>
               <div>
                 <div class="item-name">{{ item.name }}</div>
                 <div class="item-number">{{ item.app_number }}</div>
@@ -116,7 +117,7 @@
 
     <d-modal :show="showBuyPanel">
       <div class="edit-modal">
-        <img @click="showBuyPanel=false" src="@/assets/img/app-svg/close.svg"/>
+        <img @click="showBuyPanel=false" src="@/assets/img/app-svg/close.svg" alt="close-modal-btn"/>
         <h3 class="edit-modal-title">{{ $t('dashboard.buy.title') }}</h3>
         <span>{{ $t('dashboard.buy.desc1') }}</span>
         <p>{{ $t('dashboard.buy.desc2') }}</p>
