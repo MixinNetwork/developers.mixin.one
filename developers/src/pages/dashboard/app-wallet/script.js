@@ -45,19 +45,12 @@ export default {
       }
     }
   },
-  // watch: {
-  //   async app() {
-  //     if (this.hasAppSession()) await this.fetchAssetList()
-  //   }
-  // },
   async mounted() {
-    console.log(this.app.app_id)
     if (this.hasAppSession()) await this.fetchAssetList()
   },
   methods: {
     hasAppSession() {
       const appSession = this.$ls.get(this.app.app_id)
-      console.log(appSession)
       if (appSession) {
         this.tokenInfo = appSession
         return true
