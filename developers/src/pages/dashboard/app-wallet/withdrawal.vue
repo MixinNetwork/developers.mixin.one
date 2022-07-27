@@ -1,9 +1,8 @@
 <template>
-  <div v-show="show" class="modal">
+  <div class="modal">
     <div class="mask">
       <transition name="fade-up">
-        <template>
-          <div v-if="show && !snap_status" v-loading="loading" class="main">
+          <div v-if="!snap_status" v-loading="loading" class="main">
             <d-header class="header">
               <div class="header-back" @click="back" slot="left">
                 <img src="@/assets/img/app-svg/left.svg" />
@@ -44,7 +43,7 @@
               <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
             </div>
           </div>
-          <div v-if="show && snap_status" class="main snap-main">
+          <div v-else class="main snap-main">
             <d-header class="header">
               <div class="header-back" @click="back" slot="left">
                 <img src="@/assets/img/app-svg/left.svg" />
@@ -80,7 +79,6 @@
             </div>
             <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
           </div>
-        </template>
       </transition>
     </div>
   </div>
@@ -94,7 +92,7 @@
   export default {
     name: "withdrawal-modal",
     components: { Confirm, DHeader },
-    props: ["active_asset", "app_id", "show", "client"],
+    props: ["active_asset", "app_id", "client"],
     data() {
       return {
         submit_form: {
@@ -119,11 +117,11 @@
     },
     computed: {
       confirm_content() {
-        const msg = this.$t('wallet.withdrawal_confirm');
-        return msg
-          .replace('{amount}', this.submit_form.amount)
-          .replace('{token}', this.active_asset.symbol)
-          .replace('{opponent}', this.submit_form.opponent_id)
+        return this.$t('wallet.withdrawal_confirm', {
+          amount: this.submit_form.amount,
+          token: this.active_asset.symbol,
+          opponent: this.submit_form.opponent_id
+        })
       }
     },
     methods: {

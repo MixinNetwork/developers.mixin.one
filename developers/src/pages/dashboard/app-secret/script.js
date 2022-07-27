@@ -12,7 +12,7 @@ export default {
     DModal, UpdateToken, Confirm
   },
   props: {
-    active_app: {
+    app: {
       type: Object,
       default() {
         return {}
@@ -74,13 +74,13 @@ export default {
     },
     request_show_qrcode() {
       this.tmp_action = 'show'
-      let client_info = this.$ls.get(this.active_app.app_id)
+      let client_info = this.$ls.get(this.app.app_id)
       if (!client_info) return this.open_edit_modal = true
       this._request_qrcode(true, client_info)
     },
     request_rotate_qrcode() {
       this.tmp_action = 'rotate'
-      let client_info = this.$ls.get(this.active_app.app_id)
+      let client_info = this.$ls.get(this.app.app_id)
       if (!client_info) return this.open_edit_modal = true
       this.confirm_content = this.$t('secret.rotate_qrcode_question')
       this.confirm_modal = true
@@ -99,7 +99,7 @@ export default {
       this.loading = true
       this.submitting = true
       try {
-        const res = await this.client.app.updateSecret(this.active_app.app_id)
+        const res = await this.client.app.updateSecret(this.app.app_id)
         this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
         this.modal_title = this.$t('secret.secret_title')
         this.modal_content = res.app_secret
@@ -116,11 +116,11 @@ export default {
       this.submitting = true
       this.loading = true
       try {
-        const res = await this.client.app.updateSession(this.active_app.app_id, pin, session_secret)
+        const res = await this.client.app.updateSession(this.app.app_id, pin, session_secret)
         this.$message.success({ message: this.$t('message.success.reset'), showClose: true })
         const keystore = {
           pin,
-          client_id: this.active_app.app_id,
+          client_id: this.app.app_id,
           session_id: res.session_id,
           pin_token: res.pin_token_base64,
           private_key: privateKey
@@ -128,14 +128,14 @@ export default {
 
         this.modal_title = this.$t('secret.session_title')
         this.modal_content = JSON.stringify(keystore, null, ' ')
-        this.$ls.rm(this.active_app.app_id)
+        this.$ls.rm(this.app.app_id)
       } finally {
         this.submitting = false
         this.loading = false
       }
     },
     _download_app_json() {
-      const { app_number } = this.active_app
+      const { app_number } = this.app
 
       const blob = new Blob(
         [this.modal_content],
@@ -145,16 +145,12 @@ export default {
     },
     async _request_qrcode(is_show, client_info) {
       if (this.submitting) return this.$message.error({ message: this.$t('message.errors.reset'), showClose: true })
-      client_info = client_info || this.$ls.get(this.active_app.app_id)
+      client_info = client_info || this.$ls.get(this.app.app_id)
       this.loading = true
       this.submitting = true
 
-      let { uid, sid, pinToken, privateKey } = client_info
       const keystore = {
-        user_id: uid,
-        session_id: sid,
-        pin_token: pinToken,
-        private_key: privateKey
+        ...client_info
       }
       const config = {
         ...defaultApiConfig,
@@ -162,7 +158,7 @@ export default {
       }
       const client = MixinApi(config)
 
-      _vm._not_through_interceptor = true
+      _vm.skipInterceptor = true
       try {
         const res = is_show ? await this.client.user.profile() : await client.user.rotateCode()
         if (!res) {
@@ -178,11 +174,11 @@ export default {
       } finally {
         this.submitting = false
         this.loading = false
-        _vm._not_through_interceptor = false
+        _vm.skipInterceptor = false
       }
     }
   },
   mounted() {
-    !(this.active_app.app_id || this.$route.params.app_number) && this.$router.push('/dashboard')
+    !(this.app.app_id || this.$route.params.app_number) && this.$router.push('/dashboard')
   },
 }

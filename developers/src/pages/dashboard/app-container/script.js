@@ -23,6 +23,7 @@ export default {
       if (val) {
         this.loadingApp = true
         this.appInfo = await this.client.app.fetch(this.appId)
+        this.currentNavIndex = 0
         this.loadingApp = false
       }
     }

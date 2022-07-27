@@ -1,15 +1,15 @@
-import WithdrawalModal from './withdrawal'
+import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 import UpdateToken from '@/components/UpdateToken'
 import tools from '@/assets/js/tools'
 import defaultApiConfig from "@/api";
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
+import WithdrawalModal from './withdrawal'
 
 export default {
   components: {
     WithdrawalModal, UpdateToken
   },
   props: {
-    active_app: {
+    app: {
       type: Object,
       default() {
         return {}
@@ -18,89 +18,92 @@ export default {
   },
   data() {
     return {
-      is_edited: false,
-      open_edit_modal: false,
-      submit_form: {
-        session_id: '',
-        pin_token: '',
-        private_key: ''
-      },
-      assets_list: [],
-      loading: false,
-      whole_loading: false,
-      show_withdrawal: false,
-      active_asset: {},
-      client: null,
+      loading: false, // todo: remove?
+      loadingAll: false,
+      showWithdrawalModal: false,
+      showSessionUpdateModal: false,
+      needUpdate: true,
+      assetList: [],
+      withdrawalAsset: {}
     }
   },
-  watch: {
-    active_app(val) {
-      if (this.$ls.get(val.app_id)) {
-        this._get_assets_list()
+  computed: {
+    hasSession() {
+      return this.tokenInfo
+        && this.tokenInfo.user_id
+        && this.tokenInfo.pin_token
+        && this.tokenInfo.session_id
+        && this.tokenInfo.private_key
+    },
+    client() {
+      if (this.hasSession) {
+        const config = {
+          ...defaultApiConfig,
+          keystore: { ...this.tokenInfo }
+        }
+        return MixinApi(config)
       }
     }
+  },
+  // watch: {
+  //   async app() {
+  //     if (this.hasAppSession()) await this.fetchAssetList()
+  //   }
+  // },
+  async mounted() {
+    console.log(this.app.app_id)
+    if (this.hasAppSession()) await this.fetchAssetList()
   },
   methods: {
-    close_modal() {
-      this.open_edit_modal = false
+    hasAppSession() {
+      const appSession = this.$ls.get(this.app.app_id)
+      console.log(appSession)
+      if (appSession) {
+        this.tokenInfo = appSession
+        return true
+      }
+      return false
     },
-    click_withdrawal(item) {
-      this.active_asset = item
+    closeModal() {
+      this.showSessionUpdateModal = false
+    },
+    withdrawalClickHandler(item) {
+      this.withdrawalAsset = item
       setTimeout(() => {
-        this.show_withdrawal = true
+        this.showWithdrawalModal = true
       }, 200)
     },
-    getClient(client_info) {
-      const { uid, sid, pinToken, privateKey } = client_info
-      const keystore = {
-        user_id: uid,
-        session_id: sid,
-        pin_token: pinToken,
-        private_key: privateKey
-      }
-      const config = {
-        ...defaultApiConfig,
-        keystore
-      }
-      this.client = MixinApi(config)
-    },
-    async _get_assets_list() {
-      this.whole_loading = true
-      let client_info = this.$ls.get(this.active_app.app_id)
-      if (!client_info) {
-        this.is_edited = false
-        this.open_edit_modal = true
-        this.whole_loading = false
+    async fetchAssetList() {
+      this.loadingAll = true
+      if (this.app.app_id !== this.tokenInfo.user_id || !this.client) {
+        this.needUpdate = true
+        this.showSessionUpdateModal = true
+        this.loadingAll = false
         return
       }
 
-      this.getClient(client_info)
       try {
-        _vm._not_through_interceptor = true
+        _vm.skipInterceptor = true
         let res = await this.client.asset.fetchList()
         if (res) {
-          this.assets_list = res.sort(tools.assetSortCompare)
-          this.is_edited = true
-          this.open_edit_modal = false
+          this.assetList = res.sort(tools.assetSortCompare)
+          this.needUpdate = false
+          this.showSessionUpdateModal = false
         } else {
-          this.is_edited = false
-          this.open_edit_modal = true
-          this.$ls.rm(this.active_app.app_id)
+          this.needUpdate = true
+          this.showSessionUpdateModal = true
+          this.$ls.rm(this.app.app_id)
         }
       } catch (e) {
-        this.$message.error({ message: this.$t("message.errors.401"), showClose: true })
-        this.is_edited = false
-        this.open_edit_modal = true
-        this.$ls.rm(this.active_app.app_id)
+        if (e.code) this.$message.error({ message: this.$t(`message.errors${e.code}`), showClose: true })
+
+        this.needUpdate = true
+        this.showSessionUpdateModal = true
+        this.$ls.rm(this.app.app_id)
       } finally {
-        this.whole_loading = false
-        _vm._not_through_interceptor = false
+        this.loadingAll = false
+        _vm.skipInterceptor = false
       }
     },
-  },
-  mounted() {
-    if (this.$ls.get(this.active_app.app_id)) {
-      this._get_assets_list()
-    }
   },
 }

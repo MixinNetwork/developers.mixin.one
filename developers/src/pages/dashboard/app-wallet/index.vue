@@ -1,54 +1,52 @@
 <template>
-  <div v-loading="whole_loading" class="container">
-    <div class="des" v-if="!is_edited">
+  <div v-loading="loadingAll" class="container">
+    <div class="des" v-if="needUpdate">
       <div>
         <h3>{{$t('wallet.update_token_desc')}}</h3>
-        <button class="primary" @click="open_edit_modal = true">{{$t('wallet.update')}}</button>
-        <span @click="open_edit_modal = true">{{$t('wallet.update_token')}}</span>
-        <img src="@/assets/img/app-svg/right.svg" />
+        <button class="primary" @click="showSessionUpdateModal = true">{{$t('wallet.update')}}</button>
+        <span @click="showSessionUpdateModal = true">{{$t('wallet.update_token')}}</span>
+        <img src="@/assets/img/app-svg/right.svg" alt="update-wallet-token-logo"/>
       </div>
     </div>
-
-    <div v-if="is_edited" class="list">
+    <div v-else class="list">
       <div
-        v-for="(item, index) in assets_list"
+        v-for="(item, index) in assetList"
         :key="index"
         :style="{opacity: item.icon_url ? '1':'0'}"
         class="item"
       >
-        <img :src="item.icon_url" />
+        <img :src="item.icon_url" alt="asset-logo"/>
         <div>
           <span class="num">{{item.balance}}</span>
           <span class="symbol">{{item.symbol}}</span>
         </div>
         <button
           v-if="item.icon_url"
-          @click="click_withdrawal(item)"
+          @click="withdrawalClickHandler(item)"
           class="withdrawal primary"
         >{{$t('button.withdrawal')}}
         </button>
       </div>
-      <div v-if="assets_list.length" class="list-bottom-tips">
-        <div>{{$t('wallet.des_1')}}</div>
-        <div>{{$t('wallet.des_2', {app_number: active_app.app_number})}}</div>
+      <div v-if="assetList.length" class="list-bottom-tips">
+        <div>{{ $t('wallet.des_1' )}}</div>
+        <div>{{ $t('wallet.des_2', {app_number: app.app_number}) }}</div>
       </div>
     </div>
+
     <update-token
-      :open_edit_modal="open_edit_modal"
+      :open_edit_modal="showSessionUpdateModal"
       :loading="loading"
-      :active_app="active_app"
-      :submit_form="submit_form"
-      @success="_get_assets_list"
-      @close_modal="close_modal"
+      :active_app="app"
+      @success="fetchAssetList"
+      @close_modal="closeModal"
     />
     <withdrawal-modal
+      v-if="showWithdrawalModal"
       :client="client"
-      @update-list="_get_assets_list"
-      :app_id="active_app.app_id"
-      :active_asset="active_asset"
-      @close-modal="show_withdrawal=false"
-      v-if="show_withdrawal"
-      :show="show_withdrawal"
+      :app_id="app.app_id"
+      :active_asset="withdrawalAsset"
+      @close-modal="showWithdrawalModal=false"
+      @update-list="fetchAssetList"
     ></withdrawal-modal>
   </div>
 </template>

@@ -82,10 +82,10 @@
       },
       saveToken() {
         const {
-          active_app: { app_id: uid },
-          submit_form: { session_id: sid, pin_token: pinToken, private_key }
+          active_app: { app_id: user_id },
+          submit_form: { session_id, pin_token, private_key }
         } = this
-        this.$ls.set(uid, { uid, sid, pinToken, privateKey: private_key.replace(/\\r\\n/g, "\r\n") })
+        this.$ls.set(user_id, { user_id, session_id, pin_token, private_key: private_key.replace(/\\r\\n/g, "\r\n") })
       }
     }
   }

@@ -13,7 +13,7 @@ const responseCallback = (err) => {
     _vm.$message.error( { showClose: true, duration: 2000, message: `${_vm.$t('message.errors.' + code)}(${code})` })
   }
 
-  if (!_vm._not_through_interceptor && code === 401) {
+  if (!_vm.skipInterceptor && code === 401) {
     setTimeout(() => {
       window.localStorage.clear()
       window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`

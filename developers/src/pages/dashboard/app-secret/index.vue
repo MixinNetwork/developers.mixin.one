@@ -53,7 +53,7 @@
     <a v-show="false" ref="download_session_json"></a>
     <update-token
       :open_edit_modal="open_edit_modal"
-      :active_app="active_app"
+      :active_app="app"
       :submit_form="submit_form"
       @success="confirm_action"
       @close_modal="close_modal"
