@@ -34,11 +34,11 @@
       </header>
       <div class="dashboard-main">
         <component
-          v-loading="loadingApp"
+          loading="loadingApp"
           :is="currentNav"
           :client="client"
-          :active_app="appInfo"
-          @add_new_app="add_new_app"
+          :app="appInfo"
+          @add-new-app="newAppSubmitted"
           @loading="changeAppLoadingState"
         ></component>
       </div>

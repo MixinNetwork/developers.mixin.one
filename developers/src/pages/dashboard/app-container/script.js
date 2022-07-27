@@ -28,9 +28,11 @@ export default {
     }
   },
   methods: {
-    add_new_app() {},
+    newAppSubmitted(app_number) {
+      this.$emit('add-new-app', app_number)
+    },
     newAppClickHandler() {
-      this.$emit('add-new-app')
+      this.$emit('check-app-credit')
     },
     navItemClickHandler(index) {
       this.currentNavIndex = index

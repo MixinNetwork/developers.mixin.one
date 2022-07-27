@@ -109,6 +109,11 @@ export default {
         this.appCreditPrice = Number(price)
       }
     },
+    async newAppSubmitted(app_number) {
+      this.isNewApp = false
+      await this.fetchAppList()
+      this.jump(`/apps/${app_number}`)
+    },
     async appItemClickHandler(item) {
       this.currentAppId = item.app_id
       this.jump(`/apps/${item.app_number}`)

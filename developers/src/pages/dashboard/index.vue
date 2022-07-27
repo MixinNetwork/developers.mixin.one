@@ -111,7 +111,8 @@
         :isNewApp="isNewApp"
         :showWelcome="showWelcome"
         :client="client"
-        @add-new-app="newAppHandler"
+        @check-app-credit="newAppHandler"
+        @add-new-app="newAppSubmitted"
       ></Container>
     </div>
 

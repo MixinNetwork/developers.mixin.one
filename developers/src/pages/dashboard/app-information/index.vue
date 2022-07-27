@@ -3,50 +3,47 @@
     <div class="top">
       <div class="meta f">
         <MInput
-          v-if="active_app.app_id"
+          v-if="app.app_id"
           label="Mixin ID"
           disabled
           is-copied="true"
-          v-model:value="active_app.app_number"
+          v-model:value="app.app_number"
           class="mixin-id"
         />
         <div class="icon">
           <label>{{$t('information.icon')}}</label>
-          <Croppie ref="croppie" :icon_url="active_app.icon_url" :toggle_app="toggle_app"></Croppie>
+          <Croppie ref="croppie" :icon_url="icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
       <div class="edit-main f">
         <div class="edit-list f f-column">
           <MInput
-            v-if="active_app.app_id"
+            v-if="app.app_id"
             :label="$t('information.app_id')"
             disabled
             is-copied="true"
-            v-model:value="active_app.app_id"
+            v-model:value="app.app_id"
             class="item"
           />
           <div class="name-category">
             <MInput
-              @input="check_is_finished"
               :label="$t('information.name')"
               :placeholder="$t('information.name_desc')"
-              v-model:value="app_name"
+              v-model:value="name"
               class="item"
             />
-            <CategorySelect class="item" v-model:value="active_app.category" />
+            <CategorySelect class="item" v-model:value="category" />
           </div>
           <MInput
             :label="$t('information.home_url')"
             :placeholder="$t('information.home_url_desc')"
-            @input="check_is_finished"
-            v-model:value="active_app.home_uri"
+            v-model:value="home_uri"
             class="item"
           />
           <MInput
-            @input="check_is_finished"
             :label="$t('information.oauth_url')"
             :placeholder="$t('information.oauth_url_desc')"
-            v-model:value="active_app.redirect_uri"
+            v-model:value="redirect_uri"
             class="item"
           />
         </div>
@@ -55,9 +52,8 @@
     <div class="des">
       <label>{{$t('information.description')}}</label>
       <textarea
-        @input="check_is_finished"
         :placeholder="$t('information.description_desc')"
-        v-model="active_app.description"
+        v-model="description"
       ></textarea>
     </div>
     <div class="des">
@@ -65,26 +61,26 @@
       <textarea :placeholder="$t('information.resource_patterns_desc')" v-model="resource_patterns"></textarea>
     </div>
     <div class="f">
-      <div @click="immersive_status=!immersive_status" class="des immersive">
-        <i v-if="!immersive_status" />
-        <img v-else src="@/assets/img/ic_v.png" />
+      <div @click="isImmersive=!isImmersive" class="des immersive">
+        <i v-if="!isImmersive" />
+        <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{$t('information.immersive')}}</span>
       </div>
-      <div v-if="has_encrypted" @click="click_encrypted" class="des encrypted">
-        <i v-if="!encrypted_status" />
-        <img v-else src="@/assets/img/ic_v.png" />
+      <div v-if="hasEncrypted" @click="encryptClickHandler" class="des encrypted">
+        <i v-if="!isEncrypted" />
+        <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{$t('information.encrypted')}}</span>
       </div>
     </div>
     <button
-      @click="submit_to_database"
-      :class="['primary',!can_save ? 'not-finished' : '' ]"
+      @click="submitClickHandler"
+      :class="['primary', !allowSubmit ? 'not-finished' : '' ]"
     >{{$t('button.save')}}</button>
     <confirm
       :confirm_content="$t('information.encrypted_confirm')"
-      :confirm_modal="confirm_modal"
-      @confirm="confirm_action"
-      @close_modal="close_modal"
+      :confirm_modal="showConfirmModal"
+      @confirm="confirmEncryption"
+      @close_modal="closeModal"
     />
   </div>
 </template>

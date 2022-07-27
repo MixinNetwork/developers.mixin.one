@@ -20,7 +20,7 @@ app.use(router)
    .use(ElLoading)
    .use(ElSubMenu)
    .use(ElMenuItem)
-   .use(VueClipboard)
+   .use(VueClipboard) // todo: try vueuse for composition api
    .use(VueCroppie)
 
 app.config.globalProperties.$message = ElMessage
