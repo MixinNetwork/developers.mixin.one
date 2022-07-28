@@ -34,9 +34,8 @@
     </div>
 
     <update-token
-      :open_edit_modal="showSessionUpdateModal"
-      :loading="loading"
-      :active_app="app"
+      :show="showSessionUpdateModal"
+      :app="app"
       @success="fetchAssetList"
       @close_modal="closeModal"
     />
@@ -44,7 +43,7 @@
       v-if="showWithdrawalModal"
       :client="client"
       :app_id="app.app_id"
-      :active_asset="withdrawalAsset"
+      :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"
       @update-list="fetchAssetList"
     ></withdrawal-modal>

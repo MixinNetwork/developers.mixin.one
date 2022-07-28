@@ -18,11 +18,11 @@ export default {
   },
   data() {
     return {
-      loading: false, // todo: remove?
       loadingAll: false,
       showWithdrawalModal: false,
       showSessionUpdateModal: false,
       needUpdate: true,
+      tokenInfo: {},
       assetList: [],
       withdrawalAsset: {}
     }
@@ -46,7 +46,7 @@ export default {
     }
   },
   async mounted() {
-    if (this.hasAppSession()) await this.fetchAssetList()
+    await this.fetchAssetList()
   },
   methods: {
     hasAppSession() {
@@ -67,6 +67,8 @@ export default {
       }, 200)
     },
     async fetchAssetList() {
+      if (!this.hasAppSession()) return
+
       this.loadingAll = true
       if (this.app.app_id !== this.tokenInfo.user_id || !this.client) {
         this.needUpdate = true
@@ -88,7 +90,7 @@ export default {
           this.$ls.rm(this.app.app_id)
         }
       } catch (e) {
-        if (e.code) this.$message.error({ message: this.$t(`message.errors${e.code}`), showClose: true })
+        if (e.code) this.$message.error({ message: this.$t(`message.errors.${e.code}`), showClose: true })
 
         this.needUpdate = true
         this.showSessionUpdateModal = true
