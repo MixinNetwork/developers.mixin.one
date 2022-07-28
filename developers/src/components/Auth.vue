@@ -39,7 +39,6 @@ export default {
       private_key: privateKey,
     }
     this.$ls.set('token', keystore)
-    this.$emit('set-keystore', keystore)
 
     this.$router.push("/dashboard")
   },

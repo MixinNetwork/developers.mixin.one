@@ -1,11 +1,11 @@
 <template>
   <div v-if="show" class="modal-mask">
     <div class="confirm-content">
-      <img @click="click_cancel" src="@/assets/img/svg/close.svg" />
-      <h3>{{confirm_content}}</h3>
+      <img @click="cancelClickHandler" src="@/assets/img/svg/close.svg" />
+      <h3>{{content}}</h3>
       <div class="btns">
-        <button @click="click_cancel">{{$t('button.cancel')}}</button>
-        <button @click="click_confirm">{{$t('button.ok')}}</button>
+        <button @click="cancelClickHandler">{{$t('button.cancel')}}</button>
+        <button @click="confirmClickHandler">{{$t('button.ok')}}</button>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
   props: {
-    confirm_content: {
+    content: {
       type: String,
       default: ""
     },
@@ -24,11 +24,11 @@ export default {
     }
   },
   methods: {
-    click_confirm() {
+    confirmClickHandler() {
       this.$emit("confirm");
       this.$emit("close-modal");
     },
-    click_cancel() {
+    cancelClickHandler() {
       this.$emit("close-modal");
     }
   }
