@@ -1,18 +1,18 @@
 <template>
-  <d-modal :loading="loading" class="modal" :show="open_edit_modal">
+  <d-modal class="modal" :show="show">
     <div class="main">
       <h3>{{$t('wallet.update_token')}}</h3>
       <div class="edit-item">
         <label>Session ID</label>
-        <input v-model="submit_form.session_id" />
+        <input v-model="session_id" />
       </div>
       <div class="edit-item">
         <label>Pin Token</label>
-        <input v-model="submit_form.pin_token" />
+        <input v-model="pin_token" />
       </div>
       <div class="edit-item">
         <label>Private Key</label>
-        <textarea v-model="submit_form.private_key"></textarea>
+        <textarea v-model="private_key"></textarea>
       </div>
       <div class="btns">
         <button @click="clickSubmit" class="btns-save primary">{{$t('button.save')}}</button>
@@ -24,54 +24,50 @@
 </template>
 
 <script>
+import validator from "validator"
+import Confirm from "./Confirm";
   import DModal from "./DModal"
-  import validator from "validator"
-  import Confirm from "@/components/Confirm";
 
   export default {
-    components: {Confirm, DModal },
+    components: { Confirm, DModal },
     props: {
-      open_edit_modal: {
+      show: {
         type: Boolean,
         default: false
       },
-      loading: {
-        type: Boolean,
-        default: false
-      },
-      submit_form: {
-        type: Object,
-        default() {
-          return {}
-        }
-      },
-      active_app: {
+      app: {
         type: Object,
         default() {
           return {}
         }
       }
     },
+    data() {
+      return {
+        session_id: '',
+        pin_token: '',
+        private_key: '',
+      }
+    },
     methods: {
       clickSubmit() {
         if (!this.checkToken()) return
         this.saveToken()
-        this.$emit("close_modal")
+        this.$emit("close-modal")
         this.$emit("success")
       },
       clickCancel() {
-        this.$emit("close_modal")
+        this.$emit("close-modal")
       },
       checkToken() {
-        const { session_id, pin_token } = this.submit_form
-        if (!validator.isUUID(session_id, 4)) {
+        if (!validator.isUUID(this.session_id, 4)) {
           this.$message.error({
             message: this.$t("message.errors.session_id_format"),
             showClose: true
           })
           return false
         }
-        if (!validator.isBase64(pin_token) && Buffer.from(pin_token, 'base64').length !== 32) {
+        if (!validator.isBase64(this.pin_token) && Buffer.from(this.pin_token, 'base64').length !== 32) {
           this.$message.error({
             message: this.$t("message.errors.pin_token_format"),
             showClose: true
@@ -81,11 +77,14 @@
         return true
       },
       saveToken() {
-        const {
-          active_app: { app_id: user_id },
-          submit_form: { session_id, pin_token, private_key }
-        } = this
-        this.$ls.set(user_id, { user_id, session_id, pin_token, private_key: private_key.replace(/\\r\\n/g, "\r\n") })
+        this.$ls.set(
+          this.app.app_id,
+          {
+            user_id: this.user_id,
+            session_id: this.session_id,
+            pin_token: this.session_id,
+            private_key: this.private_key.replace(/\\r\\n/g, "\r\n")
+          })
       }
     }
   }
