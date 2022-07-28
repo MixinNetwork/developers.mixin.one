@@ -6,8 +6,7 @@ import VueCroppie from 'vue-croppie'
 import App from '@/App.vue'
 import router from '@/router'
 import i18n from '@/i18n'
-import ls from '@/utils/localStorage'
-import _const from '@/utils/const'
+import { ls } from '@/utils'
 
 import 'croppie/croppie.css'
 import '@/assets/font/dashboard.css'
@@ -25,6 +24,5 @@ app.use(router)
 
 app.config.globalProperties.$message = ElMessage
 app.config.globalProperties.$ls = ls
-app.config.globalProperties._const = _const
 
 app.mount('#app');

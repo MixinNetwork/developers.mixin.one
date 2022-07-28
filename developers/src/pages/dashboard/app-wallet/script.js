@@ -1,7 +1,7 @@
 import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 import UpdateToken from '@/components/UpdateToken'
-import tools from '@/utils/tools'
-import defaultApiConfig from "@/api";
+import { assetSortCompare } from '@/utils'
+import { defaultApiConfig } from "@/api";
 import WithdrawalModal from './withdrawal'
 
 export default {
@@ -81,7 +81,7 @@ export default {
         _vm.skipInterceptor = true
         let res = await this.client.asset.fetchList()
         if (res) {
-          this.assetList = res.sort(tools.assetSortCompare)
+          this.assetList = res.sort(assetSortCompare)
           this.needUpdate = false
           this.showSessionUpdateModal = false
         } else {

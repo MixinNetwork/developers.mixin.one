@@ -21,7 +21,6 @@ const responseCallback = (err) => {
   }
 };
 
-const defaultApiConfig = {};
-defaultApiConfig.requestConfig = { responseCallback }
-
-export default defaultApiConfig
+export const defaultApiConfig = {
+  requestConfig: { responseCallback }
+};

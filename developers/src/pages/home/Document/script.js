@@ -1,6 +1,6 @@
 import Header from "@/components/MainHeader"
 import Footer from "@/components/MainFooter"
-import tools from "@/utils/tools"
+import { changeTheme } from "@/utils"
 
 import { getPathByRouter, getPageContent } from './handleMd'
 import { handleCodeHighLight } from './hl'
@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted() {
-    tools.changeTheme("#fff")
+    changeTheme("#fff")
     let { pathMatch } = this.$route.params
     handlePathInit.call(this, pathMatch)
   },

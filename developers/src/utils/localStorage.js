@@ -1,4 +1,4 @@
-export default {
+export const ls = {
   get(key) {
     let value = window.localStorage.getItem(key)
     try {

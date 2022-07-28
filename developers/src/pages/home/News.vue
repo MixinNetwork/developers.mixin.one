@@ -32,7 +32,7 @@
   import Header from "@/components/MainHeader"
   import Footer from "@/components/MainFooter"
   import Pages from "@/components/Pages"
-  import tools from "@/utils/tools"
+  import { changeTheme } from "@/utils"
 
   export default {
     name: "News",
@@ -73,7 +73,7 @@
       }
     },
     mounted() {
-      tools.changeTheme("#fdfeff")
+      changeTheme("#fdfeff")
       window.scrollTo(0, 0)
       this.reloadState = true
       this.allList = this.$t("news.list")

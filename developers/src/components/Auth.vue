@@ -3,21 +3,20 @@
 </template>
 
 <script>
-import { getED25519KeyPair, MixinApi } from '@mixin.dev/mixin-node-sdk'
-import tools from "@/utils/tools"
-import defaultApiConfig from "@/api";
+import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk'
+import { getUrlParameter, ls } from '@/utils'
+import { useClient } from '@/api'
 
 export default {
   props: ['client', 'setKeystore'],
   async mounted() {
-    const { getUrlParameter } = tools
     const error = getUrlParameter("error")
     if (error === "access_denied") return this.handleAccessDenied()
 
     const code = getUrlParameter("code")
     const {privateKey, publicKey} = getED25519KeyPair()
 
-    const client = MixinApi(defaultApiConfig)
+    const client = useClient()
     const resp = await client.oauth.getToken(
       process.env.VUE_APP_CLIENT_ID,
       code,
@@ -38,7 +37,7 @@ export default {
       authorization_id,
       private_key: privateKey,
     }
-    this.$ls.set('token', keystore)
+    ls.set('token', keystore)
 
     this.$router.push("/dashboard")
   },

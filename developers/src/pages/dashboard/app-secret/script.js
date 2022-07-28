@@ -1,10 +1,10 @@
 import { MixinApi, getED25519KeyPair } from "@mixin.dev/mixin-node-sdk";
 import FileSaver from 'file-saver'
-import tools from '@/utils/tools'
+import { randomPin } from '@/utils'
 import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'
-import defaultApiConfig from "@/api";
+import { defaultApiConfig } from "@/api";
 
 export default {
   name: 'app-information',
@@ -93,7 +93,7 @@ export default {
       this.loading = true
 
       try {
-        const pin = tools.randomPin()
+        const pin = randomPin()
         const { publicKey: session_secret, privateKey } = getED25519KeyPair()
         const res = await this.client.app.updateSession(this.app.app_id, pin, session_secret)
         this.$message.success({ message: this.$t('message.success.reset'), showClose: true })

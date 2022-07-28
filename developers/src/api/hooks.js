@@ -1,6 +1,6 @@
 import { MixinApi } from "@mixin.dev/mixin-node-sdk";
-import ls from '@/utils/localStorage'
-import defaultApiConfig from './config'
+import { ls } from '@/utils/localStorage'
+import { defaultApiConfig } from './config'
 
 export const useClient = (clientInfo) => {
   const keystore = clientInfo ? clientInfo : ls.get('token')

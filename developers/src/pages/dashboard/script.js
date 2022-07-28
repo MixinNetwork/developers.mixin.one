@@ -1,21 +1,19 @@
 import { v4 as uuid } from 'uuid'
-import {computed, onMounted, onUpdated, reactive, toRefs} from "vue";
-import {useRoute, useRouter} from "vue-router";
+import { reactive, toRefs, computed, onMounted, onUpdated } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
-import Container from './app-container'
-import  { useAppList, useAppProperty, useUserInfo, useClient } from "@/api";
-import tools from "@/utils/tools";
-import defaultConst from "@/utils/const";
-import {useCheckMobile} from "@/utils/hooks";
+import AppContainer from './app-container'
+import { useAppList, useAppProperty, useUserInfo, useClient } from "@/api";
+import { useCheckMobile, defaultConst, isImmersive } from '@/utils'
 
 export default {
   name: 'dashboard-container',
-  components: { DModal, DHeader, Container },
+  components: { DModal, DHeader, AppContainer },
   setup() {
     const state = reactive({
       isMobile: false,
-      isImmersive: tools.isImmersive(),
+      isImmersive: isImmersive(),
       loadingAll: false,
       showLogoutModal: false,
       showBuyModal: false,
@@ -52,10 +50,9 @@ export default {
     }
     const useAppId = () => {
       const { app_number } = route.params
-      console.log(app_number)
       if (!app_number) return ''
 
-      return state.currentAppId = state.appList.find(app => app.app_number === app_number).app_id
+      state.currentAppId = state.appList.find(app => app.app_number === app_number).app_id
     }
     const useHasCredit = () => {
       let { count } = state.appsProperty
@@ -108,7 +105,7 @@ export default {
       if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true
     })
     onUpdated(() => {
-      state.isImmersive = tools.isImmersive()
+      state.isImmersive = isImmersive()
     })
 
     return {

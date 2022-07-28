@@ -105,13 +105,13 @@
         </div>
       </div>
 
-      <Container
+      <app-container
         :appId="currentAppId"
         :isMobile="isMobile"
         :client="client"
         @check-app-credit="useClickNewApp"
         @add-new-app="useNewAppSubmitted"
-      ></Container>
+      ></app-container>
     </div>
 
     <d-modal :show="showBuyModal">
