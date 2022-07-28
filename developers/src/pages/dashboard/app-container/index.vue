@@ -1,13 +1,13 @@
 <template>
-  <div v-if="$route.name!=='dashboard' || !isMobile" class="dashboard-center-and-nav">
+  <div v-if="!showWelcome || !isMobile" class="dashboard-center-and-nav">
     <div v-if="showWelcome" class="welcome">
       <img src="@/assets/img/svg/robot.svg" alt="robot-icon"/>
       <h1>{{ $t('dashboard.welcome') }}</h1>
       <p>{{ $t('dashboard.welcome_d') }}</p>
-      <button @click="newAppClickHandler" class="primary">{{ $t('dashboard.create_btn') }}</button>
+      <button @click="useClickNewApp" class="primary">{{ $t('dashboard.create_btn') }}</button>
     </div>
     <div v-else>
-      <d-header v-if="$route.name!=='dashboard'" class="app-header">
+      <d-header class="app-header">
         <template #left>
           <div class="header-back" @click="backward">
             <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
@@ -27,19 +27,19 @@
               v-for="(item, index) in navList"
               :key="index"
               :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
-              @click="navItemClickHandler(index)"
+              @click="useClickNav(index)"
             >{{ $t(item + '.title') }}</span>
           </template>
         </div>
       </header>
       <div class="dashboard-main">
         <component
-          loading="loadingApp"
+          v-loading="loadingApp"
           :is="currentNav"
           :client="client"
           :app="appInfo"
-          @add-new-app="newAppSubmitted"
-          @loading="changeAppLoadingState"
+          @add-new-app="useNewAppSubmitted"
+          @loading="useModifyLoading"
         ></component>
       </div>
     </div>

@@ -120,7 +120,6 @@ export default {
       useNewAppSubmitted,
       defaultConst,
       route,
-      client,
     }
   },
 }

@@ -17,6 +17,8 @@ export const useClient = (clientInfo) => {
 
 export const useUserInfo = async (client) => await client.user.profile()
 
+export const useApp = async (client, appId) => await client.app.fetch(appId)
+
 export const useAppList = async (client) => await client.app.fetchList()
 
 export const useAppProperty = async (client) => await client.app.properties()

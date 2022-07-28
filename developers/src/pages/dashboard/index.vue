@@ -108,7 +108,6 @@
       <app-container
         :appId="currentAppId"
         :isMobile="isMobile"
-        :client="client"
         @check-app-credit="useClickNewApp"
         @add-new-app="useNewAppSubmitted"
       ></app-container>

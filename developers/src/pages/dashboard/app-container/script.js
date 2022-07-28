@@ -1,73 +1,89 @@
-import { computed } from "vue";
+import {computed, onMounted, reactive, toRefs, watch} from "vue";
+import { useRoute, useRouter } from "vue-router";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
-import Information from "@/pages/dashboard/app-information";
-import Secret from "@/pages/dashboard/app-secret";
-import Wallet from "@/pages/dashboard/app-wallet";
+import AppInformation from "@/pages/dashboard/app-information";
+import AppSecret from "@/pages/dashboard/app-secret";
+import AppWallet from "@/pages/dashboard/app-wallet";
+import { useApp, useClient } from "@/api";
 
 export default {
   name: "app-container",
-  components: { Information, Secret, Wallet, DModal, DHeader },
-  props: ['isMobile', 'client', 'appId'],
-  data() {
-    return {
+  components: { AppInformation, AppSecret, AppWallet, DModal, DHeader },
+  props: ['isMobile', 'appId'],
+  emits: ['check-app-credit', 'add-new-app'],
+  setup(props, ctx) {
+    const state = reactive({
       loadingApp: false,
       showWelcome: false,
       isNewApp: false,
       currentNavIndex: 0,
-      currentNav: computed(() => this.navList[this.currentNavIndex]),
       navList: ['information', 'wallet', 'secret'],
       appInfo: {}
+    })
+    const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`)
+
+    const route = useRoute()
+    const router = useRouter()
+    const backward = () => {
+      router.back()
     }
-  },
-  watch: {
-    async appId(val) {
-      if (val) {
-        this.loadingApp = true
-        this.appInfo = await this.client.app.fetch(this.appId)
-        this.currentNavIndex = 0
-        this.loadingApp = false
-      }
-    },
-    '$route.name'(val) {
-      this.loadStatus(val)
-    }
-  },
-  methods: {
-    loadStatus(val) {
+    const useLoadRouteStatus = async (val) => {
       switch (val) {
-        case 'dashboard':
-          this.showWelcome = true
-          this.isNewApp = false
+        case '/dashboard':
+          state.showWelcome = true
+          state.isNewApp = false
           break
-        case 'new_app':
-          this.showWelcome = false
-          this.isNewApp = true
+        case '/apps/new':
+          state.showWelcome = false
+          state.isNewApp = true
           break
         default:
-          const { app_number } = this.$route.params
-          // this.currentAppId = this.appList.find(app => app.app_number === app_number).app_id
-          this.showWelcome = false
-          this.isNewApp = false
+          state.showWelcome = false
+          state.isNewApp = false
+          await useFetchApp()
       }
-    },
-    newAppSubmitted(app_number) {
-      this.$emit('add-new-app', app_number)
-    },
-    newAppClickHandler() {
-      this.$emit('check-app-credit')
-    },
-    navItemClickHandler(index) {
-      this.currentNavIndex = index
-    },
-    changeAppLoadingState(state) {
-      this.loadingApp = state
-    },
-    backward() {
-      this.$router.go(-1)
-    },
+    }
+    watch(() => route.path, async (name) => {
+      await useLoadRouteStatus(name)
+    })
+
+    const client = useClient()
+    const useFetchApp = async () => {
+      if (props.appId) {
+        state.loadingApp = true
+        state.appInfo = await useApp(client, props.appId)
+        state.currentNavIndex = 0
+        state.loadingApp = false
+      }
+    }
+
+    const useClickNewApp = () => {
+      ctx.emit('check-app-credit')
+    }
+    const useNewAppSubmitted = (app_number) => {
+      ctx.emit('add-new-app', app_number)
+    }
+    const useClickNav = (index) => {
+      state.currentNavIndex = index
+    }
+    const useModifyLoading = (state) => {
+      state.loadingApp = state
+    }
+
+    onMounted(async () => {
+      await useLoadRouteStatus(route.path)
+    })
+
+    return {
+      ...toRefs(state),
+      currentNav,
+      useClickNewApp,
+      useNewAppSubmitted,
+      useClickNav,
+      useModifyLoading,
+      backward,
+      client
+    }
   },
-  mounted() {
-    this.loadStatus(this.$route.name)
-  }
 }
