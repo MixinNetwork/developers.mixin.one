@@ -80,7 +80,7 @@
       :confirm_content="$t('information.encrypted_confirm')"
       :confirm_modal="showConfirmModal"
       @confirm="confirmEncryption"
-      @close_modal="closeModal"
+      @close-modal="closeModal"
     />
   </div>
 </template>

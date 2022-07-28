@@ -37,7 +37,7 @@
       :show="showSessionUpdateModal"
       :app="app"
       @success="fetchAssetList"
-      @close_modal="closeModal"
+      @close-modal="closeModal"
     />
     <withdrawal-modal
       v-if="showWithdrawalModal"

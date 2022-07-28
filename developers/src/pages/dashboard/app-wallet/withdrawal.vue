@@ -38,7 +38,7 @@
                 :confirm_content="confirm_content"
                 :confirm_modal="showWithdrawalConfirm"
                 @confirm="confirmWithdrawal"
-                @close_modal="closeWithdrawalConfirm"
+                @close-modal="closeWithdrawalConfirm"
               />
               <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
             </div>

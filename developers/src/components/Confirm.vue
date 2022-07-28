@@ -1,5 +1,5 @@
 <template>
-  <div v-if="confirm_modal" class="modal-mask">
+  <div v-if="show" class="modal-mask">
     <div class="confirm-content">
       <img @click="click_cancel" src="@/assets/img/svg/close.svg" />
       <h3>{{confirm_content}}</h3>
@@ -18,7 +18,7 @@ export default {
       type: String,
       default: ""
     },
-    confirm_modal: {
+    show: {
       type: Boolean,
       default: false
     }
@@ -26,10 +26,10 @@ export default {
   methods: {
     click_confirm() {
       this.$emit("confirm");
-      this.$emit("close_modal");
+      this.$emit("close-modal");
     },
     click_cancel() {
-      this.$emit("close_modal");
+      this.$emit("close-modal");
     }
   }
 };
