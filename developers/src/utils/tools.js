@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import BigNumber from "bignumber.js";
 import { WebViewApi } from "@mixin.dev/mixin-node-sdk";
 
@@ -18,9 +17,6 @@ export default {
     const regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
     const results = regex.exec(window.location.search)
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
-  },
-  getUUID() {
-    return uuid()
   },
   isImmersive() {
     const ctx = client.getMixinContext()

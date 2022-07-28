@@ -88,7 +88,7 @@
 <script>
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
-import tools from "@/assets/js/tools";
+import tools from "@/utils/tools";
 export default {
   name: "Home",
   components: { Header, Footer },

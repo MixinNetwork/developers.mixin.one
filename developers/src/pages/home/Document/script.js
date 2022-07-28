@@ -1,6 +1,6 @@
 import Header from "@/components/MainHeader"
 import Footer from "@/components/MainFooter"
-import tools from "@/assets/js/tools"
+import tools from "@/utils/tools"
 
 import { getPathByRouter, getPageContent } from './handleMd'
 import { handleCodeHighLight } from './hl'

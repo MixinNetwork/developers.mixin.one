@@ -4,7 +4,7 @@
 
 <script>
 import { getED25519KeyPair, MixinApi } from '@mixin.dev/mixin-node-sdk'
-import tools from "@/assets/js/tools"
+import tools from "@/utils/tools"
 import defaultApiConfig from "@/api";
 
 export default {

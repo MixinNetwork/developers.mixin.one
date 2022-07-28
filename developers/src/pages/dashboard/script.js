@@ -1,151 +1,129 @@
 import { v4 as uuid } from 'uuid'
-import { computed } from "vue";
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
+import {computed, onMounted, onUpdated, reactive, toRefs} from "vue";
+import {useRoute, useRouter} from "vue-router";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
 import Container from './app-container'
-import defaultApiConfig from "@/api";
-import tools from "@/assets/js/tools";
+import  { useAppList, useAppProperty, useUserInfo, useClient } from "@/api";
+import tools from "@/utils/tools";
+import defaultConst from "@/utils/const";
+import {useCheckMobile} from "@/utils/hooks";
 
 export default {
   name: 'dashboard-container',
   components: { DModal, DHeader, Container },
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       isMobile: false,
-      isNewApp: false,
-      isImmersive: false,
-      mobileTitlePosition: computed(() => !this.isImmersive? 'left': 'center'),
-      mobileUserPosition: computed(() => !this.isImmersive? 'right': 'left'),
-      showWelcome: true,
-      showLogoutPanel: false,
-      showBuyPanel: false,
+      isImmersive: tools.isImmersive(),
       loadingAll: false,
+      showLogoutModal: false,
+      showBuyModal: false,
       userInfo: {},
       appList: [],
       appsProperty: {},
       currentAppId: '',
-      client: MixinApi(defaultApiConfig)
-    }
-  },
-  watch: {
-    '$route.path'(val) {
-      this.mountRouterStatus(val)
-    }
-  },
-  async created() {
-    this.isImmersive = tools.isImmersive()
+    })
+    const mobileTitlePosition = computed(() => !state.isImmersive? 'left': 'center')
+    const mobileUserPosition = computed(() => !state.isImmersive? 'right': 'left')
 
-    this.isMobile = document.documentElement.clientWidth < 769
-    window.onresize = () => {
-      this.isMobile = document.documentElement.clientWidth < 769
+    useCheckMobile(state)
+
+    const route = useRoute()
+    const router = useRouter()
+    const jump = (uri) => {
+      if (uri === route.path) return
+      if (uri === '/apps/new') state.currentAppId = ''
+      router.push({path: uri})
     }
 
-    this.updateClient()
-    await this.fetchAll()
+    const client = useClient()
+    const useFetchAll = async () => {
+      state.loadingAll = true
+      state.appList = await useAppList(client)
+      state.userInfo = await useUserInfo(client)
+      state.loadingAll = false
+      state.appsProperty = await useAppProperty(client)
+    }
+    const useFetchAppList = async () => {
+      state.loadingAll = true
+      state.appList = await useAppList(client)
+      state.loadingAll = false
+    }
+    const useAppId = () => {
+      const { app_number } = route.params
+      console.log(app_number)
+      if (!app_number) return ''
 
-    this.mountRouterStatus(this.$route.path)
-  },
-  methods: {
-    mountRouterStatus(route) {
-      switch (route) {
-        case '/dashboard':
-          this.showWelcome = true
-          this.isNewApp = false
-          break
-        case '/apps/new':
-          if (!this.checkAppCredit()) {
-            this.showBuyPanel = true
-          }
-          this.showWelcome = false
-          this.isNewApp = true
-          break
-        default:
-          const { app_number } = this.$route.params
-          this.currentAppId = this.appList.find(app => app.app_number === app_number).app_id
-          this.showWelcome = false
-          this.isNewApp = false
+      return state.currentAppId = state.appList.find(app => app.app_number === app_number).app_id
+    }
+    const useHasCredit = () => {
+      let { count } = state.appsProperty
+      return state.appList.length < count;
+    }
+
+    const useClickApp = async (item) => {
+      state.currentAppId = item.app_id
+      jump(`/apps/${item.app_number}`)
+    }
+    const useClickUser = () => {
+      state.showLogoutModal = !state.showLogoutModal
+      if (state.showLogoutModal) {
+        document.onclick = () => state.showLogoutModal = false
       }
-    },
-    updateClient() {
-      const keystore = this.$ls.get('token');
-      if (
-        keystore &&
-        keystore.scope &&
-        keystore.authorization_id &&
-        keystore.private_key
-      ) {
-        this.client = MixinApi({
-          ...defaultApiConfig,
-          keystore
-        });
-      }
-    },
-    jump(uri) {
-      if (uri === this.$route.path) return
-      if (uri === '/dashboard' || uri === '/apps/new') this.currentAppId = ''
-      this.$router.push(uri)
-    },
-    add_new_app(app_number) {
-      this.fetchAppList()
-      app_number = app_number || this.$route.params.app_number
-      if (app_number) {
-        this.jump('/apps/' + app_number)
-      }
-    },
-    checkAppCredit() {
-      let { count } = this.appsProperty
-      return this.appList.length < count;
-    },
-    async newAppHandler(){
-      const hasCredit = this.checkAppCredit()
-      if (hasCredit) {
-        this.jump('/apps/new')
-      } else {
-        this.loadingAll = true
-        const { price } = await this.client.app.properties()
-        this.loadingAll = false
-        this.showBuyPanel = true
-        this.appCreditPrice = Number(price)
-      }
-    },
-    async newAppSubmitted(app_number) {
-      this.isNewApp = false
-      await this.fetchAppList()
-      this.jump(`/apps/${app_number}`)
-    },
-    async appItemClickHandler(item) {
-      this.currentAppId = item.app_id
-      this.jump(`/apps/${item.app_number}`)
-    },
-    userClickHandler() {
-      this.showLogoutPanel = !this.showLogoutPanel
-      if (this.showLogoutPanel) {
-        document.onclick = () => this.showLogoutPanel = false
-      }
-    },
-    signOutClickHandler() {
+    }
+    const useClickSignOut = () => {
       window.localStorage.clear()
-      this.showLogoutPanel = false
+      state.showLogoutModal = false
       setTimeout(() => {
         window.location.href = window.location.origin
       }, 100)
-    },
-    buyAppClickHandler(count) {
-      let trace = uuid()
-      let amount = this.appCreditPrice * count
+    }
+    const useClickNewApp = async () => {
+      const hasCredit = useHasCredit()
+      if (hasCredit) {
+        jump('/apps/new')
+      } else {
+        state.showBuyModal = true
+      }
+    }
+    const useClickBuyApp = async (count) => {
+      state.loadingAll = true
+      const { price } = await useAppProperty(client)
+      state.loadingAll = false
+
+      const trace = uuid()
+      const amount = Number(price) * count
       window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`
-    },
-    async fetchAll() {
-      this.loadingAll = true
-      this.userInfo = await this.client.user.profile()
-      await this.fetchAppList()
-      this.appsProperty = await this.client.app.properties()
-    },
-    async fetchAppList() {
-      this.loadingAll = true
-      this.appList = await this.client.app.fetchList()
-      this.loadingAll = false
-    },
-  }
+    }
+    const useNewAppSubmitted = async (app_number) => {
+      await useFetchAppList()
+      jump(`/apps/${app_number}`)
+    }
+
+    onMounted(async () => {
+      await useFetchAll()
+
+      state.currentAppId = useAppId()
+      if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true
+    })
+    onUpdated(() => {
+      state.isImmersive = tools.isImmersive()
+    })
+
+    return {
+      ...toRefs(state),
+      mobileTitlePosition,
+      mobileUserPosition,
+      useClickApp,
+      useClickUser,
+      useClickSignOut,
+      useClickNewApp,
+      useClickBuyApp,
+      useNewAppSubmitted,
+      defaultConst,
+      route,
+      client,
+    }
+  },
 }

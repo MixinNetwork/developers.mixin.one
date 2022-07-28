@@ -1,6 +1,6 @@
 import { MixinApi, getED25519KeyPair } from "@mixin.dev/mixin-node-sdk";
 import FileSaver from 'file-saver'
-import tools from '@/assets/js/tools'
+import tools from '@/utils/tools'
 import DModal from '@/components/DModal'
 import UpdateToken from '@/components/UpdateToken'
 import Confirm from '@/components/Confirm'

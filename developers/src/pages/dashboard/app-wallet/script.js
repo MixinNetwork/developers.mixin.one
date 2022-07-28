@@ -1,6 +1,6 @@
 import { MixinApi } from "@mixin.dev/mixin-node-sdk";
 import UpdateToken from '@/components/UpdateToken'
-import tools from '@/assets/js/tools'
+import tools from '@/utils/tools'
 import defaultApiConfig from "@/api";
 import WithdrawalModal from './withdrawal'
 
