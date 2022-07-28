@@ -2,30 +2,30 @@
   <div class="modal">
     <div class="mask">
       <transition name="fade-up">
-          <div v-if="!snap_status" v-loading="loading" class="main">
+          <div v-if="!showSnapshot" v-loading="loading" class="main">
             <d-header class="header">
               <div class="header-back" @click="back" slot="left">
-                <img src="@/assets/img/app-svg/left.svg" />
+                <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
               </div>
               <div slot="center">{{$t('wallet.title')}}</div>
             </d-header>
             <div class="content">
-              <header :style="{opacity: active_asset.icon_url ? '1':'0'}">
-                <img :src="active_asset.icon_url" />
-                <p>{{active_asset.balance}} {{active_asset.symbol}}</p>
+              <header :style="{opacity: asset.icon_url ? '1':'0'}">
+                <img :src="asset.icon_url" alt="asset-icon"/>
+                <p>{{asset.balance}} {{asset.symbol}}</p>
               </header>
               <ul>
                 <li>
                   <label>{{$t('wallet.amount')}}</label>
-                  <input v-model="submit_form.amount" />
+                  <input v-model="form.amount" />
                 </li>
                 <li>
                   <label>PIN</label>
-                  <input maxlength="6" ref="pin_token" @input="change_style" />
+                  <input type="password" maxlength="6" v-model="form.pin" />
                 </li>
                 <li>
                   <label>Mixin ID / Mainnet Address</label>
-                  <input v-model="submit_form.opponent_id" />
+                  <input v-model="form.opponent_id" />
                 </li>
               </ul>
               <footer>
@@ -40,13 +40,13 @@
                 @confirm="confirmWithdrawal"
                 @close_modal="closeWithdrawalConfirm"
               />
-              <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+              <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
             </div>
           </div>
           <div v-else class="main snap-main">
             <d-header class="header">
               <div class="header-back" @click="back" slot="left">
-                <img src="@/assets/img/app-svg/left.svg" />
+                <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
               </div>
               <div slot="center">{{$t('wallet.snapshot_info')}}</div>
             </d-header>
@@ -54,73 +54,63 @@
               <h3>{{$t('wallet.snapshot_info')}}</h3>
               <div>
                 <label>{{$t('wallet.snapshot.snapshot_id')}}</label>
-                <p>{{transaction_info.snapshot_id}}</p>
+                <p>{{transactionInfo.snapshot_id}}</p>
               </div>
               <div>
                 <label>{{$t('wallet.snapshot.trace_id')}}</label>
-                <p>{{transaction_info.trace_id}}</p>
+                <p>{{transactionInfo.trace_id}}</p>
               </div>
               <div>
                 <label>{{$t('wallet.snapshot.account')}}</label>
-                <p>{{transaction_info.opponent_key}}</p>
+                <p>{{transactionInfo.opponent_key}}</p>
               </div>
               <div>
                 <label>{{$t('wallet.snapshot.amount')}}</label>
-                <p>{{transaction_info.amount}}</p>
+                <p>{{transactionInfo.amount}}</p>
               </div>
               <div>
                 <label>{{$t('wallet.snapshot.transaction_hash')}}</label>
-                <p>{{transaction_info.transaction_hash}}</p>
+                <p>{{transactionInfo.transaction_hash}}</p>
               </div>
               <footer class="btns">
                 <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
                 <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
               </footer>
             </div>
-            <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+            <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
           </div>
       </transition>
     </div>
   </div>
 </template>
 <script>
-  import { validate } from 'uuid'
-  import tools from "@/assets/js/tools"
+  import { validate, v4 as uuid } from 'uuid'
   import DHeader from "@/components/DHeader"
   import Confirm from "@/components/Confirm";
 
   export default {
     name: "withdrawal-modal",
     components: { Confirm, DHeader },
-    props: ["active_asset", "app_id", "client"],
+    props: ["asset", "app_id", "client"],
     data() {
       return {
-        submit_form: {
+        showWithdrawalConfirm: false,
+        showSnapshot: false,
+        loading: false,
+        form: {
           amount: "",
           pin: "",
           opponent_id: ""
         },
-        sid: "",
-        uid: "",
-        snap_status: false,
-        loading: false,
-        tmp_pin: "",
-        transaction_info: {},
-        showWithdrawalConfirm: false,
-      }
-    },
-    watch: {
-      app_id(val) {
-        this.sid = this.$ls.get(uid).sid
-        this.uid = val
+        transactionInfo: {},
       }
     },
     computed: {
       confirm_content() {
         return this.$t('wallet.withdrawal_confirm', {
-          amount: this.submit_form.amount,
-          token: this.active_asset.symbol,
-          opponent: this.submit_form.opponent_id
+          amount: this.form.amount,
+          token: this.asset.symbol,
+          opponent: this.form.opponent_id
         })
       }
     },
@@ -129,23 +119,27 @@
         this.$emit("close-modal")
       },
       isValidPin() {
-        return this.tmp_pin && this.tmp_pin.length === 6 && parseInt(this.tmp_pin) > 100000;
+        return this.form.pin && this.form.pin.length === 6 && parseInt(this.form.pin) > 100000;
       },
       async clickSubmit() {
-        if (!this.isValidPin()) return this.$message.error({ message: this.$t('message.errors.pin_token_format'), showClose: true })
+        if (!this.isValidPin()) return this.$message.error({
+          message: this.$t('message.errors.pin_token_format'),
+          showClose: true
+        })
+        if (!this.form.opponent_id) return this.$message.error({
+          message: this.$t('message.errors.mixin_id'), showClose: true
+        })
+
         this.showWithdrawalConfirm = true
       },
       clickCancel() {
-        this.tmp_pin = ""
-        this.snap_status = false
-        this.transaction_info = {}
         this.$emit("close-modal")
       },
       async confirmWithdrawal() {
         this.closeWithdrawalConfirm()
 
         this.loading = true
-        let transfer_status = await this.submit_withdrawal()
+        let transfer_status = await this.submitWithdrawal()
         this.loading = false
 
         if (transfer_status) {
@@ -153,72 +147,46 @@
             message: this.$t("message.success.withdrawal"),
             showClose: true
           })
-          if (this.submit_form.opponent_id.startsWith("XIN")) {
+          if (this.form.opponent_id.startsWith("XIN")) {
             this.$emit("update-list")
-            this.snap_status = true
+            this.showSnapshot = true
           } else {
-            this.$emit("close-modal")
             this.$emit("update-list")
+            this.$emit("close-modal")
           }
-          this.tmp_pin = ""
-          this.submit_form = {}
         }
       },
       closeWithdrawalConfirm() {
         this.showWithdrawalConfirm = false
       },
-      change_style() {
-        let originVal = this.$refs.pin_token.value
-        if (
-          this.tmp_pin === undefined ||
-          this.tmp_pin.length > originVal.length
-        ) {
-          this.tmp_pin = ""
-        } else {
-          let val = originVal.replace(/\D/g, "")
-          this.tmp_pin += val
-        }
-        let valLength = this.tmp_pin.length
-        let _pin = ""
-        for (let i = 0; i < valLength; i++) {
-          _pin += "*"
-        }
-        this.$refs.pin_token.value = _pin
-      },
-      async _get_opponent_id() {
-        const { opponent_id } = this.submit_form
+      async fetchOpponentId() {
+        const { opponent_id } = this.form
         const is_uuid = validate(opponent_id)
         let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
         return user_id
       },
-      async submit_withdrawal() {
-        if (!this.tmp_pin) return false
-
-        const is_transfers = !this.submit_form.opponent_id.startsWith("XIN")
+      async submitWithdrawal() {
+        const is_transfers = !this.form.opponent_id.startsWith("XIN")
         const type = is_transfers ? 'transfer' : 'raw'
 
-        let { amount, opponent_id } = this.submit_form
-        opponent_id = is_transfers ? await this._get_opponent_id() : opponent_id
+        let { opponent_id } = this.form
+        opponent_id = is_transfers ? await this.fetchOpponentId() : opponent_id
         if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
         const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
 
         const params = {
-          amount,
-          asset_id: this.active_asset.asset_id,
-          pin: this.tmp_pin,
-          trace_id: tools.getUUID(),
+          amount: this.form.amount,
+          asset_id: this.asset.asset_id,
+          pin: this.form.pin,
+          trace_id: uuid(),
           ...opponent
         };
 
         let res = is_transfers ? await this.client.transfer.toUser(params.pin, params) : await this.client.transfer.toAddress(params.pin, params)
-        !is_transfers && (this.transaction_info = res)
+        !is_transfers && (this.transactionInfo = res)
         return res && res.type === type
       }
     },
-    mounted() {
-      this.uid = this.app_id
-
-    }
   }
 </script>
 
