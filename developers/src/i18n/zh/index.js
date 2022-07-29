@@ -562,6 +562,7 @@ export default {
       20120: "转账金额太小。",
       session_id_format: '会话 ID 格式错误',
       pin_token_format: ' Pin 令牌格式错误',
+      private_key_format: '私钥格式错误',
       saving: '正在保存，请稍候...',
       amount: '请输入正确的金额',
       clip_img: '请检查图片文件...',

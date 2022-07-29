@@ -26,3 +26,5 @@ export const useAppProperty = async (client) => await client.app.properties()
 export const useUpdateApp = async (client, app_id, params) => await client.app.update(app_id, params)
 
 export const useCreateApp = async (client, params) => await client.app.create(params)
+
+export const useAssetList = async (client) => await client.asset.fetchList()

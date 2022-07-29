@@ -2,450 +2,469 @@
   <div class="modal">
     <div class="mask">
       <transition name="fade-up">
-          <div v-if="!showSnapshot" v-loading="loading" class="main">
-            <d-header class="header">
-              <div class="header-back" @click="back" slot="left">
-                <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
-              </div>
-              <div slot="center">{{$t('wallet.title')}}</div>
-            </d-header>
-            <div class="content">
-              <header :style="{opacity: asset.icon_url ? '1':'0'}">
-                <img :src="asset.icon_url" alt="asset-icon"/>
-                <p>{{asset.balance}} {{asset.symbol}}</p>
-              </header>
-              <ul>
-                <li>
-                  <label>{{$t('wallet.amount')}}</label>
-                  <input v-model="form.amount" />
-                </li>
-                <li>
-                  <label>PIN</label>
-                  <input type="password" maxlength="6" v-model="form.pin" />
-                </li>
-                <li>
-                  <label>Mixin ID / Mainnet Address</label>
-                  <input v-model="form.opponent_id" />
-                </li>
-              </ul>
-              <footer>
-                <div class="btns">
-                  <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-                  <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-                </div>
-              </footer>
-              <confirm
-                :confirm_content="confirm_content"
-                :confirm_modal="showWithdrawalConfirm"
-                @confirm="confirmWithdrawal"
-                @close-modal="closeWithdrawalConfirm"
-              />
-              <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+        <div v-if="!showSnapshot" v-loading="loading" class="main">
+          <d-header class="header">
+            <div class="header-back" @click="useClickBack" slot="left">
+              <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
+            <div slot="center">{{ $t('wallet.title') }}</div>
+          </d-header>
+          <div class="content">
+            <header :style="{opacity: asset.icon_url ? '1':'0'}">
+              <img :src="asset.icon_url" alt="asset-icon"/>
+              <p>{{ asset.balance }} {{ asset.symbol }}</p>
+            </header>
+            <ul>
+              <li>
+                <label>{{ $t('wallet.amount') }}</label>
+                <input v-model="form.amount"/>
+              </li>
+              <li>
+                <label>PIN</label>
+                <input type="password" maxlength="6" v-model="form.pin"/>
+              </li>
+              <li>
+                <label>Mixin ID / Mainnet Address</label>
+                <input v-model="form.opponent_id"/>
+              </li>
+            </ul>
+            <footer>
+              <div class="btns">
+                <button @click="useClickSubmit" class="btns-copy primary">{{ $t('button.withdrawal') }}</button>
+                <button @click="useClickCancel" class="btns-cancel primary">{{ $t('button.cancel') }}</button>
+              </div>
+            </footer>
+            <confirm
+              :content="confirmContent"
+              :show="showWithdrawalConfirm"
+              @confirm="useClickConfirm"
+              @close-modal="useCloseConfirm"
+            />
+            <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
           </div>
-          <div v-else class="main snap-main">
-            <d-header class="header">
-              <div class="header-back" @click="back" slot="left">
-                <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
-              </div>
-              <div slot="center">{{$t('wallet.snapshot_info')}}</div>
-            </d-header>
-            <div class="content snapshot">
-              <h3>{{$t('wallet.snapshot_info')}}</h3>
-              <div>
-                <label>{{$t('wallet.snapshot.snapshot_id')}}</label>
-                <p>{{transactionInfo.snapshot_id}}</p>
-              </div>
-              <div>
-                <label>{{$t('wallet.snapshot.trace_id')}}</label>
-                <p>{{transactionInfo.trace_id}}</p>
-              </div>
-              <div>
-                <label>{{$t('wallet.snapshot.account')}}</label>
-                <p>{{transactionInfo.opponent_key}}</p>
-              </div>
-              <div>
-                <label>{{$t('wallet.snapshot.amount')}}</label>
-                <p>{{transactionInfo.amount}}</p>
-              </div>
-              <div>
-                <label>{{$t('wallet.snapshot.transaction_hash')}}</label>
-                <p>{{transactionInfo.transaction_hash}}</p>
-              </div>
-              <footer class="btns">
-                <button @click="clickSubmit" class="btns-copy primary">{{$t('button.withdrawal')}}</button>
-                <button @click="clickCancel" class="btns-cancel primary">{{$t('button.cancel')}}</button>
-              </footer>
+        </div>
+        <div v-else class="main snap-main">
+          <d-header class="header">
+            <div class="header-back" @click="useClickBack" slot="left">
+              <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
-            <img @click="clickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+            <div slot="center">{{ $t('wallet.snapshot_info') }}</div>
+          </d-header>
+          <div class="content snapshot">
+            <h3>{{ $t('wallet.snapshot_info') }}</h3>
+            <div>
+              <label>{{ $t('wallet.snapshot.snapshot_id') }}</label>
+              <p>{{ transactionInfo.snapshot_id }}</p>
+            </div>
+            <div>
+              <label>{{ $t('wallet.snapshot.trace_id') }}</label>
+              <p>{{ transactionInfo.trace_id }}</p>
+            </div>
+            <div>
+              <label>{{ $t('wallet.snapshot.account') }}</label>
+              <p>{{ transactionInfo.opponent_key }}</p>
+            </div>
+            <div>
+              <label>{{ $t('wallet.snapshot.amount') }}</label>
+              <p>{{ transactionInfo.amount }}</p>
+            </div>
+            <div>
+              <label>{{ $t('wallet.snapshot.transaction_hash') }}</label>
+              <p>{{ transactionInfo.transaction_hash }}</p>
+            </div>
+            <footer class="btns">
+              <button @click="useClickSubmit" class="btns-copy primary">{{ $t('button.withdrawal') }}</button>
+              <button @click="useClickCancel" class="btns-cancel primary">{{ $t('button.cancel') }}</button>
+            </footer>
           </div>
+          <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+        </div>
       </transition>
     </div>
   </div>
 </template>
 <script>
-  import { validate, v4 as uuid } from 'uuid'
-  import DHeader from "@/components/DHeader"
-  import Confirm from "@/components/Confirm";
+import { inject, reactive, toRefs, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { useStorage } from "@vueuse/core";
+import { validate, v4 as uuid } from 'uuid'
+import DHeader from "@/components/DHeader"
+import Confirm from "@/components/Confirm";
+import { useClient } from "@/api";
 
-  export default {
-    name: "withdrawal-modal",
-    components: { Confirm, DHeader },
-    props: ["asset", "app_id", "client"],
-    data() {
-      return {
-        showWithdrawalConfirm: false,
-        showSnapshot: false,
-        loading: false,
-        form: {
-          amount: "",
-          pin: "",
-          opponent_id: ""
-        },
-        transactionInfo: {},
-      }
-    },
-    computed: {
-      confirm_content() {
-        return this.$t('wallet.withdrawal_confirm', {
-          amount: this.form.amount,
-          token: this.asset.symbol,
-          opponent: this.form.opponent_id
-        })
-      }
-    },
-    methods: {
-      back() {
-        this.$emit("close-modal")
+export default {
+  name: "withdrawal-modal",
+  components: { Confirm, DHeader },
+  props: ["asset", "app_id"],
+  emits: ["close-modal", "update-list"],
+  setup(props, ctx) {
+    const $message = inject('$message')
+    const { t } = useI18n()
+
+    const state = reactive({
+      showWithdrawalConfirm: false,
+      showSnapshot: false,
+      loading: false,
+      form: {
+        amount: "",
+        pin: "",
+        opponent_id: ""
       },
-      isValidPin() {
-        return this.form.pin && this.form.pin.length === 6 && parseInt(this.form.pin) > 100000;
-      },
-      async clickSubmit() {
-        if (!this.isValidPin()) return this.$message.error({
-          message: this.$t('message.errors.pin_token_format'),
+      transactionInfo: {},
+    })
+    const confirmContent = computed(() => {
+      return t('wallet.withdrawal_confirm', {
+        amount: state.form.amount,
+        token: props.asset.symbol,
+        opponent: state.form.opponent_id
+      })
+    })
+
+    const clientInfo = useStorage(props.app_id, {})
+    const client = useClient(clientInfo.value)
+
+    const useFetchOpponentId = async () => {
+      const { opponent_id } = state.form
+      const is_uuid = validate(opponent_id)
+      let {user_id} = is_uuid ? await client.user.fetch(opponent_id) : await client.user.search(opponent_id)
+      return user_id
+    }
+    const useSubmitWithdrawal = async () => {
+      const is_transfers = !state.form.opponent_id.startsWith("XIN")
+      const type = is_transfers ? 'transfer' : 'raw'
+
+      let { opponent_id } = state.form
+      opponent_id = is_transfers ? await useFetchOpponentId() : opponent_id
+      if (!opponent_id) return $message.error({message: t('message.errors.mixin_id'), showClose: true})
+      const opponent = opponent_id.startsWith('XIN') ? {opponent_key: opponent_id} : {opponent_id}
+
+      const params = {
+        amount: state.form.amount,
+        asset_id: props.asset.asset_id,
+        pin: state.form.pin,
+        trace_id: uuid(),
+        ...opponent
+      };
+
+      let res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params)
+      !is_transfers && (state.transactionInfo = res)
+      return res && res.type === type
+    }
+
+    const useCheckPin = () => {
+      return state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin) > 100000;
+    }
+    const useClickSubmit = async () => {
+      if (!useCheckPin()) return $message.error({
+        message: t('message.errors.pin_token_format'),
+        showClose: true
+      })
+      if (!state.form.opponent_id) return $message.error({
+        message: t('message.errors.mixin_id'), showClose: true
+      })
+
+      state.showWithdrawalConfirm = true
+    }
+    const useClickCancel = () => {
+      ctx.emit("close-modal")
+    }
+    const useClickConfirm = async () =>{
+      useCloseConfirm()
+
+      state.loading = true
+      let transfer_status = await useSubmitWithdrawal()
+      state.loading = false
+
+      if (transfer_status) {
+        $message.success({
+          message: t("message.success.withdrawal"),
           showClose: true
         })
-        if (!this.form.opponent_id) return this.$message.error({
-          message: this.$t('message.errors.mixin_id'), showClose: true
-        })
-
-        this.showWithdrawalConfirm = true
-      },
-      clickCancel() {
-        this.$emit("close-modal")
-      },
-      async confirmWithdrawal() {
-        this.closeWithdrawalConfirm()
-
-        this.loading = true
-        let transfer_status = await this.submitWithdrawal()
-        this.loading = false
-
-        if (transfer_status) {
-          this.$message.success({
-            message: this.$t("message.success.withdrawal"),
-            showClose: true
-          })
-          if (this.form.opponent_id.startsWith("XIN")) {
-            this.$emit("update-list")
-            this.showSnapshot = true
-          } else {
-            this.$emit("update-list")
-            this.$emit("close-modal")
-          }
+        if (state.form.opponent_id.startsWith("XIN")) {
+          ctx.emit("update-list")
+          state.showSnapshot = true
+        } else {
+          ctx.emit("update-list")
+          ctx.emit("close-modal")
         }
-      },
-      closeWithdrawalConfirm() {
-        this.showWithdrawalConfirm = false
-      },
-      async fetchOpponentId() {
-        const { opponent_id } = this.form
-        const is_uuid = validate(opponent_id)
-        let { user_id } = is_uuid ? await this.client.user.fetch(opponent_id) : await this.client.user.search(opponent_id)
-        return user_id
-      },
-      async submitWithdrawal() {
-        const is_transfers = !this.form.opponent_id.startsWith("XIN")
-        const type = is_transfers ? 'transfer' : 'raw'
-
-        let { opponent_id } = this.form
-        opponent_id = is_transfers ? await this.fetchOpponentId() : opponent_id
-        if (!opponent_id) return this.$message.error({ message: this.$t('message.errors.mixin_id'), showClose: true })
-        const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id }
-
-        const params = {
-          amount: this.form.amount,
-          asset_id: this.asset.asset_id,
-          pin: this.form.pin,
-          trace_id: uuid(),
-          ...opponent
-        };
-
-        let res = is_transfers ? await this.client.transfer.toUser(params.pin, params) : await this.client.transfer.toAddress(params.pin, params)
-        !is_transfers && (this.transactionInfo = res)
-        return res && res.type === type
       }
-    },
+    }
+    const useCloseConfirm = () => {
+      state.showWithdrawalConfirm = false
+    }
+    const useClickBack = () => {
+      ctx.emit("close-modal")
+    }
+
+    return {
+      ...toRefs(state),
+      confirmContent,
+      useClickBack,
+      useClickSubmit,
+      useClickCancel,
+      useClickConfirm,
+      useCloseConfirm
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    bottom: 0;
-    user-select: none;
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  bottom: 0;
+  user-select: none;
+}
+
+.mask {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.34);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.main {
+  border-radius: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.snap-main {
+  width: 45rem;
+}
+
+.content {
+  padding: 3rem;
+}
+
+.header {
+  display: none;
+}
+
+.iconguanbi {
+  position: absolute;
+  top: 1.5625rem;
+  right: 1.5625rem;
+  color: #b8bdc7;
+  cursor: pointer;
+  padding: 0.3125rem;
+}
+
+header {
+  text-align: center;
+
+  img {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1rem;
   }
 
-  .mask {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.34);
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
+  p {
+    margin-bottom: 1.875rem;
+    color: #a9b0bf;
+    user-select: text;
+  }
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  label {
+    width: 5.625rem;
+    font-weight: 700;
+    text-align: left;
+    margin-right: 1.25rem;
   }
 
-  .main {
-    border-radius: 0.75rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    overflow: hidden;
+  input {
+    font-size: 1rem;
+    width: 30.75rem;
+    background: #f6f9ff;
+    padding: 1.25rem .8rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.btns {
+  text-align: right;
+  margin-top: 4rem;
+
+  button {
+    font-size: 0.875rem;
+    width: 8.75rem;
+    margin-left: 0.625rem;
   }
 
-  .snap-main {
-    width: 45rem;
-  }
+  .btns-cancel {
+    background: #e5e7ec;
+    color: #333;
 
-  .content {
-    padding: 3rem;
+    &:hover {
+      opacity: 0.8;
+    }
   }
+}
 
-  .header {
-    display: none;
-  }
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: margin 0.3s, opacity 0.3s;
+}
 
-  .iconguanbi {
-    position: absolute;
-    top: 1.5625rem;
-    right: 1.5625rem;
-    color: #b8bdc7;
-    cursor: pointer;
-    padding: 0.3125rem;
-  }
+.fade-up-enter {
+  margin-top: -1.25rem;
+  opacity: 0;
+}
 
-  header {
+.snapshot {
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  h3 {
     text-align: center;
+    margin: 0.75rem 0 1rem 0;
+  }
 
-    img {
-      width: 4.5rem;
-      height: 4.5rem;
+  div {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    label {
+      display: block;
       margin-bottom: 1rem;
+      font-weight: 500;
+      font-size: 1rem;
     }
 
     p {
-      margin-bottom: 1.875rem;
-      color: #a9b0bf;
       user-select: text;
-    }
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-
-    label {
-      width: 5.625rem;
-      font-weight: 700;
-      text-align: left;
-      margin-right: 1.25rem;
-    }
-
-    input {
-      font-size: 1rem;
-      width: 30.75rem;
       background: #f6f9ff;
-      padding: 1.25rem .8rem;
-      border-radius: 0.25rem;
+      box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      word-break: break-all;
+      font-size: 1rem;
     }
   }
 
   .btns {
-    text-align: right;
-    margin-top: 4rem;
+    display: none;
+  }
+}
 
-    button {
-      font-size: 0.875rem;
-      width: 8.75rem;
-      margin-left: 0.625rem;
+@media screen and (max-width: 48rem) {
+  .main {
+    top: 0;
+    left: 0;
+    transform: initial;
+    background-color: #f6f7f9;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .header-back {
+    width: 3.125rem;
+    transform: translate(-1.5625rem);
+    padding-left: 1.5625rem;
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+      transform: translate(0, 0.3125rem);
+    }
+  }
+
+  .header {
+    display: block;
+  }
+
+  .content {
+    padding: 1.25rem;
+
+    header p {
+      color: #000;
+      margin-bottom: 1rem;
     }
 
-    .btns-cancel {
-      background: #e5e7ec;
-      color: #333;
+    .iconguanbi {
+      display: none;
+    }
+  }
 
-      &:hover {
-        opacity: 0.8;
-      }
+  .mask {
+    .iconguanbi {
+      display: none;
+    }
+  }
+
+  li {
+    flex-direction: column;
+
+    label {
+      width: initial;
+      line-height: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+      height: 3.125rem;
+      padding: 0 1.25rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+
+  .btns {
+    margin-top: 0;
+
+    .btns-copy {
+      display: block;
+      float: none;
+      margin: 0 auto;
+      width: 7.875rem;
+      height: 2.625rem;
+      border-radius: 2.5rem;
+      background: #3277ff;
+      font-size: 1rem;
+    }
+  }
+
+  .btns-cancel {
+    display: none;
+  }
+
+  .snapshot {
+    h3 {
+      display: none;
     }
   }
 
   .fade-up-enter-active,
   .fade-up-leave-active {
-    transition: margin 0.3s, opacity 0.3s;
+    transition: none;
   }
 
   .fade-up-enter {
-    margin-top: -1.25rem;
-    opacity: 0;
+    margin-top: 0;
+    opacity: 1;
   }
-
-  .snapshot {
-    padding: 1.5rem;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-
-    h3 {
-      text-align: center;
-      margin: 0.75rem 0 1rem 0;
-    }
-
-    div {
-      margin-bottom: 1rem;
-      width: 100%;
-
-      label {
-        display: block;
-        margin-bottom: 1rem;
-        font-weight: 500;
-        font-size: 1rem;
-      }
-
-      p {
-        user-select: text;
-        background: #f6f9ff;
-        box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-        border-radius: 0.375rem;
-        padding: 1rem;
-        word-break: break-all;
-        font-size: 1rem;
-      }
-    }
-
-    .btns {
-      display: none;
-    }
-  }
-
-  @media screen and (max-width: 48rem) {
-    .main {
-      top: 0;
-      left: 0;
-      transform: initial;
-      background-color: #f6f7f9;
-      border-radius: 0;
-      height: 100%;
-      width: 100%;
-    }
-
-    .header-back {
-      width: 3.125rem;
-      transform: translate(-1.5625rem);
-      padding-left: 1.5625rem;
-
-      img {
-        height: 1.5rem;
-        width: 1.5rem;
-        transform: translate(0, 0.3125rem);
-      }
-    }
-
-    .header {
-      display: block;
-    }
-
-    .content {
-      padding: 1.25rem;
-
-      header p {
-        color: #000;
-        margin-bottom: 1rem;
-      }
-
-      .iconguanbi {
-        display: none;
-      }
-    }
-
-    .mask {
-      .iconguanbi {
-        display: none;
-      }
-    }
-
-    li {
-      flex-direction: column;
-
-      label {
-        width: initial;
-        line-height: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      input {
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-        height: 3.125rem;
-        padding: 0 1.25rem;
-        font-weight: 500;
-        font-size: 1rem;
-      }
-    }
-
-    .btns {
-      margin-top: 0;
-
-      .btns-copy {
-        display: block;
-        float: none;
-        margin: 0 auto;
-        width: 7.875rem;
-        height: 2.625rem;
-        border-radius: 2.5rem;
-        background: #3277ff;
-        font-size: 1rem;
-      }
-    }
-
-    .btns-cancel {
-      display: none;
-    }
-
-    .snapshot {
-      h3 {
-        display: none;
-      }
-    }
-
-    .fade-up-enter-active,
-    .fade-up-leave-active {
-      transition: none;
-    }
-
-    .fade-up-enter {
-      margin-top: 0;
-      opacity: 1;
-    }
-  }
+}
 </style>

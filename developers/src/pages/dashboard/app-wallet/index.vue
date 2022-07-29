@@ -22,7 +22,7 @@
         </div>
         <button
           v-if="item.icon_url"
-          @click="withdrawalClickHandler(item)"
+          @click="useClickWithdrawal(item)"
           class="withdrawal primary"
         >{{$t('button.withdrawal')}}
         </button>
@@ -41,7 +41,6 @@
     />
     <withdrawal-modal
       v-if="showWithdrawalModal"
-      :client="client"
       :app_id="app.app_id"
       :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"

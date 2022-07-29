@@ -529,6 +529,7 @@ export default {
       20120: "Transfer amount too small.",
       session_id_format: 'Session Id Format Error',
       pin_token_format: 'Pin Token Format Error',
+      private_key_format: 'Private Key Format Error',
       saving: 'Saving, please wait...',
       amount: 'Please enter the correct Amount',
       clip_img: 'Please check the image file...',

@@ -1,8 +1,10 @@
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
+import { onMounted, reactive, toRefs, inject } from "vue";
+import { useStorage } from "@vueuse/core";
+import { useI18n } from "vue-i18n";
 import UpdateToken from '@/components/UpdateToken'
-import { assetSortCompare } from '@/utils'
-import { defaultApiConfig } from "@/api";
 import WithdrawalModal from './withdrawal'
+import { assetSortCompare } from '@/utils'
+import { useAssetList, useClient } from "@/api";
 
 export default {
   components: {
@@ -16,89 +18,73 @@ export default {
       }
     }
   },
-  data() {
-    return {
+  setup(props) {
+    const $message = inject('$message')
+    const { t } = useI18n()
+
+    const state = reactive({
       loadingAll: false,
       showWithdrawalModal: false,
       showSessionUpdateModal: false,
       needUpdate: true,
-      tokenInfo: {},
       assetList: [],
       withdrawalAsset: {}
-    }
-  },
-  computed: {
-    hasSession() {
-      return this.tokenInfo
-        && this.tokenInfo.user_id
-        && this.tokenInfo.pin_token
-        && this.tokenInfo.session_id
-        && this.tokenInfo.private_key
-    },
-    client() {
-      if (this.hasSession) {
-        const config = {
-          ...defaultApiConfig,
-          keystore: { ...this.tokenInfo }
-        }
-        return MixinApi(config)
-      }
-    }
-  },
-  async mounted() {
-    await this.fetchAssetList()
-  },
-  methods: {
-    hasAppSession() {
-      const appSession = this.$ls.get(this.app.app_id)
-      if (appSession) {
-        this.tokenInfo = appSession
-        return true
-      }
-      return false
-    },
-    closeModal() {
-      this.showSessionUpdateModal = false
-    },
-    withdrawalClickHandler(item) {
-      this.withdrawalAsset = item
-      setTimeout(() => {
-        this.showWithdrawalModal = true
-      }, 200)
-    },
-    async fetchAssetList() {
-      if (!this.hasAppSession()) return
+    })
 
-      this.loadingAll = true
-      if (this.app.app_id !== this.tokenInfo.user_id || !this.client) {
-        this.needUpdate = true
-        this.showSessionUpdateModal = true
-        this.loadingAll = false
-        return
-      }
+    const useHasAppToken = (tokenInfo) => {
+      return tokenInfo.user_id
+        && tokenInfo.pin_token
+        && tokenInfo.session_id
+        && tokenInfo.private_key
+    }
 
+    const fetchAssetList = async () => {
+      const tokenInfo = useStorage(props.app.app_id, {})
+      if (!useHasAppToken(tokenInfo.value)) return
+
+      state.loadingAll = true
+      _vm.skipInterceptor = true
       try {
-        _vm.skipInterceptor = true
-        let res = await this.client.asset.fetchList()
+        const client = useClient(tokenInfo.value)
+        let res = await useAssetList(client)
         if (res) {
-          this.assetList = res.sort(assetSortCompare)
-          this.needUpdate = false
-          this.showSessionUpdateModal = false
+          state.assetList = res.sort(assetSortCompare)
+          state.needUpdate = false
+          state.showSessionUpdateModal = false
         } else {
-          this.needUpdate = true
-          this.showSessionUpdateModal = true
-          this.$ls.rm(this.app.app_id)
+          state.needUpdate = true
+          state.showSessionUpdateModal = true
+          tokenInfo.value = null
         }
       } catch (e) {
-        if (e.code) this.$message.error({ message: this.$t(`message.errors.${e.code}`), showClose: true })
-
-        this.needUpdate = true
-        this.showSessionUpdateModal = true
-        this.$ls.rm(this.app.app_id)
+        state.needUpdate = true
+        state.showSessionUpdateModal = true
+        tokenInfo.value = null
       } finally {
-        this.loadingAll = false
+        state.loadingAll = false
         _vm.skipInterceptor = false
       }
-    },
-  },
+    }
+
+    const useClickWithdrawal = (item) => {
+      state.withdrawalAsset = item
+      setTimeout(() => {
+        state.showWithdrawalModal = true
+      }, 200)
+    }
+    const closeModal = () => {
+      state.showSessionUpdateModal = false
+    }
+
+    onMounted(async () => {
+      await fetchAssetList()
+    })
+
+    return {
+      ...toRefs(state),
+      fetchAssetList,
+      useClickWithdrawal,
+      closeModal
+    }
+  }
 }
