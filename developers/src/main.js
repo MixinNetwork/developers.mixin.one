@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { ElMessage, ElLoading, ElMenu, ElSubMenu, ElMenuItem } from 'element-plus'
-import VueClipboard from 'vue-clipboard2'
 import VueCroppie from 'vue-croppie'
 
 import App from '@/App.vue'
@@ -19,8 +18,8 @@ app.use(router)
    .use(ElLoading)
    .use(ElSubMenu)
    .use(ElMenuItem)
-   .use(VueClipboard) // todo: try vueuse for composition api
    .use(VueCroppie)
+   .provide('$message', ElMessage)
 
 app.config.globalProperties.$message = ElMessage
 app.config.globalProperties.$ls = ls

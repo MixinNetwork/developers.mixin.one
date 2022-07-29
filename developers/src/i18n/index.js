@@ -7,7 +7,7 @@ const language = lang || (navigator.language.includes('zh') ? 'zh' : 'en')
 if (!lang) window.localStorage.setItem('lang', language)
 
 const i18n = createI18n({
-  legacy: true,
+  legacy: false,
   locale: language,
   messages: { en, zh },
   fallbackLocale: 'en',

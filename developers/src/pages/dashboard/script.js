@@ -101,7 +101,7 @@ export default {
     onMounted(async () => {
       await useFetchAll()
 
-      state.currentAppId = useAppId()
+      useAppId()
       if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true
     })
     onUpdated(() => {

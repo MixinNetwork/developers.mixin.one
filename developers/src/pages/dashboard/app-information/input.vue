@@ -9,34 +9,41 @@
     />
     <img
       v-if="isCopied"
-      v-clipboard:copy="value"
-      v-clipboard:success="click_copy_success"
-      v-clipboard:error="click_copy_error"
+      @click="useClickCopy"
       src="@/assets/img/ic_copy.png"
     />
   </div>
 </template>
 
 <script>
+  import { inject, watch } from "vue";
+  import { useClipboard } from '@vueuse/core'
+  import { useI18n } from 'vue-i18n'
+
   export default {
     name: "t-input",
     props: ["value", "label", "disabled", "placeholder", "isCopied"],
     emits: ['update:value'],
-    methods: {
-      change(event) {
-        this.$emit("update:value", event.target.value)
-      },
-      click_copy_success() {
-        this.$message.success({
-          message: this.$t("message.success.copy"),
-          showClose: true
-        })
-      },
-      click_copy_error() {
-        this.$message.error({
-          message: this.$t("message.errors.copy"),
-          showClose: true
-        })
+    setup(props, ctx) {
+      const $message  = inject('$message')
+      const { t } = useI18n()
+
+      const change = (event) => {
+        ctx.emit("update:value", event.target.value)
+      }
+
+      const { copy, copied, isSupported } = useClipboard()
+      const useClickCopy = () => {
+        if (!isSupported) return $message.error({ message: t("message.errors.copy"), showClose: true })
+        copy(props.value)
+      }
+      watch(copied, () => {
+        if (copied.value) $message.success({ message: t("message.success.copy"), showClose: true})
+      })
+
+      return {
+        change,
+        useClickCopy
       }
     }
   }
@@ -67,7 +74,7 @@
       color: #a9b0bf;
     }
 
-    &::-moz-input-placeholder {
+    &::-moz-placeholder {
       color: #a9b0bf;
     }
 

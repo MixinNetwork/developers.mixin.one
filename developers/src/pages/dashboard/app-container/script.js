@@ -74,6 +74,9 @@ export default {
     onMounted(async () => {
       await useLoadRouteStatus(route.path)
     })
+    watch(() => props.appId, async (appId) => {
+      await useFetchApp()
+    })
 
     return {
       ...toRefs(state),
