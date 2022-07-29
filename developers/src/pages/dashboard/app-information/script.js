@@ -1,4 +1,4 @@
-import {computed, ref, reactive, toRefs, onMounted, watch} from "vue";
+import { computed, ref, reactive, toRefs, onMounted, watch, inject } from "vue";
 import { useI18n } from "vue-i18n";
 import MInput from './input.vue'
 import Croppie from './croppie.vue'
@@ -22,7 +22,9 @@ export default {
   emits: ['loading', 'add-new-app'],
   setup(props, ctx) {
     const { t } = useI18n()
+    const $message = inject('$message')
     const croppie = ref(null)
+
     const state = reactive({
       toggle_app: 0,
       submitting: false,
@@ -49,7 +51,6 @@ export default {
     const isValidDescription = computed(() => state.description && state.description.length >= 16 && state.description.length <= 128)
     const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription)
 
-    const $message = ctx.$message
     const notice = () => {
       if (!state.name) return notice_message('no_app_name')
       if (state.name.length < 2 || state.name.length > 64) return notice_message('app_name_length')
