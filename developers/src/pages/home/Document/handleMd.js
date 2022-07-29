@@ -1,16 +1,16 @@
 import "github-markdown-css"
 
-export function getPageContent(locale) {
+export function getPageContent(state, locale) {
   try {
-    this.locale = locale
-    this.page = require(`@/i18n/${locale}/document/${this.path}.md`)
+    state.locale = locale
+    state.page = require(`@/i18n/${locale}/document/${state.path}.md`)
     return true
   } catch (e) {
     return false
   }
 }
 
-export function getPathByRouter(originRouter, documentList) {
+export function getPathByRouter(state, originRouter, documentList) {
   let _path = []
   let path = iterate(documentList, originRouter, _path)
   const [one, two, three, four] = _path
@@ -19,8 +19,8 @@ export function getPathByRouter(originRouter, documentList) {
   else if (three === undefined) active_path = `${one}-${two}`
   else if (four === undefined) active_path = `${one}-${two}-${three}`
   else active_path = `${one}-${two}-${three}-${four}`
-  this.active_path = active_path
-  this.path = path
+  state.active_path = active_path
+  state.path = path
   return !!path
 }
 

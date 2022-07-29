@@ -1,6 +1,6 @@
 <template>
   <div class="news-page">
-    <Header />
+    <Header/>
 
     <section class="content">
       <ul v-if="reloadState">
@@ -26,213 +26,213 @@
 
     <button v-if="!isAll" @click="useClickReadMore">Read More</button>
 
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
 <script>
-  import Header from "@/components/MainHeader"
-  import Footer from "@/components/MainFooter"
-  import Pages from "@/components/Pages"
-  import { changeTheme } from "@/utils/tools"
-  import {computed, onMounted, reactive, toRefs} from "vue";
-  import {useI18n} from "vue-i18n";
+import { computed, onMounted, reactive, toRefs } from "vue";
+import { useI18n } from "vue-i18n";
+import Header from "@/components/MainHeader"
+import Footer from "@/components/MainFooter"
+import Pages from "@/components/Pages"
+import {changeTheme} from "@/utils/tools"
 
-  export default {
-    name: "News",
-    components: { Header, Footer, Pages },
-    setup() {
-      const { t, tm } = useI18n()
+export default {
+  name: "News",
+  components: {Header, Footer, Pages},
+  setup() {
+    const {t, tm} = useI18n()
 
-      const state = reactive({
-        allList: [],
-        viewList: [],
-        currentPage: 1,
-        split: 6,
-        reloadState: true
-      })
-      const isAll = computed(() => state.allList.length === state.viewList.length)
+    const state = reactive({
+      allList: [],
+      viewList: [],
+      currentPage: 1,
+      split: 6,
+      reloadState: true
+    })
+    const isAll = computed(() => state.allList.length === state.viewList.length)
 
-      const usePage = (pageNum) => {
-        state.currentPage = pageNum
-        const start = (pageNum - 1) * state.split
-        state.viewList = state.allList.slice(start, start + state.split)
-      }
-      const useClickReadMore = () => {
-        state.currentPage++
-        const start = (state.currentPage - 1) * state.split
-        const appendList = state.allList.slice(start, start + state.split)
-        state.viewList = state.viewList.concat(appendList)
-      }
+    const usePage = (pageNum) => {
+      state.currentPage = pageNum
+      const start = (pageNum - 1) * state.split
+      state.viewList = state.allList.slice(start, start + state.split)
+    }
+    const useClickReadMore = () => {
+      state.currentPage++
+      const start = (state.currentPage - 1) * state.split
+      const appendList = state.allList.slice(start, start + state.split)
+      state.viewList = state.viewList.concat(appendList)
+    }
 
-      onMounted(() => {
-        changeTheme("#fdfeff")
-        window.scrollTo(0, 0)
-        state.reloadState = true
-        state.allList = tm("cases.list")
-        state.viewList = state.allList.slice(0, state.split)
-      })
+    onMounted(() => {
+      changeTheme("#fdfeff")
+      window.scrollTo(0, 0)
+      state.reloadState = true
+      state.allList = tm("cases.list")
+      state.viewList = state.allList.slice(0, state.split)
+    })
 
-      return {
-        t,
-        tm,
-        ...toRefs(state),
-        isAll,
-        usePage,
-        useClickReadMore
-      }
+    return {
+      t,
+      tm,
+      ...toRefs(state),
+      isAll,
+      usePage,
+      useClickReadMore
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import "./common.scss";
+@import "./common.scss";
 
-  .news-page {
-    position: relative;
-    overflow: hidden;
-    font-family: "Maven Pro", sans-serif;
+.news-page {
+  position: relative;
+  overflow: hidden;
+  font-family: "Maven Pro", sans-serif;
 
-    background: #fdfeff;
+  background: #fdfeff;
+}
+
+.content {
+  li {
+    padding: 0 0 2.5rem;
+    background-color: #fff;
+    margin-bottom: 3rem;
+    border-bottom: 0.0625rem solid #edf0f5;
   }
 
+  a {
+    display: flex;
+  }
+
+  img {
+    min-width: 16.375rem;
+    max-width: 16.375rem;
+    height: 14rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 2.25rem;
+  }
+
+  h4 {
+    font-size: 1.625rem;
+    margin-bottom: 1rem;
+    max-height: 4.625rem;
+    overflow: hidden;
+
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    height: 8.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    color: #2f3032;
+
+    cursor: pointer;
+
+    :deep(a) {
+      color: #3d75e3;
+    }
+  }
+}
+
+button {
+  display: none;
+}
+
+:deep(footer) {
+  margin-top: 11.25rem;
+}
+
+@media screen and (max-width: 60rem) {
+  .news-page {
+    min-width: 20rem;
+  }
   .content {
     li {
-      padding: 0 0 2.5rem;
-      background-color: #fff;
-      margin-bottom: 3rem;
-      border-bottom: 0.0625rem solid #edf0f5;
+      margin-bottom: 1.25rem;
+      padding: 0;
+
+      border-radius: 0.875rem;
+      box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
+
+      a {
+        max-width: initial;
+      }
     }
 
     a {
-      display: flex;
+      flex-direction: column;
     }
 
     img {
-      min-width: 16.375rem;
-      max-width: 16.375rem;
-      height: 14rem;
+      max-width: 100%;
+      min-width: 100%;
+      height: initial;
+      border-radius: 0.75rem 0.75rem 0 0;
     }
 
     .container {
-      display: flex;
-      flex-direction: column;
-
-      padding-left: 2.25rem;
+      padding: 0 1.25rem;
     }
 
     h4 {
-      font-size: 1.625rem;
-      margin-bottom: 1rem;
-      max-height: 4.625rem;
-      overflow: hidden;
-
-      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      margin-top: 1.25rem;
     }
 
     p {
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-      height: 8.75rem;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      color: #2f3032;
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      height: 4.5rem;
+    }
 
-      cursor: pointer;
-
-      :deep(a) {
-        color: #3d75e3;
-      }
+    span {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.25rem;
     }
   }
 
   button {
+    display: block;
+    margin: 5rem auto 7.5rem auto;
+    padding: 0 2rem;
+    line-height: 3rem;
+
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    background: #3d75e3;
+    color: #ffffff;
+    border-radius: 0.625rem;
+    border: 0.125rem solid #397ee4;
+
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background: #fff;
+      color: #3d75e3;
+    }
+  }
+
+  :deep(.pages) {
     display: none;
   }
 
   :deep(footer) {
-    margin-top: 11.25rem;
+    margin-top: 0;
   }
-
-  @media screen and (max-width: 60rem) {
-    .news-page {
-      min-width: 20rem;
-    }
-    .content {
-      li {
-        margin-bottom: 1.25rem;
-        padding: 0;
-
-        border-radius: 0.875rem;
-        box-shadow: 0 1.25rem 3.75rem rgba(61, 117, 227, 0.06);
-
-        a {
-          max-width: initial;
-        }
-      }
-
-      a {
-        flex-direction: column;
-      }
-
-      img {
-        max-width: 100%;
-        min-width: 100%;
-        height: initial;
-        border-radius: 0.75rem 0.75rem 0 0;
-      }
-
-      .container {
-        padding: 0 1.25rem;
-      }
-
-      h4 {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        margin-top: 1.25rem;
-      }
-
-      p {
-        font-size: 0.875rem;
-        line-height: 1.5rem;
-        height: 4.5rem;
-      }
-
-      span {
-        font-size: 0.875rem;
-        line-height: 1.5rem;
-        margin-bottom: 1.25rem;
-      }
-    }
-
-    button {
-      display: block;
-      margin: 5rem auto 7.5rem auto;
-      padding: 0 2rem;
-      line-height: 3rem;
-
-      font-family: "Maven Pro", sans-serif;
-      font-weight: 400;
-      font-size: 1.5rem;
-      background: #3d75e3;
-      color: #ffffff;
-      border-radius: 0.625rem;
-      border: 0.125rem solid #397ee4;
-
-      transition: background-color 0.2s, color 0.2s;
-
-      &:hover {
-        background: #fff;
-        color: #3d75e3;
-      }
-    }
-
-    :deep(.pages) {
-      display: none;
-    }
-
-    :deep(footer) {
-      margin-top: 0;
-    }
-  }
+}
 </style>

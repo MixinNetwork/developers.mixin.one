@@ -86,18 +86,20 @@
 </template>
 
 <script>
+
+import { onMounted, reactive, toRefs } from "vue";
+import { useI18n } from "vue-i18n";
 import Header from "@/components/MainHeader";
 import Footer from "@/components/MainFooter";
 import { changeTheme } from "@/utils/tools";
-import {onMounted, reactive, toRefs} from "vue";
-import {useI18n} from "vue-i18n";
+
 export default {
   name: "Home",
   components: { Header, Footer },
   setup() {
     const { t, tm } = useI18n()
     const state = reactive({
-      mainRoute: ["/docs", "/dashboard"]
+      mainRoute: ["/document", "/dashboard"]
     })
 
     onMounted(() => {

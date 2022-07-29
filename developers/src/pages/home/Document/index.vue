@@ -7,8 +7,8 @@
         :default-active="active_path"
         :class="['path one-path', showNav && 'one-path_active']"
       >
-        <template v-for="(item, widx) in $t('documentation')">
-          <el-submenu
+        <template v-for="(item, widx) in t('documentation')">
+          <el-sub-menu
             v-if="item.child"
             :key="`${widx}-submenu`"
             :index="String(widx)"
@@ -17,7 +17,7 @@
               <span>{{item.name}}</span>
             </template>
             <template v-for="(nitem, nidx) in item.child">
-              <el-submenu
+              <el-sub-menu
                 v-if="nitem.child"
                 :key="`${widx}-${nidx}`"
                 :index="`${widx}-${nidx}`"
@@ -27,7 +27,7 @@
                   <span>{{nitem.name}}</span>
                 </template>
                 <template v-for="(nnitem, nnidx) in nitem.child">
-                  <el-submenu
+                  <el-sub-menu
                     v-if="nnitem.child"
                     :key="`${widx}-${nidx}-${nnidx}`"
                     :index="`${widx}-${nidx}-${nnidx}`"
@@ -44,7 +44,7 @@
                     >
                       <router-link class="content-a" :to="`/document/${nnnitem.path}`">{{nnnitem.name}}</router-link>
                     </el-menu-item>
-                  </el-submenu>
+                  </el-sub-menu>
                   <el-menu-item
                     v-else
                     :key="`${widx}-${nidx}-${nnidx}`"
@@ -56,7 +56,7 @@
                 </template>
 
 
-              </el-submenu>
+              </el-sub-menu>
               <el-menu-item
                 v-else
                 :key="`${widx}-${nidx}`"
@@ -66,7 +66,7 @@
                 <router-link class="content-a" :to="`/document/${nitem.path}`"> {{nitem.name}}</router-link>
               </el-menu-item>
             </template>
-          </el-submenu>
+          </el-sub-menu>
           <el-menu-item
             v-else
             :key="`${widx}-menuitem`"
@@ -84,8 +84,8 @@
       <div class="container">
         <div class="markdown-body" v-html="page"></div>
         <template v-if="path">
-          <a target="_blank" :href="githubView" class="github-view">{{$t('home.documentation.github.view')}}</a><br />
-          <a target="_blank" :href="githubEdit" class="github-edit">{{$t('home.documentation.github.edit')}}</a>
+          <a target="_blank" :href="githubView" class="github-view">{{t('home.documentation.github.view')}}</a><br />
+          <a target="_blank" :href="githubEdit" class="github-edit">{{t('home.documentation.github.edit')}}</a>
         </template>
       </div>
     </section>

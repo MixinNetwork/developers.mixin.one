@@ -33,7 +33,7 @@
   export default {
     name: "Header",
     setup() {
-      const { t } = useI18n()
+      const { t, tm } = useI18n()
       const route = useRoute()
 
       const state = reactive({
@@ -74,6 +74,7 @@
 
       return {
         t,
+        tm,
         route,
         searchInput,
         ...toRefs(state),
