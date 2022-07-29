@@ -36,7 +36,6 @@
         <component
           v-loading="loadingApp"
           :is="currentNav"
-          :client="client"
           :app="appInfo"
           @add-new-app="useNewAppSubmitted"
           @loading="useModifyLoading"

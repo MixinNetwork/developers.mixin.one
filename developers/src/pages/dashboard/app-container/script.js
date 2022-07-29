@@ -67,8 +67,8 @@ export default {
     const useClickNav = (index) => {
       state.currentNavIndex = index
     }
-    const useModifyLoading = (state) => {
-      state.loadingApp = state
+    const useModifyLoading = (isLoading) => {
+      state.loadingApp = isLoading
     }
 
     onMounted(async () => {
@@ -82,8 +82,7 @@ export default {
       useNewAppSubmitted,
       useClickNav,
       useModifyLoading,
-      backward,
-      client
+      backward
     }
   },
 }

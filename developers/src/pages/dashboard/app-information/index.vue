@@ -66,20 +66,20 @@
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{$t('information.immersive')}}</span>
       </div>
-      <div v-if="hasEncrypted" @click="encryptClickHandler" class="des encrypted">
+      <div v-if="hasEncrypted" @click="useClickEncryption" class="des encrypted">
         <i v-if="!isEncrypted" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{$t('information.encrypted')}}</span>
       </div>
     </div>
     <button
-      @click="submitClickHandler"
+      @click="useClickSubmit"
       :class="['primary', !allowSubmit ? 'not-finished' : '' ]"
     >{{$t('button.save')}}</button>
     <confirm
       :confirm_content="$t('information.encrypted_confirm')"
       :confirm_modal="showConfirmModal"
-      @confirm="confirmEncryption"
+      @confirm="useConfirmEncryption"
       @close-modal="closeModal"
     />
   </div>

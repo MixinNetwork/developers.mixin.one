@@ -1,7 +1,9 @@
+import {computed, ref, reactive, toRefs, onMounted, watch} from "vue";
 import MInput from './input.vue'
 import Croppie from './croppie.vue'
 import CategorySelect from './select.vue'
 import Confirm from '@/components/Confirm'
+import { useClient, useCreateApp, useUpdateApp } from "@/api";
 
 export default {
   name: 'app-information',
@@ -14,13 +16,12 @@ export default {
       default() {
         return {}
       }
-    },
-    client: {
-      type: Object
     }
   },
-  data() {
-    return {
+  emits: ['loading', 'add-new-app'],
+  setup(props, ctx) {
+    const croppie = ref(null)
+    const state = reactive({
       toggle_app: 0,
       submitting: false,
       showConfirmModal: false,
@@ -35,88 +36,56 @@ export default {
       isImmersive: false,
       isEncrypted: false,
       hasEncrypted: false,
-    }
-  },
-  computed: {
-    isValidAppName() {
-      return this.name && this.name.length >= 2 && this.name.length <= 64
-    },
-    isValidHomeUri() {
-      return this.home_uri && this.isValidUrl(this.home_uri)
-    },
-    isValidRedirectUri() {
-      return this.redirect_uri && this.isValidUrl(this.redirect_uri)
-    },
-    isValidDescription() {
-      return this.description && this.description.length >= 16 && this.description.length <= 128
-    },
-    allowSubmit() {
-      return this.isValidAppName && this.isValidHomeUri && this.isValidRedirectUri && this.isValidDescription
-    }
-  },
-  mounted() {
-    this.initApp(this.app)
-  },
-  watch: {
-    app(val, old) {
-      if (JSON.stringify(val) !== JSON.stringify(old)) this.initApp(val)
-    }
-  },
-  methods: {
-    initApp(app) {
-      this.toggle_app++
+    })
 
-      this.name = app.name
-      this.icon_url = app.icon_url
-      this.category = app.category || this.category
-      this.home_uri = app.home_uri
-      this.redirect_uri = app.redirect_uri
-      this.description = app.description
-      this.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : ''
-      this.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false
-      this.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false
-      this.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false
-    },
-    encryptClickHandler() {
-      if (this.app.capabilities.includes('ENCRYPTED')) return
-      if (this.isEncrypted) return this.isEncrypted = false
-      this.showConfirmModal = true
-    },
-    confirmEncryption() {
-      this.isEncrypted = true
-      this.closeModal()
-    },
-    closeModal() {
-      this.showConfirmModal = false
-    },
-    isValidUrl(url) {
+    const isValidUrl = (url) => {
       return /^http(s)?\:\/\//.test(url)
-    },
-    notice() {
-      if (!this.name) return this.notice_message('no_app_name')
-      if (this.name.length < 2 || this.name.length > 64) return this.notice_message('app_name_length')
-      if (!this.home_uri) return this.notice_message('no_home_uri')
-      if (!this.isValidUrl(this.home_uri)) return this.notice_message('home_uri_illegal')
-      if (!this.redirect_uri) return this.notice_message('no_redirect_uri')
-      if (!this.isValidUrl(this.redirect_uri)) return this.notice_message('redirect_uri_illegal')
-      if (!this.description) return this.notice_message('no_description')
-      if (this.description.length < 16 || this.description.length > 128) return this.notice_message('description_length')
-    },
-    async submitClickHandler() {
-      if (!this.allowSubmit) return this.notice()
-      if (this.submitting) return this.$message.error({ message: 'message.errors.saving' })
+    }
+    const isValidAppName = computed(() => state.name && state.name.length >= 2 && state.name.length <= 64)
+    const isValidHomeUri = computed(() => state.home_uri && isValidUrl(state.home_uri))
+    const isValidRedirectUri = computed(() => state.redirect_uri && isValidUrl(state.redirect_uri))
+    const isValidDescription = computed(() => state.description && state.description.length >= 16 && state.description.length <= 128)
+    const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription)
 
-      await this.submit()
-    },
-    async submit() {
+    const $message = ctx.$message
+    const notice = () => {
+      if (!state.name) return notice_message('no_app_name')
+      if (state.name.length < 2 || state.name.length > 64) return notice_message('app_name_length')
+      if (!state.home_uri) return notice_message('no_home_uri')
+      if (!isValidUrl(state.home_uri)) return notice_message('home_uri_illegal')
+      if (!state.redirect_uri) return notice_message('no_redirect_uri')
+      if (!isValidUrl(state.redirect_uri)) return notice_message('redirect_uri_illegal')
+      if (!state.description) return notice_message('no_description')
+      if (state.description.length < 16 || state.description.length > 128) return notice_message('description_length')
+    }
+    const notice_message = (message) => {
+      return $message.error({ message: this.$t('information.errors.' + message), showClose: true })
+    }
+
+    const useClickEncryption = () => {
+      if (props.app.capabilities.includes('ENCRYPTED')) return
+      if (state.isEncrypted) return state.isEncrypted = false
+      state.showConfirmModal = true
+    }
+    const useConfirmEncryption = () => {
+      state.isEncrypted = true
+      closeModal()
+    }
+    const useClickSubmit = async () => {
+      if (!allowSubmit) return notice()
+      if (state.submitting) return $message.error({ message: 'message.errors.saving' })
+
+      await submit()
+    }
+    const submit = async () => {
       const capabilities = ['CONTACT', 'GROUP']
-      this.isImmersive && capabilities.push('IMMERSIVE')
-      this.isEncrypted && capabilities.push('ENCRYPTED')
+      state.isImmersive && capabilities.push('IMMERSIVE')
+      state.isEncrypted && capabilities.push('ENCRYPTED')
 
-      let icon_base64 = await this.$refs.croppie.crop()
+      let icon_base64 = await croppie.value.crop()
       icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : ''
 
-      let resource_patterns = this.resource_patterns
+      let resource_patterns = state.resource_patterns
       resource_patterns = resource_patterns || '';
       resource_patterns = resource_patterns.replace(/\r\n/g, '\n');
       resource_patterns = resource_patterns.split('\n').map((r) => {
@@ -127,32 +96,65 @@ export default {
 
       const params = {
         icon_base64,
-        name: this.name,
-        category: this.category,
-        home_uri: this.home_uri,
-        redirect_uri: this.redirect_uri,
-        description: this.description,
+        name: state.name,
+        category: state.category,
+        home_uri: state.home_uri,
+        redirect_uri: state.redirect_uri,
+        description: state.description,
         resource_patterns,
         capabilities
       }
 
-      this.submitting = true
-      this.$emit('loading', true)
+      state.submitting = true
+      ctx.emit('loading', true)
       try {
-        const res = this.app.app_id
-          ? await this.client.app.update(this.app.app_id, params)
-          : await this.client.app.create(params)
+        const client = useClient()
+        const res = props.app.app_id
+          ? await useUpdateApp(client, props.app.app_id, params)
+          : await useCreateApp(client, params)
         if (res && res.type === 'app') {
-          this.$message.success({ message: this.$t('message.success.save'), showClose: true })
-          this.$emit('add-new-app', res.app_number)
+          $message.success({ message: this.$t('message.success.save'), showClose: true })
+          ctx.emit('add-new-app', res.app_number)
         }
       } finally {
-        this.submitting = false
-        this.$emit('loading', false)
+        state.submitting = false
+        ctx.emit('loading', false)
       }
-    },
+    }
+    const closeModal = () => {
+      state.showConfirmModal = false
+    }
+
+    const initApp = (app) => {
+      state.toggle_app++
+
+      state.name = app.name
+      state.icon_url = app.icon_url
+      state.category = app.category || state.category
+      state.home_uri = app.home_uri
+      state.redirect_uri = app.redirect_uri
+      state.description = app.description
+      state.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : ''
+      state.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false
+      state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false
+      state.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false
+    }
+    onMounted(() => {
+      initApp(props.app)
+    })
+    watch(() => props.app, (app) => {
+      initApp(app)
+    })
+
+    return {
+      croppie,
+      ...toRefs(state),
+      allowSubmit,
+      useClickEncryption,
+      useConfirmEncryption,
+      useClickSubmit,
+      closeModal
+    }
   },
-  notice_message(message) {
-    return this.$message.error({ message: this.$t('information.errors.' + message), showClose: true })
-  },
+
 }
