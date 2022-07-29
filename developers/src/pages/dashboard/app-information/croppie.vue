@@ -19,7 +19,7 @@
         :viewport="{ width: size, height: size, 'type':'circle' }"
       ></vue-croppie>
     </div>
-    <input type="file" accept="image/*" @change="useCroppie" ref="uploadDom" />
+    <input type="file" accept="image/*" @change="useCroppie" ref="uploadDom" @click="useClick"/>
   </div>
 </template>
 
@@ -54,16 +54,16 @@ import {nextTick, reactive, ref, toRefs, watch} from "vue";
         state.tmp_file = e
         const reader = new FileReader()
         reader.onload = e => {
-          croppieRef && croppieRef.bind({
+          croppieRef.value && croppieRef.value.bind({
             url: e.target.result
           })
         }
         reader.readAsDataURL(files[0])
       }
+      const useClick = () => {}
       const useReset = () => {
-        uploadDom.click()
+        uploadDom.value.click()
       }
-
 
       const crop = () => {
         return new Promise(resolve => {
@@ -92,7 +92,8 @@ import {nextTick, reactive, ref, toRefs, watch} from "vue";
         croppieRef,
         ...toRefs(state),
         useReset,
-        useCroppie
+        useCroppie,
+        useClick
       }
     },
     methods: {
