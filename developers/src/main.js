@@ -22,6 +22,6 @@ app.use(router)
    .provide('$message', ElMessage)
 
 app.config.globalProperties.$message = ElMessage
-app.config.globalProperties.$ls = ls
+// app.config.globalProperties.$ls = ls
 
 app.mount('#app');

@@ -1,6 +1,7 @@
 import { v4 as uuid } from 'uuid'
 import { reactive, toRefs, computed, onMounted, onUpdated } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
 import AppContainer from './app-container'
@@ -11,6 +12,8 @@ export default {
   name: 'dashboard-container',
   components: { DModal, DHeader, AppContainer },
   setup() {
+    const { t } = useI18n()
+
     const state = reactive({
       isMobile: false,
       isImmersive: isImmersive(),
@@ -109,6 +112,7 @@ export default {
     })
 
     return {
+      t,
       ...toRefs(state),
       mobileTitlePosition,
       mobileUserPosition,

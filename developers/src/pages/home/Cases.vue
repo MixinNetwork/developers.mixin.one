@@ -6,7 +6,7 @@
       <ul v-if="reloadState">
         <li v-for="(item, index) in viewList" :key="index">
           <a :href="`/cases/${item.filename}`">
-            <img :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)" />
+            <img :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)" alt=""/>
             <div class="container">
               <h4>{{ item.title }}</h4>
               <p v-html="item.info"></p>
@@ -20,11 +20,11 @@
         :currentPage="currentPage"
         :split="split"
         :allPage="allList && allList.length"
-        @page="toPage"
+        @page="usePage"
       />
     </section>
 
-    <button v-if="!isAll" @click="clickReadMore">Read More</button>
+    <button v-if="!isAll" @click="useClickReadMore">Read More</button>
 
     <Footer />
   </div>
@@ -35,51 +35,52 @@
   import Footer from "@/components/MainFooter"
   import Pages from "@/components/Pages"
   import { changeTheme } from "@/utils/tools"
+  import {computed, onMounted, reactive, toRefs} from "vue";
+  import {useI18n} from "vue-i18n";
 
   export default {
     name: "News",
     components: { Header, Footer, Pages },
-    data() {
-      return {
+    setup() {
+      const { t, tm } = useI18n()
+
+      const state = reactive({
         allList: [],
         viewList: [],
         currentPage: 1,
         split: 6,
         reloadState: true
+      })
+      const isAll = computed(() => state.allList.length === state.viewList.length)
+
+      const usePage = (pageNum) => {
+        state.currentPage = pageNum
+        const start = (pageNum - 1) * state.split
+        state.viewList = state.allList.slice(start, start + state.split)
       }
-    },
-    computed: {
-      isAll() {
-        let { allList, viewList } = this
-        return allList.length === viewList.length
+      const useClickReadMore = () => {
+        state.currentPage++
+        const start = (state.currentPage - 1) * state.split
+        const appendList = state.allList.slice(start, start + state.split)
+        state.viewList = state.viewList.concat(appendList)
       }
-    },
-    methods: {
-      toPage(pageNum) {
-        this.currentPage = pageNum
-        let start = (pageNum - 1) * this.split
-        this.viewList = this.allList.slice(start, start + this.split)
-      },
-      clickReadMore() {
-        this.currentPage++
-        let currentPage = this.currentPage
-        let start = (currentPage - 1) * this.split
-        let appendList = this.allList.slice(start, start + this.split)
-        this.viewList = this.viewList.concat(appendList)
-      },
-      casesIndex(index) {
-        let { currentPage, split, viewList } = this
-        return viewList.length > split
-          ? index
-          : (currentPage - 1) * split + index
+
+      onMounted(() => {
+        changeTheme("#fdfeff")
+        window.scrollTo(0, 0)
+        state.reloadState = true
+        state.allList = tm("cases.list")
+        state.viewList = state.allList.slice(0, state.split)
+      })
+
+      return {
+        t,
+        tm,
+        ...toRefs(state),
+        isAll,
+        usePage,
+        useClickReadMore
       }
-    },
-    mounted() {
-      changeTheme("#fdfeff")
-      window.scrollTo(0, 0)
-      this.reloadState = true
-      this.allList = this.$t("cases.list")
-      this.viewList = this.allList.slice(0, this.split)
     }
   }
 </script>
@@ -207,7 +208,6 @@
     button {
       display: block;
       margin: 5rem auto 7.5rem auto;
-      font-size: 1.25rem;
       padding: 0 2rem;
       line-height: 3rem;
 

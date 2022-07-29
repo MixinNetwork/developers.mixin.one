@@ -11,7 +11,7 @@
           class="mixin-id"
         />
         <div class="icon">
-          <label>{{$t('information.icon')}}</label>
+          <label>{{t('information.icon')}}</label>
           <Croppie ref="croppie" :icon_url="icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="edit-list f f-column">
           <MInput
             v-if="app.app_id"
-            :label="$t('information.app_id')"
+            :label="t('information.app_id')"
             disabled
             is-copied="true"
             v-model:value="app.app_id"
@@ -27,22 +27,22 @@
           />
           <div class="name-category">
             <MInput
-              :label="$t('information.name')"
-              :placeholder="$t('information.name_desc')"
+              :label="t('information.name')"
+              :placeholder="t('information.name_desc')"
               v-model:value="name"
               class="item"
             />
             <CategorySelect class="item" v-model:value="category" />
           </div>
           <MInput
-            :label="$t('information.home_url')"
-            :placeholder="$t('information.home_url_desc')"
+            :label="t('information.home_url')"
+            :placeholder="t('information.home_url_desc')"
             v-model:value="home_uri"
             class="item"
           />
           <MInput
-            :label="$t('information.oauth_url')"
-            :placeholder="$t('information.oauth_url_desc')"
+            :label="t('information.oauth_url')"
+            :placeholder="t('information.oauth_url_desc')"
             v-model:value="redirect_uri"
             class="item"
           />
@@ -50,34 +50,34 @@
       </div>
     </div>
     <div class="des">
-      <label>{{$t('information.description')}}</label>
+      <label>{{t('information.description')}}</label>
       <textarea
-        :placeholder="$t('information.description_desc')"
+        :placeholder="t('information.description_desc')"
         v-model="description"
       ></textarea>
     </div>
     <div class="des">
-      <label>{{$t('information.resource_patterns')}}</label>
-      <textarea :placeholder="$t('information.resource_patterns_desc')" v-model="resource_patterns"></textarea>
+      <label>{{t('information.resource_patterns')}}</label>
+      <textarea :placeholder="t('information.resource_patterns_desc')" v-model="resource_patterns"></textarea>
     </div>
     <div class="f">
       <div @click="isImmersive=!isImmersive" class="des immersive">
         <i v-if="!isImmersive" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
-        <span>{{$t('information.immersive')}}</span>
+        <span>{{t('information.immersive')}}</span>
       </div>
       <div v-if="hasEncrypted" @click="useClickEncryption" class="des encrypted">
         <i v-if="!isEncrypted" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
-        <span>{{$t('information.encrypted')}}</span>
+        <span>{{t('information.encrypted')}}</span>
       </div>
     </div>
     <button
       @click="useClickSubmit"
       :class="['primary', !allowSubmit ? 'not-finished' : '' ]"
-    >{{$t('button.save')}}</button>
+    >{{t('button.save')}}</button>
     <confirm
-      :confirm_content="$t('information.encrypted_confirm')"
+      :confirm_content="t('information.encrypted_confirm')"
       :confirm_modal="showConfirmModal"
       @confirm="useConfirmEncryption"
       @close-modal="closeModal"

@@ -1,4 +1,5 @@
 import {computed, ref, reactive, toRefs, onMounted, watch} from "vue";
+import { useI18n } from "vue-i18n";
 import MInput from './input.vue'
 import Croppie from './croppie.vue'
 import CategorySelect from './select.vue'
@@ -20,6 +21,7 @@ export default {
   },
   emits: ['loading', 'add-new-app'],
   setup(props, ctx) {
+    const { t } = useI18n()
     const croppie = ref(null)
     const state = reactive({
       toggle_app: 0,
@@ -59,7 +61,7 @@ export default {
       if (state.description.length < 16 || state.description.length > 128) return notice_message('description_length')
     }
     const notice_message = (message) => {
-      return $message.error({ message: this.$t('information.errors.' + message), showClose: true })
+      return $message.error({ message: t('information.errors.' + message), showClose: true })
     }
 
     const useClickEncryption = () => {
@@ -113,7 +115,7 @@ export default {
           ? await useUpdateApp(client, props.app.app_id, params)
           : await useCreateApp(client, params)
         if (res && res.type === 'app') {
-          $message.success({ message: this.$t('message.success.save'), showClose: true })
+          $message.success({ message: t('message.success.save'), showClose: true })
           ctx.emit('add-new-app', res.app_number)
         }
       } finally {
@@ -147,6 +149,7 @@ export default {
     })
 
     return {
+      t,
       croppie,
       ...toRefs(state),
       allowSubmit,

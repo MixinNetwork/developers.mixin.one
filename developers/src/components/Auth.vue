@@ -6,15 +6,30 @@
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk'
 import { getUrlParameter, ls } from '@/utils'
 import { useClient } from '@/api'
+import {useRouter} from "vue-router";
+import {inject} from "vue";
+import {useI18n} from "vue-i18n";
 
 export default {
   props: ['client', 'setKeystore'],
-  async mounted() {
+  async setup() {
+    const { router } = useRouter()
+    const { t } = useI18n()
+    const $message = inject("inject")
+
+    const useAccessDenied = () => {
+      $message.error({
+        message: t("message.errors.403"),
+        showClose: true
+      })
+      router.push("/")
+    }
+
     const error = getUrlParameter("error")
-    if (error === "access_denied") return this.handleAccessDenied()
+    if (error === "access_denied") return useAccessDenied()
 
     const code = getUrlParameter("code")
-    const {privateKey, publicKey} = getED25519KeyPair()
+    const { privateKey, publicKey } = getED25519KeyPair()
 
     const client = useClient()
     const resp = await client.oauth.getToken(
@@ -22,14 +37,14 @@ export default {
       code,
       publicKey,
     )
-    if (!resp) return this.handleAccessDenied()
+    if (!resp) return useAccessDenied()
 
-    const {scope, authorization_id} = resp
+    const { scope, authorization_id } = resp
     if (
       !scope ||
       scope.indexOf("APPS:READ") < 0 ||
       scope.indexOf("APPS:WRITE") < 0
-    ) return this.handleAccessDenied()
+    ) return useAccessDenied()
 
     const keystore = {
       user_id: process.env.VUE_APP_CLIENT_ID,
@@ -39,18 +54,8 @@ export default {
     }
     ls.set('token', keystore)
 
-    this.$router.push("/dashboard")
+    router.push("/dashboard")
   },
-  methods: {
-    handleAccessDenied() {
-      this.$message.error({
-        message: this.$t("message.errors.403"),
-        showClose: true
-      })
-
-      this.$router.push("/")
-    }
-  }
 }
 </script>
 

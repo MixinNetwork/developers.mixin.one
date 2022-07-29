@@ -2,9 +2,9 @@
   <div v-if="!showWelcome || !isMobile" class="dashboard-center-and-nav">
     <div v-if="showWelcome" class="welcome">
       <img src="@/assets/img/svg/robot.svg" alt="robot-icon"/>
-      <h1>{{ $t('dashboard.welcome') }}</h1>
-      <p>{{ $t('dashboard.welcome_d') }}</p>
-      <button @click="useClickNewApp" class="primary">{{ $t('dashboard.create_btn') }}</button>
+      <h1>{{ t('dashboard.welcome') }}</h1>
+      <p>{{ t('dashboard.welcome_d') }}</p>
+      <button @click="useClickNewApp" class="primary">{{ t('dashboard.create_btn') }}</button>
     </div>
     <div v-else>
       <d-header class="app-header">
@@ -14,13 +14,13 @@
           </div>
         </template>
         <template #center>
-          <div>{{ appInfo.name || $t('dashboard.new_app') }}</div>
+          <div>{{ appInfo.name || t('dashboard.new_app') }}</div>
         </template>
       </d-header>
       <header>
         <div class="header-list">
           <template v-if="isNewApp">
-            <span class="header-item new-item">{{ $t('dashboard.new_app') }}</span>
+            <span class="header-item new-item">{{ t('dashboard.new_app') }}</span>
           </template>
           <template v-else>
             <span
@@ -28,7 +28,7 @@
               :key="index"
               :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
               @click="useClickNav(index)"
-            >{{ $t(item + '.title') }}</span>
+            >{{ t(item + '.title') }}</span>
           </template>
         </div>
       </header>

@@ -2,9 +2,9 @@
   <div v-loading="loadingAll" class="container">
     <div class="des" v-if="needUpdate">
       <div>
-        <h3>{{$t('wallet.update_token_desc')}}</h3>
-        <button class="primary" @click="showSessionUpdateModal = true">{{$t('wallet.update')}}</button>
-        <span @click="showSessionUpdateModal = true">{{$t('wallet.update_token')}}</span>
+        <h3>{{t('wallet.update_token_desc')}}</h3>
+        <button class="primary" @click="showSessionUpdateModal = true">{{t('wallet.update')}}</button>
+        <span @click="showSessionUpdateModal = true">{{t('wallet.update_token')}}</span>
         <img src="@/assets/img/app-svg/right.svg" alt="update-wallet-token-logo"/>
       </div>
     </div>
@@ -24,12 +24,12 @@
           v-if="item.icon_url"
           @click="useClickWithdrawal(item)"
           class="withdrawal primary"
-        >{{$t('button.withdrawal')}}
+        >{{t('button.withdrawal')}}
         </button>
       </div>
       <div v-if="assetList.length" class="list-bottom-tips">
-        <div>{{ $t('wallet.des_1' )}}</div>
-        <div>{{ $t('wallet.des_2', {app_number: app.app_number}) }}</div>
+        <div>{{ t('wallet.des_1' )}}</div>
+        <div>{{ t('wallet.des_2', {app_number: app.app_number}) }}</div>
       </div>
     </div>
 

@@ -1,5 +1,6 @@
 import {computed, onMounted, reactive, toRefs, watch} from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
 import AppInformation from "@/pages/dashboard/app-information";
@@ -13,6 +14,8 @@ export default {
   props: ['isMobile', 'appId'],
   emits: ['check-app-credit', 'add-new-app'],
   setup(props, ctx) {
+    const { t } = useI18n()
+
     const state = reactive({
       loadingApp: false,
       showWelcome: false,
@@ -79,6 +82,7 @@ export default {
     })
 
     return {
+      t,
       ...toRefs(state),
       currentNav,
       useClickNewApp,

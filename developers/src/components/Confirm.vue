@@ -1,17 +1,19 @@
 <template>
   <div v-if="show" class="modal-mask">
     <div class="confirm-content">
-      <img @click="cancelClickHandler" src="@/assets/img/svg/close.svg" />
+      <img @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
       <h3>{{content}}</h3>
       <div class="btns">
-        <button @click="cancelClickHandler">{{$t('button.cancel')}}</button>
-        <button @click="confirmClickHandler">{{$t('button.ok')}}</button>
+        <button @click="useClickCancel">{{t('button.cancel')}}</button>
+        <button @click="useClickConfirm">{{t('button.ok')}}</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {useI18n} from "vue-i18n";
+
 export default {
   props: {
     content: {
@@ -23,13 +25,22 @@ export default {
       default: false
     }
   },
-  methods: {
-    confirmClickHandler() {
-      this.$emit("confirm");
-      this.$emit("close-modal");
-    },
-    cancelClickHandler() {
-      this.$emit("close-modal");
+  emits: ['confirm', 'close-modal'],
+  setup(props, ctx) {
+    const { t } = useI18n()
+
+    const useClickConfirm = ()=> {
+      ctx.emit("confirm");
+      ctx.emit("close-modal");
+    }
+    const useClickCancel = () => {
+      ctx.emit("close-modal");
+    }
+
+    return {
+      t,
+      useClickCancel,
+      useClickConfirm
     }
   }
 };

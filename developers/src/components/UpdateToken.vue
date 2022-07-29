@@ -1,7 +1,7 @@
 <template>
   <d-modal class="modal" :show="show">
     <div class="main">
-      <h3>{{ $t('wallet.update_token') }}</h3>
+      <h3>{{ t('wallet.update_token') }}</h3>
       <div class="edit-item">
         <label>Session ID</label>
         <input v-model="session_id" />
@@ -15,8 +15,8 @@
         <textarea v-model="private_key"></textarea>
       </div>
       <div class="btns">
-        <button @click="useClickSubmit" class="btns-save primary">{{ $t('button.save') }}</button>
-        <button @click="useClickCancel" class="btns-cancel primary">{{ $t('button.cancel') }}</button>
+        <button @click="useClickSubmit" class="btns-save primary">{{ t('button.save') }}</button>
+        <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
       </div>
       <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
     </div>
@@ -100,6 +100,7 @@ export default {
     }
 
     return {
+      t,
       ...toRefs(state),
       useClickSubmit,
       useClickCancel

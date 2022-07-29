@@ -19,7 +19,6 @@ export default {
     }
   },
   setup(props) {
-    const $message = inject('$message')
     const { t } = useI18n()
 
     const state = reactive({
@@ -81,6 +80,7 @@ export default {
     })
 
     return {
+      t,
       ...toRefs(state),
       fetchAssetList,
       useClickWithdrawal,

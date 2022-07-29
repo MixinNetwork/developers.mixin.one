@@ -177,6 +177,7 @@ export default {
     })
 
     return {
+      t,
       ...toRefs(state),
       dispatch,
       useDownloadKeystore,

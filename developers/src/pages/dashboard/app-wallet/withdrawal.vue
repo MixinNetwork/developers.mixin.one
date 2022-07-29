@@ -7,7 +7,7 @@
             <div class="header-back" @click="useClickBack" slot="left">
               <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
-            <div slot="center">{{ $t('wallet.title') }}</div>
+            <div slot="center">{{ t('wallet.title') }}</div>
           </d-header>
           <div class="content">
             <header :style="{opacity: asset.icon_url ? '1':'0'}">
@@ -16,7 +16,7 @@
             </header>
             <ul>
               <li>
-                <label>{{ $t('wallet.amount') }}</label>
+                <label>{{ t('wallet.amount') }}</label>
                 <input v-model="form.amount"/>
               </li>
               <li>
@@ -30,8 +30,8 @@
             </ul>
             <footer>
               <div class="btns">
-                <button @click="useClickSubmit" class="btns-copy primary">{{ $t('button.withdrawal') }}</button>
-                <button @click="useClickCancel" class="btns-cancel primary">{{ $t('button.cancel') }}</button>
+                <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
+                <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
               </div>
             </footer>
             <confirm
@@ -48,33 +48,33 @@
             <div class="header-back" @click="useClickBack" slot="left">
               <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
-            <div slot="center">{{ $t('wallet.snapshot_info') }}</div>
+            <div slot="center">{{ t('wallet.snapshot_info') }}</div>
           </d-header>
           <div class="content snapshot">
-            <h3>{{ $t('wallet.snapshot_info') }}</h3>
+            <h3>{{ t('wallet.snapshot_info') }}</h3>
             <div>
-              <label>{{ $t('wallet.snapshot.snapshot_id') }}</label>
+              <label>{{ t('wallet.snapshot.snapshot_id') }}</label>
               <p>{{ transactionInfo.snapshot_id }}</p>
             </div>
             <div>
-              <label>{{ $t('wallet.snapshot.trace_id') }}</label>
+              <label>{{ t('wallet.snapshot.trace_id') }}</label>
               <p>{{ transactionInfo.trace_id }}</p>
             </div>
             <div>
-              <label>{{ $t('wallet.snapshot.account') }}</label>
+              <label>{{ t('wallet.snapshot.account') }}</label>
               <p>{{ transactionInfo.opponent_key }}</p>
             </div>
             <div>
-              <label>{{ $t('wallet.snapshot.amount') }}</label>
+              <label>{{ t('wallet.snapshot.amount') }}</label>
               <p>{{ transactionInfo.amount }}</p>
             </div>
             <div>
-              <label>{{ $t('wallet.snapshot.transaction_hash') }}</label>
+              <label>{{ t('wallet.snapshot.transaction_hash') }}</label>
               <p>{{ transactionInfo.transaction_hash }}</p>
             </div>
             <footer class="btns">
-              <button @click="useClickSubmit" class="btns-copy primary">{{ $t('button.withdrawal') }}</button>
-              <button @click="useClickCancel" class="btns-cancel primary">{{ $t('button.cancel') }}</button>
+              <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
+              <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
             </footer>
           </div>
           <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
@@ -197,6 +197,7 @@ export default {
     }
 
     return {
+      t,
       ...toRefs(state),
       confirmContent,
       useClickBack,
