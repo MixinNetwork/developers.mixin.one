@@ -3,7 +3,7 @@
     <div v-loading="loading" class="secret-list f">
       <div class="item">
         <div class="secret-item">
-          <img src="@/assets/img/svg/secret.svg" />
+          <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
           <span>{{$t('secret.secret_title')}}</span>
           <p>{{$t('secret.secret_content')}}</p>
           <button @click="dispatch('openNewSecretConfirm')" class="primary">{{$t('secret.secret_btn')}}</button>
@@ -11,7 +11,7 @@
       </div>
       <div class="item">
         <div class="secret-item">
-          <img src="@/assets/img/svg/session.svg" />
+          <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
           <span>{{$t('secret.session_title')}}</span>
           <p>{{$t('secret.session_content')}}</p>
           <div class="secrets">
@@ -21,7 +21,7 @@
       </div>
       <div class="item">
         <div class="secret-item qrcode">
-          <img src="@/assets/img/ic_qr_code.png" />
+          <img src="@/assets/img/ic_qr_code.png" alt="app-qrcode-icon"/>
           <span>{{$t('secret.qrcode_title')}}</span>
           <p>{{$t('secret.qrcode_content')}}</p>
           <div class="qrcode-btns">
@@ -37,17 +37,15 @@
         <h3>{{modalTitle}}</h3>
         <span :class="action==='updateSession' && 'session'">{{modalContent}}</span>
         <div class="btns">
-          <button v-if="action==='updateSecret'" @click="closeModal" class="btn-close primary">{{$t('button.cancel')}}</button>
-          <button v-if="action==='updateSession'" @click="downloadKeystoreJson" class="btn-close primary">{{$t('button.download')}}</button>
+          <button v-if="action==='updateSecret'" @click="useCloseModal" class="btn-close primary">{{$t('button.cancel')}}</button>
+          <button v-if="action==='updateSession'" @click="useDownloadKeystore" class="btn-close primary">{{$t('button.download')}}</button>
           <button
-            v-clipboard:copy="modalContent"
-            v-clipboard:success="onCopySuccess"
-            v-clipboard:error="onCopyError"
+            @click="useClickCopy"
             class="btn-copy primary"
           >{{$t('button.copy')}}
           </button>
         </div>
-        <img @click="closeModal" class="iconguanbi" src="@/assets/img/svg/close.svg" />
+        <img @click="useCloseModal" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="modal-close-icon"/>
       </div>
     </d-modal>
     <update-token
@@ -60,7 +58,7 @@
       :confirm_content="confirmContent"
       :show="!!confirmContent"
       @confirm="dispatch"
-      @close-modal="closeConfirmModal"
+      @close-modal="useCloseConfirmModal"
     />
   </div>
 </template>
