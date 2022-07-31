@@ -43,7 +43,7 @@ export default {
     }
 
     const useReducer = async (type) => {
-      const clientInfo = useStorage(props.app.app_id, {})
+      const clientInfo = useStorage(props.app.app_id, {}).value
       if (!type) type = state.action
 
       switch (type) {
@@ -126,13 +126,13 @@ export default {
     const useRequestQRCode = async (is_show, clientInfo) => {
       if (state.submitting) return $message.error({ message: t('message.errors.reset'), showClose: true })
 
-      const appClient = useClient(clientInfo.value)
+      const appClient = useClient(clientInfo)
 
       state.loading = true
       state.submitting = true
       _vm.skipInterceptor = true
       try {
-        let res = is_show ? await userClient.user.profile() : await appClient.user.rotateCode()
+        const res = is_show ? await userClient.user.profile() : await appClient.user.rotateCode()
 
         if (!res) {
           clientInfo.value = null
@@ -168,9 +168,9 @@ export default {
     }
 
     const { copy, copied, isSupported } = useClipboard()
-    const useClickCopy = () => {
+    const useClickCopy = async () => {
       if (!isSupported) return $message.error({ message: t("message.errors.copy"), showClose: true })
-      copy(state.modalContent)
+      await copy(state.modalContent)
     }
     watch(copied, () => {
       if (copied.value) $message.success({ message: t("message.success.copy"), showClose: true})
