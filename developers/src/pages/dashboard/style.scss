@@ -87,9 +87,8 @@
   }
 
   .bottom-more {
+    display: none;
     transition: all 0.3s ease-in;
-    z-index: -1;
-    opacity: 0;
     position: absolute;
     width: 13.75rem;
     top: -1.5625rem;
@@ -100,8 +99,7 @@
     overflow: hidden;
 
     &.bottom-more-active {
-      z-index: 2;
-      opacity: 1;
+      display: block;
       top: -3.4375rem;
     }
   }
@@ -270,10 +268,10 @@
   }
 
   .right-more {
+    display: none;
     position: absolute;
     top: 2.5rem;
     transition: top 0.5s;
-    opacity: 0;
     right: -0.625rem;
     width: 10rem;
     overflow: hidden;
@@ -304,7 +302,7 @@
 
     &.right-more-active {
       top: 3.125rem;
-      opacity: 1;
+      display: block;
     }
   }
 
