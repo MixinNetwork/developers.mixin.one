@@ -55,7 +55,7 @@
       @close-modal="showUpdateToken=false"
     />
     <confirm
-      :confirm_content="confirmContent"
+      :content="confirmContent"
       :show="!!confirmContent"
       @confirm="dispatch"
       @close-modal="useCloseConfirmModal"
