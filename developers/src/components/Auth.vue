@@ -12,10 +12,10 @@ import {useI18n} from "vue-i18n";
 
 export default {
   props: ['client', 'setKeystore'],
-  async setup() {
-    const { router } = useRouter()
+  setup() {
+    const router = useRouter()
     const { t } = useI18n()
-    const $message = inject("inject")
+    const $message = inject("$message")
 
     const useAccessDenied = () => {
       $message.error({
@@ -32,29 +32,30 @@ export default {
     const { privateKey, publicKey } = getED25519KeyPair()
 
     const client = useClient()
-    const resp = await client.oauth.getToken(
+    client.oauth.getToken(
       process.env.VUE_APP_CLIENT_ID,
       code,
       publicKey,
-    )
-    if (!resp) return useAccessDenied()
+    ).then(resp => {
+      if (!resp) return useAccessDenied()
 
-    const { scope, authorization_id } = resp
-    if (
-      !scope ||
-      scope.indexOf("APPS:READ") < 0 ||
-      scope.indexOf("APPS:WRITE") < 0
-    ) return useAccessDenied()
+      const { scope, authorization_id } = resp
+      if (
+        !scope ||
+        scope.indexOf("APPS:READ") < 0 ||
+        scope.indexOf("APPS:WRITE") < 0
+      ) return useAccessDenied()
 
-    const keystore = {
-      user_id: process.env.VUE_APP_CLIENT_ID,
-      scope,
-      authorization_id,
-      private_key: privateKey,
-    }
-    ls.set('token', keystore)
+      const keystore = {
+        user_id: process.env.VUE_APP_CLIENT_ID,
+        scope,
+        authorization_id,
+        private_key: privateKey,
+      }
+      ls.set('token', keystore)
 
-    router.push("/dashboard")
+      router.push("/dashboard")
+    })
   },
 }
 </script>
