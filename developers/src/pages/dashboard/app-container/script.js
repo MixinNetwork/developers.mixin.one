@@ -55,8 +55,8 @@ export default {
     const useFetchApp = async () => {
       if (props.appId) {
         state.loadingApp = true
-        state.appInfo = await useApp(client, props.appId)
         state.currentNavIndex = 0
+        state.appInfo = await useApp(client, props.appId)
         state.loadingApp = false
       }
     }
