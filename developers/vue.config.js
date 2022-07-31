@@ -4,7 +4,7 @@ const element = require('unplugin-element-plus/webpack')
 module.exports = {
   productionSourceMap: false,
   chainWebpack: config => {
-    config.resolve.alias.set('vue', '@vue/compat')
+    // config.resolve.alias.set('vue', '@vue/compat')
 
     config.resolve.set('fallback', {
       stream: require.resolve('stream-browserify'),

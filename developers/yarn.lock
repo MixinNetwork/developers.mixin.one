@@ -2035,11 +2035,6 @@
     semver "^7.3.4"
     strip-ansi "^6.0.0"
 
-"@vue/compat@^3.1.0":
-  version "3.2.37"
-  resolved "https://registry.npmmirror.com/@vue/compat/-/compat-3.2.37.tgz#bd2062a2be88d06046311d5c058aefb17a1d438a"
-  integrity sha512-MIYkFAz3Fur1mtZBqrNMYTymlohCQ0ol6vtNb58cqExLSCt63xZaXyiZZYPvS6WaMXfbNBDPXMvU9tO922eFCA==
-
 "@vue/compiler-core@3.2.37":
   version "3.2.37"
   resolved "https://registry.npmmirror.com/@vue/compiler-core/-/compiler-core-3.2.37.tgz#b3c42e04c0e0f2c496ff1784e543fbefe91e215a"
@@ -7821,7 +7816,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^3.1.0:
+vue@^3.2.37:
   version "3.2.37"
   resolved "https://registry.npmmirror.com/vue/-/vue-3.2.37.tgz#da220ccb618d78579d25b06c7c21498ca4e5452e"
   integrity sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ==
