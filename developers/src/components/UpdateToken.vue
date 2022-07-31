@@ -87,6 +87,9 @@ export default {
         pin_token: state.pin_token,
         private_key: state.private_key.replace(/\\r\\n/g, "\r\n")
       })
+      state.pin_token = ''
+      state.private_key = ''
+      state.session_id = ''
     }
 
     const useClickSubmit = () => {
