@@ -25,14 +25,14 @@
                 @click="useClickApp(item)"
                 :class="['app-item', currentAppId === item.app_id ? 'app-item-active': '']"
               >
-                <img :src="item.icon_url || defaultConst.default.app_icon_url" alt="app-logo"/>
+                <img :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
                 <span>{{ item.name }}</span>
               </li>
             </ul>
           </div>
         </div>
         <div @click.stop="useClickUser" class="bottom-info middle">
-          <img :src="userInfo.avatar_url || defaultConst.default.avatar_url" alt="user-avatar"/>
+          <img :src="userInfo.avatar_url || defaultAvatar" alt="user-avatar"/>
           <div class="user-name-id">
             <div>{{ userInfo.full_name }}</div>
             <div>ID: {{ userInfo.identity_number }}</div>
@@ -56,7 +56,7 @@
             <img
               class="header-slot-img"
               @click.stop="useClickUser"
-              :src="userInfo.avatar_url || defaultConst.default.avatar_url"
+              :src="userInfo.avatar_url || defaultAvatar"
               alt="user-avatar"
             />
             <div
@@ -95,7 +95,7 @@
               @click="useClickApp(item)"
               class="has-app-item"
             >
-              <img :src="item.icon_url || defaultConst.default.app_icon_url" alt="app-logo"/>
+              <img :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
               <div>
                 <div class="item-name">{{ item.name }}</div>
                 <div class="item-number">{{ item.app_number }}</div>

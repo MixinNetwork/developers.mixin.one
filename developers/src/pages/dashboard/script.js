@@ -24,6 +24,8 @@ export default {
       appList: [],
       appsProperty: {},
       currentAppId: '',
+      defaultAppIcon: require('@/assets/img/default_robot.png'),
+      defaultAvatar: require('@/assets/img/default_avatar.png')
     })
     const mobileTitlePosition = computed(() => !state.isImmersive? 'left': 'center')
     const mobileUserPosition = computed(() => !state.isImmersive? 'right': 'left')
