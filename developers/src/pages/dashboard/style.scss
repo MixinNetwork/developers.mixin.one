@@ -345,54 +345,58 @@
     }
   }
 
-  .edit-modal {
-    padding: 2.5rem 1.25rem 4.75rem 1.25rem;
-    min-width: 37.5rem;
-    text-align: center;
+}
 
-    img {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.3125rem;
-      box-sizing: initial;
-      width: 0.875rem;
-      height: 0.875rem;
-    }
+.edit-modal {
+  padding: 2.5rem 1.25rem 4.75rem 1.25rem;
+  min-width: 37.5rem;
+  text-align: center;
 
-    h3 {
-      font-size: 1rem;
-      font-weight: 900;
-      margin-bottom: 1.875rem;
-    }
-
-    span {
-      color: #333333;
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-
-    p {
-      margin: 0.625rem 0 1.125rem 0;
-      background-color: #f6f9ff;
-      padding: 0.625rem;
-      font-size: 0.875rem;
-    }
-
-    button {
-      margin-top: 0.75rem;
-      margin-right: 1.25rem;
-      width: 8.75rem;
-      font-size: 1rem;
-      height: 2.5rem;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+  img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3125rem;
+    box-sizing: initial;
+    width: 0.875rem;
+    height: 0.875rem;
   }
 
-  @media screen and (max-width: 48rem) {
+  h3 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 1.875rem;
+  }
+
+  span {
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  p {
+    margin: 0.625rem 0 1.125rem 0;
+    background-color: #f6f9ff;
+    padding: 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  button {
+    margin-top: 0.75rem;
+    margin-right: 1.25rem;
+    width: 8.75rem;
+    font-size: 1rem;
+    height: 2.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .development-dashboard {
+
     nav {
       display: none;
     }
@@ -510,15 +514,15 @@
         }
       }
     }
+  }
 
-    .edit-modal {
-      padding: 2.5rem 1.25rem;
-      min-width: 18.75rem;
-      max-width: 18.75rem;
+  .edit-modal {
+    padding: 2.5rem 1.25rem;
+    min-width: 18.75rem;
+    max-width: 18.75rem;
 
-      button {
-        margin-right: 0;
-      }
+    button {
+      margin-right: 0;
     }
   }
 }

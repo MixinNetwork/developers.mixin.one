@@ -1,13 +1,15 @@
 <template>
-  <div v-show="show" class="app-modal">
-    <div class="modal-mask">
-      <transition name="fade-up">
-        <div v-if="show" class="modal-main" v-loading="loading">
-          <slot></slot>
-        </div>
-      </transition>
+  <teleport to="body">
+    <div v-show="show" class="app-modal">
+      <div class="modal-mask">
+        <transition name="fade-up">
+          <div v-if="show" class="modal-main" v-loading="loading">
+            <slot></slot>
+          </div>
+        </transition>
+      </div>
     </div>
-  </div>
+  </teleport>
 </template>
 
 <script>
