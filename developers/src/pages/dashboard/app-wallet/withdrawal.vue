@@ -1,5 +1,6 @@
 <template>
-  <div class="modal">
+  <teleport to="body">
+    <div class="modal">
     <div class="mask">
       <transition name="fade-up">
         <div v-if="!showSnapshot" v-loading="loading" class="main">
@@ -82,6 +83,7 @@
       </transition>
     </div>
   </div>
+  </teleport>
 </template>
 <script>
 import { inject, reactive, toRefs, computed } from "vue";
