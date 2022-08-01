@@ -1,5 +1,5 @@
 import { getED25519KeyPair } from "@mixin.dev/mixin-node-sdk";
-import {toRefs, reactive, inject, watch} from "vue";
+import {toRefs, reactive, inject, watch, onActivated} from "vue";
 import {useStorage, useClipboard} from "@vueuse/core";
 import {useI18n} from "vue-i18n";
 import FileSaver from 'file-saver'
@@ -132,7 +132,7 @@ export default {
       state.submitting = true
       _vm.skipInterceptor = true
       try {
-        const res = is_show ? await userClient.user.profile() : await appClient.user.rotateCode()
+        const res = is_show ? await appClient.user.profile() : await appClient.user.rotateCode()
 
         if (!res) {
           clientInfo.value = null
@@ -160,10 +160,19 @@ export default {
       )
       FileSaver.saveAs(blob, `keystore-${app_number}.json`)
     }
-    const useCloseModal = () => {
+
+    const useInitStatus = () => {
+      state.modalTitle = ''
       state.modalContent = ''
+      state.confirmContent = ''
+      state.action = ''
+    }
+    const useCloseModal = () => {
+      useInitStatus()
     }
     const useCloseConfirmModal = () => {
+      state.modalTitle = ''
+      state.modalContent = ''
       state.confirmContent = ''
     }
 
@@ -174,6 +183,10 @@ export default {
     }
     watch(copied, () => {
       if (copied.value) $message.success({ message: t("message.success.copy"), showClose: true})
+    })
+
+    onActivated(() => {
+      useInitStatus()
     })
 
     return {

@@ -39,7 +39,7 @@ export default {
 
     const fetchAssetList = async () => {
       const tokenInfo = useStorage(props.app.app_id, {})
-      if (!useHasAppToken(tokenInfo.value)) return
+      if (!useHasAppToken(tokenInfo.value)) return false
 
       state.loadingAll = true
       _vm.skipInterceptor = true
@@ -63,6 +63,7 @@ export default {
         state.loadingAll = false
         _vm.skipInterceptor = false
       }
+      return true
     }
 
     const useClickWithdrawal = (item) => {
@@ -79,7 +80,11 @@ export default {
       await fetchAssetList()
     })
     onActivated(async () => {
-      await fetchAssetList()
+      const flag = await fetchAssetList()
+      if (!flag) {
+        state.assetList = []
+        state.needUpdate = true
+      }
     })
 
     return {
