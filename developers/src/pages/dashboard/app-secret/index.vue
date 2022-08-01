@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="tips">{{t('secret.des')}}</div>
-    <d-modal class="secret-modal" :show="!!modalContent">
+    <d-modal :show="!!modalContent">
       <div class="new-secret-modal">
         <h3>{{modalTitle}}</h3>
         <span :class="action==='updateSession' && 'session'">{{modalContent}}</span>

@@ -1,5 +1,5 @@
 <template>
-  <d-modal class="modal" :show="show">
+  <d-modal :show="show">
     <div class="main">
       <h3>{{ t('wallet.update_token') }}</h3>
       <div class="edit-item">
