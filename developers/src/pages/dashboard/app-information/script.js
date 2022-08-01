@@ -118,6 +118,7 @@ export default {
         if (res && res.type === 'app') {
           $message.success({ message: t('message.success.save'), showClose: true })
           ctx.emit('add-new-app', res.app_number)
+          initApp(res)
         }
       } finally {
         state.submitting = false
