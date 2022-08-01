@@ -1,6 +1,6 @@
 <template>
   <d-modal :show="show">
-    <div class="main">
+    <div class="main modal">
       <h3>{{ t('wallet.update_token') }}</h3>
       <div class="edit-item">
         <label>Session ID</label>
@@ -204,7 +204,7 @@ label {
       right: 1rem;
     }
 
-    .main {
+    &.main {
       padding: 2.5rem 1.5625rem;
       width: 310px;
 
