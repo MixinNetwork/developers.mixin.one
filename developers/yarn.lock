@@ -7760,10 +7760,9 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vue-croppie@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/vue-croppie/-/vue-croppie-2.0.2.tgz#5a2617cc16d99d1c6bc21ae79bbaa4aebf13b781"
-  integrity sha512-+yiDryp76tkHpYvbFdKSTM2VSU4TTLIikOvWlSaTaomvTky2Fiig7aRr1+AcHdB1mhrtEAZQRrWFbvc7NX0qBQ==
+"vue-croppie@https://github.com/hundredark/vue-croppie#2.0.3":
+  version "2.0.3"
+  resolved "https://github.com/hundredark/vue-croppie#f646229901b55458b2f3297f4d9b900f4081ba57"
   dependencies:
     croppie "^2.6.4"
 
