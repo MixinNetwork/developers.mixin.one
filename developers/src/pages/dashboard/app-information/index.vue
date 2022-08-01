@@ -77,8 +77,8 @@
       :class="['primary', !allowSubmit ? 'not-finished' : '' ]"
     >{{t('button.save')}}</button>
     <confirm
-      :confirm_content="t('information.encrypted_confirm')"
-      :confirm_modal="showConfirmModal"
+      :content="t('information.encrypted_confirm')"
+      :show="showConfirmModal"
       @confirm="useConfirmEncryption"
       @close-modal="closeModal"
     />
