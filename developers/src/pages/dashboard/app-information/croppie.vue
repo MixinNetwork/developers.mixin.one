@@ -74,7 +74,7 @@ export default {
           size: {width: 512, height: 512},
           format: "png"
         }
-        croppieRef.result(options, output => resolve(output))
+        croppieRef.value.result(options, output => resolve(output))
       })
     }
     ctx.expose({
