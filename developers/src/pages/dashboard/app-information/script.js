@@ -52,16 +52,16 @@ export default {
     const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription)
 
     const notice = () => {
-      if (!state.name) return notice_message('no_app_name')
-      if (state.name.length < 2 || state.name.length > 64) return notice_message('app_name_length')
-      if (!state.home_uri) return notice_message('no_home_uri')
-      if (!isValidUrl(state.home_uri)) return notice_message('home_uri_illegal')
-      if (!state.redirect_uri) return notice_message('no_redirect_uri')
-      if (!isValidUrl(state.redirect_uri)) return notice_message('redirect_uri_illegal')
-      if (!state.description) return notice_message('no_description')
-      if (state.description.length < 16 || state.description.length > 128) return notice_message('description_length')
+      if (!state.name) return noticeMessage('no_app_name')
+      if (state.name.length < 2 || state.name.length > 64) return noticeMessage('app_name_length')
+      if (!state.home_uri) return noticeMessage('no_home_uri')
+      if (!isValidUrl(state.home_uri)) return noticeMessage('home_uri_illegal')
+      if (!state.redirect_uri) return noticeMessage('no_redirect_uri')
+      if (!isValidUrl(state.redirect_uri)) return noticeMessage('redirect_uri_illegal')
+      if (!state.description) return noticeMessage('no_description')
+      if (state.description.length < 16 || state.description.length > 128) return noticeMessage('description_length')
     }
-    const notice_message = (message) => {
+    const noticeMessage = (message) => {
       return $message.error({ message: t('information.errors.' + message), showClose: true })
     }
 
