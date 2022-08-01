@@ -44,7 +44,7 @@ export const randomPin = () => {
   while (r < 0.1) {
     r = Math.random();
   }
-  return Math.floor((Math.random() * 1000000)).toString()
+  return Math.floor((r * 1000000)).toString()
 }
 
 export const assetSortCompare = (a, b) => {
