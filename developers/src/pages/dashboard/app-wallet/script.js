@@ -1,4 +1,4 @@
-import { onMounted, reactive, toRefs, inject } from "vue";
+import {onMounted, reactive, toRefs, inject, onActivated} from "vue";
 import { useStorage } from "@vueuse/core";
 import { useI18n } from "vue-i18n";
 import UpdateToken from '@/components/UpdateToken'
@@ -76,6 +76,9 @@ export default {
     }
 
     onMounted(async () => {
+      await fetchAssetList()
+    })
+    onActivated(async () => {
       await fetchAssetList()
     })
 

@@ -1,4 +1,4 @@
-import { computed, ref, reactive, toRefs, onMounted, watch, inject } from "vue";
+import {computed, ref, reactive, toRefs, onMounted, watch, inject, onActivated} from "vue";
 import { useI18n } from "vue-i18n";
 import MInput from './input.vue'
 import Croppie from './croppie.vue'
@@ -19,7 +19,7 @@ export default {
       }
     }
   },
-  emits: ['loading', 'add-new-app'],
+  emits: ['loading', 'add-new-app', 'update-app'],
   setup(props, ctx) {
     const { t } = useI18n()
     const $message = inject('$message')
@@ -142,8 +142,12 @@ export default {
       state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false
       state.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false
     }
+
     onMounted(() => {
       initApp(props.app)
+    })
+    onActivated(() => {
+      ctx.emit('update-app')
     })
     watch(() => props.app, (app) => {
       initApp(app)

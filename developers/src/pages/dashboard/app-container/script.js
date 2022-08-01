@@ -1,16 +1,19 @@
-import {computed, onMounted, reactive, toRefs, watch} from "vue";
+import {computed, defineAsyncComponent, onMounted, reactive, toRefs, watch} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import DHeader from '@/components/DHeader'
 import DModal from '@/components/DModal'
-import AppInformation from "@/pages/dashboard/app-information";
-import AppSecret from "@/pages/dashboard/app-secret";
-import AppWallet from "@/pages/dashboard/app-wallet";
 import { useApp, useClient } from "@/api";
 
 export default {
   name: "app-container",
-  components: { AppInformation, AppSecret, AppWallet, DModal, DHeader },
+  components: {
+    DModal,
+    DHeader,
+    AppInformation: defineAsyncComponent(() => import('../app-information')),
+    AppSecret: defineAsyncComponent(() => import('../app-secret')),
+    AppWallet: defineAsyncComponent(() => import('../app-wallet'))
+  },
   props: ['isMobile', 'appId'],
   emits: ['check-app-credit', 'add-new-app'],
   setup(props, ctx) {
@@ -77,7 +80,7 @@ export default {
     onMounted(async () => {
       await useLoadRouteStatus(route.path)
     })
-    watch(() => props.appId, async (appId) => {
+    watch(() => props.appId, async () => {
       await useFetchApp()
     })
 
@@ -85,6 +88,7 @@ export default {
       t,
       ...toRefs(state),
       currentNav,
+      useFetchApp,
       useClickNewApp,
       useNewAppSubmitted,
       useClickNav,

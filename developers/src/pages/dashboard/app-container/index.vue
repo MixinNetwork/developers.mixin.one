@@ -33,13 +33,16 @@
         </div>
       </header>
       <div class="dashboard-main">
-        <component
-          v-loading="loadingApp"
-          :is="currentNav"
-          :app="appInfo"
-          @add-new-app="useNewAppSubmitted"
-          @loading="useModifyLoading"
-        ></component>
+        <keep-alive>
+          <component
+            v-loading="loadingApp"
+            :is="currentNav"
+            :app="appInfo"
+            @add-new-app="useNewAppSubmitted"
+            @update-app="useFetchApp"
+            @loading="useModifyLoading"
+          ></component>
+        </keep-alive>
       </div>
     </div>
   </div>
