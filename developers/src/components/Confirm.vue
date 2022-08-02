@@ -12,37 +12,37 @@
 </template>
 
 <script>
-import {useI18n} from "vue-i18n";
+import { useI18n } from 'vue-i18n';
 
 export default {
   props: {
     content: {
       type: String,
-      default: ""
+      default: '',
     },
     show: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   emits: ['confirm', 'close-modal'],
   setup(props, ctx) {
-    const { t } = useI18n()
+    const { t } = useI18n();
 
-    const useClickConfirm = ()=> {
-      ctx.emit("confirm");
-      ctx.emit("close-modal");
-    }
+    const useClickConfirm = () => {
+      ctx.emit('confirm');
+      ctx.emit('close-modal');
+    };
     const useClickCancel = () => {
-      ctx.emit("close-modal");
-    }
+      ctx.emit('close-modal');
+    };
 
     return {
       t,
       useClickCancel,
-      useClickConfirm
-    }
-  }
+      useClickConfirm,
+    };
+  },
 };
 </script>
 

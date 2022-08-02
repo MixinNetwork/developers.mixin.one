@@ -1,18 +1,24 @@
-import { v4 as uuid } from 'uuid'
-import { reactive, toRefs, computed, onMounted, onUpdated } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
-import DHeader from '@/components/DHeader'
-import DModal from '@/components/DModal'
-import AppContainer from './app-container'
-import { useAppList, useAppProperty, useUserInfo, useClient } from "@/api";
-import { useCheckMobile, defaultConst, isImmersive } from '@/utils'
+import { v4 as uuid } from 'uuid';
+import {
+  reactive, toRefs, computed, onMounted, onUpdated,
+} from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import DHeader from '@/components/DHeader';
+import DModal from '@/components/DModal';
+import {
+  useAppList, useAppProperty, useUserInfo, useClient,
+} from '@/api';
+import { useCheckMobile, isImmersive } from '@/utils';
+import defaultAppIcon from '@/assets/img/default_robot.png';
+import defaultAvatar from '@/assets/img/default_avatar.png';
+import AppContainer from './app-container';
 
 export default {
   name: 'dashboard-container',
   components: { DModal, DHeader, AppContainer },
   setup() {
-    const { t } = useI18n()
+    const { t } = useI18n();
 
     const state = reactive({
       isMobile: false,
@@ -24,94 +30,97 @@ export default {
       appList: [],
       appsProperty: {},
       currentAppId: '',
-      defaultAppIcon: require('@/assets/img/default_robot.png'),
-      defaultAvatar: require('@/assets/img/default_avatar.png')
-    })
-    const mobileTitlePosition = computed(() => !state.isImmersive? 'left': 'center')
-    const mobileUserPosition = computed(() => !state.isImmersive? 'right': 'left')
+      defaultAppIcon,
+      defaultAvatar,
+    });
+    const mobileTitlePosition = computed(() => (!state.isImmersive ? 'left' : 'center'));
+    const mobileUserPosition = computed(() => (!state.isImmersive ? 'right' : 'left'));
 
-    useCheckMobile(state)
+    useCheckMobile(state);
 
-    const route = useRoute()
-    const router = useRouter()
+    const route = useRoute();
+    const router = useRouter();
     const jump = (uri) => {
-      if (uri === route.path) return
-      if (uri === '/apps/new') state.currentAppId = ''
-      router.push({path: uri})
-    }
+      if (uri === route.path) return;
+      if (uri === '/apps/new') state.currentAppId = '';
+      router.push({ path: uri });
+    };
 
-    const client = useClient()
+    const client = useClient();
     const useFetchAll = async () => {
-      state.loadingAll = true
-      state.appList = await useAppList(client)
-      state.userInfo = await useUserInfo(client)
-      state.loadingAll = false
-      state.appsProperty = await useAppProperty(client)
-    }
+      state.loadingAll = true;
+      state.appList = await useAppList(client);
+      state.userInfo = await useUserInfo(client);
+      state.loadingAll = false;
+      state.appsProperty = await useAppProperty(client);
+    };
     const useFetchAppList = async () => {
-      state.loadingAll = true
-      state.appList = await useAppList(client)
-      state.loadingAll = false
-    }
+      state.loadingAll = true;
+      state.appList = await useAppList(client);
+      state.loadingAll = false;
+    };
     const useAppId = () => {
-      const { app_number } = route.params
-      if (!app_number) return ''
+      const { app_number } = route.params;
+      if (!app_number) return '';
 
-      state.currentAppId = state.appList.find(app => app.app_number === app_number).app_id
-    }
+      return state.appList.find((app) => app.app_number === app_number).app_id;
+    };
     const useHasCredit = () => {
-      let { count } = state.appsProperty
+      const { count } = state.appsProperty;
       return state.appList.length < count;
-    }
+    };
 
     const useClickApp = async (item) => {
-      state.currentAppId = item.app_id
-      jump(`/apps/${item.app_number}`)
-    }
+      state.currentAppId = item.app_id;
+      jump(`/apps/${item.app_number}`);
+    };
     const useClickUser = () => {
-      state.showLogoutModal = !state.showLogoutModal
+      state.showLogoutModal = !state.showLogoutModal;
       if (state.showLogoutModal) {
-        document.onclick = () => state.showLogoutModal = false
+        document.onclick = () => {
+          state.showLogoutModal = false;
+        };
       }
-    }
+    };
     const useClickSignOut = () => {
-      window.localStorage.clear()
-      state.showLogoutModal = false
+      window.localStorage.clear();
+      state.showLogoutModal = false;
       setTimeout(() => {
-        window.location.href = window.location.origin
-      }, 100)
-    }
+        window.location.href = window.location.origin;
+      }, 100);
+    };
     const useClickNewApp = async () => {
-      const hasCredit = useHasCredit()
+      const hasCredit = useHasCredit();
       if (hasCredit) {
-        jump('/apps/new')
+        jump('/apps/new');
       } else {
-        state.showBuyModal = true
+        state.showBuyModal = true;
       }
-    }
+    };
     const useClickBuyApp = async (count) => {
-      state.loadingAll = true
-      const { price } = await useAppProperty(client)
-      state.loadingAll = false
+      state.loadingAll = true;
+      const { price } = await useAppProperty(client);
+      state.loadingAll = false;
 
-      const trace = uuid()
-      const amount = Number(price) * count
-      window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`
-    }
+      const trace = uuid();
+      const amount = Number(price) * count;
+      // eslint-disable-next-line max-len
+      window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`;
+    };
     const useNewAppSubmitted = async (app_number) => {
-      await useFetchAppList()
-      jump(`/apps/${app_number}`)
-    }
+      await useFetchAppList();
+      jump(`/apps/${app_number}`);
+    };
 
     onMounted(async () => {
-      await useFetchAll()
+      await useFetchAll();
 
-      useAppId()
-      if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true
-    })
+      state.currentAppId = useAppId();
+      if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true;
+    });
     onUpdated(() => {
-      state.isImmersive = isImmersive()
-    })
+      state.isImmersive = isImmersive();
+    });
 
     return {
       t,
@@ -124,8 +133,7 @@ export default {
       useClickNewApp,
       useClickBuyApp,
       useNewAppSubmitted,
-      defaultConst,
       route,
-    }
+    };
   },
-}
+};

@@ -11,42 +11,46 @@
       v-if="isCopied"
       @click="useClickCopy"
       src="@/assets/img/ic_copy.png"
+      alt="copy-text-icon"
     />
   </div>
 </template>
 
 <script>
-  import { inject, watch } from "vue";
-  import { useClipboard } from '@vueuse/core'
-  import { useI18n } from 'vue-i18n'
+import { inject, watch } from 'vue';
+import { useClipboard } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 
-  export default {
-    name: "t-input",
-    props: ["value", "label", "disabled", "placeholder", "isCopied"],
-    emits: ['update:value'],
-    setup(props, ctx) {
-      const $message  = inject('$message')
-      const { t } = useI18n()
+export default {
+  name: 't-input',
+  props: ['value', 'label', 'disabled', 'placeholder', 'isCopied'],
+  emits: ['update:value'],
+  setup(props, ctx) {
+    const $message = inject('$message');
+    const { t } = useI18n();
 
-      const change = (event) => {
-        ctx.emit("update:value", event.target.value)
+    const change = (event) => {
+      ctx.emit('update:value', event.target.value);
+    };
+
+    const { copy, copied, isSupported } = useClipboard();
+    const useClickCopy = () => {
+      if (!isSupported) {
+        $message.error({ message: t('message.errors.copy'), showClose: true });
+        return;
       }
+      copy(props.value);
+    };
+    watch(copied, () => {
+      if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
+    });
 
-      const { copy, copied, isSupported } = useClipboard()
-      const useClickCopy = () => {
-        if (!isSupported) return $message.error({ message: t("message.errors.copy"), showClose: true })
-        copy(props.value)
-      }
-      watch(copied, () => {
-        if (copied.value) $message.success({ message: t("message.success.copy"), showClose: true})
-      })
-
-      return {
-        change,
-        useClickCopy
-      }
-    }
-  }
+    return {
+      change,
+      useClickCopy,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

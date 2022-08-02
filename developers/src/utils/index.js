@@ -1,3 +1,3 @@
-export * from './hooks'
-export * from './localStorage'
-export * from './tools'
+export * from './hooks';
+export * from './localStorage';
+export * from './tools';

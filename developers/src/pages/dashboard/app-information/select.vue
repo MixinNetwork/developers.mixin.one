@@ -26,40 +26,40 @@
 </template>
 
 <script>
-import {reactive, toRefs} from "vue";
-  import {useI18n} from "vue-i18n";
+import { reactive, toRefs } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-  export default {
-    props: {
-      value: {
-        type: String,
-        default: ""
-      }
+export default {
+  props: {
+    value: {
+      type: String,
+      default: '',
     },
-    emits: ['update:value'],
-    setup(props, ctx) {
-      const { t, tm } = useI18n()
-      const state = reactive({
-        show_options: false
-      })
+  },
+  emits: ['update:value'],
+  setup(props, ctx) {
+    const { t, tm } = useI18n();
+    const state = reactive({
+      show_options: false,
+    });
 
-      const useToggleOptions = () => {
-        state.show_options = !state.show_options
-        document.onclick = () => (state.show_options = false)
-      }
-      const useClickCategory = (key) => {
-        ctx.emit("update:value", key)
-      }
+    const useToggleOptions = () => {
+      state.show_options = !state.show_options;
+      document.onclick = () => { state.show_options = false; };
+    };
+    const useClickCategory = (key) => {
+      ctx.emit('update:value', key);
+    };
 
-      return {
-        t,
-        tm,
-        ...toRefs(state),
-        useToggleOptions,
-        useClickCategory
-      }
-    }
-  }
+    return {
+      t,
+      tm,
+      ...toRefs(state),
+      useToggleOptions,
+      useClickCategory,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

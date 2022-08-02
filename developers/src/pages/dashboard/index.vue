@@ -115,7 +115,11 @@
 
     <d-modal :show="showBuyModal">
       <div class="edit-modal">
-        <img @click="showBuyModal=false" src="@/assets/img/app-svg/close.svg" alt="close-modal-btn"/>
+        <img
+          @click="showBuyModal=false"
+          src="@/assets/img/app-svg/close.svg"
+          alt="close-modal-btn"
+        />
         <h3 class="edit-modal-title">{{ t('dashboard.buy.title') }}</h3>
         <span>{{ t('dashboard.buy.desc1') }}</span>
         <p>{{ t('dashboard.buy.desc2') }}</p>

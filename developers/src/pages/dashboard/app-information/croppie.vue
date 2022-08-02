@@ -24,68 +24,70 @@
 </template>
 
 <script>
-import {nextTick, reactive, ref, toRefs, watch} from "vue";
-import {useI18n} from "vue-i18n";
+import {
+  nextTick, reactive, ref, toRefs, watch,
+} from 'vue';
+import { useI18n } from 'vue-i18n';
 
 export default {
   props: {
     icon_url: {
       type: String,
-      default: ""
+      default: '',
     },
     toggle_app: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   setup(props, ctx) {
-    const {t} = useI18n()
-    const uploadDom = ref(null)
-    const croppieRef = ref(null)
+    const { t } = useI18n();
+    const uploadDom = ref(null);
+    const croppieRef = ref(null);
 
     const state = reactive({
       size: null,
       tmp_file: null,
-      toggle_view: true
-    })
+      toggle_view: true,
+    });
     const useCroppie = (e) => {
-      const files = e.target.files || e.dataTransfer.files
-      if (!files.length) return
-      state.tmp_file = e
-      const reader = new FileReader()
-      reader.onload = e => {
-        croppieRef.value && croppieRef.value.bind({
-          url: e.target.result
-        })
-      }
-      reader.readAsDataURL(files[0])
-    }
-    const useClick = () => {
-    }
-    const useReset = () => {
-      uploadDom.value.click()
-    }
-
-    const crop = () => {
-      return new Promise(resolve => {
-        if (!state.tmp_file) return resolve(false)
-        let options = {
-          type: "base64",
-          size: {width: 512, height: 512},
-          format: "png"
+      const files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      state.tmp_file = e;
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (croppieRef.value) {
+          croppieRef.value.bind({
+            url: e.target.result,
+          });
         }
-        croppieRef.value.result(options, output => resolve(output))
-      })
-    }
+      };
+      reader.readAsDataURL(files[0]);
+    };
+    const useClick = () => {
+    };
+    const useReset = () => {
+      uploadDom.value.click();
+    };
+
+    const crop = () => new Promise((resolve) => {
+      if (!state.tmp_file) return resolve(false);
+      const options = {
+        type: 'base64',
+        size: { width: 512, height: 512 },
+        format: 'png',
+      };
+      croppieRef.value.result(options, (output) => resolve(output));
+    });
     ctx.expose({
-      crop
-    })
+      crop,
+    });
 
     watch(() => props.toggle_app, () => {
-      state.toggle_view = false
-      nextTick(() => (state.toggle_view = true))
-      state.tmp_file = null
-    })
+      state.toggle_view = false;
+      nextTick(() => { state.toggle_view = true; });
+      state.tmp_file = null;
+    });
 
     return {
       t,
@@ -94,11 +96,11 @@ export default {
       ...toRefs(state),
       useReset,
       useCroppie,
-      useClick
-    }
+      useClick,
+    };
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>

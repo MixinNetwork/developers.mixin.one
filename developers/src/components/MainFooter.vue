@@ -10,7 +10,11 @@
           >
             <a :href="value.href">
               <div>
-                <img :class="key" :src=" require(`@/assets/img/footer/${key}.png`)" alt="social-icon" />
+                <img
+                  :class="key"
+                  :src="require(`@/assets/img/footer/${key}.png`)"
+                  alt="social-icon"
+                />
               </div>
               <span>{{value.name}}</span>
             </a>
@@ -47,41 +51,41 @@
 </template>
 
 <script>
-  import {useI18n} from "vue-i18n";
-  import {onMounted, reactive, toRefs} from "vue";
-  import {ls} from "@/utils";
+import { useI18n } from 'vue-i18n';
+import { onMounted, reactive, toRefs } from 'vue';
+import { ls } from '@/utils';
 
-  export default {
-    name: "Footer",
-    setup() {
-      const { t, tm, locale } = useI18n()
+export default {
+  name: 'Footer',
+  setup() {
+    const { t, tm, locale } = useI18n();
 
-      const state = reactive({
-        lang: "",
-        showLocale: false
-      })
+    const state = reactive({
+      lang: '',
+      showLocale: false,
+    });
 
-      const useClickLocale = (lang) => {
-        ls.set("lang", lang)
-        window.location.reload()
-      }
-      const useToggleLocale = () => {
-        state.showLocale = !state.showLocale
-      }
+    const useClickLocale = (lang) => {
+      ls.set('lang', lang);
+      window.location.reload();
+    };
+    const useToggleLocale = () => {
+      state.showLocale = !state.showLocale;
+    };
 
-      onMounted(() => {
-        state.lang = locale.value
-      })
+    onMounted(() => {
+      state.lang = locale.value;
+    });
 
-      return {
-        t,
-        tm,
-        ...toRefs(state),
-        useClickLocale,
-        useToggleLocale
-      }
-    }
-  }
+    return {
+      t,
+      tm,
+      ...toRefs(state),
+      useClickLocale,
+      useToggleLocale,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

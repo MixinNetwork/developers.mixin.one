@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  name: "app",
+  name: 'app',
   mounted() {
-    window._vm = this
+    window._vm = this;
   },
 };
 </script>

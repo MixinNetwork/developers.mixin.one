@@ -7,12 +7,27 @@
 
     <div @click.stop :class="['search', focusSearch && 'focus']">
       <img class="icon" src="@/assets/img/svg/search.svg" alt="">
-      <input ref="searchInput" type="text" v-model="search" placeholder="Search" @keydown.enter="useSearch" autofocus />
+      <input
+        type="text"
+        placeholder="Search"
+        ref="searchInput"
+        v-model="search"
+        @keydown.enter="useSearch" autofocus />
       <i :class="search ? 'btn-close' : 'none'" @click="search=''" />
     </div>
 
-    <img @click.stop="useToggleSearch" class="search-icon" src="@/assets/img/svg/search_black.svg" alt="black-search-icon">
-    <img @click.stop="useToggleMenus" class="menus-icon" src="@/assets/img/svg/menus.svg" alt="menu-icon" />
+    <img
+      @click.stop="useToggleSearch"
+      class="search-icon"
+      src="@/assets/img/svg/search_black.svg"
+      alt="black-search-icon"
+    />
+    <img
+      @click.stop="useToggleMenus"
+      class="menus-icon"
+      src="@/assets/img/svg/menus.svg"
+      alt="menu-icon"
+    />
     <ul :class="['menus', showMenus ? 'show' : '']">
       <li
         v-for="(item,index) in tm('home.menus')"
@@ -26,64 +41,66 @@
 </template>
 
 <script>
-  import { onMounted, onUnmounted, reactive, toRefs, ref, nextTick } from "vue";
-  import { useRoute } from "vue-router";
-  import { useI18n } from "vue-i18n";
+import {
+  onMounted, onUnmounted, reactive, toRefs, ref, nextTick,
+} from 'vue';
+import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
-  export default {
-    name: "Header",
-    setup() {
-      const { t, tm } = useI18n()
-      const route = useRoute()
+export default {
+  name: 'Header',
+  setup() {
+    const { t, tm } = useI18n();
+    const route = useRoute();
 
-      const state = reactive({
-        showMenus: false,
-        routerList: ["/news", "/cases", "/docs/", "/dashboard"],
-        search: "",
-        focusSearch: false
-      })
+    const state = reactive({
+      showMenus: false,
+      routerList: ['/news', '/cases', '/docs/', '/dashboard'],
+      search: '',
+      focusSearch: false,
+    });
 
-      let searchInput = ref(null)
-      const useToggleMenus = () => {
-        state.showMenus = !state.showMenus
+    const searchInput = ref(null);
+    const useToggleMenus = () => {
+      state.showMenus = !state.showMenus;
+    };
+    const useToggleSearch = () => {
+      state.focusSearch = !state.focusSearch;
+      if (state.focusSearch) {
+        nextTick(() => searchInput.value.focus());
       }
-      const useToggleSearch = () => {
-        state.focusSearch = !state.focusSearch
-        if (state.focusSearch) {
-          nextTick(() => searchInput.value.focus())
-        }
-      }
-      const useCloseSearch = () => {
-        state.focusSearch = false
-      }
-      const useCloseMenus = () => {
-        state.showMenus = false
-      }
-      const useSearch = () => {
-        location.href = '/search?q=' + this.search
-      }
+    };
+    const useCloseSearch = () => {
+      state.focusSearch = false;
+    };
+    const useCloseMenus = () => {
+      state.showMenus = false;
+    };
+    const useSearch = () => {
+      window.location.href = `/search?q=${this.search}`;
+    };
 
-      onMounted(() => {
-        document.addEventListener('click', useCloseSearch)
-        document.addEventListener("click", useCloseMenus)
-      })
-      onUnmounted(() => {
-        document.removeEventListener('click', useCloseSearch)
-        document.removeEventListener("click", useCloseMenus)
-      })
+    onMounted(() => {
+      document.addEventListener('click', useCloseSearch);
+      document.addEventListener('click', useCloseMenus);
+    });
+    onUnmounted(() => {
+      document.removeEventListener('click', useCloseSearch);
+      document.removeEventListener('click', useCloseMenus);
+    });
 
-      return {
-        t,
-        tm,
-        route,
-        searchInput,
-        ...toRefs(state),
-        useToggleMenus,
-        useToggleSearch,
-        useSearch
-      }
-    }
-  }
+    return {
+      t,
+      tm,
+      route,
+      searchInput,
+      ...toRefs(state),
+      useToggleMenus,
+      useToggleSearch,
+      useSearch,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -15,103 +15,117 @@
         <textarea v-model="private_key"></textarea>
       </div>
       <div class="btns">
-        <button @click="useClickSubmit" class="btns-save primary">{{ t('button.save') }}</button>
-        <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
+        <button
+          @click="useClickSubmit"
+          class="btns-save primary"
+        >
+          {{ t('button.save') }}
+        </button>
+        <button
+          @click="useClickCancel"
+          class="btns-cancel primary"
+        >
+          {{ t('button.cancel') }}
+        </button>
       </div>
-      <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+      <img
+        class="iconguanbi"
+        src="@/assets/img/svg/close.svg"
+        alt="close-icon"
+        @click="useClickCancel" />
     </div>
   </d-modal>
 </template>
 
 <script>
-import { inject, reactive, toRefs } from "vue";
-import { useI18n } from "vue-i18n";
-import validator from "validator"
-import Confirm from "./Confirm";
-import DModal from "./DModal"
-import { ls } from "@/utils";
+import { inject, reactive, toRefs } from 'vue';
+import { useI18n } from 'vue-i18n';
+import validator from 'validator';
+import { ls } from '@/utils';
+import Confirm from './Confirm';
+import DModal from './DModal';
 
 export default {
   components: { Confirm, DModal },
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: false,
     },
     app: {
       type: Object,
       default() {
-        return {}
-      }
-    }
+        return {};
+      },
+    },
   },
   emits: ['success', 'close-modal'],
   setup(props, ctx) {
-    const $message = inject('$message')
-    const { t } = useI18n()
+    const $message = inject('$message');
+    const { t } = useI18n();
 
     const state = reactive({
       session_id: '',
       pin_token: '',
       private_key: '',
-    })
+    });
 
     const useCheckToken = () => {
       if (!validator.isUUID(state.session_id, 4)) {
         $message.error({
-          message: t("message.errors.session_id_format"),
-          showClose: true
-        })
-        return false
+          message: t('message.errors.session_id_format'),
+          showClose: true,
+        });
+        return false;
       }
       if (!validator.isBase64(state.pin_token) && Buffer.from(state.pin_token, 'base64').length !== 32) {
         $message.error({
-          message: t("message.errors.pin_token_format"),
-          showClose: true
-        })
-        return false
+          message: t('message.errors.pin_token_format'),
+          showClose: true,
+        });
+        return false;
       }
       if (!validator.isBase64(state.private_key) && Buffer.from(state.private_key, 'base64').length !== 64) {
         $message.error({
-          message: t("message.errors.private_key_format"),
-          showClose: true
-        })
-        return false
+          message: t('message.errors.private_key_format'),
+          showClose: true,
+        });
+        return false;
       }
-      return true
-    }
+      return true;
+    };
     const useSaveToken = () => {
       ls.set(props.app.app_id, {
         user_id: props.app.app_id,
         session_id: state.session_id,
         pin_token: state.pin_token,
-        private_key: state.private_key.replace(/\\r\\n/g, "\r\n")
-      })
-      state.pin_token = ''
-      state.private_key = ''
-      state.session_id = ''
-    }
+        private_key: state.private_key.replace(/\\r\\n/g, '\r\n'),
+      });
+      state.pin_token = '';
+      state.private_key = '';
+      state.session_id = '';
+    };
 
     const useClickSubmit = () => {
-      if (!useCheckToken()) return
-      useSaveToken()
-      ctx.emit("close-modal")
-      ctx.emit("success")
-    }
+      if (!useCheckToken()) return;
+      useSaveToken();
+      ctx.emit('close-modal');
+      ctx.emit('success');
+    };
     const useClickCancel = () => {
-      ctx.emit("close-modal")
-    }
+      ctx.emit('close-modal');
+    };
 
     return {
       t,
       ...toRefs(state),
       useClickSubmit,
-      useClickCancel
-    }
+      useClickCancel,
+    };
   },
   methods: {
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
