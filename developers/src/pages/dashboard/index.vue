@@ -1,7 +1,7 @@
 <template>
   <div v-loading="loadingAll" :class="['development-dashboard', t('language')]">
     <div class="dashboard-container">
-      <nav v-if="!isMobile">
+      <nav>
         <div class="top-logo-title">
           <a href="/" class="home">
             <img src="@/assets/img/logo.svg" alt="mixin-logo"/>
@@ -47,7 +47,7 @@
           </div>
         </div>
       </nav>
-      <div v-else-if="route.name==='dashboard'" class="app-dashboard-container">
+      <div v-if="route.name==='dashboard'" class="app-dashboard-container">
         <d-header>
           <template v-slot:[mobileTitlePosition]>
             {{ t('dashboard.title') }}
@@ -107,7 +107,6 @@
 
       <app-container
         :appId="currentAppId"
-        :isMobile="isMobile"
         @check-app-credit="useClickNewApp"
         @add-new-app="useNewAppSubmitted"
       ></app-container>

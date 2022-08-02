@@ -16,7 +16,7 @@ export default {
     AppSecret: defineAsyncComponent(() => import('../app-secret')),
     AppWallet: defineAsyncComponent(() => import('../app-wallet')),
   },
-  props: ['isMobile', 'appId'],
+  props: ['appId'],
   emits: ['check-app-credit', 'add-new-app'],
   setup(props, ctx) {
     const { t } = useI18n();

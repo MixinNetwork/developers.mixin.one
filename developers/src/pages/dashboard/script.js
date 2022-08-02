@@ -9,7 +9,7 @@ import DModal from '@/components/DModal';
 import {
   useAppList, useAppProperty, useUserInfo, useClient,
 } from '@/api';
-import { useCheckMobile, isImmersive } from '@/utils';
+import { isImmersive } from '@/utils';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';
 import AppContainer from './app-container';
@@ -21,7 +21,6 @@ export default {
     const { t } = useI18n();
 
     const state = reactive({
-      isMobile: false,
       isImmersive: isImmersive(),
       loadingAll: false,
       showLogoutModal: false,
@@ -35,8 +34,6 @@ export default {
     });
     const mobileTitlePosition = computed(() => (!state.isImmersive ? 'left' : 'center'));
     const mobileUserPosition = computed(() => (!state.isImmersive ? 'right' : 'left'));
-
-    useCheckMobile(state);
 
     const route = useRoute();
     const router = useRouter();
