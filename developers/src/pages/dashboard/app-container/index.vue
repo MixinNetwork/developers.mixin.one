@@ -32,16 +32,16 @@
           </template>
         </div>
       </header>
-      <div class="dashboard-main">
+      <div v-loading="loadingApp" class="dashboard-main">
         <keep-alive>
-          <component
-            v-loading="loadingApp"
-            :is="currentNav"
-            :app="appInfo"
-            @add-new-app="useNewAppSubmitted"
-            @update-app="useFetchApp"
-            @loading="useModifyLoading"
-          ></component>
+          <suspense>
+            <component
+              :is="currentNav"
+              :appId="appId"
+              @add-new-app="useNewAppSubmitted"
+              @loading="useModifyLoading"
+            ></component>
+          </suspense>
         </keep-alive>
       </div>
     </div>

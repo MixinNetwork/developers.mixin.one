@@ -12,7 +12,7 @@
         />
         <div class="icon">
           <label>{{t('information.icon')}}</label>
-          <Croppie ref="croppie" :icon_url="icon_url" :toggle_app="toggle_app"></Croppie>
+          <Croppie ref="croppie" :icon_url="app.icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
       <div class="edit-main f">
@@ -29,21 +29,21 @@
             <MInput
               :label="t('information.name')"
               :placeholder="t('information.name_desc')"
-              v-model:value="name"
+              v-model:value="app.name"
               class="item"
             />
-            <CategorySelect class="item" v-model:value="category" />
+            <CategorySelect class="item" v-model:value="app.category" />
           </div>
           <MInput
             :label="t('information.home_url')"
             :placeholder="t('information.home_url_desc')"
-            v-model:value="home_uri"
+            v-model:value="app.home_uri"
             class="item"
           />
           <MInput
             :label="t('information.oauth_url')"
             :placeholder="t('information.oauth_url_desc')"
-            v-model:value="redirect_uri"
+            v-model:value="app.redirect_uri"
             class="item"
           />
         </div>
@@ -53,7 +53,7 @@
       <label>{{t('information.description')}}</label>
       <textarea
         :placeholder="t('information.description_desc')"
-        v-model="description"
+        v-model="app.description"
       ></textarea>
     </div>
     <div class="des">

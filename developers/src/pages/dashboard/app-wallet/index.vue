@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loadingAll" class="container">
+  <div class="container">
     <div class="des" v-if="needUpdate">
       <div>
         <h3>{{t('wallet.update_token_desc')}}</h3>
@@ -29,19 +29,19 @@
       </div>
       <div v-if="assetList.length" class="list-bottom-tips">
         <div>{{ t('wallet.des_1' )}}</div>
-        <div>{{ t('wallet.des_2', {app_number: app.app_number}) }}</div>
+        <div>{{ t('wallet.des_2', {app_number: route.params.app_number}) }}</div>
       </div>
     </div>
 
     <update-token
       :show="showSessionUpdateModal"
-      :app="app"
+      :appId="appId"
       @success="fetchAssetList"
       @close-modal="closeModal"
     />
     <withdrawal-modal
       v-if="showWithdrawalModal"
-      :app_id="app.app_id"
+      :app_id="appId"
       :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"
       @update-list="fetchAssetList"

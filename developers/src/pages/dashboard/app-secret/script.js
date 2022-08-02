@@ -8,6 +8,7 @@ import {
 } from 'vue';
 import { useStorage, useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
+import { useRoute } from 'vue-router';
 import FileSaver from 'file-saver';
 import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
@@ -21,19 +22,14 @@ export default {
     DModal, UpdateToken, Confirm,
   },
   props: {
-    app: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
+    appId: String,
   },
-  setup(props) {
+  emits: ['loading'],
+  setup(props, ctx) {
     const $message = inject('$message');
     const { t } = useI18n();
 
     const state = reactive({
-      loading: false,
       submitting: false,
       confirmContent: '',
       modalTitle: '',
@@ -51,17 +47,17 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
-      state.loading = true;
+      ctx.emit('loading', true);
       state.submitting = true;
 
       try {
-        const res = await userClient.app.updateSecret(props.app.app_id);
+        const res = await userClient.app.updateSecret(props.appId);
         $message.success({ message: t('message.success.reset'), showClose: true });
         state.modalTitle = t('secret.secret_title');
         state.modalContent = res.app_secret;
       } finally {
         state.submitting = false;
-        state.loading = false;
+        ctx.emit('loading', false);
       }
     };
     const useUpdateSession = async () => {
@@ -69,32 +65,33 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
+
       state.submitting = true;
-      state.loading = true;
+      ctx.emit('loading', true);
 
       try {
         const pin = randomPin();
         const { publicKey: session_secret, privateKey } = getED25519KeyPair();
-        const res = await userClient.app.updateSession(props.app.app_id, pin, session_secret);
+        const res = await userClient.app.updateSession(props.appId, pin, session_secret);
         $message.success({ message: t('message.success.reset'), showClose: true });
 
         state.modalTitle = t('secret.session_title');
         state.modalContent = JSON.stringify({
           pin,
-          client_id: props.app.app_id,
+          client_id: props.appId,
           session_id: res.session_id,
           pin_token: res.pin_token_base64,
           private_key: privateKey,
         }, null, ' ');
-        const clientInfo = useStorage(props.app.app_id, {});
+        const clientInfo = useStorage(props.appId, {});
         clientInfo.value = null;
       } finally {
         state.submitting = false;
-        state.loading = false;
+        ctx.emit('loading', false);
       }
     };
     const useRequestQRCode = async (isShow) => {
-      const clientInfo = useStorage(props.app.app_id, {}).value;
+      const clientInfo = useStorage(props.appId, {}).value;
       if (!useCheckKeystore(clientInfo)) {
         state.showUpdateToken = true;
         return;
@@ -107,7 +104,7 @@ export default {
 
       const appClient = useClient(clientInfo);
 
-      state.loading = true;
+      ctx.emit('loading', true);
       state.submitting = true;
       _vm.skipInterceptor = true;
       try {
@@ -127,12 +124,13 @@ export default {
         state.modalContent = res.code_url;
       } finally {
         state.submitting = false;
-        state.loading = false;
+        ctx.emit('loading', false);
         _vm.skipInterceptor = false;
       }
     };
     const useDownloadKeystore = () => {
-      const { app_number } = props.app;
+      const route = useRoute();
+      const { app_number } = route.params;
 
       const blob = new Blob(
         [state.modalContent],

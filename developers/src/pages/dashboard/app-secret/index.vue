@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-loading="loading" class="secret-list f">
+    <div class="secret-list f">
       <div class="item">
         <div class="secret-item">
           <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
@@ -50,7 +50,7 @@
     </d-modal>
     <update-token
       :show="showUpdateToken"
-      :app="app"
+      :appId="appId"
       @success="useRequestQRCode(action==='ShowQRCode')"
       @close-modal="showUpdateToken=false"
     />

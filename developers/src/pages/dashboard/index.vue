@@ -106,7 +106,9 @@
       </div>
 
       <app-container
-        :appList="appList"
+        :isNewApp="isNewApp"
+        :showWelcome="showWelcome"
+        :appId="currenAppId"
         @check-app-credit="useClickNewApp"
         @add-new-app="useNewAppSubmitted"
       ></app-container>

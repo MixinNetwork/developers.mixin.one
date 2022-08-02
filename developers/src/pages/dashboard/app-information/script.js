@@ -3,14 +3,18 @@ import {
   ref,
   reactive,
   toRefs,
-  onMounted,
   watch,
   inject,
-  onActivated,
+  onActivated, nextTick,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
-import { useClient, useCreateApp, useUpdateApp } from '@/api';
+import {
+  useApp,
+  useClient,
+  useCreateApp,
+  useUpdateApp,
+} from '@/api';
 import MInput from './input.vue';
 import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
@@ -21,15 +25,10 @@ export default {
     MInput, Croppie, CategorySelect, Confirm,
   },
   props: {
-    app: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
+    appId: String,
   },
-  emits: ['loading', 'add-new-app', 'update-app'],
-  setup(props, ctx) {
+  emits: ['loading', 'add-new-app'],
+  async setup(props, ctx) {
     const { t } = useI18n();
     const $message = inject('$message');
     const croppie = ref(null);
@@ -38,52 +37,62 @@ export default {
       toggle_app: 0,
       submitting: false,
       showConfirmModal: false,
-      name: '',
-      icon_url: '',
-      category: 'OTHER',
-      home_uri: '',
-      redirect_uri: '',
-      description: '',
+      app: {},
       resource_patterns: '',
       isImmersive: false,
       isEncrypted: false,
       hasEncrypted: false,
     });
 
-    const isValidUrl = (url) => /^http(s)?:\/\//.test(url);
-    const isValidAppName = computed(() => state.name && state.name.length >= 2 && state.name.length <= 64);
-    const isValidHomeUri = computed(() => state.home_uri && isValidUrl(state.home_uri));
-    const isValidRedirectUri = computed(() => state.redirect_uri && isValidUrl(state.redirect_uri));
-    const isValidDescription = computed(() => state.description && state.description.length >= 16 && state.description.length <= 128);
-    const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription);
-
-    const noticeMessage = (message) => $message.error({ message: t(`information.errors.${message}`), showClose: true });
-    // eslint-disable-next-line consistent-return
-    const notice = () => {
-      if (!state.name) return noticeMessage('no_app_name');
-      if (state.name.length < 2 || state.name.length > 64) return noticeMessage('app_name_length');
-      if (!state.home_uri) return noticeMessage('no_home_uri');
-      if (!isValidUrl(state.home_uri)) return noticeMessage('home_uri_illegal');
-      if (!state.redirect_uri) return noticeMessage('no_redirect_uri');
-      if (!isValidUrl(state.redirect_uri)) return noticeMessage('redirect_uri_illegal');
-      if (!state.description) return noticeMessage('no_description');
-      if (state.description.length < 16 || state.description.length > 128) return noticeMessage('description_length');
-    };
-
     const initApp = (app) => {
       state.toggle_app++;
-
-      state.name = app.name;
-      state.icon_url = app.icon_url;
-      state.category = app.category || state.category;
-      state.home_uri = app.home_uri;
-      state.redirect_uri = app.redirect_uri;
-      state.description = app.description;
+      state.app = app;
       state.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : '';
       state.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false;
       state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false;
       state.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
     };
+
+    const client = useClient();
+    const useFetchApp = async (appId) => {
+      appId = appId || props.appId;
+      if (appId) {
+        ctx.emit('loading', true);
+        const app = await useApp(client, appId);
+        ctx.emit('loading', false);
+        return app;
+      }
+      return {};
+    };
+
+    onActivated(async () => {
+      await nextTick(() => {
+        document.documentElement.scrollTop = 0;
+      });
+      const app = await useFetchApp();
+      initApp(app);
+    });
+
+    const isValidUrl = (url) => /^http(s)?:\/\//.test(url);
+    const isValidAppName = computed(() => state.app.name && state.app.name.length >= 2 && state.app.name.length <= 64);
+    const isValidHomeUri = computed(() => state.app.home_uri && isValidUrl(state.app.home_uri));
+    const isValidRedirectUri = computed(() => state.app.redirect_uri && isValidUrl(state.app.redirect_uri));
+    const isValidDescription = computed(() => state.app.description && state.app.description.length >= 16 && state.app.description.length <= 128);
+    const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription);
+
+    const noticeMessage = (message) => $message.error({ message: t(`information.errors.${message}`), showClose: true });
+    // eslint-disable-next-line consistent-return
+    const notice = () => {
+      if (!state.app.name) return noticeMessage('no_app_name');
+      if (state.app.name.length < 2 || state.app.name.length > 64) return noticeMessage('app_name_length');
+      if (!state.app.home_uri) return noticeMessage('no_home_uri');
+      if (!isValidUrl(state.app.home_uri)) return noticeMessage('home_uri_illegal');
+      if (!state.app.redirect_uri) return noticeMessage('no_redirect_uri');
+      if (!isValidUrl(state.app.redirect_uri)) return noticeMessage('redirect_uri_illegal');
+      if (!state.app.description) return noticeMessage('no_description');
+      if (state.app.description.length < 16 || state.app.description.length > 128) return noticeMessage('description_length');
+    };
+
     const submit = async () => {
       const capabilities = ['CONTACT', 'GROUP'];
       if (state.isImmersive) capabilities.push('IMMERSIVE');
@@ -99,11 +108,11 @@ export default {
 
       const params = {
         icon_base64,
-        name: state.name,
-        category: state.category,
-        home_uri: state.home_uri,
-        redirect_uri: state.redirect_uri,
-        description: state.description,
+        name: state.app.name,
+        category: state.app.category,
+        home_uri: state.app.home_uri,
+        redirect_uri: state.app.redirect_uri,
+        description: state.app.description,
         resource_patterns,
         capabilities,
       };
@@ -111,9 +120,8 @@ export default {
       state.submitting = true;
       ctx.emit('loading', true);
       try {
-        const client = useClient();
-        const res = props.app.app_id
-          ? await useUpdateApp(client, props.app.app_id, params)
+        const res = props.appId
+          ? await useUpdateApp(client, props.appId, params)
           : await useCreateApp(client, params);
         if (res && res.type === 'app') {
           $message.success({ message: t('message.success.save'), showClose: true });
@@ -129,7 +137,7 @@ export default {
       state.showConfirmModal = false;
     };
     const useClickEncryption = () => {
-      if (props.app.capabilities.includes('ENCRYPTED')) return;
+      if (state.app.capabilities.includes('ENCRYPTED')) return;
       if (state.isEncrypted) {
         state.isEncrypted = false;
         return;
@@ -153,13 +161,8 @@ export default {
       await submit();
     };
 
-    onMounted(() => {
-      initApp(props.app);
-    });
-    onActivated(() => {
-      ctx.emit('update-app');
-    });
-    watch(() => props.app, (app) => {
+    watch(() => props.appId, async (appId) => {
+      const app = await useFetchApp(appId);
       initApp(app);
     });
 

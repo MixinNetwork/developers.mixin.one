@@ -52,12 +52,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    app: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
+    appId: String,
   },
   emits: ['success', 'close-modal'],
   setup(props, ctx) {
@@ -95,8 +90,8 @@ export default {
       return true;
     };
     const useSaveToken = () => {
-      ls.set(props.app.app_id, {
-        user_id: props.app.app_id,
+      ls.set(props.appId, {
+        user_id: props.appId,
         session_id: state.session_id,
         pin_token: state.pin_token,
         private_key: state.private_key.replace(/\\r\\n/g, '\r\n'),

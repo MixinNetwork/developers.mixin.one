@@ -3,8 +3,8 @@ import {
   reactive,
   toRefs,
   computed,
-  onMounted,
   onUpdated,
+  watch,
 } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -24,11 +24,14 @@ import AppContainer from './app-container';
 export default {
   name: 'dashboard-container',
   components: { DModal, DHeader, AppContainer },
-  setup() {
+  async setup() {
     const { t } = useI18n();
 
     const state = reactive({
       isImmersive: isImmersive(),
+      showWelcome: true,
+      isNewApp: false,
+      currenAppId: '',
       loadingAll: false,
       showLogoutModal: false,
       showBuyModal: false,
@@ -40,6 +43,10 @@ export default {
     });
     const mobileTitlePosition = computed(() => (!state.isImmersive ? 'left' : 'center'));
     const mobileUserPosition = computed(() => (!state.isImmersive ? 'right' : 'left'));
+
+    onUpdated(() => {
+      state.isImmersive = isImmersive();
+    });
 
     const route = useRoute();
     const router = useRouter();
@@ -107,14 +114,31 @@ export default {
       jump(`/apps/${app_number}`);
     };
 
-    onMounted(async () => {
-      await useFetchAll();
+    const useLoadRouteStatus = (val) => {
+      switch (val) {
+        case '/dashboard':
+          state.showWelcome = true;
+          state.isNewApp = false;
+          state.currenAppId = '';
+          break;
+        case '/apps/new':
+          state.showWelcome = false;
+          state.isNewApp = true;
+          state.currenAppId = '';
+          break;
+        default:
+          state.showWelcome = false;
+          state.isNewApp = false;
+          state.currenAppId = state.appList.find((app) => app.app_number === route.params.app_number).app_id;
+          break;
+      }
+    };
+    watch(() => route.path, async (name) => {
+      await useLoadRouteStatus(name);
+    });
 
-      if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true;
-    });
-    onUpdated(() => {
-      state.isImmersive = isImmersive();
-    });
+    await useFetchAll();
+    useLoadRouteStatus(route.path);
 
     return {
       ...toRefs(state),
