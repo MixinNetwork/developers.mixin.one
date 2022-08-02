@@ -128,8 +128,9 @@ export default {
         _vm.skipInterceptor = false;
       }
     };
+
+    const route = useRoute();
     const useDownloadKeystore = () => {
-      const route = useRoute();
       const { app_number } = route.params;
 
       const blob = new Blob(
