@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-center-and-nav">
+  <div v-loading="loadingApp" class="dashboard-center-and-nav">
     <div v-if="showWelcome" class="welcome">
       <img src="@/assets/img/svg/robot.svg" alt="robot-icon"/>
       <h1>{{ t('dashboard.welcome') }}</h1>
@@ -32,7 +32,7 @@
           </template>
         </div>
       </header>
-      <div v-loading="loadingApp" class="dashboard-main">
+      <div class="dashboard-main">
         <keep-alive>
           <suspense>
             <component

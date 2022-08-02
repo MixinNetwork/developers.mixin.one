@@ -66,9 +66,6 @@ export default {
     };
 
     onActivated(async () => {
-      await nextTick(() => {
-        document.documentElement.scrollTop = 0;
-      });
       const app = await useFetchApp();
       initApp(app);
     });
