@@ -8215,9 +8215,9 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vue-croppie@https://github.com/hundredark/vue-croppie#2.0.3":
-  version "2.0.3"
-  resolved "https://github.com/hundredark/vue-croppie#f646229901b55458b2f3297f4d9b900f4081ba57"
+"vue-croppie@https://github.com/hundredark/vue-croppie#2.0.4":
+  version "2.0.4"
+  resolved "https://github.com/hundredark/vue-croppie#c882ac92645420282365d48da8a6766bd18298b9"
   dependencies:
     croppie "^2.6.4"
 

@@ -23,7 +23,7 @@
                 v-for="(item, index) in appList"
                 :key="index"
                 @click="useClickApp(item)"
-                :class="['app-item', currentAppId === item.app_id ? 'app-item-active': '']"
+                :class="['app-item', route.params.app_number === item.app_number ? 'app-item-active': '']"
               >
                 <img :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
                 <span>{{ item.name }}</span>
@@ -106,7 +106,7 @@
       </div>
 
       <app-container
-        :appId="currentAppId"
+        :appList="appList"
         @check-app-credit="useClickNewApp"
         @add-new-app="useNewAppSubmitted"
       ></app-container>

@@ -1,5 +1,10 @@
 import {
-  computed, defineAsyncComponent, onMounted, reactive, toRefs, watch,
+  computed,
+  defineAsyncComponent,
+  onMounted,
+  reactive,
+  toRefs,
+  watch,
 } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -16,7 +21,7 @@ export default {
     AppSecret: defineAsyncComponent(() => import('../app-secret')),
     AppWallet: defineAsyncComponent(() => import('../app-wallet')),
   },
-  props: ['appId'],
+  props: ['appList'],
   emits: ['check-app-credit', 'add-new-app'],
   setup(props, ctx) {
     const { t } = useI18n();
@@ -31,17 +36,19 @@ export default {
     });
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
+    const route = useRoute();
     const client = useClient();
     const useFetchApp = async () => {
-      if (props.appId) {
+      const { app_number } = route.params;
+      if (app_number && props.appList.length) {
         state.loadingApp = true;
         state.currentNavIndex = 0;
-        state.appInfo = await useApp(client, props.appId);
+        const appId = props.appList.find((app) => app.app_number === app_number).app_id;
+        state.appInfo = await useApp(client, appId);
         state.loadingApp = false;
       }
     };
 
-    const route = useRoute();
     const router = useRouter();
     const backward = () => {
       router.back();
@@ -81,9 +88,6 @@ export default {
 
     onMounted(async () => {
       await useLoadRouteStatus(route.path);
-    });
-    watch(() => props.appId, async () => {
-      await useFetchApp();
     });
 
     return {

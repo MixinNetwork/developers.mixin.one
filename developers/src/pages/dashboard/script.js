@@ -1,13 +1,20 @@
 import { v4 as uuid } from 'uuid';
 import {
-  reactive, toRefs, computed, onMounted, onUpdated,
+  reactive,
+  toRefs,
+  computed,
+  onMounted,
+  onUpdated,
 } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 import DModal from '@/components/DModal';
 import {
-  useAppList, useAppProperty, useUserInfo, useClient,
+  useAppList,
+  useAppProperty,
+  useUserInfo,
+  useClient,
 } from '@/api';
 import { isImmersive } from '@/utils';
 import defaultAppIcon from '@/assets/img/default_robot.png';
@@ -28,7 +35,6 @@ export default {
       userInfo: {},
       appList: [],
       appsProperty: {},
-      currentAppId: '',
       defaultAppIcon,
       defaultAvatar,
     });
@@ -39,7 +45,6 @@ export default {
     const router = useRouter();
     const jump = (uri) => {
       if (uri === route.path) return;
-      if (uri === '/apps/new') state.currentAppId = '';
       router.push({ path: uri });
     };
 
@@ -56,19 +61,12 @@ export default {
       state.appList = await useAppList(client);
       state.loadingAll = false;
     };
-    const useAppId = () => {
-      const { app_number } = route.params;
-      if (!app_number) return '';
-
-      return state.appList.find((app) => app.app_number === app_number).app_id;
-    };
     const useHasCredit = () => {
       const { count } = state.appsProperty;
       return state.appList.length < count;
     };
 
     const useClickApp = async (item) => {
-      state.currentAppId = item.app_id;
       jump(`/apps/${item.app_number}`);
     };
     const useClickUser = () => {
@@ -112,12 +110,12 @@ export default {
     onMounted(async () => {
       await useFetchAll();
 
-      state.currentAppId = useAppId();
       if (route.name === 'new_app' && !useHasCredit()) state.showBuyModal = true;
     });
     onUpdated(() => {
       state.isImmersive = isImmersive();
     });
+
 
     return {
       t,
