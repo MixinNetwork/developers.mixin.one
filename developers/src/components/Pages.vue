@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { reactive, computed, toRefs } from 'vue';
+
 export default {
   name: 'Pages',
   props: {
@@ -59,22 +61,22 @@ export default {
       default: 1,
     },
   },
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       page: '',
-    };
-  },
-  computed: {
-    pages() {
-      return Math.ceil(this.allPage / this.split);
-    },
-  },
-  methods: {
-    changePage(page) {
+    });
+    const pages = computed(() => Math.ceil(this.allPage / this.split));
+    const changePage = (page) => {
       if (page >= 1 && page <= this.pages) {
         this.$emit('page', page);
       }
-    },
+    };
+
+    return {
+      ...toRefs(state),
+      pages,
+      changePage,
+    };
   },
 };
 </script>

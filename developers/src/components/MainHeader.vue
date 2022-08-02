@@ -42,7 +42,12 @@
 
 <script>
 import {
-  onMounted, onUnmounted, reactive, toRefs, ref, nextTick,
+  onMounted,
+  onUnmounted,
+  reactive,
+  toRefs,
+  ref,
+  nextTick,
 } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';

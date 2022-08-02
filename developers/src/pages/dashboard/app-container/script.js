@@ -91,7 +91,6 @@ export default {
     });
 
     return {
-      t,
       ...toRefs(state),
       currentNav,
       useFetchApp,
@@ -100,6 +99,7 @@ export default {
       useClickNav,
       useModifyLoading,
       backward,
+      t,
     };
   },
 };

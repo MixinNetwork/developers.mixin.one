@@ -25,7 +25,11 @@
 
 <script>
 import {
-  nextTick, reactive, ref, toRefs, watch,
+  nextTick,
+  reactive,
+  ref,
+  toRefs,
+  watch,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -91,13 +95,13 @@ export default {
     });
 
     return {
-      t,
       uploadDom,
       croppieRef,
       ...toRefs(state),
       useReset,
       useCroppie,
       useClick,
+      t,
     };
   },
   methods: {},

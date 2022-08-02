@@ -1,6 +1,10 @@
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
 import {
-  toRefs, reactive, inject, watch, onActivated,
+  toRefs,
+  reactive,
+  inject,
+  watch,
+  onActivated,
 } from 'vue';
 import { useStorage, useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
@@ -40,7 +44,7 @@ export default {
 
     const tokenInfo = useStorage('token', {});
     const userClient = useClient(tokenInfo.value);
-    const checkKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
+    const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {
       if (state.submitting) {
@@ -89,7 +93,13 @@ export default {
         state.loading = false;
       }
     };
-    const useRequestQRCode = async (is_show, clientInfo) => {
+    const useRequestQRCode = async (isShow) => {
+      const clientInfo = useStorage(props.app.app_id, {}).value;
+      if (!useCheckKeystore(clientInfo)) {
+        state.showUpdateToken = true;
+        return;
+      }
+
       if (state.submitting) {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
@@ -101,7 +111,7 @@ export default {
       state.submitting = true;
       _vm.skipInterceptor = true;
       try {
-        const res = is_show ? await appClient.user.profile() : await appClient.user.rotateCode();
+        const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
 
         if (!res) {
           clientInfo.value = null;
@@ -109,7 +119,7 @@ export default {
           return;
         }
         if (!res.code_url) {
-          if (is_show) await useRequestQRCode(false, clientInfo);
+          if (isShow) await useRequestQRCode(false);
           return;
         }
 
@@ -131,49 +141,42 @@ export default {
       FileSaver.saveAs(blob, `keystore-${app_number}.json`);
     };
 
-    const reducer = async (type) => {
-      const clientInfo = useStorage(props.app.app_id, {}).value;
-      if (!type) type = state.action;
-
+    const useDoubleCheck = async (type) => {
       switch (type) {
-        case 'showQRCode':
-          if (!checkKeystore(clientInfo)) {
-            state.showUpdateToken = true;
-            return;
-          }
-          await useRequestQRCode(true, clientInfo);
+        case 'ShowQRCode':
+          state.action = 'ShowQRCode';
+          await useRequestQRCode(true);
           break;
-        case 'openQRCodeRotateConfirm':
+        case 'RotateQRCode':
           state.confirmContent = t('secret.rotate_qrcode_question');
-          state.action = 'rotateQRCode';
+          state.action = 'RotateQRCode';
           break;
-        case 'openNewSecretConfirm':
+        case 'UpdateSecret':
           state.confirmContent = t('secret.secret_question');
-          state.action = 'updateSecret';
+          state.action = 'UpdateSecret';
           break;
-        case 'openNewSessionConfirm':
+        case 'UpdateSession':
           state.confirmContent = t('secret.session_question');
-          state.action = 'updateSession';
-          break;
-        case 'rotateQRCode':
-          if (!checkKeystore(clientInfo)) {
-            state.showUpdateToken = true;
-            return;
-          }
-          await useRequestQRCode(false, clientInfo);
-          break;
-        case 'updateSecret':
-          await useUpdateSecret();
-          break;
-        case 'updateSession':
-          await useUpdateSession();
+          state.action = 'UpdateSession';
           break;
         default:
           break;
       }
     };
-    const dispatch = async (type) => {
-      await reducer(type);
+    const useConfirm = async () => {
+      switch (state.action) {
+        case 'RotateQRCode':
+          await useRequestQRCode(false);
+          break;
+        case 'UpdateSecret':
+          await useUpdateSecret();
+          break;
+        case 'UpdateSession':
+          await useUpdateSession();
+          break;
+        default:
+          break;
+      }
     };
 
     const useInitStatus = () => {
@@ -186,8 +189,6 @@ export default {
       useInitStatus();
     };
     const useCloseConfirmModal = () => {
-      state.modalTitle = '';
-      state.modalContent = '';
       state.confirmContent = '';
     };
 
@@ -208,13 +209,15 @@ export default {
     });
 
     return {
-      t,
       ...toRefs(state),
-      dispatch,
+      useRequestQRCode,
+      useDoubleCheck,
+      useConfirm,
       useDownloadKeystore,
       useCloseModal,
       useCloseConfirmModal,
       useClickCopy,
+      t,
     };
   },
 };

@@ -52,11 +52,11 @@ export default {
     };
 
     return {
-      t,
-      tm,
       ...toRefs(state),
       useToggleOptions,
       useClickCategory,
+      t,
+      tm,
     };
   },
 };

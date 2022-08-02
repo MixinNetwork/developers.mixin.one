@@ -1,5 +1,12 @@
 import {
-  computed, ref, reactive, toRefs, onMounted, watch, inject, onActivated,
+  computed,
+  ref,
+  reactive,
+  toRefs,
+  onMounted,
+  watch,
+  inject,
+  onActivated,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
@@ -31,7 +38,6 @@ export default {
       toggle_app: 0,
       submitting: false,
       showConfirmModal: false,
-
       name: '',
       icon_url: '',
       category: 'OTHER',
@@ -158,7 +164,6 @@ export default {
     });
 
     return {
-      t,
       croppie,
       ...toRefs(state),
       allowSubmit,
@@ -166,6 +171,7 @@ export default {
       useConfirmEncryption,
       useClickSubmit,
       closeModal,
+      t,
     };
   },
 

@@ -116,9 +116,7 @@ export default {
       state.isImmersive = isImmersive();
     });
 
-
     return {
-      t,
       ...toRefs(state),
       mobileTitlePosition,
       mobileUserPosition,
@@ -128,6 +126,7 @@ export default {
       useClickNewApp,
       useClickBuyApp,
       useNewAppSubmitted,
+      t,
       route,
     };
   },

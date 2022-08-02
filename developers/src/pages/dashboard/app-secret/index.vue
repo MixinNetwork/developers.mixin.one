@@ -6,7 +6,7 @@
           <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
           <span>{{t('secret.secret_title')}}</span>
           <p>{{t('secret.secret_content')}}</p>
-          <button @click="dispatch('openNewSecretConfirm')" class="primary">{{t('secret.secret_btn')}}</button>
+          <button @click="useDoubleCheck('UpdateSecret')" class="primary">{{t('secret.secret_btn')}}</button>
         </div>
       </div>
       <div class="item">
@@ -15,7 +15,7 @@
           <span>{{t('secret.session_title')}}</span>
           <p>{{t('secret.session_content')}}</p>
           <div class="secrets">
-            <button @click="dispatch('openNewSessionConfirm')" class="primary">{{t('secret.session_ed25519_btn')}}</button>
+            <button @click="useDoubleCheck('UpdateSession')" class="primary">{{t('secret.session_ed25519_btn')}}</button>
           </div>
         </div>
       </div>
@@ -25,8 +25,8 @@
           <span>{{t('secret.qrcode_title')}}</span>
           <p>{{t('secret.qrcode_content')}}</p>
           <div class="qrcode-btns">
-            <button @click="dispatch('showQRCode')" class="primary">{{t('secret.qrcode_btn1')}}</button>
-            <button @click="dispatch('openQRCodeRotateConfirm')" class="primary">{{t('secret.qrcode_btn2')}}</button>
+            <button @click="useDoubleCheck('ShowQRCode')" class="primary">{{t('secret.qrcode_btn1')}}</button>
+            <button @click="useDoubleCheck('RotateQRCode')" class="primary">{{t('secret.qrcode_btn2')}}</button>
           </div>
         </div>
       </div>
@@ -35,10 +35,10 @@
     <d-modal :show="!!modalContent">
       <div class="new-secret-modal">
         <h3>{{modalTitle}}</h3>
-        <span :class="action==='updateSession' && 'session'">{{modalContent}}</span>
+        <span :class="action==='UpdateSession' && 'session'">{{modalContent}}</span>
         <div class="btns">
-          <button v-if="action==='updateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
-          <button v-if="action==='updateSession'" @click="useDownloadKeystore" class="btn-close primary">{{t('button.download')}}</button>
+          <button v-if="action==='UpdateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
+          <button v-if="action==='UpdateSession'" @click="useDownloadKeystore" class="btn-close primary">{{t('button.download')}}</button>
           <button
             @click="useClickCopy"
             class="btn-copy primary"
@@ -51,13 +51,13 @@
     <update-token
       :show="showUpdateToken"
       :app="app"
-      @success="dispatch('rotateQRCode')"
+      @success="useRequestQRCode(action==='ShowQRCode')"
       @close-modal="showUpdateToken=false"
     />
     <confirm
       :content="confirmContent"
       :show="!!confirmContent"
-      @confirm="dispatch"
+      @confirm="useConfirm"
       @close-modal="useCloseConfirmModal"
     />
   </div>
