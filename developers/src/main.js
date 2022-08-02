@@ -1,6 +1,10 @@
 import { createApp } from 'vue';
 import {
-  ElMessage, ElLoading, ElMenu, ElSubMenu, ElMenuItem,
+  ElMessage,
+  ElLoading,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItem,
 } from 'element-plus';
 import VueCroppie from 'vue-croppie';
 
@@ -8,7 +12,6 @@ import App from '@/App.vue';
 import router from '@/router';
 import i18n from '@/i18n';
 
-import 'croppie/croppie.css';
 import '@/assets/font/dashboard.css';
 import '@/assets/font/home.css';
 

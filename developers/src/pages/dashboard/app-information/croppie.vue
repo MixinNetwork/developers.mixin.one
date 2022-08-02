@@ -55,7 +55,8 @@ export default {
       if (!files.length) return;
       state.tmp_file = e;
       const reader = new FileReader();
-      reader.onload = () => {
+      // eslint-disable-next-line no-shadow
+      reader.onload = (e) => {
         if (croppieRef.value) {
           croppieRef.value.bind({
             url: e.target.result,
@@ -71,7 +72,7 @@ export default {
     };
 
     const crop = () => new Promise((resolve) => {
-      if (!state.tmp_file) return resolve(false);
+      if (!state.tmp_file) resolve(false);
       const options = {
         type: 'base64',
         size: { width: 512, height: 512 },
