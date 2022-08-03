@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="modal-mask">
+  <d-modal :show="show">
     <div class="confirm-content">
       <img @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
       <h3>{{content}}</h3>
@@ -8,11 +8,12 @@
         <button @click="useClickConfirm">{{t('button.ok')}}</button>
       </div>
     </div>
-  </div>
+  </d-modal>
 </template>
 
 <script>
 import { useI18n } from 'vue-i18n';
+import DModal from './DModal';
 
 export default {
   props: {
@@ -25,6 +26,7 @@ export default {
       default: false,
     },
   },
+  components: { DModal },
   emits: ['confirm', 'close-modal'],
   setup(props, ctx) {
     const { t } = useI18n();
@@ -47,24 +49,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.34);
-  z-index: 1000;
-}
-
 .confirm-content {
   padding: 3.125rem 2rem;
   width: 26.125rem;
   background-color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 4px;
 }
 

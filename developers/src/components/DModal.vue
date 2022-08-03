@@ -1,6 +1,6 @@
 <template>
-  <teleport to="body">
-    <div v-show="show" class="app-modal">
+  <teleport to="body #modal">
+    <div v-if="show" class="app-modal">
       <div class="modal-mask">
         <transition name="fade-up">
           <div v-if="show" class="modal-main" v-loading="loading">

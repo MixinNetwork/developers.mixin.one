@@ -2,9 +2,9 @@
   <div class="container">
     <div class="des" v-if="needUpdate">
       <div>
-        <h3>{{t('wallet.update_token_desc')}}</h3>
-        <button class="primary" @click="showSessionUpdateModal = true">{{t('wallet.update')}}</button>
-        <span @click="showSessionUpdateModal = true">{{t('wallet.update_token')}}</span>
+        <h3>{{ t('wallet.update_token_desc') }}</h3>
+        <button class="primary" @click="showSessionUpdateModal = true">{{ t('wallet.update') }}</button>
+        <span @click="showSessionUpdateModal = true">{{ t('wallet.update_token') }}</span>
         <img src="@/assets/img/app-svg/right.svg" alt="update-wallet-token-logo"/>
       </div>
     </div>
@@ -17,18 +17,18 @@
       >
         <img :src="item.icon_url" alt="asset-logo"/>
         <div>
-          <span class="num">{{item.balance}}</span>
-          <span class="symbol">{{item.symbol}}</span>
+          <span class="num">{{ item.balance }}</span>
+          <span class="symbol">{{ item.symbol }}</span>
         </div>
         <button
           v-if="item.icon_url"
           @click="useClickWithdrawal(item)"
           class="withdrawal primary"
-        >{{t('button.withdrawal')}}
+        >{{ t('button.withdrawal') }}
         </button>
       </div>
       <div v-if="assetList.length" class="list-bottom-tips">
-        <div>{{ t('wallet.des_1' )}}</div>
+        <div>{{ t('wallet.des_1') }}</div>
         <div>{{ t('wallet.des_2', {app_number: route.params.app_number}) }}</div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       @close-modal="closeModal"
     />
     <withdrawal-modal
-      v-if="showWithdrawalModal"
+      :show="showWithdrawalModal"
       :app_id="appId"
       :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"
@@ -52,5 +52,5 @@
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
 <style lang='scss' scoped>
-  @import "./style.scss";
+@import "./style.scss";
 </style>
