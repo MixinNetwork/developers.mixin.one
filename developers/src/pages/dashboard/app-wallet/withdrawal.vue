@@ -133,6 +133,11 @@ export default {
     const clientInfo = useStorage(props.app_id, {});
     const client = useClient(clientInfo.value);
 
+    const useClearForm = () => {
+      state.form.pin = '';
+      state.form.amount = '';
+      state.form.opponent_id = '';
+    };
     const useFetchOpponentId = async () => {
       const { opponent_id } = state.form;
       const is_uuid = validate(opponent_id);
@@ -201,6 +206,8 @@ export default {
           message: t('message.success.withdrawal'),
           showClose: true,
         });
+        useClearForm();
+
         if (state.form.opponent_id.startsWith('XIN')) {
           ctx.emit('update-list');
           state.showSnapshot = true;

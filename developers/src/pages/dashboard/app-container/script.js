@@ -50,7 +50,6 @@ export default {
       state.loadingApp = isLoading;
     };
     const useSetAppName = (name) => {
-      console.log(name)
       state.name = name;
     };
 
