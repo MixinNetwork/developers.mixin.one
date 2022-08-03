@@ -1,3 +1,5 @@
+import en from '@/i18n/en';
+
 const responseCallback = (err) => {
   const { code, description, message } = err;
 
@@ -10,7 +12,11 @@ const responseCallback = (err) => {
     const max_app_numbers = description.replace(/\D/g, '');
     _vm.$message.error({ showClose: true, duration: 2000, message: `${_vm.$t(`message.errors.${code}`, { count: max_app_numbers })}(${code})` });
   } else {
-    _vm.$message.error({ showClose: true, duration: 2000, message: `${_vm.$t(`message.errors.${code}`)}(${code})` });
+    let key = 'unknown';
+    if (en.message.errors[code]) {
+      key = String(code);
+    }
+    _vm.$message.error({ showClose: true, duration: 2000, message: `${_vm.$t(`message.errors.${key}`)}(${code})` });
   }
 
   if (!_vm.skipInterceptor && code === 401) {

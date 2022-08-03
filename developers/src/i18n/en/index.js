@@ -612,6 +612,7 @@ export default {
       copy: 'Copy error',
       reset: 'Resetting, please wait...',
       overtime: 'Request failed, please check the network...',
+      unknown: 'Unknown error...',
     },
     app: {
       secret_tips: 'Please generate from your computer, thank you',
