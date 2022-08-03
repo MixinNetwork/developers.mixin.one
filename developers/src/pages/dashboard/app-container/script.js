@@ -28,7 +28,7 @@ export default {
       loadingApp: false,
       currentNavIndex: 0,
       navList: ['information', 'wallet', 'secret'],
-      appInfo: {},
+      name: 'Mixin App',
     });
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
@@ -49,6 +49,10 @@ export default {
     const useModifyLoading = (isLoading) => {
       state.loadingApp = isLoading;
     };
+    const useSetAppName = (name) => {
+      console.log(name)
+      state.name = name;
+    };
 
     const route = useRoute();
     watch(() => route.path, () => {
@@ -58,6 +62,7 @@ export default {
     return {
       ...toRefs(state),
       currentNav,
+      useSetAppName,
       useClickNewApp,
       useNewAppSubmitted,
       useClickNav,

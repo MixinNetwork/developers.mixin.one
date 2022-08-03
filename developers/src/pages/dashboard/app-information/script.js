@@ -27,7 +27,7 @@ export default {
   props: {
     appId: String,
   },
-  emits: ['loading', 'add-new-app'],
+  emits: ['loading', 'add-new-app', 'set-app-name'],
   async setup(props, ctx) {
     const { t } = useI18n();
     const $message = inject('$message');
@@ -59,6 +59,7 @@ export default {
       if (appId) {
         ctx.emit('loading', true);
         const app = await useApp(client, appId);
+        ctx.emit('set-app-name', app.name);
         ctx.emit('loading', false);
         return app;
       }

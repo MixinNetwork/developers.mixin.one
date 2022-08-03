@@ -14,7 +14,7 @@
           </div>
         </template>
         <template #center>
-          <div>{{ appInfo.name || t('dashboard.new_app') }}</div>
+          <div>{{ name || t('dashboard.new_app') }}</div>
         </template>
       </d-header>
       <header>
@@ -40,6 +40,7 @@
               :appId="appId"
               @add-new-app="useNewAppSubmitted"
               @loading="useModifyLoading"
+              @set-app-name="useSetAppName"
             ></component>
           </suspense>
         </keep-alive>
