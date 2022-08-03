@@ -48,10 +48,14 @@
       </div>
       <div v-else class="main snap-main">
         <d-header class="header">
-          <div class="header-back" @click="useClickBack" slot="left">
-            <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
-          </div>
-          <div slot="center">{{ t('wallet.snapshot_info') }}</div>
+          <template #left>
+            <div class="header-back" @click="useClickBack">
+              <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
+            </div>
+          </template>
+          <template #center>
+            <div>{{ t('wallet.snapshot_info') }}</div>
+          </template>
         </d-header>
         <div class="content snapshot">
           <h3>{{ t('wallet.snapshot_info') }}</h3>
