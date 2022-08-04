@@ -183,9 +183,8 @@ label {
     margin-top: -0.5rem;
 
     .intro {
-      color: #b8bdc7;
+      color: #E04B4B;
       font-size: 0.88rem;
-      //font-weight: 500;
     }
   }
 }
