@@ -536,9 +536,9 @@ export default {
     amount: 'Amount',
     mixin_id_placeholder: '',
     pin: '',
-    update_token_desc: 'Update token to access your assets',
+    update_token_desc: 'Use App Secret to access your assets',
     update: 'Update',
-    update_token: 'Update Token',
+    update_token: 'App Secret',
     private_key: 'Private Key',
     snapshot_info: 'Snapshot',
     snapshot: {
