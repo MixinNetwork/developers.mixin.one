@@ -539,6 +539,7 @@ export default {
     update_token_desc: 'Use App Secret to access your assets',
     update: 'Update',
     update_token: 'App Secret',
+    secret_intro: 'For signature only, would not be sent to any server',
     private_key: 'Private Key',
     snapshot_info: 'Snapshot',
     snapshot: {

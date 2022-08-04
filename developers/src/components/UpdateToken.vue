@@ -14,6 +14,10 @@
         <label>Private Key</label>
         <textarea v-model="private_key"></textarea>
       </div>
+      <div class="edit-item intro-container">
+        <label></label>
+        <div class="intro">{{ t('wallet.secret_intro') }}</div>
+      </div>
       <div class="btns">
         <button
           @click="useClickSubmit"
@@ -174,6 +178,16 @@ label {
     height: 5.125rem;
     background: #f6f9ff;
   }
+
+  &.intro-container {
+    margin-top: -0.5rem;
+
+    .intro {
+      color: #b8bdc7;
+      font-size: 0.88rem;
+      //font-weight: 500;
+    }
+  }
 }
 
 .iconguanbi {
@@ -243,6 +257,13 @@ label {
         textarea {
           width: 100%;
           height: 3.125rem;
+        }
+      }
+
+      .intro-container {
+
+        label {
+          display: none;
         }
       }
 
