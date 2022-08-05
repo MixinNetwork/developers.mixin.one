@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="secret-list f">
+    <div class="secret-list flex">
       <div class="item">
         <div class="secret-item">
           <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>

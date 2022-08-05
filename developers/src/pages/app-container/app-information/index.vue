@@ -1,7 +1,7 @@
 <template>
-  <div class="content f f-column">
+  <div class="content flex f-column">
     <div class="top">
-      <div class="meta f">
+      <div class="meta flex">
         <MInput
           v-if="app.app_id"
           label="Mixin ID"
@@ -15,8 +15,8 @@
           <Croppie ref="croppie" :icon_url="app.icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
-      <div class="edit-main f">
-        <div class="edit-list f f-column">
+      <div class="edit-main flex">
+        <div class="edit-list flex f-column">
           <MInput
             v-if="app.app_id"
             :label="t('information.app_id')"
@@ -63,7 +63,7 @@
         v-model="resource_patterns"
       />
     </div>
-    <div class="f">
+    <div class="flex">
       <div @click="isImmersive=!isImmersive" class="des immersive">
         <i v-if="!isImmersive" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
