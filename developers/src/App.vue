@@ -18,12 +18,6 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/theme.scss";
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .views {
   position: absolute;
   width: 100%;
