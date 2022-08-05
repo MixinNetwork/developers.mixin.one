@@ -128,9 +128,9 @@ const mobileUserPosition = computed(() => (!isImmersive.value ? 'right' : 'left'
 
 const route = useRoute();
 const router = useRouter();
-const useTo = (uri, toApp = false) => {
+const useToApp = (uri) => {
   if (uri === route.path) return;
-  router.push({ path: uri, hash: toApp ? '#information' : '' });
+  router.push({ path: uri, hash: '#information' });
 };
 
 const useClickNewApp = async () => {
@@ -138,7 +138,7 @@ const useClickNewApp = async () => {
 };
 const useClickApp = async (item) => {
   emit('set-current-app', item.app_id);
-  useTo(`/apps/${item.app_number}`, true);
+  useToApp(`/apps/${item.app_number}`);
 };
 const useClickUser = () => {
   showLogoutModal.value = !showLogoutModal.value;
