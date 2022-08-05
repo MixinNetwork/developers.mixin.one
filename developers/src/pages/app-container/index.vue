@@ -12,14 +12,12 @@
     </d-header>
     <header>
       <div class="header-list">
-        <template>
           <span
             v-for="(item, index) in navList"
             :key="index"
             :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
             @click="useClickNav(index)"
           >{{ t(item + '.title') }}</span>
-        </template>
       </div>
     </header>
     <div class="dashboard-main">
@@ -27,7 +25,7 @@
         <suspense>
           <component
             :is="currentNav"
-            :appId="appId"
+            :appId="currentAppId"
             @loading="useModifyLoading"
             @set-app-name="useSetAppName"
           ></component>

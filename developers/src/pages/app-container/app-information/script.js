@@ -160,6 +160,7 @@ export default {
     };
 
     watch(() => props.appId, async (appId) => {
+      console.log(appId);
       const app = await useFetchApp(appId);
       initApp(app);
     });

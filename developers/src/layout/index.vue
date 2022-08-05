@@ -12,6 +12,7 @@
       <div v-loading="loading" class="dashboard-center-and-nav">
           <router-view
             :appId="currentApp"
+            :appList="appList"
             @set-local-loading="useSetLocalLoading"
             @click-new-app="useClickNewApp"
             @add-new-app="useUpdateAppList"
