@@ -12,9 +12,7 @@
     </d-header>
     <header>
       <div class="header-list">
-        <template>
-          <span class="header-item new-item">{{ t('dashboard.new_app') }}</span>
-        </template>
+        <span class="header-item new-item">{{ t('dashboard.new_app') }}</span>
       </div>
     </header>
     <div class="dashboard-main">

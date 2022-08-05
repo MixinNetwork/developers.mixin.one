@@ -28,13 +28,17 @@ export default {
       currentAppId: props.appId,
       currentNavIndex: 0,
       navList: ['information', 'wallet', 'secret'],
-      name: 'Mixin App',
+      name: '',
     });
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
     const route = useRoute();
     const { app_number } = route.params;
-    state.currentAppId = props.appList.value.find((app) => app.app_number === app_number).app_id;
+    const app = props.appList.value.find((app) => app.app_number === app_number);
+    if (app) {
+      state.currentAppId = app.app_id;
+      state.name = app.name;
+    }
     if (route.hash) state.currentNavIndex = state.navList.indexOf(route.hash.slice(1));
 
     const router = useRouter();
