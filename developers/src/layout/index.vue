@@ -170,13 +170,6 @@ const {
         width: 100%;
         height: 100%;
       }
-
-      .dashboard-main {
-        width: 100%;
-        height: calc(100% - 3.75rem);
-        overflow: auto;
-      }
-
     }
   }
 }

@@ -1,23 +1,8 @@
-.dashboard-center-and-nav {
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  background-color: #f6f7f9;
-  overflow: hidden;
-  position: relative;
-
-  & > div {
-    width: 100%;
-    height: 100%;
-  }
-
-  .dashboard-main {
+.dashboard-main {
     width: 100%;
     height: calc(100% - 3.75rem);
     overflow: auto;
   }
-
-}
 
 header {
   height: 3.75rem;
@@ -61,7 +46,7 @@ header {
 }
 
 @media screen and (max-width: 48rem) {
-  .dashboard-center-and-nav .dashboard-main {
+  .dashboard-main {
     height: calc(100% - 6rem);
   }
 
