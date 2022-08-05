@@ -25,10 +25,6 @@ export default {
   name: 'dashboard-container',
   components: { DModal, DHeader, AppContainer },
   async setup() {
-    const node = document.createElement('div');
-    node.id = 'modal';
-    document.body.appendChild(node);
-
     const { t } = useI18n();
 
     const state = reactive({
