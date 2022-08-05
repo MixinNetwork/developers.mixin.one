@@ -15,26 +15,30 @@ export default {
   components: {
     DModal,
     DHeader,
-    AppInformation: defineAsyncComponent(() => import('../app-information')),
-    AppSecret: defineAsyncComponent(() => import('../app-secret')),
-    AppWallet: defineAsyncComponent(() => import('../app-wallet')),
+    AppInformation: defineAsyncComponent(() => import('./app-information')),
+    AppSecret: defineAsyncComponent(() => import('./app-secret')),
+    AppWallet: defineAsyncComponent(() => import('./app-wallet')),
   },
-  props: ['appId', 'isNewApp', 'showWelcome'],
-  emits: ['check-app-credit', 'add-new-app'],
+  props: ['appId'],
+  emits: ['click-new-app', 'add-new-app', 'set-local-loading'],
   async setup(props, ctx) {
     const { t } = useI18n();
 
     const state = reactive({
-      loadingApp: false,
       currentNavIndex: 0,
       navList: ['information', 'wallet', 'secret'],
       name: 'Mixin App',
     });
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
+    const route = useRoute();
+    if (route.hash) state.currentNavIndex = state.navList.indexOf(route.hash.slice(1));
+
     const router = useRouter();
     const backward = () => {
-      router.back();
+      router.push({
+        path: '/dashboard',
+      });
     };
 
     const useClickNewApp = () => {
@@ -44,16 +48,16 @@ export default {
       ctx.emit('add-new-app', app_number);
     };
     const useClickNav = (index) => {
+      router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
       state.currentNavIndex = index;
     };
     const useModifyLoading = (isLoading) => {
-      state.loadingApp = isLoading;
+      ctx.emit('set-local-loading', isLoading);
     };
     const useSetAppName = (name) => {
       state.name = name;
     };
 
-    const route = useRoute();
     watch(() => route.path, () => {
       state.currentNavIndex = 0;
     });

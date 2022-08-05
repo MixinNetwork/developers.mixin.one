@@ -2,11 +2,12 @@ import {
   reactive,
   toRefs,
   onActivated,
+  inject,
 } from 'vue';
 import { useStorage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
-import { assetSortCompare } from '@/utils';
+import {assetSortCompare, ls} from '@/utils';
 import { useAssetList, useClient } from '@/api';
 import { useRoute } from 'vue-router';
 import WithdrawalModal from './withdrawal';
@@ -20,6 +21,7 @@ export default {
   },
   emits: ['loading'],
   setup(props, ctx) {
+    const $message = inject('$message');
     const { t } = useI18n();
 
     const state = reactive({
@@ -42,9 +44,9 @@ export default {
       if (!useHasAppToken(tokenInfo.value)) return false;
 
       ctx.emit('loading', true);
-      _vm.skipInterceptor = true;
+      ls.set('ignoreError', 'true');
       try {
-        const client = useClient(tokenInfo.value);
+        const client = useClient($message, t, tokenInfo.value);
         const res = await useAssetList(client);
         if (res) {
           state.assetList = res.sort(assetSortCompare);
@@ -61,7 +63,7 @@ export default {
         tokenInfo.value = null;
       } finally {
         ctx.emit('loading', false);
-        _vm.skipInterceptor = false;
+        ls.set('ignoreError', 'false');
       }
       return true;
     };

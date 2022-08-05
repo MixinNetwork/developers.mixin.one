@@ -32,7 +32,7 @@ export default {
     const code = getUrlParameter('code');
     const { privateKey, publicKey } = getED25519KeyPair();
 
-    const client = useClient();
+    const client = useClient($message, t);
     client.oauth.getToken(
       process.env.VUE_APP_CLIENT_ID,
       code,

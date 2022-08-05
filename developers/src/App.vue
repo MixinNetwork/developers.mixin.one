@@ -1,18 +1,19 @@
 <template>
   <div>
-    <suspense>
-      <router-view></router-view>
-    </suspense>
+    <router-view>
+      <suspense>
+        <component :is="layout" />
+      </suspense>
+    </router-view>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'app',
-  mounted() {
-    window._vm = this;
-  },
-};
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const layout = computed(() => `${route.meta.type}-layout`);
 </script>
 
 <style lang="scss">

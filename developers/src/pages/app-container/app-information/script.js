@@ -5,7 +5,7 @@ import {
   toRefs,
   watch,
   inject,
-  onActivated, nextTick,
+  onActivated,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
@@ -53,7 +53,7 @@ export default {
       state.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
     };
 
-    const client = useClient();
+    const client = useClient($message, t);
     const useFetchApp = async (appId) => {
       appId = appId || props.appId;
       if (appId) {

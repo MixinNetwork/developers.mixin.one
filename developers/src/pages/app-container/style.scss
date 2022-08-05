@@ -20,42 +20,6 @@
 
 }
 
-.welcome {
-  position: absolute;
-  width: 34.625rem;
-  height: 18.375rem;
-  top: 28.333%;
-  bottom: 39%;
-  z-index: 0;
-  left: 50%;
-  transform: translate(-50%);
-  text-align: center;
-  color: rgba(51, 51, 51, 1);
-
-  img {
-    border-radius: 0;
-  }
-
-  h1 {
-    font-size: 2.75rem;
-    line-height: 3.3125rem;
-    margin: 2rem 0 0.8125rem 0;
-    font-weight: 900;
-  }
-
-  p {
-    font-size: 1.5rem;
-    line-height: 1.875rem;
-    font-weight: 400;
-  }
-
-  button {
-    margin-top: 1.875rem;
-    width: 8.75rem;
-    height: 3.125rem;
-  }
-
-}
 
 header {
   height: 3.75rem;

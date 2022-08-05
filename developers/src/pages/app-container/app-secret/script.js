@@ -13,7 +13,7 @@ import FileSaver from 'file-saver';
 import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
 import Confirm from '@/components/Confirm';
-import { randomPin } from '@/utils';
+import {ls, randomPin} from '@/utils';
 import { useClient } from '@/api';
 
 export default {
@@ -39,7 +39,7 @@ export default {
     });
 
     const tokenInfo = useStorage('token', {});
-    const userClient = useClient(tokenInfo.value);
+    const userClient = useClient($message, t, tokenInfo.value);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {
@@ -102,11 +102,11 @@ export default {
         return;
       }
 
-      const appClient = useClient(clientInfo);
+      const appClient = useClient($message, t, clientInfo);
 
       ctx.emit('loading', true);
       state.submitting = true;
-      _vm.skipInterceptor = true;
+      ls.set('ignoreError', 'true');
       try {
         const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
 
@@ -125,7 +125,7 @@ export default {
       } finally {
         state.submitting = false;
         ctx.emit('loading', false);
-        _vm.skipInterceptor = false;
+        ls.set('ignoreError', 'false');
       }
     };
 

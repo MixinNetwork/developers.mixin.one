@@ -18,7 +18,7 @@ export const getUrlParameter = (name) => {
   return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 
-export const isImmersive = () => {
+export const getImmersive = () => {
   const ctx = client.getMixinContext();
   return ctx.immersive ? ctx.immersive : false;
 };

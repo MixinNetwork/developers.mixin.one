@@ -11,6 +11,8 @@ import VueCroppie from 'vue-croppie';
 import App from '@/App.vue';
 import router from '@/router';
 import i18n from '@/i18n';
+import DashboardLayout from '@/layout/index';
+import DocumentLayout from '@/layout/DocumentLayout';
 
 import '@/assets/font/dashboard.css';
 import '@/assets/font/home.css';
@@ -24,6 +26,9 @@ app.use(router)
   .use(ElMenuItem)
   .use(VueCroppie)
   .provide('$message', ElMessage);
+
+app.component('dashboard-layout', DashboardLayout);
+app.component('document-layout', DocumentLayout);
 
 app.config.globalProperties.$message = ElMessage;
 

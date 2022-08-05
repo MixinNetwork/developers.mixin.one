@@ -131,7 +131,7 @@ export default {
     }));
 
     const clientInfo = useStorage(props.app_id, {});
-    const client = useClient(clientInfo.value);
+    const client = useClient($message, t, clientInfo.value);
 
     const useClearForm = () => {
       state.form.pin = '';

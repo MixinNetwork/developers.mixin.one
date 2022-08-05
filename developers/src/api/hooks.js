@@ -1,9 +1,15 @@
 import { MixinApi } from '@mixin.dev/mixin-node-sdk';
 import { ls } from '@/utils/localStorage';
-import { defaultApiConfig } from './config';
+import cbFactory from './config';
 
-export const useClient = (clientInfo) => {
+export const useClient = ($message, t, clientInfo) => {
+  const defaultApiConfig = {
+    requestConfig: {
+      responseCallback: cbFactory($message, t),
+    },
+  };
   const keystore = clientInfo || ls.get('token');
+
   const config = keystore
     ? {
       ...defaultApiConfig,

@@ -1,25 +1,31 @@
 import en from '@/i18n/en';
+import {ls} from "@/utils";
 
-const responseCallback = (err) => {
+const cbFactory = ($message, t) => (err) => {
   const { code, description, message } = err;
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {
-    _vm.$message.error({ showClose: true, duration: 2000, message: _vm.$t('message.errors.overtime') });
+    $message.error({ showClose: true, duration: 2000, message: t('message.errors.overtime') });
     return;
   }
 
   if (code === 20123) {
     const max_app_numbers = description.replace(/\D/g, '');
-    _vm.$message.error({ showClose: true, duration: 2000, message: `${_vm.$t(`message.errors.${code}`, { count: max_app_numbers })}(${code})` });
+    $message.error({
+      showClose: true,
+      duration: 2000,
+      message: `${t(`message.errors.${code}`, { count: max_app_numbers })}(${code})`,
+    });
   } else {
     let key = 'unknown';
     if (en.message.errors[code]) {
       key = String(code);
     }
-    _vm.$message.error({ showClose: true, duration: 2000, message: `${_vm.$t(`message.errors.${key}`)}(${code})` });
+    $message.error({ showClose: true, duration: 2000, message: `${t(`message.errors.${key}`)}(${code})` });
   }
 
-  if (!_vm.skipInterceptor && code === 401) {
+  const ignoreError = ls.get('ignoreError') === 'true';
+  if (!ignoreError && code === 401) {
     setTimeout(() => {
       window.localStorage.clear();
       // eslint-disable-next-line max-len
@@ -28,8 +34,4 @@ const responseCallback = (err) => {
   }
 };
 
-export const defaultApiConfig = {
-  requestConfig: { responseCallback },
-};
-
-export default defaultApiConfig;
+export default cbFactory;
