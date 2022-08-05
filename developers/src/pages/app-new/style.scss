@@ -74,6 +74,10 @@ header {
     display: block;
   }
 
+  header{
+    display: none;
+  }
+
   .header-back {
     width: 3.125rem;
     transform: translate(-1.5625rem);
@@ -87,7 +91,6 @@ header {
   }
 
   .header-list {
-    display: flex;
     justify-content: space-between;
 
     .header-item {
@@ -95,3 +98,4 @@ header {
     }
   }
 }
+

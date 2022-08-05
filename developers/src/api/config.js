@@ -1,5 +1,5 @@
 import en from '@/i18n/en';
-import {ls} from "@/utils";
+import { ls } from '@/utils';
 
 const cbFactory = ($message, t) => (err) => {
   const { code, description, message } = err;
