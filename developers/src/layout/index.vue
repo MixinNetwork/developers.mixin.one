@@ -10,13 +10,15 @@
       />
 
       <div v-loading="loading" class="dashboard-center-and-nav">
-          <router-view
-            :appId="currentApp"
-            :appList="appList"
-            @set-local-loading="useSetLocalLoading"
-            @click-new-app="useClickNewApp"
-            @add-new-app="useUpdateAppList"
-          ></router-view>
+          <suspense>
+            <router-view
+              :appId="currentApp"
+              :appList="appList"
+              @set-local-loading="useSetLocalLoading"
+              @click-new-app="useClickNewApp"
+              @add-new-app="useUpdateAppList"
+            ></router-view>
+          </suspense>
       </div>
     </div>
   </div>
@@ -52,7 +54,12 @@
 
 <script setup>
 import { v4 as uuid } from 'uuid';
-import { inject, reactive, toRefs } from 'vue';
+import {
+  inject,
+  onMounted,
+  reactive,
+  toRefs,
+} from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
 import DModal from '@/components/DModal';
@@ -118,19 +125,21 @@ const useCloseBuyApp = () => {
 
 const client = useClient($message, t);
 const useFetchAll = async () => {
-  state.loading = true;
-  state.appList.value = await useAppList(client);
-  state.userInfo.value = await useUserInfo(client);
-  state.loading = false;
-  state.appProperty.value = await useAppProperty(client);
+  state.loadingAll = true;
+  state.appList = await useAppList(client);
+  state.userInfo = await useUserInfo(client);
+  state.loadingAll = false;
+  state.appProperty = await useAppProperty(client);
 };
 const useUpdateAppList = async () => {
   state.loading = true;
-  state.userInfo.value = await useUserInfo(client);
+  state.userInfo = await useUserInfo(client);
   state.loading = false;
 };
 
-await useFetchAll();
+onMounted(async () => {
+  await useFetchAll();
+});
 
 const {
   loadingAll,

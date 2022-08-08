@@ -33,13 +33,16 @@ export default {
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
     const route = useRoute();
-    const { app_number } = route.params;
-    const app = props.appList.value.find((app) => app.app_number === app_number);
-    if (app) {
-      state.currentAppId = app.app_id;
-      state.name = app.name;
-    }
-    if (route.hash) state.currentNavIndex = state.navList.indexOf(route.hash.slice(1));
+    const useSelectApp = () => {
+      const { app_number } = route.params;
+      const app = props.appList.find((app) => app.app_number === app_number);
+      if (app) {
+        state.currentAppId = app.app_id;
+        state.name = app.name;
+        if (route.hash) state.currentNavIndex = state.navList.indexOf(route.hash.slice(1));
+      }
+    };
+    useSelectApp();
 
     const router = useRouter();
     const backward = () => {
@@ -70,6 +73,9 @@ export default {
     });
     watch(() => props.appId, (appId) => {
       state.currentAppId = appId;
+    });
+    watch(() => props.appList, () => {
+      useSelectApp();
     });
 
     return {

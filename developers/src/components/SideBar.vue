@@ -14,11 +14,11 @@
         <img src="@/assets/img/svg/add.svg" alt="add-new-app-logo"/>
         <span>{{ t('dashboard.new_app') }}</span>
       </div>
-      <div class="app-list-container" v-if="appList.value.length">
+      <div class="app-list-container" v-if="appList.length">
         <div class="app-list-header">{{ t('dashboard.my_app') }}</div>
         <ul class="app-list">
           <li
-            v-for="(item, index) in appList.value"
+            v-for="(item, index) in appList"
             :key="index"
             @click="useClickApp(item)"
             :class="['app-item', route.params.app_number === item.app_number ? 'app-item-active': '']"
@@ -30,10 +30,10 @@
       </div>
     </div>
     <div @click.stop="useClickUser" class="bottom-info middle">
-      <img :src="userInfo.value.avatar_url || defaultAvatar" alt="user-avatar"/>
+      <img :src="userInfo.avatar_url || defaultAvatar" alt="user-avatar"/>
       <div class="user-name-id">
-        <div>{{ userInfo.value.full_name }}</div>
-        <div>ID: {{ userInfo.value.identity_number }}</div>
+        <div>{{ userInfo.full_name }}</div>
+        <div>ID: {{ userInfo.identity_number }}</div>
       </div>
       <div :class="['bottom-more', (showLogoutModal ? 'bottom-more-active' : '')]">
         <div class="bottom-button-list">
@@ -55,7 +55,7 @@
         <img
           class="header-slot-img"
           @click.stop="useClickUser"
-          :src="userInfo.value.avatar_url || defaultAvatar"
+          :src="userInfo.avatar_url || defaultAvatar"
           alt="user-avatar"
         />
         <div
@@ -74,7 +74,7 @@
         </div>
       </template>
     </d-header>
-    <div v-if="!appList.value.length" class="no-app">
+    <div v-if="!appList.length" class="no-app">
       <div class="no-app-title">{{ t('dashboard.welcome') }}</div>
       <div class="no-app-content">{{ t('dashboard.welcome_d') }}</div>
       <div @click="useClickNewApp" class="no-app-button">
@@ -89,7 +89,7 @@
           <div>{{ t('dashboard.new_app') }}</div>
         </li>
         <li
-          v-for="(item, index) in appList.value"
+          v-for="(item, index) in appList"
           :key="index"
           @click="useClickApp(item)"
           class="has-app-item"
@@ -107,7 +107,9 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-import { ref, computed } from 'vue';
+import {
+  ref, computed,
+} from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import DHeader from '@/components/DHeader';
 import { getImmersive } from '@/utils/tools';

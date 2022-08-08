@@ -1,9 +1,7 @@
 <template>
   <div>
     <router-view>
-      <suspense>
-        <component :is="layout" />
-      </suspense>
+      <component :is="layout" />
     </router-view>
   </div>
 </template>
