@@ -38,7 +38,7 @@
         <span :class="action==='UpdateSession' && 'session'">{{modalContent}}</span>
         <div class="btns">
           <button v-if="action==='UpdateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
-          <button v-if="action==='UpdateSession'" @click="useDownloadKeystore" class="btn-close primary">{{t('button.download')}}</button>
+          <button v-if="action==='UpdateSession'" @click="useDownloadKeystore" class="btn-download primary">{{t('button.download')}}</button>
           <button
             @click="useClickCopy"
             class="btn-copy primary"

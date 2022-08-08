@@ -415,6 +415,8 @@ li {
       width: initial;
       line-height: 1rem;
       margin-bottom: 1rem;
+      margin-right: 0;
+      text-align: center;
     }
 
     input {

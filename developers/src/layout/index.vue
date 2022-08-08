@@ -1,7 +1,7 @@
 <template>
   <div v-loading="loadingAll" :class="['development-dashboard', t('language')]">
     <div class="dashboard-container">
-      <Nav
+      <SideBar
         :app-list="appList"
         :user-info="userInfo"
         @set-global-loading="useSetLoading"
@@ -56,7 +56,7 @@ import { inject, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
 import DModal from '@/components/DModal';
-import Nav from '@/components/Nav';
+import SideBar from '@/components/SideBar';
 import {
   useAppList,
   useAppProperty,
@@ -102,10 +102,10 @@ const useSetLocalLoading = (status) => {
   state.loading = status;
 };
 const useClickBuyApp = async (count) => {
-  state.loading = true;
+  state.loadingAll = true;
   const client = useClient($message, t);
   const { price } = await useAppProperty(client);
-  state.loading = true;
+  state.loadingAll = true;
 
   const trace = uuid();
   const amount = Number(price) * count;
