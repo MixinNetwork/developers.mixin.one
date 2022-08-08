@@ -97,12 +97,12 @@ import {
   computed,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useStorage } from '@vueuse/core';
 import { validate, v4 as uuid } from 'uuid';
 import DHeader from '@/components/DHeader';
 import DModal from '@/components/DModal';
 import Confirm from '@/components/Confirm';
 import { useClient } from '@/api';
+import { ls } from '@/utils';
 
 export default {
   name: 'withdrawal-modal',
@@ -130,9 +130,6 @@ export default {
       opponent: state.form.opponent_id,
     }));
 
-    const clientInfo = useStorage(props.app_id, {});
-    const client = useClient($message, t, clientInfo.value);
-
     const useClearForm = () => {
       state.form.pin = '';
       state.form.amount = '';
@@ -141,6 +138,8 @@ export default {
     const useFetchOpponentId = async () => {
       const { opponent_id } = state.form;
       const is_uuid = validate(opponent_id);
+      const clientInfo = ls.get(props.app_id);
+      const client = useClient($message, t, clientInfo);
       const { user_id } = is_uuid ? await client.user.fetch(opponent_id) : await client.user.search(opponent_id);
       return user_id;
     };
@@ -161,6 +160,8 @@ export default {
         ...opponent,
       };
 
+      const clientInfo = ls.get(props.app_id);
+      const client = useClient($message, t, clientInfo);
       const res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params);
       if (!is_transfers) state.transactionInfo = res;
       return res && res.type === type;
@@ -185,12 +186,14 @@ export default {
       state.showWithdrawalConfirm = true;
     };
     const useClickCancel = () => {
+      useClearForm();
       ctx.emit('close-modal');
     };
     const useCloseConfirm = () => {
       state.showWithdrawalConfirm = false;
     };
     const useClickBack = () => {
+      useClearForm();
       ctx.emit('close-modal');
     };
 

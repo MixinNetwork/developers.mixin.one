@@ -6,7 +6,7 @@ import {
   watch,
   onActivated,
 } from 'vue';
-import { useStorage, useClipboard } from '@vueuse/core';
+import { useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import FileSaver from 'file-saver';
@@ -38,8 +38,8 @@ export default {
       action: '',
     });
 
-    const tokenInfo = useStorage('token', {});
-    const userClient = useClient($message, t, tokenInfo.value);
+    const tokenInfo = ls.get('token');
+    const userClient = useClient($message, t, tokenInfo);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {
@@ -83,15 +83,14 @@ export default {
           pin_token: res.pin_token_base64,
           private_key: privateKey,
         }, null, ' ');
-        const clientInfo = useStorage(props.appId, {});
-        clientInfo.value = null;
+        ls.rm(props.appId);
       } finally {
         state.submitting = false;
         ctx.emit('loading', false);
       }
     };
     const useRequestQRCode = async (isShow) => {
-      const clientInfo = useStorage(props.appId, {}).value;
+      const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
         state.showUpdateToken = true;
         return;
@@ -111,7 +110,7 @@ export default {
         const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
 
         if (!res) {
-          clientInfo.value = null;
+          ls.rm(props.appId);
           state.showUpdateToken = true;
           return;
         }

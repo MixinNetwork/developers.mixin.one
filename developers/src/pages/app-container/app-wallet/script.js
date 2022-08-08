@@ -4,10 +4,9 @@ import {
   onActivated,
   inject,
 } from 'vue';
-import { useStorage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
-import {assetSortCompare, ls} from '@/utils';
+import { assetSortCompare, ls } from '@/utils';
 import { useAssetList, useClient } from '@/api';
 import { useRoute } from 'vue-router';
 import WithdrawalModal from './withdrawal';
@@ -34,19 +33,20 @@ export default {
 
     const route = useRoute();
 
-    const useHasAppToken = (tokenInfo) => tokenInfo.user_id
-        && tokenInfo.pin_token
-        && tokenInfo.session_id
-        && tokenInfo.private_key;
+    const useHasAppToken = (tokenInfo) => !!(tokenInfo
+      && tokenInfo.user_id
+      && tokenInfo.pin_token
+      && tokenInfo.session_id
+      && tokenInfo.private_key);
 
     const fetchAssetList = async () => {
-      const tokenInfo = useStorage(props.appId, {});
-      if (!useHasAppToken(tokenInfo.value)) return false;
+      const tokenInfo = ls.get(props.appId);
+      if (!useHasAppToken(tokenInfo)) return false;
 
       ctx.emit('loading', true);
       ls.set('ignoreError', 'true');
       try {
-        const client = useClient($message, t, tokenInfo.value);
+        const client = useClient($message, t, tokenInfo);
         const res = await useAssetList(client);
         if (res) {
           state.assetList = res.sort(assetSortCompare);
@@ -55,12 +55,12 @@ export default {
         } else {
           state.needUpdate = true;
           state.showSessionUpdateModal = true;
-          tokenInfo.value = null;
+          ls.rm(props.appId);
         }
       } catch (e) {
         state.needUpdate = true;
         state.showSessionUpdateModal = true;
-        tokenInfo.value = null;
+        ls.rm(props.appId);
       } finally {
         ctx.emit('loading', false);
         ls.set('ignoreError', 'false');
