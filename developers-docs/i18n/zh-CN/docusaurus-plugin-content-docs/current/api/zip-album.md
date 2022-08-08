@@ -14,14 +14,14 @@ import {
 
 上传自定义表情包, 具体的表情包格式参照: [贴纸制作规范](/zh-CN/docs/dapp/design/sticker)
 
-## POST /album
+## POST /albums
 
 
-<APIEndpoint url="/album" />
+<APIEndpoint url="/albums" />
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-data_zip_base64="表情包的 zip 文件" p-data_zip_base64-required={true} />
+<APIParams p-data_zip_base64="用 base64 编码的表情包 zip 文件" p-data_zip_base64-required={true} />
 
 <APIRequest
   title="POST album"
