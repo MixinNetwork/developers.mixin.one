@@ -48,10 +48,10 @@ export const randomPin = () => {
 };
 
 export const assetSortCompare = (a, b) => {
-  let cmp = 0;
   const ap = new BigNumber(a.balance).times(a.price_usd);
   const bp = new BigNumber(b.balance).times(b.price_usd);
-  cmp = cmpBalance(ap, bp);
+
+  let cmp = cmpBalance(ap, bp);
   if (cmp === 0) cmp = cmpBalance(a.balance, b.balance);
   if (cmp === 0) cmp = cmpBalance(a.price_usd, b.price_usd);
   return cmp;

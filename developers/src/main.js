@@ -11,7 +11,7 @@ import VueCroppie from 'vue-croppie';
 import App from '@/App.vue';
 import router from '@/router';
 import i18n from '@/i18n';
-import DashboardLayout from '@/layout/index';
+import DashboardLayout from '@/layout/DashboardLayout';
 import DocumentLayout from '@/layout/DocumentLayout';
 
 import '@/assets/font/dashboard.css';
