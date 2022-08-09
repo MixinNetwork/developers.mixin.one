@@ -1,5 +1,5 @@
 ---
-title: OAuth Authorization
+title: OAuth 授权
 sidebar_position: 2
 ---
 

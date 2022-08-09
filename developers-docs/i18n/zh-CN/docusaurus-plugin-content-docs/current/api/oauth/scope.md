@@ -1,5 +1,5 @@
 ---
-title: OAuth Scope
+title: OAuth 授权范围
 sidebar_position: 1
 ---
 
