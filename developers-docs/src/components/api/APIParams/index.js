@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import Translate, {translate} from '@docusaurus/Translate';
 
-const re = /p-([a-zA-Z_]+)/;
+const re = /p-([a-zA-Z_$][a-zA-Z_$0-9]*)/;
 
 function Row({name, value, required}) {
   let requiredEl = '';

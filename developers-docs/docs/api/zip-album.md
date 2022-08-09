@@ -14,13 +14,13 @@ import {
 
 upload custom album, [album sticker format](/docs/dapp/design/sticker)
 
-## POST /album
+## POST /albums
 
-<APIEndpoint url="/album" />
+<APIEndpoint url="/albums" />
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-data_zip_base64="表情包的 zip 文件" p-data_zip_base64-required={true} />
+<APIParams p-data_zip_base64="album zip file encoded with base64" p-data_zip_base64-required={true} />
 
 <APIRequest
   title="POST album"
