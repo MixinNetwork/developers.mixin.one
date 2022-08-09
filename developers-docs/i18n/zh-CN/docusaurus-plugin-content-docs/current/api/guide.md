@@ -3,6 +3,13 @@ title: Mixin API 指引
 sidebar_position: 1
 ---
 
+大部分的 API 服务都需要有权限验证，Messager API 也一样，开发者需要的私钥，可以从上一篇 [API 简介](/zh-CN/docs/api-overview) 中的 keystore-7000xxx.json 获取。
+
+Mixin 只主要的两个签名：
+
+1. 访问私有 API 的 JWT 签名, [详细](/zh-CN/docs/api/guide#调用-api)
+2. 转帐，提现，创建地址需要的 pin 签名, [详细](/zh-CN/docs/api/guide#pin-签名)
+
 ## 选择 API 服务器
 
 对于 HTTP 请求：
@@ -23,7 +30,7 @@ sidebar_position: 1
 
 大多数 API 需要使用 JSON Web 令牌 (JWT) 进行签名才能访问。 它们利用客户端和服务器之间的安全数据传输。
 
-### 签名
+### API 签名
 
 :::tip
 大多数 Mixin SDK 已经提供了 JWT 生成器，可以自动处理 JWT 生成和验证。 更多信息请参考 [SDK](/docs/resources/sdk)。
@@ -33,7 +40,7 @@ sidebar_position: 1
 
 | 参数 | 说明                                |
 | :--- | :---------------------------------- |
-| alg  | Signature Algorithm, set to `RS512` |
+| alg  | Signature Algorithm, set to `EdDSA` |
 | typ  | Token type, set to `JWT`            |
 
 **JWT Payload**
@@ -53,29 +60,34 @@ sidebar_position: 1
 /*
 * uid: User Id
 * sid: Session Id
-* secret: PrivateKey
+* privateKey: 机器人私钥
 * method: HTTP Request method, e.g.: GET, POST
 * url: URL path without hostname, e.g.: /transfers
 * body: HTTP Request body, e.g.: {"pin": "encrypted pin token"}
 */
-func SignAuthenticationToken(uid, sid, secret, method, uri, body string) (string, error) {
-  expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
-  sum := sha256.Sum256([]byte(method + uri + body))
-  token := jwt.NewWithClaims(jwt.SigningMethodRS512, jwt.MapClaims{
-      "uid": uid,
-      "sid": sid,
-      "iat": time.Now().UTC().Unix(),
-      "exp": expire.Unix(),
-      "jti": uuid.NewV4().String(),
-      "sig": hex.EncodeToString(sum[:]),
-  })
+func SignAuthenticationToken(uid, sid, privateKey, method, uri, body string) (string, error) {
+	expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
+	sum := sha256.Sum256([]byte(method + uri + body))
 
-  block, _ := pem.Decode([]byte(secret))
-  key, err := x509.ParsePKCS1PrivateKey(block.Bytes)
-  if err != nil {
-      return "", err
-  }
-  return token.SignedString(key)
+	claims := jwt.MapClaims{
+		"uid": uid,
+		"sid": sid,
+		"iat": time.Now().UTC().Unix(),
+		"exp": expire.Unix(),
+		"jti": UuidNewV4().String(),
+		"sig": hex.EncodeToString(sum[:]),
+		"scp": "FULL",
+	}
+	priv, err := base64.RawURLEncoding.DecodeString(privateKey)
+	if err != nil {
+    return "", err
+	}
+	// more validate the private key
+	if len(priv) != 64 {
+		return "", fmt.Errorf("Bad ed25519 private key %s", priv)
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodEdDSA, claims)
+	return token.SignedString(ed25519.PrivateKey(priv))
 }
 ```
 
@@ -130,3 +142,69 @@ Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 ```
 
 更多请参考[错误码文档](./error-codes)。
+
+## PIN 签名
+
+Messager 用 6 位数的 Pin 通过 TIP 协议，让用户方便的管理私钥, 关于 TIP 的实现，开源地址: https://github.com/MixinNetwork/tip , 在这里我们不展开讨论。
+
+当用户需要对资产进行操作，比如转帐，提现等时，都需要对 6 位数的 pin 进行签名，下面是 Golang 的示例
+
+```golang
+* pin： 6 位数的数字，字符的形式，例如 '321321'
+* pinTokenBase64: 是服务器返回的一个 ed25519 的公钥, 在 keystore_7000xxx.json 里可以找到
+* privateKey: 用户的私钥, 跟 API 签名的一致
+* iterator: 递增数字，每次签名都需要比之前的数字大，不一定是 1
+
+func EncryptEd25519PIN(pin, pinTokenBase64, privateKey string, iterator uint64) (string, error) {
+	privateBytes, err := base64.RawURLEncoding.DecodeString(privateKey)
+	if err != nil {
+		return "", err
+	}
+
+	private := ed25519.PrivateKey(privateBytes)
+	public, err := base64.RawURLEncoding.DecodeString(pinTokenBase64)
+	if err != nil {
+		return "", err
+	}
+	var curvePriv, pub [32]byte
+	PrivateKeyToCurve25519(&curvePriv, private)
+	copy(pub[:], public[:])
+	keyBytes, err := curve25519.X25519(curvePriv[:], pub[:])
+	if err != nil {
+		return "", err
+	}
+
+	pinByte := []byte(pin)
+	timeBytes := make([]byte, 8)
+	binary.LittleEndian.PutUint64(timeBytes, uint64(time.Now().Unix()))
+	pinByte = append(pinByte, timeBytes...)
+	iteratorBytes := make([]byte, 8)
+	binary.LittleEndian.PutUint64(iteratorBytes, iterator)
+	pinByte = append(pinByte, iteratorBytes...)
+	padding := aes.BlockSize - len(pinByte)%aes.BlockSize
+	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
+	pinByte = append(pinByte, padtext...)
+	block, err := aes.NewCipher(keyBytes[:])
+	if err != nil {
+		return "", err
+	}
+	ciphertext := make([]byte, aes.BlockSize+len(pinByte))
+	iv := ciphertext[:aes.BlockSize]
+	_, err = io.ReadFull(rand.Reader, iv)
+	if err != nil {
+		return "", err
+	}
+	mode := cipher.NewCBCEncrypter(block, iv)
+	mode.CryptBlocks(ciphertext[aes.BlockSize:], pinByte)
+	return base64.RawURLEncoding.EncodeToString(ciphertext), nil
+}
+```
+
+## 总结
+
+Messager API 主要包含:
+
+* 部分公开的 API, 例如 https://api.mixin.one/network/chains 获取所有链的列表
+* 私有的 API 需要通过签名生成 Token 进行访问
+* 转帐，提现等同时需要对 pin 进行签名
+* 另外有些请求的字段名字会以 `_base64` 结尾, RFC 4648 规范的 base64 格式，[详细介绍](https://pkg.go.dev/encoding/base64#pkg-variables)
