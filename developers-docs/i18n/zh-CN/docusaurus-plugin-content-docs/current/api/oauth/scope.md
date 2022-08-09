@@ -5,13 +5,18 @@ sidebar_position: 1
 
 | Permission         |  Description                      |
 |:-------------------|:----------------------------------|
-| PROFILE:READ       | Get basic user information, such as user id, Mixin ID, name, and avatar.|
-| ASSETS:READ        | Read user asset list and balance.            |
-| PHONE:READ         | Read the user's mobile phone number.                   |
-| CONTACTS:READ      | Read user contact list, block list.                 |
-| MESSAGES:REPRESENT | Allow bots to send messages on behalf of users.                    |
-| SNAPSHOTS:READ     | Access user's transfer records, including deposits and reminders.        |
-| CIRCLES:READ       | Read user's circles, hasn't implemented yet        |
-| CIRCLES:WRITE      | Write user's circles, hasn't implemented yet        |
+| PROFILE:READ       | 必需,获取用户 user id, Mixin ID, name, and avatar 等基本信息.|
+| ASSETS:READ        | 读取用户列表跟余额.            |
+| PHONE:READ         | 读取用户手机号.                   |
+| CONTACTS:READ      | 读取用户联系人列表                 |
+| MESSAGES:REPRESENT | 允许机器人代表用户发消息                    |
+| SNAPSHOTS:READ     | 读取用户转帐记录        |
+| CIRCLES:READ       | 读取用户的圈子信息        |
+| CIRCLES:WRITE      | 更改用户的圈子信息        |
+| COLLECTIBLES:READ  | 读取用户的 NFT 信息        |
+| STICKERS:READ      | 读取用户的表情信息        |
 
-The permissions requested should contain at least the PROFILE:READ permission. Users may uncheck certain permissions when authorizing. It is recommended that developers only apply for necessary permissions and make proper guidance GUIs in the absence of permissions.
+
+## 注意事项
+
+OAuth 请求必须包含 PROFILE:READ, 同时不建议请求多余的权限

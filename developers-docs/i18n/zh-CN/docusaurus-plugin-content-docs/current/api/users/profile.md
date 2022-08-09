@@ -1,5 +1,5 @@
 ---
-title: Read Profile
+title: 个人信息
 sidebar_position: 1
 ---
 

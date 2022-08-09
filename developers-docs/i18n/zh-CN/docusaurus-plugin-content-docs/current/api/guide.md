@@ -5,10 +5,11 @@ sidebar_position: 1
 
 大部分的 API 服务都需要有权限验证，Messager API 也一样，开发者需要的私钥，可以从上一篇 [API 简介](/zh-CN/docs/api-overview) 中的 keystore-7000xxx.json 获取。
 
-Mixin 只主要的两个签名：
+Mixin 只主要的三个签名：
 
-1. 访问私有 API 的 JWT 签名, [详细](/zh-CN/docs/api/guide#调用-api)
-2. 转帐，提现，创建地址需要的 pin 签名, [详细](/zh-CN/docs/api/guide#pin-签名)
+1. 访问私有 API 的 JWT 签名, [详细](#调用-api)
+2. OAuth 用户访问 API 的 JWT 签名, [详细](#oauth-用户签名)
+3. 转帐，提现，创建地址需要的 pin 签名, [详细](#pin-签名)
 
 ## 选择 API 服务器
 
@@ -142,6 +143,44 @@ Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 ```
 
 更多请参考[错误码文档](./error-codes)。
+
+## OAuth 用户签名
+
+当用户完成授权后会返回对应的信息, [API 详情](/zh-CN/docs/api/oauth/oauth), 签名的方式跟机器人签名几乎一致，只是每次需要不同的 requestID.
+
+```
+/*
+* appID: 机器人的 id 
+* authorizationID: 用户授权完成后返回的 authorization_id
+* privateKey: 本地生成的 private key
+* method: HTTP 请求方法，GET, POST
+* url: 例如 /me
+* body：GET 是 ""
+* scp: 用户授权时的 scope "PROFILE:READ PHONE:READ"
+* requestID: 随机生成的 uuid
+*/
+func SignOauthAccessToken(appID, authorizationID, privateKey, method, uri, body, scp string, requestID string) (string, error) {
+	expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
+	sum := sha256.Sum256([]byte(method + uri + body))
+	claims := jwt.MapClaims{
+		"iss": appID,
+		"aid": authorizationID,
+		"iat": time.Now().UTC().Unix(),
+		"exp": expire.Unix(),
+		"sig": hex.EncodeToString(sum[:]),
+		"scp": scp,
+		"jti": requestID,
+	}
+
+	kb, err := base64.RawURLEncoding.DecodeString(privateKey)
+	if err != nil {
+		return "", err
+	}
+	priv := ed25519.PrivateKey(kb)
+	token := jwt.NewWithClaims(jwt.SigningMethodEdDSA, claims)
+	return token.SignedString(priv)
+}
+```
 
 ## PIN 签名
 
