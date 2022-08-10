@@ -106,21 +106,19 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import {
-  ref, computed,
-} from 'vue';
+import { ref, computed, watch } from 'vue';
+import { useStore } from "vuex";
 import { useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';
 
-defineProps({
-  appList: Array,
-  userInfo: Object,
-});
-const emit = defineEmits(['set-current-app', 'click-new-app', 'set-global-loading']);
+const store = useStore();
+const appList = computed(() => store.state.appList);
+const userInfo = computed(() => store.state.userInfo);
+const appProperty = computed(() => store.state.appProperty);
 
 const { t } = useI18n();
 const showLogoutModal = ref(false);
@@ -130,17 +128,20 @@ const mobileUserPosition = computed(() => (!isImmersive.value ? 'right' : 'left'
 
 const route = useRoute();
 const router = useRouter();
-const useToApp = (uri) => {
+const useToApp = (item) => {
+  const uri = `/apps/${item.app_number}`;
   if (uri === route.path) return;
-  router.push({ path: uri, hash: '#information' });
+  router.push({
+    path: uri,
+    hash: '#information'
+  });
 };
 
 const useClickNewApp = async () => {
-  emit('click-new-app');
+  store.commit('modifyClickedNewApp', true);
 };
 const useClickApp = async (item) => {
-  emit('set-current-app', item.app_id);
-  useToApp(`/apps/${item.app_number}`);
+  useToApp(item);
 };
 const useClickUser = () => {
   showLogoutModal.value = !showLogoutModal.value;
@@ -157,6 +158,18 @@ const useClickSignOut = () => {
     window.location.href = window.location.origin;
   }, 100);
 };
+
+watch(() => store.state.clickedNewApp, (isClicked) => {
+  if (isClicked) {
+    console.log(appList, appProperty);
+    if (appList.value.length < appProperty.value.count) {
+      router.push('/apps/new');
+    } else {
+      store.commit('modifyBuyAppModalStatus', true);
+    }
+    store.commit('modifyClickedNewApp', false)
+  }
+});
 </script>
 
 <style lang="scss" scoped>

@@ -5,6 +5,7 @@ import {
   toRefs,
   watch,
 } from 'vue';
+import { useStore } from "vuex";
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
@@ -19,27 +20,26 @@ export default {
     AppSecret: defineAsyncComponent(() => import('./app-secret')),
     AppWallet: defineAsyncComponent(() => import('./app-wallet')),
   },
-  props: ['appId', 'appList'],
-  emits: ['click-new-app', 'add-new-app', 'set-local-loading'],
-  async setup(props, ctx) {
+  async setup() {
     const { t } = useI18n();
+    const route = useRoute();
 
+    const store = useStore();
     const state = reactive({
-      currentAppId: props.appId,
       currentNavIndex: 0,
       navList: ['information', 'wallet', 'secret'],
-      name: '',
+      currentAppName: '',
+      currentAppId: '',
     });
+    state.currentNavIndex = route.hash ? state.navList.indexOf(route.hash.slice(1)) : 0;
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
 
-    const route = useRoute();
     const useSelectApp = () => {
       const { app_number } = route.params;
-      const app = props.appList.find((app) => app.app_number === app_number);
+      const app = store.state.appList.find((app) => app.app_number === app_number);
       if (app) {
         state.currentAppId = app.app_id;
-        state.name = app.name;
-        if (route.hash) state.currentNavIndex = state.navList.indexOf(route.hash.slice(1));
+        state.currentAppName = app.name;
       }
     };
     useSelectApp();
@@ -52,40 +52,27 @@ export default {
     };
 
     const useClickNewApp = () => {
-      ctx.emit('check-app-credit');
-    };
-    const useNewAppSubmitted = (app_number) => {
-      ctx.emit('add-new-app', app_number);
+      store.commit('modifyClickedNewApp');
     };
     const useClickNav = (index) => {
       router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
-      state.currentNavIndex = index;
-    };
-    const useModifyLoading = (isLoading) => {
-      ctx.emit('set-local-loading', isLoading);
-    };
-    const useSetAppName = (name) => {
-      state.name = name;
     };
 
-    watch(() => route.path, () => {
-      state.currentNavIndex = 0;
-    });
-    watch(() => props.appId, (appId) => {
-      state.currentAppId = appId;
-    });
-    watch(() => props.appList, () => {
+    watch(() => store.state.appList, () => {
       useSelectApp();
-    });
+    })
+    watch(() => route.path, () => {
+      useSelectApp();
+    })
+    watch(() => route.hash, (hash) => {
+      state.currentNavIndex = hash ? state.navList.indexOf(route.hash.slice(1)) : 0;
+    })
 
     return {
       ...toRefs(state),
       currentNav,
-      useSetAppName,
       useClickNewApp,
-      useNewAppSubmitted,
       useClickNav,
-      useModifyLoading,
       backward,
       t,
     };

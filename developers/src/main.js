@@ -9,6 +9,7 @@ import {
 import VueCroppie from 'vue-croppie';
 
 import App from '@/App.vue';
+import store from '@/store'
 import router from '@/router';
 import i18n from '@/i18n';
 import DashboardLayout from '@/layout/DashboardLayout';
@@ -18,7 +19,8 @@ import '@/assets/font/dashboard.css';
 import '@/assets/font/home.css';
 
 const app = createApp(App);
-app.use(router)
+app.use(store)
+  .use(router)
   .use(i18n)
   .use(ElMenu)
   .use(ElLoading)

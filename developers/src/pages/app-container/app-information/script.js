@@ -7,6 +7,7 @@ import {
   inject,
   onActivated,
 } from 'vue';
+import { useStore } from "vuex";
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
 import {
@@ -18,6 +19,7 @@ import {
 import MInput from './input.vue';
 import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
+import {useRouter} from "vue-router";
 
 export default {
   name: 'app-information',
@@ -27,12 +29,13 @@ export default {
   props: {
     appId: String,
   },
-  emits: ['loading', 'add-new-app', 'set-app-name'],
-  async setup(props, ctx) {
+  async setup(props) {
     const { t } = useI18n();
     const $message = inject('$message');
     const croppie = ref(null);
+    const router = useRouter();
 
+    const store = useStore();
     const state = reactive({
       toggle_app: 0,
       submitting: false,
@@ -59,10 +62,9 @@ export default {
     const useFetchApp = async (appId) => {
       appId = appId || props.appId;
       if (appId) {
-        ctx.emit('loading', true);
+        store.commit('modifyLocalLoading', true)
         const app = await useApp(client, appId);
-        ctx.emit('set-app-name', app.name);
-        ctx.emit('loading', false);
+        store.commit('modifyLocalLoading', false)
         return app;
       }
       return {};
@@ -118,19 +120,23 @@ export default {
       };
 
       state.submitting = true;
-      ctx.emit('loading', true);
+      store.commit('modifyLocalLoading', true)
       try {
         const res = props.appId
           ? await useUpdateApp(client, props.appId, params)
           : await useCreateApp(client, params);
         if (res && res.type === 'app') {
           $message.success({ message: t('message.success.save'), showClose: true });
-          ctx.emit('add-new-app', res.app_number);
+          await store.dispatch('fetchAppList', client);
+          await router.push({
+            path: `/apps/${res.app_number}`,
+            hash: '#information',
+          })
           initApp(res);
         }
       } finally {
         state.submitting = false;
-        ctx.emit('loading', false);
+        store.commit('modifyLocalLoading', false)
       }
     };
     const closeModal = () => {

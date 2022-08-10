@@ -6,6 +6,7 @@ import {
   watch,
   onActivated,
 } from 'vue';
+import { useStore } from "vuex";
 import { useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
@@ -24,11 +25,11 @@ export default {
   props: {
     appId: String,
   },
-  emits: ['loading'],
-  setup(props, ctx) {
+  setup(props) {
     const $message = inject('$message');
     const { t } = useI18n();
 
+    const store = useStore();
     const state = reactive({
       submitting: false,
       confirmContent: '',
@@ -47,7 +48,7 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
-      ctx.emit('loading', true);
+      store.commit('modifyLocalLoading', true)
       state.submitting = true;
 
       try {
@@ -57,7 +58,7 @@ export default {
         state.modalContent = res.app_secret;
       } finally {
         state.submitting = false;
-        ctx.emit('loading', false);
+        store.commit('modifyLocalLoading', false)
       }
     };
     const useUpdateSession = async () => {
@@ -67,7 +68,7 @@ export default {
       }
 
       state.submitting = true;
-      ctx.emit('loading', true);
+      store.commit('modifyLocalLoading', true)
 
       try {
         const pin = randomPin();
@@ -86,7 +87,7 @@ export default {
         ls.rm(props.appId);
       } finally {
         state.submitting = false;
-        ctx.emit('loading', false);
+        store.commit('modifyLocalLoading', false)
       }
     };
     const useRequestQRCode = async (isShow) => {
@@ -103,7 +104,7 @@ export default {
 
       const appClient = useClient($message, t, clientInfo);
 
-      ctx.emit('loading', true);
+      store.commit('modifyLocalLoading', true)
       state.submitting = true;
       ls.set('ignoreError', 'true');
       try {
@@ -123,7 +124,7 @@ export default {
         state.modalContent = res.code_url;
       } finally {
         state.submitting = false;
-        ctx.emit('loading', false);
+        store.commit('modifyLocalLoading', false)
         ls.set('ignoreError', 'false');
       }
     };

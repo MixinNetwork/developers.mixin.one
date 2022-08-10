@@ -7,7 +7,7 @@
         </div>
       </template>
       <template #center>
-        <div>{{ name }}</div>
+        <div>{{ currentAppName }}</div>
       </template>
     </d-header>
     <header>
@@ -26,8 +26,6 @@
           <component
             :is="currentNav"
             :appId="currentAppId"
-            @loading="useModifyLoading"
-            @set-app-name="useSetAppName"
           ></component>
         </suspense>
       </keep-alive>

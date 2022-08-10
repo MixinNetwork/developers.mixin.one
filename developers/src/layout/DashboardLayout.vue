@@ -1,23 +1,11 @@
 <template>
   <div v-loading="loadingAll" :class="['development-dashboard', t('language')]">
     <div class="dashboard-container">
-      <SideBar
-        :app-list="appList"
-        :user-info="userInfo"
-        @set-global-loading="useSetLoading"
-        @click-new-app="useClickNewApp"
-        @set-current-app="useSetCurrentApp"
-      />
+      <SideBar />
 
       <div v-loading="loading" class="dashboard-center-and-nav">
           <suspense>
-            <router-view
-              :appId="currentAppId"
-              :appList="appList"
-              @set-local-loading="useSetLocalLoading"
-              @click-new-app="useClickNewApp"
-              @add-new-app="useAddNewApp"
-            ></router-view>
+            <router-view></router-view>
           </suspense>
       </div>
     </div>
@@ -54,105 +42,46 @@
 
 <script setup>
 import { v4 as uuid } from 'uuid';
-import {
-  inject,
-  onMounted,
-  reactive,
-  toRefs,
-} from 'vue';
+import { computed, inject, onMounted } from 'vue';
+import { useStore } from "vuex";
 import { useI18n } from 'vue-i18n';
-import { useRoute, useRouter } from 'vue-router';
 import DModal from '@/components/DModal';
 import SideBar from '@/components/SideBar';
-import {
-  useAppList,
-  useAppProperty,
-  useClient,
-  useUserInfo,
-} from '@/api';
+import { useClient } from '@/api';
 
 const $message = inject('$message');
 const { t } = useI18n();
 
-const state = reactive({
-  loadingAll: false,
-  loading: false,
-  appList: [],
-  userInfo: {},
-  appProperty: {},
-  showBuyModal: false,
-  currentAppId: '',
-});
+const store = useStore();
+const appProperty = computed(() => store.state.appProperty);
+const loadingAll = computed(() => store.state.loadingAll);
+const loading = computed(() => store.state.loading);
+const showBuyModal = computed(() => store.state.showBuyModal);
 
-const route = useRoute();
-const router = useRouter();
-const useTo = (uri, isApp = false) => {
-  if (uri === route.path) return;
-  const path = { path: uri };
-  if (isApp) path.hash = '#information';
-  router.push(path);
-};
-
-const useClickNewApp = () => {
-  const hasCredit = state.appList.length < state.appProperty.count;
-  if (hasCredit) {
-    useTo('/apps/new');
-  } else {
-    state.showBuyModal = true;
-  }
-};
-const useSetCurrentApp = (appId) => {
-  state.currentAppId = appId;
-};
-const useSetLoading = (status) => {
-  state.loadingAll = status;
-};
-const useSetLocalLoading = (status) => {
-  state.loading = status;
-};
 const useClickBuyApp = async (count) => {
-  state.loadingAll = true;
   const client = useClient($message, t);
-  const { price } = await useAppProperty(client);
-  state.loadingAll = true;
+  store.commit('modifyGlobalLoading', true);
+  await store.dispatch('fetchAppProperty', client)
+  store.commit('modifyGlobalLoading', false);
 
   const trace = uuid();
-  const amount = Number(price) * count;
+  const amount = Number(appProperty.value.price) * count;
   // eslint-disable-next-line max-len
   window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`;
 };
+
 const useCloseBuyApp = () => {
-  state.showBuyModal = false;
+  store.commit('modifyBuyAppModalStatus', false)
 };
 
-const client = useClient($message, t);
 const useFetchAll = async () => {
-  state.loadingAll = true;
-  state.appList = await useAppList(client);
-  state.userInfo = await useUserInfo(client);
-  state.loadingAll = false;
-  state.appProperty = await useAppProperty(client);
-};
-const useAddNewApp = async (app_number) => {
-  state.loading = true;
-  state.appList = await useAppList(client);
-  state.currentAppId = state.appList.find((app) => app.app_number === app_number).app_id;
-  useTo(`/apps/${app_number}`, true);
-  state.loading = false;
+  const client = useClient($message, t);
+  await store.dispatch('fetchAll', client);
 };
 
 onMounted(async () => {
   await useFetchAll();
 });
-
-const {
-  loadingAll,
-  loading,
-  showBuyModal,
-  appList,
-  userInfo,
-  currentAppId,
-} = toRefs(state);
 </script>
 
 <style lang='scss' scoped>
