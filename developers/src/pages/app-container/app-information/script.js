@@ -7,8 +7,8 @@ import {
   inject,
   onActivated,
 } from 'vue';
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
 import {
@@ -62,9 +62,9 @@ export default {
     const useFetchApp = async (appId) => {
       appId = appId || props.appId;
       if (appId) {
-        store.commit('modifyLocalLoading', true)
+        store.commit('modifyLocalLoading', true);
         const app = await useApp(client, appId);
-        store.commit('modifyLocalLoading', false)
+        store.commit('modifyLocalLoading', false);
         return app;
       }
       return {};
@@ -120,7 +120,7 @@ export default {
       };
 
       state.submitting = true;
-      store.commit('modifyLocalLoading', true)
+      store.commit('modifyLocalLoading', true);
       try {
         const res = props.appId
           ? await useUpdateApp(client, props.appId, params)
@@ -131,12 +131,12 @@ export default {
           await router.push({
             path: `/apps/${res.app_number}`,
             hash: '#information',
-          })
+          });
           initApp(res);
         }
       } finally {
         state.submitting = false;
-        store.commit('modifyLocalLoading', false)
+        store.commit('modifyLocalLoading', false);
       }
     };
     const closeModal = () => {

@@ -1,16 +1,15 @@
 import { createStore } from 'vuex';
-import { useRouter } from "vue-router";
-import {useAppList, useAppProperty, useUserInfo} from "@/api";
+import { useAppList, useAppProperty, useUserInfo } from '@/api';
 
 const store = createStore({
-  state:{
-      appList: [],
-      userInfo: [],
-      appProperty: {},
-      loadingAll: false,
-      loading: false,
-      showBuyModal: false,
-      clickedNewApp: false,
+  state: {
+    appList: [],
+    userInfo: [],
+    appProperty: {},
+    loadingAll: false,
+    loading: false,
+    showBuyModal: false,
+    clickedNewApp: false,
   },
   mutations: {
     modifyGlobalLoading(state, status) {
@@ -33,7 +32,7 @@ const store = createStore({
     },
     setAppProperty(state, appProperty) {
       state.appProperty = appProperty;
-    }
+    },
   },
   actions: {
     async fetchAll({ commit }, client) {
@@ -53,7 +52,7 @@ const store = createStore({
       commit('setAppList', await useAppList(client));
       commit('modifyLocalLoading', false);
     },
-  }
-})
+  },
+});
 
 export default store;

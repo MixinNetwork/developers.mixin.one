@@ -11,7 +11,7 @@ export default {
     DHeader,
     AppInformation: defineAsyncComponent(() => import('../app-container/app-information')),
   },
-  async setup(props, ctx) {
+  async setup() {
     const { t } = useI18n();
 
     const router = useRouter();

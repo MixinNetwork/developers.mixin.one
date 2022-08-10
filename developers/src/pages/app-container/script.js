@@ -5,7 +5,7 @@ import {
   toRefs,
   watch,
 } from 'vue';
-import { useStore } from "vuex";
+import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
@@ -60,13 +60,13 @@ export default {
 
     watch(() => store.state.appList, () => {
       useSelectApp();
-    })
+    });
     watch(() => route.path, () => {
       useSelectApp();
-    })
+    });
     watch(() => route.hash, (hash) => {
       state.currentNavIndex = hash ? state.navList.indexOf(route.hash.slice(1)) : 0;
-    })
+    });
 
     return {
       ...toRefs(state),

@@ -43,7 +43,7 @@
 <script setup>
 import { v4 as uuid } from 'uuid';
 import { computed, inject, onMounted } from 'vue';
-import { useStore } from "vuex";
+import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import DModal from '@/components/DModal';
 import SideBar from '@/components/SideBar';
@@ -61,7 +61,7 @@ const showBuyModal = computed(() => store.state.showBuyModal);
 const useClickBuyApp = async (count) => {
   const client = useClient($message, t);
   store.commit('modifyGlobalLoading', true);
-  await store.dispatch('fetchAppProperty', client)
+  await store.dispatch('fetchAppProperty', client);
   store.commit('modifyGlobalLoading', false);
 
   const trace = uuid();

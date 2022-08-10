@@ -44,7 +44,7 @@ export default {
       const tokenInfo = ls.get(props.appId);
       if (!useHasAppToken(tokenInfo)) return false;
 
-      store.commit('modifyLocalLoading', true)
+      store.commit('modifyLocalLoading', true);
       ls.set('ignoreError', 'true');
       try {
         const client = useClient($message, t, tokenInfo);
@@ -63,7 +63,7 @@ export default {
         state.showSessionUpdateModal = true;
         ls.rm(props.appId);
       } finally {
-        store.commit('modifyLocalLoading', false)
+        store.commit('modifyLocalLoading', false);
         ls.set('ignoreError', 'false');
       }
       return true;

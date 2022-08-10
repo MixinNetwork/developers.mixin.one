@@ -9,7 +9,7 @@ import {
 import VueCroppie from 'vue-croppie';
 
 import App from '@/App.vue';
-import store from '@/store'
+import store from '@/store';
 import router from '@/router';
 import i18n from '@/i18n';
 import DashboardLayout from '@/layout/DashboardLayout';
