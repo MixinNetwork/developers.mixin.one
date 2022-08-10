@@ -107,7 +107,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue';
-import { useStore } from "vuex";
+import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
@@ -133,7 +133,7 @@ const useToApp = (item) => {
   if (uri === route.path) return;
   router.push({
     path: uri,
-    hash: '#information'
+    hash: '#information',
   });
 };
 
@@ -166,7 +166,7 @@ watch(() => store.state.clickedNewApp, (isClicked) => {
     } else {
       store.commit('modifyBuyAppModalStatus', true);
     }
-    store.commit('modifyClickedNewApp', false)
+    store.commit('modifyClickedNewApp', false);
   }
 });
 </script>

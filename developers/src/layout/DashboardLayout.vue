@@ -62,7 +62,6 @@ const useClickBuyApp = async (count) => {
   const client = useClient($message, t);
   store.commit('modifyGlobalLoading', true);
   await store.dispatch('fetchAppProperty', client);
-  store.commit('modifyGlobalLoading', false);
 
   const trace = uuid();
   const amount = Number(appProperty.value.price) * count;

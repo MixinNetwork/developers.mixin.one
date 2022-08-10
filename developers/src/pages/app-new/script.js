@@ -1,6 +1,4 @@
-import {
-  defineAsyncComponent,
-} from 'vue';
+import { defineAsyncComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';

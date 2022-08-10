@@ -16,8 +16,7 @@
       </div>
     </header>
     <div class="dashboard-main">
-      <app-information
-      />
+      <app-information />
     </div>
   </div>
 </template>
