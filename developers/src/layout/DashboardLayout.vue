@@ -136,8 +136,8 @@ const useFetchAll = async () => {
 const useAddNewApp = async (app_number) => {
   state.loading = true;
   state.appList = await useAppList(client);
-  state.currentApp = state.appList.find((app) => app.app_number === app_number).app_id
-  useTo(`/apps/${app_number}`, true)
+  state.currentAppId = state.appList.find((app) => app.app_number === app_number).app_id;
+  useTo(`/apps/${app_number}`, true);
   state.loading = false;
 };
 
