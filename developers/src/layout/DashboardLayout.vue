@@ -16,7 +16,7 @@
               :appList="appList"
               @set-local-loading="useSetLocalLoading"
               @click-new-app="useClickNewApp"
-              @add-new-app="useUpdateAppList"
+              @add-new-app="useAddNewApp"
             ></router-view>
           </suspense>
       </div>
@@ -86,9 +86,11 @@ const state = reactive({
 
 const route = useRoute();
 const router = useRouter();
-const useTo = (uri) => {
+const useTo = (uri, isApp = false) => {
   if (uri === route.path) return;
-  router.push({ path: uri });
+  const path = { path: uri };
+  if (isApp) path.hash = '#information';
+  router.push(path);
 };
 
 const useClickNewApp = () => {
@@ -131,9 +133,11 @@ const useFetchAll = async () => {
   state.loadingAll = false;
   state.appProperty = await useAppProperty(client);
 };
-const useUpdateAppList = async () => {
+const useAddNewApp = async (app_number) => {
   state.loading = true;
-  state.userInfo = await useUserInfo(client);
+  state.appList = await useAppList(client);
+  state.currentApp = state.appList.find((app) => app.app_number === app_number).app_id
+  useTo(`/apps/${app_number}`, true)
   state.loading = false;
 };
 

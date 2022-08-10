@@ -38,6 +38,7 @@ export default {
       submitting: false,
       showConfirmModal: false,
       app: {},
+      category: 'OTHER',
       resource_patterns: '',
       isImmersive: false,
       isEncrypted: false,
@@ -47,6 +48,7 @@ export default {
     const initApp = (app) => {
       state.toggle_app++;
       state.app = app;
+      state.category = app.category || 'OTHER';
       state.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : '';
       state.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false;
       state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false;
@@ -107,7 +109,7 @@ export default {
       const params = {
         icon_base64,
         name: state.app.name,
-        category: state.app.category,
+        category: state.category,
         home_uri: state.app.home_uri,
         redirect_uri: state.app.redirect_uri,
         description: state.app.description,

@@ -32,7 +32,7 @@
               v-model:value="app.name"
               class="item"
             />
-            <CategorySelect class="item" v-model:value="app.category" />
+            <CategorySelect class="item" v-model:value="category" />
           </div>
           <MInput
             :label="t('information.home_url')"
