@@ -161,7 +161,6 @@ const useClickSignOut = () => {
 
 watch(() => store.state.clickedNewApp, (isClicked) => {
   if (isClicked) {
-    console.log(appList, appProperty);
     if (appList.value.length < appProperty.value.count) {
       router.push('/apps/new');
     } else {

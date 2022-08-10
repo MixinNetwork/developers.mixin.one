@@ -17,7 +17,6 @@
     </header>
     <div class="dashboard-main">
       <app-information
-        @add-new-app="useNewAppSubmitted"
       />
     </div>
   </div>

@@ -11,7 +11,6 @@ export default {
     DHeader,
     AppInformation: defineAsyncComponent(() => import('../app-container/app-information')),
   },
-  emits: ['add-new-app', 'set-local-loading'],
   async setup(props, ctx) {
     const { t } = useI18n();
 
@@ -22,16 +21,7 @@ export default {
       });
     };
 
-    const useNewAppSubmitted = (app_number) => {
-      ctx.emit('add-new-app', app_number);
-    };
-    const useModifyLoading = (isLoading) => {
-      ctx.emit('set-local-loading', isLoading);
-    };
-
     return {
-      useNewAppSubmitted,
-      useModifyLoading,
       backward,
       t,
     };

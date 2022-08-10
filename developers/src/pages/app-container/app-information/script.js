@@ -8,6 +8,7 @@ import {
   onActivated,
 } from 'vue';
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
 import {
@@ -19,7 +20,6 @@ import {
 import MInput from './input.vue';
 import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
-import {useRouter} from "vue-router";
 
 export default {
   name: 'app-information',

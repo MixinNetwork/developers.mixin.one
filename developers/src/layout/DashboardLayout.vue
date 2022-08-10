@@ -71,7 +71,7 @@ const useClickBuyApp = async (count) => {
 };
 
 const useCloseBuyApp = () => {
-  store.commit('modifyBuyAppModalStatus', false)
+  store.commit('modifyBuyAppModalStatus', false);
 };
 
 const useFetchAll = async () => {
