@@ -1,6 +1,6 @@
 {
   "title": {
-    "message": "Mixin Developers",
+    "message": "Mixin 开发者文档",
     "description": "The title in the navbar"
   },
   "item.label.Docs": {
@@ -16,7 +16,11 @@
     "description": "Navbar item with label GitHub"
   },
   "item.label.Showcase": {
-    "message": "Showcase",
+    "message": "展示",
     "description": "Navbar item with label Showcase"
+  },
+  "item.label.News": {
+    "message": "新闻",
+    "description": "Navbar item with label News"
   }
 }

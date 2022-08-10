@@ -144,6 +144,7 @@ module.exports = {
           label: 'User',
           type: 'category',
           items: [
+            'api/users/intro',
             'api/users/profile',
             'api/users/users',
             'api/users/user',

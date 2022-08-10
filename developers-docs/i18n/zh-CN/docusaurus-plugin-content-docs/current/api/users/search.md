@@ -1,5 +1,5 @@
 ---
-title: Search
+title: 搜索
 sidebar_position: 3
 ---
 
