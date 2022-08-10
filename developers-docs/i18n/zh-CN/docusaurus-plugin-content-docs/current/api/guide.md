@@ -41,8 +41,8 @@ Messenger 主要有三个签名：
 
 | 参数 | 说明                                |
 | :--- | :---------------------------------- |
-| alg  | Signature Algorithm, set to `EdDSA` |
-| typ  | Token type, set to `JWT`            |
+| alg  | 签名算法 `EdDSA` |
+| typ  | 类型 `JWT`            |
 
 **JWT Payload**
 
@@ -59,12 +59,12 @@ Messenger 主要有三个签名：
 
 ```go
 /*
-* uid: User Id
+* uid: 用户或机器人的 uuid
 * sid: Session Id
 * privateKey: 机器人私钥
-* method: HTTP Request method, e.g.: GET, POST
-* url: URL path without hostname, e.g.: /transfers
-* body: HTTP Request body, e.g.: {"pin": "encrypted pin token"}
+* method: HTTP 请求方法 GET, POST
+* url: HTTP 请求 URL 例如: /transfers
+* body: HTTP 请求内容, 例如: {"pin": "encrypted pin token"}
 */
 func SignAuthenticationToken(uid, sid, privateKey, method, uri, body string) (string, error) {
 	expire := time.Now().UTC().Add(time.Hour * 24 * 30 * 3)
@@ -184,7 +184,7 @@ func SignOauthAccessToken(appID, authorizationID, privateKey, method, uri, body,
 
 ## PIN 签名
 
-Messenger 用 6 位数的 Pin 通过 TIP 协议，让用户方便的管理私钥, 关于 TIP 的实现，开源地址: https://github.com/MixinNetwork/tip , 在这里我们不展开讨论。
+Messenger 用 6 位数的 Pin 通过 TIP 协议，让用户方便的管理私钥, 关于 TIP 的实现，开源地址: [https://github.com/MixinNetwork/tip](https://github.com/MixinNetwork/tip) , 在这里我们不展开讨论。
 
 当用户需要对资产进行操作，比如转帐，提现等时，都需要对 6 位数的 pin 进行签名，下面是 Golang 的示例
 
@@ -244,6 +244,6 @@ func EncryptEd25519PIN(pin, pinTokenBase64, privateKey string, iterator uint64) 
 Messenger API 主要包含:
 
 * 部分公开的 API, 例如 https://api.mixin.one/network/chains 获取所有链的列表
-* 私有的 API 需要通过签名生成 Token 进行访问
+* 私有的 API 需要通过签名生成 Token 进行访问, 例如 https://api.mixin.one/me
 * 转帐，提现等同时需要对 pin 进行签名
 * 另外有些请求的字段名字会以 `_base64` 结尾, RFC 4648 规范的 base64 格式，[详细介绍](https://pkg.go.dev/encoding/base64#pkg-variables)

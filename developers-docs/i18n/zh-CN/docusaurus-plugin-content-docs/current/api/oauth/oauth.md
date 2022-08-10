@@ -49,7 +49,7 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
 
 ### POST /oauth/token
 
-这一步就是拿到 OAuth 签名所需要的信息, 如果给 OAuth 签名, [链接](/zh-CN/docs/api/guide#oauth-用户签名)
+这一步主要是拿到 OAuth 签名所需要的信息, 用 OAuth 签名, [链接](/zh-CN/docs/api/guide#oauth-用户签名)
 
 <APIEndpoint url="/oauth/token" />
 
@@ -79,4 +79,4 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
 
 ## 取消授权
 
-用户可以在 Mixin Messenger 中取消授权, 另外授权有有效期是一年。过期后同样需要用户重新授权
+用户可以在 Mixin Messenger 中取消授权, 另外授权有效期是一年。过期后同样需要用户重新授权
