@@ -12,7 +12,7 @@
       <div v-loading="loading" class="dashboard-center-and-nav">
           <suspense>
             <router-view
-              :appId="currentApp"
+              :appId="currentAppId"
               :appList="appList"
               @set-local-loading="useSetLocalLoading"
               @click-new-app="useClickNewApp"
@@ -81,7 +81,7 @@ const state = reactive({
   userInfo: {},
   appProperty: {},
   showBuyModal: false,
-  currentApp: '',
+  currentAppId: '',
 });
 
 const route = useRoute();
@@ -101,8 +101,8 @@ const useClickNewApp = () => {
     state.showBuyModal = true;
   }
 };
-const useSetCurrentApp = (app) => {
-  state.currentApp = app;
+const useSetCurrentApp = (appId) => {
+  state.currentAppId = appId;
 };
 const useSetLoading = (status) => {
   state.loadingAll = status;
@@ -151,7 +151,7 @@ const {
   showBuyModal,
   appList,
   userInfo,
-  currentApp,
+  currentAppId,
 } = toRefs(state);
 </script>
 
