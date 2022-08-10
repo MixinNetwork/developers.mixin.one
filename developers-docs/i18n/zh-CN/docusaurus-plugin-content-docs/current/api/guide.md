@@ -3,9 +3,9 @@ title: Mixin API 指引
 sidebar_position: 1
 ---
 
-大部分的 API 服务都需要有权限验证，Messager API 也一样，开发者需要的私钥，可以从上一篇 [API 简介](/zh-CN/docs/api-overview) 中的 keystore-7000xxx.json 获取。
+Messenger 的大部分 API 都需要的私钥，可以从上一篇 [API 简介](/zh-CN/docs/api-overview) 中的 keystore-7000xxx.json 获取。
 
-Mixin 只主要的三个签名：
+Messenger 主要有三个签名：
 
 1. 访问私有 API 的 JWT 签名, [详细](#调用-api)
 2. OAuth 用户访问 API 的 JWT 签名, [详细](#oauth-用户签名)
@@ -184,7 +184,7 @@ func SignOauthAccessToken(appID, authorizationID, privateKey, method, uri, body,
 
 ## PIN 签名
 
-Messager 用 6 位数的 Pin 通过 TIP 协议，让用户方便的管理私钥, 关于 TIP 的实现，开源地址: https://github.com/MixinNetwork/tip , 在这里我们不展开讨论。
+Messenger 用 6 位数的 Pin 通过 TIP 协议，让用户方便的管理私钥, 关于 TIP 的实现，开源地址: https://github.com/MixinNetwork/tip , 在这里我们不展开讨论。
 
 当用户需要对资产进行操作，比如转帐，提现等时，都需要对 6 位数的 pin 进行签名，下面是 Golang 的示例
 
@@ -241,7 +241,7 @@ func EncryptEd25519PIN(pin, pinTokenBase64, privateKey string, iterator uint64) 
 
 ## 总结
 
-Messager API 主要包含:
+Messenger API 主要包含:
 
 * 部分公开的 API, 例如 https://api.mixin.one/network/chains 获取所有链的列表
 * 私有的 API 需要通过签名生成 Token 进行访问
