@@ -11,15 +11,15 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-## GET /fiats
+## GET /external/fiats
 
 Returns a list of all fiat exchange rates based on US Dollar.
 
-<APIEndpoint url="/fiats" />
+<APIEndpoint url="/external/fiats" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
-<APIRequest title="Get Fiats Rate" url="/fiats"/>
+<APIRequest title="Get Fiats Rate" url="/external/fiats"/>
 
 ```json title="Response"
 {

@@ -11,15 +11,15 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-## GET /fiats
+## GET /external/fiats
 
 本 API 返回一系列法定货币的汇率。
 
-<APIEndpoint url="/fiats" />
+<APIEndpoint url="/external/fiats" />
 
-<APIMetaPanel scope="Authorized" scopeNote="" />
+<APIMetaPanel scopeNote="" />
 
-<APIRequest title="Get Fiats Rate" url="/fiats" />
+<APIRequest title="Get Fiats Rate" isPublic url="/external/fiats" />
 
 ```json title="Response"
 {

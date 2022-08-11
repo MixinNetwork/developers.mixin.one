@@ -15,7 +15,7 @@ import {
 Submit a withdrawal request.
 
 :::info
-You will need to [create a withdrawal address](../address-add.md) first to withdrawal. Also, it costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
+You will need to [create a withdrawal address](./address-add.md) first to withdrawal. Also, it costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
 :::
 
 <APIEndpoint url="/withdrawals" />
@@ -23,7 +23,7 @@ You will need to [create a withdrawal address](../address-add.md) first to withd
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "address_id": "the address id created by [POST /withdrawals](../address-add.md)",
+  "address_id": "the address id created by [POST /withdrawals](./address-add.md)",
   "amount":     "e.g. '100000'",
   "trace_id":   "an uuid to prevent duplicate withdrawals",
   "pin":        "encrypted PIN",

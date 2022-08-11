@@ -148,6 +148,7 @@ module.exports = {
             'api/users/profile',
             'api/users/users',
             'api/users/user',
+            'api/users/sessions',
             'api/users/search',
             'api/users/contacts',
             'api/users/relationships',
@@ -170,7 +171,6 @@ module.exports = {
             'api/assets/assets',
             'api/assets/asset',
             'api/assets/fee',
-            'api/assets/fiats',
           ]
         },
         {
@@ -204,8 +204,15 @@ module.exports = {
             'api/network/snapshots',
             'api/network/snapshot',
             'api/network/ticker',
-            'api/network/outputs',
             'api/network/pending-deposits',
+          ]
+        },
+        {
+          label: 'External',
+          type: 'category',
+          items: [
+            'api/external/fiats',
+            'api/external/address',
           ]
         },
         {
@@ -214,6 +221,14 @@ module.exports = {
           items: [
             'api/multisigs/request',
             'api/multisigs/outputs',
+          ]
+        },
+        {
+          label: 'Outputs',
+          type: 'category',
+          items: [
+            'api/outputs/ghost',
+            'api/outputs/outputs',
           ]
         },
         {

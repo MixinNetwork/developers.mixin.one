@@ -35,3 +35,16 @@ When reading the transfer details, if it is not the transfer record of the curre
 />
 
 <RespSnapshot />
+
+
+## GET /snapshots/trace/:id
+
+This API is only for reading transfers, not deposits or withdrawals.
+
+<APIRequest
+  title="Read Transfer"
+  method="GET"
+  url="/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
+/>
+
+<RespTransfer />
