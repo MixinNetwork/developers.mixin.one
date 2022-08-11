@@ -1,6 +1,6 @@
 ---
 title: 一次性私钥
-sidebar_position: 24
+sidebar_position: 1
 ---
 
 import {
