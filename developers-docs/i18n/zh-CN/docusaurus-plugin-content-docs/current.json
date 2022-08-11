@@ -75,6 +75,10 @@
     "message": "公开 API",
     "description": "The label for category Network in sidebar api"
   },
+  "sidebar.api.category.Mixin-Internal-Address": {
+    "message": "内部地址",
+    "description": "The label for category Network in sidebar api"
+  },
   "sidebar.api.category.Multi-Signature": {
     "message": "多重签名",
     "description": "The label for category Multi-Signature in sidebar api"

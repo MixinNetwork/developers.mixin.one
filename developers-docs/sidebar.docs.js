@@ -212,6 +212,7 @@ module.exports = {
           type: 'category',
           items: [
             'api/external/fiats',
+            'api/external/address',
           ]
         },
         {
