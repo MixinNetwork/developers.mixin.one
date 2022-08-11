@@ -170,7 +170,6 @@ module.exports = {
             'api/assets/assets',
             'api/assets/asset',
             'api/assets/fee',
-            'api/assets/fiats',
           ]
         },
         {
@@ -206,6 +205,13 @@ module.exports = {
             'api/network/ticker',
             'api/network/outputs',
             'api/network/pending-deposits',
+          ]
+        },
+        {
+          label: 'External',
+          type: 'category',
+          items: [
+            'api/external/fiats',
           ]
         },
         {

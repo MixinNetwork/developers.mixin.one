@@ -68,7 +68,11 @@
     "description": "The label for category Withdrawal in sidebar api"
   },
   "sidebar.api.category.Network": {
-    "message": "主网网络",
+    "message": "Mixin 网络",
+    "description": "The label for category Network in sidebar api"
+  },
+  "sidebar.api.category.External": {
+    "message": "公开 API",
     "description": "The label for category Network in sidebar api"
   },
   "sidebar.api.category.Multi-Signature": {
