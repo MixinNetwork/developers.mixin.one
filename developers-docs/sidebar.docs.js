@@ -148,6 +148,7 @@ module.exports = {
             'api/users/profile',
             'api/users/users',
             'api/users/user',
+            'api/users/sessions',
             'api/users/search',
             'api/users/contacts',
             'api/users/relationships',
