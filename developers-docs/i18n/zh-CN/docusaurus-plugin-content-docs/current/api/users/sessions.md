@@ -13,7 +13,7 @@ import RespSessions from "../../_partials/_resp.sessions.md";
 
 ## POST /sessions/fetch
 
-获取 Mixin 用户的会话信息, 请求参数是用户 ID 的数组，注意一个用户可能会有多个 session 但是 public_key 是不相同的。
+获取 Mixin 用户的会话信息, 请求参数是用户 uuid 的数组，注意一个用户可能会有多个 session, public_key 不同。
 
 :::info
 接口只会返回存在的用户的会话，不存在的会直接忽略。

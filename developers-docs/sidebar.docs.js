@@ -204,7 +204,6 @@ module.exports = {
             'api/network/snapshots',
             'api/network/snapshot',
             'api/network/ticker',
-            'api/network/outputs',
             'api/network/pending-deposits',
           ]
         },
@@ -222,6 +221,14 @@ module.exports = {
           items: [
             'api/multisigs/request',
             'api/multisigs/outputs',
+          ]
+        },
+        {
+          label: 'Outputs',
+          type: 'category',
+          items: [
+            'api/outputs/ghost',
+            'api/outputs/outputs',
           ]
         },
         {
