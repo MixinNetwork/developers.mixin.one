@@ -83,7 +83,7 @@ export default {
           session_id: res.session_id,
           pin_token: res.pin_token_base64,
           private_key: privateKey,
-        }, null, ' ');
+        }, null, 2);
         ls.rm(props.appId);
       } finally {
         state.submitting = false;

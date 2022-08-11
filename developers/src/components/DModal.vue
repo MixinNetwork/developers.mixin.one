@@ -1,13 +1,11 @@
 <template>
   <teleport to="body #modal">
-    <div v-if="show" class="app-modal">
-      <div class="modal-mask">
-        <transition name="fade-up">
-          <div v-if="show" class="modal-main" v-loading="loading">
-            <slot></slot>
-          </div>
-        </transition>
-      </div>
+    <div v-if="show" class="modal">
+      <transition name="fade-up">
+        <div v-if="show" class="container" v-loading="loading">
+          <slot></slot>
+        </div>
+      </transition>
     </div>
   </teleport>
 </template>
@@ -28,25 +26,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-modal {
+.modal {
+  background-color: rgba(0, 0, 0, 0.34);
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 999;
   bottom: 0;
+  z-index: 999;
   user-select: none;
 }
-.modal-mask {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.34);
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-.modal-main {
+.container {
   border-radius: 12px;
   position: absolute;
   top: 50%;
