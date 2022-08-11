@@ -1,58 +1,19 @@
 <template>
-  <div id="app">
-    <router-view
-      :client="client"
-      @set-keystore="updateClient"
-    ></router-view>
+  <div>
+    <component :is="layout" />
   </div>
 </template>
 
-<script>
-import { MixinApi } from "@mixin.dev/mixin-node-sdk";
-import defaultApiConfig from "@/api";
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
-export default {
-  name: "app",
-  data() {
-    return {
-      client: MixinApi(defaultApiConfig)
-    }
-  },
-  mounted() {
-    window._vm = this
-    const keystore = this.$ls.get('token');
-    if (this.isValidKeystore(keystore)) {
-      this.updateClient(keystore);
-    }
-  },
-  methods: {
-    updateClient(keystore) {
-      const config = keystore
-        ? {
-            ...defaultApiConfig,
-            keystore
-          }
-        : defaultApiConfig
-      this.client = MixinApi(config)
-    },
-    isValidKeystore(keystore) {
-      return !!(keystore &&
-        keystore.scope &&
-        keystore.authorization_id &&
-        keystore.private_key);
-    }
-  }
-};
+const route = useRoute();
+const layout = computed(() => `${route.meta.type}-layout`);
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/theme.scss";
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
 
 .views {
   position: absolute;

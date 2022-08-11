@@ -17,17 +17,17 @@
 
 <script>
 export default {
-  name: "MHeader",
+  name: 'MHeader',
   props: {
     has_shadow: {
       type: Number,
-      default: 0
+      default: 0,
     },
     has_back: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 

@@ -2,15 +2,19 @@
   <footer>
     <div class="container">
       <div class="community">
-        <h6>{{$t('home.footer.community.title')}}</h6>
+        <h6>{{t('home.footer.community.title')}}</h6>
         <ul>
           <li
-            v-for="(value, key) in $t('home.footer.community.list')"
+            v-for="(value, key) in tm('home.footer.community.list')"
             :key="key"
           >
             <a :href="value.href">
               <div>
-                <img :class="key" :src=" require(`@/assets/img/footer/${key}.png`)" />
+                <img
+                  :class="key"
+                  :src="require(`@/assets/img/footer/${key}.png`)"
+                  alt="social-icon"
+                />
               </div>
               <span>{{value.name}}</span>
             </a>
@@ -18,25 +22,25 @@
         </ul>
       </div>
       <div :class="['resources', lang]">
-        <h6>{{$t('home.footer.resources.title')}}</h6>
+        <h6>{{t('home.footer.resources.title')}}</h6>
         <ul>
-          <a
-            v-for="(item, index) in $t('home.footer.resources.list')"
+          <li
+            v-for="(item, index) in tm('home.footer.resources.list')"
             :key="index"
             :href="item.href"
-          >{{item.name}}</a>
+          >{{item.name}}</li>
         </ul>
       </div>
 
       <div class="others">
-        <h6>{{$t('home.footer.others.title')}}</h6>
+        <h6>{{t('home.footer.others.title')}}</h6>
         <ul>
           <li class="i18n">
-            <div @click="toggleLocale" class="locale">
+            <div @click="useToggleLocale" class="locale">
               {{lang === 'zh' ? '中文':'English'}}
               <ul v-if="showLocale" class="select">
-                <li @click="clickChangeLocale('zh')">中文</li>
-                <li @click="clickChangeLocale('en')">English</li>
+                <li @click="useClickLocale('zh')">中文</li>
+                <li @click="useClickLocale('en')">English</li>
               </ul>
             </div>
           </li>
@@ -47,27 +51,41 @@
 </template>
 
 <script>
-  export default {
-    name: "Footer",
-    data() {
-      return {
-        lang: "",
-        showLocale: false
-      }
-    },
-    methods: {
-      clickChangeLocale(lang) {
-        this.$ls.set("lang", lang)
-        window.location.reload()
-      },
-      toggleLocale() {
-        this.showLocale = !this.showLocale
-      }
-    },
-    mounted() {
-      this.lang = this.$i18n.locale
-    }
-  }
+import { useI18n } from 'vue-i18n';
+import { onMounted, reactive, toRefs } from 'vue';
+import { ls } from '@/utils';
+
+export default {
+  name: 'Footer',
+  setup() {
+    const { t, tm, locale } = useI18n();
+
+    const state = reactive({
+      lang: '',
+      showLocale: false,
+    });
+
+    const useClickLocale = (lang) => {
+      ls.set('lang', lang);
+      window.location.reload();
+    };
+    const useToggleLocale = () => {
+      state.showLocale = !state.showLocale;
+    };
+
+    onMounted(() => {
+      state.lang = locale.value;
+    });
+
+    return {
+      t,
+      tm,
+      ...toRefs(state),
+      useClickLocale,
+      useToggleLocale,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -156,7 +174,7 @@
       min-width: 9rem;
     }
 
-    a {
+    li {
       cursor: pointer;
       display: block;
       margin-bottom: 3.5rem;

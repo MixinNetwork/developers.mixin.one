@@ -1,8 +1,8 @@
 <template>
   <div class="select-component">
-    <label>{{$t('information.category')}}</label>
-    <div class="select" @click.stop="toggle_options">
-      {{$t('information.category_list.' + (value || 'OTHER'))}}
+    <label>{{t('information.category')}}</label>
+    <div class="select" @click.stop="useToggleOptions">
+      {{t('information.category_list.' + (value || 'OTHER'))}}
       <img
         class="bottom"
         src="@/assets/img/svg/bottom.svg"
@@ -11,10 +11,10 @@
       <transition name="fade">
         <div v-if="show_options" class="options">
           <span
-            v-for="(item, key) in $t('information.category_list')"
+            v-for="(item, key) in tm('information.category_list')"
             :key="key"
             :class="key === value ? 'active' : ''"
-            @click="click_category(key)"
+            @click="useClickCategory(key)"
           >
             <img class="category-icon" :src="require(`@/assets/img/svg/Category${key}.svg`)" />
             {{item}}
@@ -26,28 +26,40 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: {
-        type: String,
-        default: ""
-      }
+import { reactive, toRefs } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+export default {
+  props: {
+    value: {
+      type: String,
+      default: '',
     },
-    data() {
-      return {
-        show_options: false
-      }
-    },
-    methods: {
-      toggle_options() {
-        this.show_options = !this.show_options
-        document.onclick = () => (this.show_options = false)
-      },
-      click_category(key) {
-        this.$emit("input", key)
-      }
-    }
-  }
+  },
+  emits: ['update:value'],
+  setup(props, ctx) {
+    const { t, tm } = useI18n();
+    const state = reactive({
+      show_options: false,
+    });
+
+    const useToggleOptions = () => {
+      state.show_options = !state.show_options;
+      document.onclick = () => { state.show_options = false; };
+    };
+    const useClickCategory = (key) => {
+      ctx.emit('update:value', key);
+    };
+
+    return {
+      ...toRefs(state),
+      useToggleOptions,
+      useClickCategory,
+      t,
+      tm,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

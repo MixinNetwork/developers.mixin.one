@@ -1,59 +1,58 @@
 <template>
-  <div v-if="confirm_modal" class="modal-mask">
+  <d-modal :show="show">
     <div class="confirm-content">
-      <img @click="click_cancel" src="@/assets/img/svg/close.svg" />
-      <h3>{{confirm_content}}</h3>
+      <img @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
+      <h3>{{content}}</h3>
       <div class="btns">
-        <button @click="click_cancel">{{$t('button.cancel')}}</button>
-        <button @click="click_confirm">{{$t('button.ok')}}</button>
+        <button @click="useClickCancel">{{t('button.cancel')}}</button>
+        <button @click="useClickConfirm">{{t('button.ok')}}</button>
       </div>
     </div>
-  </div>
+  </d-modal>
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
+import DModal from './DModal';
+
 export default {
   props: {
-    confirm_content: {
+    content: {
       type: String,
-      default: ""
+      default: '',
     },
-    confirm_modal: {
+    show: {
       type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    click_confirm() {
-      this.$emit("confirm");
-      this.$emit("close_modal");
+      default: false,
     },
-    click_cancel() {
-      this.$emit("close_modal");
-    }
-  }
+  },
+  components: { DModal },
+  emits: ['confirm', 'close-modal'],
+  setup(props, ctx) {
+    const { t } = useI18n();
+
+    const useClickConfirm = () => {
+      ctx.emit('confirm');
+      ctx.emit('close-modal');
+    };
+    const useClickCancel = () => {
+      ctx.emit('close-modal');
+    };
+
+    return {
+      t,
+      useClickCancel,
+      useClickConfirm,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.modal-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.34);
-  z-index: 1000;
-}
-
 .confirm-content {
   padding: 3.125rem 2rem;
   width: 26.125rem;
   background-color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 4px;
 }
 

@@ -1,31 +1,37 @@
-import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router'
-import '@/assets/font/dashboard.css'
-import '@/assets/font/home.css'
-import _const from '@/assets/js/const'
-import VueClipboard from 'vue-clipboard2'
-import i18n from '@/i18n'
-import { Message, Loading, Menu, Submenu, MenuItem } from 'element-ui'
-import ls from '@/assets/js/localStorage'
+import { createApp } from 'vue';
+import {
+  ElMessage,
+  ElLoading,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItem,
+} from 'element-plus';
+import VueCroppie from 'vue-croppie';
 
-import VueCroppie from 'vue-croppie'
-import 'croppie/croppie.css'
+import App from '@/App.vue';
+import store from '@/store';
+import router from '@/router';
+import i18n from '@/i18n';
+import DashboardLayout from '@/layout/DashboardLayout';
+import DocumentLayout from '@/layout/DocumentLayout';
 
-Vue.prototype.$message = Message
-Vue.use(Loading.directive)
-Vue.use(VueClipboard)
-Vue.use(VueCroppie)
-Vue.use(Menu)
-Vue.use(Submenu)
-Vue.use(MenuItem)
-Vue.config.productionTip = false
+import '@/assets/font/dashboard.css';
+import '@/assets/font/home.css';
 
-Vue.prototype._const = _const
-Vue.prototype.$ls = ls
+const app = createApp(App);
+app.use(store)
+  .use(router)
+  .use(i18n)
+  .use(ElMenu)
+  .use(ElLoading)
+  .use(ElSubMenu)
+  .use(ElMenuItem)
+  .use(VueCroppie)
+  .provide('$message', ElMessage);
 
-new Vue({
-  render: h => h(App),
-  router,
-  i18n
-}).$mount('#app')
+app.component('dashboard-layout', DashboardLayout);
+app.component('document-layout', DocumentLayout);
+
+app.config.globalProperties.$message = ElMessage;
+
+app.mount('#app');

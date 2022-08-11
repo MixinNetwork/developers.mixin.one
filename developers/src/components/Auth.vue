@@ -3,56 +3,63 @@
 </template>
 
 <script>
-  import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk'
-  import tools from "@/assets/js/tools"
+import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
+import { getUrlParameter, ls } from '@/utils';
+import { useClient } from '@/api';
+import { useRouter } from 'vue-router';
+import { inject } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-  export default {
-    props: ['client', 'setKeystore'],
-    async mounted() {
-      const { getUrlParameter } = tools
-      const error = getUrlParameter("error")
-      if (error === "access_denied") return this.handleAccessDenied()
+export default {
+  props: ['client', 'setKeystore'],
+  // eslint-disable-next-line consistent-return
+  setup() {
+    const router = useRouter();
+    const { t } = useI18n();
+    const $message = inject('$message');
 
-      const code = getUrlParameter("code")
-      const { privateKey, publicKey } = getED25519KeyPair()
+    const useAccessDenied = () => {
+      $message.error({
+        message: t('message.errors.403'),
+        showClose: true,
+      });
+      router.push('/');
+    };
 
-      const resp = await this.client.oauth.getToken(
-          process.env.VUE_APP_CLIENT_ID,
-          code,
-          publicKey,
-      )
-      if (!resp) return this.handleAccessDenied()
+    const error = getUrlParameter('error');
+    if (error === 'access_denied') return useAccessDenied();
 
-      const { scope, authorization_id } = resp
+    const code = getUrlParameter('code');
+    const { privateKey, publicKey } = getED25519KeyPair();
+
+    const client = useClient($message, t);
+    client.oauth.getToken(
+      process.env.VUE_APP_CLIENT_ID,
+      code,
+      publicKey,
+      // eslint-disable-next-line consistent-return
+    ).then((resp) => {
+      if (!resp) return useAccessDenied();
+
+      const { scope, authorization_id } = resp;
       if (
-        !scope ||
-        scope.indexOf("APPS:READ") < 0 ||
-        scope.indexOf("APPS:WRITE") < 0 ||
-        scope.indexOf("ASSETS:READ") < 0
-      ) return this.handleAccessDenied()
+        !scope
+        || scope.indexOf('APPS:READ') < 0
+        || scope.indexOf('APPS:WRITE') < 0
+      ) return useAccessDenied();
 
       const keystore = {
         user_id: process.env.VUE_APP_CLIENT_ID,
         scope,
         authorization_id,
         private_key: privateKey,
-      }
-      this.$ls.set('token', keystore)
-      this.$emit('set-keystore', keystore)
+      };
+      ls.set('token', keystore);
 
-      this.$router.push("/dashboard")
-    },
-    methods: {
-      handleAccessDenied() {
-        this.$message.error({
-          message: this.$t("message.errors.403"),
-          showClose: true
-        })
-
-        this.$router.push("/")
-      }
-    }
-  }
+      router.push('/dashboard');
+    });
+  },
+};
 </script>
 
 <style>
