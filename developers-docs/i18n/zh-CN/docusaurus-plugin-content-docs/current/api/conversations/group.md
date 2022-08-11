@@ -115,8 +115,19 @@ import RespConv from "../../_partials/_resp.conv.md";
 
 | Parameter    |  Type  | Description                                                                                                         |
 | :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
-| duration     | Int64  | In seconds, setting to 0 means unmute, other values means mute time, for example, setting 28,800 means mute 8 hours |
-| category     | String | Optional                                                                                                            |
-| participants | Array  | Optional, participants in the conversation.                                                                         |
+| duration     | Int64  | 单位秒, 0s 代表取消静音, > 0s 表示静音时间, 例如 28,800 代表静音 8 小时 |
 
 如果您静音用户或机器人，强烈建议传递类别和参与者参数，否则在不创建会话的情况下调用静音接口将返回错误。
+
+### POST /conversations/:id/disappear
+
+请求内容：
+
+| Parameter    |  Type  | Description                                                                                                         |
+| :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
+| duration     | Int64  | 单位秒, 最大 12 周 |
+
+限时消息，只有管理员可以设置, 以 30s 为例, 规则：
+
+1. 如果消息已读，到 30s 后直接删除
+2. 如果消息未读，且超过 24 小时，那么 30s 后也删除
