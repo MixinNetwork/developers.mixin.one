@@ -51,15 +51,3 @@ Transfer to specific user.
 - If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](../pin/pin-verify) API to confirm.
 
 :::
-
-## GET /transfers/trace/:id
-
-This API is only for reading transfers, not deposits or withdrawals.
-
-<APIRequest
-  title="Read Transfer"
-  method="GET"
-  url="/transfers/trace/7c67e8e8-b142-488b-80a3-61d4d29c90bf"
-/>
-
-<RespTransfer />
