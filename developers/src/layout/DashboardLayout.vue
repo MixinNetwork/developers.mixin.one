@@ -4,9 +4,9 @@
       <SideBar />
 
       <div v-loading="localLoading" class="dashboard-center-and-nav">
-          <suspense>
-            <router-view></router-view>
-          </suspense>
+        <suspense>
+          <router-view></router-view>
+        </suspense>
       </div>
     </div>
   </div>
@@ -69,11 +69,11 @@ const {
   modifyBuyModalStatus,
   modifyClickedNewApp,
 } = layoutStore;
-const { modifyGlobalLoading } = loadStore;
+const { modifyGlobalLoadingStatus } = loadStore;
 
 const useClickBuyApp = async (count) => {
   const client = useClient($message, t);
-  modifyGlobalLoading(true);
+  modifyGlobalLoadingStatus(true);
   await fetchAppProperty(client);
 
   const trace = uuid();
