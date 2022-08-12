@@ -27,7 +27,6 @@ export default {
 
     const layoutStore = useLayoutStore();
     const { appList } = storeToRefs(layoutStore);
-    const { modifyClickedNewApp } = layoutStore;
 
     const state = reactive({
       currentNavIndex: 0,
@@ -55,9 +54,6 @@ export default {
       });
     };
 
-    const useClickNewApp = () => {
-      modifyClickedNewApp(true);
-    };
     const useClickNav = (index) => {
       router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
     };
@@ -75,7 +71,6 @@ export default {
     return {
       ...toRefs(state),
       currentNav,
-      useClickNewApp,
       useClickNav,
       backward,
       t,
