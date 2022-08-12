@@ -6,7 +6,6 @@ import {
   watch,
   onActivated,
 } from 'vue';
-import { useStore } from 'vuex';
 import { useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
@@ -14,6 +13,7 @@ import FileSaver from 'file-saver';
 import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
 import Confirm from '@/components/Confirm';
+import { useLoadStore } from '@/store';
 import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 
@@ -29,7 +29,7 @@ export default {
     const $message = inject('$message');
     const { t } = useI18n();
 
-    const store = useStore();
+    const { modifyLocalLoadingStatus } = useLoadStore();
     const state = reactive({
       submitting: false,
       confirmContent: '',
@@ -48,7 +48,7 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
-      store.commit('modifyLocalLoading', true);
+      modifyLocalLoadingStatus(true);
       state.submitting = true;
 
       try {
@@ -58,7 +58,7 @@ export default {
         state.modalContent = res.app_secret;
       } finally {
         state.submitting = false;
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
       }
     };
     const useUpdateSession = async () => {
@@ -68,7 +68,7 @@ export default {
       }
 
       state.submitting = true;
-      store.commit('modifyLocalLoading', true);
+      modifyLocalLoadingStatus(true);
 
       try {
         const pin = randomPin();
@@ -87,7 +87,7 @@ export default {
         ls.rm(props.appId);
       } finally {
         state.submitting = false;
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
       }
     };
     const useRequestQRCode = async (isShow) => {
@@ -104,7 +104,7 @@ export default {
 
       const appClient = useClient($message, t, clientInfo);
 
-      store.commit('modifyLocalLoading', true);
+      modifyLocalLoadingStatus(true);
       state.submitting = true;
       ls.set('ignoreError', 'true');
       try {
@@ -124,7 +124,7 @@ export default {
         state.modalContent = res.code_url;
       } finally {
         state.submitting = false;
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
         ls.set('ignoreError', 'false');
       }
     };

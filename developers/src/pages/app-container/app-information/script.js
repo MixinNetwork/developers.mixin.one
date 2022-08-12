@@ -7,10 +7,10 @@ import {
   inject,
   onActivated,
 } from 'vue';
-import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
+import { useLayoutStore, useLoadStore } from '@/store';
 import {
   useApp,
   useClient,
@@ -35,7 +35,9 @@ export default {
     const croppie = ref(null);
     const router = useRouter();
 
-    const store = useStore();
+    const { fetchAppList } = useLayoutStore();
+    const { modifyLocalLoadingStatus } = useLoadStore();
+
     const state = reactive({
       toggle_app: 0,
       submitting: false,
@@ -62,9 +64,9 @@ export default {
     const useFetchApp = async (appId) => {
       appId = appId || props.appId;
       if (appId) {
-        store.commit('modifyLocalLoading', true);
+        modifyLocalLoadingStatus(true);
         const app = await useApp(client, appId);
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
         return app;
       }
       return {};
@@ -120,14 +122,14 @@ export default {
       };
 
       state.submitting = true;
-      store.commit('modifyLocalLoading', true);
+      modifyLocalLoadingStatus(true);
       try {
         const res = props.appId
           ? await useUpdateApp(client, props.appId, params)
           : await useCreateApp(client, params);
         if (res && res.type === 'app') {
           $message.success({ message: t('message.success.save'), showClose: true });
-          await store.dispatch('fetchAppList', client);
+          await fetchAppList(client);
           await router.push({
             path: `/apps/${res.app_number}`,
             hash: '#information',
@@ -136,7 +138,7 @@ export default {
         }
       } finally {
         state.submitting = false;
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
       }
     };
     const closeModal = () => {

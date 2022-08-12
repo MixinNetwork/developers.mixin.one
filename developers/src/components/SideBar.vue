@@ -106,19 +106,19 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
-import { useStore } from 'vuex';
+import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import { storeToRefs } from 'pinia';
 import DHeader from '@/components/DHeader';
+import { useLayoutStore } from '@/store';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';
 
-const store = useStore();
-const appList = computed(() => store.state.appList);
-const userInfo = computed(() => store.state.userInfo);
-const appProperty = computed(() => store.state.appProperty);
+const store = useLayoutStore();
+const { appList, userInfo } = storeToRefs(store);
+const { modifyClickedNewApp } = store;
 
 const { t } = useI18n();
 const showLogoutModal = ref(false);
@@ -138,7 +138,7 @@ const useToApp = (item) => {
 };
 
 const useClickNewApp = async () => {
-  store.commit('modifyClickedNewApp', true);
+  modifyClickedNewApp(true);
 };
 const useClickApp = async (item) => {
   useToApp(item);
@@ -158,17 +158,6 @@ const useClickSignOut = () => {
     window.location.href = window.location.origin;
   }, 100);
 };
-
-watch(() => store.state.clickedNewApp, (isClicked) => {
-  if (isClicked) {
-    if (appList.value.length < appProperty.value.count) {
-      router.push('/apps/new');
-    } else {
-      store.commit('modifyBuyAppModalStatus', true);
-    }
-    store.commit('modifyClickedNewApp', false);
-  }
-});
 </script>
 
 <style lang="scss" scoped>
