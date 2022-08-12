@@ -1,12 +1,12 @@
 <template>
-  <div v-loading="loadingAll" :class="['development-dashboard', t('language')]">
+  <div v-loading="globalLoading" :class="['development-dashboard', t('language')]">
     <div class="dashboard-container">
       <SideBar />
 
-      <div v-loading="loading" class="dashboard-center-and-nav">
-          <suspense>
-            <router-view></router-view>
-          </suspense>
+      <div v-loading="localLoading" class="dashboard-center-and-nav">
+        <suspense>
+          <router-view></router-view>
+        </suspense>
       </div>
     </div>
   </div>
@@ -42,26 +42,39 @@
 
 <script setup>
 import { v4 as uuid } from 'uuid';
-import { computed, inject, onMounted } from 'vue';
-import { useStore } from 'vuex';
+import { inject, onMounted, watch } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 import DModal from '@/components/DModal';
 import SideBar from '@/components/SideBar';
+import { useLayoutStore, useLoadStore } from '@/store';
 import { useClient } from '@/api';
 
 const $message = inject('$message');
 const { t } = useI18n();
 
-const store = useStore();
-const appProperty = computed(() => store.state.appProperty);
-const loadingAll = computed(() => store.state.loadingAll);
-const loading = computed(() => store.state.loading);
-const showBuyModal = computed(() => store.state.showBuyModal);
+const layoutStore = useLayoutStore();
+const loadStore = useLoadStore();
+const {
+  appProperty,
+  appList,
+  showBuyModal,
+  clickedNewApp,
+} = storeToRefs(layoutStore);
+const { globalLoading, localLoading } = storeToRefs(loadStore);
+const {
+  fetchAppProperty,
+  fetchAll,
+  modifyBuyModalStatus,
+  modifyClickedNewApp,
+} = layoutStore;
+const { modifyGlobalLoadingStatus } = loadStore;
 
 const useClickBuyApp = async (count) => {
   const client = useClient($message, t);
-  store.commit('modifyGlobalLoading', true);
-  await store.dispatch('fetchAppProperty', client);
+  modifyGlobalLoadingStatus(true);
+  await fetchAppProperty(client);
 
   const trace = uuid();
   const amount = Number(appProperty.value.price) * count;
@@ -70,16 +83,28 @@ const useClickBuyApp = async (count) => {
 };
 
 const useCloseBuyApp = () => {
-  store.commit('modifyBuyAppModalStatus', false);
+  modifyBuyModalStatus(false);
 };
 
 const useFetchAll = async () => {
   const client = useClient($message, t);
-  await store.dispatch('fetchAll', client);
+  await fetchAll(client);
 };
 
 onMounted(async () => {
   await useFetchAll();
+});
+
+const router = useRouter();
+watch(() => clickedNewApp.value, (isClicked) => {
+  if (isClicked) {
+    if (appList.value.length < appProperty.value.count) {
+      router.push('/apps/new');
+    } else {
+      modifyBuyModalStatus(true);
+    }
+    modifyClickedNewApp(false);
+  }
 });
 </script>
 

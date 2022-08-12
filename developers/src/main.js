@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import {
   ElMessage,
   ElLoading,
@@ -9,7 +10,6 @@ import {
 import VueCroppie from 'vue-croppie';
 
 import App from '@/App.vue';
-import store from '@/store';
 import router from '@/router';
 import i18n from '@/i18n';
 import DashboardLayout from '@/layout/DashboardLayout';
@@ -18,8 +18,9 @@ import DocumentLayout from '@/layout/DocumentLayout';
 import '@/assets/font/dashboard.css';
 import '@/assets/font/home.css';
 
+const pinia = createPinia();
 const app = createApp(App);
-app.use(store)
+app.use(pinia)
   .use(router)
   .use(i18n)
   .use(ElMenu)

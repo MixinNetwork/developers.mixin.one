@@ -4,9 +4,9 @@ import {
   onActivated,
   inject,
 } from 'vue';
-import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
+import { useLoadStore } from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
 import { useAssetList, useClient } from '@/api';
 import { useRoute } from 'vue-router';
@@ -23,7 +23,7 @@ export default {
     const $message = inject('$message');
     const { t } = useI18n();
 
-    const store = useStore();
+    const { modifyLocalLoadingStatus } = useLoadStore();
     const state = reactive({
       showWithdrawalModal: false,
       showSessionUpdateModal: false,
@@ -44,7 +44,7 @@ export default {
       const tokenInfo = ls.get(props.appId);
       if (!useHasAppToken(tokenInfo)) return false;
 
-      store.commit('modifyLocalLoading', true);
+      modifyLocalLoadingStatus(true);
       ls.set('ignoreError', 'true');
       try {
         const client = useClient($message, t, tokenInfo);
@@ -63,7 +63,7 @@ export default {
         state.showSessionUpdateModal = true;
         ls.rm(props.appId);
       } finally {
-        store.commit('modifyLocalLoading', false);
+        modifyLocalLoadingStatus(false);
         ls.set('ignoreError', 'false');
       }
       return true;

@@ -5,11 +5,12 @@ import {
   toRefs,
   watch,
 } from 'vue';
-import { useStore } from 'vuex';
+import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 import DModal from '@/components/DModal';
+import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'app-container',
@@ -24,7 +25,9 @@ export default {
     const { t } = useI18n();
     const route = useRoute();
 
-    const store = useStore();
+    const layoutStore = useLayoutStore();
+    const { appList } = storeToRefs(layoutStore);
+
     const state = reactive({
       currentNavIndex: 0,
       navList: ['information', 'wallet', 'secret'],
@@ -36,7 +39,7 @@ export default {
 
     const useSelectApp = () => {
       const { app_number } = route.params;
-      const app = store.state.appList.find((app) => app.app_number === app_number);
+      const app = appList.value.find((app) => app.app_number === app_number);
       if (app) {
         state.currentAppId = app.app_id;
         state.currentAppName = app.name;
@@ -51,14 +54,11 @@ export default {
       });
     };
 
-    const useClickNewApp = () => {
-      store.commit('modifyClickedNewApp');
-    };
     const useClickNav = (index) => {
       router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
     };
 
-    watch(() => store.state.appList, () => {
+    watch(() => appList.value, () => {
       useSelectApp();
     });
     watch(() => route.path, () => {
@@ -71,7 +71,6 @@ export default {
     return {
       ...toRefs(state),
       currentNav,
-      useClickNewApp,
       useClickNav,
       backward,
       t,

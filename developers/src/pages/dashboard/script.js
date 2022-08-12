@@ -1,14 +1,14 @@
 import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'dashboard-container',
   async setup() {
     const { t } = useI18n();
-    const store = useStore();
+    const { modifyClickedNewApp } = useLayoutStore();
 
     const useClickNewApp = async () => {
-      store.commit('modifyClickedNewApp', true);
+      modifyClickedNewApp(true);
     };
 
     return {
