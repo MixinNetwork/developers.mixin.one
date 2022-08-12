@@ -18,7 +18,7 @@
       "15141fe4-1cfd-40f8-9819-71e453054639","3e72ca0c-1bab-49ad-aa0a-4d8471d375e7"
     ],
     "action": "sign",
-    "state": "initial",
+    "state": "initial" | "signed",
     "transaction_hash": "",
     "raw_transaction": "",
     "created_at": "2022-06-06T12:40:53.857926164Z",

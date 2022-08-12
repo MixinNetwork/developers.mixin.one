@@ -10,11 +10,11 @@ sidebar_position: 14
 - 作品版权：提交作品者必须拥有作品的版权
 - 贴纸尺寸：最小 256 像素、最大 512 像素, 推荐 512 x 512
 - 贴纸数量：9 张，12 张，15 张，18 张，21 张，24 张，27 张，30 张
-- 贴纸格式：png、jpg、gif、Lottie
+- 贴纸格式：WebP、Lottie
 - 贴纸横幅：长宽比 16 : 10，推荐 960 x 600 像素
 - 标签图标：推荐 96 x 96 像素
 - 文件大小：最小 1 kb，最大 800kb
-- 命名规范：贴纸文件名必须按照数字编号进行命名，例如 "01.happy.png"、"02.exciting.png"、"30.sobbing.png", 前面是贴纸的显示顺序，后面是名字；横幅文件名必须是 "banner.png"；缩略图必须是 "thumb.png"。
+- 命名规范：贴纸文件名必须按照数字编号进行命名，例如 "01.happy.webp"、"02.exciting.webp"、"30.sobbing.webp", 前面是贴纸的显示顺序，后面是名字；横幅文件名必须是 "banner.png"；缩略图必须是 "thumb.webp"。
 - manifest.json 文件, 如下
 - 注意，只有 `is_verified` 的表情，出出现在商店里，如果需要可以跟管理员联系。
 
@@ -30,13 +30,13 @@ manifest.json 格式
 
 ## ZIP 目录结构
 
-- 01.happy.png
-- 02.exciting.png
+- 01.happy.webp
+- 02.exciting.webp
 - ...
-- 30.sobbing.png
+- 30.sobbing.webp
 - banner.png
 - manifest.json
-- thumb.png
+- thumb.webp
 
 ## 创作指南
 

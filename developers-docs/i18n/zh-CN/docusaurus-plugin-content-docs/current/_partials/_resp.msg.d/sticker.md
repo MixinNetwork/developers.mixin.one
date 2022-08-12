@@ -13,7 +13,7 @@
 ```
 
 ```json title="data"
- {
-    "sticker_id": "UUID"
- }
+{
+  "sticker_id": "UUID"
+}
 ```
