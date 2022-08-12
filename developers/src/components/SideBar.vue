@@ -111,7 +111,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import DHeader from '@/components/DHeader';
-import { useLayoutStore } from '@/store';
+import { useLayoutStore } from '@/stores';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';

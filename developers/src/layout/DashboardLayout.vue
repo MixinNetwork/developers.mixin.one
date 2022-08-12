@@ -48,7 +48,7 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import DModal from '@/components/DModal';
 import SideBar from '@/components/SideBar';
-import { useLayoutStore, useLoadStore } from '@/store';
+import { useLayoutStore, useLoadStore } from '@/stores';
 import { useClient } from '@/api';
 
 const $message = inject('$message');
