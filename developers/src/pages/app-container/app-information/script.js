@@ -10,7 +10,7 @@ import {
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import Confirm from '@/components/Confirm';
-import { useLayoutStore, useLoadStore } from '@/store';
+import { useLayoutStore, useLoadStore } from '@/stores';
 import {
   useApp,
   useClient,

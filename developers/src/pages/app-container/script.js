@@ -10,7 +10,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 import DModal from '@/components/DModal';
-import { useLayoutStore } from '@/store';
+import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'app-container',

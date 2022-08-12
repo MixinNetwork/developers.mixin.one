@@ -6,7 +6,7 @@ import {
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
-import { useLoadStore } from '@/store';
+import { useLoadStore } from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
 import { useAssetList, useClient } from '@/api';
 import { useRoute } from 'vue-router';

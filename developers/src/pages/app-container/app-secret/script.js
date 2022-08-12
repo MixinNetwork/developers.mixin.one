@@ -13,7 +13,7 @@ import FileSaver from 'file-saver';
 import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
 import Confirm from '@/components/Confirm';
-import { useLoadStore } from '@/store';
+import { useLoadStore } from '@/stores';
 import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 

@@ -1,5 +1,5 @@
 import { useI18n } from 'vue-i18n';
-import { useLayoutStore } from '@/store';
+import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'dashboard-container',
