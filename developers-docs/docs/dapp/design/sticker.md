@@ -12,11 +12,11 @@ Artists can submit sticker works to Mixin Messenger.
 - Work copyright: the submitter must own the copyright of the work。
 - Sticker size: minimum 256 pixels, maximum 512 pixels, 512 x 512 pixels recommended。
 - Number of stickers: 9 sheets, 12 sheets, 15 sheets, 18 sheets, 21 sheets, 24 sheets, 27 sheets, 30 sheets。
-- Sticker format: png, jpg, gif, Lottie, WebP, Animated WebP.
+- Sticker format: WebP, Lottie
 - Sticker banner: aspect ratio 16:10, recommended 960 x 600 pixels.
 - Label icon: 96 x 96 pixels recommended.
 - File size: minimum 1 kb, maximum 800kb.
-- Naming convention: The sticker file must be named with numbers, such as "01.happy.png", "02.exciting.png", "30.sobbing.png"; the banner file name must be "banner.png"; the thumb must be "thumb.png".
+- Naming convention: The sticker file must be named with numbers, such as "01.happy.webp", "02.exciting.webp", "30.sobbing.webp"; the banner file name must be "banner.png"; the thumb must be "thumb.webp".
 - manifest.json file, which contains the name, locale and description of the album.
 - Only `is_verified` album will be list sticker album store, you can contact 7000, if you want to list in album store., if you want to list in album store., if you want to list in album store., if you want to list in album store.
 
@@ -32,13 +32,13 @@ Content of the manifest.json
 
 ## Directory structure of ZIP file
 
-- 01.happy.png
-- 02.exciting.png
+- 01.happy.webp
+- 02.exciting.webp
 - ...
-- 30.sobbing.png
+- 30.sobbing.webp
 - banner.png
 - manifest.json
-- thumb.png
+- thumb.webp
 
 ### Creation Guide
 
