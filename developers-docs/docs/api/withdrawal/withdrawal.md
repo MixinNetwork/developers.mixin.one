@@ -15,7 +15,7 @@ import {
 Submit a withdrawal request.
 
 :::info
-You will need to [create a withdrawal address](./address-add.md) first to withdrawal. Also, it costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
+You will need to [create a withdrawal address](./address-add.md) first to withdrawal. Also, it costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/docs/api/assets/fee).
 :::
 
 <APIEndpoint url="/withdrawals" />

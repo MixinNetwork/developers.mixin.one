@@ -7,7 +7,7 @@ title: SDK
 除了 Restful APIs，Mixin 核心团队还提供了几个 SDK 作为构建基于 Mixin 的 dApp 的简化方式。
 
 - [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): 官方 Golang SDK
-  - [🥰 例子](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples)，[📖 文档](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client)，[🧑‍🏫 教程](/dapp/getting-started/create-dapp)
+  - [🥰 例子](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples)，[📖 文档](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client)
 - [Java/Kotlin SDK](https://github.com/MixinNetwork/bot-api-kotlin-client): 官方 Java/Kotlin SDK
   - [🥰 例子](https://github.com/MixinNetwork/bot-api-kotlin-client/blob/main/samples/src/main/java/jvmMain/kotlin/Sample.kt)
 - [Node.js SDK](https://github.com/MixinNetwork/bot-api-js-client): 官方 Node.js SDK

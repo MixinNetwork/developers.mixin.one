@@ -41,7 +41,7 @@ It is strongly recommended to remind users: Please try a small amount for the fi
 
 ### Withdrawal
 
-Note that users need to add the withdrawal address before withdrawing, please refer to [API Document](../../api/withdrawal/withdrawal).
+Note that users need to add the withdrawal address before withdrawing, please refer to [API Document](../../api/withdrawal).
 
 - Withdrawal addresses
 

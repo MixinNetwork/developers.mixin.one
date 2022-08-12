@@ -7,7 +7,7 @@ title: Transfer
 
 In Mixin Network, there are two kinds of transactions we can send: regular transactions between two regular Mixin accounts (like normal users and applications) and the "raw" transaction among the raw Kernel addresses. Of course, both of them are free and instant.
 
-The regular transactions are created by [`/transfer`](/docs/api/transfer/transfer) API. Here is a simple example in Golang:
+The regular transactions are created by [`/transfer`](/docs/api/transfer) API. Here is a simple example in Golang:
 
 ```go
 type TransferInput struct {

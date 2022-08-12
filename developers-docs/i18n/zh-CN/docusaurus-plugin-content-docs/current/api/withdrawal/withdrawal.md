@@ -15,7 +15,7 @@ import {
 Submit a withdrawal request.
 
 :::info
-It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](../assets/fee).
+It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/zh-CN/docs/api/assets/fee).
 :::
 
 <APIEndpoint url="/withdrawals" />

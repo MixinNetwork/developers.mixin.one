@@ -146,7 +146,7 @@ Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 
 ## OAuth 用户签名
 
-当用户完成授权后会返回对应的信息, [API 详情](/zh-CN/docs/api/oauth/oauth), 签名的方式跟机器人签名几乎一致，只是每次需要不同的 requestID.
+当用户完成授权后会返回对应的信息, [API 详情](/zh-CN/docs/api/oauth), 签名的方式跟机器人签名几乎一致，只是每次需要不同的 requestID.
 
 ```
 /*

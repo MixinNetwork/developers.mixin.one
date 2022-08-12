@@ -63,7 +63,7 @@ import RespAssets from '../../_partials/_resp.assets.md'
 
 Mixin 应用程序是一种特殊类型的用户。 它也有一个像普通用户一样的钱包。 您可以通过访问 开发者仪表板 - 选择任何应用程序 - 单击“钱包”选项卡 来检查应用程序的资产。
 
-您还可以通过使用应用程序的 Access Token 调用 [`/assets`](/docs/api/assets/assets) 以编程方式读取资产。 生成 Access Token 的算法可以在[这里](../guide/generate-jwt-token)找到，但你也可以使用[SDK](/docs/resources/sdk)来简化这个过程。
+您还可以通过使用应用程序的 Access Token 调用 [`/assets`](/docs/api/assets) 以编程方式读取资产。 生成 Access Token 的算法可以在[这里](../guide/generate-jwt-token)找到，但你也可以使用[SDK](/docs/resources/sdk)来简化这个过程。
 
 下面是使用官方Go SDK生成token和读取资产的例子：
 

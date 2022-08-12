@@ -43,7 +43,7 @@ sidebar_position: 7
 
 ### 提现
 
-注意用户提现前需要添加提现地址，请参考[API 文档](../../api/withdrawal/withdrawal)。
+注意用户提现前需要添加提现地址，请参考[API 文档](../../api/withdrawal)。
 
 - 提现地址
 
