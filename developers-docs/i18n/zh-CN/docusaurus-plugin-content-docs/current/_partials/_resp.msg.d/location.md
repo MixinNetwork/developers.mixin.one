@@ -13,10 +13,10 @@
 ```
 
 ```json title="data"
- {
+{
   "longitude": 126.5893955829421,
   "latitude": 53.47845177824066,
   "name": "China",
   "address": "China Beijing"
- }
+}
 ```
