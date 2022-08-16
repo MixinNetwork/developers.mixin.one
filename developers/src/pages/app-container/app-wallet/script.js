@@ -13,6 +13,7 @@ import { useRoute } from 'vue-router';
 import WithdrawalModal from './withdrawal';
 
 export default {
+  name: 'app-wallet',
   components: {
     WithdrawalModal, UpdateToken,
   },

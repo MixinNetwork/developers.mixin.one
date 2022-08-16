@@ -29,7 +29,7 @@ export default {
   props: {
     appId: String,
   },
-  async setup(props) {
+  setup(props) {
     const { t } = useI18n();
     const $message = inject('$message');
     const croppie = ref(null);
