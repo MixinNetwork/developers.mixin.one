@@ -54,7 +54,7 @@ export default {
         authorization_id,
         private_key: privateKey,
       };
-      ls.set('dashboard-token', keystore);
+      ls.set('token', keystore);
 
       router.push('/dashboard');
     });
