@@ -8,7 +8,7 @@ export const useClient = ($message, t, clientInfo) => {
       responseCallback: cbFactory($message, t),
     },
   };
-  const keystore = clientInfo || ls.get('token');
+  const keystore = clientInfo || ls.get('dashboard-token');
 
   const config = keystore
     ? {
