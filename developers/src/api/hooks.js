@@ -10,20 +10,12 @@ export const useClient = ($message, t, clientInfo) => {
   };
 
   const keystore = clientInfo || ls.get('token');
-  if (keystore && (
-    !keystore.private_key
-    || !keystore.scope
-    || !keystore.user_id
-    || !keystore.authorization_id
-  )) {
-    setTimeout(() => {
-      window.localStorage.clear();
-      // eslint-disable-next-line max-len
-      window.location.href = `https://mixin-www.zeromesh.net/oauth/authorize?client_id=${process.env.VUE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`;
-    }, 100);
-  }
-
-  const config = keystore
+  const config = keystore && (
+    !!keystore.private_key
+    && !!keystore.scope
+    && !!keystore.user_id
+    && !!keystore.authorization_id
+  )
     ? {
       ...defaultApiConfig,
       keystore,
