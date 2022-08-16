@@ -21,7 +21,7 @@
       </div>
     </header>
     <div class="dashboard-main">
-      <keep-alive>
+      <keep-alive :include="includeComponents">
         <suspense>
           <component
             :is="currentNav"

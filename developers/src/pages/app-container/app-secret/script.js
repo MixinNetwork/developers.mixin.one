@@ -18,7 +18,7 @@ import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 
 export default {
-  name: 'app-information',
+  name: 'app-secret',
   components: {
     DModal, UpdateToken, Confirm,
   },

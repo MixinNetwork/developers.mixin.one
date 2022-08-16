@@ -29,7 +29,7 @@ export default {
   props: {
     appId: String,
   },
-  async setup(props) {
+  setup(props) {
     const { t } = useI18n();
     const $message = inject('$message');
     const croppie = ref(null);
@@ -78,11 +78,11 @@ export default {
     });
 
     const isValidUrl = (url) => /^http(s)?:\/\//.test(url);
-    const isValidAppName = computed(() => state.app.name && state.app.name.length >= 2 && state.app.name.length <= 64);
-    const isValidHomeUri = computed(() => state.app.home_uri && isValidUrl(state.app.home_uri));
-    const isValidRedirectUri = computed(() => state.app.redirect_uri && isValidUrl(state.app.redirect_uri));
-    const isValidDescription = computed(() => state.app.description && state.app.description.length >= 16 && state.app.description.length <= 128);
-    const allowSubmit = computed(() => isValidAppName && isValidHomeUri && isValidRedirectUri && isValidDescription);
+    const isValidAppName = computed(() => !!state.app.name && state.app.name.length >= 2 && state.app.name.length <= 64);
+    const isValidHomeUri = computed(() => !!state.app.home_uri && isValidUrl(state.app.home_uri));
+    const isValidRedirectUri = computed(() => !!state.app.redirect_uri && isValidUrl(state.app.redirect_uri));
+    const isValidDescription = computed(() => !!state.app.description && state.app.description.length >= 16 && state.app.description.length <= 128);
+    const allowSubmit = computed(() => isValidAppName.value && isValidHomeUri.value && isValidRedirectUri.value && isValidDescription.value);
 
     const noticeMessage = (message) => $message.error({ message: t(`information.errors.${message}`), showClose: true });
     // eslint-disable-next-line consistent-return
@@ -157,7 +157,7 @@ export default {
       closeModal();
     };
     const useClickSubmit = async () => {
-      if (!allowSubmit) {
+      if (!allowSubmit.value) {
         notice();
         return;
       }

@@ -36,6 +36,7 @@ export default {
     });
     state.currentNavIndex = route.hash ? state.navList.indexOf(route.hash.slice(1)) : 0;
     const currentNav = computed(() => `app-${state.navList[state.currentNavIndex]}`);
+    const includeComponents = state.navList.map((name) => `app-${name}`);
 
     const useSelectApp = () => {
       const { app_number } = route.params;
@@ -71,6 +72,7 @@ export default {
     return {
       ...toRefs(state),
       currentNav,
+      includeComponents,
       useClickNav,
       backward,
       t,
