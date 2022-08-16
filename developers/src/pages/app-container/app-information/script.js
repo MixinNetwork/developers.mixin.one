@@ -6,6 +6,7 @@ import {
   watch,
   inject,
   onActivated,
+  onMounted,
 } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -71,11 +72,6 @@ export default {
       }
       return {};
     };
-
-    onActivated(async () => {
-      const app = await useFetchApp();
-      initApp(app);
-    });
 
     const isValidUrl = (url) => /^http(s)?:\/\//.test(url);
     const isValidAppName = computed(() => !!state.app.name && state.app.name.length >= 2 && state.app.name.length <= 64);
@@ -168,6 +164,16 @@ export default {
 
       await submit();
     };
+
+    onMounted(async () => {
+      const app = await useFetchApp();
+      initApp(app);
+    });
+
+    onActivated(async () => {
+      const app = await useFetchApp();
+      initApp(app);
+    });
 
     watch(() => props.appId, async (appId) => {
       const app = await useFetchApp(appId);
