@@ -39,8 +39,7 @@ export default {
       action: '',
     });
 
-    const tokenInfo = ls.get('token');
-    const userClient = useClient($message, t, tokenInfo);
+    const userClient = useClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {

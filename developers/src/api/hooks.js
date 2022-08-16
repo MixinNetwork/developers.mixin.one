@@ -8,9 +8,14 @@ export const useClient = ($message, t, clientInfo) => {
       responseCallback: cbFactory($message, t),
     },
   };
-  const keystore = clientInfo || ls.get('token');
 
-  const config = keystore
+  const keystore = clientInfo || ls.get('token');
+  const config = keystore && (
+    !!keystore.private_key
+    && !!keystore.scope
+    && !!keystore.user_id
+    && !!keystore.authorization_id
+  )
     ? {
       ...defaultApiConfig,
       keystore,
