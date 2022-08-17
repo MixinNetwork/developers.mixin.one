@@ -136,7 +136,7 @@ export default {
       state.form.amount = '';
       state.form.opponent_id = '';
     };
-    const useFetchOpponentId = async (client) => {
+    const useSearchUserId = async (client) => {
       const is_uuid = validate(state.form.opponent_id);
       const res = is_uuid
         ? { user_id: state.form.opponent_id }
@@ -151,7 +151,7 @@ export default {
 
       let opponent = { opponent_key: state.form.opponent_id };
       if (is_transfers) {
-        const res = await useFetchOpponentId(client);
+        const res = await useSearchUserId(client);
         if (!res || !res.user_id) {
           $message.error({ message: t('message.errors.mixin_id'), showClose: true });
           return;
