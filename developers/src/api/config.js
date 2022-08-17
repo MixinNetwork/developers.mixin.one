@@ -1,7 +1,6 @@
 import en from '@/i18n/en';
-import { ls } from '@/utils';
 
-const cbFactory = ($message, t) => (err) => {
+const cbFactory = ($message, t, ignoreError) => (err) => {
   const { code, description, message } = err;
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {
@@ -24,7 +23,6 @@ const cbFactory = ($message, t) => (err) => {
     $message.error({ showClose: true, duration: 2000, message: `${t(`message.errors.${key}`)}(${code})` });
   }
 
-  const ignoreError = ls.get('ignoreError') === 'true';
   if (!ignoreError && code === 401) {
     setTimeout(() => {
       window.localStorage.clear();

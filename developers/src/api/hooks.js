@@ -2,19 +2,18 @@ import { MixinApi } from '@mixin.dev/mixin-node-sdk';
 import { ls } from '@/utils/localStorage';
 import cbFactory from './config';
 
-export const useClient = ($message, t, clientInfo) => {
+export const useClient = ($message, t, clientInfo, ignoreError = false) => {
   const defaultApiConfig = {
     requestConfig: {
-      responseCallback: cbFactory($message, t),
+      responseCallback: cbFactory($message, t, ignoreError),
     },
   };
 
   const keystore = clientInfo || ls.get('token');
-  const config = keystore && (
-    !!keystore.private_key
-    && !!keystore.scope
-    && !!keystore.user_id
-    && !!keystore.authorization_id
+  const config = (keystore && !!keystore.user_id && !!keystore.private_key)
+  && (
+    (!!keystore.scope && !!keystore.authorization_id)
+    || (!!keystore.session_id && !!keystore.pin_token)
   )
     ? {
       ...defaultApiConfig,
