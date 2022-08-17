@@ -1,8 +1,9 @@
 import {
+  inject,
   reactive,
   toRefs,
   onActivated,
-  inject,
+  onMounted,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
@@ -79,6 +80,14 @@ export default {
     };
 
     onActivated(async () => {
+      const flag = await fetchAssetList();
+      if (!flag) {
+        state.assetList = [];
+        state.needUpdate = true;
+      }
+    });
+
+    onMounted(async () => {
       const flag = await fetchAssetList();
       if (!flag) {
         state.assetList = [];
