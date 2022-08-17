@@ -518,7 +518,7 @@ export default {
     immersive: 'Immersive',
     encrypted: 'Message Encryption',
     encrypted_tip: 'Message encryption available after ED25519 secret is set',
-    encrypted_confirm: 'Please ensure you have upgraded your bot code to support encrypted message, and this option can NOT be reverted once enabled.',
+    encrypted_confirm: 'Please make sure you have upgraded your bot code to support encrypted message, this operation can NOT be reverted once enabled.',
     errors: {
       no_app_name: 'Application name cannot be empty',
       no_home_uri: 'Home URL cannot be empty',
