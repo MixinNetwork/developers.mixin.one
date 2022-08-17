@@ -10,6 +10,7 @@ import {
 } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import { ElTooltip } from 'element-plus';
 import Confirm from '@/components/Confirm';
 import { useLayoutStore, useLoadStore } from '@/stores';
 import {
@@ -25,7 +26,7 @@ import CategorySelect from './select.vue';
 export default {
   name: 'app-information',
   components: {
-    MInput, Croppie, CategorySelect, Confirm,
+    MInput, Croppie, CategorySelect, Confirm, ElTooltip,
   },
   props: {
     appId: String,
@@ -48,7 +49,7 @@ export default {
       resource_patterns: '',
       isImmersive: false,
       isEncrypted: false,
-      hasEncrypted: false,
+      encryptionAvailable: false,
     });
 
     const initApp = (app) => {
@@ -58,7 +59,7 @@ export default {
       state.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : '';
       state.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false;
       state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false;
-      state.hasEncrypted = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
+      state.encryptionAvailable = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
     };
 
     const client = useClient($message, t);
@@ -141,6 +142,7 @@ export default {
       state.showConfirmModal = false;
     };
     const useClickEncryption = () => {
+      if (!state.encryptionAvailable) return;
       if (state.app.capabilities.includes('ENCRYPTED')) return;
       if (state.isEncrypted) {
         state.isEncrypted = false;

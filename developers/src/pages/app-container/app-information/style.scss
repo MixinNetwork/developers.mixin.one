@@ -45,6 +45,21 @@
   }
 }
 
+.forbidden {
+  color: #a9b0bf;
+
+  .tip {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.tip-content {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
 button {
   border-radius: 0.5rem;
   width: 8.75rem;
@@ -122,7 +137,6 @@ button {
     margin: 1rem auto;
     font-size: 0.88rem;
   }
-
 
   input {
     position: absolute;

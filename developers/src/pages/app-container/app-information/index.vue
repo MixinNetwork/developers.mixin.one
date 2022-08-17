@@ -69,10 +69,32 @@
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{t('information.immersive')}}</span>
       </div>
-      <div v-if="hasEncrypted" @click="useClickEncryption" class="des encrypted">
-        <i v-if="!isEncrypted" />
+      <div
+        :class="['des', 'encrypted', encryptionAvailable ? '' : 'forbidden']"
+        @click="useClickEncryption"
+      >
+        <img
+          v-if="!encryptionAvailable"
+          src="@/assets/img/app-svg/forbidden-rect.svg"
+          alt="uncheckable-icon"
+        />
+        <i v-else-if="!isEncrypted" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{t('information.encrypted')}}</span>
+        <el-tooltip
+          placement="top"
+          effect="light"
+        >
+          <template #content>
+            <span class="tip-content">{{ t('information.encrypted_tip') }}</span>
+          </template>
+          <img
+            class="tip"
+            v-if="!encryptionAvailable"
+            src="@/assets/img/app-svg/help.svg"
+            alt="encryption-tip"
+          />
+        </el-tooltip>
       </div>
     </div>
     <button
