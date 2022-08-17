@@ -1,6 +1,6 @@
 import en from '@/i18n/en';
 
-const cbFactory = ($message, t, ignoreError) => (err) => {
+const cbFactory = ($message, t, botRequest, botRequestOn401) => (err) => {
   const { code, description, message } = err;
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {
@@ -23,7 +23,12 @@ const cbFactory = ($message, t, ignoreError) => (err) => {
     $message.error({ showClose: true, duration: 2000, message: `${t(`message.errors.${key}`)}(${code})` });
   }
 
-  if (!ignoreError && code === 401) {
+  if (code === 401) {
+    if (botRequest) {
+      if (botRequestOn401) botRequestOn401();
+      return;
+    }
+
     setTimeout(() => {
       window.localStorage.clear();
       // eslint-disable-next-line max-len
