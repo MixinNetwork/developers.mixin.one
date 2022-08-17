@@ -517,6 +517,7 @@ export default {
     resource_patterns_desc: 'Resource patterns for your app, split by line and max 10 items.',
     immersive: 'Immersive',
     encrypted: 'Message Encryption',
+    encrypted_tip: 'Message encryption available after ED25519 secret is set',
     encrypted_confirm: 'Please ensure you have upgraded your bot code to support encrypted message, and this option can NOT be reverted once enabled.',
     errors: {
       no_app_name: 'Application name cannot be empty',
@@ -537,7 +538,7 @@ export default {
     mixin_id_placeholder: '',
     pin: '',
     update_token_desc: 'Use App Secret to access your assets',
-    update: 'Update',
+    update: 'Access',
     update_token: 'App Secret',
     secret_intro: 'For signature only, would not be sent to any server',
     private_key: 'Private Key',
