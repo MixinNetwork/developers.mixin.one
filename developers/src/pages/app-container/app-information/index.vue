@@ -84,13 +84,13 @@
         <el-tooltip
           placement="top"
           effect="light"
+          v-if="!encryptionAvailable"
         >
           <template #content>
             <span class="tip-content">{{ t('information.encrypted_tip') }}</span>
           </template>
           <img
             class="tip"
-            v-if="!encryptionAvailable"
             src="@/assets/img/app-svg/help.svg"
             alt="encryption-tip"
           />
