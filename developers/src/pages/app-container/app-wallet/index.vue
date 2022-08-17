@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="des" v-if="needUpdate">
+    <div class="des" v-if="!assetList.length">
       <div>
         <h3>{{ t('wallet.update_token_desc') }}</h3>
         <button class="primary" @click="showSessionUpdateModal = true">{{ t('wallet.update') }}</button>
