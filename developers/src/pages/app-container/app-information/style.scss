@@ -48,6 +48,16 @@
 .forbidden {
   color: #a9b0bf;
 
+  input {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    background-color: #a9b0bf;
+    transform: translateY(0.125rem);
+  }
+
   .tip {
     width: 1rem;
     height: 1rem;

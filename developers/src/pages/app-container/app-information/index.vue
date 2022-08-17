@@ -73,11 +73,11 @@
         :class="['des', 'encrypted', encryptionAvailable ? '' : 'forbidden']"
         @click="useClickEncryption"
       >
-        <img
+        <input
           v-if="!encryptionAvailable"
-          src="@/assets/img/app-svg/forbidden-rect.svg"
-          alt="uncheckable-icon"
-        />
+          type="checkbox"
+          disabled
+        >
         <i v-else-if="!isEncrypted" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{t('information.encrypted')}}</span>
@@ -107,6 +107,7 @@
       @confirm="useConfirmEncryption"
       @close-modal="closeModal"
     />
+
   </div>
 </template>
 
