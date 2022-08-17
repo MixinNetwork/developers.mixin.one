@@ -1,8 +1,10 @@
 import {
+  inject,
   reactive,
   toRefs,
   onActivated,
-  inject,
+  onMounted,
+  watch,
 } from 'vue';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
@@ -28,7 +30,6 @@ export default {
     const state = reactive({
       showWithdrawalModal: false,
       showSessionUpdateModal: false,
-      needUpdate: true,
       assetList: [],
       withdrawalAsset: {},
     });
@@ -43,7 +44,10 @@ export default {
 
     const fetchAssetList = async () => {
       const tokenInfo = ls.get(props.appId);
-      if (!useHasAppToken(tokenInfo)) return false;
+      if (!useHasAppToken(tokenInfo)) {
+        state.assetList = [];
+        return;
+      }
 
       modifyLocalLoadingStatus(true);
       try {
@@ -51,21 +55,19 @@ export default {
         const res = await useAssetList(appClient);
         if (res) {
           state.assetList = res.sort(assetSortCompare);
-          state.needUpdate = false;
           state.showSessionUpdateModal = false;
         } else {
-          state.needUpdate = true;
+          state.assetList = [];
           state.showSessionUpdateModal = true;
           ls.rm(props.appId);
         }
       } catch (e) {
-        state.needUpdate = true;
+        state.assetList = [];
         state.showSessionUpdateModal = true;
         ls.rm(props.appId);
       } finally {
         modifyLocalLoadingStatus(false);
       }
-      return true;
     };
 
     const useClickWithdrawal = (item) => {
@@ -79,11 +81,15 @@ export default {
     };
 
     onActivated(async () => {
-      const flag = await fetchAssetList();
-      if (!flag) {
-        state.assetList = [];
-        state.needUpdate = true;
-      }
+      await fetchAssetList();
+    });
+
+    onMounted(async () => {
+      await fetchAssetList();
+    });
+
+    watch(() => props.appId, async () => {
+      await fetchAssetList();
     });
 
     return {
