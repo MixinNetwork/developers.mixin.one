@@ -101,11 +101,10 @@ export default {
         return;
       }
 
-      const appClient = useClient($message, t, clientInfo);
+      const appClient = useClient($message, t, clientInfo, true);
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;
-      ls.set('ignoreError', 'true');
       try {
         const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
 
@@ -124,7 +123,6 @@ export default {
       } finally {
         state.submitting = false;
         modifyLocalLoadingStatus(false);
-        ls.set('ignoreError', 'false');
       }
     };
 

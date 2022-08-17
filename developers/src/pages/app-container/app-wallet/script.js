@@ -46,10 +46,9 @@ export default {
       if (!useHasAppToken(tokenInfo)) return false;
 
       modifyLocalLoadingStatus(true);
-      ls.set('ignoreError', 'true');
       try {
-        const client = useClient($message, t, tokenInfo);
-        const res = await useAssetList(client);
+        const appClient = useClient($message, t, tokenInfo, true);
+        const res = await useAssetList(appClient);
         if (res) {
           state.assetList = res.sort(assetSortCompare);
           state.needUpdate = false;
@@ -65,7 +64,6 @@ export default {
         ls.rm(props.appId);
       } finally {
         modifyLocalLoadingStatus(false);
-        ls.set('ignoreError', 'false');
       }
       return true;
     };
