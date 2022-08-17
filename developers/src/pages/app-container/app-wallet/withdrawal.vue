@@ -4,7 +4,7 @@
       <div v-if="!showSnapshot" v-loading="loading" class="main">
         <d-header class="header">
           <template #left>
-            <div class="header-back" @click="useClickBack" >
+            <div class="header-back" @click="useClickCancel" >
               <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
           </template>
@@ -49,7 +49,7 @@
       <div v-else class="main snap-main">
         <d-header class="header">
           <template #left>
-            <div class="header-back" @click="useClickBack">
+            <div class="header-back" @click="useClickCancel">
               <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
             </div>
           </template>
@@ -108,14 +108,13 @@ export default {
   name: 'withdrawal-modal',
   components: { Confirm, DHeader, DModal },
   props: ['asset', 'app_id', 'show'],
-  emits: ['close-modal', 'update-list'],
+  emits: ['close-modal', 'success'],
   setup(props, ctx) {
     const $message = inject('$message');
     const { t } = useI18n();
 
     const state = reactive({
       showWithdrawalConfirm: false,
-      showSnapshot: false,
       loading: false,
       form: {
         amount: '',
@@ -129,28 +128,36 @@ export default {
       token: props.asset.symbol,
       opponent: state.form.opponent_id,
     }));
+    const showSnapshot = computed(() => JSON.stringify(state.transactionInfo) !== '{}');
 
+    const useCheckPin = () => state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin, 10) > 100000;
     const useClearForm = () => {
       state.form.pin = '';
       state.form.amount = '';
       state.form.opponent_id = '';
     };
-    const useFetchOpponentId = async () => {
-      const { opponent_id } = state.form;
-      const is_uuid = validate(opponent_id);
-      const clientInfo = ls.get(props.app_id);
-      const client = useClient($message, t, clientInfo);
-      const { user_id } = is_uuid ? await client.user.fetch(opponent_id) : await client.user.search(opponent_id);
-      return user_id;
+    const useFetchOpponentId = async (client) => {
+      const is_uuid = validate(state.form.opponent_id);
+      const res = is_uuid
+        ? { user_id: state.form.opponent_id }
+        : await client.user.search(state.form.opponent_id);
+      return res;
     };
     const useSubmitWithdrawal = async () => {
+      const clientInfo = ls.get(props.app_id);
+      const client = useClient($message, t, clientInfo, true);
       const is_transfers = !state.form.opponent_id.startsWith('XIN');
       const type = is_transfers ? 'transfer' : 'raw';
 
-      let { opponent_id } = state.form;
-      opponent_id = is_transfers ? await useFetchOpponentId() : opponent_id;
-      if (!opponent_id) return $message.error({ message: t('message.errors.mixin_id'), showClose: true });
-      const opponent = opponent_id.startsWith('XIN') ? { opponent_key: opponent_id } : { opponent_id };
+      let opponent = { opponent_key: state.form.opponent_id };
+      if (is_transfers) {
+        const res = await useFetchOpponentId(client);
+        if (!res || !res.user_id) {
+          $message.error({ message: t('message.errors.mixin_id'), showClose: true });
+          return;
+        }
+        opponent = { opponent_id: res.user_id };
+      }
 
       const params = {
         amount: state.form.amount,
@@ -160,14 +167,25 @@ export default {
         ...opponent,
       };
 
-      const clientInfo = ls.get(props.app_id);
-      const client = useClient($message, t, clientInfo);
-      const res = is_transfers ? await client.transfer.toUser(params.pin, params) : await client.transfer.toAddress(params.pin, params);
-      if (!is_transfers) state.transactionInfo = res;
-      return res && res.type === type;
+      const res = is_transfers
+        ? await client.transfer.toUser(params.pin, params)
+        : await client.transfer.toAddress(params.pin, params);
+      if (res && res.type === type) {
+        $message.success({
+          message: t('message.success.withdrawal'),
+          showClose: true,
+        });
+        useClearForm();
+
+        if (is_transfers) {
+          state.transactionInfo = res;
+        } else {
+          ctx.emit('close-modal');
+        }
+        ctx.emit('success');
+      }
     };
 
-    const useCheckPin = () => state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin, 10) > 100000;
     const useClickSubmit = async () => {
       if (!useCheckPin()) {
         $message.error({
@@ -178,7 +196,8 @@ export default {
       }
       if (!state.form.opponent_id) {
         $message.error({
-          message: t('message.errors.mixin_id'), showClose: true,
+          message: t('message.errors.mixin_id'),
+          showClose: true,
         });
         return;
       }
@@ -192,44 +211,23 @@ export default {
     const useCloseConfirm = () => {
       state.showWithdrawalConfirm = false;
     };
-    const useClickBack = () => {
-      useClearForm();
-      ctx.emit('close-modal');
-    };
-
     const useClickConfirm = async () => {
       useCloseConfirm();
 
       state.loading = true;
-      const transfer_status = await useSubmitWithdrawal();
+      await useSubmitWithdrawal();
       state.loading = false;
-
-      if (transfer_status) {
-        $message.success({
-          message: t('message.success.withdrawal'),
-          showClose: true,
-        });
-        useClearForm();
-
-        if (state.form.opponent_id.startsWith('XIN')) {
-          ctx.emit('update-list');
-          state.showSnapshot = true;
-        } else {
-          ctx.emit('update-list');
-          ctx.emit('close-modal');
-        }
-      }
     };
 
     return {
-      t,
       ...toRefs(state),
+      showSnapshot,
       confirmContent,
-      useClickBack,
       useClickSubmit,
       useClickCancel,
       useClickConfirm,
       useCloseConfirm,
+      t,
     };
   },
 };

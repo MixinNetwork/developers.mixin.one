@@ -44,7 +44,7 @@
       :app_id="appId"
       :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"
-      @update-list="useFetchAssetList"
+      @success="useFetchAssetList"
     ></withdrawal-modal>
   </div>
 </template>
