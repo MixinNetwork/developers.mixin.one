@@ -62,10 +62,6 @@
               <label>{{ t('wallet.snapshot.transaction_hash') }}</label>
               <p>{{ transactionInfo.transaction_hash }}</p>
             </div>
-            <footer class="btns">
-              <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
-              <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
-            </footer>
           </template>
           <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
         </div>
