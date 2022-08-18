@@ -121,14 +121,14 @@ export default {
         pin: '',
         opponent_id: '',
       },
-      transactionInfo: undefined,
+      transactionInfo: {},
     });
     const confirmContent = computed(() => t('wallet.withdrawal_confirm', {
       amount: state.form.amount,
       token: props.asset.symbol,
       opponent: state.form.opponent_id,
     }));
-    const showSnapshot = computed(() => !!state.transactionInfo);
+    const showSnapshot = computed(() => JSON.stringify(state.transactionInfo) !== '{}');
 
     const useCheckPin = () => state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin, 10) > 100000;
     const useClearForm = () => {
