@@ -59,11 +59,7 @@ export default {
       const res = await useAssetList(appClient);
       modifyLocalLoadingStatus(false);
 
-      if (
-        res
-        && Object.prototype.toString.call(res) === '[object Array]'
-        && res.every((asset) => asset.type === 'asset')
-      ) {
+      if (res instanceof Array) {
         state.assetList = res.sort(assetSortCompare);
       } else {
         state.assetList = [];
