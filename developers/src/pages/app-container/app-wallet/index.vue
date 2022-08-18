@@ -27,7 +27,7 @@
         >{{ t('button.withdrawal') }}
         </button>
       </div>
-      <div v-if="assetList.length" class="list-bottom-tips">
+      <div class="list-bottom-tips">
         <div>{{ t('wallet.des_1') }}</div>
         <div>{{ t('wallet.des_2', {app_number: route.params.app_number}) }}</div>
       </div>
@@ -36,15 +36,15 @@
     <update-token
       :show="showSessionUpdateModal"
       :appId="appId"
-      @success="fetchAssetList"
-      @close-modal="closeModal"
+      @success="useFetchAssetList"
+      @close-modal="showSessionUpdateModal=false"
     />
     <withdrawal-modal
       :show="showWithdrawalModal"
       :app_id="appId"
       :asset="withdrawalAsset"
       @close-modal="showWithdrawalModal=false"
-      @update-list="fetchAssetList"
+      @success="useFetchAssetList"
     ></withdrawal-modal>
   </div>
 </template>

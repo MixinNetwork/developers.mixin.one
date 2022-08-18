@@ -2,10 +2,10 @@ import { MixinApi } from '@mixin.dev/mixin-node-sdk';
 import { ls } from '@/utils/localStorage';
 import cbFactory from './config';
 
-export const useClient = ($message, t, clientInfo, ignoreError = false) => {
+export const useClient = ($message, t, clientInfo, botRequest = false, botRequestOn401 = undefined) => {
   const defaultApiConfig = {
     requestConfig: {
-      responseCallback: cbFactory($message, t, ignoreError),
+      responseCallback: cbFactory($message, t, botRequest, botRequestOn401),
     },
   };
 
