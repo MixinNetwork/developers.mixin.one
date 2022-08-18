@@ -59,6 +59,7 @@ export default {
 h3 {
   font-size: 1rem;
   text-align: center;
+  word-break: break-all;
 }
 
 img {

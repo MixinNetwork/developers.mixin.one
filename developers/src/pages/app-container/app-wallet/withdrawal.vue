@@ -1,7 +1,7 @@
 <template>
   <d-modal :show="show">
     <transition name="fade-up">
-      <div v-if="!showSnapshot" v-loading="loading" class="main">
+      <div v-loading="loading" :class="['main', showSnapshot ? 'snap-main' : '']">
         <d-header class="header">
           <template #left>
             <div class="header-back" @click="useClickCancel" >
@@ -9,82 +9,72 @@
             </div>
           </template>
           <template #center>
-            <div>{{ t('wallet.title') }}</div>
+            <div v-if="showSnapshot">{{ t('wallet.snapshot_info') }}</div>
+            <div v-else>{{ t('wallet.title') }}</div>
           </template>
         </d-header>
-        <div class="content">
-          <header :style="{opacity: asset.icon_url ? '1':'0'}">
-            <img :src="asset.icon_url" alt="asset-icon"/>
-            <p>{{ asset.balance }} {{ asset.symbol }}</p>
-          </header>
-          <ul>
-            <li>
-              <label>{{ t('wallet.amount') }}</label>
-              <input v-model.trim="form.amount"/>
-            </li>
-            <li>
-              <label>PIN</label>
-              <input type="password" maxlength="6" v-model="form.pin"/>
-            </li>
-            <li>
-              <label>Mixin ID / Mainnet Address</label>
-              <input v-model.trim="form.opponent_id"/>
-            </li>
-          </ul>
-          <footer>
-            <div class="btns">
+        <div :class="['content', showSnapshot ? 'snapshot' : '']">
+          <template v-if="!showSnapshot">
+            <header :style="{opacity: asset.icon_url ? '1':'0'}">
+              <img :src="asset.icon_url" alt="asset-icon"/>
+              <p>{{ asset.balance }} {{ asset.symbol }}</p>
+            </header>
+            <ul>
+              <li>
+                <label>{{ t('wallet.amount') }}</label>
+                <input v-model.trim="form.amount"/>
+              </li>
+              <li>
+                <label>PIN</label>
+                <input type="password" maxlength="6" v-model="form.pin"/>
+              </li>
+              <li>
+                <label>Mixin ID / Mainnet Address</label>
+                <input v-model.trim="form.opponent_id"/>
+              </li>
+            </ul>
+            <footer>
+              <div class="btns">
+                <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
+                <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
+              </div>
+            </footer>
+          </template>
+          <template v-else>
+            <h3>{{ t('wallet.snapshot_info') }}</h3>
+            <div>
+              <label>{{ t('wallet.snapshot.snapshot_id') }}</label>
+              <p>{{ transactionInfo.snapshot_id }}</p>
+            </div>
+            <div>
+              <label>{{ t('wallet.snapshot.trace_id') }}</label>
+              <p>{{ transactionInfo.trace_id }}</p>
+            </div>
+            <div>
+              <label>{{ t('wallet.snapshot.account') }}</label>
+              <p>{{ transactionInfo.opponent_key }}</p>
+            </div>
+            <div>
+              <label>{{ t('wallet.snapshot.amount') }}</label>
+              <p>{{ transactionInfo.amount }}</p>
+            </div>
+            <div>
+              <label>{{ t('wallet.snapshot.transaction_hash') }}</label>
+              <p>{{ transactionInfo.transaction_hash }}</p>
+            </div>
+            <footer class="btns">
               <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
               <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
-            </div>
-          </footer>
-          <confirm
-            :content="confirmContent"
-            :show="showWithdrawalConfirm"
-            @confirm="useClickConfirm"
-            @close-modal="useCloseConfirm"
-          />
+            </footer>
+          </template>
           <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
         </div>
-      </div>
-      <div v-else class="main snap-main">
-        <d-header class="header">
-          <template #left>
-            <div class="header-back" @click="useClickCancel">
-              <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
-            </div>
-          </template>
-          <template #center>
-            <div>{{ t('wallet.snapshot_info') }}</div>
-          </template>
-        </d-header>
-        <div class="content snapshot">
-          <h3>{{ t('wallet.snapshot_info') }}</h3>
-          <div>
-            <label>{{ t('wallet.snapshot.snapshot_id') }}</label>
-            <p>{{ transactionInfo.snapshot_id }}</p>
-          </div>
-          <div>
-            <label>{{ t('wallet.snapshot.trace_id') }}</label>
-            <p>{{ transactionInfo.trace_id }}</p>
-          </div>
-          <div>
-            <label>{{ t('wallet.snapshot.account') }}</label>
-            <p>{{ transactionInfo.opponent_key }}</p>
-          </div>
-          <div>
-            <label>{{ t('wallet.snapshot.amount') }}</label>
-            <p>{{ transactionInfo.amount }}</p>
-          </div>
-          <div>
-            <label>{{ t('wallet.snapshot.transaction_hash') }}</label>
-            <p>{{ transactionInfo.transaction_hash }}</p>
-          </div>
-          <footer class="btns">
-            <button @click="useClickSubmit" class="btns-copy primary">{{ t('button.withdrawal') }}</button>
-            <button @click="useClickCancel" class="btns-cancel primary">{{ t('button.cancel') }}</button>
-          </footer>
-        </div>
-        <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+        <confirm
+          :content="confirmContent"
+          :show="showWithdrawalConfirm"
+          @confirm="useClickConfirm"
+          @close-modal="useCloseConfirm"
+        />
       </div>
     </transition>
   </d-modal>
@@ -135,6 +125,7 @@ export default {
       state.form.pin = '';
       state.form.amount = '';
       state.form.opponent_id = '';
+      state.transactionInfo = {};
     };
     const useSearchUserId = async (client) => {
       const is_uuid = validate(state.form.opponent_id);
@@ -181,8 +172,8 @@ export default {
           state.transactionInfo = res;
         } else {
           ctx.emit('close-modal');
+          ctx.emit('success');
         }
-        ctx.emit('success');
       }
     };
 
@@ -205,8 +196,10 @@ export default {
       state.showWithdrawalConfirm = true;
     };
     const useClickCancel = () => {
-      useClearForm();
       ctx.emit('close-modal');
+      if (showSnapshot.value) ctx.emit('success');
+
+      useClearForm();
     };
     const useCloseConfirm = () => {
       state.showWithdrawalConfirm = false;
