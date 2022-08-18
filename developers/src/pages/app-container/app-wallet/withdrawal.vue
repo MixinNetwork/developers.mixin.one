@@ -20,7 +20,7 @@
           <ul>
             <li>
               <label>{{ t('wallet.amount') }}</label>
-              <input v-model="form.amount"/>
+              <input v-model.trim="form.amount"/>
             </li>
             <li>
               <label>PIN</label>
@@ -28,7 +28,7 @@
             </li>
             <li>
               <label>Mixin ID / Mainnet Address</label>
-              <input v-model="form.opponent_id"/>
+              <input v-model.trim="form.opponent_id"/>
             </li>
           </ul>
           <footer>
