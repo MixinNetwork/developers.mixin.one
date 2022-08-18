@@ -12,19 +12,17 @@
       <div
         v-for="(item, index) in assetList"
         :key="index"
-        :style="{opacity: item.icon_url ? '1':'0'}"
         class="item"
       >
-        <img :src="item.icon_url" alt="asset-logo"/>
+        <img :src="item.icon_url" :alt="item.name"/>
         <div>
           <span class="num">{{ item.balance }}</span>
           <span class="symbol">{{ item.symbol }}</span>
         </div>
         <button
-          v-if="item.icon_url"
-          @click="useClickWithdrawal(item)"
-          class="withdrawal primary"
-        >{{ t('button.withdrawal') }}
+            @click="useClickWithdrawal(item)"
+            class="withdrawal primary"
+            >{{ t('button.withdrawal') }}
         </button>
       </div>
       <div class="list-bottom-tips">
