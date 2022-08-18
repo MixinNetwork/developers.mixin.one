@@ -52,13 +52,13 @@
             </div>
             <div>
               <label>{{ t('wallet.snapshot.account') }}</label>
-              <p>{{ transactionInfo.opponent_key }}</p>
+              <p>{{ transactionInfo.opponent_key || transactionInfo.opponent_id }}</p>
             </div>
             <div>
               <label>{{ t('wallet.snapshot.amount') }}</label>
               <p>{{ transactionInfo.amount }}</p>
             </div>
-            <div>
+            <div v-if="transactionInfo.transaction_hash" >
               <label>{{ t('wallet.snapshot.transaction_hash') }}</label>
               <p>{{ transactionInfo.transaction_hash }}</p>
             </div>
@@ -117,7 +117,7 @@ export default {
     const showSnapshot = computed(() => JSON.stringify(state.transactionInfo) !== '{}');
 
     const useCheckPin = () => state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin, 10) > 100000;
-    const useClearForm = () => {
+    const useClear = () => {
       state.form.pin = '';
       state.form.amount = '';
       state.form.opponent_id = '';
@@ -162,14 +162,8 @@ export default {
           message: t('message.success.withdrawal'),
           showClose: true,
         });
-        useClearForm();
-
-        if (!is_transfers) {
-          state.transactionInfo = res;
-        } else {
-          ctx.emit('close-modal');
-          ctx.emit('success');
-        }
+        useClear();
+        state.transactionInfo = res;
       }
     };
 
@@ -194,8 +188,7 @@ export default {
     const useClickCancel = () => {
       ctx.emit('close-modal');
       if (showSnapshot.value) ctx.emit('success');
-
-      useClearForm();
+      useClear();
     };
     const useCloseConfirm = () => {
       state.showWithdrawalConfirm = false;
