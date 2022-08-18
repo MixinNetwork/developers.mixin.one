@@ -53,6 +53,7 @@ export default {
         const unauthorizedCb = () => {
           modifyLocalLoadingStatus(false);
           state.showSessionUpdateModal = true;
+          ls.rm(props.appId);
         };
         const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
         const res = await useAssetList(appClient);
