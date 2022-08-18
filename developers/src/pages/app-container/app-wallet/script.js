@@ -48,29 +48,25 @@ export default {
         return;
       }
 
-      modifyLocalLoadingStatus(true);
-      try {
-        const unauthorizedCb = () => {
-          modifyLocalLoadingStatus(false);
-          state.showSessionUpdateModal = true;
-          ls.rm(props.appId);
-        };
-        const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
-        const res = await useAssetList(appClient);
-
-        if (
-          res
-          && Object.prototype.toString.call(res) === '[object Array]'
-          && res.every((asset) => asset.type === 'asset')
-        ) {
-          state.assetList = res.sort(assetSortCompare);
-        } else {
-          state.assetList = [];
-        }
-      } catch (e) {
-        state.assetList = [];
-      } finally {
+      const unauthorizedCb = () => {
         modifyLocalLoadingStatus(false);
+        state.showSessionUpdateModal = true;
+        ls.rm(props.appId);
+      };
+      const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
+
+      modifyLocalLoadingStatus(true);
+      const res = await useAssetList(appClient);
+      modifyLocalLoadingStatus(false);
+
+      if (
+        res
+        && Object.prototype.toString.call(res) === '[object Array]'
+        && res.every((asset) => asset.type === 'asset')
+      ) {
+        state.assetList = res.sort(assetSortCompare);
+      } else {
+        state.assetList = [];
       }
     };
 
