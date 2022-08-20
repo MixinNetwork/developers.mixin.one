@@ -18,7 +18,8 @@ title: SDK
 ## 第三方 SDK
 
 我们的开发者社区也为开发人员开发了多个 SDK。
-
+- [Mixin SDK Java](https://github.com/tooonly/mixin-java-sdk) - 字友 团队开发的Java Mixin SDK，支持多机器人应用，可以部署Saas版本Mixin机器人，已上传Maven仓库，方便开发者自由引入。
+  - [🥰 例子](https://github.com/tooonly/mixin-java-sdk/blob/master/src/main/java/mixin/java/sdk/example/MixinBotExample.java)
 - [Mixin SDK Go](https://github.com/fox-one/mixin-sdk-go) - 使用最广泛的第 3 方 Golang SDK，由 Pando 团队开发，综合性的 API 支持 Mixin Network 和 Mixin Messenger。
   - [🥰 例子](https://github.com/fox-one/mixin-sdk-go/tree/master/_examples)，[📖 文档](https://pkg.go.dev/github.com/fox-one/mixin-sdk-go)，[🧑‍🏫 教程](https://gitpress.io/t/Mixin%20Development)
 - [Mixin SDK PHP](https://github.com/exinone/mixin-sdk-php) - Exin 团队提供的 PHP Mixin-Network SDK，广泛应用于 Exin 的产品中。
