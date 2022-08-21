@@ -20,6 +20,8 @@ Except restful APIs, Mixin core team also provides several SDKs as a simplified 
 
 The community has also developed several SDKs for developers.
 
+- [Mixin SDK Java](https://github.com/tooonly/mixin-java-sdk) - The ziu.xin team developed the Java Mixin SDK, which supports multi-bot applications and allows deployment of Saas versions of Mixin bots.
+  - [🥰 Examples](https://github.com/tooonly/mixin-java-sdk/blob/master/src/main/java/mixin/java/sdk/example/MixinBotExample.java)
 - [Mixin SDK Go](https://github.com/fox-one/mixin-sdk-go) - The most widely used 3rd party Golang SDK, developed by Pando, comprehensive API supported for both Mixin Network and Mixin Messenger.
   - [🥰 Examples](https://github.com/fox-one/mixin-sdk-go/tree/master/_examples), [📖 Documentation](https://pkg.go.dev/github.com/fox-one/mixin-sdk-go), [🧑‍🏫 Tutorial](https://gitpress.io/t/Mixin%20Development)
 - [Mixin SDK PHP](https://github.com/exinone/mixin-sdk-php) - A Mixin-Network SDK for PHP, provided by Exin.One, widely used in Exin's products.
