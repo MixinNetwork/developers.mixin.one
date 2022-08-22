@@ -104,8 +104,8 @@
     <confirm
       :content="t('information.encrypted_confirm')"
       :show="showConfirmModal"
-      @confirm="useConfirmEncryption"
-      @close-modal="closeModal"
+      @confirm="useClickConfirm"
+      @close-modal="useCloseConfirm"
     />
 
   </div>
