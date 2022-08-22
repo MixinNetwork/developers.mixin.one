@@ -23,13 +23,13 @@ const routes = [
   {
     path: '/apps/new',
     name: 'new_app',
-    component: () => import('./pages/app-new'),
+    component: () => import('./pages/app-creation'),
     meta: { type: 'dashboard' },
   },
   {
     path: '/apps/:app_number',
     name: 'app_info',
-    component: () => import('./pages/app-container'),
+    component: () => import('./pages/app'),
     meta: { type: 'dashboard' },
   },
   {

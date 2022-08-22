@@ -4,10 +4,10 @@ import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 
 export default {
-  name: 'app-container',
+  name: 'app-creation',
   components: {
     DHeader,
-    AppInformation: defineAsyncComponent(() => import('../app-container/app-information')),
+    AppInformation: defineAsyncComponent(() => import('../app/app-information')),
   },
   async setup() {
     const { t } = useI18n();
