@@ -14,7 +14,7 @@
     "axios": "^0.27.2",
     "bignumber.js": "^9.1.0",
     "core-js": "^3.24.1",
-    "element-plus": "^2.2.13",
+    "element-plus": "^2.2.14",
     "file-saver": "^2.0.5",
     "github-markdown-css": "^5.1.0",
     "highlight.js": "^11.3.1",
