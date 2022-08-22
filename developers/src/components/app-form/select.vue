@@ -131,7 +131,7 @@ export default {
       transform: translateY(-50%);
       width: 0.8325rem;
       height: 0.5625rem;
-      background: url("../../../assets/img/svg/selected.svg") no-repeat;
+      background: url("@/assets/img/svg/selected.svg") no-repeat;
     }
   }
 
