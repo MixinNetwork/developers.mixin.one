@@ -111,14 +111,15 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import DHeader from '@/components/DHeader';
-import { useLayoutStore } from '@/stores';
+import { useBuyModalStore, useLayoutStore } from '@/stores';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';
 
-const store = useLayoutStore();
-const { appList, userInfo } = storeToRefs(store);
-const { modifyClickedNewApp } = store;
+const dataStore = useLayoutStore();
+const { appList, userInfo } = storeToRefs(dataStore);
+
+const { useCheckCredit } = useBuyModalStore();
 
 const { t } = useI18n();
 const showLogoutModal = ref(false);
@@ -138,7 +139,7 @@ const useToApp = (item) => {
 };
 
 const useClickNewApp = async () => {
-  modifyClickedNewApp(true);
+  useCheckCredit();
 };
 const useClickApp = async (item) => {
   useToApp(item);
