@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AppForm from '@/components/app-form';
+import AppForm from '@/components/AppForm';
 
 export default {
   name: 'app-information',
