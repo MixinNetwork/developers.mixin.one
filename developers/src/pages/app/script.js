@@ -17,7 +17,7 @@ export default {
   components: {
     DModal,
     DHeader,
-    AppInformation: defineAsyncComponent(() => import('./app-information')),
+    AppInformation: defineAsyncComponent(() => import('@/components/app-form')),
     AppSecret: defineAsyncComponent(() => import('./app-secret')),
     AppWallet: defineAsyncComponent(() => import('./app-wallet')),
   },

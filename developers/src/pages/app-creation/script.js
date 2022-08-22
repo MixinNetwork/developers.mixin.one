@@ -7,7 +7,7 @@ export default {
   name: 'app-creation',
   components: {
     DHeader,
-    AppInformation: defineAsyncComponent(() => import('../app/app-information')),
+    AppInformation: defineAsyncComponent(() => import('@/components/app-form')),
   },
   async setup() {
     const { t } = useI18n();
