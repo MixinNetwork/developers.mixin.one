@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElTooltip } from 'element-plus';
 import Confirm from '@/components/Confirm';
-import { useLayoutStore, useLoadStore } from '@/stores';
+import { useConfirmModalStore, useLayoutStore, useLoadStore } from '@/stores';
 import {
   useApp,
   useClient,
@@ -39,6 +39,7 @@ export default {
 
     const { fetchAppList } = useLayoutStore();
     const { modifyLocalLoadingStatus } = useLoadStore();
+    const { useInitConfirm } = useConfirmModalStore();
 
     const state = reactive({
       toggle_app: 0,
@@ -94,7 +95,7 @@ export default {
       if (state.app.description.length < 16 || state.app.description.length > 128) return useNotice('description_length');
     };
 
-    const submit = async () => {
+    const useSubmit = async () => {
       const capabilities = ['CONTACT', 'GROUP'];
       if (state.isImmersive) capabilities.push('IMMERSIVE');
       if (state.isEncrypted) capabilities.push('ENCRYPTED');
@@ -137,13 +138,6 @@ export default {
       }
     };
 
-    const useCloseConfirm = () => {
-      state.showConfirmModal = false;
-    };
-    const useClickConfirm = () => {
-      state.isEncrypted = true;
-      useCloseConfirm();
-    };
     const useClickEncryption = () => {
       if (!state.encryptionAvailable) return;
       if (state.app.capabilities.includes('ENCRYPTED')) return;
@@ -151,7 +145,12 @@ export default {
         state.isEncrypted = false;
         return;
       }
-      state.showConfirmModal = true;
+
+      useInitConfirm(
+        true,
+        t('information.encrypted_confirm'),
+        () => { state.isEncrypted = true; },
+      );
     };
     const useClickSubmit = async () => {
       if (!allowSubmit.value) {
@@ -163,7 +162,7 @@ export default {
         return;
       }
 
-      await submit();
+      await useSubmit();
     };
 
     onMounted(async () => {
@@ -185,8 +184,6 @@ export default {
       croppie,
       ...toRefs(state),
       allowSubmit,
-      useClickConfirm,
-      useCloseConfirm,
       useClickEncryption,
       useClickSubmit,
       t,

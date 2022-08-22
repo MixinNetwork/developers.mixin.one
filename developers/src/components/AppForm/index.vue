@@ -101,13 +101,6 @@
       @click="useClickSubmit"
       :class="['primary', !allowSubmit ? 'not-finished' : '' ]"
     >{{t('button.save')}}</button>
-    <confirm
-      :content="t('information.encrypted_confirm')"
-      :show="showConfirmModal"
-      @confirm="useClickConfirm"
-      @close-modal="useCloseConfirm"
-    />
-
   </div>
 </template>
 
