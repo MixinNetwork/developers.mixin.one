@@ -33,7 +33,7 @@ import { inject } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import { v4 as uuid } from 'uuid';
-import DModal from '@/components/DModal';
+import DModal from '@/components/Modals/DModal';
 import { useClient } from '@/api';
 import { useLayoutStore, useBuyModalStore } from '@/stores';
 

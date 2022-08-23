@@ -14,8 +14,8 @@
 <script>
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
+import DModal from '@/components/Modals/DModal';
 import { useConfirmModalStore } from '@/stores';
-import DModal from './DModal';
 
 export default {
   components: { DModal },
