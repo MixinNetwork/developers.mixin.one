@@ -1,5 +1,5 @@
 ```json title="Response"
-// public_key is format of base64 RawURLEncoding
+// public_key is in format of base64 RawURLEncoding
 {
   "data": [
     {

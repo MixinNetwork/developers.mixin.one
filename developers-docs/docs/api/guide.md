@@ -8,7 +8,7 @@ Most API access is available for signed requests with private key, which can be 
 There are mainly three kinds of signature in Mixin Messenger:
 1. JWT signature of bot to access private API, [details](#calling-apis)
 2. JWT signature of OAuth user to access private API, [details](#oauth-user-signature)
-3. PIN signature to transfer, withdraw and create withdraw addresses, [details]
+3. PIN signature to transfer, withdraw and create withdraw addresses, [details](#pin-signature)
 
 ## Choosing An API Server
 

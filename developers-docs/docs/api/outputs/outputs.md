@@ -13,7 +13,7 @@ import {
 
 ## GET /outputs
 
-You get outputs in multisigs and collectibles, and this api returns the merge result of  `GET /multisigs/outputs` and `GET /collectibles/outputs`
+You can read outputs in multisigs and collectibles, and this api returns the merged result of  `GET /multisigs/outputs` and `GET /collectibles/outputs`
 
 <APIEndpoint url="/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
 
