@@ -150,7 +150,7 @@ Mixin API 返回的 HTTP 状态码符合 RFC 规范。
 
 ```
 /*
-* appID: 机器人的 id 
+* appID: 授权用户 id 
 * authorizationID: 用户授权完成后返回的 authorization_id
 * privateKey: 本地生成的 private key
 * method: HTTP 请求方法，GET, POST
