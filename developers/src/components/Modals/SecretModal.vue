@@ -37,7 +37,10 @@ export default {
 
     const secretStore = useSecretModalStore();
     const {
-      showSecret, secretTitle, secretContent, type,
+      showSecret,
+      secretTitle,
+      secretContent,
+      type,
     } = storeToRefs(secretStore);
     const { useClearSecret } = secretStore;
 
