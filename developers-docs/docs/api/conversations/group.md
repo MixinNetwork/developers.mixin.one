@@ -116,7 +116,20 @@ Request body data:
 | Parameter    |  Type  | Description                                                                                                         |
 | :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
 | duration     | Int64  | In seconds, setting to 0 means unmute, other values means mute time, for example, setting 28,800 means mute 8 hours |
-| category     | String | Optional, only CONTACT is allowed                                                                                   |
-| participants | Array  | Optional, participants in the conversation, only required when category is CONTACT.                                 |
 
-If you mute users or bots, it is strongly recommended to pass the category and participants parameters, otherwise calling the mute interface without creating a conversation will return an error.
+Before mute a group or user, the conversation should be created first, otherwise 403 error will be returned.
+
+### POST /conversations/:id/disappear
+
+Request body data:
+
+| Parameter    |  Type  | Description                  |
+| :----------- | :----: |:-----------------------------|
+| duration     | Int64  | In seconds, maximum 12 weeks |
+
+Disappearing message, can be set by managers only.
+
+Rules, take 30s as an example:
+
+1. If the message has been read, it would be deleted in 30s.
+2. If the message is never read, it would be deleted in 24h + 30s.

@@ -9,16 +9,16 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import { useLayoutStore } from '@/stores';
+import { useBuyModalStore } from '@/stores';
 
 export default {
   name: 'dashboard-container',
   async setup() {
     const { t } = useI18n();
-    const { modifyClickedNewApp } = useLayoutStore();
+    const { useCheckCredit } = useBuyModalStore();
 
     const useClickNewApp = async () => {
-      modifyClickedNewApp(true);
+      useCheckCredit();
     };
 
     return {
