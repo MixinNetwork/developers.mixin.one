@@ -106,10 +106,10 @@ export default {
     const useClickCancel = () => {
       useClearUpdateToken();
     };
-    const useClickSubmit = async () => {
+    const useClickSubmit = () => {
       if (!useCheckToken()) return;
       useSaveToken();
-      await onSubmit.value();
+      onSubmit.value();
       useClearUpdateToken();
     };
 
