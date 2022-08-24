@@ -32,12 +32,6 @@
       </div>
     </div>
     <div class="tips">{{t('secret.des')}}</div>
-    <update-token
-      :show="showUpdateToken"
-      :appId="appId"
-      @success="useRequestQRCode(action==='ShowQRCode')"
-      @close-modal="showUpdateToken=false"
-    />
   </div>
 </template>
 

@@ -2,7 +2,12 @@ import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
 import { toRefs, reactive, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
-import { useConfirmModalStore, useLoadStore, useSecretModalStore } from '@/stores';
+import {
+  useLoadStore,
+  useConfirmModalStore,
+  useSecretModalStore,
+  useUpdateTokenModalStore,
+} from '@/stores';
 import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 
@@ -19,6 +24,7 @@ export default {
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitConfirm } = useConfirmModalStore();
     const { useInitSecret } = useSecretModalStore();
+    const { useInitUpdateToken } = useUpdateTokenModalStore();
 
     const state = reactive({
       submitting: false,
@@ -77,7 +83,9 @@ export default {
     const useRequestQRCode = async (isShow) => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
-        state.showUpdateToken = true;
+        useInitUpdateToken(true, props.appId, () => {
+          useRequestQRCode(isShow);
+        });
         return;
       }
 
@@ -90,31 +98,20 @@ export default {
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;
-      try {
-        const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
+      const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-        if (!res) {
-          ls.rm(props.appId);
-          state.showUpdateToken = true;
-          return;
-        }
-        if (!res.code_url) {
-          if (isShow) await useRequestQRCode(false);
-          return;
-        }
-
-        state.modalTitle = t('secret.qrcode_title');
-        state.modalContent = res.code_url;
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+      if (!res.code_url) {
+        if (isShow) await useRequestQRCode(false);
+        return;
       }
+      useInitSecret(true, t('secret.qrcode_title'), res.code_url, '');
     };
 
     const useDoubleCheck = async (type) => {
       switch (type) {
         case 'ShowQRCode':
-          state.action = 'ShowQRCode';
           await useRequestQRCode(true);
           break;
         case 'RotateQRCode':
