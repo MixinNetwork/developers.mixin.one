@@ -5,6 +5,8 @@
     <confirm />
 
     <secret-modal />
+
+    <update-token-modal />
   </teleport>
 </template>
 
@@ -12,10 +14,13 @@
 import BuyAppModal from '@/components/Modals/BuyAppModal';
 import Confirm from '@/components/Modals/ConfirmModal';
 import SecretModal from '@/components/Modals/SecretModal';
+import UpdateTokenModal from '@/components/Modals/UpdateTokenModal';
 
 export default {
   name: 'modals',
-  components: { BuyAppModal, Confirm, SecretModal },
+  components: {
+    BuyAppModal, Confirm, SecretModal, UpdateTokenModal,
+  },
 };
 </script>
 
