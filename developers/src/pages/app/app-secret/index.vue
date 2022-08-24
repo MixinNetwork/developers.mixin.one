@@ -32,22 +32,6 @@
       </div>
     </div>
     <div class="tips">{{t('secret.des')}}</div>
-    <d-modal :show="!!modalContent">
-      <div class="new-secret-modal">
-        <h3>{{modalTitle}}</h3>
-        <span :class="action==='UpdateSession' && 'session'">{{modalContent}}</span>
-        <div class="btns">
-          <button v-if="action==='UpdateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
-          <button v-if="action==='UpdateSession'" @click="useDownloadKeystore" class="btn-download primary">{{t('button.download')}}</button>
-          <button
-            @click="useClickCopy"
-            class="btn-copy primary"
-          >{{t('button.copy')}}
-          </button>
-        </div>
-        <img @click="useCloseModal" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="modal-close-icon"/>
-      </div>
-    </d-modal>
     <update-token
       :show="showUpdateToken"
       :appId="appId"

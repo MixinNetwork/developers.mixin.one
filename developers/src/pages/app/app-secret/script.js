@@ -1,25 +1,14 @@
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
-import {
-  toRefs,
-  reactive,
-  inject,
-  watch,
-} from 'vue';
-import { useClipboard } from '@vueuse/core';
+import { toRefs, reactive, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
-import FileSaver from 'file-saver';
-import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
-import { useConfirmModalStore, useLoadStore } from '@/stores';
+import { useConfirmModalStore, useLoadStore, useSecretModalStore } from '@/stores';
 import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 
 export default {
   name: 'app-secret',
-  components: {
-    DModal, UpdateToken,
-  },
+  components: { UpdateToken },
   props: {
     appId: String,
   },
@@ -29,12 +18,10 @@ export default {
 
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitConfirm } = useConfirmModalStore();
+    const { useInitSecret } = useSecretModalStore();
 
     const state = reactive({
       submitting: false,
-      confirmContent: '',
-      modalTitle: '',
-      modalContent: '',
       showUpdateToken: false,
       action: '',
     });
@@ -47,17 +34,16 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
+
       modifyLocalLoadingStatus(true);
       state.submitting = true;
+      const res = await userClient.app.updateSecret(props.appId);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-      try {
-        const res = await userClient.app.updateSecret(props.appId);
+      if (res && res.app_secret) {
         $message.success({ message: t('message.success.reset'), showClose: true });
-        state.modalTitle = t('secret.secret_title');
-        state.modalContent = res.app_secret;
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+        useInitSecret(true, t('secret.secret_title'), res.app_secret, 'UpdateSecret');
       }
     };
     const useUpdateSession = async () => {
@@ -68,25 +54,24 @@ export default {
 
       state.submitting = true;
       modifyLocalLoadingStatus(true);
+      const pin = randomPin();
+      const { publicKey: session_secret, privateKey } = getED25519KeyPair();
+      const res = await userClient.app.updateSession(props.appId, pin, session_secret);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-      try {
-        const pin = randomPin();
-        const { publicKey: session_secret, privateKey } = getED25519KeyPair();
-        const res = await userClient.app.updateSession(props.appId, pin, session_secret);
+      if (res && res.session_id && res.pin_token_base64) {
         $message.success({ message: t('message.success.reset'), showClose: true });
+        ls.rm(props.appId);
 
-        state.modalTitle = t('secret.session_title');
-        state.modalContent = JSON.stringify({
+        const session = JSON.stringify({
           pin,
           client_id: props.appId,
           session_id: res.session_id,
           pin_token: res.pin_token_base64,
           private_key: privateKey,
         }, null, 2);
-        ls.rm(props.appId);
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+        useInitSecret(true, t('secret.session_title'), session, 'UpdateSession');
       }
     };
     const useRequestQRCode = async (isShow) => {
@@ -126,17 +111,6 @@ export default {
       }
     };
 
-    const route = useRoute();
-    const useDownloadKeystore = () => {
-      const { app_number } = route.params;
-
-      const blob = new Blob(
-        [state.modalContent],
-        { type: 'text/plain;charset=utf-8' },
-      );
-      FileSaver.saveAs(blob, `keystore-${app_number}.json`);
-    };
-
     const useDoubleCheck = async (type) => {
       switch (type) {
         case 'ShowQRCode':
@@ -169,25 +143,10 @@ export default {
       }
     };
 
-    const { copy, copied, isSupported } = useClipboard();
-    const useClickCopy = async () => {
-      if (!isSupported) {
-        $message.error({ message: t('message.errors.copy'), showClose: true });
-        return;
-      }
-      await copy(state.modalContent);
-    };
-
-    watch(copied, () => {
-      if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
-    });
-
     return {
       ...toRefs(state),
       useRequestQRCode,
       useDoubleCheck,
-      useDownloadKeystore,
-      useClickCopy,
       t,
     };
   },
