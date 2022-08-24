@@ -91,7 +91,6 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
         message: t('message.success.withdrawal'),
         showClose: true,
       });
-      useClearWithdrawal();
       transactionInfo.value = res;
     }
   };

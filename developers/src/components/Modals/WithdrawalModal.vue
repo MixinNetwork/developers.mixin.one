@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="showWithdrawal" v-loading="loading">
+  <d-modal :show="showWithdrawal" :loading="loading">
     <div :class="['main', showSnapshot ? 'snap-main' : '']">
         <d-header class="header">
           <template #left>
