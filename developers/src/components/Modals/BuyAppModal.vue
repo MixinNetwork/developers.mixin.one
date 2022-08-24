@@ -1,13 +1,13 @@
 <template>
   <d-modal :show="showBuyModal" :loading="modalLoading">
-    <div class="edit-modal">
+    <div class="buy-modal">
       <img
         @click="useCloseBuyModal"
         src="@/assets/img/app-svg/close.svg"
         alt="close-modal-btn"
       />
       <h3 class="edit-modal-title">{{ t('dashboard.buy.title') }}</h3>
-      <span>{{ t('dashboard.buy.desc1') }}</span>
+      <div>{{ t('dashboard.buy.desc1') }}</div>
       <p>{{ t('dashboard.buy.desc2') }}</p>
       <button
         @click="useClickBuyButton(1)"
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.edit-modal {
+.buy-modal {
   padding: 2.5rem 1.25rem 4.75rem 1.25rem;
   min-width: 37.5rem;
   text-align: center;
@@ -94,15 +94,8 @@ export default {
   }
 
   h3 {
-    font-size: 1rem;
     font-weight: 900;
     margin-bottom: 1.875rem;
-  }
-
-  span {
-    color: #333333;
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 
   p {
@@ -116,7 +109,6 @@ export default {
     margin-top: 0.75rem;
     margin-right: 1.25rem;
     width: 8.75rem;
-    font-size: 1rem;
     height: 2.5rem;
 
     &:last-child {
@@ -126,7 +118,7 @@ export default {
 }
 
 @media screen and (max-width: 48rem) {
-  .edit-modal {
+  .buy-modal {
     padding: 2.5rem 1.25rem;
     min-width: 18.75rem;
     max-width: 18.75rem;
