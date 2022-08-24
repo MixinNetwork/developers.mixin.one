@@ -1,8 +1,8 @@
 <template>
-  <d-modal :show="showConfirm">
+  <d-modal :show="show">
     <div class="confirm-content">
       <img @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
-      <h3>{{confirmContent}}</h3>
+      <h3>{{content}}</h3>
       <div class="btns">
         <button @click="useClickCancel">{{t('button.cancel')}}</button>
         <button @click="useClickConfirm">{{t('button.ok')}}</button>
@@ -23,20 +23,12 @@ export default {
     const { t } = useI18n();
 
     const confirmStore = useConfirmModalStore();
-    const { showConfirm, confirmContent, confirmCallback } = storeToRefs(confirmStore);
-    const { useClearConfirm } = confirmStore;
-
-    const useClickCancel = () => {
-      useClearConfirm();
-    };
-    const useClickConfirm = () => {
-      confirmCallback.value();
-      useClearConfirm();
-    };
+    const { show, content } = storeToRefs(confirmStore);
+    const { useClickCancel, useClickConfirm } = confirmStore;
 
     return {
-      showConfirm,
-      confirmContent,
+      show,
+      content,
       useClickCancel,
       useClickConfirm,
       t,

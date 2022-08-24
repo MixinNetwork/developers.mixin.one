@@ -146,7 +146,6 @@ export default {
       }
 
       useInitConfirm(
-        true,
         t('information.encrypted_confirm'),
         () => { state.isEncrypted = true; },
       );

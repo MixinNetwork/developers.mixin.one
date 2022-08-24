@@ -116,21 +116,18 @@ export default {
           break;
         case 'RotateQRCode':
           useInitConfirm(
-            true,
             t('secret.rotate_qrcode_question'),
             async () => { await useRequestQRCode(false); },
           );
           break;
         case 'UpdateSecret':
           useInitConfirm(
-            true,
             t('secret.secret_question'),
             async () => { await useUpdateSecret(); },
           );
           break;
         case 'UpdateSession':
           useInitConfirm(
-            true,
             t('secret.session_question'),
             async () => { await useUpdateSession(); },
           );

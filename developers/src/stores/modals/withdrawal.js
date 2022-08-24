@@ -111,7 +111,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
       return;
     }
 
-    useInitConfirm(true, confirmContent.value, useSubmitWithdrawal);
+    useInitConfirm(confirmContent.value, useSubmitWithdrawal);
   };
   const useClickCancel = () => {
     if (showSnapshot.value) onSuccess.value();
