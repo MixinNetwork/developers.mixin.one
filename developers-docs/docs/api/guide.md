@@ -185,11 +185,12 @@ func SignOauthAccessToken(appID, authorizationID, privateKey, method, uri, body,
 Mixin Messenger facilitates users to manage private key with TIP protocol and 6 digits PIN.
 For more details of TIP, refer to <https://github.com/MixinNetwork/tip>.
 
-When users try to manage their assets, transfer or withdraw, PIN are required to be signed.
+When users try to manage their assets, transfer or withdraw, PIN are required.
+
 Here's a golang example:
 
 ```golang
-* pin: 6 digits number in string, like '321321'
+* pin: 6 digits number in string, e.g.: '321321'
 * pinTokenBase64: An ed25519 public key, can be found in keystore_7000xxx.json
 * privateKey: private key, same as other signatures
 * iterator: a number that must increase every signature
@@ -239,7 +240,7 @@ func EncryptEd25519PIN(pin, pinTokenBase64, privateKey string, iterator uint64) 
 }
 ```
 
-## Summary
+## Others
 
 Messenger API includes:
 

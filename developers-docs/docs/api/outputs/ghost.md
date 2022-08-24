@@ -20,7 +20,7 @@ Get one-time user keys to transfer assets from Mixin mainnet address to Mixin Us
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "receivers":  "A array of user id.",
+  "receivers":  "Array of users' id.",
   "index":      "Output index.",
   "hint":       "Unique ghosts generated for users.",
 },

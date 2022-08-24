@@ -3,7 +3,7 @@ title: Introduction
 sidebar_position: 1
 ---
 
-User is the basic element in Mixin, for example, message and asset are all based on Users.
+User is the basic in Mixin, messages, assets, etc all belongs to users.
 
 ## User Type:
 

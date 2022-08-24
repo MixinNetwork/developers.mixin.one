@@ -13,8 +13,9 @@ import RespSessions from "../../_partials/_resp.sessions.md";
 
 ## POST /sessions/fetch
 
-Get the information of sessions of Mixin User, request parameter is an array of uuid. 
-One user could have multiple sessions that have different public_key.
+Get the information of sessions of Mixin User, request parameter is an array of users' id. 
+
+There maybe multiple sessions per user, which have different public_key.
 
 :::info
 Only returns sessions of existed users, non-existent user would be ignored.

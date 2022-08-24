@@ -18,4 +18,4 @@ sidebar_position: 1
 
 ## Note
 
-Notice `PROFILE:READ` is required permissions, and others permission is optional. It is recommended that developers only apply for necessary permissions and make proper guidance GUIs in the absence of permissions.
+`PROFILE:READ` is required permissions, and others permissions are optional. It is recommended that developers only apply for necessary permissions and make proper guidance GUIs in the absence of permissions.
