@@ -8,7 +8,7 @@
 
 <script>
 import BuyAppModal from '@/components/Modals/BuyAppModal';
-import Confirm from '@/components/Modals/Confirm';
+import Confirm from '@/components/Modals/ConfirmModal';
 
 export default {
   name: 'modals',

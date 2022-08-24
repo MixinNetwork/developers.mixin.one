@@ -4,7 +4,6 @@ import {
   reactive,
   inject,
   watch,
-  onActivated,
 } from 'vue';
 import { useClipboard } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
@@ -12,15 +11,14 @@ import { useRoute } from 'vue-router';
 import FileSaver from 'file-saver';
 import DModal from '@/components/DModal';
 import UpdateToken from '@/components/UpdateToken';
-import Confirm from '@/components/Confirm';
-import { useLoadStore } from '@/stores';
+import { useConfirmModalStore, useLoadStore } from '@/stores';
 import { ls, randomPin } from '@/utils';
 import { useClient } from '@/api';
 
 export default {
   name: 'app-secret',
   components: {
-    DModal, UpdateToken, Confirm,
+    DModal, UpdateToken,
   },
   props: {
     appId: String,
@@ -30,6 +28,8 @@ export default {
     const { t } = useI18n();
 
     const { modifyLocalLoadingStatus } = useLoadStore();
+    const { useInitConfirm } = useConfirmModalStore();
+
     const state = reactive({
       submitting: false,
       confirmContent: '',
@@ -144,48 +144,29 @@ export default {
           await useRequestQRCode(true);
           break;
         case 'RotateQRCode':
-          state.confirmContent = t('secret.rotate_qrcode_question');
-          state.action = 'RotateQRCode';
+          useInitConfirm(
+            true,
+            t('secret.rotate_qrcode_question'),
+            async () => { await useRequestQRCode(false); },
+          );
           break;
         case 'UpdateSecret':
-          state.confirmContent = t('secret.secret_question');
-          state.action = 'UpdateSecret';
+          useInitConfirm(
+            true,
+            t('secret.secret_question'),
+            async () => { await useUpdateSecret(); },
+          );
           break;
         case 'UpdateSession':
-          state.confirmContent = t('secret.session_question');
-          state.action = 'UpdateSession';
+          useInitConfirm(
+            true,
+            t('secret.session_question'),
+            async () => { await useUpdateSession(); },
+          );
           break;
         default:
           break;
       }
-    };
-    const useConfirm = async () => {
-      switch (state.action) {
-        case 'RotateQRCode':
-          await useRequestQRCode(false);
-          break;
-        case 'UpdateSecret':
-          await useUpdateSecret();
-          break;
-        case 'UpdateSession':
-          await useUpdateSession();
-          break;
-        default:
-          break;
-      }
-    };
-
-    const useInitStatus = () => {
-      state.modalTitle = '';
-      state.modalContent = '';
-      state.confirmContent = '';
-      state.action = '';
-    };
-    const useCloseModal = () => {
-      useInitStatus();
-    };
-    const useCloseConfirmModal = () => {
-      state.confirmContent = '';
     };
 
     const { copy, copied, isSupported } = useClipboard();
@@ -199,9 +180,6 @@ export default {
 
     watch(copied, () => {
       if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
-    });
-    onActivated(() => {
-      useInitStatus();
     });
 
     return {

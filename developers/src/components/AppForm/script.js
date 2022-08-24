@@ -11,7 +11,6 @@ import {
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElTooltip } from 'element-plus';
-import Confirm from '@/components/Confirm';
 import { useConfirmModalStore, useLayoutStore, useLoadStore } from '@/stores';
 import {
   useApp,
@@ -26,7 +25,7 @@ import CategorySelect from './select.vue';
 export default {
   name: 'app-form',
   components: {
-    MInput, Croppie, CategorySelect, Confirm, ElTooltip,
+    MInput, Croppie, CategorySelect, ElTooltip,
   },
   props: {
     appId: String,
