@@ -12,9 +12,9 @@ APIPayload,
 
 ## GET /external/addresses/check
 
-It is free that transferring assets between Mixin Users. 
-It is also free to transfer assets to an address belongs to Mixin User.
-This api is used to check whether an address belongs to Mixin User.
+First It is free that transfer token between Messenger Users. 
+If a withdrawal address belongs to a Messenger user, the withdrawal will not need fee.
+The api is used to check whether an address belongs to Mixin User or not.
 
 <APIEndpoint url="/external/addresses/check" />
 

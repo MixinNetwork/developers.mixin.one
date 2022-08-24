@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Most API access is available for signed requests with private key, which can be downloaded from [dashboard](https://developers.mixin.one/dashboard).
 
-There are mainly three kinds of signature in Mixin Messenger:
+There are three kinds of signature in Mixin:
 1. JWT signature of bot to access private API, [details](#calling-apis)
 2. JWT signature of OAuth user to access private API, [details](#oauth-user-signature)
 3. PIN signature to transfer, withdraw and create withdraw addresses, [details](#pin-signature)
@@ -241,9 +241,9 @@ func EncryptEd25519PIN(pin, pinTokenBase64, privateKey string, iterator uint64) 
 
 ## Summary
 
-Messenger API mainly includes:
+Messenger API includes:
 
-* Some public API, for example, `GET /network/chains` can obtain the information of all chain supported by Mixin
+* Public API, e.g.: `GET /network/chains` can obtain the information of all chain supported by Mixin
 * Private API, available for request with signature, for example, `GET /me` can obtain the information of current user
-* Asset related API, available for request with signed PIN
-* In addition, some fields that end with`_base64` is base64 coding of the RFC 4648, please refer to <https://pkg.go.dev/encoding/base64#pkg-variables>
+* Transfer asset API, available for request with signed PIN
+* In addition, some response fields which have the suffix `_base64` is base64 coding of the RFC 4648, please refer to <https://pkg.go.dev/encoding/base64#pkg-variables>

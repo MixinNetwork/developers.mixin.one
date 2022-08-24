@@ -25,7 +25,7 @@ p-members="used with threshold, hash of multi signature members"
 p-threshold="used with members, such threshold should be 2 in 2/3 multi signature"
 />
 
-Golang example to generate hash of multi signature members:
+Golang example for generating hash of multi signature members:
 
 ```go
 func hashMembers(ids []string) string {

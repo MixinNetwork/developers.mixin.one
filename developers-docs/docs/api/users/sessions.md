@@ -13,11 +13,11 @@ import RespSessions from "../../_partials/_resp.sessions.md";
 
 ## POST /sessions/fetch
 
-Get the information of session of Mixin User, request parameter is an array of uuid. 
+Get the information of sessions of Mixin User, request parameter is an array of uuid. 
 One user could have multiple sessions that have different public_key.
 
 :::info
-Only returns sessions of existed users, non-existent user would be ignored。
+Only returns sessions of existed users, non-existent user would be ignored.
 :::
 
 <APIEndpoint url="/sessions/fetch" />

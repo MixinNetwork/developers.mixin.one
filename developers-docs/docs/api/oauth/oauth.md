@@ -82,4 +82,4 @@ Get the information that OAuth signature would need.
 
 ## Revoking Authorization
 
-Users can revoke authorization in Mixin Messenger Settings, and the authorization would expire after a year.
+Since Users can revoke authorization in Mixin Messenger Settings, or the authorization will expire after a year. Developers should process the expired token.
