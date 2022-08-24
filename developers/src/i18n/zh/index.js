@@ -570,7 +570,8 @@ export default {
     description: '简介',
     description_desc: '您的应用的简介, 最少 16 个字符, 最多 128 个字符',
     resource_patterns: '域名白名单',
-    resource_patterns_desc: '您应用的域名白名单，按行划分，最多 10 个域名。',
+    resource_patterns_desc:
+    '您应用的域名白名单，按行划分，最多 10 个域名。例如: \nhttps://mixin.one/codes/c78233a1-ffa6-453e-8bb3-6282a76bba78 \nhttps://mixin.one/codes',
     immersive: '沉浸式',
     encrypted: '消息加密',
     encrypted_tip: '您必须使用 ED25519 密钥以开启消息加密功能',

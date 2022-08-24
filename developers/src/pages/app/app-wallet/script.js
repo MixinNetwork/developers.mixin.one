@@ -9,7 +9,7 @@ import {
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import UpdateToken from '@/components/UpdateToken';
-import WithdrawalModal from '@/pages/app-container/app-wallet/withdrawal';
+import WithdrawalModal from '@/pages/app/app-wallet/withdrawal';
 import { useLoadStore } from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
 import { useAssetList, useClient } from '@/api';

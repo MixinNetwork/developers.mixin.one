@@ -7,7 +7,6 @@ const routes = [
     component: () => import('./pages/home'),
     meta: { type: 'document' },
   },
-
   {
     path: '/auth',
     name: 'Auth',
@@ -23,52 +22,15 @@ const routes = [
   {
     path: '/apps/new',
     name: 'new_app',
-    component: () => import('./pages/app-new'),
+    component: () => import('./pages/app-creation'),
     meta: { type: 'dashboard' },
   },
   {
     path: '/apps/:app_number',
     name: 'app_info',
-    component: () => import('./pages/app-container'),
+    component: () => import('./pages/app'),
     meta: { type: 'dashboard' },
   },
-  {
-    path: '/news',
-    name: 'news',
-    component: () => import('./pages/home/News'),
-    meta: { type: 'document' },
-  },
-  {
-    path: '/cases',
-    name: 'cases',
-    component: () => import('./pages/home/Cases'),
-    meta: { type: 'document' },
-  },
-  {
-    path: '/news/:filename',
-    name: 'news_detail',
-    component: () => import('./pages/home/Detail'),
-    meta: { type: 'document' },
-  },
-  {
-    path: '/cases/:filename',
-    name: 'cases_detail',
-    component: () => import('./pages/home/Detail'),
-    meta: { type: 'document' },
-  },
-  {
-    path: '/document*',
-    name: 'detail',
-    component: () => import('./pages/home/Document'),
-    meta: { type: 'document' },
-  },
-  {
-    path: '/search',
-    name: 'search',
-    component: () => import('./pages/home/Search'),
-    meta: { type: 'document' },
-  },
-
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',

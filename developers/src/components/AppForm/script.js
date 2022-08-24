@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElTooltip } from 'element-plus';
 import Confirm from '@/components/Confirm';
-import { useLayoutStore, useLoadStore } from '@/stores';
+import { useConfirmModalStore, useLayoutStore, useLoadStore } from '@/stores';
 import {
   useApp,
   useClient,
@@ -24,7 +24,7 @@ import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
 
 export default {
-  name: 'app-information',
+  name: 'app-form',
   components: {
     MInput, Croppie, CategorySelect, Confirm, ElTooltip,
   },
@@ -39,6 +39,7 @@ export default {
 
     const { fetchAppList } = useLayoutStore();
     const { modifyLocalLoadingStatus } = useLoadStore();
+    const { useInitConfirm } = useConfirmModalStore();
 
     const state = reactive({
       toggle_app: 0,
@@ -52,7 +53,7 @@ export default {
       encryptionAvailable: false,
     });
 
-    const initApp = (app) => {
+    const useInitApp = (app) => {
       state.toggle_app++;
       state.app = app;
       state.category = app.category || 'OTHER';
@@ -81,20 +82,20 @@ export default {
     const isValidDescription = computed(() => !!state.app.description && state.app.description.length >= 16 && state.app.description.length <= 128);
     const allowSubmit = computed(() => isValidAppName.value && isValidHomeUri.value && isValidRedirectUri.value && isValidDescription.value);
 
-    const noticeMessage = (message) => $message.error({ message: t(`information.errors.${message}`), showClose: true });
+    const useNotice = (message) => $message.error({ message: t(`information.errors.${message}`), showClose: true });
     // eslint-disable-next-line consistent-return
-    const notice = () => {
-      if (!state.app.name) return noticeMessage('no_app_name');
-      if (state.app.name.length < 2 || state.app.name.length > 64) return noticeMessage('app_name_length');
-      if (!state.app.home_uri) return noticeMessage('no_home_uri');
-      if (!isValidUrl(state.app.home_uri)) return noticeMessage('home_uri_illegal');
-      if (!state.app.redirect_uri) return noticeMessage('no_redirect_uri');
-      if (!isValidUrl(state.app.redirect_uri)) return noticeMessage('redirect_uri_illegal');
-      if (!state.app.description) return noticeMessage('no_description');
-      if (state.app.description.length < 16 || state.app.description.length > 128) return noticeMessage('description_length');
+    const useCheckForm = () => {
+      if (!state.app.name) return useNotice('no_app_name');
+      if (state.app.name.length < 2 || state.app.name.length > 64) return useNotice('app_name_length');
+      if (!state.app.home_uri) return useNotice('no_home_uri');
+      if (!isValidUrl(state.app.home_uri)) return useNotice('home_uri_illegal');
+      if (!state.app.redirect_uri) return useNotice('no_redirect_uri');
+      if (!isValidUrl(state.app.redirect_uri)) return useNotice('redirect_uri_illegal');
+      if (!state.app.description) return useNotice('no_description');
+      if (state.app.description.length < 16 || state.app.description.length > 128) return useNotice('description_length');
     };
 
-    const submit = async () => {
+    const useSubmit = async () => {
       const capabilities = ['CONTACT', 'GROUP'];
       if (state.isImmersive) capabilities.push('IMMERSIVE');
       if (state.isEncrypted) capabilities.push('ENCRYPTED');
@@ -120,27 +121,23 @@ export default {
 
       state.submitting = true;
       modifyLocalLoadingStatus(true);
-      try {
-        const res = props.appId
-          ? await useUpdateApp(client, props.appId, params)
-          : await useCreateApp(client, params);
-        if (res && res.type === 'app') {
-          $message.success({ message: t('message.success.save'), showClose: true });
-          await fetchAppList(client);
-          await router.push({
-            path: `/apps/${res.app_number}`,
-            hash: '#information',
-          });
-          initApp(res);
-        }
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+      const res = props.appId
+        ? await useUpdateApp(client, props.appId, params)
+        : await useCreateApp(client, params);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
+
+      if (res && res.type === 'app') {
+        $message.success({ message: t('message.success.save'), showClose: true });
+        useInitApp(res);
+        await fetchAppList(client);
+        await router.push({
+          path: `/apps/${res.app_number}`,
+          hash: '#information',
+        });
       }
     };
-    const closeModal = () => {
-      state.showConfirmModal = false;
-    };
+
     const useClickEncryption = () => {
       if (!state.encryptionAvailable) return;
       if (state.app.capabilities.includes('ENCRYPTED')) return;
@@ -148,15 +145,16 @@ export default {
         state.isEncrypted = false;
         return;
       }
-      state.showConfirmModal = true;
-    };
-    const useConfirmEncryption = () => {
-      state.isEncrypted = true;
-      closeModal();
+
+      useInitConfirm(
+        true,
+        t('information.encrypted_confirm'),
+        () => { state.isEncrypted = true; },
+      );
     };
     const useClickSubmit = async () => {
       if (!allowSubmit.value) {
-        notice();
+        useCheckForm();
         return;
       }
       if (state.submitting) {
@@ -164,22 +162,22 @@ export default {
         return;
       }
 
-      await submit();
+      await useSubmit();
     };
 
     onMounted(async () => {
       const app = await useFetchApp();
-      initApp(app);
+      useInitApp(app);
     });
 
     onActivated(async () => {
       const app = await useFetchApp();
-      initApp(app);
+      useInitApp(app);
     });
 
     watch(() => props.appId, async (appId) => {
       const app = await useFetchApp(appId);
-      initApp(app);
+      useInitApp(app);
     });
 
     return {
@@ -187,9 +185,7 @@ export default {
       ...toRefs(state),
       allowSubmit,
       useClickEncryption,
-      useConfirmEncryption,
       useClickSubmit,
-      closeModal,
       t,
     };
   },

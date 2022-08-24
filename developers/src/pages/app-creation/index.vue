@@ -1,3 +1,57 @@
+<template>
+  <div>
+    <d-header class="app-header">
+      <template #left>
+        <div class="header-back" @click="backward">
+          <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
+        </div>
+      </template>
+      <template #center>
+        <div>{{ t('dashboard.new_app') }}</div>
+      </template>
+    </d-header>
+    <header>
+      <div class="header-list">
+        <span class="header-item new-item">{{ t('dashboard.new_app') }}</span>
+      </div>
+    </header>
+    <div class="dashboard-main">
+      <app-form />
+    </div>
+  </div>
+</template>
+
+<script>
+import { defineAsyncComponent } from 'vue';
+import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import DHeader from '@/components/DHeader';
+
+export default {
+  name: 'app-creation',
+  components: {
+    DHeader,
+    AppForm: defineAsyncComponent(() => import('@/components/AppForm')),
+  },
+  async setup() {
+    const { t } = useI18n();
+
+    const router = useRouter();
+    const backward = () => {
+      router.push({
+        path: '/dashboard',
+      });
+    };
+
+    return {
+      backward,
+      t,
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
 .app-header {
   display: none;
 }
@@ -83,4 +137,4 @@ header {
     }
   }
 }
-
+</style>
