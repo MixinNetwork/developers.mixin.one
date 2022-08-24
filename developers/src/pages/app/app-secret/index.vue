@@ -54,12 +54,6 @@
       @success="useRequestQRCode(action==='ShowQRCode')"
       @close-modal="showUpdateToken=false"
     />
-    <confirm
-      :content="confirmContent"
-      :show="!!confirmContent"
-      @confirm="useConfirm"
-      @close-modal="useCloseConfirmModal"
-    />
   </div>
 </template>
 

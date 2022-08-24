@@ -186,10 +186,7 @@ export default {
       ...toRefs(state),
       useRequestQRCode,
       useDoubleCheck,
-      useConfirm,
       useDownloadKeystore,
-      useCloseModal,
-      useCloseConfirmModal,
       useClickCopy,
       t,
     };
