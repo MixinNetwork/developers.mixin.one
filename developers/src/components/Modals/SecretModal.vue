@@ -46,7 +46,7 @@ export default {
 
     const { copy, copied, isSupported } = useClipboard();
     const useClickCopy = async () => {
-      if (!isSupported) {
+      if (!isSupported.value) {
         $message.error({ message: t('message.errors.copy'), showClose: true });
         return;
       }
