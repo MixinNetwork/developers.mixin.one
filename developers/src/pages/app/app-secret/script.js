@@ -83,7 +83,7 @@ export default {
     const useRequestQRCode = async (isShow) => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
-        useInitUpdateToken(true, props.appId, () => {
+        useInitUpdateToken(props.appId, () => {
           useRequestQRCode(isShow);
         });
         return;

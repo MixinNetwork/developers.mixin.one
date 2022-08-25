@@ -44,7 +44,7 @@ export default {
 
       const unauthorizedCb = () => {
         modifyLocalLoadingStatus(false);
-        useInitUpdateToken(true, props.appId, useFetchAssetList);
+        useInitUpdateToken(props.appId, useFetchAssetList);
         ls.rm(props.appId);
       };
       const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
@@ -64,7 +64,7 @@ export default {
       useInitWithdrawal(item, props.appId, useFetchAssetList);
     };
     const useShowUpdateToken = () => {
-      useInitUpdateToken(true, props.appId, useFetchAssetList);
+      useInitUpdateToken(props.appId, useFetchAssetList);
     };
 
     onActivated(async () => {

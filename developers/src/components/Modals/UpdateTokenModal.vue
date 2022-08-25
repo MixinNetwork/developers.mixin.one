@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="showUpdate">
+  <d-modal :show="show">
     <div class="main modal">
       <h3>{{ t('wallet.update_token') }}</h3>
       <div class="edit-item">
@@ -42,80 +42,31 @@
 </template>
 
 <script>
-import { reactive, toRefs, inject } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import validator from 'validator';
 import DModal from '@/components/Modals/DModal';
 import { useUpdateTokenModalStore } from '@/stores';
-import { ls } from '@/utils';
 
 export default {
   name: 'UpdateTokenModal',
   components: { DModal },
   setup() {
     const { t } = useI18n();
-    const $message = inject('$message');
 
     const updateTokenStore = useUpdateTokenModalStore();
-    const { showUpdate, appId, onSubmit } = storeToRefs(updateTokenStore);
-    const { useClearUpdateToken } = updateTokenStore;
-
-    const state = reactive({
-      session_id: '',
-      pin_token: '',
-      private_key: '',
-    });
-
-    const useCheckToken = () => {
-      if (!validator.isUUID(state.session_id, 4)) {
-        $message.error({
-          message: t('message.errors.session_id_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      if (!validator.isBase64(state.pin_token) && Buffer.from(state.pin_token, 'base64').length !== 32) {
-        $message.error({
-          message: t('message.errors.pin_token_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      if (!validator.isBase64(state.private_key) && Buffer.from(state.private_key, 'base64').length !== 64) {
-        $message.error({
-          message: t('message.errors.private_key_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      return true;
-    };
-    const useSaveToken = () => {
-      ls.set(appId.value, {
-        user_id: appId.value,
-        session_id: state.session_id,
-        pin_token: state.pin_token,
-        private_key: state.private_key.replace(/\\r\\n/g, '\r\n'),
-      });
-      state.pin_token = '';
-      state.private_key = '';
-      state.session_id = '';
-    };
-
-    const useClickCancel = () => {
-      useClearUpdateToken();
-    };
-    const useClickSubmit = () => {
-      if (!useCheckToken()) return;
-      useSaveToken();
-      onSubmit.value();
-      useClearUpdateToken();
-    };
+    const {
+      show,
+      session_id,
+      pin_token,
+      private_key,
+    } = storeToRefs(updateTokenStore);
+    const { useClickSubmit, useClickCancel } = updateTokenStore;
 
     return {
-      ...toRefs(state),
-      showUpdate,
+      show,
+      session_id,
+      pin_token,
+      private_key,
       useClickSubmit,
       useClickCancel,
       t,
@@ -155,7 +106,7 @@ label {
     background: #f6f9ff;
     padding: 0 10px;
     border-radius: 4px;
-    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
   }
 
   textarea {
