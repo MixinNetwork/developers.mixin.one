@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { v4 as uuid, validate } from 'uuid';
 import { useConfirmModalStore } from '@/stores/modals/confirm';
 import { ls } from '@/utils';
-import { useClient } from '@/api';
+import { useBotClient } from '@/api';
 
 export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   const $message = inject('$message');
@@ -58,7 +58,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   };
   const useSubmitWithdrawal = async () => {
     const clientInfo = ls.get(appId.value);
-    const client = useClient($message, t, clientInfo, true);
+    const client = useBotClient($message, t, clientInfo);
     const is_transfers = !opponent_id.value.startsWith('XIN');
     const type = is_transfers ? 'transfer' : 'raw';
 
@@ -68,6 +68,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
       const res = await useSearchUserId(client);
       if (!res || !res.user_id) {
         $message.error({ message: t('message.errors.mixin_id'), showClose: true });
+        loading.value = false;
         return;
       }
       opponent = { opponent_id: res.user_id };

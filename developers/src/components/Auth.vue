@@ -5,7 +5,7 @@
 <script>
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
 import { getUrlParameter, ls } from '@/utils';
-import { useClient } from '@/api';
+import { useUserClient } from '@/api';
 import { useRouter } from 'vue-router';
 import { inject } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -32,7 +32,7 @@ export default {
     const code = getUrlParameter('code');
     const { privateKey, publicKey } = getED25519KeyPair();
 
-    const client = useClient($message, t);
+    const client = useUserClient($message, t);
     client.oauth.getToken(
       process.env.VUE_APP_CLIENT_ID,
       code,

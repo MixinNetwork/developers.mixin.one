@@ -3,7 +3,7 @@ import { defineStore, storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { v4 as uuid } from 'uuid';
-import { useClient } from '@/api';
+import { useUserClient } from '@/api';
 import { useLayoutStore } from '../layout';
 
 export const useBuyModalStore = defineStore('buy-app', () => {
@@ -30,7 +30,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     show.value = false;
   };
   const useClickBuyButton = async (count) => {
-    const client = useClient($message, t);
+    const client = useUserClient($message, t);
     loading.value = true;
     await fetchAppProperty(client);
 

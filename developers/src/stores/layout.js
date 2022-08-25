@@ -1,6 +1,5 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import { useAppList, useAppProperty, useUserInfo } from '@/api';
 import { useLoadStore } from './load';
 
 export const useLayoutStore = defineStore('layout', () => {
@@ -12,18 +11,18 @@ export const useLayoutStore = defineStore('layout', () => {
 
   const fetchAppList = async (client) => {
     modifyGlobalLoadingStatus(true);
-    appList.value = await useAppList(client);
+    appList.value = await client.app.fetchList();
     modifyGlobalLoadingStatus(false);
   };
   const fetchAppProperty = async (client) => {
-    appProperty.value = await useAppProperty(client);
+    appProperty.value = await client.app.properties();
   };
   const fetchAll = async (client) => {
     modifyGlobalLoadingStatus(true);
-    appList.value = await useAppList(client);
-    userInfo.value = await useUserInfo(client);
+    appList.value = await client.app.fetchList();
+    userInfo.value = await client.user.profile();
     modifyGlobalLoadingStatus(false);
-    appProperty.value = await useAppProperty(client);
+    appProperty.value = await client.app.properties();
   };
 
   return {

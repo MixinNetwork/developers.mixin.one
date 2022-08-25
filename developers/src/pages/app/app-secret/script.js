@@ -8,7 +8,7 @@ import {
   useUpdateTokenModalStore,
 } from '@/stores';
 import { ls, randomPin } from '@/utils';
-import { useClient } from '@/api';
+import { useUserClient, useBotClient } from '@/api';
 
 export default {
   name: 'app-secret',
@@ -28,7 +28,7 @@ export default {
       submitting: false,
     });
 
-    const userClient = useClient($message, t);
+    const userClient = useUserClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {
@@ -90,7 +90,7 @@ export default {
         return;
       }
 
-      const appClient = useClient($message, t, clientInfo, true);
+      const appClient = useBotClient($message, t, clientInfo);
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;
