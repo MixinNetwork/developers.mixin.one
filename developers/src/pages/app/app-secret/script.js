@@ -1,7 +1,6 @@
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
 import { toRefs, reactive, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
-import UpdateToken from '@/components/UpdateToken';
 import {
   useLoadStore,
   useConfirmModalStore,

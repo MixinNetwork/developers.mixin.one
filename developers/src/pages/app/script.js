@@ -9,13 +9,11 @@ import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
-import DModal from '@/components/DModal';
 import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'app-container',
   components: {
-    DModal,
     DHeader,
     AppInformation: defineAsyncComponent(() => import('@/components/AppForm')),
     AppSecret: defineAsyncComponent(() => import('./app-secret')),
