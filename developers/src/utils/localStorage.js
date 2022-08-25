@@ -5,6 +5,7 @@ export const ls = {
     const value = window.localStorage.getItem(key);
     try {
       const info = JSON.parse(value);
+      // TODO: signature is error if use old token
       if (validator.isUUID(key, 4)) {
         if (info && !validator.isBase64(info.private_key, { urlSafe: true })) {
           window.localStorage.removeItem(key);
