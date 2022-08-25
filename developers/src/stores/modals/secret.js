@@ -1,7 +1,15 @@
-import { ref } from 'vue';
+import { ref, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
+import { useI18n } from 'vue-i18n';
+import { useClipboard } from '@vueuse/core';
+import FileSaver from 'file-saver';
 
 export const useSecretModalStore = defineStore('secret', () => {
+  const $message = inject('$message');
+  const { t } = useI18n();
+  const route = useRoute();
+
   const showSecret = ref(false);
   const secretTitle = ref('');
   const secretContent = ref('');
@@ -21,6 +29,32 @@ export const useSecretModalStore = defineStore('secret', () => {
     type.value = undefined;
   };
 
+  const { copy, copied, isSupported } = useClipboard();
+  const useClickCopy = async () => {
+    if (!isSupported.value) {
+      $message.error({ message: t('message.errors.copy'), showClose: true });
+      return;
+    }
+    await copy(secretContent.value);
+  };
+  watch(copied, () => {
+    if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
+  });
+
+  const useClickDownload = () => {
+    const { app_number } = route.params;
+
+    const blob = new Blob(
+      [secretContent.value],
+      { type: 'text/plain;charset=utf-8' },
+    );
+    FileSaver.saveAs(blob, `keystore-${app_number}.json`);
+  };
+
+  const useCloseModal = () => {
+    useClearSecret();
+  };
+
   return {
     showSecret,
     secretTitle,
@@ -28,5 +62,8 @@ export const useSecretModalStore = defineStore('secret', () => {
     type,
     useInitSecret,
     useClearSecret,
+    useClickCopy,
+    useClickDownload,
+    useCloseModal,
   };
 });

@@ -5,7 +5,7 @@
       <span :class="type==='UpdateSession' && 'session'">{{secretContent}}</span>
       <div class="btns">
         <button v-if="type==='UpdateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
-        <button v-if="type==='UpdateSession'" @click="useDownloadKeystore" class="btn-download primary">{{t('button.download')}}</button>
+        <button v-if="type==='UpdateSession'" @click="useClickDownload" class="btn-download primary">{{t('button.download')}}</button>
         <button
           @click="useClickCopy"
           class="btn-copy primary"
@@ -18,12 +18,8 @@
 </template>
 
 <script>
-import { watch, inject } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useClipboard } from '@vueuse/core';
-import FileSaver from 'file-saver';
 import DModal from '@/components/Modals/DModal';
 import { useSecretModalStore } from '@/stores';
 
@@ -32,8 +28,6 @@ export default {
   components: { DModal },
   setup() {
     const { t } = useI18n();
-    const $message = inject('$message');
-    const route = useRoute();
 
     const secretStore = useSecretModalStore();
     const {
@@ -42,33 +36,7 @@ export default {
       secretContent,
       type,
     } = storeToRefs(secretStore);
-    const { useClearSecret } = secretStore;
-
-    const { copy, copied, isSupported } = useClipboard();
-    const useClickCopy = async () => {
-      if (!isSupported.value) {
-        $message.error({ message: t('message.errors.copy'), showClose: true });
-        return;
-      }
-      await copy(secretContent.value);
-    };
-    watch(copied, () => {
-      if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
-    });
-
-    const useDownloadKeystore = () => {
-      const { app_number } = route.params;
-
-      const blob = new Blob(
-        [secretContent.value],
-        { type: 'text/plain;charset=utf-8' },
-      );
-      FileSaver.saveAs(blob, `keystore-${app_number}.json`);
-    };
-
-    const useCloseModal = () => {
-      useClearSecret();
-    };
+    const { useClickCopy, useClickDownload, useCloseModal } = secretStore;
 
     return {
       showSecret,
@@ -76,7 +44,7 @@ export default {
       secretContent,
       type,
       useClickCopy,
-      useDownloadKeystore,
+      useClickDownload,
       useCloseModal,
       t,
     };
