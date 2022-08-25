@@ -1,18 +1,10 @@
 import en from '@/i18n/en';
-import { useLoadStore } from '@/stores/load';
 
 const cbFactory = ($message, t, botRequest, botRequestOn401) => (err) => {
-  const {
-    code, description, message, retryNumber, retryCount,
-  } = err;
-  const { modifyGlobalLoadingStatus, modifyLocalLoadingStatus } = useLoadStore();
+  const { code, description, message } = err;
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {
     $message.error({ showClose: true, duration: 2000, message: t('message.errors.overtime') });
-    if (retryNumber && retryCount && retryNumber === retryCount) {
-      modifyGlobalLoadingStatus(false);
-      modifyLocalLoadingStatus(false);
-    }
     return;
   }
 
