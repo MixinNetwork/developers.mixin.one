@@ -1,6 +1,6 @@
 import en from '@/i18n/en';
 
-const cbFactory = ($message, t, botRequest, botRequestOn401) => (err) => {
+const commonCallback = ($message, t, err) => {
   const { code, description, message } = err;
 
   if (code === 'ECONNABORTED' || message === 'Network Error') {
@@ -22,13 +22,12 @@ const cbFactory = ($message, t, botRequest, botRequestOn401) => (err) => {
     }
     $message.error({ showClose: true, duration: 2000, message: `${t(`message.errors.${key}`)}(${code})` });
   }
+};
 
-  if (code === 401) {
-    if (botRequest) {
-      if (botRequestOn401) botRequestOn401();
-      return;
-    }
+export const userErrorFactory = ($message, t) => (err) => {
+  commonCallback($message, t, err);
 
+  if (err.code === 401) {
     setTimeout(() => {
       window.localStorage.clear();
       // eslint-disable-next-line max-len
@@ -37,4 +36,9 @@ const cbFactory = ($message, t, botRequest, botRequestOn401) => (err) => {
   }
 };
 
-export default cbFactory;
+export const botErrorFactory = ($message, t, botRequestOn401) => (err) => {
+  console.log(err);
+  commonCallback($message, t, err);
+
+  if (err.code === 401 && botRequestOn401) botRequestOn401();
+};
