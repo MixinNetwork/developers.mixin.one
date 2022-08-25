@@ -5,7 +5,7 @@ export const ls = {
     const value = window.localStorage.getItem(key);
     try {
       const info = JSON.parse(value);
-      if (validator.isUUID(value, 4)) {
+      if (validator.isUUID(key, 4)) {
         if (info && !validator.isBase64(info.private_key)) {
           window.localStorage.removeItem(key);
         }
