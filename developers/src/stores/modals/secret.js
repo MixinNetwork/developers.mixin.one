@@ -7,8 +7,8 @@ export const useSecretModalStore = defineStore('secret', () => {
   const secretContent = ref('');
   const type = ref('');
 
-  const useInitSecret = (status, title, content, action) => {
-    showSecret.value = status;
+  const useInitSecret = (title, content, action) => {
+    showSecret.value = true;
     secretTitle.value = title;
     secretContent.value = content;
     type.value = action;

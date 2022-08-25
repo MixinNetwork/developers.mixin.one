@@ -26,8 +26,6 @@ export default {
 
     const state = reactive({
       submitting: false,
-      showUpdateToken: false,
-      action: '',
     });
 
     const userClient = useClient($message, t);
@@ -47,7 +45,7 @@ export default {
 
       if (res && res.app_secret) {
         $message.success({ message: t('message.success.reset'), showClose: true });
-        useInitSecret(true, t('secret.secret_title'), res.app_secret, 'UpdateSecret');
+        useInitSecret(t('secret.secret_title'), res.app_secret, 'UpdateSecret');
       }
     };
     const useUpdateSession = async () => {
@@ -75,7 +73,7 @@ export default {
           pin_token: res.pin_token_base64,
           private_key: privateKey,
         }, null, 2);
-        useInitSecret(true, t('secret.session_title'), session, 'UpdateSession');
+        useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
     };
     const useRequestQRCode = async (isShow) => {
@@ -104,7 +102,7 @@ export default {
         if (isShow) await useRequestQRCode(false);
         return;
       }
-      useInitSecret(true, t('secret.qrcode_title'), res.code_url, '');
+      useInitSecret(t('secret.qrcode_title'), res.code_url, '');
     };
 
     const useDoubleCheck = async (type) => {
