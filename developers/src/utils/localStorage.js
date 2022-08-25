@@ -1,8 +1,17 @@
+import validator from 'validator';
+
 export const ls = {
   get(key) {
     const value = window.localStorage.getItem(key);
     try {
-      return JSON.parse(value);
+      const info = JSON.parse(value);
+      if (validator.isUUID(value, 4)) {
+        if (info && !validator.isBase64(info.private_key)) {
+          window.localStorage.removeItem(key);
+        }
+        return {};
+      }
+      return info;
     } catch (e) {
       return value;
     }
