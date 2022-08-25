@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="showWithdrawal" :loading="loading">
+  <d-modal :show="show" :loading="loading">
     <div :class="['main', showSnapshot ? 'snap-main' : '']">
         <d-header class="header">
           <template #left>
@@ -84,9 +84,8 @@ export default {
     const withdrawalStore = useWithdrawalModalStore();
     const {
       loading,
-      showWithdrawal,
+      show,
       asset,
-      appId,
       amount,
       pin,
       opponent_id,
@@ -97,9 +96,8 @@ export default {
 
     return {
       loading,
-      showWithdrawal,
+      show,
       asset,
-      appId,
       amount,
       pin,
       opponent_id,

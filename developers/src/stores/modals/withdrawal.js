@@ -12,7 +12,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   const { useInitConfirm } = useConfirmModalStore();
 
   const loading = ref(false);
-  const showWithdrawal = ref(false);
+  const show = ref(false);
   const asset = ref({});
   const appId = ref('');
   const onSuccess = ref(undefined);
@@ -30,14 +30,14 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   const showSnapshot = computed(() => JSON.stringify(transactionInfo.value) !== '{}');
 
   const useInitWithdrawal = (item, id, success) => {
-    showWithdrawal.value = true;
+    show.value = true;
     asset.value = item;
     appId.value = id;
     onSuccess.value = success;
   };
   const useClearWithdrawal = () => {
     loading.value = false;
-    showWithdrawal.value = false;
+    show.value = false;
     asset.value = {};
     appId.value = '';
 
@@ -120,9 +120,8 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
 
   return {
     loading,
-    showWithdrawal,
+    show,
     asset,
-    appId,
     amount,
     pin,
     opponent_id,
