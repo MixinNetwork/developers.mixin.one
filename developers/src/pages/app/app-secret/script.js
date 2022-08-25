@@ -12,7 +12,6 @@ import { useClient } from '@/api';
 
 export default {
   name: 'app-secret',
-  components: { UpdateToken },
   props: {
     appId: String,
   },
