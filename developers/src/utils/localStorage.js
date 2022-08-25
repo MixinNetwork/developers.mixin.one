@@ -6,10 +6,10 @@ export const ls = {
     try {
       const info = JSON.parse(value);
       if (validator.isUUID(key, 4)) {
-        if (info && !validator.isBase64(info.private_key)) {
+        if (info && !validator.isBase64(info.private_key, { urlSafe: true })) {
           window.localStorage.removeItem(key);
+          return {};
         }
-        return {};
       }
       return info;
     } catch (e) {
