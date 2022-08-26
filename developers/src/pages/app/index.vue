@@ -1,6 +1,6 @@
 <template>
   <div>
-    <d-header class="app-header">
+    <d-header>
       <template #left>
         <div class="header-back" @click="backward">
           <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
@@ -10,16 +10,14 @@
         <div>{{ currentAppName }}</div>
       </template>
     </d-header>
-    <header>
-      <div class="header-list">
-          <span
-            v-for="(item, index) in navList"
-            :key="index"
-            :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
-            @click="useClickNav(index)"
-          >{{ t(item + '.title') }}</span>
-      </div>
-    </header>
+    <div class="nav-list">
+      <span
+        v-for="(item, index) in navList"
+        :key="index"
+        :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
+        @click="useClickNav(index)"
+      >{{ t(item + '.title') }}</span>
+    </div>
     <div class="dashboard-main">
       <keep-alive :include="includeComponents">
         <suspense>
