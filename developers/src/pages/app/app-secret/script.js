@@ -77,20 +77,24 @@ export default {
       }
     };
     const useRequestQRCode = async (isShow) => {
-      const clientInfo = ls.get(props.appId);
-      if (!useCheckKeystore(clientInfo)) {
-        useInitUpdateToken(props.appId, () => {
-          useRequestQRCode(isShow);
-        });
-        return;
-      }
-
       if (state.submitting) {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
 
-      const appClient = useBotClient($message, t, clientInfo);
+      const unauthorizedCb = () => {
+        modifyLocalLoadingStatus(false);
+        useInitUpdateToken(props.appId, () => {
+          useRequestQRCode(isShow);
+        });
+        ls.rm(props.appId);
+      };
+      const clientInfo = ls.get(props.appId);
+      if (!useCheckKeystore(clientInfo)) {
+        unauthorizedCb();
+        return;
+      }
+      const appClient = useBotClient($message, t, clientInfo, unauthorizedCb);
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;

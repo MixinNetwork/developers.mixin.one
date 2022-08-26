@@ -36,9 +36,8 @@ export const userErrorFactory = ($message, t) => (err) => {
   }
 };
 
-export const botErrorFactory = ($message, t, botRequestOn401) => (err) => {
-  console.log(err);
+export const botErrorFactory = ($message, t, onUnauthorized) => (err) => {
   commonCallback($message, t, err);
 
-  if (err.code === 401 && botRequestOn401) botRequestOn401();
+  if (err.code === 401 && onUnauthorized) onUnauthorized();
 };
