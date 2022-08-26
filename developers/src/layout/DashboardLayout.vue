@@ -1,13 +1,11 @@
 <template>
-  <div v-loading="globalLoading" :class="['development-dashboard', t('language')]">
-    <div class="dashboard-container">
-      <SideBar />
+  <div v-loading="globalLoading" class="development-dashboard">
+    <side-bar />
 
-      <div v-loading="localLoading" class="dashboard-center-and-nav">
-        <suspense>
-          <router-view></router-view>
-        </suspense>
-      </div>
+    <div v-loading="localLoading" class="dashboard-content">
+      <suspense>
+        <router-view></router-view>
+      </suspense>
     </div>
   </div>
 
@@ -42,33 +40,24 @@ onMounted(async () => {
 
 <style lang='scss' scoped>
 .development-dashboard {
-  cursor: default;
-  font-family: Helvetica, sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   overflow: hidden;
+  cursor: default;
 
-  .dashboard-container {
-    display: flex;
+  .dashboard-content {
+    position: relative;
     width: 100%;
     height: 100%;
-
-    .dashboard-center-and-nav {
-      width: 100%;
-      height: 100%;
-      flex: 1;
-      background-color: #f6f7f9;
-      overflow: hidden;
-      position: relative;
-
-      & > div {
-        width: 100%;
-        height: 100%;
-      }
-    }
+    flex: 1;
+    background-color: #f6f7f9;
+    overflow: hidden;
   }
 }
 </style>
