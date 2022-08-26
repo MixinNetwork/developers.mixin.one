@@ -1,26 +1,75 @@
 .content {
+  display: flex;
+  flex-direction: column;
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
   padding: 3rem 1rem 0;
 }
 
-.top {
+.responsive-container {
   display: flex;
   flex-direction: row;
+
+  .meta-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-right: 2rem;
+    box-sizing: border-box;
+
+    label {
+      display: inline-block;
+      font-weight: 700;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .basic-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+
+    .name-category {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .item:first-child {
+        margin-right: 1.125rem;
+        flex: 1;
+      }
+
+      .item:last-child {
+        min-width: 17.5rem;
+      }
+    }
+  }
 }
 
-.des {
-  margin-bottom: 2rem;
-  margin-right: 1rem;
+.textarea-container {
+  margin-bottom: 1rem;
 
   label {
-    font-weight: 700;
     display: block;
     width: 12.5rem;
-    margin: 0;
     margin-bottom: 1rem;
+    font-weight: 700;
   }
+
+  textarea {
+    width: 100%;
+    height: 7.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+}
+
+.checkbox-container {
+  display: inline-block;
+  margin: 0 1rem 2rem 0;
 
   i,
   img {
@@ -43,25 +92,25 @@
     font-weight: 700;
     padding-left: 0.5rem;
   }
-}
 
-.forbidden {
-  color: #a9b0bf;
+  &.forbidden {
+    color: #a9b0bf;
 
-  input {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    box-sizing: border-box;
-    border-radius: 0.25rem;
-    background-color: #a9b0bf;
-    transform: translateY(0.125rem);
-  }
+    input {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      box-sizing: border-box;
+      border-radius: 0.25rem;
+      background-color: #a9b0bf;
+      transform: translateY(0.125rem);
+    }
 
-  .tip {
-    width: 1rem;
-    height: 1rem;
-    margin-left: 0.5rem;
+    .tip-icon {
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.5rem;
+    }
   }
 }
 
@@ -71,10 +120,10 @@
 }
 
 button {
-  border-radius: 0.5rem;
   width: 8.75rem;
   font-size: 1rem;
   margin-bottom: 1.75rem;
+  border-radius: 0.5rem;
   line-height: 2.75rem;
 
   &.not-finished {
@@ -84,125 +133,13 @@ button {
   }
 }
 
-.meta {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  box-sizing: border-box;
-  padding-right: 2rem;
-}
-
-.edit-main {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 3;
-
-  &.edit-main-new-app {
-    margin-top: 3.125rem;
-  }
-}
-
-.icon label {
-  display: inline-block;
-  font-weight: 700;
-  padding-bottom: 1rem;
-}
-
-.upload-icon {
-  width: 20rem;
-  position: relative;
-  height: 20rem;
-  background: #fff;
-  border-radius: 50%;
-  color: #a9b0bf;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  &:active {
-    background: rgba(250, 250, 250, 1);
-  }
-
-  img {
-    display: inline-block;
-    border-radius: 0;
-  }
-
-  img.icon-img {
-    margin: 0;
-    border-radius: 50%;
-  }
-
-  img.no-img {
-    width: 2.5rem;
-    height: 2rem;
-    margin: 0 auto;
-    border-radius: 0;
-    transform: translateY(0.125rem);
-  }
-
-  p {
-    width: 8.75rem;
-    margin: 1rem auto;
-    font-size: 0.88rem;
-  }
-
-  input {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    height: 100%;
-    opacity: 0;
-    z-index: 10;
-    cursor: pointer;
-  }
-}
-
 .mixin-id,
 .item {
   margin-bottom: 2rem;
 }
 
-.name-category {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-
-  .item:first-child {
-    margin-right: 1.125rem;
-    flex: 1;
-  }
-
-  .item:last-child {
-    min-width: 17.5rem;
-  }
-}
-
-.icon-img {
-  width: 20rem;
-  height: 20rem;
-}
-
-textarea {
-  font-size: 1rem;
-  width: 100%;
-  height: 7.5rem;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-  border-radius: 0.25rem;
-  padding: 1.25rem;
-}
-
-.none {
-  display: none;
-}
-
-
 @media screen and (max-width: 70rem) {
-  .top {
+  .responsive-container {
     flex-direction: column;
   }
 
@@ -210,12 +147,12 @@ textarea {
     flex-direction: column;
 
     & > .item:first-child {
-      margin-right: 0;
+      margin-right: 0 !important; // todo: fixme
     }
   }
 
-  .meta {
-    padding-right: 0rem;
+  .meta-column {
+    padding-right: 0;
     flex-direction: column-reverse;
   }
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="content flex f-column">
-    <div class="top">
-      <div class="meta flex">
+  <div class="content">
+    <div class="responsive-container">
+      <div class="meta-column">
         <MInput
           v-if="app.app_id"
           label="Mixin ID"
@@ -15,62 +15,60 @@
           <Croppie ref="croppie" :icon_url="app.icon_url" :toggle_app="toggle_app"></Croppie>
         </div>
       </div>
-      <div class="edit-main flex">
-        <div class="edit-list flex f-column">
+      <div class="basic-column">
+        <MInput
+          v-if="app.app_id"
+          :label="t('information.app_id')"
+          disabled
+          is-copied="true"
+          v-model:value="app.app_id"
+          class="item"
+        />
+        <div class="name-category">
           <MInput
-            v-if="app.app_id"
-            :label="t('information.app_id')"
-            disabled
-            is-copied="true"
-            v-model:value="app.app_id"
+            :label="t('information.name')"
+            :placeholder="t('information.name_desc')"
+            v-model:value="app.name"
             class="item"
           />
-          <div class="name-category">
-            <MInput
-              :label="t('information.name')"
-              :placeholder="t('information.name_desc')"
-              v-model:value="app.name"
-              class="item"
-            />
-            <CategorySelect class="item" v-model:value="category" />
-          </div>
-          <MInput
-            :label="t('information.home_url')"
-            :placeholder="t('information.home_url_desc')"
-            v-model:value="app.home_uri"
-            class="item"
-          />
-          <MInput
-            :label="t('information.oauth_url')"
-            :placeholder="t('information.oauth_url_desc')"
-            v-model:value="app.redirect_uri"
-            class="item"
-          />
+          <CategorySelect class="item" v-model:value="category" />
         </div>
+        <MInput
+          :label="t('information.home_url')"
+          :placeholder="t('information.home_url_desc')"
+          v-model:value="app.home_uri"
+          class="item"
+        />
+        <MInput
+          :label="t('information.oauth_url')"
+          :placeholder="t('information.oauth_url_desc')"
+          v-model:value="app.redirect_uri"
+          class="item"
+        />
       </div>
     </div>
-    <div class="des">
+    <div class="textarea-container">
       <label>{{t('information.description')}}</label>
       <textarea
         :placeholder="t('information.description_desc')"
         v-model="app.description"
       ></textarea>
     </div>
-    <div class="des">
+    <div class="textarea-container">
       <label>{{t('information.resource_patterns')}}</label>
       <textarea
         :placeholder="t('information.resource_patterns_desc')"
         v-model="resource_patterns"
       />
     </div>
-    <div class="flex">
-      <div @click="isImmersive=!isImmersive" class="des immersive">
+    <div class="checkbox-list">
+      <div @click="isImmersive=!isImmersive" class="checkbox-container">
         <i v-if="!isImmersive" />
         <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
         <span>{{t('information.immersive')}}</span>
       </div>
       <div
-        :class="['des', 'encrypted', encryptionAvailable ? '' : 'forbidden']"
+        :class="['checkbox-container', encryptionAvailable ? '' : 'forbidden']"
         @click="useClickEncryption"
       >
         <input
@@ -90,7 +88,7 @@
             <span class="tip-content">{{ t('information.encrypted_tip') }}</span>
           </template>
           <img
-            class="tip"
+            class="tip-icon"
             src="@/assets/img/app-svg/help.svg"
             alt="encryption-tip"
           />
