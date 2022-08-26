@@ -52,12 +52,12 @@ onMounted(async () => {
   cursor: default;
 
   .dashboard-content {
+    flex: 1;
     position: relative;
     width: 100%;
     height: 100%;
-    flex: 1;
     background-color: #f6f7f9;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 </style>
