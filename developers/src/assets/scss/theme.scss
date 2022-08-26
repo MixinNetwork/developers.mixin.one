@@ -20,3 +20,13 @@
     background: rgba(50, 119, 255, 0.9);
   }
 }
+
+.close-modal-button {
+  width: 0.875rem;
+  height: 0.875rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3125rem;
+  box-sizing: initial;
+}
