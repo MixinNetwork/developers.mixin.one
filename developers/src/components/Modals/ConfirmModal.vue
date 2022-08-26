@@ -1,11 +1,11 @@
 <template>
   <d-modal :show="show">
-    <div class="confirm-content">
-      <img @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
-      <h3>{{content}}</h3>
-      <div class="btns">
-        <button @click="useClickCancel">{{t('button.cancel')}}</button>
-        <button @click="useClickConfirm">{{t('button.ok')}}</button>
+    <div class="confirm-container">
+      <img class="close-modal-button" @click="useClickCancel" src="@/assets/img/svg/close.svg" alt="confirm-close-icon"/>
+      <h3 class="content">{{content}}</h3>
+      <div class="button-container">
+        <button class="cancel" @click="useClickCancel">{{t('button.cancel')}}</button>
+        <button class="primary" @click="useClickConfirm">{{t('button.ok')}}</button>
       </div>
     </div>
   </d-modal>
@@ -38,92 +38,82 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.confirm-content {
-  padding: 3.125rem 2rem;
+.confirm-container {
   width: 26.125rem;
+  padding: 3.125rem 2rem;
   background-color: #fff;
   border-radius: 4px;
-}
 
-h3 {
-  font-size: 1rem;
-  text-align: center;
-  word-break: break-all;
-}
-
-img {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  cursor: pointer;
-}
-
-.btns {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
-button {
-  width: 8.625rem;
-  height: 2.375rem;
-  border-radius: 3px;
-  &:first-child {
-    background-color: #e5e7ec;
-    color: #333;
+  .content {
     font-size: 1rem;
-    margin-right: 0.625rem;
+    text-align: center;
+    word-break: break-all;
   }
-  &:last-child {
-    color: #fff;
-    background-color: #3277ff;
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    button {
+      width: 8.625rem;
+      height: 2.375rem;
+      border-radius: 3px;
+      font-size: 1rem;
+
+      &:first-child {
+        margin-right: 0.625rem;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 48rem) {
-  .confirm-content {
+  .confirm-container {
     padding: 0;
     width: 16.875rem;
     border-radius: 0.75rem;
     overflow: hidden;
-  }
-  img {
-    display: none;
-  }
 
-  h3 {
-    padding: 0.625rem;
-    min-height: 4.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #cbcbcb;
-  }
-  .btns {
-    margin: 0;
-  }
-
-  button {
-    flex: 1;
-    text-align: center;
-    line-height: 2.6rem;
-    background-color: #fff;
-    height: 100%;
-    font-size: 1rem;
-    border-radius: initial;
-
-    &:first-child {
-      color: #3478f6;
-      background-color: #fff;
-      border-right: 1px solid #cbcbcb;
-      margin: 0;
+    .close-modal-button {
+      display: none;
     }
-    &:last-child {
-      color: #3478f6;
-      background-color: #fff;
+
+    .content {
+      min-height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.625rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid #cbcbcb;
+    }
+
+    .button-container {
+      margin: 0;
+
+      button {
+        flex: 1;
+        height: 100%;
+        background-color: #fff;
+        border-radius: initial;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 2.6rem;
+
+        &:first-child {
+          color: #3478f6;
+          background-color: #fff;
+          border-right: 1px solid #cbcbcb;
+          margin: 0;
+        }
+
+        &:last-child {
+          color: #3478f6;
+          background-color: #fff;
+        }
+      }
     }
   }
 }
