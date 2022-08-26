@@ -40,4 +40,8 @@
   right: 1rem;
   padding: 0.3125rem;
   box-sizing: initial;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
