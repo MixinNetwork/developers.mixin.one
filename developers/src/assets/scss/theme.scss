@@ -43,3 +43,17 @@
   box-sizing: initial;
   cursor: pointer;
 }
+
+@media screen and (max-width: 48rem) {
+  .header-back {
+    width: 3.125rem;
+    transform: translate(-1.5625rem);
+    padding-left: 1.5625rem;
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+      transform: translate(0, 0.3125rem);
+    }
+  }
+}
