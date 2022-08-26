@@ -116,4 +116,24 @@ export default {
   }
 }
 
+@media screen and (max-width: 48rem) {
+  .new-secret-modal {
+    padding: 2.5rem 1.25rem;
+    max-width: 18.75rem;
+
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    span {
+      padding: 0.625rem;
+      font-weight: 500;
+    }
+
+    img {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}
 </style>
