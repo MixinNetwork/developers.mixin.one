@@ -1,21 +1,19 @@
 <template>
   <div class="container">
-    <div class="des" v-if="!assetList.length">
-      <div>
-        <h3>{{ t('wallet.update_token_desc') }}</h3>
-        <button class="primary" @click="useShowUpdateToken">{{ t('wallet.update') }}</button>
-        <span @click="useShowUpdateToken">{{ t('wallet.update_token') }}</span>
-        <img src="@/assets/img/app-svg/right.svg" alt="update-wallet-token-logo"/>
-      </div>
+    <div class="access-container" v-if="!assetList.length">
+      <h3>{{ t('wallet.update_token_desc') }}</h3>
+      <button class="primary" @click="useShowUpdateToken">{{ t('wallet.update') }}</button>
+      <span @click="useShowUpdateToken">{{ t('wallet.update_token') }}</span>
+      <img src="@/assets/img/app-svg/right.svg" alt="update-wallet-token-logo"/>
     </div>
-    <div v-else class="list">
+    <div v-else class="asset-list">
       <div
         v-for="(item, index) in assetList"
         :key="index"
         class="item"
       >
         <img :src="item.icon_url" :alt="item.name"/>
-        <div>
+        <div class="asset-balance">
           <span class="num">{{ item.balance }}</span>
           <span class="symbol">{{ item.symbol }}</span>
         </div>
