@@ -29,9 +29,9 @@
             :label="t('information.name')"
             :placeholder="t('information.name_desc')"
             v-model:value="app.name"
-            class="item"
+            class="item name-input"
           />
-          <CategorySelect class="item" v-model:value="category" />
+          <CategorySelect class="item category-selector" v-model:value="category" />
         </div>
         <MInput
           :label="t('information.home_url')"

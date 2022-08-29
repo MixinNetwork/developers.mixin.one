@@ -35,12 +35,12 @@
       justify-content: space-between;
       width: 100%;
 
-      .item:first-child {
-        margin-right: 1.125rem;
+      .name-input {
         flex: 1;
+        margin-right: 1.125rem;
       }
 
-      .item:last-child {
+      .category-selector {
         min-width: 17.5rem;
       }
     }
@@ -141,23 +141,25 @@ button {
 @media screen and (max-width: 70rem) {
   .responsive-container {
     flex-direction: column;
-  }
 
-  .name-category {
-    flex-direction: column;
+    .basic-column {
+      .name-category {
+        flex-direction: column;
 
-    & > .item:first-child {
-      margin-right: 0 !important; // todo: fixme
+        .name-input {
+          margin-right: 0; // todo: fixme
+        }
+      }
     }
-  }
 
-  .meta-column {
-    padding-right: 0;
-    flex-direction: column-reverse;
-  }
+    .meta-column {
+      padding-right: 0;
+      flex-direction: column-reverse;
 
-  .icon {
-    margin-bottom: 2rem;
+      .icon {
+        margin-bottom: 2rem;
+      }
+    }
   }
 }
 
@@ -167,7 +169,7 @@ button {
   }
 
   .name-category {
-    & > .item:last-child {
+    .category-selector {
       min-width: initial;
     }
   }
