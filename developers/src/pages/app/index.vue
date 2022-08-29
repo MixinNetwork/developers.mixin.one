@@ -10,12 +10,12 @@
     </template>
   </d-header>
   <div class="nav-list">
-    <span
+    <div
       v-for="(item, index) in navList"
       :key="index"
       :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
       @click="useClickNav(index)"
-    >{{ t(item + '.title') }}</span>
+    >{{ t(item + '.title') }}</div>
   </div>
   <div class="dashboard-main">
     <keep-alive :include="includeComponents">
