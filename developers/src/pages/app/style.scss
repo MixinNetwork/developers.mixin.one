@@ -43,11 +43,11 @@
 }
 
 @media screen and (max-width: 48rem) {
-  .nav-container {
+  .nav-container .nav-list {
     display: flex;
     justify-content: space-between;
 
-    .header-item {
+     .header-item {
       margin: 0;
     }
   }
