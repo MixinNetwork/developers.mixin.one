@@ -36,6 +36,13 @@
   cursor: pointer;
 }
 
+.el-loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: calc(50% + 17.5rem / 2);
+  transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 48rem) {
   .header-back {
     width: 3.125rem;
@@ -47,5 +54,9 @@
       width: 1.5rem;
       transform: translate(0, 0.3125rem);
     }
+  }
+
+  .el-loading-spinner {
+    left: 50%;
   }
 }

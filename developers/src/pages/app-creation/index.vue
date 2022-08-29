@@ -12,16 +12,18 @@
   <header>
     <span class="header-item new-item">{{ t('dashboard.new_app') }}</span>
   </header>
-  <div class="dashboard-main">
+  <div class="dashboard-main" v-loading="localLoading">
     <app-form />
   </div>
 </template>
 
 <script>
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
 import AppForm from '@/components/AppForm';
+import { useLoadStore } from '@/stores';
 
 export default {
   name: 'app-creation',
@@ -32,6 +34,9 @@ export default {
   async setup() {
     const { t } = useI18n();
 
+    const loadStore = useLoadStore();
+    const { localLoading } = storeToRefs(loadStore);
+
     const router = useRouter();
     const backward = () => {
       router.push({
@@ -40,6 +45,7 @@ export default {
     };
 
     return {
+      localLoading,
       backward,
       t,
     };

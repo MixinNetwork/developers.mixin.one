@@ -9,15 +9,17 @@
       <div>{{ currentAppName }}</div>
     </template>
   </d-header>
-  <div class="nav-list">
-    <div
-      v-for="(item, index) in navList"
-      :key="index"
-      :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
-      @click="useClickNav(index)"
-    >{{ t(item + '.title') }}</div>
+  <div class="nav-container">
+    <div class="nav-list">
+      <div
+        v-for="(item, index) in navList"
+        :key="index"
+        :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
+        @click="useClickNav(index)"
+      >{{ t(item + '.title') }}</div>
+    </div>
   </div>
-  <div class="dashboard-main">
+  <div class="dashboard-main" v-loading="localLoading">
     <keep-alive :include="includeComponents">
       <suspense>
         <component

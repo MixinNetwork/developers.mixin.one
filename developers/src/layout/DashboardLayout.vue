@@ -2,7 +2,7 @@
   <div v-loading="globalLoading" class="development-dashboard">
     <side-bar />
 
-    <div v-loading="localLoading" class="dashboard-content">
+    <div class="dashboard-content">
       <suspense>
         <router-view></router-view>
       </suspense>
@@ -26,7 +26,7 @@ const { t } = useI18n();
 
 const { fetchAll } = useLayoutStore();
 const loadStore = useLoadStore();
-const { globalLoading, localLoading } = storeToRefs(loadStore);
+const { globalLoading } = storeToRefs(loadStore);
 
 const useFetchAll = async () => {
   const client = useUserClient($message, t);
@@ -54,10 +54,16 @@ onMounted(async () => {
   .dashboard-content {
     flex: 1;
     position: relative;
-    width: 100%;
+    width: calc(100% - 17.5rem);
     height: 100%;
     background-color: #f6f7f9;
     overflow: auto;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .development-dashboard .dashboard-content {
+    width: 100%;
   }
 }
 </style>

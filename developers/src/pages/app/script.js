@@ -9,7 +9,7 @@ import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
-import { useLayoutStore } from '@/stores';
+import { useLayoutStore, useLoadStore } from '@/stores';
 
 export default {
   name: 'app-container',
@@ -25,6 +25,9 @@ export default {
 
     const layoutStore = useLayoutStore();
     const { appList } = storeToRefs(layoutStore);
+
+    const loadStore = useLoadStore();
+    const { localLoading } = storeToRefs(loadStore);
 
     const state = reactive({
       currentNavIndex: 0,
@@ -71,6 +74,7 @@ export default {
       ...toRefs(state),
       currentNav,
       includeComponents,
+      localLoading,
       useClickNav,
       backward,
       t,
