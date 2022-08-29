@@ -1,33 +1,31 @@
 <template>
-  <div>
-    <d-header>
-      <template #left>
-        <div class="header-back" @click="backward">
-          <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
-        </div>
-      </template>
-      <template #center>
-        <div>{{ currentAppName }}</div>
-      </template>
-    </d-header>
-    <div class="nav-list">
-      <span
-        v-for="(item, index) in navList"
-        :key="index"
-        :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
-        @click="useClickNav(index)"
-      >{{ t(item + '.title') }}</span>
-    </div>
-    <div class="dashboard-main">
-      <keep-alive :include="includeComponents">
-        <suspense>
-          <component
-            :is="currentNav"
-            :appId="currentAppId"
-          ></component>
-        </suspense>
-      </keep-alive>
-    </div>
+  <d-header>
+    <template #left>
+      <div class="header-back" @click="backward">
+        <img src="@/assets/img/app-svg/left.svg" alt="backward-icon"/>
+      </div>
+    </template>
+    <template #center>
+      <div>{{ currentAppName }}</div>
+    </template>
+  </d-header>
+  <div class="nav-list">
+    <span
+      v-for="(item, index) in navList"
+      :key="index"
+      :class="['header-item', (currentNavIndex === index ? 'header-item-active': '')]"
+      @click="useClickNav(index)"
+    >{{ t(item + '.title') }}</span>
+  </div>
+  <div class="dashboard-main">
+    <keep-alive :include="includeComponents">
+      <suspense>
+        <component
+          :is="currentNav"
+          :appId="currentAppId"
+        ></component>
+      </suspense>
+    </keep-alive>
   </div>
 </template>
 
