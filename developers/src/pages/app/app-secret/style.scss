@@ -1,15 +1,11 @@
 .secret-list {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
   width: 62rem;
   max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 2rem 0 0;
-
-  button {
-    height: 2.5rem;
-  }
+  box-sizing: border-box;
 
   .item {
     width: 50%;
@@ -17,13 +13,13 @@
   }
 
   .secret-item {
-    padding: 1.375rem 1.875rem;
-    background: #fff;
-    box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-    border-radius: .25rem;
-    box-sizing: border-box;
     position: relative;
     margin-bottom: .5rem;
+    padding: 1.375rem 1.875rem;
+    box-sizing: border-box;
+    border-radius: .25rem;
+    box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+    background: #fff;
 
     img {
       border-radius: 0;
@@ -47,10 +43,6 @@
       overflow: hidden;
     }
 
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-
     &::after {
       content: "";
       width: 0.1875rem;
@@ -63,10 +55,11 @@
     }
 
     button {
+      height: 2.5rem;
+      margin-bottom: 1rem;
       white-space: nowrap;
       font-weight: 500;
       font-size: 0.9375rem;
-      margin-bottom: 1rem;
     }
   }
 }
@@ -86,30 +79,7 @@
   height: 1.125rem;
 }
 
-.btns {
-  display: flex;
-  justify-content: flex-end;
-
-  button {
-    width: 8.75rem;
-    height: 2.5rem;
-    margin-top: 2rem;
-    font-size: 0.9375rem;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  .btn-download,
-  .btn-close {
-    background-color: #e5e7ec;
-    color: #333;
-    margin-right: 0.5625rem;
-  }
-}
-
-.qrcode-btns {
+.button-container {
   display: flex;
 
   button {
@@ -119,31 +89,9 @@
   }
 }
 
-.secrets {
-  button {
-    &:first-child {
-      margin-right: 2rem;
-    }
-  }
-}
-
-.iconguanbi {
-  position: absolute;
-  top: 1.875rem;
-  right: 1.875rem;
-  color: #b8bdc7;
-  cursor: pointer;
-  padding: 0.3125rem;
-
-  &:hover {
-    color: rgba(50, 119, 255, 0.8);
-  }
-}
 
 @media screen and (max-width: 70rem) {
   .secret-list {
-    display: block;
-
     .item {
       width: 100%;
       padding: 1rem;
@@ -158,13 +106,5 @@
     .secret-item {
       margin-bottom: 0;
     }
-  }
-
-  .btns {
-    justify-content: center;
-  }
-
-  .btn-close {
-    display: none;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="secret-list flex">
+    <div class="secret-list">
       <div class="item">
         <div class="secret-item">
           <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
@@ -14,7 +14,7 @@
           <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
           <span>{{t('secret.session_title')}}</span>
           <p>{{t('secret.session_content')}}</p>
-          <div class="secrets">
+          <div>
             <button @click="useDoubleCheck('UpdateSession')" class="primary">{{t('secret.session_ed25519_btn')}}</button>
           </div>
         </div>
@@ -24,7 +24,7 @@
           <img src="@/assets/img/ic_qr_code.png" alt="app-qrcode-icon"/>
           <span>{{t('secret.qrcode_title')}}</span>
           <p>{{t('secret.qrcode_content')}}</p>
-          <div class="qrcode-btns">
+          <div class="button-container">
             <button @click="useDoubleCheck('ShowQRCode')" class="primary">{{t('secret.qrcode_btn1')}}</button>
             <button @click="useDoubleCheck('RotateQRCode')" class="primary">{{t('secret.qrcode_btn2')}}</button>
           </div>
