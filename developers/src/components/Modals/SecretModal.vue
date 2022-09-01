@@ -12,7 +12,7 @@
         >{{t('button.copy')}}
         </button>
       </div>
-      <img @click="useCloseModal" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="modal-close-icon"/>
+      <img @click="useCloseModal" class="close" src="@/assets/img/svg/close.svg" alt="modal-close-icon"/>
     </div>
   </d-modal>
 </template>
@@ -103,7 +103,7 @@ export default {
   }
 }
 
-.iconguanbi {
+.close {
   position: absolute;
   top: 1.875rem;
   right: 1.875rem;
