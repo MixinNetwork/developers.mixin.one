@@ -2,27 +2,35 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useConfirmModalStore = defineStore('confirm', () => {
-  const showConfirm = ref(false);
-  const confirmContent = ref('');
-  const confirmCallback = ref(undefined);
+  const show = ref(false);
+  const content = ref('');
+  const onConfirm = ref(undefined);
 
-  const useInitConfirm = (status, content, cb) => {
-    showConfirm.value = status;
-    confirmContent.value = content;
-    confirmCallback.value = cb;
+  const useInitConfirm = (text, cb) => {
+    show.value = true;
+    content.value = text;
+    onConfirm.value = cb;
+  };
+  const useClearConfirm = () => {
+    show.value = false;
+    content.value = '';
+    onConfirm.value = undefined;
   };
 
-  const useClearConfirm = () => {
-    showConfirm.value = false;
-    confirmContent.value = '';
-    confirmCallback.value = undefined;
+  const useClickCancel = () => {
+    useClearConfirm();
+  };
+  const useClickConfirm = () => {
+    onConfirm.value();
+    useClearConfirm();
   };
 
   return {
-    showConfirm,
-    confirmContent,
-    confirmCallback,
+    show,
+    content,
+    onConfirm,
     useInitConfirm,
-    useClearConfirm,
+    useClickCancel,
+    useClickConfirm,
   };
 });

@@ -13,36 +13,25 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import DModal from './DModal';
+import { storeToRefs } from 'pinia';
+import DModal from '@/components/Modals/DModal';
+import { useConfirmModalStore } from '@/stores';
 
 export default {
-  props: {
-    content: {
-      type: String,
-      default: '',
-    },
-    show: {
-      type: Boolean,
-      default: false,
-    },
-  },
   components: { DModal },
-  emits: ['confirm', 'close-modal'],
-  setup(props, ctx) {
+  setup() {
     const { t } = useI18n();
 
-    const useClickConfirm = () => {
-      ctx.emit('confirm');
-      ctx.emit('close-modal');
-    };
-    const useClickCancel = () => {
-      ctx.emit('close-modal');
-    };
+    const confirmStore = useConfirmModalStore();
+    const { show, content } = storeToRefs(confirmStore);
+    const { useClickCancel, useClickConfirm } = confirmStore;
 
     return {
-      t,
+      show,
+      content,
       useClickCancel,
       useClickConfirm,
+      t,
     };
   },
 };

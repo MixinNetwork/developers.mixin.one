@@ -9,13 +9,11 @@ import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
-import DModal from '@/components/DModal';
 import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'app-container',
   components: {
-    DModal,
     DHeader,
     AppInformation: defineAsyncComponent(() => import('@/components/AppForm')),
     AppSecret: defineAsyncComponent(() => import('./app-secret')),
@@ -56,7 +54,11 @@ export default {
     };
 
     const useClickNav = (index) => {
-      router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
+      const r = { path: `/apps/${route.params.app_number}` };
+      if (index !== 0) {
+        r.hash = `#${state.navList[index]}`;
+      }
+      router.push(r);
     };
 
     watch(() => appList.value, () => {

@@ -1,7 +1,6 @@
 <template>
-  <d-modal :show="show">
-    <transition name="fade-up">
-      <div v-loading="loading" :class="['main', showSnapshot ? 'snap-main' : '']">
+  <d-modal :show="show" :loading="loading">
+    <div :class="['main', showSnapshot ? 'snap-main' : '']">
         <d-header class="header">
           <template #left>
             <div class="header-back" @click="useClickCancel" >
@@ -22,15 +21,15 @@
             <ul>
               <li>
                 <label>{{ t('wallet.amount') }}</label>
-                <input v-model.trim="form.amount"/>
+                <input v-model.trim="amount"/>
               </li>
               <li>
                 <label>PIN</label>
-                <input type="password" maxlength="6" v-model="form.pin"/>
+                <input type="password" maxlength="6" v-model="pin"/>
               </li>
               <li>
                 <label>Mixin ID / Mainnet Address</label>
-                <input v-model.trim="form.opponent_id"/>
+                <input v-model.trim="opponent_id"/>
               </li>
             </ul>
             <footer>
@@ -63,152 +62,49 @@
               <p>{{ transactionInfo.transaction_hash }}</p>
             </div>
           </template>
-          <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+          <img @click="useClickCancel" class="close" src="@/assets/img/svg/close.svg" alt="close-icon"/>
         </div>
-        <confirm
-          :content="confirmContent"
-          :show="showWithdrawalConfirm"
-          @confirm="useClickConfirm"
-          @close-modal="useCloseConfirm"
-        />
       </div>
-    </transition>
   </d-modal>
 </template>
+
 <script>
-import {
-  inject,
-  reactive,
-  toRefs,
-  computed,
-} from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import { validate, v4 as uuid } from 'uuid';
+import DModal from '@/components/Modals/DModal';
 import DHeader from '@/components/DHeader';
-import DModal from '@/components/DModal';
-import Confirm from '@/components/Confirm';
-import { useClient } from '@/api';
-import { ls } from '@/utils';
+import { useWithdrawalModalStore } from '@/stores';
 
 export default {
-  name: 'withdrawal-modal',
-  components: { Confirm, DHeader, DModal },
-  props: ['asset', 'app_id', 'show'],
-  emits: ['close-modal', 'success'],
-  setup(props, ctx) {
-    const $message = inject('$message');
+  name: 'WithdrawalModal',
+  components: { DModal, DHeader },
+  setup() {
     const { t } = useI18n();
 
-    const state = reactive({
-      showWithdrawalConfirm: false,
-      loading: false,
-      form: {
-        amount: '',
-        pin: '',
-        opponent_id: '',
-      },
-      transactionInfo: {},
-    });
-    const confirmContent = computed(() => t('wallet.withdrawal_confirm', {
-      amount: state.form.amount,
-      token: props.asset.symbol,
-      opponent: state.form.opponent_id,
-    }));
-    const showSnapshot = computed(() => JSON.stringify(state.transactionInfo) !== '{}');
-
-    const useCheckPin = () => state.form.pin && state.form.pin.length === 6 && parseInt(state.form.pin, 10) > 100000;
-    const useClear = () => {
-      state.form.pin = '';
-      state.form.amount = '';
-      state.form.opponent_id = '';
-      state.transactionInfo = {};
-    };
-    const useSearchUserId = async (client) => {
-      const is_uuid = validate(state.form.opponent_id);
-      const res = is_uuid
-        ? { user_id: state.form.opponent_id }
-        : await client.user.search(state.form.opponent_id);
-      return res;
-    };
-    const useSubmitWithdrawal = async () => {
-      const clientInfo = ls.get(props.app_id);
-      const client = useClient($message, t, clientInfo, true);
-      const is_transfers = !state.form.opponent_id.startsWith('XIN');
-      const type = is_transfers ? 'transfer' : 'raw';
-
-      let opponent = { opponent_key: state.form.opponent_id };
-      if (is_transfers) {
-        const res = await useSearchUserId(client);
-        if (!res || !res.user_id) {
-          $message.error({ message: t('message.errors.mixin_id'), showClose: true });
-          return;
-        }
-        opponent = { opponent_id: res.user_id };
-      }
-
-      const params = {
-        amount: state.form.amount,
-        asset_id: props.asset.asset_id,
-        pin: state.form.pin,
-        trace_id: uuid(),
-        ...opponent,
-      };
-
-      const res = is_transfers
-        ? await client.transfer.toUser(params.pin, params)
-        : await client.transfer.toAddress(params.pin, params);
-      if (res && res.type === type) {
-        $message.success({
-          message: t('message.success.withdrawal'),
-          showClose: true,
-        });
-        useClear();
-        state.transactionInfo = res;
-      }
-    };
-
-    const useClickSubmit = async () => {
-      if (!useCheckPin()) {
-        $message.error({
-          message: t('message.errors.pin_token_format'),
-          showClose: true,
-        });
-        return;
-      }
-      if (!state.form.opponent_id) {
-        $message.error({
-          message: t('message.errors.mixin_id'),
-          showClose: true,
-        });
-        return;
-      }
-
-      state.showWithdrawalConfirm = true;
-    };
-    const useClickCancel = () => {
-      ctx.emit('close-modal');
-      if (showSnapshot.value) ctx.emit('success');
-      useClear();
-    };
-    const useCloseConfirm = () => {
-      state.showWithdrawalConfirm = false;
-    };
-    const useClickConfirm = async () => {
-      useCloseConfirm();
-
-      state.loading = true;
-      await useSubmitWithdrawal();
-      state.loading = false;
-    };
+    const withdrawalStore = useWithdrawalModalStore();
+    const {
+      loading,
+      show,
+      asset,
+      amount,
+      pin,
+      opponent_id,
+      transactionInfo,
+      showSnapshot,
+    } = storeToRefs(withdrawalStore);
+    const { useClickSubmit, useClickCancel } = withdrawalStore;
 
     return {
-      ...toRefs(state),
+      loading,
+      show,
+      asset,
+      amount,
+      pin,
+      opponent_id,
+      transactionInfo,
       showSnapshot,
-      confirmContent,
       useClickSubmit,
       useClickCancel,
-      useClickConfirm,
-      useCloseConfirm,
       t,
     };
   },
@@ -234,7 +130,7 @@ export default {
   display: none;
 }
 
-.iconguanbi {
+.close {
   position: absolute;
   top: 1.5625rem;
   right: 1.5625rem;
@@ -380,13 +276,13 @@ li {
       margin-bottom: 1rem;
     }
 
-    .iconguanbi {
+    .close {
       display: none;
     }
   }
 
   .mask {
-    .iconguanbi {
+    .close {
       display: none;
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="showBuyModal" :loading="modalLoading">
+  <d-modal :show="show" :loading="loading">
     <div class="buy-modal">
       <img
         @click="useCloseBuyModal"
@@ -29,46 +29,24 @@
 </template>
 
 <script>
-import { inject } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import { v4 as uuid } from 'uuid';
 import DModal from '@/components/Modals/DModal';
-import { useClient } from '@/api';
-import { useLayoutStore, useBuyModalStore } from '@/stores';
+import { useBuyModalStore } from '@/stores';
 
 export default {
   name: 'buy-app-modal',
   components: { DModal },
   setup() {
-    const $message = inject('$message');
     const { t } = useI18n();
 
-    const dataStore = useLayoutStore();
-    const { appProperty } = storeToRefs(dataStore);
-    const { fetchAppProperty } = dataStore;
-
     const modalStore = useBuyModalStore();
-    const { showBuyModal, modalLoading } = storeToRefs(modalStore);
-    const { useModifyBuyModalStatus, useModifyBuyModalLoadingStatus } = modalStore;
-
-    const useClickBuyButton = async (count) => {
-      const client = useClient($message, t);
-      useModifyBuyModalLoadingStatus(true);
-      await fetchAppProperty(client);
-
-      const trace = uuid();
-      const amount = Number(appProperty.value.price) * count;
-      // eslint-disable-next-line max-len
-      window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`;
-    };
-    const useCloseBuyModal = () => {
-      useModifyBuyModalStatus(false);
-    };
+    const { show, loading } = storeToRefs(modalStore);
+    const { useClickBuyButton, useCloseBuyModal } = modalStore;
 
     return {
-      modalLoading,
-      showBuyModal,
+      show,
+      loading,
       useClickBuyButton,
       useCloseBuyModal,
       t,

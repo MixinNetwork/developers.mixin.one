@@ -42,87 +42,35 @@
 </template>
 
 <script>
-import { inject, reactive, toRefs } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import validator from 'validator';
-import { ls } from '@/utils';
-import Confirm from './Confirm';
-import DModal from './DModal';
+import DModal from '@/components/Modals/DModal';
+import { useUpdateTokenModalStore } from '@/stores';
 
 export default {
-  components: { Confirm, DModal },
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-    appId: String,
-  },
-  emits: ['success', 'close-modal'],
-  setup(props, ctx) {
-    const $message = inject('$message');
+  name: 'UpdateTokenModal',
+  components: { DModal },
+  setup() {
     const { t } = useI18n();
 
-    const state = reactive({
-      session_id: '',
-      pin_token: '',
-      private_key: '',
-    });
-
-    const useCheckToken = () => {
-      if (!validator.isUUID(state.session_id, 4)) {
-        $message.error({
-          message: t('message.errors.session_id_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      if (!validator.isBase64(state.pin_token) && Buffer.from(state.pin_token, 'base64').length !== 32) {
-        $message.error({
-          message: t('message.errors.pin_token_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      if (!validator.isBase64(state.private_key) && Buffer.from(state.private_key, 'base64').length !== 64) {
-        $message.error({
-          message: t('message.errors.private_key_format'),
-          showClose: true,
-        });
-        return false;
-      }
-      return true;
-    };
-    const useSaveToken = () => {
-      ls.set(props.appId, {
-        user_id: props.appId,
-        session_id: state.session_id,
-        pin_token: state.pin_token,
-        private_key: state.private_key.replace(/\\r\\n/g, '\r\n'),
-      });
-      state.pin_token = '';
-      state.private_key = '';
-      state.session_id = '';
-    };
-
-    const useClickSubmit = () => {
-      if (!useCheckToken()) return;
-      useSaveToken();
-      ctx.emit('close-modal');
-      ctx.emit('success');
-    };
-    const useClickCancel = () => {
-      ctx.emit('close-modal');
-    };
+    const updateTokenStore = useUpdateTokenModalStore();
+    const {
+      show,
+      session_id,
+      pin_token,
+      private_key,
+    } = storeToRefs(updateTokenStore);
+    const { useClickSubmit, useClickCancel } = updateTokenStore;
 
     return {
-      t,
-      ...toRefs(state),
+      show,
+      session_id,
+      pin_token,
+      private_key,
       useClickSubmit,
       useClickCancel,
+      t,
     };
-  },
-  methods: {
   },
 };
 </script>
@@ -158,7 +106,7 @@ label {
     background: #f6f9ff;
     padding: 0 10px;
     border-radius: 4px;
-    box-shadow: 0px 1px 4px 0px rgba(28, 77, 174, 0.1);
+    box-shadow: 0 1px 4px 0 rgba(28, 77, 174, 0.1);
   }
 
   textarea {
