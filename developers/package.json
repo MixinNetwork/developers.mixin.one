@@ -12,7 +12,7 @@
     "@vueuse/core": "^9.1.0",
     "assert": "^2.0.0",
     "bignumber.js": "^9.1.0",
-    "element-plus": "^2.2.14",
+    "element-plus": "^2.2.16",
     "file-saver": "^2.0.5",
     "github-markdown-css": "^5.1.0",
     "highlight.js": "^11.3.1",
