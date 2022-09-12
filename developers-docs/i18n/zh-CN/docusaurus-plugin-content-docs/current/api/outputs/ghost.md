@@ -19,11 +19,11 @@ Mixin 主网地址给 Messenger 用户转帐时，需要用户一次性私钥.
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
-<APIPayload>{`{
+<APIPayload>{`[{
   "receivers":  "用户 uuid 数组",
   "index":      "Output index.",
   "hint":       "Unique ghosts generated for users.",
-}
+}]
 `}</APIPayload>
 
 <!-- @TODO 这里原来的 example 就是错的，虽然按照理解改了，但是依然需要修正 -->
@@ -32,10 +32,12 @@ Mixin 主网地址给 Messenger 用户转帐时，需要用户一次性私钥.
 
 ```json title="Response"
 {
-  "data": {
+  "data": [{
     "type": "ghost_key",
     "mask": "ab56be4cxxxx244f9a433f35",
     "keys": ["ab56be4cxxxx244f9a433f35"]
-  }
+  },
+  ...
+  ]
 }
 ```
