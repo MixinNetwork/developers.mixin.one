@@ -44,7 +44,7 @@ export default {
     watch(copied, (newValue, oldValue) => {
       if (newValue && !oldValue) $message.success({ message: t('message.success.copy'), showClose: true });
     }, {
-      flush: 'post'
+      flush: 'post',
     });
 
     return {
