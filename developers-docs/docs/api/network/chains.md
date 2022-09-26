@@ -29,7 +29,7 @@ The API returns the list of all public chains supported by Mixin, no permission 
       "chain_id":               "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
       "name":                   "Bitcoin",
       "icon_url":               "https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
-      "managed_block_height":   663798,       // The public chain height synchronized by Minxin.
+      "managed_block_height":   663798,       // The public chain height synchronized by Mixin.
       "deposit_block_height":   663795,       // The public chain height where Mixin handles the deposit.
       "external_block_height":  663798,       // Third party API block height.
       "threshold":              3,            // Deposit required comfirmations.
