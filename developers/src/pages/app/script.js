@@ -54,7 +54,11 @@ export default {
     };
 
     const useClickNav = (index) => {
-      router.push({ path: `/apps/${route.params.app_number}`, hash: `#${state.navList[index]}` });
+      const r = { path: `/apps/${route.params.app_number}` };
+      if (index !== 0) {
+        r.hash = `#${state.navList[index]}`;
+      }
+      router.push(r);
     };
 
     watch(() => appList.value, () => {

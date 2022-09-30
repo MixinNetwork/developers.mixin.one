@@ -37,8 +37,10 @@ export const useSecretModalStore = defineStore('secret', () => {
     }
     await copy(secretContent.value);
   };
-  watch(copied, () => {
-    if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
+  watch(copied, (newValue, oldValue) => {
+    if (newValue && !oldValue) $message.success({ message: t('message.success.copy'), showClose: true });
+  }, {
+    flush: 'post'
   });
 
   const useClickDownload = () => {

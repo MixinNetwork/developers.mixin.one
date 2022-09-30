@@ -8,7 +8,7 @@
       @input="change($event)"
     />
     <img
-      v-if="isCopied"
+      v-if="allowCopy"
       @click="useClickCopy"
       src="@/assets/img/ic_copy.png"
       alt="copy-text-icon"
@@ -23,7 +23,7 @@ import { useI18n } from 'vue-i18n';
 
 export default {
   name: 't-input',
-  props: ['value', 'label', 'disabled', 'placeholder', 'isCopied'],
+  props: ['value', 'label', 'disabled', 'placeholder', 'allowCopy'],
   emits: ['update:value'],
   setup(props, ctx) {
     const $message = inject('$message');
@@ -41,8 +41,10 @@ export default {
       }
       copy(props.value);
     };
-    watch(copied, () => {
-      if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
+    watch(copied, (newValue, oldValue) => {
+      if (newValue && !oldValue) $message.success({ message: t('message.success.copy'), showClose: true });
+    }, {
+      flush: 'post',
     });
 
     return {

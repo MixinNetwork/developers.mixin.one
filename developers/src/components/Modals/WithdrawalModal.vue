@@ -62,7 +62,7 @@
               <p>{{ transactionInfo.transaction_hash }}</p>
             </div>
           </template>
-          <img @click="useClickCancel" class="iconguanbi" src="@/assets/img/svg/close.svg" alt="close-icon"/>
+          <img @click="useClickCancel" class="close" src="@/assets/img/svg/close.svg" alt="close-icon"/>
         </div>
       </div>
   </d-modal>
@@ -130,7 +130,7 @@ export default {
   display: none;
 }
 
-.iconguanbi {
+.close {
   position: absolute;
   top: 1.5625rem;
   right: 1.5625rem;
@@ -276,13 +276,13 @@ li {
       margin-bottom: 1rem;
     }
 
-    .iconguanbi {
+    .close {
       display: none;
     }
   }
 
   .mask {
-    .iconguanbi {
+    .close {
       display: none;
     }
   }
