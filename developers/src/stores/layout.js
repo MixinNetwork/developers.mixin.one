@@ -19,10 +19,16 @@ export const useLayoutStore = defineStore('layout', () => {
   };
   const fetchAll = async (client) => {
     modifyGlobalLoadingStatus(true);
-    appList.value = await client.app.fetchList();
-    userInfo.value = await client.user.profile();
+    [
+      appList.value,
+      userInfo.value,
+      appProperty.value
+    ] = await Promise.all([
+      client.app.fetchList(),
+      client.user.profile(),
+      client.app.properties()
+    ])
     modifyGlobalLoadingStatus(false);
-    appProperty.value = await client.app.properties();
   };
 
   return {
