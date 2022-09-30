@@ -42,12 +42,13 @@ export default {
         return;
       }
 
-      const unauthorizedCb = () => {
-        modifyLocalLoadingStatus(false);
-        useInitUpdateToken(props.appId, useFetchAssetList);
-        ls.rm(props.appId);
-      };
-      const appClient = useBotClient($message, t, tokenInfo, unauthorizedCb);
+      const appClient = useBotClient($message, t, tokenInfo, (err) => {
+        if (err.code === 401) {
+          modifyLocalLoadingStatus(false);
+          useInitUpdateToken(props.appId, useFetchAssetList);
+          ls.rm(props.appId);
+        }
+      });
 
       modifyLocalLoadingStatus(true);
       const res = await appClient.asset.fetchList();

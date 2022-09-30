@@ -36,8 +36,7 @@ export const userCbFactory = ($message, t) => (err) => {
   }
 };
 
-export const botCbFactory = ($message, t, botRequestOn401) => (err) => {
+export const botCbFactory = ($message, t, onError) => (err) => {
   commonCallback($message, t, err);
-
-  if (err.code === 401 && botRequestOn401) botRequestOn401();
+  onError(err);
 };

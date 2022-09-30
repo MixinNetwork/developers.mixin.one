@@ -25,10 +25,10 @@ export const useUserClient = ($message, t) => {
   return MixinApi(config);
 };
 
-export const useBotClient = ($message, t, keystore, cbOn401 = undefined) => {
+export const useBotClient = ($message, t, keystore, onError = undefined) => {
   const defaultApiConfig = {
     requestConfig: {
-      responseCallback: botCbFactory($message, t, cbOn401),
+      responseCallback: botCbFactory($message, t, onError),
     },
   };
 
