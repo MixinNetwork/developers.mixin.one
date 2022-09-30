@@ -1,11 +1,11 @@
 import { MixinApi } from '@mixin.dev/mixin-node-sdk';
 import { ls } from '@/utils/localStorage';
-import { userErrorFactory, botErrorFactory } from './config';
+import { userCbFactory, botCbFactory } from './config';
 
 export const useUserClient = ($message, t) => {
   const defaultApiConfig = {
     requestConfig: {
-      responseCallback: userErrorFactory($message, t),
+      responseCallback: userCbFactory($message, t),
     },
   };
 
@@ -25,14 +25,13 @@ export const useUserClient = ($message, t) => {
   return MixinApi(config);
 };
 
-export const useBotClient = ($message, t, clientInfo, botRequestOn401 = undefined) => {
+export const useBotClient = ($message, t, keystore, cbOn401 = undefined) => {
   const defaultApiConfig = {
     requestConfig: {
-      responseCallback: botErrorFactory($message, t, botRequestOn401),
+      responseCallback: botCbFactory($message, t, cbOn401),
     },
   };
 
-  const keystore = clientInfo;
   const config = (
     keystore
     && !!keystore.user_id

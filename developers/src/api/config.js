@@ -24,7 +24,7 @@ const commonCallback = ($message, t, err) => {
   }
 };
 
-export const userErrorFactory = ($message, t) => (err) => {
+export const userCbFactory = ($message, t) => (err) => {
   commonCallback($message, t, err);
 
   if (err.code === 401) {
@@ -36,8 +36,7 @@ export const userErrorFactory = ($message, t) => (err) => {
   }
 };
 
-export const botErrorFactory = ($message, t, botRequestOn401) => (err) => {
-  console.log(err);
+export const botCbFactory = ($message, t, botRequestOn401) => (err) => {
   commonCallback($message, t, err);
 
   if (err.code === 401 && botRequestOn401) botRequestOn401();
