@@ -51,17 +51,19 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   const useCheckPin = () => !!pin.value && pin.value.length === 6 && parseInt(pin.value, 10) > 100000;
   const useSearchUserId = async (client) => {
     const is_uuid = validate(opponent_id.value);
-    const res = is_uuid
-      ? { user_id: opponent_id.value }
-      : await client.user.search(opponent_id.value);
-    return res;
+    try {
+      const res = is_uuid
+        ? { user_id: opponent_id.value }
+        : await client.user.search(opponent_id.value);
+      return res;
+    } catch (e) {
+      $message.error({ message: t('message.errors.mixin_id'), showClose: true });
+    }
   };
   const useSubmitWithdrawal = async () => {
     const clientInfo = ls.get(appId.value);
-    const client = useBotClient($message, t, clientInfo, (err) => {
-      if (err.code === 404) {
+    const client = useBotClient($message, t, clientInfo, () => {
         loading.value = false;
-      }
     });
     const is_transfers = !opponent_id.value.startsWith('XIN');
     const type = is_transfers ? 'transfer' : 'raw';
@@ -70,11 +72,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
     let opponent = { opponent_key: opponent_id.value };
     if (is_transfers) {
       const res = await useSearchUserId(client);
-      if (!res || !res.user_id) {
-        $message.error({ message: t('message.errors.mixin_id'), showClose: true });
-        loading.value = false;
-        return;
-      }
+      if (!res || !res.user_id) return;
       opponent = { opponent_id: res.user_id };
     }
 
