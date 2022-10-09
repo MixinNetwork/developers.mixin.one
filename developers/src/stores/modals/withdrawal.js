@@ -58,12 +58,13 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
       return res;
     } catch (e) {
       $message.error({ message: t('message.errors.mixin_id'), showClose: true });
+      return e;
     }
   };
   const useSubmitWithdrawal = async () => {
     const clientInfo = ls.get(appId.value);
     const client = useBotClient($message, t, clientInfo, () => {
-        loading.value = false;
+      loading.value = false;
     });
     const is_transfers = !opponent_id.value.startsWith('XIN');
     const type = is_transfers ? 'transfer' : 'raw';
