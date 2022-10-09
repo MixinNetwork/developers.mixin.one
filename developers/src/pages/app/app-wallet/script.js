@@ -10,7 +10,7 @@ import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useLoadStore, useUpdateTokenModalStore, useWithdrawalModalStore } from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
-import { useAssetList, useClient } from '@/api';
+import { useBotClient } from '@/api';
 
 export default {
   name: 'app-wallet',
@@ -42,15 +42,16 @@ export default {
         return;
       }
 
-      const unauthorizedCb = () => {
-        modifyLocalLoadingStatus(false);
-        useInitUpdateToken(props.appId, useFetchAssetList);
-        ls.rm(props.appId);
-      };
-      const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
+      const appClient = useBotClient($message, t, tokenInfo, (err) => {
+        if (err.code === 401) {
+          modifyLocalLoadingStatus(false);
+          useInitUpdateToken(props.appId, useFetchAssetList);
+          ls.rm(props.appId);
+        }
+      });
 
       modifyLocalLoadingStatus(true);
-      const res = await useAssetList(appClient);
+      const res = await appClient.asset.fetchList();
       modifyLocalLoadingStatus(false);
 
       if (res instanceof Array) {
