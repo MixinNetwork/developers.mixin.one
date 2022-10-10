@@ -16,7 +16,7 @@
     "file-saver": "^2.0.5",
     "pinia": "^2.0.22",
     "sass": "^1.55.0",
-    "sass-loader": "^13.0.2",
+    "sass-loader": "^13.1.0",
     "uuid": "^9.0.0",
     "validator": "^13.7.0",
     "vue": "^3.2.39",
