@@ -17,6 +17,7 @@
         "change_usd":     "-0.03773542533280206",  // change percent compare to 24 hours before
         "confirmations":  3,
         "reserve":        "0",
+        "fee_asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
         "fee":            "0.0001",
         "snapshots_count": 100,
         "capitalization": 144241811.6455701, // Market cap.

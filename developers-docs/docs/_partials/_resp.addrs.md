@@ -8,6 +8,7 @@
       "destination":"0x86Fa049857E0209aa7D9e616F7eb3b3B78ECfdb0",
       "tag":        "",
       "label":      "Eth Address",
+      "fee_asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
       "fee":        "0.016",
       "reserve":    "0",
       "dust":       "0.0001",
