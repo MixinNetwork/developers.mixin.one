@@ -136,6 +136,14 @@ mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 
 `action` 是一个可选参数，如果没有它，bot profile 窗口将打开；传递 `action=open` 将打开 bot 主页； `key1=value1&key2=value2&key3=value3...` 打开 bot 主页时可以传入任意名称或类型的参数，方便开发邀请码、访客追踪等功能，Mixin Messenger 0.29 和以上版本支持此功能。
 
+### 请求 code
+
+```text
+mixin://codes/:code_id
+```
+
+请求服务器里 code 里的内容，并执行相关的操作
+
 ### 打开会话
 
 ```text
