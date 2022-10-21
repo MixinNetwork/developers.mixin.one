@@ -136,3 +136,19 @@ mixin://apps/:appid?action=open&key1=value1&key2=value2&key3=value3...
 ```
 
 `action` is an optional parameter, the bot pop-up window will open in the absence of it, passing `action=open` will open the bot homepage; `key1=value1&key2=value2&key3=value3...` Parameters of any name or type can be passed when opening the bot homepage to facilitate the development of features like invitation codes, visitor tracking, etc. This feature is supported in Mixin Messenger 0.29.0 or above.
+
+### popus code info
+
+```text
+mixin://codes/:code_id
+```
+
+Read the body of code and execute it.
+
+### open an conversation
+
+```text
+mixin://conversations/:conversation_id?user=user_id
+```
+
+Open a conversation, `user` is optional, for user conversation only, if there's not conversation with the user, messenger will create the conversation first.

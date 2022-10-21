@@ -1,27 +1,17 @@
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
-import {
-  toRefs,
-  reactive,
-  inject,
-  watch,
-  onActivated,
-} from 'vue';
-import { useClipboard } from '@vueuse/core';
+import { toRefs, reactive, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
-import FileSaver from 'file-saver';
-import DModal from '@/components/DModal';
-import UpdateToken from '@/components/UpdateToken';
-import Confirm from '@/components/Confirm';
-import { useLoadStore } from '@/stores';
+import {
+  useLoadStore,
+  useConfirmModalStore,
+  useSecretModalStore,
+  useUpdateTokenModalStore,
+} from '@/stores';
 import { ls, randomPin } from '@/utils';
-import { useClient } from '@/api';
+import { useUserClient, useBotClient } from '@/api';
 
 export default {
   name: 'app-secret',
-  components: {
-    DModal, UpdateToken, Confirm,
-  },
   props: {
     appId: String,
   },
@@ -30,16 +20,15 @@ export default {
     const { t } = useI18n();
 
     const { modifyLocalLoadingStatus } = useLoadStore();
+    const { useInitConfirm } = useConfirmModalStore();
+    const { useInitSecret } = useSecretModalStore();
+    const { useInitUpdateToken } = useUpdateTokenModalStore();
+
     const state = reactive({
       submitting: false,
-      confirmContent: '',
-      modalTitle: '',
-      modalContent: '',
-      showUpdateToken: false,
-      action: '',
     });
 
-    const userClient = useClient($message, t);
+    const userClient = useUserClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
     const useUpdateSecret = async () => {
@@ -47,17 +36,16 @@ export default {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
       }
+
       modifyLocalLoadingStatus(true);
       state.submitting = true;
+      const res = await userClient.app.updateSecret(props.appId);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-      try {
-        const res = await userClient.app.updateSecret(props.appId);
+      if (res && res.app_secret) {
         $message.success({ message: t('message.success.reset'), showClose: true });
-        state.modalTitle = t('secret.secret_title');
-        state.modalContent = res.app_secret;
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+        useInitSecret(t('secret.secret_title'), res.app_secret, 'UpdateSecret');
       }
     };
     const useUpdateSession = async () => {
@@ -68,31 +56,32 @@ export default {
 
       state.submitting = true;
       modifyLocalLoadingStatus(true);
+      const pin = randomPin();
+      const { publicKey: session_secret, privateKey } = getED25519KeyPair();
+      const res = await userClient.app.updateSession(props.appId, pin, session_secret);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-      try {
-        const pin = randomPin();
-        const { publicKey: session_secret, privateKey } = getED25519KeyPair();
-        const res = await userClient.app.updateSession(props.appId, pin, session_secret);
+      if (res && res.session_id && res.pin_token_base64) {
         $message.success({ message: t('message.success.reset'), showClose: true });
+        ls.rm(props.appId);
 
-        state.modalTitle = t('secret.session_title');
-        state.modalContent = JSON.stringify({
+        const session = JSON.stringify({
           pin,
           client_id: props.appId,
           session_id: res.session_id,
           pin_token: res.pin_token_base64,
           private_key: privateKey,
         }, null, 2);
-        ls.rm(props.appId);
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+        useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
     };
     const useRequestQRCode = async (isShow) => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
-        state.showUpdateToken = true;
+        useInitUpdateToken(props.appId, () => {
+          useRequestQRCode(isShow);
+        });
         return;
       }
 
@@ -101,118 +90,53 @@ export default {
         return;
       }
 
-      const appClient = useClient($message, t, clientInfo, true);
+      const appClient = useBotClient($message, t, clientInfo);
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;
-      try {
-        const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
+      const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
 
-        if (!res) {
-          ls.rm(props.appId);
-          state.showUpdateToken = true;
-          return;
-        }
-        if (!res.code_url) {
-          if (isShow) await useRequestQRCode(false);
-          return;
-        }
-
-        state.modalTitle = t('secret.qrcode_title');
-        state.modalContent = res.code_url;
-      } finally {
-        state.submitting = false;
-        modifyLocalLoadingStatus(false);
+      if (!res.code_url) {
+        if (isShow) await useRequestQRCode(false);
+        return;
       }
-    };
-
-    const route = useRoute();
-    const useDownloadKeystore = () => {
-      const { app_number } = route.params;
-
-      const blob = new Blob(
-        [state.modalContent],
-        { type: 'text/plain;charset=utf-8' },
-      );
-      FileSaver.saveAs(blob, `keystore-${app_number}.json`);
+      useInitSecret(t('secret.qrcode_title'), res.code_url, '');
     };
 
     const useDoubleCheck = async (type) => {
       switch (type) {
         case 'ShowQRCode':
-          state.action = 'ShowQRCode';
           await useRequestQRCode(true);
           break;
         case 'RotateQRCode':
-          state.confirmContent = t('secret.rotate_qrcode_question');
-          state.action = 'RotateQRCode';
+          useInitConfirm(
+            t('secret.rotate_qrcode_question'),
+            async () => { await useRequestQRCode(false); },
+          );
           break;
         case 'UpdateSecret':
-          state.confirmContent = t('secret.secret_question');
-          state.action = 'UpdateSecret';
+          useInitConfirm(
+            t('secret.secret_question'),
+            async () => { await useUpdateSecret(); },
+          );
           break;
         case 'UpdateSession':
-          state.confirmContent = t('secret.session_question');
-          state.action = 'UpdateSession';
+          useInitConfirm(
+            t('secret.session_question'),
+            async () => { await useUpdateSession(); },
+          );
           break;
         default:
           break;
       }
     };
-    const useConfirm = async () => {
-      switch (state.action) {
-        case 'RotateQRCode':
-          await useRequestQRCode(false);
-          break;
-        case 'UpdateSecret':
-          await useUpdateSecret();
-          break;
-        case 'UpdateSession':
-          await useUpdateSession();
-          break;
-        default:
-          break;
-      }
-    };
-
-    const useInitStatus = () => {
-      state.modalTitle = '';
-      state.modalContent = '';
-      state.confirmContent = '';
-      state.action = '';
-    };
-    const useCloseModal = () => {
-      useInitStatus();
-    };
-    const useCloseConfirmModal = () => {
-      state.confirmContent = '';
-    };
-
-    const { copy, copied, isSupported } = useClipboard();
-    const useClickCopy = async () => {
-      if (!isSupported) {
-        $message.error({ message: t('message.errors.copy'), showClose: true });
-        return;
-      }
-      await copy(state.modalContent);
-    };
-
-    watch(copied, () => {
-      if (copied.value) $message.success({ message: t('message.success.copy'), showClose: true });
-    });
-    onActivated(() => {
-      useInitStatus();
-    });
 
     return {
       ...toRefs(state),
       useRequestQRCode,
       useDoubleCheck,
-      useConfirm,
-      useDownloadKeystore,
-      useCloseModal,
-      useCloseConfirmModal,
-      useClickCopy,
       t,
     };
   },

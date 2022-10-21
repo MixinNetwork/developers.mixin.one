@@ -87,30 +87,30 @@
 
 <script>
 
-import { onMounted, reactive, toRefs } from "vue";
-import { useI18n } from "vue-i18n";
-import Header from "@/components/MainHeader";
-import Footer from "@/components/MainFooter";
-import { changeTheme } from "@/utils/tools";
+import { onMounted, reactive, toRefs } from 'vue';
+import { useI18n } from 'vue-i18n';
+import Header from '@/components/MainHeader';
+import Footer from '@/components/MainFooter';
+import { changeTheme } from '@/utils/tools';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: { Header, Footer },
   setup() {
-    const { t, tm } = useI18n()
+    const { t, tm } = useI18n();
     const state = reactive({
-      mainRoute: ["/document", "/dashboard"]
-    })
+      mainRoute: ['/document', '/dashboard'],
+    });
 
     onMounted(() => {
-      changeTheme("#fff");
-    })
+      changeTheme('#fff');
+    });
 
     return {
       t,
       tm,
-      ...toRefs(state)
-    }
+      ...toRefs(state),
+    };
   },
 };
 </script>

@@ -132,10 +132,7 @@ const router = useRouter();
 const useToApp = (item) => {
   const uri = `/apps/${item.app_number}`;
   if (uri === route.path) return;
-  router.push({
-    path: uri,
-    hash: '#information',
-  });
+  router.push({ path: uri });
 };
 
 const useClickNewApp = async () => {

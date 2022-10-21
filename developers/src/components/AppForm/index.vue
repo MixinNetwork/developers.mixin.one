@@ -3,10 +3,10 @@
     <div class="top">
       <div class="meta flex">
         <MInput
-          v-if="app.app_id"
+          v-if="app.app_number"
           label="Mixin ID"
           disabled
-          is-copied="true"
+          allow-copy="true"
           v-model:value="app.app_number"
           class="mixin-id"
         />
@@ -21,7 +21,7 @@
             v-if="app.app_id"
             :label="t('information.app_id')"
             disabled
-            is-copied="true"
+            allow-copy="true"
             v-model:value="app.app_id"
             class="item"
           />

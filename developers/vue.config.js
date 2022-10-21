@@ -22,6 +22,7 @@ module.exports = {
     });
     config.plugin('buffer').use(new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser',
     }));
 
     config.plugin('element-plus').use(element({

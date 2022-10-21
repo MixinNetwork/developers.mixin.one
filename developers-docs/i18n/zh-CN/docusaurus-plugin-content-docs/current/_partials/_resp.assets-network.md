@@ -5,6 +5,7 @@
       "type":           "asset",
         "asset_id":       "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
         "chain_id":       "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+        "fee_asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
         "asset_key":      "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
         "mixin_id":       "fe6b7788944d328778f98e3e81588215b5a07de4f9a4a7de4db4535b404e65db",
         "symbol":         "BTC",

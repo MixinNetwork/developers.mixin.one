@@ -11,14 +11,8 @@ import {
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElTooltip } from 'element-plus';
-import Confirm from '@/components/Confirm';
 import { useConfirmModalStore, useLayoutStore, useLoadStore } from '@/stores';
-import {
-  useApp,
-  useClient,
-  useCreateApp,
-  useUpdateApp,
-} from '@/api';
+import { useUserClient } from '@/api';
 import MInput from './input.vue';
 import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
@@ -26,7 +20,7 @@ import CategorySelect from './select.vue';
 export default {
   name: 'app-form',
   components: {
-    MInput, Croppie, CategorySelect, Confirm, ElTooltip,
+    MInput, Croppie, CategorySelect, ElTooltip,
   },
   props: {
     appId: String,
@@ -63,12 +57,12 @@ export default {
       state.encryptionAvailable = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
     };
 
-    const client = useClient($message, t);
+    const client = useUserClient($message, t);
     const useFetchApp = async (appId) => {
       appId = appId || props.appId;
       if (appId) {
         modifyLocalLoadingStatus(true);
-        const app = await useApp(client, appId);
+        const app = await client.app.fetch(appId);
         modifyLocalLoadingStatus(false);
         return app;
       }
@@ -122,8 +116,8 @@ export default {
       state.submitting = true;
       modifyLocalLoadingStatus(true);
       const res = props.appId
-        ? await useUpdateApp(client, props.appId, params)
-        : await useCreateApp(client, params);
+        ? await client.app.update(props.appId, params)
+        : await client.app.create(params);
       state.submitting = false;
       modifyLocalLoadingStatus(false);
 
@@ -147,7 +141,6 @@ export default {
       }
 
       useInitConfirm(
-        true,
         t('information.encrypted_confirm'),
         () => { state.isEncrypted = true; },
       );

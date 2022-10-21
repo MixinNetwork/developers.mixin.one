@@ -8,17 +8,12 @@ import {
 } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import UpdateToken from '@/components/UpdateToken';
-import WithdrawalModal from '@/pages/app/app-wallet/withdrawal';
-import { useLoadStore } from '@/stores';
+import { useLoadStore, useUpdateTokenModalStore, useWithdrawalModalStore } from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
-import { useAssetList, useClient } from '@/api';
+import { useBotClient } from '@/api';
 
 export default {
   name: 'app-wallet',
-  components: {
-    WithdrawalModal, UpdateToken,
-  },
   props: {
     appId: String,
   },
@@ -28,11 +23,11 @@ export default {
     const route = useRoute();
 
     const { modifyLocalLoadingStatus } = useLoadStore();
+    const { useInitWithdrawal } = useWithdrawalModalStore();
+    const { useInitUpdateToken } = useUpdateTokenModalStore();
+
     const state = reactive({
-      showWithdrawalModal: false,
-      showSessionUpdateModal: false,
       assetList: [],
-      withdrawalAsset: {},
     });
 
     const useHasAppToken = (tokenInfo) => !!(tokenInfo
@@ -40,7 +35,6 @@ export default {
       && tokenInfo.pin_token
       && tokenInfo.session_id
       && tokenInfo.private_key);
-
     const useFetchAssetList = async () => {
       const tokenInfo = ls.get(props.appId);
       if (!useHasAppToken(tokenInfo)) {
@@ -48,15 +42,16 @@ export default {
         return;
       }
 
-      const unauthorizedCb = () => {
-        modifyLocalLoadingStatus(false);
-        state.showSessionUpdateModal = true;
-        ls.rm(props.appId);
-      };
-      const appClient = useClient($message, t, tokenInfo, true, unauthorizedCb);
+      const appClient = useBotClient($message, t, tokenInfo, (err) => {
+        if (err.code === 401) {
+          modifyLocalLoadingStatus(false);
+          useInitUpdateToken(props.appId, useFetchAssetList);
+          ls.rm(props.appId);
+        }
+      });
 
       modifyLocalLoadingStatus(true);
-      const res = await useAssetList(appClient);
+      const res = await appClient.asset.fetchList();
       modifyLocalLoadingStatus(false);
 
       if (res instanceof Array) {
@@ -67,28 +62,29 @@ export default {
     };
 
     const useClickWithdrawal = (item) => {
-      state.withdrawalAsset = item;
-      state.showWithdrawalModal = true;
+      useInitWithdrawal(item, props.appId, useFetchAssetList);
+    };
+    const useShowUpdateToken = () => {
+      useInitUpdateToken(props.appId, useFetchAssetList);
     };
 
     onActivated(async () => {
       await useFetchAssetList();
     });
-
     onMounted(async () => {
       await useFetchAssetList();
     });
-
     watch(() => props.appId, async () => {
       await useFetchAssetList();
     });
 
     return {
-      t,
       ...toRefs(state),
+      useShowUpdateToken,
       useFetchAssetList,
       useClickWithdrawal,
       route,
+      t,
     };
   },
 };

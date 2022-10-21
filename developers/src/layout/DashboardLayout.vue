@@ -21,7 +21,7 @@ import { useI18n } from 'vue-i18n';
 import Modals from '@/components/Modals';
 import SideBar from '@/components/SideBar';
 import { useLayoutStore, useLoadStore } from '@/stores';
-import { useClient } from '@/api';
+import { useUserClient } from '@/api';
 
 const $message = inject('$message');
 const { t } = useI18n();
@@ -31,7 +31,7 @@ const loadStore = useLoadStore();
 const { globalLoading, localLoading } = storeToRefs(loadStore);
 
 const useFetchAll = async () => {
-  const client = useClient($message, t);
+  const client = useUserClient($message, t);
   await fetchAll(client);
 };
 

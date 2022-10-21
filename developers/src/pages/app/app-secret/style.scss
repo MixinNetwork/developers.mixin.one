@@ -71,7 +71,6 @@
   }
 }
 
-
 .tips {
   width: 62rem;
   max-width: 100%;
@@ -85,33 +84,6 @@
 .qrcode img {
   width: 1.125rem;
   height: 1.125rem;
-}
-
-.new-secret-modal {
-  text-align: center;
-  padding: 3.125rem 3.75rem;
-  max-width: 38.5rem;
-
-  h3 {
-    margin-bottom: 1.3125rem;
-    font-size: 1rem;
-  }
-
-  span {
-    text-align: left;
-    word-wrap: break-word;
-    display: block;
-    padding: 1.625rem 1.25rem;
-    line-height: 1rem;
-    width: 100%;
-    height: 5.125rem;
-    background-color: #f6f9ff;
-
-    &.session {
-      height: 12rem;
-      overflow: auto;
-    }
-  }
 }
 
 .btns {
@@ -134,36 +106,6 @@
     background-color: #e5e7ec;
     color: #333;
     margin-right: 0.5625rem;
-  }
-}
-
-.new-secret-content {
-  margin: 0 6.25rem 5rem 6.25rem;
-  width: 100%;
-
-  label {
-    display: block;
-    padding-left: 1.875rem;
-  }
-
-  input {
-    min-width: 52.5rem;
-    width: calc(90% - 3.125rem);
-    padding-left: 1.875rem;
-  }
-
-  .disabled {
-    background: #fff;
-    color: initial;
-  }
-
-  transform: translate(0, -20%);
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-
-  &.active {
-    transform: translate(0, 0);
-    opacity: 1;
   }
 }
 
@@ -215,25 +157,6 @@
 
     .secret-item {
       margin-bottom: 0;
-    }
-  }
-
-  .new-secret-modal {
-    padding: 2.5rem 1.25rem;
-    max-width: 18.75rem;
-
-    h3 {
-      margin-bottom: 1rem;
-    }
-
-    span {
-      padding: 0.625rem;
-      font-weight: 500;
-    }
-
-    img {
-      top: 1rem;
-      right: 1rem;
     }
   }
 

@@ -22,16 +22,16 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import DHeader from '@/components/DHeader';
+import AppForm from '@/components/AppForm';
 
 export default {
   name: 'app-creation',
   components: {
     DHeader,
-    AppForm: defineAsyncComponent(() => import('@/components/AppForm')),
+    AppForm,
   },
   async setup() {
     const { t } = useI18n();
