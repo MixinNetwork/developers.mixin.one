@@ -17,6 +17,8 @@ The default RPC port is the service port + 1000. For example, if the public port
 
 The RPC base is formed by `http://<node_host>:<rpc_port>/`. For example, `http://127.0.0.1:9001/`.
 
+If you don't want to launch your own Mixin Kernel node, we have a public available RPC node `https://rpc.mixin.dev`.
+
 **Payload**
 
 | Parameter | Type | Description |
