@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@mixin.dev/mixin-node-sdk": "^4.7.2",
-    "@vueuse/core": "^9.3.1",
+    "@vueuse/core": "^9.4.0",
     "assert": "^2.0.0",
     "bignumber.js": "^9.1.0",
     "element-plus": "^2.2.18",
