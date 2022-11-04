@@ -12,7 +12,7 @@ import {
 
 ## GET /me
 
-Get the current user's personal information.
+获取当前用户的信息, 根据授权的不同返回的内容有区别，如果没有授权获取手机号，手机号就不会返回
 
 <APIEndpoint url="/me" />
 

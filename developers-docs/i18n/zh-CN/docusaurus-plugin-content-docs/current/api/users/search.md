@@ -14,16 +14,20 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## GET /search/:q
 
-search users by keyword `:q`
+通过关键词搜索用户。关健词包括：
+
+1. 用户的 Mixin Id  
+1. 手机号
+
 
 <APIEndpoint url="/search/:q" />
 
 <APIMetaPanel
   scope="PROFILE:READ"
-  limitation="In order to avoid malicious crawling of user data, this API has a request frequency limit. If a 429 error occurs, wait 12 hours and try again"
+  limitation="为了避免恶意的抓取行为，该 API 会有访问限制，如果返回了 429 错误，需要过 12 小时，再次访问。"
 />
 
-<APIParams p-q="Mixin ID or mobile phone number." p-q-required={true} />
+<APIParams p-q="用户的 Mixin ID 或者手机号" p-q-required={true} />
 
 <APIRequest title="Search User by $KEYWORD" url="/search/$KEYWORD" />
 

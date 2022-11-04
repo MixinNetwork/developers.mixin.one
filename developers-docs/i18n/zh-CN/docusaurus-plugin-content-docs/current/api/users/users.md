@@ -14,17 +14,17 @@ import RespUsers from "../../_partials/_resp.users.md";
 
 ## POST /users/fetch
 
-Getting users' information by user IDs in bulk.
+获取多个用户的基本信息。
 
 :::info
-This API will only return the list of existing users, and ignore those that do not exist.
+该 API 只会返回存在用户的信息，如果用户不存在并不会报错。
 :::
 
 <APIEndpoint url="/users/fetch" />
 
 <APIMetaPanel
   scope="PROFILE:READ"
-  scopeNote="If the `PHONE:READ` permission granted, you will obtain the user's mobile phone number"
+  scopeNote="如果用户有 `PHONE:READ` 授权，会返回用户的手机号。"
 />
 
 <APIPayload>{`[

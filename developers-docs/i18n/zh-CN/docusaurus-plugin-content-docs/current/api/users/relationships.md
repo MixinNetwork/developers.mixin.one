@@ -14,9 +14,17 @@ import RespUsers from "../../_partials/_resp.user-extra.md";
 
 <!-- @TODO refactor this doc -->
 
+在 Mixin Messenger 当中，用户可以添加另一位 Messenger，或者机器人为好友，或者拉黑另一位 Messenger 或 机器人用户。这些 API 主要就是用来管理用户的联系人相关信息。
+
 ## POST /relationships
 
-This API is used to manage the relationship between two users.
+该 API 用来管理用户的关系，包括：
+
+1. 添加联系人
+2. 更新联系人信息
+3. 删除联系人
+4. 拉黑另一名用户
+5. 取消拉黑另一名用户
 
 <APIEndpoint url="/relationships" />
 
