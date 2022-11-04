@@ -1,5 +1,5 @@
 ---
-title: OAuth 授权
+title: 获取用户 OAuth 授权
 sidebar_position: 2
 ---
 
@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-机器人可以访问 API 访问用户非常简单的信息，如果想要获取到像用户的手机号，联系人，资产等信息就需要让用户授权。
+机器人如果要访问用户的一些信息，例如用户的手机号，联系人，资产等信息，就需要用户给机器人授权。
 
 ## 请求授权
 
@@ -43,7 +43,7 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
   p-code_challenge_method="默认 `SHA256`"
 />
 
-## Get Access Token
+## 获取访问令牌 (Access Token)
 
 在上一步授权完成后，会拿到 authorization code, 然后根据 code 来获取其它的 OAuth 信息。
 
@@ -59,8 +59,7 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
   "client_secret":  "机器人的 secret",
   "code_verifier": "",
   "ed25519": "ed25519 的随机公钥，客户端需要保存私钥后面签名用",
-}
-`}</APIPayload>
+}`}</APIPayload>
 
 <APIRequest
   title="Get access token"
@@ -79,4 +78,6 @@ GET https://www.mixin.one/oauth/authorize?client_id=CLIENT_ID&scope=PROFILE:READ
 
 ## 取消授权
 
-用户可以在 Mixin Messenger 中取消授权, 另外授权有效期是一年。过期后同样需要用户重新授权
+在授权之后，用户可以在 Mixin Messenger 中随时取消授权。 此外用户的授权有效期是一年，过期后还需要继续访问相关 API, 需要用户重新授权。
+
+下一篇中我们会列出，机器人可以获取的用户的权限范围。
