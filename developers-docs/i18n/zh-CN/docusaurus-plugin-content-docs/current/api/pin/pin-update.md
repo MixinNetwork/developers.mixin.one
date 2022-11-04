@@ -14,7 +14,7 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## POST /pin/update
 
-Change the PIN of the user, or setup a new PIN if it is not set yet.
+更新用户的 PIN 码，如果用户之前没有设置，相当于设置 PIN 码。
 
 <APIEndpoint url="/pin/update" />
 
@@ -27,7 +27,7 @@ Change the PIN of the user, or setup a new PIN if it is not set yet.
 `}</APIPayload>
 
 :::info
-To set an initial PIN, set `old_pin` to an empty string.
+如果是设置一个新的 PIN 码, 这时候 `old_pin` 应该是空的。
 :::
 
 <APIRequest title="Update PIN" method="POST" url="/pin/update --data PAYLOAD" />

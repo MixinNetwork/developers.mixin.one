@@ -14,7 +14,7 @@ import RespUser from "../../_partials/_resp.user.md";
 
 ## POST /pin/verify
 
-Verify a user's PIN.
+验证用户的 PIN 码。
 
 <APIEndpoint url="/pin/verify" />
 
@@ -27,12 +27,12 @@ Verify a user's PIN.
 
 <APIRequest title="Verify PIN" method="POST" url="/pin/verify --data PAYLOAD" />
 
-The API returns an empty json on success.
+如果验证成功，会返回当前用户的信息。
 
-## Error 20119 Debugging
+## PIN 码错误 20119 相关问题
 
-- If you forget your PIN, there is no way to retrieve it. It is recommended to try 5 times a day and write down the tried code on paper.
-- It might be due to the misuse of `iterator`, which should be incremental. Generally, it is recommended to use the current system Nano time, or you can set a number by yourself, and increment it with each call.
-- The encrypted PIN is wrong, such as wrong format, wrong time, etc. It may be a problem of the SDK itself. It is recommended to contact the SDK developer for help.
+- 请注意一旦设置 PIN 码，请注意保存好。没有任何途径打回。
+- 如果一个 PIN 码是对的，之前也能正常使用，突然报告出错，那么通常是由于 `iterator` 不对导致的。iterator 是为了安全性，保证 PIN 只会用一次。
+- 如果是 PIN 码不对，需要注意时间格式，
+- 每天的密码错误都有一定的数量限制，如果是 iterator 导致的，密码错误，不在这个范围之内。
 
-Pay attention to the `extra` field in the returned error message. The error count will only increase if the PIN is incorrect, and the wrong `iterator` or wrong encrypted PIN will not cause the PIN to be locked.
