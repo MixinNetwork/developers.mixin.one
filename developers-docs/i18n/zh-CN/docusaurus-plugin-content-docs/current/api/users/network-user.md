@@ -15,13 +15,13 @@ import RespUserNet from "../../_partials/_resp.user-net.md";
 
 ## POST /users
 
-Create a network user.
+创建一个 Network User, Network User 是机器人下面的子帐号，API 使用有限制，只能对资产进行操作，比如充值，转帐，提现。没有办法像 Messenger User 那样聊天。
 
 <APIEndpoint url="/users" />
 
 <APIMetaPanel
   scope=""
-  limitation="Only application user can create network users."
+  limitation="只有机器人可以创建 Network User"
 />
 
 <APIPayload>{`{
