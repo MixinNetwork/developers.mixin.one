@@ -12,7 +12,7 @@
     "@vueuse/core": "^9.4.0",
     "assert": "^2.0.0",
     "bignumber.js": "^9.1.0",
-    "element-plus": "^2.2.19",
+    "element-plus": "^2.2.20",
     "file-saver": "^2.0.5",
     "pinia": "^2.0.23",
     "sass": "^1.55.0",
