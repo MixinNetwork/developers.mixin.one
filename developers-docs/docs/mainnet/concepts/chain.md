@@ -27,7 +27,7 @@ Visit <https://mixin.one/network/chains> to view the current public chain data b
 | Polkadot      | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | Only Supports DOT                                           |
 | Kusama        | KSM   | 9d29e4f6-d67c-4c4b-9525-604b04afbe9f | Only Supports KSM                                           |
 | Solana        | SOL   | 64692c23-8971-4cf4-84a7-4dd1271dd887 | Only Supports SOL                                           |
-| MobileCoin    | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | Only Supports MOB                                           |
+| MobileCoin    | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | Supports MOB, and eUSD                                          |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | Only Supports LTC                                           |
 | TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | Only Supports TRX, TRC-10、TRC-20 tokens, e.g. BTT、USDT-TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | Only Supports XLM                                           |

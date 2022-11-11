@@ -24,7 +24,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 40 条公链的二层网络，
 | Polkadot        | DOT   | 54c61a72-b982-4034-a556-0d99e3c21e39 | 仅支持 DOT                                           |
 | Kusama           | KSM   | 9d29e4f6-d67c-4c4b-9525-604b04afbe9f | 仅支持 KSM                                           |
 | Solana           | SOL   | 64692c23-8971-4cf4-84a7-4dd1271dd887 | 仅支持 SOL                                           |
-| MobileCoin       | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | 仅支持 MOB                                           |
+| MobileCoin       | MOB   | eea900a8-b327-488c-8d8d-1428702fe240 | 支持 MOB, eUSD                                           |
 | Litecoin      | LTC   | 76c802a2-7c88-447f-a93e-c29c9e5dd9c8 | 仅支持 LTC                                           |
 | TRON          | TRX   | 25dabac5-056a-48ff-b9f9-f67395dc407c | 仅支持 TRX 和 TRC-10、TRC-20 代币，例如 BTT、USDT-TRON |
 | Stellar       | XLM   | 56e63c06-b506-4ec5-885a-4a5ac17b83c1 | 仅支持 XLM                                           |
