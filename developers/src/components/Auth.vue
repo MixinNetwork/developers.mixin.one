@@ -23,7 +23,7 @@ export default {
         message: t('message.errors.403'),
         showClose: true,
       });
-      router.push('/');
+      location.href = 'https://developers.mixin.one/'
     };
 
     const error = getUrlParameter('error');
