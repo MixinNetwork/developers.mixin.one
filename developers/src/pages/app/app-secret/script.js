@@ -132,6 +132,8 @@ export default {
       const user = await userClient.user.fetch(props.appId);
       state.submitting = false;
       modifyLocalLoadingStatus(false);
+
+      if (!user.code_url) return;
       useInitSecret(t('secret.qrcode_title'), user.code_url, '');
     }
 
