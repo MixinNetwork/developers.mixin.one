@@ -3,20 +3,20 @@
     <div class="secret-list flex">
       <div class="item">
         <div class="secret-item">
-          <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
-          <span>{{t('secret.secret_title')}}</span>
-          <p>{{t('secret.secret_content')}}</p>
-          <button @click="useDoubleCheck('UpdateSecret')" class="primary">{{t('secret.secret_btn')}}</button>
-        </div>
-      </div>
-      <div class="item">
-        <div class="secret-item">
           <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
           <span>{{t('secret.session_title')}}</span>
           <p>{{t('secret.session_content')}}</p>
           <div class="secrets">
             <button @click="useDoubleCheck('UpdateSession')" class="primary">{{t('secret.session_ed25519_btn')}}</button>
           </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="secret-item">
+          <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
+          <span>{{t('secret.secret_title')}}</span>
+          <p>{{t('secret.secret_content')}}</p>
+          <button @click="useDoubleCheck('UpdateSecret')" class="primary">{{t('secret.secret_btn')}}</button>
         </div>
       </div>
       <div class="item">
