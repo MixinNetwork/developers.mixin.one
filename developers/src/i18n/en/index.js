@@ -559,7 +559,7 @@ export default {
   secret: {
     title: 'Secret',
     secret_title: 'OAuth Client Secret',
-    secret_content: "If you are requesting the API from your secret server, it's recommended to use app secret.",
+    secret_content: "OAuth Client Secret is required when generate OAuth signature to obtain the private information of user.",
     secret_btn: 'Generate a new secret',
     secret_question: 'Do you want to reset secret?',
     session_title: 'APP SESSION',

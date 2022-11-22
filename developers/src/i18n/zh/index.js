@@ -612,7 +612,7 @@ export default {
   secret: {
     title: '密钥',
     secret_title: '应用密钥',
-    secret_content: '如果您从机密服务器请求 API，建议使用应用程序密钥。',
+    secret_content: '应用密钥用来生成 OAuth 签名，以访问用户隐私数据。',
     secret_btn: '生成新的密钥',
     secret_question: '确认重置密钥？',
     session_title: '应用 Session',
