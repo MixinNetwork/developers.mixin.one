@@ -25,7 +25,7 @@
           <span>{{t('secret.qrcode_title')}}</span>
           <p>{{t('secret.qrcode_content')}}</p>
           <div class="qrcode-btns">
-            <button @click="useDoubleCheck('ShowQRCode')" class="primary">{{t('secret.qrcode_btn1')}}</button>
+            <button @click="useShowCodeUrl" class="primary">{{t('secret.qrcode_btn1')}}</button>
             <button @click="useDoubleCheck('RotateQRCode')" class="primary">{{t('secret.qrcode_btn2')}}</button>
           </div>
         </div>
