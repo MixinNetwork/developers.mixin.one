@@ -558,7 +558,7 @@ export default {
   },
   secret: {
     title: 'Secret',
-    secret_title: 'APP SECRET',
+    secret_title: 'OAuth Client Secret',
     secret_content: "If you are requesting the API from your secret server, it's recommended to use app secret.",
     secret_btn: 'Generate a new secret',
     secret_question: 'Do you want to reset secret?',
