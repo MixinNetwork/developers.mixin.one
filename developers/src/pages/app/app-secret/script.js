@@ -76,11 +76,11 @@ export default {
         useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
     };
-    const useRequestQRCode = async (isShow) => {
+    const useRotateCode = async () => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
         useInitUpdateToken(props.appId, () => {
-          useRequestQRCode(isShow);
+          useRotateCode();
         });
         return;
       }
@@ -94,49 +94,53 @@ export default {
 
       modifyLocalLoadingStatus(true);
       state.submitting = true;
-      const res = isShow ? await appClient.user.profile() : await appClient.user.rotateCode();
+      const res = await appClient.user.rotateCode();
       state.submitting = false;
       modifyLocalLoadingStatus(false);
 
-      if (!res.code_url) {
-        if (isShow) await useRequestQRCode(false);
-        return;
-      }
+      if (!res.code_url) return;
       useInitSecret(t('secret.qrcode_title'), res.code_url, '');
     };
 
     const useDoubleCheck = async (type) => {
       switch (type) {
-        case 'ShowQRCode':
-          await useRequestQRCode(true);
-          break;
         case 'RotateQRCode':
           useInitConfirm(
             t('secret.rotate_qrcode_question'),
-            async () => { await useRequestQRCode(false); },
+            useRotateCode,
           );
           break;
         case 'UpdateSecret':
           useInitConfirm(
             t('secret.secret_question'),
-            async () => { await useUpdateSecret(); },
+            useUpdateSecret,
           );
           break;
         case 'UpdateSession':
           useInitConfirm(
             t('secret.session_question'),
-            async () => { await useUpdateSession(); },
+            useUpdateSession,
           );
           break;
         default:
           break;
       }
     };
+    const useShowCodeUrl = async () => {
+      modifyLocalLoadingStatus(true);
+      state.submitting = true;
+      const user = await userClient.user.fetch(props.appId);
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
+
+      if (!user.code_url) return;
+      useInitSecret(t('secret.qrcode_title'), user.code_url, '');
+    }
 
     return {
       ...toRefs(state),
-      useRequestQRCode,
       useDoubleCheck,
+      useShowCodeUrl,
       t,
     };
   },
