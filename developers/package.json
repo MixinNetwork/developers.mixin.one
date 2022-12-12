@@ -15,7 +15,7 @@
     "element-plus": "^2.2.19",
     "file-saver": "^2.0.5",
     "pinia": "^2.0.23",
-    "sass": "^1.55.0",
+    "sass": "^1.56.2",
     "sass-loader": "^13.1.0",
     "uuid": "^9.0.0",
     "validator": "^13.7.0",
