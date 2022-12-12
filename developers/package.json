@@ -19,7 +19,7 @@
     "sass-loader": "^13.1.0",
     "uuid": "^9.0.0",
     "validator": "^13.7.0",
-    "vue": "^3.2.41",
+    "vue": "^3.2.45",
     "vue-croppie": "https://github.com/hundredark/vue-croppie#2.0.4",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
