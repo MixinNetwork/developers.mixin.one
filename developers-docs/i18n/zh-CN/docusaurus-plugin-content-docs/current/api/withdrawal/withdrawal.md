@@ -1,5 +1,5 @@
 ---
-title: Withdrawal
+title: 提现
 ---
 
 import {
@@ -12,7 +12,7 @@ import {
 
 ## POST /withdrawals
 
-Submit a withdrawal request.
+创建一个提现请求
 
 :::info
 It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/zh-CN/docs/api/assets/fee).
@@ -23,12 +23,20 @@ It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "address_id": "the asset's asset_id",
+  "address_id": "提现之前创建的地址的 uuid",
   "amount":     "e.g. '100000'",
-  "trace_id":   "an uuid to prevent duplicate withdrawals",
-  "pin":        "encrypted PIN",
+  "trace_id":   "uuid 格式, 防止重复提现",
+  "pin_base64": "加密的 PIN 用 base64 格式",
+  "asset_id": "可选, 提现资产的 uuid",
+  "destination": "可选, 提现地址",
+  "tag": "可选, 提现备注",
 }
 `}</APIPayload>
+
+### 请求参数说明
+
+1. address_id 是指先创建地址，然后用地址地址
+2. 可选方式, 直接用 `asset_id`, `destination` 跟 `tag` 来提现
 
 <APIRequest
   title="Request to withdrawal"

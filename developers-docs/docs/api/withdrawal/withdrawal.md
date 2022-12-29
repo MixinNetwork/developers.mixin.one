@@ -27,8 +27,16 @@ You will need to [create a withdrawal address](./address-add.md) first to withdr
   "amount":     "e.g. '100000'",
   "trace_id":   "an uuid to prevent duplicate withdrawals",
   "pin":        "encrypted PIN",
+  "asset_id": "Optional, the uuid of asset",
+  "destination": "Optional, the public key of recipient",
+  "tag": "Optional, the memo of the recipient",
 }
 `}</APIPayload>
+
+### explaination of request parameters
+
+1. address_id if user have an address, they can use the address id create withdrawal
+2. Optional, use `asset_id`, `destination` and `tag` created withdrawal
 
 <APIRequest
   title="Request to withdrawal"
