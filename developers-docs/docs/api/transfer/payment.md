@@ -16,7 +16,16 @@ import RespTransfer from "../../_partials/_resp.transfer.md";
 
 ## POST /payments
 
-Generate a multisig payment, user can pay to multisig account through code.
+There're two functions for this api
+
+1. Create a multisig payment code:  
+  a. the api needs authorization token  
+  b. will response 403, if using an incorrect `trace_id`   
+  c. the state will be paid if the payment existing, otherwise pending
+
+1. Validate the payment parameters  
+  a. the api is public, without authorization token  
+  b. the state will be paid if the payment existing, otherwise pending
 
 <APIEndpoint url="/payments" />
 
@@ -41,3 +50,42 @@ Generate a multisig payment, user can pay to multisig account through code.
 />
 
 <APIResponse name="payment" />
+
+### Validate payment parameters
+
+<APIPayload>{`{
+  "asset_id":     "the asset's asset_id which you are transferring",
+  "amount":       "e.g.: "0.01", supports up to 8 digits after the decimal point",
+  "trace_id":     "Used to prevent duplicate payment, optional",
+  "opponent_id":  "optional，receiver's uuid",
+  "address_id":   "optional，uuid",
+  "destination":  "optional, withdrawal public key",
+  "tag":          "optional, withdrawal memo"
+}
+`}</APIPayload>
+
+<APIRequest
+  title="Generate a multisig payment"
+  method="POST"
+  url='/payments --data {"asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","amount":"0.01","trace_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","memo":"","opponent_multisig":{"receivers":["c6d0c728-2624-429b-8e0d-d9d19b6592fa","c6d0c728-2624-429b-8e0d-d9d19b6592fa"],"threshold":1}}'
+/>
+
+<APIResponse name="payment" />
+
+<APIRequest
+  title="Validate payment"
+  method="POST"
+  url='/payments --data {"asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","amount":"0.01","trace_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","address_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa"}'
+/>
+
+<APIRequest
+  title="Validate payment"
+  method="POST"
+  url='/payments --data {"asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","amount":"0.01","trace_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","opponent_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa"}'
+/>
+
+<APIRequest
+  title="Validate payment"
+  method="POST"
+  url='/payments --data {"asset_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","amount":"0.01","trace_id":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","destination":"3GqjTwAwWyJ2YZ3v1vYPCkC4SzwVHLgivj","key":""}'
+/>

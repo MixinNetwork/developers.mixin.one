@@ -31,7 +31,7 @@ import {
 
 ### 请求参数分组
 
-1. `user=uuid`, 获取该用户的充值中记录
+1. `user=uuid`, 获取该用户的充值中记录，需要 authorization token
 1. `source=blockchain&asset=uuid&transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5` 从区块链根据 hash 获取资产的充值中记录
 1. `source=blockchain&asset=uuid&destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK` 从区块链根据地址获取资产的充值中记录
 1. `transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5` 根据 hash 获取充值中记录
