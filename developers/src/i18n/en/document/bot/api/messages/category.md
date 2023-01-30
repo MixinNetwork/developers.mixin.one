@@ -44,6 +44,8 @@ data:
  $$XIN:audio_data$$
 ```
 
+Audio forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.38.0 or above, and the default value is true.
+
 ### Videos
 
 ```json
