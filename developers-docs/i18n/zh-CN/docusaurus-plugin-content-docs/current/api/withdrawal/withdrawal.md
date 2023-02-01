@@ -33,6 +33,14 @@ It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/
 }
 `}</APIPayload>
 
+## TIP Pin 结构
+
+```
+"TIP:WITHDRAWAL:CREATE:" + address_id + amount + fee + trace_id + memo
+
+pin 是上面值的 sha256-256 的结果
+```
+
 ### 请求参数说明
 
 1. address_id 是指先创建地址，然后用地址地址

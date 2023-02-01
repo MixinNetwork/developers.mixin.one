@@ -26,12 +26,20 @@ You will need to [create a withdrawal address](./address-add.md) first to withdr
   "address_id": "the address id created by [POST /withdrawals](./address-add.md)",
   "amount":     "e.g. '100000'",
   "trace_id":   "an uuid to prevent duplicate withdrawals",
-  "pin":        "encrypted PIN",
+  "pin_base64": "encrypted PIN",
   "asset_id": "Optional, the uuid of asset",
   "destination": "Optional, the public key of recipient",
   "tag": "Optional, the memo of the recipient",
 }
 `}</APIPayload>
+
+## How to generate TIP Pin
+
+```
+"TIP:WITHDRAWAL:CREATE:" + address_id + amount + fee + trace_id + memo
+
+pin_base64 is the sha256-256 sum of above value
+```
 
 ### explaination of request parameters
 
