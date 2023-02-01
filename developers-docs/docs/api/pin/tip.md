@@ -9,13 +9,13 @@ sidebar_position: 3
 :::
 
 
-### Generate a pair of ed25519 private & public key
+## Generate a pair of ed25519 private & public key
 
 There needs a public key to be uploaded to mixin server. We need to prepare a pair of private & public key.
 
 Here is an example from Golang: https://pkg.go.dev/crypto/ed25519#GenerateKey
 
-### Upload the public key to mixin server
+## Upload the public key to mixin server
 
 Should upload the public key, use [update PIN interface](/zh-CN/docs/api/pin/pin-update)
 
@@ -43,7 +43,7 @@ if err != nil {
 
 As a result, the TIP works for the mixin app.
 
-### How to use tip to get a signature
+## How to use tip to get a signature
 
 Here use `/pin/verify` as an example
 

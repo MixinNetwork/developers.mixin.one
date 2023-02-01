@@ -37,6 +37,19 @@ Delete a specified address by address :addr_id.
   url='/addresses/ba3a2e33-efde-40b9-9cac-c293f0d1a3f2/delete --data &apos;{"pin":"d2EJy5kmt56d3U5PeKm+TJLBnXBuyxBTcWxytL8pk/LXwJEak9r8iVMcASjgvoO+"}&apos;'
 />
 
+<APIPayload>{`{
+  "pin_base64":   "encrypted PIN",
+}
+`}</APIPayload>
+
+## how to generate TIP Pin
+
+```
+"TIP:ADDRESS:REMOVE:" + address_id
+
+pin_base64 is the sha256-256 sum of above value
+```
+
 ```json title="Response"
 {}
 ```

@@ -1,5 +1,5 @@
 ---
-title: Delete Withdrawal Addresses
+title: 删除提现地址
 sidebar_position: 5
 ---
 
@@ -15,7 +15,7 @@ import RespAddress from "../../_partials/_resp.addr.md";
 
 ## POST /addresses/:addr_id/delete
 
-Delete a specified address by address :addr_id.
+删除一个提现地址
 
 <APIEndpoint url="/addresses/:addr_id/delete" />
 
@@ -26,16 +26,27 @@ Delete a specified address by address :addr_id.
   p-addr_id-required={true}
 />
 
+<APIPayload>{`{
+  "pin_base64":   "加密后的 PIN",
+}
+`}</APIPayload>
+
+## TIP Pin 结构
+
+```
+"TIP:ADDRESS:REMOVE:" + address_id
+
+如果使用 TIP, pin_base64 是上面值的 sha256-256 的结果
+```
+
 <APIRequest
   title="Delete an ETH address"
   method="POST"
   url='/addresses/ba3a2e33-efde-40b9-9cac-c293f0d1a3f2/delete --data &apos;{"pin":"d2EJy5kmt56d3U5PeKm+TJLBnXBuyxBTcWxytL8pk/LXwJEak9r8iVMcASjgvoO+"}&apos;'
 />
 
-<RespAddress />
-
-The above will return an empty json on success.
+如何删除成功，没有返回值
 
 :::info
-There is no API for editing withdrawal addresses. If you want to implement editing in your product, please first delete and then add.
+目前没有修改地址信息的 API, 如果需要修改旧的地址，可以先删除，然后再重新添加
 :::

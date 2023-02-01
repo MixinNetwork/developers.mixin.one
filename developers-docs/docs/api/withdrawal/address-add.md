@@ -26,9 +26,17 @@ Create a new withdrawal address.
   "label":        "the label for the address, Min: 1, Max: 64",
   "destination":  "the withdrawal address, Max 128",
   "tag":          "Optional, the withdrawal memo",
-  "pin":          "encrypted PIN",
+  "pin_base64":   "encrypted PIN",
 }
 `}</APIPayload>
+
+## How to generate TIP Pin
+
+```
+"TIP:ADDRESS:ADD:" + asset_id + destination + tag + label
+
+pin_base64 is the sha256-256 sum of above value
+```
 
 <APIRequest
   title="Create an ETH address"

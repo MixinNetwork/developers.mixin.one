@@ -8,13 +8,13 @@ sidebar_position: 3
 * TIP Private Key 一旦生成不可以修改，丢失也不可以恢复，请妥善保管
 :::
 
-### 生成 ed25519 私钥跟公钥
+## 生成 ed25519 私钥跟公钥
 
 迁移到 TIP 需要准备好一个 ed25519 私钥, 公钥需要上传到服务器，会在接下来介绍。
 
 生成方式可参考 Golang 文档：https://pkg.go.dev/crypto/ed25519#GenerateKey
 
-### 上传私钥到服务器
+## 上传私钥到服务器
 
 调用 [更新密码接口](/zh-CN/docs/api/pin/pin-update)
 
@@ -42,7 +42,7 @@ if err != nil {
 
 上传成功之后，机器人就迁移到了 TIP, 接下来介绍如何使用 TIP 签名。
 
-### 如何使用 TIP 签名
+## 如何使用 TIP 签名
 
 伪代码以 `/pin/verify` 为例
 
