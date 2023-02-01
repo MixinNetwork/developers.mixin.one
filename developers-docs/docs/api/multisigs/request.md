@@ -89,6 +89,18 @@ Generate a multi-signature request.
   p-pin-required={true}
 />
 
+## how to generate TIP Pin
+
+```
+"TIP:MULTISIG:REQUEST:SIGN:" + request_id
+
+pin_base64 of sign multisig is the sha256-256 sum of above value
+
+"TIP:MULTISIG:REQUEST:UNLOCK:" + request_id
+
+pin_base64 of unlock multisig is the sha256-256 sum of above value
+```
+
 <APIRequest
   title="Get Multisig Outputs"
   method="POST"

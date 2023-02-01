@@ -1,5 +1,5 @@
 ---
-title: Send Multisigs Requests
+title: 多重签名请求
 sidebar_position: 3
 ---
 
@@ -11,13 +11,11 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-Multisigs need to first generate a multi-signature request to obtain request_id, and then initiate the multi-signature operation.
+多重签名需要先请求 API，生成一个 request_id
 
-## Generating Multisig Requests
+## 创建多签请求
 
 ### POST /multisigs/requests
-
-Generate a multi-signature request.
 
 <APIEndpoint url="/multisigs/requests" />
 
@@ -30,7 +28,7 @@ Generate a multi-signature request.
 `}</APIPayload>
 
 :::info
-`raw` is a transaction with mainnet specification. Refer to the implementation in Go and JS provided by our [code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils)
+`raw` 是主网的交易格式。参考 Golang 实现 [code](https://github.com/MixinNetwork/multisig-bot/tree/master/src/utils)
 :::
 
 <APIRequest
@@ -74,7 +72,7 @@ Generate a multi-signature request.
 }
 ```
 
-## Initiating A Multi-signature
+## 多签操作
 
 ### POST /multisigs/requests/:id/:action
 
@@ -85,9 +83,21 @@ Generate a multi-signature request.
 <APIParams
   p-action="Operations: could be `sign`, `cancel`, and `unlock`"
   p-action-required={true}
-  p-pin="Encrypted PIN."
+  p-pin_base64="Encrypted PIN."
   p-pin-required={true}
 />
+
+## TIP Pin 结构
+
+```
+"TIP:MULTISIG:REQUEST:SIGN:" + request_id
+
+sign 多签的 pin_base64 是上面值的 sha256-256 的结果
+
+"TIP:MULTISIG:REQUEST:UNLOCK:" + request_id
+
+unlock 多签的 pin_base64 是上面值的 sha256-256 的结果
+```
 
 <APIRequest
   title="Get Multisig Outputs"
@@ -130,9 +140,9 @@ Generate a multi-signature request.
 }
 ```
 
-## Operations
+## 相关操作
 
-### Initiate or participate in signing
+### 创建一个多签并且签名
 
 ```json
 // Generate multisig request.
@@ -146,7 +156,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/sign
 ```
 
-### Cancel my signature
+### 删除一个还未签名的请求
 
 ```json
 // Generate multisig request.
@@ -160,7 +170,7 @@ POST /multisigs/requests
 POST /multisigs/requests/:id/cancel
 ```
 
-### Cancel multisigs
+### 取消自己的签名, 注意只有签名还未完成的交易可以取消
 
 ```json
 // Generate multisig request.

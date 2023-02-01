@@ -33,6 +33,12 @@ It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/
 }
 `}</APIPayload>
 
+
+### 请求参数说明
+
+1. address_id 是指先创建地址，然后用地址地址
+2. 可选方式, 直接用 `asset_id`, `destination` 跟 `tag` 来提现
+
 ## TIP Pin 结构
 
 ```
@@ -40,11 +46,6 @@ It costs fee to withdrawal. To get the fee, use [`GET /assets/{asset_id}/fee`](/
 
 pin 是上面值的 sha256-256 的结果
 ```
-
-### 请求参数说明
-
-1. address_id 是指先创建地址，然后用地址地址
-2. 可选方式, 直接用 `asset_id`, `destination` 跟 `tag` 来提现
 
 <APIRequest
   title="Request to withdrawal"

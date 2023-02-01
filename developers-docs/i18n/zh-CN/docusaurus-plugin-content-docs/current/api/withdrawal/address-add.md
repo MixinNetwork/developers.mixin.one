@@ -35,9 +35,8 @@ import RespAddress from "../../_partials/_resp.addr.md";
 ```
 "TIP:ADDRESS:ADD:" + asset_id + destination + tag + label
 
-pin 是上面值的 sha256-256 的结果
+pin_base64 是上面值的 sha256-256 的结果
 ```
-
 
 <APIRequest
   title="Create an ETH address"

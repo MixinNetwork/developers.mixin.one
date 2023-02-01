@@ -33,6 +33,11 @@ You will need to [create a withdrawal address](./address-add.md) first to withdr
 }
 `}</APIPayload>
 
+### explaination of request parameters
+
+1. address_id if user have an address, they can use the address id create withdrawal
+2. Optional, use `asset_id`, `destination` and `tag` created withdrawal
+
 ## How to generate TIP Pin
 
 ```
@@ -40,11 +45,6 @@ You will need to [create a withdrawal address](./address-add.md) first to withdr
 
 pin_base64 is the sha256-256 sum of above value
 ```
-
-### explaination of request parameters
-
-1. address_id if user have an address, they can use the address id create withdrawal
-2. Optional, use `asset_id`, `destination` and `tag` created withdrawal
 
 <APIRequest
   title="Request to withdrawal"
