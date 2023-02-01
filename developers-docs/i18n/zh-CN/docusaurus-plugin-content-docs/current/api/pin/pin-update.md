@@ -1,5 +1,5 @@
 ---
-title: Update PIN
+title: 更新 PIN
 sidebar_position: 1
 ---
 

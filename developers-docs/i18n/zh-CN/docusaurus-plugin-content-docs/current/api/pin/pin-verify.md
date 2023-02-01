@@ -1,5 +1,5 @@
 ---
-title: Verify PIN
+title: 验证 PIN
 sidebar_position: 2
 ---
 

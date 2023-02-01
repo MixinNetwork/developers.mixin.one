@@ -1,5 +1,5 @@
 ---
-title: PIN Error Logs
+title: PIN 错误记录
 sidebar_position: 3
 ---
 
@@ -13,7 +13,7 @@ import {
 
 ## GET /logs
 
-Query the user PIN error log records, based on which developers can remind the user of the number of errors within 24 hours.
+查询用户的 PIN 的错误记录，开发者可以根据这个来提示用户 24 小时内的 PIN 的错误次数。
 
 <APIEndpoint url="/logs?limit=:limit&offset=:offset&category=:category" />
 

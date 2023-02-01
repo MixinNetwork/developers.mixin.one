@@ -162,6 +162,7 @@ module.exports = {
             'api/pin/pin-update',
             'api/pin/pin-verify',
             'api/pin/logs',
+            'api/pin/tip',
           ]
         },
         {
