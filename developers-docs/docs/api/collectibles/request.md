@@ -53,9 +53,21 @@ Request body data of the request
 <APIParams
   p-action="Operations: could be `sign`, `cancel`, and `unlock`"
   p-action-required={true}
-  p-pin="Encrypted PIN."
+  p-pin_base64="Encrypted PIN."
   p-pin-required={true}
 />
+
+## how to generate TIP Pin
+
+```
+"TIP:COLLECTIBLE:REQUEST:SIGN:" + request_id
+
+pin_base64 of sign multisig is the sha256-256 sum of above value
+
+"TIP:COLLECTIBLE:REQUEST:UNLOCK:" + request_id
+
+pin_base64 of unlock multisig is the sha256-256 sum of above value
+```
 
 <APIRequest
   title="operate the collectible request"

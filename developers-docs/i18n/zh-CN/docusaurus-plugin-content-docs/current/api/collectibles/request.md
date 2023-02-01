@@ -53,9 +53,21 @@ import {
 <APIParams
   p-action="操作有: `sign`, `cancel` 跟 `unlock`"
   p-action-required={true}
-  p-pin="加密后的 PIN."
+  p-pin_base64="加密后的 PIN."
   p-pin-required={true}
 />
+
+## TIP Pin 结构
+
+```
+"TIP:COLLECTIBLE:REQUEST:SIGN:" + request_id
+
+sign 多签的 pin_base64 是上面值的 sha256-256 的结果
+
+"TIP:COLLECTIBLE:REQUEST:UNLOCK:" + request_id
+
+unlock 多签的 pin_base64 是上面值的 sha256-256 的结果
+```
 
 <APIRequest
   title="operate the collectible request"

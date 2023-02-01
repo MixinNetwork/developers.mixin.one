@@ -29,11 +29,19 @@ Transfer to a specified mainnet address.
   "asset_id":     "the asset's asset_id which you are transferring",
   "opponent_id":  "the mainnet address which you are transferring",
   "amount":       "e.g.: "0.01", supports up to 8 digits after the decimal point",
-  "pin":          "Encrypted PIN",
+  "pin_base64":          "Encrypted PIN",
   "trace_id":     "Used to prevent duplicate payment, optional",
   "memo":         "Maximally 140 characters, optional",
 }
 `}</APIPayload>
+
+## TIP Pin 结构
+
+```
+"TIP:TRANSACTION:CREATE:" + assetId + counterUserId + amount + traceId + memo
+
+pin_base64 是上面值的 sha256-256 的结果
+```
 
 <APIRequest
   title="Transfer to Mainnet"

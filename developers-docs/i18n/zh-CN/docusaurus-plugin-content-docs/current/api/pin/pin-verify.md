@@ -21,9 +21,16 @@ import RespUser from "../../_partials/_resp.user.md";
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "pin": "Encrypted PIN"
+  "pin_base64": "Encrypted PIN",
+  "timestamp": 1234,
 }
 `}</APIPayload>
+
+```
+fmt.Sprintf("%s%032d", "TIP:VERIFY:", timestamp)
+
+timestamp 是 UnixNano 的值，单位是 int64
+```
 
 <APIRequest title="Verify PIN" method="POST" url="/pin/verify --data PAYLOAD" />
 

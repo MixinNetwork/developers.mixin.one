@@ -85,7 +85,7 @@ Generate a multi-signature request.
 <APIParams
   p-action="Operations: could be `sign`, `cancel`, and `unlock`"
   p-action-required={true}
-  p-pin="Encrypted PIN."
+  p-pin_base64="Encrypted PIN."
   p-pin-required={true}
 />
 

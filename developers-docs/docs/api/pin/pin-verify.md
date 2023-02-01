@@ -21,9 +21,18 @@ Verify a user's PIN, notice the iterator of the pin will increment also.
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "pin": "Encrypted PIN"
+  "pin_base64": "Encrypted PIN"
+  "timestamp": 1234,
 }
 `}</APIPayload>
+
+## How to generate TIP Pin
+
+```
+fmt.Sprintf("%s%032d", "TIP:VERIFY:", timestamp)
+
+timestamp is UnixNano in int64
+```
 
 <APIRequest title="Verify PIN" method="POST" url="/pin/verify --data PAYLOAD" />
 
