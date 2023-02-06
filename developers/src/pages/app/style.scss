@@ -13,6 +13,13 @@ header {
 
 .app-header {
   display: none;
+
+  .header-title {
+    max-width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .header-list {
