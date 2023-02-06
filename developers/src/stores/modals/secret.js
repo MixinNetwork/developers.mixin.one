@@ -1,8 +1,8 @@
-import { ref, inject, watch } from 'vue';
+import { ref, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import { useClipboard } from '@vueuse/core';
+import ClipboardJS from 'clipboard';
 import FileSaver from 'file-saver';
 
 export const useSecretModalStore = defineStore('secret', () => {
@@ -14,12 +14,30 @@ export const useSecretModalStore = defineStore('secret', () => {
   const secretTitle = ref('');
   const secretContent = ref('');
   const type = ref('');
+  const clipboard = ref(undefined);
+
+  const initCopyBtn = () => {
+    clipboard.value = new ClipboardJS(
+      '.btn-copy', 
+      {
+        text: () => secretContent.value
+      }
+    );
+    clipboard.value.on('success', (e) => {
+      e.clearSelection();
+      return $message.success({ message: t('message.success.copy'), showClose: true });
+    });
+    clipboard.value.on('error', () => {
+      return $message.error({ message: t('message.errors.copy'), showClose: true });
+    });
+  };
 
   const useInitSecret = (title, content, action) => {
     showSecret.value = true;
     secretTitle.value = title;
     secretContent.value = content;
     type.value = action;
+    initCopyBtn();
   };
 
   const useClearSecret = () => {
@@ -27,21 +45,8 @@ export const useSecretModalStore = defineStore('secret', () => {
     secretTitle.value = '';
     secretContent.value = '';
     type.value = undefined;
+    clipboard.value = undefined;
   };
-
-  const { copy, copied, isSupported } = useClipboard();
-  const useClickCopy = async () => {
-    if (!isSupported.value) {
-      $message.error({ message: t('message.errors.copy'), showClose: true });
-      return;
-    }
-    await copy(secretContent.value);
-  };
-  watch(copied, (newValue, oldValue) => {
-    if (newValue && !oldValue) $message.success({ message: t('message.success.copy'), showClose: true });
-  }, {
-    flush: 'post'
-  });
 
   const useClickDownload = () => {
     const { app_number } = route.params;
@@ -54,6 +59,7 @@ export const useSecretModalStore = defineStore('secret', () => {
   };
 
   const useCloseModal = () => {
+    clipboard.value.destroy();
     useClearSecret();
   };
 
@@ -64,7 +70,6 @@ export const useSecretModalStore = defineStore('secret', () => {
     type,
     useInitSecret,
     useClearSecret,
-    useClickCopy,
     useClickDownload,
     useCloseModal,
   };

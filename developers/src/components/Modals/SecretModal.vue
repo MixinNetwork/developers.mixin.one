@@ -7,7 +7,6 @@
         <button v-if="type==='UpdateSecret'" @click="useCloseModal" class="btn-close primary">{{t('button.cancel')}}</button>
         <button v-if="type==='UpdateSession'" @click="useClickDownload" class="btn-download primary">{{t('button.download')}}</button>
         <button
-          @click="useClickCopy"
           class="btn-copy primary"
         >{{t('button.copy')}}
         </button>
@@ -36,14 +35,13 @@ export default {
       secretContent,
       type,
     } = storeToRefs(secretStore);
-    const { useClickCopy, useClickDownload, useCloseModal } = secretStore;
+    const { useClickDownload, useCloseModal } = secretStore;
 
     return {
       showSecret,
       secretTitle,
       secretContent,
       type,
-      useClickCopy,
       useClickDownload,
       useCloseModal,
       t,
