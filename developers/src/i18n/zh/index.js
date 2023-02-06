@@ -672,6 +672,7 @@ export default {
       reset: '正在重置，请稍候...',
       overtime: '请求失败，请检查网络...',
       unknown: '未知错误...',
+      download: '请使用浏览器下载'
     },
     app: {
       secret_tips: '请从您的计算机生成，谢谢',

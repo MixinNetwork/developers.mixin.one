@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
 import FileSaver from 'file-saver';
+import { getEnvironment } from '@/utils/tools';
 
 export const useSecretModalStore = defineStore('secret', () => {
   const $message = inject('$message');
@@ -49,6 +50,12 @@ export const useSecretModalStore = defineStore('secret', () => {
   };
 
   const useClickDownload = () => {
+    const os = getEnvironment();
+    if (!!os) {
+      $message.error({ message: t('message.errors.download'), showClose: true });
+      return;
+    }
+
     const { app_number } = route.params;
 
     const blob = new Blob(
