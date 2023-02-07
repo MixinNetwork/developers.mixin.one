@@ -619,6 +619,7 @@ export default {
       reset: 'Resetting, please wait...',
       overtime: 'Request failed, please check the network...',
       unknown: 'Unknown error...',
+      download: 'Download with browser please'
     },
     app: {
       secret_tips: 'Please generate from your computer, thank you',

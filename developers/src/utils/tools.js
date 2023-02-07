@@ -56,3 +56,14 @@ export const assetSortCompare = (a, b) => {
   if (cmp === 0) cmp = cmpBalance(a.price_usd, b.price_usd);
   return cmp;
 };
+
+export const getMixinEnvironment = () => {
+  if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
+    return 'iOS';
+  }
+  if (window.MixinContext && (typeof window.MixinContext.getContext === 'function')) {
+    const ctx = JSON.parse(window.MixinContext.getContext());
+    return ctx.platform || 'Android';
+  }
+  return undefined;
+};

@@ -9,7 +9,7 @@
     />
     <img
       v-if="allowCopy"
-      @click="useClickCopy"
+      :class="cls"
       src="@/assets/img/ic_copy.png"
       alt="copy-text-icon"
     />
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { inject, watch } from 'vue';
-import { useClipboard } from '@vueuse/core';
+import { inject, onBeforeUnmount } from 'vue';
+import ClipboardJS from 'clipboard';
 import { useI18n } from 'vue-i18n';
 
 export default {
@@ -28,28 +28,34 @@ export default {
   setup(props, ctx) {
     const $message = inject('$message');
     const { t } = useI18n();
+    const cls = props.label === t('information.app_id') ? 'id-copy-btn' : 'identity-copy-btn';
 
     const change = (event) => {
       ctx.emit('update:value', event.target.value);
     };
 
-    const { copy, copied, isSupported } = useClipboard();
-    const useClickCopy = () => {
-      if (!isSupported.value) {
-        $message.error({ message: t('message.errors.copy'), showClose: true });
-        return;
-      }
-      copy(props.value);
-    };
-    watch(copied, (newValue, oldValue) => {
-      if (newValue && !oldValue) $message.success({ message: t('message.success.copy'), showClose: true });
-    }, {
-      flush: 'post',
+    let clipboard = null;
+    if (props.allowCopy) {
+      clipboard = new ClipboardJS(
+        `.${cls}`,
+        {
+          text: () => props.value,
+        },
+      );
+      clipboard.on('success', (e) => {
+        e.clearSelection();
+        return $message.success({ message: t('message.success.copy'), showClose: true });
+      });
+      clipboard.on('error', () => $message.error({ message: t('message.errors.copy'), showClose: true }));
+    }
+
+    onBeforeUnmount(() => {
+      if (clipboard) clipboard.destroy();
     });
 
     return {
+      cls,
       change,
-      useClickCopy,
     };
   },
 };

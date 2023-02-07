@@ -7,7 +7,7 @@
         </div>
       </template>
       <template #center>
-        <div>{{ t('dashboard.new_app') }}</div>
+        <div class="header-title">{{ t('dashboard.new_app') }}</div>
       </template>
     </d-header>
     <header>
@@ -54,6 +54,13 @@ export default {
 <style lang="scss" scoped>
 .app-header {
   display: none;
+
+  .header-title {
+    max-width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 header {

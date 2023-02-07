@@ -69,10 +69,10 @@ button {
   width: 8.625rem;
   height: 2.375rem;
   border-radius: 3px;
+  font-size: 1rem;
   &:first-child {
     background-color: #e5e7ec;
     color: #333;
-    font-size: 1rem;
     margin-right: 0.625rem;
   }
   &:last-child {

@@ -52,14 +52,8 @@ export default {
     position: absolute;
     left: 50%;
     top: 0;
-    div {
-      max-width: 200px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    font-size: 18px;
     transform: translate(-50%);
+    font-size: 18px;
   }
   .app-header-right {
     position: absolute;

@@ -7,7 +7,7 @@
         </div>
       </template>
       <template #center>
-        <div>{{ currentAppName }}</div>
+        <div class="header-title">{{ currentAppName }}</div>
       </template>
     </d-header>
     <header>
