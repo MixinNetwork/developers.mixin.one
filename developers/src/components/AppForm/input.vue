@@ -37,23 +37,21 @@ export default {
     let clipboard = null;
     if (props.allowCopy) {
       clipboard = new ClipboardJS(
-        `.${cls}`, 
+        `.${cls}`,
         {
-          text: () => props.value
-        }
+          text: () => props.value,
+        },
       );
       clipboard.on('success', (e) => {
         e.clearSelection();
         return $message.success({ message: t('message.success.copy'), showClose: true });
       });
-      clipboard.on('error', () => {
-        return $message.error({ message: t('message.errors.copy'), showClose: true });
-      });
+      clipboard.on('error', () => $message.error({ message: t('message.errors.copy'), showClose: true }));
     }
 
     onBeforeUnmount(() => {
       if (clipboard) clipboard.destroy();
-    })
+    });
 
     return {
       cls,

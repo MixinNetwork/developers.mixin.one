@@ -19,18 +19,16 @@ export const useSecretModalStore = defineStore('secret', () => {
 
   const initCopyBtn = () => {
     clipboard.value = new ClipboardJS(
-      '.btn-copy', 
+      '.btn-copy',
       {
-        text: () => secretContent.value
-      }
+        text: () => secretContent.value,
+      },
     );
     clipboard.value.on('success', (e) => {
       e.clearSelection();
       return $message.success({ message: t('message.success.copy'), showClose: true });
     });
-    clipboard.value.on('error', () => {
-      return $message.error({ message: t('message.errors.copy'), showClose: true });
-    });
+    clipboard.value.on('error', () => $message.error({ message: t('message.errors.copy'), showClose: true }));
   };
 
   const useInitSecret = (title, content, action) => {
@@ -50,7 +48,7 @@ export const useSecretModalStore = defineStore('secret', () => {
   };
 
   const useClickDownload = () => {
-    const os = getEnvironment();
+    const os = getMixinEnvironment();
     if (!!os) {
       $message.error({ message: t('message.errors.download'), showClose: true });
       return;
