@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
 import FileSaver from 'file-saver';
-import { getEnvironment } from '@/utils/tools';
+import { getMixinEnvironment } from '@/utils/tools';
 
 export const useSecretModalStore = defineStore('secret', () => {
   const $message = inject('$message');

@@ -57,7 +57,7 @@ export const assetSortCompare = (a, b) => {
   return cmp;
 };
 
-export const getEnvironment = () => {
+export const getMixinEnvironment = () => {
   if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
     return 'iOS';
   }
