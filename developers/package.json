@@ -14,7 +14,7 @@
     "bignumber.js": "^9.1.1",
     "element-plus": "^2.2.29",
     "file-saver": "^2.0.5",
-    "pinia": "^2.0.28",
+    "pinia": "^2.0.30",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
     "uuid": "^9.0.0",
