@@ -18,9 +18,14 @@ export const getUrlParameter = (name) => {
   return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 
+export const getMixinEnvironment = () => {
+  const ctx = client.getMixinContext();
+  return ctx.platform;
+};
+
 export const getImmersive = () => {
   const ctx = client.getMixinContext();
-  return ctx.immersive ? ctx.immersive : false;
+  return !!ctx.immersive;
 };
 
 export const changeTheme = (color) => {
@@ -55,15 +60,4 @@ export const assetSortCompare = (a, b) => {
   if (cmp === 0) cmp = cmpBalance(a.balance, b.balance);
   if (cmp === 0) cmp = cmpBalance(a.price_usd, b.price_usd);
   return cmp;
-};
-
-export const getMixinEnvironment = () => {
-  if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext) {
-    return 'iOS';
-  }
-  if (window.MixinContext && (typeof window.MixinContext.getContext === 'function')) {
-    const ctx = JSON.parse(window.MixinContext.getContext());
-    return ctx.platform || 'Android';
-  }
-  return undefined;
 };
