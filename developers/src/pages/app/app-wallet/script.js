@@ -8,7 +8,13 @@ import {
 } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useLoadStore, useUpdateTokenModalStore, useWithdrawalModalStore } from '@/stores';
+import { storeToRefs } from 'pinia';
+import { 
+  useLoadStore, 
+  useUpdateTokenModalStore, 
+  useWithdrawalModalStore,
+  useLayoutStore
+} from '@/stores';
 import { assetSortCompare, ls } from '@/utils';
 import { useBotClient } from '@/api';
 
@@ -25,6 +31,8 @@ export default {
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitWithdrawal } = useWithdrawalModalStore();
     const { useInitUpdateToken } = useUpdateTokenModalStore();
+    const dataStore = useLayoutStore();
+    const { chainList } = storeToRefs(dataStore);
 
     const state = reactive({
       assetList: [],
@@ -59,6 +67,28 @@ export default {
       } else {
         state.assetList = [];
       }
+
+      const useGetAssetWithChainInfo = async (asset) => {
+        let cachedChainAsset = chainList.value[asset.chain_id];
+        if (!cachedChainAsset) {
+          try {
+            cachedChainAsset = await appClient.request(`/network/chains/${asset.chain_id}`);
+            chainList.value[asset.chain_id] = cachedChainAsset;
+          } catch(e) {
+            cachedChainAsset = {
+              name: undefined,
+              icon_url: undefined
+            };
+          }
+        }
+
+        return {
+          ...asset,
+          chain_name: cachedChainAsset.name,
+          chain_icon_url: cachedChainAsset.icon_url
+        };
+      };
+      state.assetList = await Promise.all(state.assetList.map(asset => useGetAssetWithChainInfo(asset)));
     };
 
     const useClickWithdrawal = (item) => {
