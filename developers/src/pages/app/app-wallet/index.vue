@@ -14,8 +14,16 @@
         :key="index"
         class="item"
       >
-        <img :src="item.icon_url" :alt="item.name"/>
-        <div>
+        <div class="icon-container">
+          <img class="asset-icon" :src="item.icon_url" :alt="item.name"/>
+          <img 
+            v-if="!!item.chain_icon_url"
+            class="chain-asset-icon" 
+            :src="item.chain_icon_url" 
+            :alt="item.chain_name"
+          />
+        </div>
+        <div class="balance">
           <span class="num">{{ item.balance }}</span>
           <span class="symbol">{{ item.symbol }}</span>
         </div>

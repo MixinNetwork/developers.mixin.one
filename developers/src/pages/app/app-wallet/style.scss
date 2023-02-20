@@ -107,7 +107,7 @@
     margin-left: 2.5rem;
   }
 
-  div {
+  .balance {
     flex: 1;
     white-space: nowrap;
     display: flex;
@@ -116,10 +116,25 @@
     padding: 0 0 0 1rem;
   }
 
-  img {
-    display: inline-block;
+  .icon-container {
+    position: relative;
     width: 1.875rem;
     height: 1.875rem;
+
+    .asset-icon {
+      width: 100%;
+      border: #fff;
+    }
+
+    .chain-asset-icon {
+      position: absolute;
+      left: -0.125rem;
+      bottom: -0.125rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      border: #fff 1px solid;
+      border-radius: 50%;
+    }
   }
 
   &:last-child {
@@ -201,7 +216,7 @@
     width: 100%;
     min-width: 17.5rem;
 
-    div {
+    .balance {
       padding-left: .5rem;
       flex-direction: column;
       align-items: flex-start;
