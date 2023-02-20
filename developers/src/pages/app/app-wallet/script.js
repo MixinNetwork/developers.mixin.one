@@ -69,11 +69,17 @@ export default {
       }
 
       const useGetAssetWithChainInfo = async (asset) => {
-        const cachedChainAsset = chainList.value[asset.chain_id];
+        let cachedChainAsset = chainList.value[asset.chain_id];
         if (!cachedChainAsset) {
-          const chainAsset = await appClient.request(`/network/chains/${asset.chain_id}`);
-          chainList.value[chainAsset.chain_id] = chainAsset;
-          return useGetAssetWithChainInfo(asset);
+          try {
+            cachedChainAsset = await appClient.request(`/network/chains/${asset.chain_id}`);
+            chainList.value[asset.chain_id] = cachedChainAsset;
+          } catch(e) {
+            cachedChainAsset = {
+              name: undefined,
+              icon_url: undefined
+            };
+          }
         }
 
         return {
