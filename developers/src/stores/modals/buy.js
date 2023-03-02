@@ -18,7 +18,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
   const show = ref(false);
   const loading = ref(false);
   const showDebtTip = computed(() => appList.value.length > appProperty.value.count);
-  const debtCount = computed(() => Math.max(0, appList.value.length - appProperty.value.count) * appProperty.value.price)
+  const debtAmount = computed(() => Math.max(0, appList.value.length - appProperty.value.count) * Number(appProperty.value.price));
 
   const useCheckCredit = () => {
     if (appList.value.length >= appProperty.value.count) {
@@ -37,7 +37,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     await fetchAppProperty(client);
 
     const trace = uuid();
-    const amount = Number(appProperty.value.price) * (count + debtCount.value);
+    const amount = Number(appProperty.value.price) * count + debtAmount.value;
     // eslint-disable-next-line max-len
     window.location.href = `https://mixin.one/pay?recipient=fbd26bc6-3d04-4964-a7fe-a540432b16e2&asset=c94ac88f-4671-3976-b60a-09064f1811e8&amount=${amount}&trace=${trace}&memo=PAY_FOR_APP`;
   };
@@ -46,7 +46,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     show,
     loading,
     showDebtTip,
-    debtCount,
+    debtAmount,
     useClickBuyButton,
     useCloseBuyModal,
     useCheckCredit,

@@ -14,7 +14,7 @@
           t('dashboard.buy.debt', { 
             appNumber: appList.length, 
             creditNumber: appProperty.count, 
-            debt: `${debtCount} XIN` 
+            debt: `${debtAmount} XIN` 
           })
         }}
       </div>
@@ -50,7 +50,7 @@ export default {
     const { t } = useI18n();
 
     const modalStore = useBuyModalStore();
-    const { show, loading, showDebtTip, debtCount } = storeToRefs(modalStore);
+    const { show, loading, showDebtTip, debtAmount } = storeToRefs(modalStore);
     const { useClickBuyButton, useCloseBuyModal } = modalStore;
 
     const dataStore = useLayoutStore();
@@ -60,7 +60,7 @@ export default {
       show,
       loading,
       showDebtTip,
-      debtCount,
+      debtAmount,
       appProperty, 
       appList,
       useClickBuyButton,
