@@ -477,10 +477,10 @@ export default {
     buy: {
       title: 'Buy Apps',
       desc1: 'You have exhausted your free credit and please buy more at first',
-      desc2: `1. Please create the apps as soon as you finished the payment, because the price may change frequently.\r\n2. The user who actually pays for the apps will receive the credits, instead of the current user.`,
+      desc2: `1. Please create the apps as soon as you finished the payment, because the price may change frequently.\r\n2. The user who actually pays will receive the credits, instead of the current user.`,
       btn: 'Buy {count} App',
       btns: 'Buy {count} Apps',
-      debt: 'You have {appNumber} apps, but only {creditNumber} credits.\r\nYou must pay for the gap together when buying new apps.'
+      debt: 'You have {appNumber} apps now, but only {creditNumber} credits.\r\nYou must pay for the gap, {debt}, together when buying new apps.'
     },
   },
   information: {

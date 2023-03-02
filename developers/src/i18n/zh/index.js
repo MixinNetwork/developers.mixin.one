@@ -536,7 +536,7 @@ export default {
       desc2: `1. 完成付款后，请尽快创建应用，否则可能会因为价格变化，无法创建。\r\n2. 实际付款的用户将会获得 app 额度，而不是当前用户。`,
       btn: '买 {count} 个',
       btns: '买 {count} 个',
-      debt: '你当前拥有 {appNumber} 个应用，但只有 {creditNumber} 个额度。\r\n你必须在购买新的额度的同时支付差额。'
+      debt: '你当前拥有 {appNumber} 个应用，但只有 {creditNumber} 个额度。\r\n你必须在购买新额度的同时支付差额：{debt}。'
     },
   },
   information: {

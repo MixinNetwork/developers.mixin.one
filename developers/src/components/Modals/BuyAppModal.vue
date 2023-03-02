@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="true" :loading="loading">
+  <d-modal :show="show" :loading="loading">
     <div class="buy-modal">
       <img
         @click="useCloseBuyModal"
@@ -10,7 +10,13 @@
       <div>{{ t('dashboard.buy.desc1') }}</div>
       <p>{{ t('dashboard.buy.desc2') }}</p>
       <div class="debt-tip" v-if="showDebtTip">
-        {{ t('dashboard.buy.debt', { appNumber: appList.length, creditNumber: appProperty.count }) }}
+        {{ 
+          t('dashboard.buy.debt', { 
+            appNumber: appList.length, 
+            creditNumber: appProperty.count, 
+            debt: `${debtCount} XIN` 
+          })
+        }}
       </div>
       <button
         @click="useClickBuyButton(1)"
@@ -44,7 +50,7 @@ export default {
     const { t } = useI18n();
 
     const modalStore = useBuyModalStore();
-    const { show, loading, showDebtTip } = storeToRefs(modalStore);
+    const { show, loading, showDebtTip, debtCount } = storeToRefs(modalStore);
     const { useClickBuyButton, useCloseBuyModal } = modalStore;
 
     const dataStore = useLayoutStore();
@@ -54,6 +60,7 @@ export default {
       show,
       loading,
       showDebtTip,
+      debtCount,
       appProperty, 
       appList,
       useClickBuyButton,
