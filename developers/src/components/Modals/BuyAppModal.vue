@@ -1,5 +1,5 @@
 <template>
-  <d-modal :show="show" :loading="loading">
+  <d-modal :show="true" :loading="loading">
     <div class="buy-modal">
       <img
         @click="useCloseBuyModal"
@@ -9,6 +9,9 @@
       <h3 class="edit-modal-title">{{ t('dashboard.buy.title') }}</h3>
       <div>{{ t('dashboard.buy.desc1') }}</div>
       <p>{{ t('dashboard.buy.desc2') }}</p>
+      <div class="debt-tip" v-if="showDebtTip">
+        {{ t('dashboard.buy.debt', { appNumber: appList.length, creditNumber: appProperty.count }) }}
+      </div>
       <button
         @click="useClickBuyButton(1)"
         class="btns-save primary"
@@ -32,7 +35,7 @@
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import DModal from '@/components/Modals/DModal';
-import { useBuyModalStore } from '@/stores';
+import { useBuyModalStore, useLayoutStore } from '@/stores';
 
 export default {
   name: 'buy-app-modal',
@@ -41,12 +44,18 @@ export default {
     const { t } = useI18n();
 
     const modalStore = useBuyModalStore();
-    const { show, loading } = storeToRefs(modalStore);
+    const { show, loading, showDebtTip } = storeToRefs(modalStore);
     const { useClickBuyButton, useCloseBuyModal } = modalStore;
+
+    const dataStore = useLayoutStore();
+    const { appProperty, appList } = storeToRefs(dataStore);
 
     return {
       show,
       loading,
+      showDebtTip,
+      appProperty, 
+      appList,
       useClickBuyButton,
       useCloseBuyModal,
       t,
@@ -76,11 +85,21 @@ export default {
     margin-bottom: 1.875rem;
   }
 
+  .debt-tip {
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 14px;
+    color: red;
+    white-space: pre-wrap;
+  }
+
   p {
     margin: 0.625rem 0 1.125rem 0;
     background-color: #f6f9ff;
     padding: 0.625rem;
     font-size: 0.875rem;
+    text-align: left;
+    white-space: pre-wrap;
   }
 
   button {
