@@ -24,7 +24,7 @@ spend key: c0619ce9c6fad9d2b6f7f4c0e676aed8f4d07b422e5fa55fee6154961954be0c
 
 发起加入主网的地址可以是 signer、payee 或者别的地址都可以没有要求，但是节点到期或中途退出节点币会退回到 payee 的地址。
 
-`$$\color{red}{注意：节点每年的迭代必须要更换新的\;signer\;的\;key，\;payee\;的\;key\;没有要求。}$$`
+**注意：节点每年的迭代必须要更换新的 signer 的 key，payee 的 key 没有要求。**
 
 ### 中转抵押代币
 
