@@ -8,7 +8,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@mixin.dev/mixin-node-sdk": "^5.0.0",
+    "@mixin.dev/mixin-node-sdk": "^5.1.2",
     "assert": "^2.0.0",
     "bignumber.js": "^9.1.1",
     "clipboard": "^2.0.11",
