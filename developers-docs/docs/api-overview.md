@@ -18,7 +18,7 @@ There will be two free bots per developer, but you can buy more bots by paying a
 # Join Developers Group
 
 If you have questions or advises, please join the Mixin Developers Group, which link is
-[https://mixin.one/codes/50d49416-dcf5-4f8b-ae98-b7836a26a84a](https://mixin.one/codes/50d49416-dcf5-4f8b-ae98-b7836a26a84a)
+[https://mixin.one/codes/2db90a85-edff-4ab0-ae89-ce0619e2638e](https://mixin.one/codes/2db90a85-edff-4ab0-ae89-ce0619e2638e)
 
 # Official Website
 
