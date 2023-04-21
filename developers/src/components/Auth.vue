@@ -33,12 +33,12 @@ export default {
     const { privateKey, publicKey } = getED25519KeyPair();
 
     const client = useUserClient($message, t);
-    client.oauth.getToken(
-      process.env.VUE_APP_CLIENT_ID,
+    client.oauth.getToken({
+      client_id: process.env.VUE_APP_CLIENT_ID,
       code,
-      publicKey,
+      ed25519: publicKey,
       // eslint-disable-next-line consistent-return
-    ).then((resp) => {
+    }).then((resp) => {
       if (!resp) return useAccessDenied();
 
       const { scope, authorization_id } = resp;
