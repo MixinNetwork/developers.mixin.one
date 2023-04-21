@@ -21,7 +21,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
   const loading = ref(false);
 
   const useCheckCredit = () => {
-    if (appList.value.length >= appProperty.value.count) {
+    if (appProperty.value.count <= 0) {
       show.value = true;
       return;
     }
@@ -43,7 +43,6 @@ export const useBuyModalStore = defineStore('buy-app', () => {
       settlementMemo: memo,
       returnTo
     };
-  
     const query = qs.stringify(params);
     return `${baseUrl}?${query}`;
   }
