@@ -31,7 +31,7 @@ export default {
     const croppie = ref(null);
     const router = useRouter();
 
-    const { fetchAppList } = useLayoutStore();
+    const { fetchAppList, fetchAppProperty } = useLayoutStore();
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitConfirm } = useConfirmModalStore();
 
@@ -125,6 +125,7 @@ export default {
         $message.success({ message: t('message.success.save'), showClose: true });
         useInitApp(res);
         await fetchAppList(client);
+        await fetchAppProperty(client);
         await router.push({
           path: `/apps/${res.app_number}`,
           hash: '#information',
