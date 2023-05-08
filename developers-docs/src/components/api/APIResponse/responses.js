@@ -37,11 +37,11 @@ export default {
 // data structure
 [
   {
-    "label": "Mixin Website",
+    "label": "Mixin Website", 1 <= size(label) <= 36
     "color": "#ABABAB",
     "action": "https://mixin.one"
   }
-  ...
+  ... // 1 <= size(msg_buttons) <= 6
 ]`,
 
   msg_card: `{

@@ -15,10 +15,10 @@
 ```json title="data"
 [
   {
-    "label": "Mixin Website",
+    "label": "Mixin Website", 1 <= label 长度 <= 36
     "color": "#ABABAB",
     "action": "https://mixin.one"
   }
-  ...
+  ... // 不能少于 1 个, 也不能大于 6 个
 ]
 ```
