@@ -17,7 +17,7 @@ Here is an example from Golang: https://pkg.go.dev/crypto/ed25519#GenerateKey
 
 ## Upload the public key to mixin server
 
-Should upload the public key, use [update PIN interface](/zh-CN/docs/api/pin/pin-update)
+Should upload the public key, use [update PIN interface](/docs/api/pin/pin-update)
 
 1. If there's don't have old pin, `old_pin` is blank string.
 2. If there's have old six number pin, then should use the encrypted old pin as before.

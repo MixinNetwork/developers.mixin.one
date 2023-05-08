@@ -27,7 +27,7 @@ sidebar_position: 7
 
 - 充值进度
 
-  您可以使用`GET /external/transactions`并同时指定`asset`、`destination`和`tag`来检索当前充值地址是否有持续充值记录，参见[文档](../../api/network/pending-deposits)
+  您可以使用`GET /external/transactions`并同时指定`asset`、`destination`和`tag`来检索当前充值地址是否有持续充值记录，参见[文档](/zh-CN/docs/api/network/pending-deposits)
 
 :::tip
 建议关注 Mixin bot 7000103056，查看当前公链同步状态。 如果充值延提现可能是由于区块数据同步失败。 那就不用担心了，你只需要让用户等待，这将是 Mixin 主网团队解决这个问题的首要任务。
