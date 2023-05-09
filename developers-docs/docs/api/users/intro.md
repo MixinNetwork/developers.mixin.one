@@ -9,7 +9,7 @@ User is the basic in Mixin, messages, assets, etc all belongs to users.
 
 1. Messenger User: users that register with phone in iOS, Android.
 2. Bot User: created in [Dashborad](https://developers.mixin.one/dashboard).
-3. Network User: users that created by bot using [network user api](/zh-CN/docs/api/users/network-user).
+3. Network User: users that created by bot using [network user api](/docs/api/users/network-user).
 
 There are nearly no differences in Messenger User and Bot User, except the private key is taken care of by developers.
 
