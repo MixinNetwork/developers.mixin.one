@@ -57,7 +57,6 @@ export const useBuyModalStore = defineStore('buy-app', () => {
       a: 'APP',
     }));
     window.location.href = generateMixPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
-    // window.location.href = generateMixPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
   };
 
   return {
