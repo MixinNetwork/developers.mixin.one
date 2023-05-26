@@ -16,6 +16,11 @@ import RespAsset from "../../_partials/_resp.asset.md";
 
 This api obtain the asset list of a user, the `ASSETS:READ` permission is required.
 
+* asset_id in Messenger is UUID: c94ac88f-4671-3976-b60a-09064f1811e8
+* Asset in Mixin Mainnet is a99c2e0e2b1da4d648755ef19bd95139acbbe6564cfb06dec7cd34931ca72cdc
+
+Can get the detail of the asset by [https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8](https://api.mixin.one/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8) or [https://api.mixin.one/network/assets/a99c2e0e2b1da4d648755ef19bd95139acbbe6564cfb06dec7cd34931ca72cdc](https://api.mixin.one/network/assets/a99c2e0e2b1da4d648755ef19bd95139acbbe6564cfb06dec7cd34931ca72cdc) .
+
 <APIEndpoint url="/assets/:asset_id" />
 
 <APIMetaPanel scope="ASSETS:READ" scopeNote="" />
