@@ -34,5 +34,3 @@ Click 'Add Networks',and input the information below in the corresponding inputs
 - Block Explorer URL：<https://testnet.mvmscan.com/>
 
 And then you can use the transfer function and deploy contract with web3jd.
-
-You can claim some test coins from  [https://faucet.mvmscan.com/](https://faucet.mvmscan.com/) .

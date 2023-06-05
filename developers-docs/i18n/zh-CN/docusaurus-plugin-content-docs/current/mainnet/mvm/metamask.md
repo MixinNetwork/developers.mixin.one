@@ -31,8 +31,6 @@ MetaMask 可以通过 Chrome 和 Firefox 浏览器下载，移动端支持 iOS �
 - 符号（Symbol）：RUM
 - 区块浏览器 URL（Block Explorer URL）：<https://testnet.mvmscan.com/>
 
-也可以通过 <https://chainlist.info/?search==rum> 来一键添加。
+也可以通过 <https://chainlist.org/> 来一键添加。
 
 在保存（Save）网络并返回主页面后, 就可以正常的转账，调用 web3js 来部署合约了。
-
-如果需要测试币可以通过[https://faucet.mvmscan.com/](https://faucet.mvmscan.com/) 来领取。
