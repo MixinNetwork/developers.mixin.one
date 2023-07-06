@@ -532,7 +532,7 @@ export default {
     create_btn1: '创建你的第一个应用',
     buy: {
       title: '购买 App',
-      desc1: '您的免费额度已用完，请先购买',
+      desc1: '暂时没有 APP 额度，您需要先购买 App',
       desc2: '注意：完成付款后，请尽快创建应用，否则可能会因为价格变化，无法创建。',
       btn: '买 {count} 个',
       btns: '买 {count} 个',
