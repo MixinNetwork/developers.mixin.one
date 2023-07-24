@@ -66,7 +66,7 @@ Stable coins have a wide range of uses. In addition to serving as a safe-haven a
 
 ### Example
 
-The stablecoin Pando USD jointly issued by Mixin Core, Biyin, BigONE, Fox, and Exin has been launched recently. Five teams jointly manage assets and Dapp programs.
+The stablecoin [Pando USD](https://pando.im/pusd "Pando USD, pUSD") jointly issued by Mixin Core, Biyin, BigONE, Fox, and Exin has been launched recently. Five teams jointly manage assets and Dapp programs.
 
 - **Name** Pando USD (pUSD)
 - **Limit** 1 trillion

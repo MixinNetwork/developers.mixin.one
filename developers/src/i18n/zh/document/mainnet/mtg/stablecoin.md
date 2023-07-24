@@ -60,7 +60,7 @@
 
 ### 案例
 
-由 Mixin Core、币印、BigONE、Fox、Exin 联合发行的稳定币 Pando USD 近期已上线，5 个团队共同管理资产和 Dapp 程序。
+由 Mixin Core、币印、BigONE、Fox、Exin 联合发行的稳定币 [Pando USD](https://pando.im/pusd "Pando USD, pUSD") 近期已上线，5 个团队共同管理资产和 Dapp 程序。
 
 - 代币名称：Pando USD（pUSD）
 - 最大发行：1 万亿
