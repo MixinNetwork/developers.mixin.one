@@ -13,8 +13,6 @@ Developers can manage a bot, after get the keystore of the bot in [Dashborad](ht
 
 The name of keystore file would be similar keystore-7000xxx.json.
 
-There will be two free bots per developer, but you can buy more bots by paying a bit of XIN.
-
 # Join Developers Group
 
 If you have questions or advises, please join the Mixin Developers Group, which link is

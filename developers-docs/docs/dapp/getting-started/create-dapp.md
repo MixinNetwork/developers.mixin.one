@@ -20,10 +20,6 @@ Click the `New App` button on the left side and create an application by followi
 - **Immersive Mode**
   Turn on immersive mode to get more display space, refer to [Immersive Mode](../design/immersive-mode).
 
-:::tip
-Each developer account can creates 2 applications for free, pay if you need more.
-:::
-
 ## Generate Keys
 
 Switch to "Secret" and tap "Generate a new secret" button to generate a new app secret, which is a 64-bit string.

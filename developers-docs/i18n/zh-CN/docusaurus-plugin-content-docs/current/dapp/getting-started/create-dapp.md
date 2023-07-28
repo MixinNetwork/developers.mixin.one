@@ -20,10 +20,6 @@ sidebar_position: 1
 - **沉浸模式**
   开启沉浸模式以获得更多显示空间，参考[沉浸模式](../design/immersive-mode)。
 
-:::tip
-每个开发者帐户可以免费创建 2 个应用程序，如果您需要更多额度，将需要额外付费。
-:::
-
 ## 创建密钥和 Keystore
 
 切换到“Secret”并点击“Generate a new secret”按钮以生成一个新的应用程序密钥，它是一个 64 位字符串。

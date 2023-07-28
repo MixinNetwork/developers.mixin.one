@@ -9,8 +9,6 @@ Mixin Messenger 是一个区块链钱包 + 端对端加密的聊天软件, Messe
 
 开发者首先需要到[开发者后台](https://developers.mixin.one/dashboard), 申请一个机器人帐号。申请完成后，可以下载到机器人的私钥，格式：keystore-7000xxx.json, 请注意保存。
 
-请注意，每个开发者帐号，只允许免费创建 2 个机器人帐号，想创建更多的帐号，需要支付 XIN 来购买
-
 ## 加入开发者社群
 
 Mixin 群组链接: [https://mixin.one/codes/2db90a85-edff-4ab0-ae89-ce0619e2638e](https://mixin.one/codes/2db90a85-edff-4ab0-ae89-ce0619e2638e)
