@@ -32,5 +32,5 @@ Read public transfer details.
 <RespSnapshot />
 
 :::tip
-If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOT:READ` permission and set correct JWT in the request headers.
+If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOTS:READ` permission and set correct JWT in the request headers.
 :::
