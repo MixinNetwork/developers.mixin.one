@@ -48,7 +48,10 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
     onSuccess.value = undefined;
   };
 
-  const useCheckPin = () => !!pin.value && pin.value.length === 6 && parseInt(pin.value, 10) > 100000;
+  const useCheckPin = () => {
+    const reg = /^[0-9]{6}$/;
+    return reg.test(pin.value);
+  };
   const useSearchUserId = async (client) => {
     const is_uuid = validate(opponent_id.value);
     try {
