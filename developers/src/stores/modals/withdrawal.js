@@ -49,7 +49,7 @@ export const useWithdrawalModalStore = defineStore('withdrawal', () => {
   };
 
   const useCheckPin = () => {
-    const reg = /^\d{6}$/;
+    const reg = /^[0-9]{6}$/;
     return reg.test(pin.value);
   };
   const useSearchUserId = async (client) => {
