@@ -67,11 +67,11 @@ export default {
         ls.rm(props.appId);
 
         const session = JSON.stringify({
-          pin,
           client_id: props.appId,
           session_id: res.session_id,
-          pin_token: res.pin_token_base64,
           private_key: privateKey,
+          pin,
+          pin_token: res.pin_token_base64,
         }, null, 2);
         useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
