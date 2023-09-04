@@ -10,7 +10,7 @@
   "dependencies": {
     "@mixin.dev/mixin-node-sdk": "^5.2.0",
     "assert": "^2.0.0",
-    "bignumber.js": "^9.1.1",
+    "bignumber.js": "^9.1.2",
     "clipboard": "^2.0.11",
     "element-plus": "^2.3.6",
     "file-saver": "^2.0.5",
