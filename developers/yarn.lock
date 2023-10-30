@@ -592,10 +592,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@mixin.dev/mixin-node-sdk@^5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-5.2.0.tgz#c30cd2f73c01a3c70fd878583f25d9575bbe9879"
-  integrity sha512-Z+KFuiG/ljU9xyGzbg+WkMHiOnKPxt0A6X757aMcnvBGpijUSvtDFqSA+9chjQsdjShh0PccEnVEX0kGdIix8g==
+"@mixin.dev/mixin-node-sdk@^5.2.3":
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-5.2.3.tgz#2816565e308921e8dbee9fec2e8125606a65d4c4"
+  integrity sha512-X9pmma1opftKz+8Uo3oEegOspDQe+yfL6RfPezj9dLqNK638XMd/daCUbPLdGCC+QkqqE/brtCNVZAdxdMCIqg==
   dependencies:
     "@ethersproject/abi" "^5.6.3"
     "@ethersproject/providers" "^5.6.8"
