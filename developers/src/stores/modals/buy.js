@@ -46,6 +46,19 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     const query = qs.stringify(params);
     return `${baseUrl}?${query}`;
   };
+  const generateMixinPayUrl = (asset, amount, memo, returnTo) => {
+    const baseUrl = `https://mixin.zone/pay`;
+    const params = {
+      recipient: 'fbd26bc6-3d04-4964-a7fe-a540432b16e2',
+      asset,
+      amount,
+      memo,
+      trace: uuid(),
+      return_to: encodeURIComponent(returnTo)
+    };
+    const query = qs.stringify(params);
+    return `${baseUrl}?${query}`;
+  }
   const useClickBuyButton = async (count) => {
     const client = useUserClient($message, t);
     loading.value = true;
@@ -56,7 +69,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
       u: userInfo.value.user_id,
       a: 'APP',
     }));
-    window.location.href = generateMixPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
+    window.location.href = generateMixinPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
   };
 
   return {
