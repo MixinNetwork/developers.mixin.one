@@ -47,7 +47,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     return `${baseUrl}?${query}`;
   };
   const generateMixinPayUrl = (asset, amount, memo, returnTo) => {
-    const baseUrl = `https://mixin.zone/pay`;
+    const baseUrl = `https://mixin.one/pay`;
     const params = {
       recipient: 'fbd26bc6-3d04-4964-a7fe-a540432b16e2',
       asset,
