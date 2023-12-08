@@ -56,6 +56,10 @@
       font-weight: 500;
       font-size: 0.9375rem;
       overflow: hidden;
+
+      :deep(.warning) {
+        color: #dd4b65;
+      }
     }
 
     &:nth-child(2n) {

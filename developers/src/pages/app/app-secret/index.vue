@@ -8,7 +8,7 @@
               <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
               <span>{{keyModuleTexts.title}}</span>
             </div>
-            <p>{{keyModuleTexts.content}}</p>
+            <p v-html="keyModuleTexts.content"></p>
           </div>
           <div class="btn-container">
             <button @click="useDoubleCheck('UpdateSafeSession')" class="primary">{{keyModuleTexts.btn}}</button>
