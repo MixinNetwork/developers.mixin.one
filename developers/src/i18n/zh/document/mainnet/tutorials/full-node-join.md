@@ -25,7 +25,7 @@ spend key: c0619ce9c6fad9d2b6f7f4c0e676aed8f4d07b422e5fa55fee6154961954be0c
 
 目前暂时无法通过 Mixin Messenger 直接给主网地址转账，需要通过机器人中转。
 
-- 下载 [Mixin Messenger](https://mixin-www.zeromesh.net/messenger)，打开[开发者后台](/dashboard)扫码登录。
+- 下载 [Mixin Messenger](https://mixin.one/messenger)，打开[开发者后台](/dashboard)扫码登录。
 
 - 点左侧「新应用」按提示创建好机器人，切换 Tab 到「密钥」点「应用 Session」下载 Keystore，切换 Tab 到「钱包」，输入 Keystore 中的信息启用钱包功能。
 

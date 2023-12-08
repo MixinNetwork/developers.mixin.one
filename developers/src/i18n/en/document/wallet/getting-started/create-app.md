@@ -1,6 +1,6 @@
 # Creating Minxin Wallet
 
-Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [Dashboard](/dashboard), scan the QR code to log in, click "New Application" on the left and follow the prompts to create an application. Things like home page URL, verification URL, and other parameters are for Mixin Messenger. You don’t need to worry about them here, simply type in something random.
+Download [Mixin Messenger](https://mixin.one/messenger), open [Dashboard](/dashboard), scan the QR code to log in, click "New Application" on the left and follow the prompts to create an application. Things like home page URL, verification URL, and other parameters are for Mixin Messenger. You don’t need to worry about them here, simply type in something random.
 
 Each developer account creates 2 applications for free, pay if you need more.
 
