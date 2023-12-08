@@ -1,6 +1,6 @@
 # 新建机器人
 
-下载 [Mixin Messenger](https://mixin-www.zeromesh.net/messenger)，打开[开发者后台](/dashboard)扫码登录，点左侧「新应用」按提示创建好机器人，一些重要的参数说明：
+下载 [Mixin Messenger](https://mixin.one/messenger)，打开[开发者后台](/dashboard)扫码登录，点左侧「新应用」按提示创建好机器人，一些重要的参数说明：
 
 - 分类
 

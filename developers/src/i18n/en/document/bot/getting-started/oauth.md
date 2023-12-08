@@ -17,7 +17,7 @@ The permissions requested should contain at least the PROFILE:READ permission. U
 
 ### Requesting Authorization
 
-When the bot detects that it is not authorized by a user, it should jump to `https://mixin-www.zeromesh.net/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` to request authorization from the user. The parameters:
+When the bot detects that it is not authorized by a user, it should jump to `https://mixin.one/oauth/authorize?client_id=b7347ca4-186e-4e54-9db6-755a4ab0b5d4&scope=PROFILE:READ+ASSETS:READ&response_type=code&return_to=` to request authorization from the user. The parameters:
 
 **Required Parameters**
 

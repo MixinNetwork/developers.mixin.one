@@ -17,7 +17,7 @@
 
 ### 申请授权
 
-当机器人检测到用户没有授权时应跳转至 `https://mixin-www.zeromesh.net/oauth/authorize?client_id={client_id}&scope={scope}&response_type=code&return_to=` 向用户申请授权，参数说明：
+当机器人检测到用户没有授权时应跳转至 `https://mixin.one/oauth/authorize?client_id={client_id}&scope={scope}&response_type=code&return_to=` 向用户申请授权，参数说明：
 
 **必须的参数**
 

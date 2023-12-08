@@ -33,7 +33,7 @@ The address that initiates to join the mainnet can be a signer, payee or some ot
 
 Currently, it is not possible to transfer tokens directly to the mainnet address through Mixin Messenger, and the tokens need to take a transfer through a bot.
 
-- Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), and open [Dashboard](//developer.mixin.one/dashboard) to scan the QR code to log in.
+- Download [Mixin Messenger](https://mixin.one/messenger), and open [Dashboard](//developer.mixin.one/dashboard) to scan the QR code to log in.
 
 - Click "New Application" on the left and follow the prompts to create a bot, switch to "Key" tab and click "App Session" to download the Keystore, switch to "Wallet" tab, enter the information in the Keystore to enable the wallet.
 

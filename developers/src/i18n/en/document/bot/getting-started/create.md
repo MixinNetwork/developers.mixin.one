@@ -1,6 +1,6 @@
 # Creating Bots
 
-Download [Mixin Messenger](https://mixin-www.zeromesh.net/messenger), open [dashboard](/dashboard) and login by scanning the quad code. Click the `New App` button on the left side and create the bot by following the prompt. Below are descriptions of some of the important parameters.
+Download [Mixin Messenger](https://mixin.one/messenger), open [dashboard](/dashboard) and login by scanning the quad code. Click the `New App` button on the left side and create the bot by following the prompt. Below are descriptions of some of the important parameters.
 
 - Category
 
