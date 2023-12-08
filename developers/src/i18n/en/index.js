@@ -569,7 +569,7 @@ export default {
     session_question: 'Do you want to reset session?',
     key_title: 'APP KEY',
     key_content_new: 'Generate Session ID, Session Private Key, Server Public Key 和 Spend Private Key for this App.',
-    key_content_upgrade: 'Upgrade the current key of app to latest solution, the original pin and pin_token can still be used for old system wallet transfers. You need to use the new session id and session private key to send messages. <span class="warning">This operation is irreversible!</span>',
+    key_content_upgrade: 'Upgrade the current key of app to latest solution, the original pin and pin_token can still be used for old system wallet transfers. <span class="warning">This operation is irreversible!</span>',
     key_content_reset: 'Generate a new set of keys for the current app, including Session ID, Session Private Key and Server Public Key. <span class="warning">Note that the Spend Private Key will not be reset, please keep it safe!</span>',
     key_btn_upgrade: 'Upgrade Key',
     key_btn_generate: 'Generate a new key',
