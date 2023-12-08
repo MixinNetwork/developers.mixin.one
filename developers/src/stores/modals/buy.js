@@ -32,16 +32,15 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     show.value = false;
   };
 
-  const generateMixPayUrl = (asset, amount, memo, returnTo) => {
-    const baseUrl = 'https://mixpay.me/pay';
+  const generateMixinPayUrl = (asset, amount, memo, returnTo) => {
+    const baseUrl = `https://mixin.one/pay`;
     const params = {
-      payeeId: 'fbd26bc6-3d04-4964-a7fe-a540432b16e2',
-      settlementAssetId: asset,
-      quoteAssetId: asset,
-      quoteAmount: amount,
-      traceId: uuid(),
-      settlementMemo: memo,
-      returnTo,
+      recipient: 'fbd26bc6-3d04-4964-a7fe-a540432b16e2',
+      asset,
+      amount,
+      memo,
+      trace: uuid(),
+      return_to: returnTo
     };
     const query = qs.stringify(params);
     return `${baseUrl}?${query}`;
@@ -56,7 +55,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
       u: userInfo.value.user_id,
       a: 'APP',
     }));
-    window.location.href = generateMixPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
+    window.location.href = generateMixinPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
   };
 
   return {

@@ -1,6 +1,6 @@
 import { toRefs, reactive, inject, watch, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getED25519KeyPair, newHash, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
+import { getED25519KeyPair, newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
 import forge from 'node-forge';
 import {
   useLoadStore,
@@ -32,7 +32,7 @@ export default {
     const keyAction = computed(() => {
       // if (state.app.has_safe) return 'reset';
       // if (state.app.has_pin) return 'upgrade';
-      return 'upgrade';
+      return 'new';
     })
     const keyModuleTexts = computed(() => {
       const title = t('secret.key_title');
@@ -130,7 +130,7 @@ export default {
       const res = await userClient.app.updateSafeSession(props.appId, {
         public_hex,
         signature,
-        session_secret
+        session_secret,
       });
       state.submitting = false;
       modifyLocalLoadingStatus(false);
