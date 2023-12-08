@@ -1,7 +1,12 @@
+.container {
+  height: 100%;
+}
+
 .secret-list {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  align-items: start;
   width: 62rem;
   max-width: 100%;
   margin: 0 auto;
@@ -9,15 +14,21 @@
 
   button {
     height: 2.5rem;
+    min-width: 6rem;
   }
 
   .item {
     width: 50%;
+    height: 260px;
     padding: 1rem;
   }
 
   .secret-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 1.375rem 1.875rem;
+    height: 100%;
     background: #fff;
     box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
     border-radius: .25rem;
@@ -41,7 +52,7 @@
     }
 
     p {
-      padding: 2rem 0;
+      padding-top: 1.75rem;
       font-weight: 500;
       font-size: 0.9375rem;
       overflow: hidden;
@@ -66,7 +77,6 @@
       white-space: nowrap;
       font-weight: 500;
       font-size: 0.9375rem;
-      margin-bottom: 1rem;
     }
   }
 }
@@ -119,7 +129,10 @@
   }
 }
 
-.secrets {
+.btn-container {
+  padding-top: 0.8125rem;
+  padding-bottom: 1.125rem;
+
   button {
     &:first-child {
       margin-right: 2rem;
