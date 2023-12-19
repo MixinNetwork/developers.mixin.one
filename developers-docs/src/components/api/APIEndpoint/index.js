@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock';
 import styles from './styles.module.css';
 import Translate, {translate} from '@docusaurus/Translate';
 
-export default function APIEndpoint({url, base}) {
+export default function APIEndpoint({url, base, method}) {
   const apiBase = base || 'https://api.mixin.one';
   return (
     <div className={styles.container}>
@@ -12,7 +12,7 @@ export default function APIEndpoint({url, base}) {
         <Translate>com.api_endpoint</Translate>
       </h3>
       <CodeBlock className={`language-sass`}>
-          {`${apiBase}${url}`}
+          {method} {`${apiBase}${url}`}
       </CodeBlock>
     </div>
   );

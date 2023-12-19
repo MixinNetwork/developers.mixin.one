@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespAsset from "../../_partials/_resp.asset.md";
+import RespAsset from "@site/docs/_partials/_resp.asset.md";
 
 ## GET /assets/:asset_id
 
