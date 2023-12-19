@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespAddresses from "../../_partials/_resp.addrs.md";
+import RespAddresses from "@site/docs/_partials/_resp.addrs.md";
 
 ## GET /assets/:asset_id/addresses
 
