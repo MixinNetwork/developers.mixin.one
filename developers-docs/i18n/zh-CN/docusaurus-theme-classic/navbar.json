@@ -15,12 +15,4 @@
     "message": "GitHub",
     "description": "Navbar item with label GitHub"
   },
-  "item.label.Showcase": {
-    "message": "展示",
-    "description": "Navbar item with label Showcase"
-  },
-  "item.label.News": {
-    "message": "新闻",
-    "description": "Navbar item with label News"
-  }
 }
