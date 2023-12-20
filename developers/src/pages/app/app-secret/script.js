@@ -121,7 +121,7 @@ export default {
           break;
         case 'UpdateSafeSession':
           useInitConfirm(
-            t('secret.secret_question'),
+            t('secret.session_question'),
             useUpdateSafeSession,
           );
           break;
