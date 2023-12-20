@@ -570,6 +570,7 @@ export default {
     key_content: 'Generate wallet key for this App. It can be used to receive, send or withdraw wallet assets. <span class="warning">It cannot be reproduced afterwards, please keep it safely.</span>',
     key_btn: 'Register Wallet',
     key_question: 'Do you want to register Wallet?',
+    key_confirm: 'I confirm that i have kept Spend Private Key safely。',
     qrcode_title: 'Code URL',
     qrcode_content: 'Display or rotate code_url for this app.',
     qrcode_btn1: 'Show',
@@ -586,6 +587,8 @@ export default {
     ok: 'OK',
     close: 'Close',
     download: 'Download',
+    copyAndNext: 'Copy and Next',
+    register: 'Register'
   },
   message: {
     success: {
@@ -593,6 +596,7 @@ export default {
       save: 'Save Success',
       reset: 'Reset Success',
       copy: 'Copy Success',
+      register: 'Register Success',
     },
     errors: {
       0: 'Network error.',

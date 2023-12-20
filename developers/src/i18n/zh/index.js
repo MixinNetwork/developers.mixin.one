@@ -623,6 +623,7 @@ export default {
     key_content: '为当前应用生成钱包密钥，该密钥用于接收、转账和提现钱包资产。<span class="warning">生成后无法重制，请妥善保管。</span>',
     key_btn: '注册钱包',
     key_question: '确认注册？',
+    key_confirm: '我确认，我已经保存好 Spend Private Key。',
     qrcode_title: 'Code URL',
     qrcode_content: '显示或重置此应用程序的 code_url。',
     qrcode_btn1: '显示',
@@ -639,6 +640,8 @@ export default {
     ok: '是的',
     close: '关闭',
     download: '下载',
+    copyAndNext: '复制并下一步',
+    register: '注册'
   },
   message: {
     success: {
@@ -646,6 +649,7 @@ export default {
       withdrawal: '提现成功',
       reset: '重置成功',
       copy: '复制成功',
+      register: '注册成功',
     },
     errors: {
       0: '网络错误。',

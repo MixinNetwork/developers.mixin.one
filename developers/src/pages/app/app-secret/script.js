@@ -1,12 +1,12 @@
 import { toRefs, reactive, inject, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getED25519KeyPair, newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
-import forge from 'node-forge';
+import { getED25519KeyPair, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
 import {
   useLoadStore,
   useConfirmModalStore,
   useSecretModalStore,
   useUpdateTokenModalStore,
+  useRegisterModalStore,
 } from '@/stores';
 import { ls } from '@/utils';
 import { useUserClient, useBotClient } from '@/api';
@@ -22,6 +22,7 @@ export default {
 
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitConfirm } = useConfirmModalStore();
+    const { useInitRegister } = useRegisterModalStore();
     const { useInitSecret } = useSecretModalStore();
     const { useInitUpdateToken } = useUpdateTokenModalStore();
 
@@ -78,30 +79,6 @@ export default {
         useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
     };
-    const useRegisterSafe = async () => {
-      if (state.submitting) {
-        $message.error({ message: t('message.errors.reset'), showClose: true });
-        return;
-      }
-
-      state.submitting = true;
-      modifyLocalLoadingStatus(true);
-      const { publicKey: spend_public_key_base64, privateKey: spend_private_key } = getED25519KeyPair();
-      const hash = newHash(Buffer.from(props.appId));
-      let signData = forge.pki.ed25519.sign({
-        message: hash,
-        privateKey: base64RawURLDecode(spend_private_key),
-      });
-      const signature_base64 = base64RawURLEncode(signData);
-      const spend_public_key = base64RawURLDecode(spend_public_key_base64).toString("hex");
-      const res = await userClient.app.updateSafeSession(props.appId, {
-        signature_base64,
-        spend_public_key,
-      });
-      state.submitting = false;
-      modifyLocalLoadingStatus(false);
-
-    }
     const useRotateCode = async () => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
@@ -149,10 +126,11 @@ export default {
           );
           break;
         case 'RegisterSafe':
-          useInitConfirm(
-            t('secret.key_question'),
-            useRegisterSafe,
-          )
+          if (state.submitting) {
+            $message.error({ message: t('message.errors.reset'), showClose: true });
+            return;
+          }
+          useInitRegister(userClient, state.app.user_id);
         default:
           break;
       }
