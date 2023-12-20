@@ -5,13 +5,13 @@
         <div class="secret-item">
           <div>
             <div>
-              <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
-              <span>{{keyModuleTexts.title}}</span>
+              <img src="@/assets/img/svg/secret.svg" alt="app-session-icon"/>
+              <span>{{t('secret.session_title')}}</span>
             </div>
-            <p v-html="keyModuleTexts.content"></p>
+            <p v-html="t('secret.session_content')"></p>
           </div>
           <div class="btn-container">
-            <button @click="useDoubleCheck('UpdateSafeSession')" class="primary">{{keyModuleTexts.btn}}</button>
+            <button @click="useDoubleCheck('UpdateSafeSession')" class="primary">{{t('secret.session_btn')}}</button>
           </div>
         </div>
       </div>
@@ -19,7 +19,21 @@
         <div class="secret-item">
           <div>
             <div>
-              <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
+              <img src="@/assets/img/svg/secret.svg" alt="app-session-icon"/>
+              <span>{{t('secret.key_title')}}</span>
+            </div>
+            <p v-html="t('secret.key_content')"></p>
+          </div>
+          <div v-if="app && !app.has_safe" class="btn-container">
+            <button @click="useDoubleCheck('RegisterSafe')" class="primary">{{t('secret.key_btn')}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="secret-item">
+          <div>
+            <div>
+              <img src="@/assets/img/svg/session.svg" alt="app-secret-icon"/>
               <span>{{t('secret.secret_title')}}</span>
             </div>
             <p>{{t('secret.secret_content')}}</p>

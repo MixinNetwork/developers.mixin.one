@@ -592,15 +592,16 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@mixin.dev/mixin-node-sdk@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-6.0.0.tgz#c8b939840fc04e973528dd542c05fb13224dba1b"
-  integrity sha512-GKSLVnGRXkPPBsP1FMaynwQkzAQTuf1YV2woj9UmFh/hmz2/oC1Hcyrlk+bLbbJddkwHEazgtbaTld73eS2SGA==
+"@mixin.dev/mixin-node-sdk@6.1.1":
+  version "6.1.1"
+  resolved "https://registry.npmmirror.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-6.1.1.tgz#e7ac5960a57a0e94f4d3543910d5550ee6e031e6"
+  integrity sha512-TtdwW4hec6QROparjzs4NvHZCRTgm/Bt4IDO3BjTHQ+oGmmjnMCCQuCeIOVRGOmjxU1ztK4tgkdazJzjQVN3qw==
   dependencies:
     "@ethersproject/providers" "^5.6.8"
     "@noble/curves" "^1.2.0"
     "@noble/hashes" "^1.3.2"
-    axios "1.6.0"
+    "@types/qs" "^6.9.10"
+    axios "1.6.2"
     axios-retry "3.4.0"
     curve25519-js "^0.0.4"
     ethers "^5.6.8"
@@ -610,6 +611,7 @@
     nano-seconds "^1.2.2"
     node-forge "^1.3.1"
     pako "^2.0.4"
+    qs "^6.11.2"
     serialize-javascript "^6.0.0"
     uuid "^9.0.0"
     ws "^8.7.0"
@@ -848,6 +850,11 @@
   version "6.9.7"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
+
+"@types/qs@^6.9.10":
+  version "6.9.10"
+  resolved "https://registry.npmmirror.com/@types/qs/-/qs-6.9.10.tgz#0af26845b5067e1c9a622658a51f60a3934d51e8"
+  integrity sha512-3Gnx08Ns1sEoCrWssEgTSJs/rsT2vhGP+Ja9cnnk9k4ALxinORlQneLXFeFKOTJMOeZUFD1s7w+w2AphTpvzZw==
 
 "@types/range-parser@*":
   version "1.2.4"
@@ -1516,10 +1523,10 @@ axios-retry@3.4.0:
     "@babel/runtime" "^7.15.4"
     is-retry-allowed "^2.2.0"
 
-axios@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
-  integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
+axios@1.6.2:
+  version "1.6.2"
+  resolved "https://registry.npmmirror.com/axios/-/axios-1.6.2.tgz#de67d42c755b571d3e698df1b6504cde9b0ee9f2"
+  integrity sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"

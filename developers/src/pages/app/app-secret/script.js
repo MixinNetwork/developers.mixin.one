@@ -1,4 +1,4 @@
-import { toRefs, reactive, inject, watch, computed } from 'vue';
+import { toRefs, reactive, inject, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { getED25519KeyPair, newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
 import forge from 'node-forge';
@@ -29,38 +29,6 @@ export default {
       submitting: false,
       app: undefined,
     });
-    const keyAction = computed(() => {
-      // if (state.app.has_safe) return 'reset';
-      // if (state.app.has_pin) return 'upgrade';
-      return 'new';
-    })
-    const keyModuleTexts = computed(() => {
-      const title = t('secret.key_title');
-      switch(keyAction.value) {
-        case 'reset':
-          return {
-            title,
-            content: t('secret.key_content_reset'),
-            btn: t('secret.key_btn_generate'),
-            confirm: t('secret.key_question_reset')
-          }
-        case 'upgrade':
-          return {
-            title,
-            content: t('secret.key_content_upgrade'),
-            btn: t('secret.key_btn_upgrade'),
-            confirm: t('secret.key_question_upgrade')
-          }
-        case 'new':
-        default:
-          return {
-            title,
-            content: t('secret.key_content_new'),
-            btn: t('secret.key_btn_generate'),
-            confirm: t('secret.key_question_new')
-          }
-      }
-    })
 
     const userClient = useUserClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
@@ -82,33 +50,6 @@ export default {
         useInitSecret(t('secret.secret_title'), res.app_secret, 'UpdateSecret');
       }
     };
-    const useUpdateSession = async () => {
-      if (state.submitting) {
-        $message.error({ message: t('message.errors.reset'), showClose: true });
-        return;
-      }
-
-      state.submitting = true;
-      modifyLocalLoadingStatus(true);
-      const { publicKey: session_secret, privateKey } = getED25519KeyPair();
-      const res = await userClient.app.updateSession(props.appId, pin, session_secret);
-      state.submitting = false;
-      modifyLocalLoadingStatus(false);
-
-      if (res && res.session_id && res.pin_token_base64) {
-        $message.success({ message: t('message.success.reset'), showClose: true });
-        ls.rm(props.appId);
-
-        const session = JSON.stringify({
-          client_id: props.appId,
-          session_id: res.session_id,
-          private_key: privateKey,
-          pin,
-          pin_token: res.pin_token_base64,
-        }, null, 2);
-        useInitSecret(t('secret.session_title'), session, 'UpdateSession');
-      }
-    };
     const useUpdateSafeSession = async () => {
       if (state.submitting) {
         $message.error({ message: t('message.errors.reset'), showClose: true });
@@ -117,38 +58,50 @@ export default {
 
       state.submitting = true;
       modifyLocalLoadingStatus(true);
-      const { publicKey: spend_public_key, privateKey: spend_private_key } = getED25519KeyPair();
+      const { publicKey: session_public_key_base64, privateKey: session_private_key_base64 } = getED25519KeyPair();
+      const res = await userClient.app.updateSafeSession(props.appId, {
+        session_public_key: base64RawURLDecode(session_public_key_base64).toString("hex"),
+      });
+      state.submitting = false;
+      modifyLocalLoadingStatus(false);
+
+      if (res && res.session_id && res.server_public_key) {
+        $message.success({ message: t('message.success.reset'), showClose: true });
+        ls.rm(props.appId);
+
+        const session = JSON.stringify({
+          user_id: props.appId,
+          session_id: res.session_id,
+          server_public_key: res.server_public_key,
+          session_private_key: base64RawURLDecode(session_private_key_base64).toString("hex"),
+        }, null, 2);
+        useInitSecret(t('secret.session_title'), session, 'UpdateSession');
+      }
+    };
+    const useRegisterSafe = async () => {
+      if (state.submitting) {
+        $message.error({ message: t('message.errors.reset'), showClose: true });
+        return;
+      }
+
+      state.submitting = true;
+      modifyLocalLoadingStatus(true);
+      const { publicKey: spend_public_key_base64, privateKey: spend_private_key } = getED25519KeyPair();
       const hash = newHash(Buffer.from(props.appId));
       let signData = forge.pki.ed25519.sign({
         message: hash,
         privateKey: base64RawURLDecode(spend_private_key),
       });
-      const signature = base64RawURLEncode(signData);
-      const public_hex = base64RawURLDecode(spend_public_key).toString("hex");
-
-      const { publicKey: session_secret, privateKey: session_private_key } = getED25519KeyPair();
+      const signature_base64 = base64RawURLEncode(signData);
+      const spend_public_key = base64RawURLDecode(spend_public_key_base64).toString("hex");
       const res = await userClient.app.updateSafeSession(props.appId, {
-        public_hex,
-        signature,
-        session_secret,
+        signature_base64,
+        spend_public_key,
       });
       state.submitting = false;
       modifyLocalLoadingStatus(false);
 
-      if (res && res.session_id && res.pin_token_base64) {
-        $message.success({ message: t('message.success.reset'), showClose: true });
-        ls.rm(props.appId);
-
-        const session = JSON.stringify({
-          client_id: props.appId,
-          session_id: res.session_id,
-          server_public_key: res.pin_token_base64,
-          session_private_key,
-          spend_private_key,
-        }, null, 2);
-        useInitSecret(t('secret.session_title'), session, 'UpdateSession');
-      }
-    };
+    }
     const useRotateCode = async () => {
       const clientInfo = ls.get(props.appId);
       if (!useCheckKeystore(clientInfo)) {
@@ -189,17 +142,17 @@ export default {
             useUpdateSecret,
           );
           break;
-        case 'UpdateSession':
-          useInitConfirm(
-            t('secret.session_question'),
-            useUpdateSession,
-          );
         case 'UpdateSafeSession':
           useInitConfirm(
-            keyModuleTexts.value.confirm,
+            t('secret.secret_question'),
             useUpdateSafeSession,
           );
           break;
+        case 'RegisterSafe':
+          useInitConfirm(
+            t('secret.key_question'),
+            useRegisterSafe,
+          )
         default:
           break;
       }
@@ -233,7 +186,6 @@ export default {
       ...toRefs(state),
       useDoubleCheck,
       useShowCodeUrl,
-      keyModuleTexts,
       t,
     };
   },
