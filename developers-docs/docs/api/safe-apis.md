@@ -17,7 +17,10 @@ import RespDeposits from "@site/docs/_partials/_resp.safe.deposits.md";
 import RespOutputs from "@site/docs/_partials/_resp.safe.outputs.md";
 import RespGhosts from "@site/docs/_partials/_resp.safe.ghosts.md";
 import RespRequest from "@site/docs/_partials/_resp.safe.request.md";
+import RespMultisigRequests from "@site/docs/_partials/_resp.safe.multisig.requests.md";
+import RespMultisigRequest from "@site/docs/_partials/_resp.safe.multisig.request.md";
 import RespRequests from "@site/docs/_partials/_resp.safe.requests.md";
+
 import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 
 # Mixin Sequencer API
@@ -171,6 +174,64 @@ If the authentication information of the request for this API is a robot, you ca
 <APIEndpoint url="/safe/snapshots?asset=UUID&app=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
 
 <RespSnapshots />
+
+## multisigs
+
+The new version of multi-signature is the same as the old version. The client still needs to construct a raw transaction. Other operations are similar to those of the old version.
+
+### create multisigs
+
+<APIEndpoint url="/safe/multisigs" method="POST" />
+
+<APIPayload>
+{`[{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}]`}
+</APIPayload>
+
+<RespMultisigRequests />
+
+### sign multisigs
+
+<APIEndpoint url="/safe/multisigs/:id/sign" method="POST" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
+
+### unlock multisigs
+
+notice, multisigs can only be canceled if the signature is not completed
+
+<APIEndpoint url="/safe/multisigs/:id/unlock" method="POST" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
+
+### fetch multisigs
+
+<APIEndpoint url="/safe/multisigs/:id" method="GET" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
 
 
 ## Precautions

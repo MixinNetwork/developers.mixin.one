@@ -18,6 +18,8 @@ import RespOutputs from "@site/docs/_partials/_resp.safe.outputs.md";
 import RespGhosts from "@site/docs/_partials/_resp.safe.ghosts.md";
 import RespRequest from "@site/docs/_partials/_resp.safe.request.md";
 import RespRequests from "@site/docs/_partials/_resp.safe.requests.md";
+import RespMultisigRequests from "@site/docs/_partials/_resp.safe.multisig.requests.md";
+import RespMultisigRequest from "@site/docs/_partials/_resp.safe.multisig.request.md";
 import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 
 # Mixin Sequencer API
@@ -91,6 +93,8 @@ import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 因为新版本 API 只是主网 RPC 的代理，所有操作都是基于 UTXO 的。一个用户，或者一个多签组，想要得到自己的资产情况，需要访问 UTXO 列表 API 得到所有的 UTXO 并且累加就是相关资产账户的余额。
 
 <APIEndpoint url="/safe/outputs?members=HASH&threshold=NUMBER&offset=NUMBER&limit=NUMBER&state=unspent&order=ASC" method="GET" />
+
+<APIEndpoint url="/safe/outputs?app=UUID&offset=NUMBER&limit=NUMBER" method="GET" />
 
 <RespOutputs />
 
@@ -173,6 +177,64 @@ import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 <APIEndpoint url="/safe/snapshots?asset=UUID&app=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
 
 <RespSnapshots />
+
+## 多签相关
+
+新版本的多签与旧版本相同，还是需要客户端来构造 raw transaction, 其它的操作跟旧版本的操作类似。
+
+### 创建多签
+
+<APIEndpoint url="/safe/multisigs" method="POST" />
+
+<APIPayload>
+{`[{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}]`}
+</APIPayload>
+
+<RespMultisigRequests />
+
+### 多签签名
+
+<APIEndpoint url="/safe/multisigs/:id/sign" method="POST" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
+
+### 取消签名
+
+注意，只有在签名未完成的情况下可以取消签名
+
+<APIEndpoint url="/safe/multisigs/:id/unlock" method="POST" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
+
+### 获取签名信息
+
+<APIEndpoint url="/safe/multisigs/:id" method="GET" />
+
+<APIPayload>
+{`{
+  "request_id": "UNIQUE-UUID",
+  "raw": "KERNEL-RAW-TRANSACTION"
+}`}
+</APIPayload>
+
+<RespMultisigRequest />
 
 
 ## 注意事项
