@@ -43,9 +43,9 @@ You can check if the user is registered with the new Sequencer API through the f
 
 <RespUser />
 
-### 注册用户
+### Register user
 
-不管是新用户，还是老用户，在新版本 API 面前都是一样的未注册用户，注册需要使用下面的 API
+Register user No matter if it is a new user or an old user, they are all unregistered users in front of the new version of the API, and they need to use the following API to register.
 
 <APIEndpoint url="/safe/users" method="POST" />
 
