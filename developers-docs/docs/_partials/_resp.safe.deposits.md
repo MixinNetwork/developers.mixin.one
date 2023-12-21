@@ -15,7 +15,7 @@
         "block_number": 333333,
         "confirmations": 5,
         "threshold": 10,
-        "state": 'pending or confirmed',
+        "state": "pending or confirmed",
         "created_at": "RFC3339NANO",
         "updated_at": "RFC3339NANO"
     }
