@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespSnapshot from "../../_partials/_resp.snapshot.md";
+import RespSnapshot from "@site/docs/_partials/_resp.snapshot.md";
 
 ## GET /network/snapshots/:snapshot_id
 

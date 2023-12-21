@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import ReqMessages from "../../_partials/_req.msgs.md";
+import ReqMessages from "@site/docs/_partials/_req.msgs.md";
 
 ## POST /messages
 

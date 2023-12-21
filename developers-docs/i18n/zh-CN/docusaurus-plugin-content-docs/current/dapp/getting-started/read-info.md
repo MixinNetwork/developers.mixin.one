@@ -49,7 +49,7 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/assets
 ```
 
-import RespAssets from '../../_partials/_resp.assets.md'
+import RespAssets from '@site/docs/_partials/_resp.assets.md'
 
 <RespAssets />
 

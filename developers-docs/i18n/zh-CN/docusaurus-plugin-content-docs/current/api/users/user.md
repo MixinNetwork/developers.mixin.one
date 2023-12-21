@@ -10,7 +10,7 @@ import {
   APIEndpoint,
   APIParams,
 } from "@site/src/components/api";
-import RespUserExtra from "../../_partials/_resp.user-extra.md";
+import RespUserExtra from "@site/docs/_partials/_resp.user-extra.md";
 
 ## GET /users/:id
 

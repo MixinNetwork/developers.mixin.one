@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespUsers from "../../_partials/_resp.user-extra.md";
+import RespUsers from "@site/docs/_partials/_resp.user-extra.md";
 
 <!-- @TODO refactor this doc -->
 

@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespAssetsNetwork from "../../_partials/_resp.assets-network.md";
+import RespAssetsNetwork from "@site/docs/_partials/_resp.assets-network.md";
 
 ## GET /network/assets/:asset_id
 

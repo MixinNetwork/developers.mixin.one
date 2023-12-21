@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespAttachment from "../../_partials/_resp.attachment.md";
+import RespAttachment from "@site/docs/_partials/_resp.attachment.md";
 
 ## POST /attachments
 

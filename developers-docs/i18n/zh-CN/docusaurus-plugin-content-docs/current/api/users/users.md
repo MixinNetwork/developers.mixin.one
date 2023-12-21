@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespUsers from "../../_partials/_resp.users.md";
+import RespUsers from "@site/docs/_partials/_resp.users.md";
 
 ## POST /users/fetch
 
