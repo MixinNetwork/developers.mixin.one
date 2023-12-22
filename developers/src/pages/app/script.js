@@ -17,7 +17,7 @@ export default {
     DHeader,
     AppInformation: defineAsyncComponent(() => import('@/components/AppForm/index.vue')),
     AppSecret: defineAsyncComponent(() => import('./app-secret/index.vue')),
-    AppWallet: defineAsyncComponent(() => import('./app-wallet/index.vue')),
+    // AppWallet: defineAsyncComponent(() => import('./app-wallet/index.vue')),
   },
   async setup() {
     const { t } = useI18n();
@@ -28,7 +28,7 @@ export default {
 
     const state = reactive({
       currentNavIndex: 0,
-      navList: ['information', 'wallet', 'secret'],
+      navList: ['information', 'secret'], // , 'wallet'
       currentAppName: '',
       currentAppId: '',
     });
