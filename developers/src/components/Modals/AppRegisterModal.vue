@@ -38,7 +38,7 @@ import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
 import forge from 'node-forge';
 import { getED25519KeyPair, newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
-import DModal from '@/components/Modals/DModal';
+import DModal from '@/components/Modals/DModal.vue';
 import { useRegisterModalStore } from '@/stores';
 
 export default {

@@ -26,6 +26,14 @@
   <div id="app"></div>
   <!-- built files will be auto injected -->
   <div id="modal"></div>
+  <script type="module">
+    import process from "process"
+    import { Buffer } from "buffer"
+    window.global = window
+    window.Buffer = Buffer
+    window.process = process
+  </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

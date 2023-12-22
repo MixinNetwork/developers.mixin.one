@@ -8,16 +8,16 @@ import {
 import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import DHeader from '@/components/DHeader';
+import DHeader from '@/components/DHeader.vue';
 import { useLayoutStore } from '@/stores';
 
 export default {
   name: 'app-container',
   components: {
     DHeader,
-    AppInformation: defineAsyncComponent(() => import('@/components/AppForm')),
-    AppSecret: defineAsyncComponent(() => import('./app-secret')),
-    AppWallet: defineAsyncComponent(() => import('./app-wallet')),
+    AppInformation: defineAsyncComponent(() => import('@/components/AppForm/index.vue')),
+    AppSecret: defineAsyncComponent(() => import('./app-secret/index.vue')),
+    AppWallet: defineAsyncComponent(() => import('./app-wallet/index.vue')),
   },
   async setup() {
     const { t } = useI18n();

@@ -71,8 +71,8 @@
 <script>
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import DModal from '@/components/Modals/DModal';
-import DHeader from '@/components/DHeader';
+import DModal from '@/components/Modals/DModal.vue';
+import DHeader from '@/components/DHeader.vue';
 import { useWithdrawalModalStore } from '@/stores';
 
 export default {

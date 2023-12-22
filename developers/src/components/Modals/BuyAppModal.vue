@@ -31,7 +31,7 @@
 <script>
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import DModal from '@/components/Modals/DModal';
+import DModal from '@/components/Modals/DModal.vue';
 import { useBuyModalStore } from '@/stores';
 
 export default {

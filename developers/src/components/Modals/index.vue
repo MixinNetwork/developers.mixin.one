@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import BuyAppModal from '@/components/Modals/BuyAppModal';
-import Confirm from '@/components/Modals/ConfirmModal';
-import SecretModal from '@/components/Modals/SecretModal';
-import UpdateTokenModal from '@/components/Modals/UpdateTokenModal';
-import WithdrawalModal from '@/components/Modals/WithdrawalModal';
-import AppRegisterModal from '@/components/Modals/AppRegisterModal';
+import BuyAppModal from '@/components/Modals/BuyAppModal.vue';
+import Confirm from '@/components/Modals/ConfirmModal.vue';
+import SecretModal from '@/components/Modals/SecretModal.vue';
+import UpdateTokenModal from '@/components/Modals/UpdateTokenModal.vue';
+import WithdrawalModal from '@/components/Modals/WithdrawalModal.vue';
+import AppRegisterModal from '@/components/Modals/AppRegisterModal.vue';
 
 export default {
   name: 'modals',

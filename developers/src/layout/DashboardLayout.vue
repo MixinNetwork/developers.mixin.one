@@ -18,8 +18,8 @@
 import { inject, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
-import Modals from '@/components/Modals';
-import SideBar from '@/components/SideBar';
+import Modals from '@/components/Modals/index.vue';
+import SideBar from '@/components/SideBar.vue';
 import { useLayoutStore, useLoadStore } from '@/stores';
 import { useUserClient } from '@/api';
 

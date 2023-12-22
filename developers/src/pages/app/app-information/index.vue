@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AppForm from '@/components/AppForm';
+import AppForm from '@/components/AppForm.vue';
 
 export default {
   name: 'app-information',
