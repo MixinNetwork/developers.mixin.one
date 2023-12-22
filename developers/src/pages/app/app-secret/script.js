@@ -72,7 +72,7 @@ export default {
         ls.rm(props.appId);
 
         const session = JSON.stringify({
-          user_id: props.appId,
+          app_id: props.appId,
           session_id: res.session_id,
           server_public_key: res.server_public_key,
           session_private_key: seed.toString("hex"),
