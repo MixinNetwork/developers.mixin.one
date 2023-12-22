@@ -14,7 +14,7 @@ cd developers
 yarn install && yarn build
 cd ..
 mv developers/dist dist/developers
-cp -r assets/* ../developers-docs/assets/
+cp -r dist/developers/assets/* dist/developers-docs/assets/
 
 SUM=`md5 -q dist/developers/index.html`
 #mv dist/developers/index.html dist/developers/index.$SUM.html
