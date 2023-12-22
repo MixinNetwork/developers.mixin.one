@@ -7,6 +7,7 @@ import {
   ElSubMenu,
   ElMenuItem,
 } from 'element-plus';
+import 'element-plus/es/components/message/style/css';
 import VueCroppie from 'vue-croppie';
 
 import App from '@/App.vue';
