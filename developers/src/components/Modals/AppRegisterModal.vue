@@ -37,7 +37,7 @@ import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
 import forge from 'node-forge';
-import { getED25519KeyPair, newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
+import { newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
 import DModal from '@/components/Modals/DModal.vue';
 import { useRegisterModalStore } from '@/stores';
 
@@ -75,9 +75,10 @@ export default {
       });
       clipboard.value.on('error', () => $message.error({ message: t('message.errors.copy'), showClose: true }));
 
-      const { publicKey: spend_public_key_base64, privateKey: spend_private_key_base64 } = getED25519KeyPair();
-      privateKey.value = base64RawURLDecode(spend_private_key_base64).toString('hex');
-      publicKey.value = base64RawURLDecode(spend_public_key_base64).toString('hex');
+      const seed = Buffer.from(forge.random.getBytesSync(32), 'binary');
+      const keypair = forge.pki.ed25519.generateKeyPair({ seed: seed });
+      privateKey.value = seed.toString('hex');
+      publicKey.value = keypair.publicKey.toString('hex');
     };
     const useToggleConfirm = () => confirmed.value = !confirmed.value;
     const useRegister = async () => {
