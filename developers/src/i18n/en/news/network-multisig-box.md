@@ -1,1 +1,0 @@
-The assets supported by multi-signature are BTC, BOX, ONE, PRS, USDT-ERC20, and USDT-Omni.
