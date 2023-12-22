@@ -24,8 +24,8 @@
 <script>
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import DHeader from '@/components/DHeader';
-import AppForm from '@/components/AppForm';
+import DHeader from '@/components/DHeader.vue';
+import AppForm from '@/components/AppForm/index.vue';
 
 export default {
   name: 'app-creation',

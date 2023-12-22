@@ -3,28 +3,56 @@
     <div class="secret-list flex">
       <div class="item">
         <div class="secret-item">
-          <img src="@/assets/img/svg/session.svg" alt="app-session-icon"/>
-          <span>{{t('secret.session_title')}}</span>
-          <p>{{t('secret.session_content')}}</p>
-          <div class="secrets">
-            <button @click="useDoubleCheck('UpdateSession')" class="primary">{{t('secret.session_ed25519_btn')}}</button>
+          <div>
+            <div>
+              <img src="@/assets/img/svg/secret.svg" alt="app-session-icon"/>
+              <span>{{t('secret.session_title')}}</span>
+            </div>
+            <p v-html="t('secret.session_content')"></p>
+          </div>
+          <div class="btn-container">
+            <button @click="useDoubleCheck('UpdateSafeSession')" class="primary">{{t('secret.session_btn')}}</button>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="secret-item">
-          <img src="@/assets/img/svg/secret.svg" alt="app-secret-icon"/>
-          <span>{{t('secret.secret_title')}}</span>
-          <p>{{t('secret.secret_content')}}</p>
-          <button @click="useDoubleCheck('UpdateSecret')" class="primary">{{t('secret.secret_btn')}}</button>
+          <div>
+            <div>
+              <img src="@/assets/img/svg/secret.svg" alt="app-session-icon"/>
+              <span>{{t('secret.key_title')}}</span>
+            </div>
+            <p v-html="t('secret.key_content')"></p>
+          </div>
+          <div v-if="app && !app.has_safe" class="btn-container">
+            <button @click="useDoubleCheck('RegisterSafe')" class="primary">{{t('secret.key_btn')}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="secret-item">
+          <div>
+            <div>
+              <img src="@/assets/img/svg/session.svg" alt="app-secret-icon"/>
+              <span>{{t('secret.secret_title')}}</span>
+            </div>
+            <p>{{t('secret.secret_content')}}</p>
+          </div>
+          <div class="btn-container">
+            <button @click="useDoubleCheck('UpdateSecret')" class="primary">{{t('secret.secret_btn')}}</button>
+          </div>
         </div>
       </div>
       <div class="item">
         <div class="secret-item qrcode">
-          <img src="@/assets/img/ic_qr_code.png" alt="app-qrcode-icon"/>
-          <span>{{t('secret.qrcode_title')}}</span>
-          <p>{{t('secret.qrcode_content')}}</p>
-          <div class="qrcode-btns">
+          <div>
+            <div>
+              <img src="@/assets/img/ic_qr_code.png" alt="app-qrcode-icon"/>
+              <span>{{t('secret.qrcode_title')}}</span>
+            </div>
+            <p>{{t('secret.qrcode_content')}}</p>
+          </div>
+          <div class="btn-container qrcode-btns">
             <button @click="useShowCodeUrl" class="primary">{{t('secret.qrcode_btn1')}}</button>
             <button @click="useDoubleCheck('RotateQRCode')" class="primary">{{t('secret.qrcode_btn2')}}</button>
           </div>

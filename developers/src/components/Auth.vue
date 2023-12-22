@@ -34,7 +34,7 @@ export default {
 
     const client = useUserClient($message, t);
     client.oauth.getToken({
-      client_id: process.env.VUE_APP_CLIENT_ID,
+      client_id: import.meta.env.VITE_APP_CLIENT_ID,
       code,
       ed25519: publicKey,
       // eslint-disable-next-line consistent-return
@@ -49,7 +49,7 @@ export default {
       ) return useAccessDenied();
 
       const keystore = {
-        user_id: process.env.VUE_APP_CLIENT_ID,
+        user_id: import.meta.env.VITE_APP_CLIENT_ID,
         scope,
         authorization_id,
         private_key: privateKey,

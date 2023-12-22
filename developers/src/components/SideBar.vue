@@ -110,7 +110,7 @@ import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
-import DHeader from '@/components/DHeader';
+import DHeader from '@/components/DHeader.vue';
 import { useBuyModalStore, useLayoutStore } from '@/stores';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';

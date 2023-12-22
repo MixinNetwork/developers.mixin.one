@@ -1,13 +1,14 @@
-import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
-import { toRefs, reactive, inject } from 'vue';
+import { toRefs, reactive, inject, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { getED25519KeyPair, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
 import {
   useLoadStore,
   useConfirmModalStore,
   useSecretModalStore,
   useUpdateTokenModalStore,
+  useRegisterModalStore,
 } from '@/stores';
-import { ls, randomPin } from '@/utils';
+import { ls } from '@/utils';
 import { useUserClient, useBotClient } from '@/api';
 
 export default {
@@ -21,11 +22,13 @@ export default {
 
     const { modifyLocalLoadingStatus } = useLoadStore();
     const { useInitConfirm } = useConfirmModalStore();
+    const { useInitRegister } = useRegisterModalStore();
     const { useInitSecret } = useSecretModalStore();
     const { useInitUpdateToken } = useUpdateTokenModalStore();
 
     const state = reactive({
       submitting: false,
+      app: undefined,
     });
 
     const userClient = useUserClient($message, t);
@@ -48,7 +51,7 @@ export default {
         useInitSecret(t('secret.secret_title'), res.app_secret, 'UpdateSecret');
       }
     };
-    const useUpdateSession = async () => {
+    const useUpdateSafeSession = async () => {
       if (state.submitting) {
         $message.error({ message: t('message.errors.reset'), showClose: true });
         return;
@@ -56,22 +59,22 @@ export default {
 
       state.submitting = true;
       modifyLocalLoadingStatus(true);
-      const pin = randomPin();
-      const { publicKey: session_secret, privateKey } = getED25519KeyPair();
-      const res = await userClient.app.updateSession(props.appId, pin, session_secret);
+      const { publicKey: session_public_key_base64, privateKey: session_private_key_base64 } = getED25519KeyPair();
+      const res = await userClient.app.updateSafeSession(props.appId, {
+        session_public_key: base64RawURLDecode(session_public_key_base64).toString("hex"),
+      });
       state.submitting = false;
       modifyLocalLoadingStatus(false);
 
-      if (res && res.session_id && res.pin_token_base64) {
+      if (res && res.session_id && res.server_public_key) {
         $message.success({ message: t('message.success.reset'), showClose: true });
         ls.rm(props.appId);
 
         const session = JSON.stringify({
-          client_id: props.appId,
+          user_id: props.appId,
           session_id: res.session_id,
-          private_key: privateKey,
-          pin,
-          pin_token: res.pin_token_base64,
+          server_public_key: res.server_public_key,
+          session_private_key: base64RawURLDecode(session_private_key_base64).toString("hex"),
         }, null, 2);
         useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
@@ -116,12 +119,18 @@ export default {
             useUpdateSecret,
           );
           break;
-        case 'UpdateSession':
+        case 'UpdateSafeSession':
           useInitConfirm(
             t('secret.session_question'),
-            useUpdateSession,
+            useUpdateSafeSession,
           );
           break;
+        case 'RegisterSafe':
+          if (state.submitting) {
+            $message.error({ message: t('message.errors.reset'), showClose: true });
+            return;
+          }
+          useInitRegister(userClient, state.app.user_id);
         default:
           break;
       }
@@ -136,6 +145,20 @@ export default {
       if (!user.code_url) return;
       useInitSecret(t('secret.qrcode_title'), user.code_url, '');
     }
+
+    const useFetchApp = async (appId) => {
+      appId = appId || props.appId;
+      if (appId) {
+        modifyLocalLoadingStatus(true);
+        const app = await userClient.user.fetch(appId);
+        modifyLocalLoadingStatus(false);
+        return app;
+      }
+      return {};
+    };
+    watch(() => props.appId, async (appId) => {
+      state.app = await useFetchApp(appId);
+    }, { immediate: true });
 
     return {
       ...toRefs(state),

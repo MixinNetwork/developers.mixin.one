@@ -611,15 +611,19 @@ export default {
   },
   secret: {
     title: '密钥',
-    secret_title: '应用密钥',
+    secret_title: '授权密钥',
     secret_content: '应用密钥用来生成 OAuth 签名，以访问用户隐私数据。',
     secret_btn: '生成新的密钥',
     secret_question: '确认重置密钥？',
-    session_title: '应用 Session',
-    session_content: '为此应用程序生成 PIN，Session ID，PinToken，私钥。',
-    session_btn: 'RSA 私钥',
-    session_ed25519_btn: 'Ed25519 私钥',
-    session_question: '确认重置Session ？',
+    session_title: '会话密钥',
+    session_content: '为当前应用生成会话密钥，该密钥用户访问 Mixin Messenger API，可以请求用户信息、给用户发消息等功能，按需可重新生成。',
+    session_btn: '生成新的密钥',
+    session_question: '确认生成密钥？',
+    key_title: '应用钱包',
+    key_content: '为当前应用生成钱包密钥，该密钥用于接收、转账和提现钱包资产。<span class="warning">生成后无法重制，请妥善保管。</span>',
+    key_btn: '注册钱包',
+    key_question: '确认注册？',
+    key_confirm: '我确认，我已经保存好 Spend Private Key。',
     qrcode_title: 'Code URL',
     qrcode_content: '显示或重置此应用程序的 code_url。',
     qrcode_btn1: '显示',
@@ -636,6 +640,8 @@ export default {
     ok: '是的',
     close: '关闭',
     download: '下载',
+    copyAndNext: '复制并下一步',
+    register: '注册'
   },
   message: {
     success: {
@@ -643,6 +649,7 @@ export default {
       withdrawal: '提现成功',
       reset: '重置成功',
       copy: '复制成功',
+      register: '注册成功',
     },
     errors: {
       0: '网络错误。',

@@ -22,13 +22,6 @@
         ></li>
         <div class="decoration-list">
           <img
-            v-for="(icon, index) in ['ltc','sia','zec','doge','btc_','eth','eos','btc','nem','xrp']"
-            :key="index"
-            :src="require(`@/assets/img/coin/${icon}.png`)"
-            class="decoration"
-          />
-
-          <img
             src="@/assets/img/coin/coder.png"
             class="decoration"
           />
@@ -73,9 +66,6 @@
       <ul>
         <li v-for="(item,index) in tm('cases.list').slice(0,2)" :key="index">
           <div class="title">{{item.title}}</div>
-          <img
-            :src="require(`@/i18n/${$i18n.locale}/cases/${item.img}`)"
-          />
           <div v-html="item.info" class="desc"></div>
         </li>
       </ul>
@@ -89,8 +79,8 @@
 
 import { onMounted, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
-import Header from '@/components/MainHeader';
-import Footer from '@/components/MainFooter';
+import Header from '@/components/MainHeader.vue';
+import Footer from '@/components/MainFooter.vue';
 import { changeTheme } from '@/utils/tools';
 
 export default {

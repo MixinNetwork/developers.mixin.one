@@ -9,13 +9,6 @@
             :key="key"
           >
             <a :href="value.href">
-              <div>
-                <img
-                  :class="key"
-                  :src="require(`@/assets/img/footer/${key}.png`)"
-                  alt="social-icon"
-                />
-              </div>
               <span>{{value.name}}</span>
             </a>
           </li>
