@@ -10,8 +10,8 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespTransferMainnet from "../../_partials/_resp.transfer-mainnet.md";
-import RespTransferMultisig from "../../_partials/_resp.transfer-multisig.md";
+import RespTransferMainnet from "@site/docs/_partials/_resp.transfer-mainnet.md";
+import RespTransferMultisig from "@site/docs/_partials/_resp.transfer-multisig.md";
 
 ## POST /transactions
 

@@ -3,7 +3,7 @@ title: 个人信息
 sidebar_position: 1
 ---
 
-import RespUserExtra from "../../_partials/_resp.user-extra.md";
+import RespUserExtra from "@site/docs/_partials/_resp.user-extra.md";
 import {
   APIMetaPanel,
   APIRequest,

@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import RespUser from "../../_partials/_resp.user.md";
+import RespUser from "@site/docs/_partials/_resp.user.md";
 
 ## POST /pin/verify
 

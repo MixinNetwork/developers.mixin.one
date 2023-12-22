@@ -10,7 +10,7 @@ import {
   APIParams,
   APIPayload,
 } from "@site/src/components/api";
-import ReqMessages from "../../_partials/_resp.msgs-encrypted.md";
+import ReqMessages from "@site/docs/_partials/_resp.msgs-encrypted.md";
 
 ## POST /encrypted_messages
 

@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespAddress from "../../_partials/_resp.addr.md";
+import RespAddress from "@site/docs/_partials/_resp.addr.md";
 
 ## POST /addresses
 

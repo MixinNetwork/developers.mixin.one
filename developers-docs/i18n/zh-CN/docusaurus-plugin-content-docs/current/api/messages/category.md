@@ -3,20 +3,20 @@ title: Message Category
 sidebar_position: 2
 ---
 
-import MsgCatText from "../../_partials/_resp.msg.d/text.md";
-import MsgCatAudio from "../../_partials/_resp.msg.d/audio.md";
-import MsgCatButtons from "../../_partials/_resp.msg.d/buttons.md";
-import MsgCatCard from "../../_partials/_resp.msg.d/card.md";
-import MsgCatContact from "../../_partials/_resp.msg.d/contact.md";
-import MsgCatFile from "../../_partials/_resp.msg.d/file.md";
-import MsgCatImage from "../../_partials/_resp.msg.d/image.md";
-import MsgCatLive from "../../_partials/_resp.msg.d/live.md";
-import MsgCatLocation from "../../_partials/_resp.msg.d/location.md";
-import MsgCatPost from "../../_partials/_resp.msg.d/post.md";
-import MsgCatSticker from "../../_partials/_resp.msg.d/sticker.md";
-import MsgCatTransfer from "../../_partials/_resp.msg.d/transfer.md";
-import MsgCatVideo from "../../_partials/_resp.msg.d/video.md";
-import MsgEncrypt from "../../_partials/_resp.msg.d/encrypt.md";
+import MsgCatText from "@site/docs/_partials/_resp.msg.d/text.md";
+import MsgCatAudio from "@site/docs/_partials/_resp.msg.d/audio.md";
+import MsgCatButtons from "@site/docs/_partials/_resp.msg.d/buttons.md";
+import MsgCatCard from "@site/docs/_partials/_resp.msg.d/card.md";
+import MsgCatContact from "@site/docs/_partials/_resp.msg.d/contact.md";
+import MsgCatFile from "@site/docs/_partials/_resp.msg.d/file.md";
+import MsgCatImage from "@site/docs/_partials/_resp.msg.d/image.md";
+import MsgCatLive from "@site/docs/_partials/_resp.msg.d/live.md";
+import MsgCatLocation from "@site/docs/_partials/_resp.msg.d/location.md";
+import MsgCatPost from "@site/docs/_partials/_resp.msg.d/post.md";
+import MsgCatSticker from "@site/docs/_partials/_resp.msg.d/sticker.md";
+import MsgCatTransfer from "@site/docs/_partials/_resp.msg.d/transfer.md";
+import MsgCatVideo from "@site/docs/_partials/_resp.msg.d/video.md";
+import MsgEncrypt from "@site/docs/_partials/_resp.msg.d/encrypt.md";
 
 Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_` and `ENCRYPTED_`.
 

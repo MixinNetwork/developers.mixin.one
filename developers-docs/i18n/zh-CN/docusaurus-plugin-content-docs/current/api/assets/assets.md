@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespAssets from "../../_partials/_resp.assets.md";
+import RespAssets from "@site/docs/_partials/_resp.assets.md";
 
 ## GET /assets
 

@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespCircles from "../../_partials/_resp.circles.md";
+import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
 ## Add/Remove a User
 

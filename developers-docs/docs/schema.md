@@ -23,7 +23,7 @@ window.open("mixin://send?category=text&data=" + encodeURIComponent(base64.encod
 ### Share images
 
 ```js
-const data = '{"url":"https://mixin-www.zeromesh.net/assets/d9bb777b00f4210e107dd3580fe5bf1a.png"}'
+const data = '{"url":"https://mixin.one/assets/d9bb777b00f4210e107dd3580fe5bf1a.png"}'
 window.open("mixin://send?category=image&data=" + encodeURIComponent(base64.encode(data)))
 ```
 
