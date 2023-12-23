@@ -60,9 +60,9 @@ export default {
       state.submitting = true;
       modifyLocalLoadingStatus(true);
       const seed = Buffer.from(forge.random.getBytesSync(32), 'binary');
-      const keypair = forge.pki.ed25519.generateKeyPair({ seed: seed });
+      const keypair = forge.pki.ed25519.generateKeyPair({ seed });
       const res = await userClient.app.updateSafeSession(props.appId, {
-        session_public_key: keypair.publicKey.toString("hex"),
+        session_public_key: keypair.publicKey.toString('hex'),
       });
       state.submitting = false;
       modifyLocalLoadingStatus(false);
@@ -75,7 +75,7 @@ export default {
           app_id: props.appId,
           session_id: res.session_id,
           server_public_key: res.server_public_key,
-          session_private_key: seed.toString("hex"),
+          session_private_key: seed.toString('hex'),
         }, null, 2);
         useInitSecret(t('secret.session_title'), session, 'UpdateSession');
       }
