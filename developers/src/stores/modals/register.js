@@ -19,7 +19,7 @@ export const useRegisterModalStore = defineStore('Register', () => {
   };
 
   const useCloseModal = () => {
-    useClearSecret();
+    useClearRegister();
   };
 
   return {
