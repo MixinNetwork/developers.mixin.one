@@ -620,7 +620,7 @@ export default {
     session_btn: '生成新的密钥',
     session_question: '确认生成密钥？',
     key_title: '应用钱包',
-    key_content: '为当前应用生成钱包密钥，该密钥用于接收、转账和提现钱包资产。<span class="warning">生成后无法重制，请妥善保管。</span>',
+    key_content: '为当前应用生成钱包密钥，该密钥用于接收、转账和提现钱包资产。<span class="warning">生成后无法重置，请妥善保管。</span>',
     key_btn: '注册钱包',
     key_question: '确认注册？',
     key_confirm: '我确认，我已经保存好 Spend Private Key。',
