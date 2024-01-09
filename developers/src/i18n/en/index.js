@@ -563,7 +563,7 @@ export default {
     secret_btn: 'Generate a new secret',
     secret_question: 'Do you want to reset secret?',
     session_title: 'APP SESSION',
-    session_content: 'Generate new session key for this App. It can be used to request user information, send messages, etc to Mixin Messenger Api. It can be regenerated on demand.<br /> server_public_key: hex ed25519 public key <br /> session_private_key: hex ed25519 seed',
+    session_content: 'Generate new session key for this App. It can be used to request user information, send messages, etc to Mixin Messenger API. It can be regenerated on demand.<br /><br /> server_public_key: hex ed25519 public key <br /> session_private_key: hex ed25519 seed',
     session_btn: 'Generate a new key',
     session_question: 'Do you want to generate a new key?',
     key_title: 'WALLET',
