@@ -1,6 +1,12 @@
 <template>
   <d-modal :show="showRegister" :loading="loading">
     <div class="register-safe-modal">
+      <img
+        class="close"
+        src="@/assets/img/app-svg/close.svg"
+        alt="close-modal-btn"
+        @click="useCloseModal"
+      />
       <div class="title-container">
         <div class="title">{{t('secret.key_btn')}}</div>
         <div class="subtitle">{{ `${step}/2` }}</div>
@@ -37,7 +43,7 @@ import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
 import forge from 'node-forge';
-import { newHash, base64RawURLEncode, base64RawURLDecode } from '@mixin.dev/mixin-node-sdk';
+import { newHash, base64RawURLEncode } from '@mixin.dev/mixin-node-sdk';
 import DModal from '@/components/Modals/DModal.vue';
 import { useRegisterModalStore } from '@/stores';
 
@@ -114,6 +120,7 @@ export default {
       t,
       useRegister,
       useToggleConfirm,
+      useCloseModal,
     };
   },
   beforeUnmount() {
@@ -130,6 +137,17 @@ export default {
   padding: 3.875rem 2.8125rem;
   width: 30rem;
   height: 32rem;
+
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3125rem;
+    box-sizing: initial;
+    width: 0.875rem;
+    height: 0.875rem;
+    cursor: pointer;
+  }
 
   .title-container {
     flex: none;
