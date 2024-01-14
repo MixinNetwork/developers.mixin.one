@@ -568,6 +568,7 @@ export default {
     session_question: 'Do you want to generate a new key?',
     key_title: 'WALLET',
     key_content: 'Generate spend private key for this App. It can be used to receive, send or withdraw wallet assets. <span class="warning">It cannot be reproduced afterwards, please keep it safely.</span>',
+    key_registered_content: 'This app has been registerd, <span class="warning">It cannot be reproduced afterwards, please keep it safely!</span>',
     key_btn: 'Register Wallet',
     key_question: 'Do you want to register Wallet?',
     key_confirm: 'I confirm that i have kept Spend Private Key safely。',

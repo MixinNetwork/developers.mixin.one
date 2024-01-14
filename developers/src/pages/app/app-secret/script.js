@@ -1,4 +1,4 @@
-import { toRefs, reactive, inject, watch } from 'vue';
+import { toRefs, reactive, inject, watch, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import forge from 'node-forge';
 import {
@@ -30,6 +30,10 @@ export default {
       submitting: false,
       app: undefined,
     });
+    const keyConfig = computed(() => ({
+      showBtn: state.app && !state.app.has_safe,
+      text: state.app && state.app.has_safe ? t('secret.key_registered_content') : t('secret.key_content')
+    }));
 
     const userClient = useUserClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
@@ -163,6 +167,7 @@ export default {
 
     return {
       ...toRefs(state),
+      keyConfig,
       useDoubleCheck,
       useShowCodeUrl,
       t,

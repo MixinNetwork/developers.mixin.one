@@ -22,9 +22,9 @@
               <img src="@/assets/img/svg/secret.svg" alt="app-session-icon"/>
               <span>{{t('secret.key_title')}}</span>
             </div>
-            <p v-html="t('secret.key_content')"></p>
+            <p v-html="keyConfig.text"></p>
           </div>
-          <div v-if="app && !app.has_safe" class="btn-container">
+          <div v-if="keyConfig.showBtn" class="btn-container">
             <button @click="useDoubleCheck('RegisterSafe')" class="primary">{{t('secret.key_btn')}}</button>
           </div>
         </div>
