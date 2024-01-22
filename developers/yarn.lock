@@ -3759,10 +3759,10 @@ validator@^13.9.0:
   resolved "https://registry.yarnpkg.com/validator/-/validator-13.9.0.tgz#33e7b85b604f3bbce9bb1a05d5c3e22e1c2ff855"
   integrity sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==
 
-vite-plugin-mkcert@^1.17.2:
-  version "1.17.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.2.tgz#5b3f26727ca8d642c5a2e00191bf42677e868c32"
-  integrity sha512-2lc+zKwPgnkx0xDPMgoeNPtXmjGrWqg/V99D9Ybib7Mrg0pHI0VaAwAw95xa0x4Tlg33/FNzqm0RnCTr4QCIgw==
+vite-plugin-mkcert@^1.17.3:
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.3.tgz#c2a61236eccaadc1977a695b30237d18b68caff6"
+  integrity sha512-C8iLz4Su4kEyJb1GdlGIMfKkYMqfH5qvhqVP1x/hrc+1mo9GOzqU88mevvP5epgoqawkhVpcQVQ+HTFXsRuC0g==
   dependencies:
     "@octokit/rest" "^20.0.2"
     axios "^1.6.5"
