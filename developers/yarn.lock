@@ -3644,7 +3644,7 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-unimport@^3.7.0:
+unimport@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/unimport/-/unimport-3.7.1.tgz#37250d0f3f2dcf1e1b66ed13728db0e9f50ba0c3"
   integrity sha512-V9HpXYfsZye5bPPYUgs0Otn3ODS1mDUciaBlXljI4C2fTwfFpvFZRywmlOu943puN9sncxROMZhsZCjNXEpzEQ==
@@ -3668,10 +3668,10 @@ universal-user-agent@^6.0.0:
   resolved "https://registry.npmmirror.com/universal-user-agent/-/universal-user-agent-6.0.1.tgz#15f20f55da3c930c57bddbf1734c6654d5fd35aa"
   integrity sha512-yCzhz6FN2wU1NiiQRogkTQszlQSlpWaw8SvVegAc+bDxbzHgh1vX8uIe8OYyMH6DwH+sdTJsgMl36+mSMdRJIQ==
 
-unplugin-auto-import@^0.17.3:
-  version "0.17.3"
-  resolved "https://registry.yarnpkg.com/unplugin-auto-import/-/unplugin-auto-import-0.17.3.tgz#32ad40bea8ba4e9d37d69548acc74b08b6ed5d97"
-  integrity sha512-0cn0wr8X579TtdZKUAps0dDVrYzttx38ImdxZjmCeNlMDJX8UuSjO83vFqgS4ClNDIGWAute+xl9j5vRSX+vsw==
+unplugin-auto-import@^0.17.5:
+  version "0.17.5"
+  resolved "https://registry.yarnpkg.com/unplugin-auto-import/-/unplugin-auto-import-0.17.5.tgz#5ae7164fddd1560e96bf9be23b2f5ef46c808ca6"
+  integrity sha512-fHNDkDSxv3PGagX1wmKBYBkgaM4AKAgZmdJw/bxjhNljx9KSXSgHpGfX0MwUrq9qw6q1bhHIZVWyOwoY2koo4w==
   dependencies:
     "@antfu/utils" "^0.7.7"
     "@rollup/pluginutils" "^5.1.0"
@@ -3679,7 +3679,7 @@ unplugin-auto-import@^0.17.3:
     local-pkg "^0.5.0"
     magic-string "^0.30.5"
     minimatch "^9.0.3"
-    unimport "^3.7.0"
+    unimport "^3.7.1"
     unplugin "^1.6.0"
 
 unplugin-element-plus@^0.7.1:
