@@ -61,3 +61,6 @@ export const assetSortCompare = (a, b) => {
   if (cmp === 0) cmp = cmpBalance(a.price_usd, b.price_usd);
   return cmp;
 };
+
+export const getImageUrl = (path) =>
+  new URL(path, import.meta.url).href;

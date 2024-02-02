@@ -16,7 +16,7 @@
             :class="key === value ? 'active' : ''"
             @click="useClickCategory(key)"
           >
-            <img class="category-icon" :src="require(`@/assets/img/svg/Category${key}.svg`)" />
+            <img class="category-icon" :src="getImageUrl(`../assets/img/svg/Category${key}.svg`)" />
             {{item}}
           </span>
         </div>
@@ -28,6 +28,7 @@
 <script>
 import { reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { getImageUrl } from '@/utils/tools';
 
 export default {
   props: {
@@ -59,6 +60,9 @@ export default {
       tm,
     };
   },
+  methods: {
+    getImageUrl
+  }
 };
 </script>
 
@@ -101,7 +105,7 @@ export default {
     overflow: hidden;
 
     width: 14.25rem;
-    padding: 1.25rem;
+    padding: 0.75rem 1.25rem;
     line-height: 2;
 
     background-color: #fff;
@@ -111,6 +115,11 @@ export default {
     span {
       display: flex;
       align-items: center;
+      margin: 0.5rem 0;
+      height: 1.5rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1rem;
     }
 
     .category-icon {
