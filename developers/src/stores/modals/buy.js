@@ -33,9 +33,8 @@ export const useBuyModalStore = defineStore('buy-app', () => {
   };
 
   const generateMixinPayUrl = (asset, amount, memo, returnTo) => {
-    const baseUrl = `https://mixin.one/pay`;
+    const baseUrl = `https://mixin.one/pay/3c2bf6e7-fa74-4764-a4f3-79a24fab814f`;
     const params = {
-      recipient: 'fbd26bc6-3d04-4964-a7fe-a540432b16e2',
       asset,
       amount,
       memo,
@@ -53,7 +52,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     const amount = Number(appProperty.value.price) * count;
     const memo = base64RawURLEncode(JSON.stringify({
       u: userInfo.value.user_id,
-      a: 'APP',
+      e: 'buy mixin app',
     }));
     window.location.href = generateMixinPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
   };
