@@ -3,7 +3,7 @@ import { ref, inject } from 'vue';
 import { defineStore, storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid, parse } from 'uuid';
 import qs from 'qs';
 import { useUserClient } from '@/api';
 import { useLayoutStore } from '../layout';
@@ -32,17 +32,29 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     show.value = false;
   };
 
-  const generateMixinPayUrl = (asset, amount, memo, returnTo) => {
-    const baseUrl = `https://mixin.one/pay/3c2bf6e7-fa74-4764-a4f3-79a24fab814f`;
+  const generateMixPayUrl = (asset, amount, memo, returnTo) => {
+    const baseUrl = 'https://mixpay.me/pay';
     const params = {
-      asset,
-      amount,
-      memo,
-      trace: uuid(),
-      return_to: returnTo
+      payeeId: "3c2bf6e7-fa74-4764-a4f3-79a24fab814f",
+      settlementAssetId: asset,
+      quoteAssetId: 'usd',
+      quoteAmount: amount,
+      traceId: uuid(),
+      settlementMemo: memo,
+      returnTo: encodeURIComponent(returnTo),
     };
     const query = qs.stringify(params);
     return `${baseUrl}?${query}`;
+  };
+  const buildPaymentMemo = (user_id) => {
+    const extra = JSON.stringify({
+      u: user_id,
+      e: 'buy mixin app'
+    });
+    const version = Buffer.from([1]);
+    const payee = Buffer.from(parse("fbd26bc6-3d04-4964-a7fe-a540432b16e2"));
+    const extraBuf = Buffer.from(extra)
+    return base64RawURLEncode(Buffer.concat([version, payee, extraBuf]));
   };
   const useClickBuyButton = async (count) => {
     const client = useUserClient($message, t);
@@ -50,11 +62,8 @@ export const useBuyModalStore = defineStore('buy-app', () => {
     await fetchAppProperty(client);
 
     const amount = Number(appProperty.value.price) * count;
-    const memo = base64RawURLEncode(JSON.stringify({
-      u: userInfo.value.user_id,
-      e: 'buy mixin app',
-    }));
-    window.location.href = generateMixinPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
+    const memo = buildPaymentMemo(userInfo.value.user_id);
+    window.location.href = generateMixPayUrl(appProperty.value.asset_id, amount, memo, window.location.href);
   };
 
   return {
