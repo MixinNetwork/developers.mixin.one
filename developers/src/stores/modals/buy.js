@@ -41,7 +41,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
       quoteAmount: amount,
       traceId: uuid(),
       settlementMemo: memo,
-      returnTo: encodeURIComponent(returnTo),
+      returnTo,
     };
     const query = qs.stringify(params);
     return `${baseUrl}?${query}`;
