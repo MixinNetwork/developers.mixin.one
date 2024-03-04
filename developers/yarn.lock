@@ -3520,10 +3520,10 @@ validator@^13.9.0:
   resolved "https://registry.npmjs.org/validator/-/validator-13.11.0.tgz#23ab3fd59290c61248364eabf4067f04955fbb1b"
   integrity sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==
 
-vite-plugin-mkcert@^1.17.2:
-  version "1.17.3"
-  resolved "https://registry.npmjs.org/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.3.tgz#c2a61236eccaadc1977a695b30237d18b68caff6"
-  integrity sha512-C8iLz4Su4kEyJb1GdlGIMfKkYMqfH5qvhqVP1x/hrc+1mo9GOzqU88mevvP5epgoqawkhVpcQVQ+HTFXsRuC0g==
+vite-plugin-mkcert@^1.17.4:
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.17.4.tgz#80c2f11cdfeb157c306b687239f70602717d1d5c"
+  integrity sha512-P/B/tXhsUdpFO4Go1f2obu8WL3xxA3lbsbz4YzflbWfqWl15uwFiXaiCCBztJu1f4WnilrdXYihGrGT9jU743A==
   dependencies:
     "@octokit/rest" "^20.0.2"
     axios "^1.6.5"
