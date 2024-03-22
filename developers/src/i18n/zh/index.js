@@ -616,7 +616,7 @@ export default {
     secret_btn: '生成新的密钥',
     secret_question: '确认重置密钥？',
     session_title: '会话密钥',
-    session_content: '为当前应用生成会话密钥，该密钥用户访问 Mixin Messenger API，可以请求用户信息、给用户发消息等功能，按需可重新生成。<br /> server_public_key: hex ed25519 public <br /> session_private_key: hex ed25519 seed',
+    session_content: '为当前应用生成会话密钥，该密钥用于访问 Mixin Messenger API，可以请求用户信息、给用户发消息等功能，按需可重新生成。<br /> server_public_key: hex ed25519 public <br /> session_private_key: hex ed25519 seed',
     session_btn: '生成新的密钥',
     session_question: '确认生成密钥？',
     key_title: '应用钱包',
