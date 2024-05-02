@@ -31,7 +31,7 @@ export const userCbFactory = ($message, t) => (err) => {
     setTimeout(() => {
       window.localStorage.clear();
       // eslint-disable-next-line max-len
-      window.location.href = `https://mixin.one/oauth/authorize?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`;
+      window.location.href = `https://mixin.zone/oauth/authorize?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`;
     }, 100);
   }
 };
