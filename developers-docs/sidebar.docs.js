@@ -8,6 +8,7 @@ module.exports = {
       items: [
         'api/guide',
         'api/safe-apis',
+        'api/inscription',
         {
           label: 'OAuth',
           type: 'category',
