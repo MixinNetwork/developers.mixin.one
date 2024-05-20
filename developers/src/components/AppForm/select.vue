@@ -10,15 +10,15 @@
 
       <transition name="fade">
         <div v-if="show_options" class="options">
-          <span
-            v-for="(item, key) in tm('information.category_list')"
+          <div
+            v-for="(item, key) in options"
             :key="key"
-            :class="key === value ? 'active' : ''"
+            :class="['option', item.key === value && 'active']"
             @click="useClickCategory(key)"
           >
-            <img class="category-icon" :src="getImageUrl(`../assets/img/svg/Category${key}.svg`)" />
-            {{item}}
-          </span>
+            <img class="category-icon" :src="item.img_src" :alt="item.value" />
+            {{item.value}}
+          </div>
         </div>
       </transition>
     </div>
@@ -26,9 +26,23 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue';
+import { reactive, toRefs, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { getImageUrl } from '@/utils/tools';
+import BOOKSIcon from '@/assets/img/svg/CategoryBOOKS.svg';
+import BUSINESSIcon from '@/assets/img/svg/CategoryBUSINESS.svg';
+import EDUCATIONIcon from '@/assets/img/svg/CategoryEDUCATION.svg';
+import GAMESIcon from '@/assets/img/svg/CategoryGAMES.svg';
+import MUSICIcon from '@/assets/img/svg/CategoryMUSIC.svg';
+import NEWSIcon from '@/assets/img/svg/CategoryNEWS.svg';
+import OTHERIcon from '@/assets/img/svg/CategoryOTHER.svg';
+import PHOTOIcon from '@/assets/img/svg/CategoryPHOTO.svg';
+import SHOPPINGIcon from '@/assets/img/svg/CategorySHOPPING.svg';
+import SOCIALIcon from '@/assets/img/svg/CategorySOCIAL.svg';
+import TOOLSIcon from '@/assets/img/svg/CategoryTOOLS.svg';
+import TRADINGIcon from '@/assets/img/svg/CategoryTRADING.svg';
+import VIDEOIcon from '@/assets/img/svg/CategoryVIDEO.svg';
+import WALLETIcon from '@/assets/img/svg/CategoryWALLET.svg';
 
 export default {
   props: {
@@ -52,7 +66,30 @@ export default {
       ctx.emit('update:value', key);
     };
 
+    const iconMap = {
+      WALLET: WALLETIcon,
+      TRADING: TRADINGIcon,
+      BUSINESS: BUSINESSIcon,
+      SOCIAL: SOCIALIcon,
+      SHOPPING: SHOPPINGIcon,
+      EDUCATION: EDUCATIONIcon,
+      NEWS: NEWSIcon,
+      TOOLS: TOOLSIcon,
+      GAMES: GAMESIcon,
+      BOOKS: BOOKSIcon,
+      MUSIC: MUSICIcon,
+      PHOTO: PHOTOIcon,
+      VIDEO: VIDEOIcon,
+      OTHER: OTHERIcon,
+    };
+    const options = computed(() => Object.entries(tm('information.category_list')).map(([key, value]) => ({
+      key,
+      value,
+      img_src: iconMap[key],
+    })));
+ 
     return {
+      options,
       ...toRefs(state),
       useToggleOptions,
       useClickCategory,
@@ -112,7 +149,7 @@ export default {
     border-radius: 0.25rem;
     box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.1);
 
-    span {
+    .option {
       display: flex;
       align-items: center;
       margin: 0.5rem 0;
