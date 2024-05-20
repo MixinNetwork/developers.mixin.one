@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
+import { base64RawURLEncode, getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
 import { getUrlParameter, ls } from '@/utils';
 import { useUserClient } from '@/api';
 import { useRouter } from 'vue-router';
@@ -30,13 +30,13 @@ export default {
     if (error === 'access_denied') return useAccessDenied();
 
     const code = getUrlParameter('code');
-    const { privateKey, publicKey } = getED25519KeyPair();
+    const { seed, publicKey } = getED25519KeyPair();
 
     const client = useUserClient($message, t);
     client.oauth.getToken({
       client_id: import.meta.env.VITE_APP_CLIENT_ID,
       code,
-      ed25519: publicKey,
+      ed25519: base64RawURLEncode(publicKey),
       // eslint-disable-next-line consistent-return
     }).then((resp) => {
       if (!resp) return useAccessDenied();
@@ -52,7 +52,7 @@ export default {
         user_id: import.meta.env.VITE_APP_CLIENT_ID,
         scope,
         authorization_id,
-        private_key: privateKey,
+        private_key: seed.toString('hex'),
       };
       ls.set('token', keystore);
 
