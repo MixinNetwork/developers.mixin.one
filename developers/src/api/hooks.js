@@ -19,7 +19,12 @@ export const useUserClient = ($message, t) => {
   )
     ? {
       ...defaultApiConfig,
-      keystore,
+      keystore: {
+        app_id: keystore.user_id,
+        scope: keystore.scope,
+        authorization_id: keystore.authorization_id,
+        session_private_key: keystore.private_key
+      },
     }
     : defaultApiConfig;
   return MixinApi(config);
@@ -41,7 +46,12 @@ export const useBotClient = ($message, t, keystore, onError = undefined) => {
   )
     ? {
       ...defaultApiConfig,
-      keystore,
+      keystore: {
+        app_id: keystore.user_id,
+        session_id: keystore.session_id,
+        server_public_key: keystore.pin_token,
+        session_private_key: keystore.private_key
+      },
     }
     : defaultApiConfig;
   return MixinApi(config);

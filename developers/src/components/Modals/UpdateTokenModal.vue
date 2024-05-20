@@ -7,15 +7,14 @@
         <input v-model="session_id" />
       </div>
       <div class="edit-item">
-        <label>Pin Token</label>
+        <label>Server Public Key</label>
         <input v-model="pin_token" />
       </div>
       <div class="edit-item">
-        <label>Private Key</label>
-        <textarea v-model="private_key"></textarea>
+        <label>Session Private Key</label>
+        <input v-model="private_key" />
       </div>
       <div class="edit-item intro-container">
-        <label></label>
         <div class="intro">{{ t('wallet.secret_intro') }}</div>
       </div>
       <div class="btns">
@@ -79,6 +78,7 @@ export default {
 .main {
   padding: 3.125rem 2.5rem 2.5rem 2.5rem;
   overflow: hidden;
+  width: 600px;
 }
 
 h3 {
@@ -90,13 +90,17 @@ h3 {
 label {
   font-weight: 700;
   min-width: 5.625rem;
-  margin-right: 20px;
 }
 
 .edit-item {
   display: flex;
   align-items: center;
   margin-bottom: 1.25rem;
+
+  label {
+    width: 35%;
+    margin-right: 20px;
+  }
 
   input {
     width: 100%;
@@ -118,6 +122,8 @@ label {
   }
 
   &.intro-container {
+    display: flex;
+    justify-content: end;
     margin-top: -0.5rem;
 
     .intro {
@@ -173,6 +179,7 @@ label {
       }
 
       label {
+        width: 100%;
         font-weight: 700;
         text-align: left;
         line-height: 1rem;
