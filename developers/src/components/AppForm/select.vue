@@ -14,7 +14,7 @@
             v-for="(item, key) in options"
             :key="key"
             :class="['option', item.key === value && 'active']"
-            @click="useClickCategory(key)"
+            @click="useClickCategory(item.key)"
           >
             <img class="category-icon" :src="item.img_src" :alt="item.value" />
             {{item.value}}
