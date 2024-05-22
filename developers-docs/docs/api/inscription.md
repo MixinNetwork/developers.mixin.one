@@ -29,7 +29,7 @@ Inscription include two sections
 
 Fetch the collection detail by the deploy transaction hash, or the kernel_asset_id of the asset.
 
-<APIEndpoint url="/inscriptions/collections/:hash" method="GET" />
+<APIEndpoint url="/safe/inscriptions/collections/:hash" method="GET" />
 
 <RespCollection />
 
@@ -37,6 +37,6 @@ Fetch the collection detail by the deploy transaction hash, or the kernel_asset_
 
 Fetch the collectible by the inscription hash
 
-<APIEndpoint url="/inscriptions/items/:hash" method="GET" />
+<APIEndpoint url="/safe/inscriptions/items/:hash" method="GET" />
 
 <RespItem />

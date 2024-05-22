@@ -29,7 +29,7 @@ Inscription 主要包含两部分:
 
 通过集合的交易 hash, 或者这个集合资产的 kernel_asset_id 来获取集合的详细信息
 
-<APIEndpoint url="/inscriptions/collections/:hash" method="GET" />
+<APIEndpoint url="/safe/inscriptions/collections/:hash" method="GET" />
 
 <RespCollection />
 
@@ -37,6 +37,6 @@ Inscription 主要包含两部分:
 
 通过 inscription hash 来获取藏品的详情
 
-<APIEndpoint url="/inscriptions/items/:hash" method="GET" />
+<APIEndpoint url="/safe/inscriptions/items/:hash" method="GET" />
 
 <RespItem />
