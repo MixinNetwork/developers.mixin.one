@@ -20,6 +20,8 @@ import RespItem from "@site/docs/_partials/_req.inscription.item.md";
 
 默认情况下，交易的 memo 长度是 256 byte, 所以 inscription 的部署需要用到 Mixin Object Storage, 相关的内容可以参考：https://github.com/MixinNetwork/mixin/blob/master/STORAGE.md
 
+## 简介
+
 Inscription 主要包含两部分:
 
 1. 藏品的集合, 包含的图片跟币的相关信息
