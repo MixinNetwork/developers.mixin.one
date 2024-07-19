@@ -236,6 +236,29 @@ import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 
 <RespMultisigRequest />
 
+## 如何获取用户资产余额
+
+在 Mixin Messenger 环境中，可以在机器人会话的网页中，通过 js 来获取用户的余额
+
+```javascript
+window.assetsCallbackFunction = (assets: string) => {
+  const as: Asset[] = JSON.parse(assets)
+  if (as) {
+    as.forEach((x) => {
+      if (x.asset_id === getEnvConfig().assetIdFund) {
+        setBalance(x.balance)
+      }
+    })
+  }
+}
+
+if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.MixinContext && window.webkit.messageHandlers.getAssets) {
+  window.webkit.messageHandlers.getAssets.postMessage([[], 'assetsCallbackFunction'])
+} else if (window.MixinContext && typeof window.MixinContext.getAssets === 'function') {
+  window.MixinContext.getAssets([], 'assetsCallbackFunction')
+}
+```
+
 
 ## 注意事项
 
