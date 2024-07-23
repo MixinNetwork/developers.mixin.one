@@ -62,7 +62,7 @@ export default {
   "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",  // deprecated
   "cover_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png", // 16:10
   "title": "Mixin", // 1 <= size(title) <= 36
-  "description": "Hello World.", // 1 <= size(description) <= 500
+  "description": "Hello World.", // 1 <= size(description) <= 1024
   "action": "https://mixin.one",   // deprecated
   "actions": [
 	  {
