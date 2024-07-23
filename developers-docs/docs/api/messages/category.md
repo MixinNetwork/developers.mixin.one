@@ -43,6 +43,10 @@ To send images, files, and videos, you need to upload attachments and obtain att
 Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
 :::
 
+:::tip
+The `cover_url` and `actions` fields have been added to the data structure. If the data structure contains the `action` field, the client will use the old card style and ignore any other parameters related to the new card style. The new card style, which includes the `cover_url` and `actions` fields, is supported by Mixin Messenger version 1.9.0 and above.
+:::
+
 ## Files
 
 <APIResponse name="msg_file" />

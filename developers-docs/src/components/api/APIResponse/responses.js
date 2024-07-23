@@ -59,10 +59,19 @@ export default {
 // data structure
 {
   "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
-  "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
+  "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",  // deprecated
+  "cover_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png", // 16:10
   "title": "Mixin", // 1 <= size(title) <= 36
-  "description": "Hello World.", // 1 <= size(description) <= 128
-  "action": "https://mixin.one",
+  "description": "Hello World.", // 1 <= size(description) <= 500
+  "action": "https://mixin.one",   // deprecated
+  "actions": [
+	  {
+	    "label": "Mixin Website",
+	    "color": "#ABABAB",
+	    "action": "https://mixin.one"
+	  }
+	  // ...
+	]
   "shareable": true
 }`,
 
