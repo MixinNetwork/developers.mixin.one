@@ -12,7 +12,7 @@ import {
 
 ## GET /external/addresses/check
 
-Mixin 用户之间转帐免手续费, 如果用户的提现地址是 Mixin 用户的, 那么提现也是免手续费。这个接口就是用来检测地址是否是 Mixin 用户地址。
+检查一个提现地址是否合法
 
 <APIEndpoint url="/external/addresses/check" />
 
@@ -33,7 +33,6 @@ Mixin 用户之间转帐免手续费, 如果用户的提现地址是 Mixin 用�
   "data": {
     "destination": "bc1qxevhcsrrth0muvnl6x9vry3a0p6pzmz359d3s5",
     "tag": "",
-    "fee": "0.00001"
   },
 }
 ```
