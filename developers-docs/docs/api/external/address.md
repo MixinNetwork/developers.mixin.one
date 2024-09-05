@@ -12,9 +12,7 @@ APIPayload,
 
 ## GET /external/addresses/check
 
-First, it is free that transfer token between Messenger Users. 
-If a withdrawal address belongs to a Messenger user, the withdrawal will not need fee too.
-The api is used to check whether an address belongs to Mixin User or not.
+check a withdrawal address is valid or not
 
 <APIEndpoint url="/external/addresses/check" />
 
@@ -35,7 +33,6 @@ p-tag="optional，like memo in eos"
   "data": {
     "destination": "bc1qxevhcsrrth0muvnl6x9vry3a0p6pzmz359d3s5",
     "tag": "",
-    "fee": "0.00001"
   },
 }
 ```
