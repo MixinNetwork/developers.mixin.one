@@ -171,7 +171,9 @@ The new version of the API provides a relatively compatible snapshots API for ea
 
 If the authentication information of the request for this API is a robot, you can add the app parameter to return the snapshots of all sub-users created by this robot.
 
-<APIEndpoint url="/safe/snapshots?asset=UUID&app=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
+<APIEndpoint url="/safe/snapshots?app=UUID&asset=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
+
+The parameter app, asset, opponent can't use in the same time
 
 <RespSnapshots />
 

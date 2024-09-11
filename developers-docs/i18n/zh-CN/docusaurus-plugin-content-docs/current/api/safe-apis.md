@@ -174,7 +174,9 @@ import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 
 如果请求这个 API 的认证信息是一个机器人，可以通过添加 app 参数来返回这个机器人创建的所有子用户的 snapshots。
 
-<APIEndpoint url="/safe/snapshots?asset=UUID&app=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
+<APIEndpoint url="/safe/snapshots?app=UUID&asset=UUID&opponent=UUID&offset=RFC3339NANO&limit=500" method="GET" />
+
+其中 app, asset, opponent 不可以同时存在
 
 <RespSnapshots />
 
