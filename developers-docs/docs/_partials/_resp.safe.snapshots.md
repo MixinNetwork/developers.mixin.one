@@ -18,6 +18,8 @@
           "deposit_hash": "DEPOSIT-HASH",
           "deposit_index": 1,
           "sender": "SOME-STRING",
+          "destination": "DEPOSIT-DESTINATION",
+          "tag": "DEPOSIT-TAG",
       },
       "withdrawal": {
           "withdrawal_hash": "WITHDRAWAL-HASH",
