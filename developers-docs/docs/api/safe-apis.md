@@ -167,7 +167,7 @@ After the transaction is correctly sent out through the Sequencer API, you can q
 
 ## Snapshot
 
-The new version of the API provides a relatively compatible snapshots API for ease of use, which is similar to the old version of the API, and can only get the transaction list of a single user, including all the transfers in and out of this user.
+The new version of the API provides a relatively compatible snapshots API for ease of use, which is similar to the old version of the API.
 
 If the authentication information of the request for this API is a robot, you can add the app parameter to return the snapshots of all sub-users created by this robot.
 

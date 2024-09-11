@@ -170,7 +170,7 @@ import RespSnapshots from "@site/docs/_partials/_resp.safe.snapshots.md";
 
 ## Snapshot 相关
 
-新版本的 API 为了方便使用，提供一个相对兼容旧版本习惯的 snapshots API，这个 API 与旧版本 API 类似，只能获取单个用户的交易列表，包括这个用户所有的转入与转出。
+新版本的 API 为了方便使用，提供一个相对兼容旧版本习惯的 snapshots API，这个 API 与旧版本 API 类似。
 
 如果请求这个 API 的认证信息是一个机器人，可以通过添加 app 参数来返回这个机器人创建的所有子用户的 snapshots。
 
