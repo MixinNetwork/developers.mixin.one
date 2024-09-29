@@ -15,10 +15,24 @@
 ```json title="data"
 {
   "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
-  "icon_url": "https://mixin.one/assets/98b586edb270556d1972112bd7985e9e.png",
   "title": "Mixin",
   "description": "Hello World.",
-  "action": "https://mixin.one", // should put the action in Resource Patterns in https://developers.mixin.one/apps/700000xxxx
-  "shareable": true
+  "cover": {
+    "mime_type": "image/png",
+    "url": "https://example.com/cover.png",
+    "width": 800,
+    "height": 600,
+    "thumbnail": "https://example.com/thumbnail.png"
+  }, // Optional
+  "actions": {
+    "buttons": [
+      {
+        "label": "Open",
+        "url": "https://mixin.one"
+      }
+    ]
+  }, // Optional
+  "shareable": true,
+  "updated_at": "2024-09-28T15:49:14+10:00"
 }
 ```
