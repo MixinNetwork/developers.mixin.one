@@ -15,8 +15,8 @@
 ```json title="data"
 {
   "app_id": "7404c815-0393-4ea3-b9f2-b08efe4c72da",
-  "title": "Mixin",
-  "description": "Hello World.",
+  "title": "Mixin", // less than 36 character
+  "description": "Hello World.", // less than 1024 character
   "cover": {
     "mime_type": "image/png",
     "url": "https://example.com/cover.png",
