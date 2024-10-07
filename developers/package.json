@@ -23,7 +23,7 @@
     "vue": "^3.5.11",
     "vue-croppie": "https://github.com/hundredark/vue-croppie#2.0.4",
     "vue-i18n": "^9.13.1",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
