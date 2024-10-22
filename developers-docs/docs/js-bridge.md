@@ -103,4 +103,4 @@ This method is supported in Mixin Messenger 0.33.0 or above.
 
 ## Third-Party SDK
 
-For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [vist here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).
+For ease of use, a third-party team packaged these Javascript methods into JsBridge SDK. The SDK provides a unified access method, and gives a list of all Javascript methods and usage examples. please [visit here for more details](https://fox-one.github.io/mixin-sdk-jsbridge/#/).

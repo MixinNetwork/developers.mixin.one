@@ -69,7 +69,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ```json
 {
-  "hash": the hash of the transcation
+  "hash": the hash of the transaction
 }
 ```
 

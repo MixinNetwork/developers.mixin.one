@@ -3,7 +3,7 @@ title: Introduction
 description: Mixin Network, a free, lightning fast and decentralized network for transferring digital assets.
 ---
 
-Mixin Network is a open network, it's open to the developers at both Kernel (aka, the Mainnet) and Mixin API levels.
+Mixin Network is an open network, it's open to the developers at both Kernel (aka, the Mainnet) and Mixin API levels.
 
 According to the business needs and requirements, developers can choose the appropriate way to develop their dApps, chains, and any applications based on Mixin Network.
 
@@ -11,7 +11,7 @@ According to the business needs and requirements, developers can choose the appr
 
 If you want to build something with the kernel, or create a fork of Mixin Network with some modifications you like, you can read the [source code of Mixin Mainnet](https://github.com/MixinNetwork/mixin).
 
-There are some tutorials that useful:
+There are some tutorials that are useful:
 
 - [Deploying full node](mainnet/guide/full-node-join) - run mixin node in local machine.
 - [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
@@ -21,7 +21,7 @@ There are some tutorials that useful:
 Mixin Applications are applications that use the Mixin Network. It could be a website, an App, a messenger bot, or any other form of application that uses Mixin API or interacts with Kernel.
 
 :::info
-Mixin Application uses the Mixin API, a API set that provides the interface for the Mixin Mainnet, simplifys the development of Mixin. Please read [Mixin API Reference](api/guide) for more details.
+Mixin Application uses the Mixin API, an API set that provides the interface for the Mixin Mainnet, simplifies the development of Mixin. Please read [Mixin API Reference](api/guide) for more details.
 :::
 
 ### Messenger Bot
@@ -38,7 +38,7 @@ Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to bui
 
 Some Mixin Applications don't need the bot interface. They could be a website or a standalone mobile App.
 
-A common scene is that your business runs well, but you want to make it cooler with cryptocurrency. So you need to integrate an existed system with Mixin.
+A common scene is that your business runs well, but you want to make it cooler with cryptocurrency. So you need to integrate an existing system with Mixin.
 
 The first thing you need to do is same as above, creating a bot. And then, it's time to think about the way to integrate with Mixin.
 
@@ -50,7 +50,7 @@ Please read [this document](dapp/mixin-applications) guide for more details.
 
 - Secure - All assets are stored in PoS-BFT-DAG distributed network
 - Fast - More than 1,000,000 TPS capacity with a final confirmation time of under 1 second.
-- Powerful - Supported 32 blockchians, such as BTC, ETH, XMR.
+- Powerful - Supported 32 blockchains, such as BTC, ETH, XMR.
 - Free - No transaction fee.
 - Privacy - End to end encrypted messages.
 

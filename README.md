@@ -29,7 +29,7 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 
 ## Mixin bots demo
 
-Hancker News: Mixin ID 7000100124, repo [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)  
+Hacker News: Mixin ID 7000100124, repo [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)  
 Mixin Roulette: Mixin ID 7000100168, repo [https://github.com/virushuo/mixin-roulette](https://github.com/virushuo/mixin-roulette)  
 Mixin super group: Mixin ID 7000101317, repo [https://github.com/MixinNetwork/supergroup.mixin.one](https://github.com/MixinNetwork/supergroup.mixin.one)
 
