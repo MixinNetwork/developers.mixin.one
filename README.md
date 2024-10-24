@@ -5,14 +5,13 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 
 ## Communication
 - Mixin Developer group: [https://supergroup.mixin.fan/#/7000104112](https://supergroup.mixin.fan/#/7000104112)
-- Telegram group: [https://t.me/MixinDevelopers](https://t.me/MixinDevelopers)
 
 ## Mixin news
 
 1. Logs: [https://mixin.one/logs](https://mixin.one/logs)
 2. Block infomations: [https://mixin.one/snapshots
 ](https://mixin.one/snapshots)
-3. Twitter: [https://twitter.com/Mixin_Network](https://twitter.com/Mixin_Network)
+3. X: [https://twitter.com/MixinKernel](https://twitter.com/MixinKernel)
 4. Facebook: [https://www.facebook.com/MixinNetwork](https://www.facebook.com/MixinNetwork)
 5. Youtube: [https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA](https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA)
 6. Medium: [https://medium.com/mixinnetwork](https://medium.com/mixinnetwork)
@@ -26,13 +25,6 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 5. Ruby Demo: [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
 6. PHP SDK : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
 7. C# (CSharp) SDK : [c#](https://github.com/wjfree/mixin-csharp-sdk)
-
-## Mixin bots demo
-
-Hacker News: Mixin ID 7000100124, repo [https://github.com/crossle/hacker-news-mixin-bot](https://github.com/crossle/hacker-news-mixin-bot)  
-Mixin Roulette: Mixin ID 7000100168, repo [https://github.com/virushuo/mixin-roulette](https://github.com/virushuo/mixin-roulette)  
-Mixin super group: Mixin ID 7000101317, repo [https://github.com/MixinNetwork/supergroup.mixin.one](https://github.com/MixinNetwork/supergroup.mixin.one)
-
 
 ## Forums
 
