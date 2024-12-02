@@ -14,7 +14,7 @@
     "clipboard": "^2.0.11",
     "element-plus": "^2.7.3",
     "file-saver": "^2.0.5",
-    "pinia": "^2.1.7",
+    "pinia": "^2.2.8",
     "qs": "^6.11.2",
     "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
