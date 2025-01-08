@@ -25,6 +25,9 @@ export const useLayoutStore = defineStore('layout', () => {
   const fetchAppProperty = async (client) => {
     appProperty.value = await client.app.properties();
   };
+  const fetchAppBilling = async (client, appId) => {
+    userInfo.value = await client.app.billing(appId);
+  };
   const fetchAll = async (client) => {
     modifyGlobalLoadingStatus(true);
     [
@@ -48,6 +51,7 @@ export const useLayoutStore = defineStore('layout', () => {
     userInfo,
     fetchAppList,
     fetchAppProperty,
+    fetchAppBilling,
     fetchAll,
   };
 });
