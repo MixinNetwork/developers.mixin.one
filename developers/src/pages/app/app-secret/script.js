@@ -29,6 +29,7 @@ export default {
     const state = reactive({
       submitting: false,
       app: undefined,
+      bill: undefined,
     });
     const keyConfig = computed(() => ({
       showBtn: state.app && !state.app.has_safe,
@@ -163,6 +164,19 @@ export default {
     };
     watch(() => props.appId, async (appId) => {
       state.app = await useFetchApp(appId);
+    }, { immediate: true });
+
+
+    const useFetchAppBilling = async (appId) => {
+      appId = appId || props.appId;
+      if (appId) {
+        const bill = await userClient.app.billing(appId);
+        return bill;
+      }
+      return {};
+    };
+    watch(() => props.appId, async (appId) => {
+      state.bill = await useFetchAppBilling(appId);
     }, { immediate: true });
 
     return {

@@ -577,6 +577,8 @@ export default {
     qrcode_btn1: 'Show',
     qrcode_btn2: 'Rotate',
     rotate_qrcode_question: 'Do you want to reset code_url?',
+    cc_title: 'App Credit & Cost',
+    cc_content: 'Credit is the total amount of money you have deposited to the app. Cost is the total amount of money you have spent on the app.',
     des: 'Mixin server and the browser did not keep the information at all. If you forgot, you can generate a new one.',
   },
   button: {

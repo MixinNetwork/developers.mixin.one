@@ -58,6 +58,20 @@
           </div>
         </div>
       </div>
+      <div class="item">
+        <div class="secret-item cost">
+          <div>
+            <div>
+              <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon"/>
+              <span>{{t('secret.cc_title')}}</span>
+            </div>
+            <p>{{t('secret.cc_content')}}</p>
+          </div>
+          <div class="btn-container qrcode-btns">
+            {{bill}}
+          </div>
+        </div>
+      </div>
     </div>
     <div class="tips">{{t('secret.des')}}</div>
   </div>

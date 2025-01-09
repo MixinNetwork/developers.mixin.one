@@ -630,6 +630,8 @@ export default {
     qrcode_btn1: '显示',
     qrcode_btn2: '重置',
     rotate_qrcode_question: '确认重置 code_url？',
+    cc_title: '总充值和消费统计',
+    cc_content: 'Credit is the total amount of money you have deposited to the app. Cost is the total amount of money you have spent on the app.',
     des: '服务器和浏览器都不保存敏感信息。如果忘记，你可以生成一个新的。',
   },
   button: {
