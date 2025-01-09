@@ -312,10 +312,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz#3188bcb273a414b0d215fd22a58540b989b9409a"
   integrity sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==
 
-"@mixin.dev/mixin-node-sdk@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.2.0.tgz#f8bc1c829dcbe8768839f7b5a2c486b005e1fe23"
-  integrity sha512-d0cZj0h5s552Dk8mmBt1arl6ciiF0Qxgutei4qJ3LIvM73hzlSNo96FcraUCy+yju5lhgQMPr8uQDGTtCFRo7Q==
+"@mixin.dev/mixin-node-sdk@7.2.2":
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.2.2.tgz#ee58089753344b02c8d5bf19ca3daf2065ed14b6"
+  integrity sha512-xH5GEgGPxsMhHuMitEh4syEFsK3XB//T8fc4trkhFzrUWNTDc/bgFx1KlkvVBP6BSyjcFIdaoVueWGUxz7ehDA==
   dependencies:
     "@noble/ciphers" "^1.0.0"
     "@noble/curves" "^1.2.0"
