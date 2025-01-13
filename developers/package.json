@@ -42,7 +42,7 @@
     "vite": "^6.0.7",
     "vite-plugin-mkcert": "^1.17.2",
     "vite-plugin-node-polyfills": "^0.22.0",
-    "vue-eslint-parser": "^9.4.0"
+    "vue-eslint-parser": "^9.4.3"
   },
   "browserslist": [
     "> 1%",
