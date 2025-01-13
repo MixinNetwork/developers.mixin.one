@@ -1,4 +1,4 @@
-runtime: python38
+runtime: python312
 service: developers-mixin-one
 
 handlers:
