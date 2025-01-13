@@ -62,6 +62,12 @@
       }
     }
 
+    .credit {
+      span {
+        font-weight: 500;
+      }
+    }
+
     &:nth-child(2n) {
       margin-right: 0;
     }
@@ -154,6 +160,38 @@
 
   &:hover {
     color: rgba(50, 119, 255, 0.8);
+  }
+}
+
+.item-billing {
+  width: 50%;
+  padding: 1rem;
+}
+
+.billing {
+  font-weight: 300;
+  .credit {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+  }
+
+  .value {
+    font-weight: 200;
+  }
+
+  .h-px {
+    border-top: 1px solid #e5e7ec;
+    margin: 5px 0;
+  }
+
+  .title {
+    font-size: 18px;
+    color: rgb(55 65 81);
+    padding: 0.5rem 0;
   }
 }
 
