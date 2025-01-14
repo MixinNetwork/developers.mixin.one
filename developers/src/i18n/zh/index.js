@@ -630,9 +630,12 @@ export default {
     qrcode_btn1: '显示',
     qrcode_btn2: '重置',
     rotate_qrcode_question: '确认重置 code_url？',
+    des: '服务器和浏览器都不保存敏感信息。如果忘记，你可以生成一个新的。',
+  },
+  billing: {
+    title: '账单',
     cc_title: '充值和花费统计',
     cc_content: '充值跟消费只针对这个机器人，充值是机器人的充值总金额。花费分为两部分，分别是资源(目前主要是链上充值)和子用户创建',
-    des: '服务器和浏览器都不保存敏感信息。如果忘记，你可以生成一个新的。',
   },
   button: {
     save: '保存',
