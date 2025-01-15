@@ -5,7 +5,7 @@
         <div class="billing-item cost">
           <div>
             <div>
-              <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon"/>
+              <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon" />
               <span>{{t('billing.cc_title')}}</span>
             </div>
             <p>{{t('billing.cc_content')}}</p>
@@ -28,6 +28,16 @@
               </div>
             </div>
           </div>
+          <div class="h-px"></div>
+          <div class="buy-credit">
+            <label>Buy Credits (USDT)</label>
+            <div class="input-container">
+              <input :placeholder="t('billing.amount')" v-model="amount"></input>
+
+              <button @click="useClickPay" :class="['primary', !allowSubmit ? 'not-finished' : '']">{{
+                t('billing.pay') }}</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,6 +48,8 @@
   import { toRefs, reactive, inject, watch, computed } from 'vue';
   import { useI18n } from 'vue-i18n';
   import { useUserClient } from '@/api';
+  import { v4 as uuid, parse } from 'uuid';
+  import qs from 'qs';
 
   export default {
     name: 'app-billing',
@@ -50,7 +62,14 @@
 
       const state = reactive({
         bill: undefined,
+        amount: '',
       });
+
+      const allowSubmit = computed(() => {
+        const amount = Number(state.amount);
+        return state.amount && !isNaN(amount) && amount > 0;
+      });
+
       const userClient = useUserClient($message, t);
 
       const useFetchAppBilling = async (appId) => {
@@ -62,12 +81,43 @@
         return {};
       };
 
+      const generateMixPayUrl = (asset, amount, memo, returnTo) => {
+        const baseUrl = 'https://mixpay.me/pay';
+        const params = {
+          payeeId: "3c2bf6e7-fa74-4764-a4f3-79a24fab814f",
+          settlementAssetId: asset,
+          quoteAssetId: 'usd',
+          quoteAmount: amount,
+          traceId: uuid(),
+          settlementMemo: memo,
+          returnTo,
+        };
+        const query = qs.stringify(params);
+        return `${baseUrl}?${query}`;
+      };
+
+      const useClickPay = () => {
+        if (!allowSubmit.value) {
+          $message.error(t('Please enter a valid amount'));
+          return;
+        }
+        const url = generateMixPayUrl(
+          '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
+          state.amount,
+          'buy app credit',
+          window.location.href
+        );
+        window.location.href = url;
+      };
+
       watch(() => props.appId, async (appId) => {
         state.bill = await useFetchAppBilling(appId);
       }, { immediate: true });
 
       return {
         ...toRefs(state),
+        useClickPay,
+        allowSubmit,
         t
       };
     },
@@ -170,6 +220,11 @@
   padding: 1rem;
 }
 
+.h-px {
+  border-top: 1px solid #e5e7ec;
+  margin: 5px 0;
+}
+
 .billing {
   margin-top: 1.5rem;
   font-weight: 300;
@@ -186,15 +241,30 @@
     font-weight: 200;
   }
 
-  .h-px {
-    border-top: 1px solid #e5e7ec;
-    margin: 5px 0;
-  }
-
   .title {
     font-size: 18px;
     color: rgb(55 65 81);
     padding: 0.5rem 0;
+  }
+}
+
+.buy-credit {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-container {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  input {
+    flex: 1;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
+    border-radius: 0.25rem;
+    padding: 0.25rem 1rem;
   }
 }
 
