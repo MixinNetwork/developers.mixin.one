@@ -12,30 +12,30 @@
           </div>
           <div v-if="bill" class="btn-container billing">
             <div class="credit">
-              <span>Credit:</span>
+              <span>{{t('billing.credit')}}</span>
               <span class="value">${{ bill.credit }}</span>
             </div>
             <div class="h-px"></div>
             <div class="space-y-2">
-              <h2 class="title">Cost</h2>
+              <h2 class="title">{{t('billing.cost')}}</h2>
               <div class="credit">
-                <span class="text-gray-600">Users:</span>
+                <span class="text-gray-600">{{t('billing.users')}}</span>
                 <span class="text-gray-800 value">${{ bill.cost.users }}</span>
               </div>
               <div class="credit">
-                <span class="text-gray-600">Resources:</span>
+                <span class="text-gray-600">{{t('billing.resources')}}</span>
                 <span class="text-gray-800 value">${{ bill.cost.resources }}</span>
               </div>
             </div>
           </div>
           <div class="h-px"></div>
           <div class="buy-credit">
-            <label>Buy Credits (USDT)</label>
+            <label>{{t('billing.pay_label')}}</label>
             <div class="input-container">
               <input :placeholder="t('billing.amount')" v-model="amount"></input>
 
               <button @click="useClickPay" :class="['primary', !allowSubmit ? 'not-finished' : '']">{{
-                t('billing.pay') }}</button>
+                t('billing.pay_btn') }}</button>
             </div>
           </div>
         </div>
