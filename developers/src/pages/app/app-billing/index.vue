@@ -47,6 +47,7 @@
 <script>
   import { toRefs, reactive, inject, watch, computed } from 'vue';
   import { useI18n } from 'vue-i18n';
+  import { base64RawURLEncode } from '@mixin.dev/mixin-node-sdk';
   import { useUserClient } from '@/api';
   import { v4 as uuid, parse } from 'uuid';
   import qs from 'qs';
@@ -96,6 +97,17 @@
         return `${baseUrl}?${query}`;
       };
 
+      const buildPaymentMemo = (user_id) => {
+        const extra = JSON.stringify({
+          u: user_id,
+          e: 'buy app credit'
+        });
+        const version = Buffer.from([1]);
+        const payee = Buffer.from(parse("fbd26bc6-3d04-4964-a7fe-a540432b16e2"));
+        const extraBuf = Buffer.from(extra)
+        return base64RawURLEncode(Buffer.concat([version, payee, extraBuf]));
+      };
+
       const useClickPay = () => {
         if (!allowSubmit.value) {
           $message.error(t('Please enter a valid amount'));
@@ -104,7 +116,7 @@
         const url = generateMixPayUrl(
           '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
           state.amount,
-          'buy app credit',
+          buildPaymentMemo(props.appId),
           window.location.href
         );
         window.location.href = url;
@@ -287,14 +299,5 @@
       margin-bottom: 0;
     }
   }
-
-  .btns {
-    justify-content: center;
-  }
-
-  .btn-close {
-    display: none;
-  }
 }
-
 </style>
