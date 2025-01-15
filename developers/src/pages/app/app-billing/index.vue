@@ -8,7 +8,7 @@
               <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon" />
               <span>{{t('billing.cc_title')}}</span>
             </div>
-            <p>{{t('billing.cc_content')}}</p>
+            <p v-html="t('billing.cc_content')"></p>
           </div>
           <div v-if="bill" class="btn-container billing">
             <div class="credit">

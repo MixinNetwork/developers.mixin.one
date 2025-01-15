@@ -582,7 +582,7 @@ export default {
   billing: {
     title: 'Billing',
     cc_title: 'App Credit & Cost',
-    cc_content: 'Credit is the amount of money you have deposited to the app. Cost is the amount of money you have spent on the app.',
+    cc_content: 'Credit is the amount of money you have deposited to the app. Cost is the amount of money you have spent on the app. <br /> Notice: The credit will be updated after seconds when you deposit.',
     amount: 'Credit Amount',
     pay: 'Deposit',
   },
