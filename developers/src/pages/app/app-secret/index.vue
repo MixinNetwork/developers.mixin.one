@@ -58,35 +58,6 @@
           </div>
         </div>
       </div>
-      <div class="item-billing">
-        <div class="secret-item cost">
-          <div>
-            <div>
-              <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon"/>
-              <span>{{t('secret.cc_title')}}</span>
-            </div>
-            <p>{{t('secret.cc_content')}}</p>
-          </div>
-          <div v-if="bill" class="btn-container billing">
-            <div class="credit">
-              <span>Credit:</span>
-              <span class="value">${{ bill.credit }}</span>
-            </div>
-            <div class="h-px"></div>
-            <div class="space-y-2">
-              <h2 class="title">Cost</h2>
-              <div class="credit">
-                <span class="text-gray-600">Users:</span>
-                <span class="text-gray-800 value">${{ bill.cost.users }}</span>
-              </div>
-              <div class="credit">
-                <span class="text-gray-600">Resources:</span>
-                <span class="text-gray-800 value">${{ bill.cost.resources }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="tips">{{t('secret.des')}}</div>
   </div>
