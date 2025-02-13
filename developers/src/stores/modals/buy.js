@@ -21,6 +21,7 @@ export const useBuyModalStore = defineStore('buy-app', () => {
   const loading = ref(false);
 
   const useCheckCredit = () => {
+    console.log('App Properties:', appProperty.value);
     if (appProperty.value.count <= 0) {
       show.value = true;
       return;
