@@ -6,12 +6,14 @@ export const useRegisterModalStore = defineStore('Register', () => {
   const client = ref(undefined);
   const appId = ref('');
   const step = ref(1);
+  const onSuccess = ref(undefined);
 
-  const useInitRegister = (c, id) => {
+  const useInitRegister = (c, id, cb) => {
     showRegister.value = true;
     client.value = c;
     appId.value = id;
     step.value = 1;
+    onSuccess.value = cb;
   };
 
   const useClearRegister = () => {
@@ -19,6 +21,7 @@ export const useRegisterModalStore = defineStore('Register', () => {
     client.value = undefined;
     appId.value = '';
     step.value = 1;
+    onSuccess.value = undefined;
   };
 
   const useCloseModal = () => {
@@ -30,6 +33,7 @@ export const useRegisterModalStore = defineStore('Register', () => {
     step,
     client,
     appId,
+    onSuccess,
     useInitRegister,
     useClearRegister,
     useCloseModal,

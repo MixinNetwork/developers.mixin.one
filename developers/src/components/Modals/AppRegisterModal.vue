@@ -55,7 +55,7 @@ export default {
     const $message = inject('$message');
 
     const registerStore = useRegisterModalStore();
-    const { showRegister, appId, client, step } = storeToRefs(registerStore);
+    const { showRegister, appId, client, step, onSuccess } = storeToRefs(registerStore);
     const { useCloseModal } = registerStore;
 
     const loading = ref(false);
@@ -100,6 +100,7 @@ export default {
         spend_public_key: publicKey.value,
       });
       if (res && res.spend_public_key) {
+        await onSuccess();
         $message.success({ message: t('message.success.register'), showClose: true });
         useCloseModal();
       }
