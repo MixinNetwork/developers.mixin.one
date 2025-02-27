@@ -39,6 +39,20 @@ export default {
     const userClient = useUserClient($message, t);
     const useCheckKeystore = (keystore) => keystore && keystore.user_id && keystore.pin_token && keystore.private_key && keystore.session_id;
 
+    const useFetchApp = async (appId) => {
+      appId = appId || props.appId;
+      if (appId) {
+        modifyLocalLoadingStatus(true);
+        const app = await userClient.user.fetch(appId);
+        modifyLocalLoadingStatus(false);
+        return app;
+      }
+      return undefined;
+    };
+    const useRefresh = async (appId) => {
+      state.app = await useFetchApp(appId);
+    };
+
     const useUpdateSecret = async () => {
       if (state.submitting) {
         $message.error({ message: t('message.errors.reset'), showClose: true });
@@ -136,7 +150,7 @@ export default {
             $message.error({ message: t('message.errors.reset'), showClose: true });
             return;
           }
-          useInitRegister(userClient, state.app.user_id);
+          useInitRegister(userClient, state.app.user_id, useRefresh);
         default:
           break;
       }
@@ -152,19 +166,7 @@ export default {
       useInitSecret(t('secret.qrcode_title'), user.code_url, '');
     }
 
-    const useFetchApp = async (appId) => {
-      appId = appId || props.appId;
-      if (appId) {
-        modifyLocalLoadingStatus(true);
-        const app = await userClient.user.fetch(appId);
-        modifyLocalLoadingStatus(false);
-        return app;
-      }
-      return {};
-    };
-    watch(() => props.appId, async (appId) => {
-      state.app = await useFetchApp(appId);
-    }, { immediate: true });
+    watch(() => props.appId, useRefresh, { immediate: true });
 
 
     const useFetchAppBilling = async (appId) => {

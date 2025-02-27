@@ -54,18 +54,17 @@ export default {
     const { t } = useI18n();
     const $message = inject('$message');
 
+    const registerStore = useRegisterModalStore();
+    const { showRegister, appId, client, step, onSuccess } = storeToRefs(registerStore);
+    const { useCloseModal } = registerStore;
+
     const loading = ref(false);
-    const step = ref(1);
     const clipboard = ref(undefined);
 
     const confirmed = ref(false);
     const privateKey = ref('');
     const publicKey = ref('');
     const btnText = computed(() => step.value === 1 ? t('button.copyAndNext') : t('button.register'));
-
-    const registerStore = useRegisterModalStore();
-    const { showRegister, appId, client } = storeToRefs(registerStore);
-    const { useCloseModal } = registerStore;
 
     const useInit = () => {
       clipboard.value = new ClipboardJS(
@@ -101,6 +100,7 @@ export default {
         spend_public_key: publicKey.value,
       });
       if (res && res.spend_public_key) {
+        await onSuccess();
         $message.success({ message: t('message.success.register'), showClose: true });
         useCloseModal();
       }
