@@ -2409,11 +2409,6 @@ nano-seconds@^1.2.2:
   resolved "https://registry.npmjs.org/nano-seconds/-/nano-seconds-1.2.2.tgz#e8d89971547a57083201ca121543aeeafeab4b02"
   integrity sha512-s06EY41x1hM6BJE2HhIFRzvXuVUlZNd4761lduv+hjgtDDR7W4RzhShkap2wJcWMO6+CahR+49cCQJfFmgf7gw==
 
-nanoid@^3.3.7:
-  version "3.3.7"
-  resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
-  integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
-
 nanoid@^3.3.8:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.11.tgz#4f4f112cefbe303202f2199838128936266d185b"
@@ -2688,21 +2683,12 @@ pkg-types@^1.0.3:
     mlly "^1.2.0"
     pathe "^1.1.0"
 
-postcss@^8.4.48:
+postcss@^8.4.48, postcss@^8.4.49:
   version "8.5.3"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.3.tgz#1463b6f1c7fb16fe258736cba29a2de35237eafb"
   integrity sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==
   dependencies:
     nanoid "^3.3.8"
-    picocolors "^1.1.1"
-    source-map-js "^1.2.1"
-
-postcss@^8.4.49:
-  version "8.4.49"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.49.tgz#4ea479048ab059ab3ae61d082190fabfd994fe19"
-  integrity sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==
-  dependencies:
-    nanoid "^3.3.7"
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
@@ -3376,10 +3362,10 @@ vite-plugin-node-polyfills@^0.22.0:
     "@rollup/plugin-inject" "^5.0.5"
     node-stdlib-browser "^1.2.0"
 
-vite@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.7.tgz#f0f8c120733b04af52b4a1e3e7cb54eb851a799b"
-  integrity sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==
+vite@^6.0.12:
+  version "6.0.12"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.12.tgz#0e3de2441057011f7c20bf018ea16d3824bdbd6b"
+  integrity sha512-gzLogvGSgX2xyAt0J5qhJ7SmdO5aLdShABkU8Ev7dIl8AcrlFSLcj9GHReSq9pGJF/q5C4CZKdtDlkC6DyvQ3w==
   dependencies:
     esbuild "^0.24.2"
     postcss "^8.4.49"
