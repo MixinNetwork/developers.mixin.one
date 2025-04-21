@@ -312,15 +312,15 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz#3188bcb273a414b0d215fd22a58540b989b9409a"
   integrity sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==
 
-"@mixin.dev/mixin-node-sdk@7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.2.2.tgz#ee58089753344b02c8d5bf19ca3daf2065ed14b6"
-  integrity sha512-xH5GEgGPxsMhHuMitEh4syEFsK3XB//T8fc4trkhFzrUWNTDc/bgFx1KlkvVBP6BSyjcFIdaoVueWGUxz7ehDA==
+"@mixin.dev/mixin-node-sdk@7.3.8":
+  version "7.3.8"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.3.8.tgz#bf595447627ed4f1b6bdf8b3ade095ef721e8d07"
+  integrity sha512-g6qWwr/4TOqKId50IZuF6V5fiRWFMdAsM0mP0uTxP7lg9DlWrCxj/rQACfGiDbzz3iM7WKK8Okl9qNgVXwNEtQ==
   dependencies:
     "@noble/ciphers" "^1.0.0"
     "@noble/curves" "^1.2.0"
     "@noble/hashes" "^1.5.0"
-    axios "1.7.7"
+    axios "1.8.2"
     axios-retry "3.4.0"
     bignumber.js "^9.1.2"
     bs58 "^5.0.0"
@@ -896,21 +896,12 @@ axios-retry@3.4.0:
     "@babel/runtime" "^7.15.4"
     is-retry-allowed "^2.2.0"
 
-axios@1.7.7:
-  version "1.7.7"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.7.tgz#2f554296f9892a72ac8d8e4c5b79c14a91d0a47f"
-  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
+axios@1.8.2, axios@^1.6.5:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.8.2.tgz#fabe06e241dfe83071d4edfbcaa7b1c3a40f7979"
+  integrity sha512-ls4GYBm5aig9vWx8AWDSGLpnpDQRtWAfrjU+EuytuODrFBkqesN2RkOQCBzrA1RQNHw1SmRMSDDDSwzNAYQ6Rg==
   dependencies:
     follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
-axios@^1.6.5:
-  version "1.6.7"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
-  integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
-  dependencies:
-    follow-redirects "^1.15.4"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -1756,11 +1747,6 @@ flatted@^3.2.9:
   version "3.2.9"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
-
-follow-redirects@^1.15.4:
-  version "1.15.6"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
-  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
 
 follow-redirects@^1.15.6:
   version "1.15.9"
