@@ -587,6 +587,7 @@ export default {
     cost: 'Cost',
     users: 'Users:',
     resources: 'Resources:',
+    total: 'Total:',
     amount: 'Credit Amount',
     pay_label: 'Buy Credits (USDT)',
     pay_btn: 'Deposit',

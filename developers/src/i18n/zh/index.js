@@ -640,6 +640,7 @@ export default {
     cost: '花费总计',
     users: '子帐号花费:',
     resources: '资源花费:',
+    total: '总花费:',
     amount: '充值金额',
     pay_label: '充值 (USDT)',
     pay_btn: '充值',

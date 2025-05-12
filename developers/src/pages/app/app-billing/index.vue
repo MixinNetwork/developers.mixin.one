@@ -26,6 +26,10 @@
                 <span class="text-gray-600">{{t('billing.resources')}}</span>
                 <span class="text-gray-800 value">${{ bill.cost.resources }}</span>
               </div>
+              <div class="credit">
+                <span class="text-gray-600">{{t('billing.total')}}</span>
+                <span class="text-gray-800 value">${{ bill.cost.total }}</span>
+              </div>
             </div>
           </div>
           <div class="h-px"></div>
@@ -77,6 +81,9 @@
         appId = appId || props.appId;
         if (appId) {
           const bill = await userClient.app.billing(appId);
+          if (bill.cost) {
+            bill.cost.total = Number(bill.cost.users) + Number(bill.cost.resources)
+          }
           return bill;
         }
         return {};
