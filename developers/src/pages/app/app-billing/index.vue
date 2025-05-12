@@ -86,7 +86,7 @@
           }
           return bill;
         }
-        return {};
+        return {credit: 0, cost: {users: 0, resources: 0}};
       };
 
       const generateMixPayUrl = (asset, amount, memo, returnTo) => {
