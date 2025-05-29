@@ -1,4 +1,4 @@
-@import './common.scss';
+@use "./common.scss" as *;
 
 .home-page {
   position: relative;
@@ -8,10 +8,9 @@
 }
 
 section {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 18rem;
 }
-
 
 h2 {
   font-family: "Maven Pro", sans-serif;
@@ -100,9 +99,7 @@ h2 {
     margin-top: -1rem;
     padding: 12.025rem 6.8rem 4.6rem 5rem;
 
-    background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0) 0%,
-            #f9fbff 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f9fbff 100%);
 
     li {
       font-weight: normal;
@@ -207,10 +204,7 @@ h2 {
       width: 0.25rem;
       height: 17.5rem;
 
-      background: linear-gradient(180deg,
-              rgba(255, 255, 255, 0) 0%,
-              rgba(175, 199, 248, 0.6) 78.65%,
-              rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(175, 199, 248, 0.6) 78.65%, rgba(255, 255, 255, 0) 100%);
     }
 
     &.right-line {
@@ -220,9 +214,7 @@ h2 {
       width: 0.25rem;
       height: 17.5rem;
 
-      background: linear-gradient(180.22deg,
-              rgba(255, 255, 255, 0) 0%,
-              rgba(175, 199, 248, 0.6) 100%);
+      background: linear-gradient(180.22deg, rgba(255, 255, 255, 0) 0%, rgba(175, 199, 248, 0.6) 100%);
       transform: rotate(-180deg);
     }
   }
@@ -454,7 +446,6 @@ h2 {
   }
 
   .documentation {
-
     .container {
       display: flex;
       margin-top: 8.75rem;
@@ -635,10 +626,7 @@ h2 {
       padding: 1.25rem;
       margin-top: 3.625rem;
 
-      background: linear-gradient(180deg,
-              rgba(248, 250, 255, 0.54) 0%,
-              #f9fbff 95.09%,
-              #f8faff 95.09%);
+      background: linear-gradient(180deg, rgba(248, 250, 255, 0.54) 0%, #f9fbff 95.09%, #f8faff 95.09%);
       border-radius: 0.25rem;
 
       li {
@@ -658,7 +646,6 @@ h2 {
     .router-list {
       position: absolute;
       bottom: -8rem;
-
 
       .button:first-child {
         margin: 0;

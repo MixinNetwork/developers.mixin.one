@@ -2,46 +2,83 @@
   <div class="container">
     <div class="billing-list flex">
       <div class="item-billing">
-        <div class="billing-item cost">
+        <div class="billing-item">
           <div>
             <div>
-              <img src="@/assets/img/svg/secret.svg" alt="app-qrcode-icon" />
-              <span>{{t('billing.cc_title')}}</span>
+              <img src="@/assets/img/svg/database.svg" alt="app-database-icon" />
+              <span class="title">{{ t("billing.credit_balance") }}</span>
             </div>
-            <p v-html="t('billing.cc_content')"></p>
-          </div>
-          <div v-if="bill" class="btn-container billing">
-            <div class="credit">
-              <span>{{t('billing.credit')}}</span>
-              <span class="value">${{ bill.credit }}</span>
-            </div>
-            <div class="h-px"></div>
-            <div class="space-y-2">
-              <h2 class="title">{{t('billing.cost')}}</h2>
-              <div class="credit">
-                <span class="text-gray-600">{{t('billing.users')}}</span>
-                <span class="text-gray-800 value">${{ bill.cost.users }}</span>
-              </div>
-              <div class="credit">
-                <span class="text-gray-600">{{t('billing.resources')}}</span>
-                <span class="text-gray-800 value">${{ bill.cost.resources }}</span>
-              </div>
-              <div class="credit">
-                <span class="text-gray-600">{{t('billing.total')}}</span>
-                <span class="text-gray-800 value">${{ bill.cost.total }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="h-px"></div>
-          <div class="buy-credit">
-            <label>{{t('billing.pay_label')}}</label>
-            <div class="input-container">
-              <input :placeholder="t('billing.amount')" v-model="amount"></input>
+            <p class="balance">$9,895.99 (TODO)</p>
 
-              <button @click="useClickPay" :class="['primary', !allowSubmit ? 'not-finished' : '']">{{
-                t('billing.pay_btn') }}</button>
+            <button @click="useClickPay" :class="['primary', 'deposit', !allowSubmit ? 'not-finished' : '']">{{ t("billing.pay_btn") }}</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-billing">
+        <div class="billing-item">
+          <div>
+            <div>
+              <img src="@/assets/img/svg/pie.svg" alt="app-database-icon" />
+              <span class="title">{{ t("billing.total") }}</span>
+            </div>
+
+            <div class="billing-item-total">
+              <span>{{ t("billing.subuser_count") }}</span>
+              <span>100 (TODO)</span>
+              <span>{{ t("billing.address_count") }}</span>
+              <span>100 (TODO)</span>
+              <span>{{ t("billing.deposit_count") }}</span>
+              <span>100 (TODO)</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="item-billing table-item">
+        <div class="billing-item">
+          <div class="billing-item-service-charge">
+            <span class="title">{{ t("billing.service_charge") }}</span>
+            <el-date-picker type="month" v-model="date" :editable="false" :clearable="false"> </el-date-picker>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <td>{{ t("billing.service") }}</td>
+                <th class="quantity-col">Quantity</th>
+                <th class="price-col">Unit Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ t("billing.create_subuser") }}</td>
+                <td class="quantity-col">1(TODO)</td>
+                <td class="price-col">$0.5(TODO)</td>
+                <td>$0.5(TODO)</td>
+              </tr>
+              <tr>
+                <td>{{ t("billing.create_ethereum_address") }}</td>
+                <td class="quantity-col">1(TODO)</td>
+                <td class="price-col">$0.5(TODO)</td>
+                <td>$0.5(TODO)</td>
+              </tr>
+              <tr>
+                <td>{{ t("billing.create_polygon_address") }}</td>
+                <td class="quantity-col">1(TODO)</td>
+                <td class="price-col">$0.5(TODO)</td>
+                <td>$0.5(TODO)</td>
+              </tr>
+              <tr>
+                <td>{{ t("billing.bitcoin_deposit") }}</td>
+                <td class="quantity-col">1(TODO)</td>
+                <td class="price-col">$0.5(TODO)</td>
+                <td>$0.5(TODO)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="billing-total">{{ t("billing.total") }} <span>$55.5(TODO)</span></div>
         </div>
       </div>
     </div>
@@ -49,102 +86,67 @@
 </template>
 
 <script>
-  import { toRefs, reactive, inject, watch, computed } from 'vue';
-  import { useI18n } from 'vue-i18n';
-  import { base64RawURLEncode } from '@mixin.dev/mixin-node-sdk';
-  import { useUserClient } from '@/api';
-  import { v4 as uuid, parse } from 'uuid';
-  import qs from 'qs';
+import { toRefs, reactive, inject, watch, computed, ref } from "vue"
+import { useI18n } from "vue-i18n"
+import { useUserClient } from "@/api"
+import { useDepositModalStore } from "@/stores"
 
-  export default {
-    name: 'app-billing',
-    props: {
-      appId: String,
-    },
-    setup(props) {
-      const $message = inject('$message');
-      const { t } = useI18n();
+export default {
+  name: "app-billing",
+  props: {
+    appId: String,
+  },
+  setup(props) {
+    const date = ref(new Date())
 
-      const state = reactive({
-        bill: undefined,
-        amount: '',
-      });
+    const $message = inject("$message")
+    const { t } = useI18n()
+    const { useInitDeposit } = useDepositModalStore()
 
-      const allowSubmit = computed(() => {
-        const amount = Number(state.amount);
-        return state.amount && !isNaN(amount) && amount > 0;
-      });
+    const state = reactive({
+      bill: undefined,
+    })
 
-      const userClient = useUserClient($message, t);
+    const allowSubmit = computed(() => true) // Always allow deposit button click
 
-      const useFetchAppBilling = async (appId) => {
-        appId = appId || props.appId;
-        if (appId) {
-          const bill = await userClient.app.billing(appId);
-          if (bill.cost) {
-            bill.cost.total = Number(bill.cost.users) + Number(bill.cost.resources)
-          }
-          return bill;
+    const userClient = useUserClient($message, t)
+
+    const useFetchAppBilling = async (appId) => {
+      appId = appId || props.appId
+      if (appId) {
+        const bill = await userClient.app.billing(appId)
+        if (bill.cost) {
+          bill.cost.total = Number(bill.cost.users) + Number(bill.cost.resources)
         }
-        return {credit: 0, cost: {users: 0, resources: 0}};
-      };
+        return bill
+      }
+      return { credit: 0, cost: { users: 0, resources: 0 } }
+    }
 
-      const generateMixPayUrl = (asset, amount, memo, returnTo) => {
-        const baseUrl = 'https://mixpay.me/pay';
-        const params = {
-          payeeId: "3c2bf6e7-fa74-4764-a4f3-79a24fab814f",
-          settlementAssetId: asset,
-          quoteAssetId: 'usd',
-          quoteAmount: amount,
-          traceId: uuid(),
-          settlementMemo: memo,
-          returnTo,
-        };
-        const query = qs.stringify(params);
-        return `${baseUrl}?${query}`;
-      };
+    const useClickPay = () => {
+      useInitDeposit(props.appId)
+    }
 
-      const buildPaymentMemo = (user_id) => {
-        const extra = JSON.stringify({
-          u: user_id,
-          e: 'buy app credit'
-        });
-        const version = Buffer.from([1]);
-        const payee = Buffer.from(parse("fbd26bc6-3d04-4964-a7fe-a540432b16e2"));
-        const extraBuf = Buffer.from(extra)
-        return base64RawURLEncode(Buffer.concat([version, payee, extraBuf]));
-      };
+    watch(
+      () => props.appId,
+      async (appId) => {
+        state.bill = await useFetchAppBilling(appId)
+      },
+      { immediate: true }
+    )
 
-      const useClickPay = () => {
-        if (!allowSubmit.value) {
-          $message.error(t('Please enter a valid amount'));
-          return;
-        }
-        const url = generateMixPayUrl(
-          '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
-          state.amount,
-          buildPaymentMemo(props.appId),
-          window.location.href
-        );
-        window.location.href = url;
-      };
-
-      watch(() => props.appId, async (appId) => {
-        state.bill = await useFetchAppBilling(appId);
-      }, { immediate: true });
-
-      return {
-        ...toRefs(state),
-        useClickPay,
-        allowSubmit,
-        t
-      };
-    },
-  };
+    return {
+      ...toRefs(state),
+      useClickPay,
+      allowSubmit,
+      date,
+      t,
+    }
+  },
+}
 </script>
 
-<style lang='scss' scoped>
-
+<style lang="scss" scoped>
 .billing-list {
   box-sizing: border-box;
   display: flex;
@@ -175,10 +177,10 @@
   height: 100%;
   background: #fff;
   box-shadow: 0 0.0625rem 0.25rem 0 rgba(28, 77, 174, 0.1);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-sizing: border-box;
   position: relative;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   img {
     border-radius: 0;
@@ -190,9 +192,73 @@
     font-weight: 700;
   }
 
+  span.title {
+    text-transform: uppercase;
+  }
+
+  .billing-item-service-charge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0rem;
+
+    :deep(.el-input__prefix) {
+      display: none;
+    }
+
+    :deep(.el-input__wrapper) {
+      width: 100px;
+      border-radius: 8px;
+      background: #f6f9ff;
+      box-shadow: none;
+    }
+
+    :deep(.el-date-editor.el-input, .el-date-editor.el-input__wrapper) {
+      width: inherit;
+    }
+
+    :deep(.el-input__inner) {
+      text-align: center;
+    }
+  }
+
+  .billing-item-total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
+    padding-top: 2rem;
+
+    span:nth-child(odd) {
+      color: #a9b0bf;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    span:nth-child(even) {
+      color: #333;
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.25rem;
+    }
+  }
+
   i {
     margin-right: 0.875rem;
     font-weight: 1000;
+  }
+
+  p.balance {
+    align-self: stretch;
+    color: #333;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  button.deposit {
+    margin-top: 2rem;
   }
 
   p {
@@ -232,11 +298,112 @@
     font-weight: 500;
     font-size: 0.9375rem;
   }
+
+  .billing-total {
+    height: 3.75rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2rem;
+
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0px -1px 2px 0px rgba(28, 77, 174, 0.1);
+
+    color: #333;
+    font-size: 0.875rem;
+    font-weight: 400;
+
+    span {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+  }
+
+  table {
+    margin-top: 2rem;
+    border-collapse: collapse;
+
+    thead {
+      display: block;
+      padding-top: 0.125rem;
+      padding-bottom: 0.75rem;
+    }
+
+    tbody {
+      display: block;
+    }
+
+    tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      display: table-cell;
+
+      &:nth-child(1) {
+        width: 40%;
+        padding-left: min(1.25rem, 2.5%);
+        padding-right: 2.5%;
+      }
+
+      &:nth-child(2) {
+        width: 15%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+      }
+
+      &:nth-child(3) {
+        width: 15%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+      }
+
+      &:nth-child(4) {
+        width: 15%;
+        padding-left: 2.5%;
+      }
+    }
+
+    th {
+      text-align: left;
+      color: #a9b0bf;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    tbody tr {
+      height: 3.75rem;
+      transition: background-color 0.2s ease;
+
+      &:hover,
+      &:focus-within {
+        background: #f6f9ff;
+      }
+    }
+
+    td {
+      color: #333;
+      font-family: "SF Pro Text";
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      vertical-align: middle;
+    }
+  }
 }
 
 .item-billing {
-  width: 100%;
+  width: 50%;
   padding: 1rem;
+
+  &.table-item {
+    width: 100%;
+  }
 }
 
 .h-px {
@@ -247,6 +414,7 @@
 .billing {
   margin-top: 1.5rem;
   font-weight: 300;
+
   .credit {
     font-size: 0.9375rem;
     font-weight: 500;
@@ -278,6 +446,7 @@
   margin-top: 0.5rem;
   display: flex;
   gap: 1.5rem;
+
   input {
     flex: 1;
     background: rgba(255, 255, 255, 1);
@@ -291,7 +460,7 @@
   .billing-list {
     display: block;
 
-    .item {
+    .item-billing {
       width: 100%;
       padding: 1rem;
     }
@@ -304,6 +473,32 @@
 
     .billing-item {
       margin-bottom: 0;
+    }
+  }
+
+  .quantity-col,
+  .price-col {
+    display: none;
+  }
+
+  table {
+    th,
+    td {
+      &:nth-child(1) {
+        width: 60%;
+        padding-left: min(1.25rem, 2.5%);
+        padding-right: 2.5%;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        display: none;
+      }
+
+      &:nth-child(4) {
+        width: 40%;
+        padding-left: 2.5%;
+      }
     }
   }
 }
