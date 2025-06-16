@@ -1,4 +1,4 @@
-@use "./markdown.scss" as *;
+@import './markdown.scss';
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 }
 
 html {
-  font-family: Helvetica, "Roboto Mono", sans-serif;
+  font-family: Helvetica, 'Roboto Mono', sans-serif;
 }
 
 button {

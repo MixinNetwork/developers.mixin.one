@@ -5,15 +5,15 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useRoute } from "vue-router"
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
-const route = useRoute()
-const layout = computed(() => `${route.meta.type}-layout`)
+const route = useRoute();
+const layout = computed(() => `${route.meta.type}-layout`);
 </script>
 
 <style lang="scss">
-@use "@/assets/scss/theme.scss" as *;
+@import "@/assets/scss/theme.scss";
 
 .views {
   position: absolute;
