@@ -100,7 +100,7 @@ export default {
         spend_public_key: publicKey.value,
       });
       if (res && res.spend_public_key) {
-        await onSuccess();
+        await onSuccess.value();
         $message.success({ message: t('message.success.register'), showClose: true });
         useCloseModal();
       }
