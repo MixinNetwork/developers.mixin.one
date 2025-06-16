@@ -13,7 +13,7 @@ const layout = computed(() => `${route.meta.type}-layout`);
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/theme.scss";
+@use "@/assets/scss/theme.scss";
 
 .views {
   position: absolute;

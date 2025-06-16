@@ -44,5 +44,5 @@
 <script type='text/javascript' charset='utf-8' src='./script.js'></script>
 
 <style lang='scss' scoped>
-@import "./style.scss";
+@use "./style.scss";
 </style>
