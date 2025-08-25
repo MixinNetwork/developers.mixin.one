@@ -1484,10 +1484,10 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     es-errors "^1.3.0"
     gopd "^1.2.0"
 
-element-plus@^2.10.7:
-  version "2.10.7"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.10.7.tgz#daf19a50a51166ac08861ebd29497bbf0b6c74ac"
-  integrity sha512-bL4yhepL8/0NEQA5+N2Q6ZVKLipIDkiQjK2mqtSmGh6CxJk1yaBMdG5HXfYkbk1htNcT3ULk9g23lzT323JGcA==
+element-plus@^2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.11.1.tgz#10cb0c149e157d14944d293ea68db114b2303c37"
+  integrity sha512-weYFIniyNXTAe9vJZnmZpYzurh4TDbdKhBsJwhbzuo0SDZ8PLwHVll0qycJUxc6SLtH+7A9F7dvdDh5CnqeIVA==
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
     "@element-plus/icons-vue" "^2.3.1"
