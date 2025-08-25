@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mixin.dev/mixin-node-sdk':
-        specifier: 7.4.4
-        version: 7.4.4
+        specifier: 7.4.5
+        version: 7.4.5
       assert:
         specifier: ^2.0.0
         version: 2.1.0
@@ -380,8 +380,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
 
-  '@mixin.dev/mixin-node-sdk@7.4.4':
-    resolution: {integrity: sha512-8zZjMMnQhYY92F79xo5NuhY+WPvA+/1jS9w6yfifVTFthXuJ7KnCneCB44/RudW+9qik4BDYcWpxC0Jz4Tui8Q==}
+  '@mixin.dev/mixin-node-sdk@7.4.5':
+    resolution: {integrity: sha512-x3Kga4Bkmr1XFrv/KRapp3t4CSGeylSMw+8d4t1AzxfvyNUSFyoVZh3E0lMY2suCKzt9cqd78rzmFKaoiI59fw==}
     engines: {node: '>=10'}
 
   '@noble/ciphers@1.3.0':
@@ -2578,7 +2578,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mixin.dev/mixin-node-sdk@7.4.4':
+  '@mixin.dev/mixin-node-sdk@7.4.5':
     dependencies:
       '@noble/ciphers': 1.3.0
       '@noble/curves': 1.9.7
