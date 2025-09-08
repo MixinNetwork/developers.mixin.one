@@ -328,10 +328,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mixin.dev/mixin-node-sdk@7.4.4":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.4.4.tgz#010b7c28dbc9f081a6b82a082a51bf02f9d54a67"
-  integrity sha512-8zZjMMnQhYY92F79xo5NuhY+WPvA+/1jS9w6yfifVTFthXuJ7KnCneCB44/RudW+9qik4BDYcWpxC0Jz4Tui8Q==
+"@mixin.dev/mixin-node-sdk@7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.4.5.tgz#0c8987a4b869774bd94a06470e33933b5b5a9569"
+  integrity sha512-x3Kga4Bkmr1XFrv/KRapp3t4CSGeylSMw+8d4t1AzxfvyNUSFyoVZh3E0lMY2suCKzt9cqd78rzmFKaoiI59fw==
   dependencies:
     "@noble/ciphers" "^1.0.0"
     "@noble/curves" "^1.2.0"
