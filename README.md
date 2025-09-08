@@ -11,10 +11,9 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 1. Logs: [https://mixin.one/logs](https://mixin.one/logs)
 2. Block infomations: [https://mixin.one/snapshots
 ](https://mixin.one/snapshots)
-3. X: [https://twitter.com/MixinKernel](https://twitter.com/MixinKernel)
+3. X: [https://x.com/MixinKernel](https://x.com/MixinKernel)
 4. Facebook: [https://www.facebook.com/MixinNetwork](https://www.facebook.com/MixinNetwork)
-5. Youtube: [https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA](https://www.youtube.com/channel/UCLWQ94gw7wRK-S5qy4LAVrA)
-6. Medium: [https://medium.com/mixinnetwork](https://medium.com/mixinnetwork)
+5. Medium: [https://medium.com/mixinnetwork](https://medium.com/mixinnetwork)
 
 ## Resources
 
