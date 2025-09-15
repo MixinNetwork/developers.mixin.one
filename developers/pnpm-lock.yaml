@@ -42,8 +42,8 @@ importers:
         specifier: ^14.2.1
         version: 14.2.1(sass@1.92.1)
       uuid:
-        specifier: ^12.0.0
-        version: 12.0.0
+        specifier: ^13.0.0
+        version: 13.0.0
       validator:
         specifier: ^13.12.0
         version: 13.15.15
@@ -2245,8 +2245,8 @@ packages:
     resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
     hasBin: true
 
-  uuid@12.0.0:
-    resolution: {integrity: sha512-USe1zesMYh4fjCA8ZH5+X5WIVD0J4V1Jksm1bFTVBX2F/cwSXt0RO5w/3UXbdLKmZX65MiWV+hwhSS8p6oBTGA==}
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
     hasBin: true
 
   validator@13.15.15:
@@ -4800,7 +4800,7 @@ snapshots:
 
   uuid@11.1.0: {}
 
-  uuid@12.0.0: {}
+  uuid@13.0.0: {}
 
   validator@13.15.15: {}
 
