@@ -34,7 +34,7 @@
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.32.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "unplugin-auto-import": "^20.1.0",
     "unplugin-element-plus": "^0.7.1",
