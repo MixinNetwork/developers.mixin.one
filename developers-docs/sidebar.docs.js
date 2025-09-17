@@ -36,10 +36,7 @@ module.exports = {
           label: 'PIN',
           type: 'category',
           items: [
-            'api/pin/pin-update',
-            'api/pin/pin-verify',
             'api/pin/logs',
-            'api/pin/tip',
           ]
         },
         {
@@ -52,17 +49,6 @@ module.exports = {
           ]
         },
         {
-          label: 'Transfer',
-          type: 'category',
-          items: [
-            'api/transfer/transfer',
-            'api/transfer/raw-transfer',
-            'api/transfer/snapshots',
-            'api/transfer/snapshot',
-            'api/transfer/payment',
-          ]
-        },
-        {
           label: 'Withdrawal',
           type: 'category',
           items: [
@@ -70,7 +56,6 @@ module.exports = {
             'api/withdrawal/address',
             'api/withdrawal/address-add',
             'api/withdrawal/address-delete',
-            'api/withdrawal/withdrawal',
           ]
         },
         {
@@ -79,8 +64,6 @@ module.exports = {
           items: [
             'api/network/chains',
             'api/network/assets',
-            'api/network/snapshots',
-            'api/network/snapshot',
             'api/network/ticker',
           ]
         },
@@ -91,22 +74,6 @@ module.exports = {
             'api/external/fiats',
             'api/external/address',
             'api/external/pending-deposits',
-          ]
-        },
-        {
-          label: 'Multi-Signature',
-          type: 'category',
-          items: [
-            'api/multisigs/request',
-            'api/multisigs/outputs',
-          ]
-        },
-        {
-          label: 'Outputs',
-          type: 'category',
-          items: [
-            'api/outputs/ghost',
-            'api/outputs/outputs',
           ]
         },
         {
@@ -156,7 +123,6 @@ module.exports = {
         "api/codes",
         "api/shared-bots",
         "api/zip-album",
-        "api/session-secret-migration",
         "api/error-codes",
       ]
     },
