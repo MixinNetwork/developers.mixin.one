@@ -2,52 +2,100 @@ module.exports = {
   api: [
     'api-overview',
     {
-      label: 'API Reference',
+      label: 'Getting Started',
       type: 'category',
       collapsed: false,
       items: [
         'api/guide',
-        'api/safe-apis',
-        'api/inscription',
         {
-          label: 'OAuth',
+          label: 'Authentication',
           type: 'category',
           items: [
             'api/oauth/oauth',
             'api/oauth/scope',
           ]
         },
+      ]
+    },
+    {
+      label: 'Sequencer API',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'api/sequencer/overview',
+        'api/sequencer/registration',
+        'api/sequencer/utxos',
+        'api/sequencer/snapshots',
+        'api/sequencer/deposit',
+        'api/sequencer/transactions',
+        'api/sequencer/multisigs',
+        'api/sequencer/client-integration',
+      ]
+    },
+    {
+      label: 'Social',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'api/users/intro',
+        'api/users/profile',
+        'api/users/user',
+        'api/users/users',
+        'api/users/sessions',
+        'api/users/search',
+        'api/users/contacts',
+        'api/users/relationships',
+        'api/users/network-user',
         {
-          label: 'User',
+          label: 'Circles',
           type: 'category',
           items: [
-            'api/users/intro',
-            'api/users/profile',
-            'api/users/users',
-            'api/users/user',
-            'api/users/sessions',
-            'api/users/search',
-            'api/users/contacts',
-            'api/users/relationships',
-            'api/users/network-user',
+            'api/circles/list',
+            'api/circles/list-items',
+            'api/circles/create',
+            'api/circles/update',
+            'api/circles/add-to-remove-from-circles',
+            'api/circles/single',
+            'api/circles/delete',
+          ]
+        },
+        'api/shared-bots',
+      ]
+    },
+    {
+      label: 'Messaging',
+      type: 'category',
+      collapsed: false,
+      items: [
+        {
+          label: 'Messages',
+          type: 'category',
+          items: [
+            'api/messages/category',
+            'api/messages/send',
+            'api/messages/attachment-upload',
+            'api/messages/attachment-download',
+            'api/messages/read',
+            'api/messages/encrypted',
           ]
         },
         {
-          label: 'PIN',
+          label: 'Conversations',
           type: 'category',
           items: [
-            'api/pin/logs',
+            'api/conversations/create',
+            'api/conversations/read',
+            'api/conversations/group',
           ]
         },
-        {
-          label: 'Assets',
-          type: 'category',
-          items: [
-            'api/assets/assets',
-            'api/assets/asset',
-            'api/assets/fee',
-          ]
-        },
+        'api/zip-album',
+      ]
+    },
+    {
+      label: 'Transfers',
+      type: 'category',
+      collapsed: false,
+      items: [
         {
           label: 'Withdrawal',
           type: 'category',
@@ -59,15 +107,6 @@ module.exports = {
           ]
         },
         {
-          label: 'Network',
-          type: 'category',
-          items: [
-            'api/network/chains',
-            'api/network/assets',
-            'api/network/ticker',
-          ]
-        },
-        {
           label: 'External',
           type: 'category',
           items: [
@@ -76,40 +115,62 @@ module.exports = {
             'api/external/pending-deposits',
           ]
         },
+        'api/inscription',
+      ]
+    },
+    {
+      label: 'Utilities',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'api/codes',
+        'api/error-codes',
+        'api/session-secret-migration',
+        'api/pin/logs',
+        'api/pin/tip',
+      ]
+    },
+    {
+      label: 'Legacy network API',
+      type: 'category',
+      collapsed: false,
+      items: [
         {
-          label: 'Conversations',
+          label: 'Assets',
           type: 'category',
           items: [
-            'api/conversations/read',
-            'api/conversations/create',
-            'api/conversations/group',
+            'api/assets/assets',
+            'api/assets/asset',
+            'api/assets/fee',
           ]
         },
         {
-          label: 'Messages',
+          label: 'Network',
           type: 'category',
           items: [
-            'api/messages/guide',
-            'api/messages/category',
-            'api/messages/read',
-            'api/messages/send',
-            'api/messages/encrypt',
-            'api/messages/attachment-upload',
-            'api/messages/attachment-download',
-            'api/messages/encrypted',
+            'api/network/chains',
+            'api/network/assets',
+            'api/network/top',
+            'api/network/ticker',
           ]
         },
         {
-          label: 'Circles',
+          label: 'Transfer',
           type: 'category',
           items: [
-            'api/circles/list',
-            'api/circles/single',
-            'api/circles/create',
-            'api/circles/update',
-            'api/circles/delete',
-            'api/circles/add-to-remove-from-circles',
-            'api/circles/list-items',
+            'api/transfer/transfer',
+            'api/transfer/payment',
+            'api/transfer/raw-transfer',
+            'api/transfer/snapshot',
+            'api/transfer/snapshots',
+          ]
+        },
+        {
+          label: 'Snapshots',
+          type: 'category',
+          items: [
+            'api/network/snapshots',
+            'api/network/snapshot',
           ]
         },
         {
@@ -120,10 +181,6 @@ module.exports = {
             'api/collectibles/outputs',
           ]
         },
-        "api/codes",
-        "api/shared-bots",
-        "api/zip-album",
-        "api/error-codes",
       ]
     },
     "mainnet-rpc",

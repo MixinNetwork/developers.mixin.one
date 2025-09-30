@@ -1,5 +1,5 @@
 ---
-title: Top 100 Assets
+title: Read Top 100 Assets
 sidebar_position: 30
 ---
 

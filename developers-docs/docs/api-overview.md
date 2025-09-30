@@ -2,6 +2,7 @@
 title: Mixin API Overview
 sidebar_position: 1
 ---
+# Mixin API Overview
 
 Mixin Messenger is a blockchain wallet and an E2EE instant messaging software. 
 

@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespUserNet from "../../_partials/_resp.user-net.md";
+import RespUserNet from "@site/docs/_partials/_resp.user-net.md";
 
 ## POST /users
 

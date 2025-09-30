@@ -12,7 +12,7 @@ import {
   APIResponse,
 } from "@site/src/components/api";
 
-import RespTransfer from "../../_partials/_resp.transfer.md";
+import RespTransfer from "@site/docs/_partials/_resp.transfer.md";
 
 ## POST /payments
 

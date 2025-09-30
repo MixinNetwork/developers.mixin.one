@@ -11,9 +11,9 @@ import {
   APIPayload,
   APIResponse,
 } from "@site/src/components/api";
-import RespAttachment from "../../_partials/_resp.attachment.md";
-import ReqEncrypted from "../../_partials/_req.encrypted.md";
-import RespEncrypted from "../../_partials/_resp.encrypted.md";
+import RespAttachment from "@site/docs/_partials/_resp.attachment.md";
+import ReqEncrypted from "@site/docs/_partials/_req.encrypted.md";
+import RespEncrypted from "@site/docs/_partials/_resp.encrypted.md";
 
 Mixin is very concerned about personal privacy. In the old day, messages between users and bots were not encrypted. Now we do some changes.
 
