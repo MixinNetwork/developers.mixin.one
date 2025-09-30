@@ -6,7 +6,7 @@ Mixin Network 是 Bitcoin、Ethereum、Monero 等 40 条公链的二层网络，
 
 ## 公链浏览器
 
-访问 <https://mixin.one/network/chains> 可查看当前公链数据区块同步情况、手续费等信息
+访问 [https://mixin.one/network/chains](https://mixin.one/network/chains) 可查看当前公链数据区块同步情况、手续费等信息
 
 ![公链浏览器](https://mixin-assets.zeromesh.net/mixin/attachments/1594295020-60035455dce2aea21e02d7f4a42ea1a2b230413083f28bc4608a7e10dc762823)
 

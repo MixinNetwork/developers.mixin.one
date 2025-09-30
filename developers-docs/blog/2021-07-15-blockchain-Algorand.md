@@ -1,11 +1,13 @@
 ---
 title: Support public chain Algorand
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [ALGO]
 ---
 
-Mixin Network now supports the 37th public chain Algorand, the token ticker is ALGO, the official website is <https://www.algorand.com/>.
+Mixin Network now supports the 37th public chain Algorand, the token ticker is ALGO, the official website is [https://www.algorand.com/](https://www.algorand.com/).
+
+<!-- truncate -->
 
 Algorand is the world's most powerful and sustainable blockchain. Its institutional grade blockchain infrastructure is the frist and only to achieve decentralization, scalability, and security without compromises and while being environmentally sustainable.
 

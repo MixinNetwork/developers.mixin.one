@@ -1,5 +1,5 @@
 ---
-title: 添加到圈子/从圈子中删除
+title: 添加或移除圈子
 sidebar_position: 6
 ---
 
@@ -13,25 +13,25 @@ import {
 
 import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
-## Add/Remove a User
+## 添加或移除用户
 
 ### POST /users/:id/circles
 
-设置用户所属的圈子。 您可以将用户添加到圈子或从圈子中删除用户。
+设置某个用户所属的圈子，可以将用户添加到圈子或从圈子中移除。
 
 :::info
-注意一个用户最多只能加入 5 个圈子，否则会 API 会返回 20133 错误。
+单个用户最多只能加入 5 个圈子，否则会返回 20133 错误。
 :::
 
 <APIEndpoint url="/users/:id/circles" />
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
-<APIParams p-id="The ID of user." p-id-required={true} />
+<APIParams p-id="用户 ID" p-id-required={true} />
 
 <APIPayload>{`{
-  "circle_id":  "the circle's id",
-  "action":     "Update operation, 'ADD' or 'REMOVE'"
+  "circle_id":  "圈子 ID",
+  "action":     "操作类型，'ADD' 或 'REMOVE'"
 }
 `}</APIPayload>
 
@@ -43,21 +43,21 @@ import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
 <RespCircles />
 
-## Add/Remove a Group
+## 添加或移除群组
 
 ### POST /conversations/:id/circles
 
-设置某个群组所属的圈子。 您可以在某个圈子中添加或删除群组。
+设置群组所属的圈子，可以将群组添加到某个圈子或将其移除。
 
 <APIEndpoint url="/conversations/:id/circles" />
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
-<APIParams p-id="The ID of conversation." p-id-required={true} />
+<APIParams p-id="会话 ID" p-id-required={true} />
 
 <APIPayload>{`{
-  "circle_id":  "the circle's id",
-  "action":     "Update operation, 'ADD' or 'REMOVE'"
+  "circle_id":  "圈子 ID",
+  "action":     "操作类型，'ADD' 或 'REMOVE'"
 }
 `}</APIPayload>
 

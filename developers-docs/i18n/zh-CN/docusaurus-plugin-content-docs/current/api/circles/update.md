@@ -1,5 +1,5 @@
 ---
-title: 更新圈子信息
+title: 更新圈子
 sidebar_position: 5
 ---
 
@@ -21,10 +21,10 @@ import RespCircle from "@site/docs/_partials/_resp.circle.md";
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
-<APIParams p-id="The ID of circle." p-id-required={true} />
+<APIParams p-id="圈子 ID" p-id-required={true} />
 
 <APIPayload>{`{
-  "name":     "the circle's name",
+  "name":     "圈子名称"
 }
 `}</APIPayload>
 

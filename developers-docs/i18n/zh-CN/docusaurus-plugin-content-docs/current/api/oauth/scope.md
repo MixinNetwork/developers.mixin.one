@@ -1,24 +1,21 @@
 ---
-title: OAuth 授权范围
+title: OAuth 权限
 sidebar_position: 1
 ---
 
-机器人被允许获取的用户的权限范围，即用户可以通过授权一些权限给机器人，做一些辅助的工作，或者使用机器人的一些功能。
-
-| Permission         |  Description                      |
-|:-------------------|:----------------------------------|
-| PROFILE:READ       | 必需,获取用户 user id, Mixin ID, name, and avatar 等基本信息.|
-| ASSETS:READ        | 读取用户资产列表，余额，提现地址信息，交易信息.            |
-| PHONE:READ         | 读取用户手机号.                   |
-| CONTACTS:READ      | 读取用户联系人列表                 |
-| MESSAGES:REPRESENT | 允许机器人代表用户发消息                    |
-| SNAPSHOTS:READ     | 读取用户转帐记录        |
-| CIRCLES:READ       | 读取用户的圈子信息        |
-| CIRCLES:WRITE      | 更改用户的圈子信息        |
-| COLLECTIBLES:READ  | 读取用户的 NFT 信息        |
-| STICKERS:READ      | 读取用户的表情信息        |
-
+| 权限               | 说明                                                   |
+|:-------------------|:------------------------------------------------------|
+| PROFILE:READ       | 获取基本用户信息，例如 user id、Mixin ID、昵称与头像   |
+| ASSETS:READ        | 查看用户资产列表及余额                                 |
+| PHONE:READ         | 读取用户手机号                                         |
+| CONTACTS:READ      | 查看联系人列表与黑名单                                 |
+| MESSAGES:REPRESENT | 允许机器人代表用户发送消息                             |
+| SNAPSHOTS:READ     | 访问用户的转账记录，包括充值与提示信息                 |
+| CIRCLES:READ       | 读取用户的圈子                                         |
+| CIRCLES:WRITE      | 管理用户的圈子                                         |
+| COLLECTIBLES:READ  | 查看用户藏品列表与余额                                 |
+| STICKER:READ       | 读取用户的贴纸                                         |
 
 ## 注意事项
 
-在 OAuth 请求必须包含 PROFILE:READ, 同时不建议请求多余的权限
+`PROFILE:READ` 为必选权限，其余为可选。建议开发者只申请必要的权限，并在缺少权限时提供合适的界面引导。

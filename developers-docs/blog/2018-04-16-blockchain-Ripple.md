@@ -1,11 +1,13 @@
 ---
 title: Support public chain Ripple
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Ripple]
 ---
 
-Mixin Network now supports the 3rd public chain Ripple, the ticker is XRP, the official website is <https://ripple.com/>.
+Mixin Network now supports the 3rd public chain Ripple, the ticker is XRP, the official website is [https://ripple.com/](https://ripple.com/).
+
+<!-- truncate -->
 
 Ripple is the leading provider of crypto-enabled solutions for businesses. The mission is to build breakthrough crypto solutions for a world without economic borders.
 

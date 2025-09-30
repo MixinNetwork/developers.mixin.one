@@ -33,7 +33,7 @@ Metamask 安装配置[文档](/zh-CN/docs/mainnet/mvm/metamask)。
 
 ## 4. Pubish 一个 MVM APP
 
-下载 Trusted Group 的代码到本地: <https://github.com/MixinNetwork/trusted-group>, 然后编译 ./mvm 的内容，首先需要配置 Golang 环境。
+下载 Trusted Group 的代码到本地: [https://github.com/MixinNetwork/trusted-group](https://github.com/MixinNetwork/trusted-group), 然后编译 ./mvm 的内容，首先需要配置 Golang 环境。
 
 下载安装 Golang 环境相关[文档](https://go.dev/doc/install)。
 

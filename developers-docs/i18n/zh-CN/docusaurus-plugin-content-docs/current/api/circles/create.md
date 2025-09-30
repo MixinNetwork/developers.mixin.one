@@ -15,14 +15,14 @@ import RespCircle from "@site/docs/_partials/_resp.circle.md";
 
 ## POST /circles
 
-创建一个圈子。
+创建一个新的圈子。
 
 <APIEndpoint url="/circles" />
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
 <APIPayload>{`{
-  "name":     "the circle's name",
+  "name":     "圈子名称"
 }
 `}</APIPayload>
 

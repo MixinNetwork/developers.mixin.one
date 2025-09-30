@@ -1,11 +1,13 @@
 ---
 title: Support public chain Binance Chain
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Binance Chain]
 ---
 
-Mixin Network now supports the 21st public chain Binance Chain, the ticker is BNB, the official website is <https://www.bnbchain.org/>.
+Mixin Network now supports the 21st public chain Binance Chain, the ticker is BNB, the official website is [https://www.bnbchain.org/](https://www.bnbchain.org/).
+
+<!-- truncate -->
 
 BNB Chain’s mission is to build the infrastructure powering the world’s parallel virtual ecosystem, and BNB Chain’s commitment to the community is that it will be:
 * Open

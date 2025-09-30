@@ -1,11 +1,13 @@
 ---
 title: Support public chain Bitcoin Cash
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Bitcoin Cash]
 ---
 
-Mixin Network now supports the 4th public chain Bitcoin Cash, the ticker is BCH, the official website is <https://bitcoincash.org/>.
+Mixin Network now supports the 4th public chain Bitcoin Cash, the ticker is BCH, the official website is [https://bitcoincash.org/](https://bitcoincash.org/).
+
+<!-- truncate -->
 
 Bitcoin Cash brings sound money to the world, fulfilling the original promise of Bitcoin as "Peer-to-Peer Electronic Cash". Merchants and users are empowered with low fees and reliable confirmations. The future shines brightly with unrestricted growth, global adoption, permissionless innovation, and decentralized development.
 

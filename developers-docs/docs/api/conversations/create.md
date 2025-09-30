@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespConv from "../../_partials/_resp.conv.md";
+import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ## POST /conversations
 

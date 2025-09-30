@@ -11,7 +11,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespCircle from "../../_partials/_resp.circle.md";
+import RespCircle from "@site/docs/_partials/_resp.circle.md";
 
 ## POST /circles
 

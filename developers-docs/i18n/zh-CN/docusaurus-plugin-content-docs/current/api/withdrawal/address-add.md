@@ -15,27 +15,27 @@ import RespAddress from "@site/docs/_partials/_resp.addr.md";
 
 ## POST /addresses
 
-创建一个提现地址
+创建新的提现地址。
 
 <APIEndpoint url="/addresses" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "asset_id":     "资产 ID",
-  "label":        "地址名称",
-  "destination":  "提现地址",
-  "tag":          "提现地址 memo",
-  "pin_base64":   "加密后的 PIN",
+  "asset_id":     "资产的 asset_id",
+  "label":        "地址标签，最少 1 个字符，最多 64 个字符",
+  "destination":  "提现地址，最多 128 个字符",
+  "tag":          "可选，提现备注",
+  "pin_base64":   "加密后的 PIN"
 }
 `}</APIPayload>
 
-## TIP Pin 结构
+## 生成 TIP PIN
 
 ```
 "TIP:ADDRESS:ADD:" + asset_id + destination + tag + label
 
-pin_base64 是上面值的 sha256-256 的结果
+pin_base64 为上述字符串的 sha256-256 摘要
 ```
 
 <APIRequest

@@ -1,11 +1,13 @@
 ---
 title: Support public chain Namecoin
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [NMC]
 ---
 
-Mixin Network now supports the 29th public chain Namecoin, the token ticker is NMC, the official website is <https://namecoin.org/>.
+Mixin Network now supports the 29th public chain Namecoin, the token ticker is NMC, the official website is [https://namecoin.org/](https://namecoin.org/).
+
+<!-- truncate -->
 
 Namecoin is an experimental open-source technology which improves decentralization, security, censorship resistance, privacy, and speed of certain components of the Internet infrastructure such as DNS and identities.
 

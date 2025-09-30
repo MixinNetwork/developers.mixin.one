@@ -1,11 +1,13 @@
 ---
 title: Withdrawal fee subsidy activity
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [messenger]
 ---
 
 From now on, all Dapp developers are entitled to a full withdrawal fee subsidy. Specific rules are as follows:
+
+<!-- truncate -->
 
 - All withdrawals are subsidized. The transactions between Dapps are actually going through internal transfers with no fees, so there is no need for subsidies.
 - Submit the withdrawal fee form to the Mixin team by the end of the month. After review, the subsidy will be paid before the 15th of the following month.

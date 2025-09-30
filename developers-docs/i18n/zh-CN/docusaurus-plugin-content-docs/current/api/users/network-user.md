@@ -15,20 +15,20 @@ import RespUserNet from "@site/docs/_partials/_resp.user-net.md";
 
 ## POST /users
 
-创建一个 Network User, Network User 是机器人下面的子帐号，API 使用有限制，只能对资产进行操作，比如充值，转帐，提现。没有办法像 Messenger User 那样聊天。
+创建一个网络用户。每个网络用户费用为 0.5 美元 [（价格说明）](https://discuss.mixin.one/questions/D1pB)。
 
 <APIEndpoint url="/users" />
 
 <APIMetaPanel
   scope=""
-  limitation="只有机器人可以创建 Network User"
+  limitation="仅应用用户可以创建网络用户"
 />
 
 <APIPayload>{`{
-  // Ed25519 Public Key in Base64
-  "session_secret": 'Ed25519 Public Key in Base64'
-  // display name
-  "full_name": 'A name'
+  // 以 Base64 表示的 Ed25519 公钥
+  "session_secret": "Ed25519 Public Key in Base64",
+  // 显示名称
+  "full_name": "A name"
 }
 `}</APIPayload>
 

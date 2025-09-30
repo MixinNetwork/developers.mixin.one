@@ -95,4 +95,4 @@ func main() {
 Fo more examples, see [examples](https://github.com/MixinNetwork/bot-api-go-client/blob/master/examples/wallet.go)。
 
 ---
-This SDK is developed by the Mixin team. To contact tech support, search for 493230, 31911 in Mixin Messenger. The Go SDK <https://github.com/fox-one/mixin-sdk-go> provided by the Fox team is also very good, providing more complete code examples.
+This SDK is developed by the Mixin team. To contact tech support, search for 493230, 31911 in Mixin Messenger. The Go SDK [https://github.com/fox-one/mixin-sdk-go](https://github.com/fox-one/mixin-sdk-go) provided by the Fox team is also very good, providing more complete code examples.

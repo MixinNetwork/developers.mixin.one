@@ -85,4 +85,4 @@ Using the MTG solution to develop a PoS public chain can save the time and cost 
   Since all transfers have corresponding multi-signature transfer records on Mixin (cannot be tampered with), in theory, all data can be completely restored based on this transfer record, which can be compared and verified with the local data of the parachain. There is no need for additional DAG graphs or blockchain technology to correlate the data. The sequence of transactions has been recorded on Mixin, and the node data is relatively simple to store.
 
 ---
-MTG reference code: <https://github.com/MixinNetwork/trusted-group> . If you need tech support，Please search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.
+MTG reference code: [https://github.com/MixinNetwork/trusted-group](https://github.com/MixinNetwork/trusted-group) . If you need tech support，Please search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619) to get connected.

@@ -96,4 +96,4 @@ The core team highly values the contributions and provides at most $100K bounty 
 
 ### Code and License
 
-The TIP implementation <https://github.com/MixinNetwork/tip> is released under Apache 2.0 license.
+The TIP implementation [https://github.com/MixinNetwork/tip](https://github.com/MixinNetwork/tip) is released under Apache 2.0 license.

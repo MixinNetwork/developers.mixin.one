@@ -2,6 +2,7 @@
 title: Mixin API Overview
 sidebar_position: 1
 ---
+# Mixin API Overview
 
 Mixin Messenger is a blockchain wallet and an E2EE instant messaging software. 
 
@@ -12,6 +13,25 @@ Messenger is provided for users, and the following APIs are provided for develop
 Developers can manage a bot, after get the keystore of the bot in [Dashborad](https://developers.mixin.one/dashboard).
 
 The name of keystore file would be similar keystore-7000xxx.json.
+
+# Sequencer Overview
+
+The latest Mixin network landscape is built around Mixin Safe. The ecosystem now consists of two
+primary services:
+
+- **Mixin Kernel** – the layer that stores and validates transactions.
+- **Mixin Sequencer** – an indexer that keeps user data, orders transactions, and exposes a
+  simplified API surface on top of Kernel-compatible transactions.
+
+Compared with the legacy Messenger APIs, Sequencer calls are lower level and decentralised. Every
+operation ultimately proxies to the Kernel JSON-RPC interface, while the Sequencer adds discovery
+and indexing so that dApps can quickly look up users, addresses, UTXOs, and transaction history.
+
+Before you adopt the Sequencer APIs, make sure that your user or bot already migrated to the
+latest TIP PIN format. All clients—whether human users or automation bots—must register with the
+Sequencer service prior to issuing transactions or withdrawals. The next sections walk through each
+area of the API in detail.
+
 
 # Join Developers Group
 
@@ -25,17 +45,17 @@ If you have questions or advises, please join the Mixin Developers Group, which 
 
 # SDK
 
-1. Golang SDK: <https://github.com/MixinNetwork/bot-api-go-client>
-2. Nodejs SDK: <https://github.com/MixinNetwork/bot-api-nodejs-client>
-3. Kotlin/Java SDK: <https://github.com/MixinNetwork/bot-api-kotlin-client>
-4. Python SDK: <https://github.com/learnforpractice/mixin-python>
-5. Ruby Demo: <https://github.com/an-lee/mixin_bot>
+1. Golang SDK: [https://github.com/MixinNetwork/bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client)
+2. Nodejs SDK: [https://github.com/MixinNetwork/bot-api-nodejs-client](https://github.com/MixinNetwork/bot-api-nodejs-client)
+3. Kotlin/Java SDK: [https://github.com/MixinNetwork/bot-api-kotlin-client](https://github.com/MixinNetwork/bot-api-kotlin-client)
+4. Python SDK: [https://github.com/learnforpractice/mixin-python](https://github.com/learnforpractice/mixin-python)
+5. Ruby Demo: [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
 6. PHP SDK : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
-7. C# (CSharp) SDK : <https://github.com/wjfree/mixin-csharp-sdk>
+7. C# (CSharp) SDK : [https://github.com/wjfree/mixin-csharp-sdk](https://github.com/wjfree/mixin-csharp-sdk)
 
 # Open Source
 
-Mixin Messenger is open-sourced in iOS, Android，PC. For more open source projects, can be found in our github <https://github.com/MixinNetwork>
+Mixin Messenger is open-sourced in iOS, Android，PC. For more open source projects, can be found in our github [https://github.com/MixinNetwork](https://github.com/MixinNetwork)
 
 - [API Reference](./api/guide): An API Reference for the Mixin API layer that provides convenient access to the Mixin Message service and the Mixin Wallet service.
 - [Mainnet RPC](./mainnet-rpc): JSON-RPC API for the mainnet.

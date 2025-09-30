@@ -2,52 +2,90 @@ module.exports = {
   api: [
     'api-overview',
     {
-      label: 'API Reference',
+      label: 'Getting Started',
       type: 'category',
       collapsed: false,
       items: [
         'api/guide',
-        'api/safe-apis',
-        'api/inscription',
+        'api/sequencer/registration',
         {
-          label: 'OAuth',
+          label: 'Authentication',
           type: 'category',
           items: [
             'api/oauth/oauth',
             'api/oauth/scope',
           ]
         },
+      ]
+    },
+    {
+      label: 'Users',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'api/users/intro',
+        'api/users/profile',
+        'api/users/user',
+        'api/users/users',
+        'api/users/contacts',
+        'api/users/search',
+        'api/users/sessions',
+        'api/users/relationships',
+        'api/users/network-user',
+        'api/shared-bots',
         {
-          label: 'User',
+          label: 'Circles',
           type: 'category',
           items: [
-            'api/users/intro',
-            'api/users/profile',
-            'api/users/users',
-            'api/users/user',
-            'api/users/sessions',
-            'api/users/search',
-            'api/users/contacts',
-            'api/users/relationships',
-            'api/users/network-user',
+            'api/circles/list',
+            'api/circles/list-items',
+            'api/circles/create',
+            'api/circles/update',
+            'api/circles/add-to-remove-from-circles',
+            'api/circles/single',
+            'api/circles/delete',
+          ]
+        },
+      ]
+    },
+    {
+      label: 'Messaging',
+      type: 'category',
+      collapsed: false,
+      items: [
+        {
+          label: 'Messages',
+          type: 'category',
+          items: [
+            'api/messages/category',
+            'api/messages/send',
+            'api/messages/attachment-upload',
+            'api/messages/attachment-download',
+            'api/messages/read',
+            'api/messages/encrypted',
           ]
         },
         {
-          label: 'PIN',
+          label: 'Conversations',
           type: 'category',
           items: [
-            'api/pin/logs',
+            'api/conversations/create',
+            'api/conversations/read',
+            'api/conversations/group',
           ]
         },
-        {
-          label: 'Assets',
-          type: 'category',
-          items: [
-            'api/assets/assets',
-            'api/assets/asset',
-            'api/assets/fee',
-          ]
-        },
+        'api/zip-album',
+      ]
+    },
+    {
+      label: 'Transactions',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'api/sequencer/outputs',
+        'api/sequencer/snapshots',
+        'api/sequencer/transactions',
+        'api/sequencer/deposit',
         {
           label: 'Withdrawal',
           type: 'category',
@@ -58,58 +96,72 @@ module.exports = {
             'api/withdrawal/address-delete',
           ]
         },
-        {
-          label: 'Network',
-          type: 'category',
-          items: [
-            'api/network/chains',
-            'api/network/assets',
-            'api/network/ticker',
-          ]
-        },
+        'api/sequencer/multisigs',
+        'api/inscription',
+        'api/sequencer/client-integration',
+      ]
+    },
+    {
+      label: 'Utilities',
+      type: 'category',
+      collapsed: true,
+      items: [
         {
           label: 'External',
           type: 'category',
           items: [
             'api/external/fiats',
             'api/external/address',
-            'api/external/pending-deposits',
+          ]
+        },
+        'api/codes',
+        'api/session-secret-migration',
+        'api/pin/tip',
+        'api/pin/logs',
+        'api/error-codes',
+      ]
+    },
+    {
+      label: 'Legacy network API',
+      type: 'category',
+      collapsed: true,
+      items: [
+        {
+          label: 'Assets',
+          type: 'category',
+          items: [
+            'api/assets/assets',
+            'api/assets/asset',
+            'api/assets/fee',
           ]
         },
         {
-          label: 'Conversations',
+          label: 'Network',
           type: 'category',
           items: [
-            'api/conversations/read',
-            'api/conversations/create',
-            'api/conversations/group',
+            'api/network/chains',
+            'api/network/assets',
+            'api/network/top',
+            'api/network/ticker',
           ]
         },
         {
-          label: 'Messages',
+          label: 'Transfer',
           type: 'category',
           items: [
-            'api/messages/guide',
-            'api/messages/category',
-            'api/messages/read',
-            'api/messages/send',
-            'api/messages/encrypt',
-            'api/messages/attachment-upload',
-            'api/messages/attachment-download',
-            'api/messages/encrypted',
+            'api/transfer/transfer',
+            'api/transfer/payment',
+            'api/transfer/raw-transfer',
+            'api/transfer/snapshot',
+            'api/transfer/snapshots',
           ]
         },
         {
-          label: 'Circles',
+          label: 'Snapshots',
           type: 'category',
           items: [
-            'api/circles/list',
-            'api/circles/single',
-            'api/circles/create',
-            'api/circles/update',
-            'api/circles/delete',
-            'api/circles/add-to-remove-from-circles',
-            'api/circles/list-items',
+            'api/network/snapshots',
+            'api/network/snapshot',
           ]
         },
         {
@@ -120,10 +172,13 @@ module.exports = {
             'api/collectibles/outputs',
           ]
         },
-        "api/codes",
-        "api/shared-bots",
-        "api/zip-album",
-        "api/error-codes",
+        {
+          label: 'Pending Deposits',
+          type: 'category',
+          items: [
+            'api/external/pending-deposits',
+          ]
+        },
       ]
     },
     "mainnet-rpc",
@@ -165,16 +220,8 @@ module.exports = {
           ]
         },
         {
-          label: 'MVM',
-          type: 'category',
-          items: [
-            'mainnet/mvm/setup',
-            'mainnet/mvm/metamask',
-            'mainnet/mvm/remix',
-          ]
-        },
-        {
           label: 'Guide',
+          key: 'mainnet-guide',
           type: 'category',
           items: [
             'mainnet/guide/full-node-join',
@@ -199,11 +246,11 @@ module.exports = {
             'dapp/getting-started/oauth',
             'dapp/getting-started/read-info',
             'dapp/getting-started/messages',
-            'dapp/getting-started/transfer',
           ]
         },
         {
           label: 'Guide',
+          key: 'dapp-guide',
           type: 'category',
           items: [
             'dapp/guide/create-network-user',

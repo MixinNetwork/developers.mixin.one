@@ -113,10 +113,10 @@ pledge 交易是申请加入主网的特殊交易。
 
 ### 运行节点
 
-- 下载最新版本 mixin <https://github.com/MixinNetwork/mixin/releases>
+- 下载最新版本 mixin [https://github.com/MixinNetwork/mixin/releases](https://github.com/MixinNetwork/mixin/releases)
 - config.json 的 listener 里指定好自己的外部 IP 或者域名地址
 - config.json 里指定好 signer private spend key
-- 使用 systemd 运行 mixin <https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service>
+- 使用 systemd 运行 mixin [https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service](https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 充值中交易列表
+title: 待确认充值记录
 ---
 
 import {
@@ -12,31 +12,32 @@ import {
 
 ## GET /external/transactions
 
-获取正在充值中的交易记录。大部分的区块链都需要一定的确认数来确保交易不可逆。这个接口用来查询这些记录。
+获取公开的在途充值记录。大部分区块链需要多个确认才能确保交易不可回滚。
 
 <APIEndpoint url="/external/transactions?offset=:offset&limit=:limit&asset=:asset&destination=:destination&tag=:tag" />
 
 <APIMetaPanel scope="" />
 
 <APIParams
-  p-offset="分页参数, RFC3339Nano 格式, e.g. `2020-12-12T12:12:12.999999999Z`."
-  p-limit="分页条数, 默认是 500, 最大是 500"
-  p-asset="可选项, 资产 asset_id, 获取某个资产相关的正在充值记录"
-  p-destination="可选项, 获取一个地址的正在充值记录"
-  p-tag="可选项, 提现地址的 memo 跟 destination 配合使用"
-  p-transaction_hash="可选项，根据 transaction hash 查询"
-  p-source="可选项, 当设置为 blockchain 从区块链获取相关记录"
-  p-user="可选项, 用户的 uuid, 获取该用户的充值中记录，请注意目前只能获取自己的"
+  p-offset="分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z`"
+  p-offset-required={true}
+  p-limit="每页数量，默认 500，最大 500"
+  p-limit-required={true}
+  p-asset="可选，资产的 asset_id，用于筛选指定资产的充值"
+  p-destination="可选，筛选目标地址的在途充值"
+  p-transaction_hash="可选，根据交易哈希筛选"
+  p-source="可选，当为 blockchain 时表示从链上抓取记录"
+  p-user="可选，用户 UUID，用于查询某个用户的充值记录"
 />
 
-### 请求参数分组
+### 参数组合示例
 
-1. `user=uuid`, 获取该用户的充值中记录，需要 authorization token
-1. `source=blockchain&asset=uuid&transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5` 从区块链根据 hash 获取资产的充值中记录
-1. `source=blockchain&asset=uuid&destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK` 从区块链根据地址获取资产的充值中记录
-1. `transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5` 根据 hash 获取充值中记录
-1. `asset=uuid&offset=2020-12-12T12:12:12.999999999Z&limit=100` 获取资产的充值中记录
-1. `destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK&offset=2020-12-12T12:12:12.999999999Z&limit=100` 获取地址的充值中记录
+1. `user=uuid`：查询指定用户的在途充值，需要授权 token。
+2. `source=blockchain&asset=uuid&transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5`：根据链上交易哈希查询在途充值。
+3. `source=blockchain&asset=uuid&destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK`：根据链上地址查询在途充值。
+4. `transaction_hash=7842f9c26f24b8a86de1a28d8bf0e39cfebd8a5bbb3f2d3aa5be82d44df35ac5`：直接根据交易哈希查询。
+5. `asset=uuid&offset=2020-12-12T12:12:12.999999999Z&limit=100`：按资产筛选在途充值。
+6. `destination=1AK4LYE6PYwBmSYHQX3v2UsXXHTvCAsJeK&offset=2020-12-12T12:12:12.999999999Z&limit=100`：按地址筛选在途充值。
 
 <APIRequest
   title="Read deposit progress info"

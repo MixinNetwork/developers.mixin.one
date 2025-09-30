@@ -1,5 +1,5 @@
 ---
-title: Download Attachment
+title: 下载附件
 sidebar_position: 6
 ---
 
@@ -14,16 +14,16 @@ import RespAttachment from "@site/docs/_partials/_resp.attachment.md";
 
 ## GET /attachments/:id
 
-Use the :id to get a specific attachment.
+根据附件 ID 获取附件。
 
-All attachments are stored on Amazon S3 and downloaded via HTTP, see [S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html) for more information.
+所有附件存储在 Amazon S3，并通过 HTTP 下载，更多信息可参考 [S3 文档](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html)。
 
 <APIEndpoint url="/attachments/:id" />
 
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-id="The attachment id. You can get it from POST /attachemts"
+  p-id="附件 ID，可通过 POST /attachments 获取"
   p-id-required={true}
 />
 
@@ -36,5 +36,5 @@ All attachments are stored on Amazon S3 and downloaded via HTTP, see [S3 Documen
 <RespAttachment />
 
 :::info
-You can download the attachment through view_url. If the API returns a 404, it means that the file does not exist or has expired.
+可以通过返回的 view_url 下载附件。如果接口返回 404，表示文件不存在或已过期。
 :::

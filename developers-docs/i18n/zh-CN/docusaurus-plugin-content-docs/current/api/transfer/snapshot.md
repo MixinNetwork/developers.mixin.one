@@ -1,5 +1,5 @@
 ---
-title: Read Snapshot
+title: 查询快照
 sidebar_position: 4
 ---
 
@@ -11,13 +11,14 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 import RespSnapshot from "@site/docs/_partials/_resp.snapshot.md";
+import RespTransfer from "@site/docs/_partials/_resp.transfer.md";
 
 ## GET /snapshots/:snapshot_id
 
-Get the asset list of a user.
+根据快照 ID 获取用户快照。
 
 :::info
-When reading the transfer details, if it is not the transfer record of the current user, 403 will be returned, and 404 will be returned if the record is not found.
+读取转账详情时，若目标记录不属于当前用户将返回 403，未找到记录则返回 404。
 :::
 
 <APIEndpoint url="/snapshots/:snapshot_id" />
@@ -25,7 +26,7 @@ When reading the transfer details, if it is not the transfer record of the curre
 <APIMetaPanel scope="SNAPSHOTS:READ" scopeNote="" />
 
 <APIParams
-  p-snapshot_id="the snapshot's id which you are getting"
+  p-snapshot_id="要查询的快照 ID"
   p-snapshot_id-required={true}
 />
 
@@ -36,10 +37,9 @@ When reading the transfer details, if it is not the transfer record of the curre
 
 <RespSnapshot />
 
-
 ## GET /snapshots/trace/:id
 
-This API is only for reading transfers, not deposits or withdrawals.
+仅用于读取转账，不包含充值或提现记录。
 
 <APIRequest
   title="Read Transfer"

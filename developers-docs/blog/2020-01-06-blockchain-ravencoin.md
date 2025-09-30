@@ -1,11 +1,13 @@
 ---
 title: Support public chain Ravencoin
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [ravencoin]
 ---
 
-Mixin Network now supports the 24th public chain Ravencoin, the ticker is RVN, the official website is <https://ravencoin.org/>.
+Mixin Network now supports the 24th public chain Ravencoin, the ticker is RVN, the official website is [https://ravencoin.org/](https://ravencoin.org/).
+
+<!-- truncate -->
 
 The main feature of RVN is to modify and add the X16R algorithm to prevent the monopoly of ASIC based on the Bitcoin source code, combined with the coin issuing function of Ethereum.
 

@@ -1,11 +1,13 @@
 ---
 title: Support public chain Avalanche
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [AVAX]
 ---
 
-Mixin Network now supports the 39th public chain Avalanche, the token ticker is AVAX, the official website is <https://www.avax.network/>.
+Mixin Network now supports the 39th public chain Avalanche, the token ticker is AVAX, the official website is [https://www.avax.network/](https://www.avax.network/).
+
+<!-- truncate -->
 
 Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.
 

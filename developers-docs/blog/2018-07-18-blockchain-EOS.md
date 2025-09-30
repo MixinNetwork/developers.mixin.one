@@ -1,11 +1,13 @@
 ---
 title: Support public chain EOS
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [EOS]
 ---
 
-Mixin Network now supports the 8th public chain EOS, the ticker is EOS, the official website is <https://eos.io/>.
+Mixin Network now supports the 8th public chain EOS, the ticker is EOS, the official website is [https://eos.io/](https://eos.io/).
+
+<!-- truncate -->
 
 EOSIO is a highly performant open-source blockchain platform, built to support safe, compliant, and predictable digital infrastructures. It supports public networks such as EOS, Telos, and WAX, and private networks alike. EOSIO is fast, flexible, and forward-driven, enabling developers, entrepreneurs, co-creators, and institutions to build and innovate with confidence.
 

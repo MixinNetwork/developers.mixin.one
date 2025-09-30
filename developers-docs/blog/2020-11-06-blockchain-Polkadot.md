@@ -1,11 +1,13 @@
 ---
 title: Support public chain Polkadot
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [DOT]
 ---
 
-Mixin Network now supports the 32nd public chain Polkadot, the token ticker is DOT, the official website is <https://polkadot.network/>.
+Mixin Network now supports the 32nd public chain Polkadot, the token ticker is DOT, the official website is [https://polkadot.network/](https://polkadot.network/).
+
+<!-- truncate -->
 
 Polkadot is a sharded protocol that enables blockchain networks to operate together seamlessly. Polkadot unites and secures a growing ecosystem of specialized blockchains called parachains. Apps and services on Polkadot can securely communicate across chains, forming the basis for a truly interoperable decentralized web.
 The DOT token serves three distinct purposes: governance over the network, staking and bonding.

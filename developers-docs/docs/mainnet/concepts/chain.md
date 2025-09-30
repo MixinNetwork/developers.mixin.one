@@ -9,7 +9,7 @@ Mixin Network is a second layer for 40 public chains such as Bitcoin, Ethereum, 
 
 ### Public Chain Browser
 
-Visit <https://mixin.one/network/chains> to view the current public chain data block synchronization, transaction fees, and other information.
+Visit [https://mixin.one/network/chains](https://mixin.one/network/chains) to view the current public chain data block synchronization, transaction fees, and other information.
 
 ![Public Chain Browser](./chain.png)
 

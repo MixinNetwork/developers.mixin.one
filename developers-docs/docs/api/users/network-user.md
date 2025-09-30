@@ -11,11 +11,11 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespUserNet from "../../_partials/_resp.user-net.md";
+import RespUserNet from "@site/docs/_partials/_resp.user-net.md";
 
 ## POST /users
 
-Create a network user.
+Create a network user. Every network user costs 0.5 USD. [(Pricing Link)](https://discuss.mixin.one/questions/D1pB)
 
 <APIEndpoint url="/users" />
 

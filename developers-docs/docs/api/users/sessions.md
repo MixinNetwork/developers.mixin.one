@@ -9,7 +9,7 @@ APIEndpoint,
 APIParams,
 APIPayload,
 } from "@site/src/components/api";
-import RespSessions from "../../_partials/_resp.sessions.md";
+import RespSessions from "@site/docs/_partials/_resp.sessions.md";
 
 ## POST /sessions/fetch
 

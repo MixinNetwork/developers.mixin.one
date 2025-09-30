@@ -17,24 +17,22 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ### POST /conversations/:id
 
-这里的更新主要是群聊，比如更新群公告、入群、退出、静音等操作。
-
-以下操作成功后，将返回完整的会话数据，包括群组成员。
+用于更新群聊，例如修改群公告、邀请成员、退出或静音等。操作成功后会返回完整的会话数据，包括成员列表。
 
 <APIEndpoint url="/conversations/:id" />
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-id="The conversation's id." p-id-required={true} />
+<APIParams p-id="会话 ID" p-id-required={true} />
 
 <APIPayload>{`{
-  "name":         "New group name, 512 characters at most.",
-  "announcement": "Group Announcements, 1024 characters at most.",
+  "name":         "新的群名称，最多 512 个字符",
+  "announcement": "群公告，最多 1024 个字符"
 }
 `}</APIPayload>
 
 :::info
-每次字段更新，所有群成员都能看到醒目的群公告提醒栏。
+每次更新公告字段时，所有群成员都会看到显著的公告提示条。
 :::
 
 <APIRequest
@@ -49,13 +47,13 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ### POST /conversations/:code_id/join
 
-通过链接加入群组。 `code_id` 是加入当前组的 ID，由 `GET /conversation/:id` 返回，通过 `POST /conversations/:id/rotate` 生成。
+通过邀请链接入群。`code_id` 为当前群组的加入 ID，可通过 `GET /conversation/:id` 获取，或调用 `POST /conversations/:id/rotate` 生成。
 
 ### POST /conversations/:id/participants/ADD
 
-如果您是此群组对话的所有者或管理员，则可以通过调用此 API 将其他用户添加到群组中。
+群主或管理员可以使用此接口邀请其他用户入群。
 
-请求内容：
+请求体：
 
 ```json
 [
@@ -66,9 +64,9 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ### POST /conversations/:id/participants/REMOVE
 
-如果您是此群组对话的群主或管理员，则可以从群组中删除成员。
+群主或管理员可以移除指定成员。
 
-请求内容：
+请求体：
 
 ```json
 [
@@ -79,55 +77,55 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ### POST /conversations/:id/rotate
 
-重置邀请链接和 `code_id`。
+重置邀请链接与 `code_id`。
 
 ### POST /conversations/:id/exit
 
-离开当前群组。
+退出当前群组。
 
-## 管理群管理员
+## 管理管理员
 
-只有群主可以设置或取消群管理员
+仅群主可以设置或取消管理员。
 
 ### POST /conversations/:id/participants/ROLE
 
 设置或撤销用户的管理员权限。
 
-设置管理员：
+设置管理员的请求体：
 
 ```json
 [{ "user_id": "", "role": "ADMIN" }]
 ```
 
-移除管理员：
+撤销管理员的请求体：
 
 ```json
 [{ "user_id": "", "role": "" }]
 ```
 
-## 设置群为静音
+## 静音群组
 
-静音对话仍会收到消息，但不会收到通知。
+静音后的会话仍会接收消息，但不会触发通知。
 
 ### POST /conversations/:id/mute
 
-请求内容：
+请求体参数：
 
-| Parameter    |  Type  | Description                                                                                                         |
-| :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
-| duration     | Int64  | 单位秒, 0s 代表取消静音, > 0s 表示静音时间, 例如 28,800 代表静音 8 小时 |
+| 参数     |  类型 | 说明                                                                 |
+| :------- | :---: | :------------------------------------------------------------------ |
+| duration | Int64 | 单位为秒，设为 0 表示取消静音，其它数值表示静音时长，例如 28800 表示 8 小时 |
 
-在静音之前，要创建 conversation, 如果 conversation 不存在会返回 403.
+静音前需确保已创建会话，否则会返回 403。
 
 ### POST /conversations/:id/disappear
 
-请求内容：
+请求体参数：
 
-| Parameter    |  Type  | Description                                                                                                         |
-| :----------- | :----: | :------------------------------------------------------------------------------------------------------------------ |
-| duration     | Int64  | 单位秒, 最大 12 周 |
+| 参数     |  类型 | 说明                 |
+| :------- | :---: | :------------------- |
+| duration | Int64 | 单位为秒，最大 12 周 |
 
-限时消息，只有管理员可以设置, 以 30s 为例, 规则：
+阅后即焚消息仅管理员可设置。以 30 秒为例：
 
-1. 如果消息已读，到 30s 后直接删除
-2. 如果消息未读，且超过 24 小时，那么 30s 后也删除
+1. 已读消息会在 30 秒后删除。
+2. 未读消息会在 24 小时 + 30 秒后删除。

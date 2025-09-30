@@ -1,11 +1,13 @@
 ---
 title: Support public chain NEM
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [NEM]
 ---
 
-Mixin Network now supports the 12nd public chain NEM, the ticker is XEM, the official website is <https://www.nem.io/>.
+Mixin Network now supports the 12nd public chain NEM, the ticker is XEM, the official website is [https://www.nem.io/](https://www.nem.io/).
+
+<!-- truncate -->
 
 NEM (XEM) is a crypto asset developed for the New Economy Movement network.
 The goal of NEM is to establish a new economic framework based on the principles of decentralization, economic freedom, and equality, rather than the existing frameworks managed by countries and governments.

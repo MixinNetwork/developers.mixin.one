@@ -15,7 +15,7 @@ import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
 ## GET /circles
 
-获取当前用户的所有圈子。
+获取当前用户的全部圈子。
 
 <APIEndpoint url="/circles" />
 

@@ -1,11 +1,13 @@
 ---
 title: Support public chain BitShares
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [BitShares]
 ---
 
-Mixin Network now supports the 23rd public chain BitShares, the ticker is BTS, the official website is <https://bitshares.org/>.
+Mixin Network now supports the 23rd public chain BitShares, the ticker is BTS, the official website is [https://bitshares.org/](https://bitshares.org/).
+
+<!-- truncate -->
 
 BitShares, the mission is to provide decentralized software solutions to any kind of centralized problems in every industry.
 

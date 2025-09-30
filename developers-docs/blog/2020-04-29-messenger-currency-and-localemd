@@ -1,11 +1,13 @@
 ---
 title: Mixin Messenger bot supports returning currency and locale
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [messenger, bot]
 ---
 
 Since the version 0.24.0, Mixin Messenger supports returning the current currency and locale, which can be obtained through the code/order getContext. The specific parameters are as follows:
+
+<!-- truncate -->
 
 ```json
 {                 

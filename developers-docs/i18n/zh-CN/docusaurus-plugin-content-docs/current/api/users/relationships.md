@@ -1,5 +1,5 @@
 ---
-title: 用户关系
+title: 好友关系
 sidebar_position: 5
 ---
 
@@ -12,55 +12,46 @@ import {
 } from "@site/src/components/api";
 import RespUsers from "@site/docs/_partials/_resp.user-extra.md";
 
-<!-- @TODO refactor this doc -->
-
-在 Mixin Messenger 当中，用户可以添加另一位 Messenger，或者机器人为好友，或者拉黑另一位 Messenger 或 机器人用户。这些 API 主要就是用来管理用户的联系人相关信息。
-
 ## POST /relationships
 
-该 API 用来管理用户的关系，包括：
-
-1. 添加联系人
-2. 更新联系人信息
-3. 删除联系人
-4. 拉黑另一名用户
-5. 取消拉黑另一名用户
+管理两个用户之间的关系。
 
 <APIEndpoint url="/relationships" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
-According to different payload, the API have different behaviors.
+根据不同的请求体，接口执行对应操作。
 
-### Add a Friend and set an alias
+### 添加好友并设置备注
 
 <APIPayload>{`{
-  "user_id":    "user's user_id"
-  "full_name":  "the alias of the friend, optinal."
+  "user_id":    "好友的 user_id",
+  "full_name":  "好友备注，可选",
+  "phone":      "好友手机号，可选",
   "action":     "ADD"
 }
 `}</APIPayload>
 
-### Delete a Friend
+### 删除好友
 
 <APIPayload>{`{
-  "user_id":    "user's user_id"
+  "user_id":    "好友的 user_id",
   "action":     "REMOVE"
 }
 `}</APIPayload>
 
-### Block a User
+### 拉黑用户
 
 <APIPayload>{`{
-  "user_id":    "user's user_id"
+  "user_id":    "用户的 user_id",
   "action":     "BLOCK"
 }
 `}</APIPayload>
 
-### Unblock a User
+### 取消拉黑
 
 <APIPayload>{`{
-  "user_id":    "user's user_id"
+  "user_id":    "用户的 user_id",
   "action":     "UNBLOCK"
 }
 `}</APIPayload>
@@ -75,7 +66,7 @@ According to different payload, the API have different behaviors.
 
 ## GET /blocking_users
 
-Get blocked users.
+获取黑名单用户。
 
 <APIEndpoint url="/blocking_users" />
 

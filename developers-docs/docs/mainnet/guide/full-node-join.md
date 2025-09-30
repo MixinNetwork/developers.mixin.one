@@ -116,10 +116,10 @@ The pledge transaction is a special transaction for requesting to join the mainn
 
 ### Running A Node
 
-- Download the latest mixin <https://github.com/MixinNetwork/mixin/releases>
+- Download the latest mixin [https://github.com/MixinNetwork/mixin/releases](https://github.com/MixinNetwork/mixin/releases)
 - set `listener` in config.json to your own public IP or domain.
 - Properly config `signer`, `private`, `spend`, and `key` in config.json.
-- Run mixin as a systemd daemon. <https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service>
+- Run mixin as a systemd daemon. [https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service](https://github.com/MixinNetwork/mixin/blob/master/config/systemd.service)
 
 ---
 **To contact tech support, search for 31911、26596 in Mixin Messenger.**

@@ -1,11 +1,13 @@
 ---
 title: Support public chain Arweave
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [AR]
 ---
 
-Mixin Network now supports the 36th public chain Arweave, the token ticker is AR, the official website is <https://www.arweave.org/>.
+Mixin Network now supports the 36th public chain Arweave, the token ticker is AR, the official website is [https://www.arweave.org/](https://www.arweave.org/).
+
+<!-- truncate -->
 
 Arweave makes information permanence sustainable.
 Arweave is a new type of storage that backs data with sustainable and perpetual endowments, allowing users and developers to truly store data forever – for the very first time.

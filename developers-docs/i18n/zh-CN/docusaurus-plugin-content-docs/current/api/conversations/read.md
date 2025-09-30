@@ -1,5 +1,5 @@
 ---
-title: 读取会话信息
+title: 查看会话
 sidebar_position: 1
 ---
 
@@ -15,13 +15,13 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ## GET /conversations/:id
 
-读取指定的会话信息。
+根据会话 ID 获取会话信息。
 
 <APIEndpoint url="/conversations/:id" />
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-id="The conversation's id." p-id-required={true} />
+<APIParams p-id="会话 ID" p-id-required={true} />
 
 <APIRequest
   title="Get Conversation info by ID"

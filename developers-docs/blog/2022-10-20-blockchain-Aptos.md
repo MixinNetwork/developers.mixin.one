@@ -1,11 +1,13 @@
 ---
 title: Support public chain Aptos
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [APT]
 ---
 
-Mixin Network now supports the 43rd public chain Aptos, the token ticker is APT, the official website is <https://aptoslabs.com/>.
+Mixin Network now supports the 43rd public chain Aptos, the token ticker is APT, the official website is [https://aptoslabs.com/](https://aptoslabs.com/).
+
+<!-- truncate -->
 
 Aptos is a new, independent project to fulfill our vision of delivering the safest and most production-ready blockchain in the world.
 

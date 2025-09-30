@@ -1,5 +1,5 @@
 ---
-title: 读取圈子成员
+title: 查看圈子中的会话
 sidebar_position: 7
 ---
 
@@ -13,15 +13,15 @@ import {
 
 ## GET /circles/:id/conversations
 
-获取用户圈子中的所有群组和成员的会话。
+获取某个圈子下的所有会话。
 
 <APIEndpoint url="/circles/:id/conversations" />
 
 <APIMetaPanel scope="CIRCLES:READ" />
 
 <APIParams
-  p-limit="pagination per page data limit, 500 by default, 500 at most."
-  p-offset="pagination start time, such as `2020-12-12T12:12:12.999999999Z`"
+  p-limit="每页数量，默认为 500，最大 500"
+  p-offset="分页起始时间，例如 `2020-12-12T12:12:12.999999999Z`"
 />
 
 <APIRequest

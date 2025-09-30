@@ -1,11 +1,13 @@
 ---
 title: Support public chain Kusama
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [KSM]
 ---
 
-Mixin Network now supports the 34th public chain Kusama, the token ticker is KSM, the official website is <https://kusama.network/>.
+Mixin Network now supports the 34th public chain Kusama, the token ticker is KSM, the official website is [https://kusama.network/](https://kusama.network/).
+
+<!-- truncate -->
 
 Kusama is a scalable network of specialized blockchains built using Substrate and nearly the same codebase as Polkadot. The network is an experimental development environment for teams who want to move fast and innovate on Kusama, or prepare for deployment on Polkadot.
 

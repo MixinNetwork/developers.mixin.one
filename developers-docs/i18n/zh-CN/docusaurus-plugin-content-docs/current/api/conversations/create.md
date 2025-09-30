@@ -15,27 +15,26 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 ## POST /conversations
 
-新建群组或机器人第一次与用户对话之前，需要调用该 API，确保先创建会话。
+首次与用户对话或创建群组时，需要先调用此接口创建会话。
 
 <APIEndpoint url="/conversations" />
 
 <APIMetaPanel scope="Authorized" />
 
 <APIPayload>{`{
-  "category":        "'GROUP' or 'CONTACT'",
-  "conversation_id": "Unique identifier, see below to generate.",
-  "name":            "Group name, valid when category is 'GROUP', 512 characters at most",
-  "participants":    "Member list '[{ user_id: UUID }]', up to 256 people.",
+  "category":        "类型，可为 'GROUP' 或 'CONTACT'",
+  "conversation_id": "会话唯一标识，生成方式见下文",
+  "name":            "群组名称，仅在 category 为 'GROUP' 时有效，最多 512 字符",
+  "participants":    "成员列表 '[{ user_id: UUID }]'，最多 256 人",
 }
 `}</APIPayload>
 
 :::info
-您创建的会话是您的 机器人或者 dApp 与普通 Mixin Messenger 用户之间的会话。
-您不能使用用户的 `access_token` 来创建它们。 请使用机器人或者 dApp 的 Access Token 创建会话
+您创建的会话是机器人/dApp 与普通 Mixin Messenger 用户之间的会话，不能使用用户自身的 `access_token` 来创建，请使用机器人/dApp 的 token。
 :::
 
 :::info
-当 category 为`CONTACT`时，参与者的值应该是一个长度等于 1 的数组，`user_id` 的值为对方的 user_id。
+当 category 为 `CONTACT` 时，participants 必须是长度为 1 的数组，`user_id` 填写对方的用户 ID。
 :::
 
 <APIRequest
@@ -46,11 +45,11 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 <RespConv />
 
-### 生成唯一会话 ID
+### 生成唯一的会话 ID
 
-**单聊: category = "CONTACT"**
+**单聊：category = "CONTACT"**
 
-会话的唯一标识是根据双方生成的，在 Go 中这样实现：
+会话 ID 由双方用户 ID 组合生成，Golang 示例：
 
 ```go
 func UniqueConversationId(userId, recipientId string) string {
@@ -68,7 +67,7 @@ func UniqueConversationId(userId, recipientId string) string {
 }
 ```
 
-**群聊: category = "GROUP"**
+**群聊：category = "GROUP"**
 
 ```go title="golang"
 uuid.NewV4().String()
@@ -78,4 +77,4 @@ uuid.NewV4().String()
 UUID().uuidString.lowercased()
 ```
 
-**请注意，UUID 字符串会无例外地转换为小写**
+**注意：生成的 UUID 字符串应统一转换为小写。**

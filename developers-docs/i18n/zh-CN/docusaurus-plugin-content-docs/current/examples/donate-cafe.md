@@ -7,8 +7,8 @@ title: DonateCafe
 ![DonateCafe](./donate-cafe.png)
 
 - **Name** DonateCafe
-- **Official website** <https://donate.cafe/>
-- **Source code** <https://github.com/MixinNetwork/donate.cafe>
+- **Official website** [https://donate.cafe/](https://donate.cafe/)
+- **Source code** [https://github.com/MixinNetwork/donate.cafe](https://github.com/MixinNetwork/donate.cafe)
 - **Robot** 7000103066
 - **Technology stack** VUE
 - **Introduction** DonateCafe is similar to the PayPal reward button and supports multiple cryptocurrency, such as BTC, ETH, XMR, DOGE, etc.
