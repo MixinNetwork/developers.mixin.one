@@ -8,6 +8,14 @@ module.exports = {
       items: [
         'api/guide',
         'api/sequencer/registration',
+        {
+          label: 'Authentication',
+          type: 'category',
+          items: [
+            'api/oauth/oauth',
+            'api/oauth/scope',
+          ]
+        },
       ]
     },
     // {
@@ -34,20 +42,12 @@ module.exports = {
         'api/users/profile',
         'api/users/user',
         'api/users/users',
-        'api/users/sessions',
-        'api/users/search',
         'api/users/contacts',
+        'api/users/search',
+        'api/users/sessions',
         'api/users/relationships',
         'api/users/network-user',
         'api/shared-bots',
-        {
-          label: 'Authentication',
-          type: 'category',
-          items: [
-            'api/oauth/oauth',
-            'api/oauth/scope',
-          ]
-        },
         {
           label: 'Circles',
           type: 'category',
@@ -127,7 +127,6 @@ module.exports = {
           items: [
             'api/external/fiats',
             'api/external/address',
-            'api/external/pending-deposits',
           ]
         },
         'api/codes',
@@ -188,6 +187,13 @@ module.exports = {
             'api/collectibles/outputs',
           ]
         },
+        {
+          label: 'Pending Deposits',
+          type: 'category',
+          items: [
+            'api/external/pending-deposits',
+          ]
+        },
       ]
     },
     "mainnet-rpc",
@@ -228,16 +234,6 @@ module.exports = {
             'mainnet/mtg/wappercoin',
           ]
         },
-        // Deprecated
-        // {
-        //   label: 'MVM',
-        //   type: 'category',
-        //   items: [
-        //     'mainnet/mvm/setup',
-        //     'mainnet/mvm/metamask',
-        //     'mainnet/mvm/remix',
-        //   ]
-        // },
         {
           label: 'Guide',
           key: 'mainnet-guide',
@@ -265,8 +261,6 @@ module.exports = {
             'dapp/getting-started/oauth',
             'dapp/getting-started/read-info',
             'dapp/getting-started/messages',
-            // Deprecated
-            // 'dapp/getting-started/transfer',
           ]
         },
         {
