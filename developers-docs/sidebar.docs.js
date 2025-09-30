@@ -18,21 +18,6 @@ module.exports = {
         },
       ]
     },
-    // {
-    //   label: 'Sequencer API',
-    //   type: 'category',
-    //   collapsed: false,
-    //   items: [
-    //     'api/sequencer/overview',
-    //     'api/sequencer/registration',
-    //     'api/sequencer/outputs',
-    //     'api/sequencer/snapshots',
-    //     'api/sequencer/deposit',
-    //     'api/sequencer/transactions',
-    //     'api/sequencer/multisigs',
-    //     'api/sequencer/client-integration',
-    //   ]
-    // },
     {
       label: 'Users',
       type: 'category',
