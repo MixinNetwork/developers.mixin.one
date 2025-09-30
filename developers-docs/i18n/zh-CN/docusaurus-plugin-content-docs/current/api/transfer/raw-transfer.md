@@ -1,5 +1,5 @@
 ---
-title: Send Raw Transactions
+title: 发送原始交易
 sidebar_position: 2
 ---
 
@@ -15,32 +15,32 @@ import RespTransferMultisig from "@site/docs/_partials/_resp.transfer-multisig.m
 
 ## POST /transactions
 
-It's possible send raw transactions to the mainnet. This API supports two kinds of address: mainnet address and the multisig address.
+该接口可向主网发送原始交易，支持主网地址和多签地址。
 
-### Transfer to a Mainnet Address
+### 转账至主网地址
 
-Transfer to a specified mainnet address.
+向指定主网地址转账。
 
 <APIEndpoint url="/transactions" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "asset_id":     "the asset's asset_id which you are transferring",
-  "opponent_id":  "the mainnet address which you are transferring",
-  "amount":       "e.g.: "0.01", supports up to 8 digits after the decimal point",
-  "pin_base64":          "Encrypted PIN",
-  "trace_id":     "Used to prevent duplicate payment, optional",
-  "memo":         "Maximally 140 characters, optional",
+  "asset_id":     "转出的资产 ID",
+  "opponent_id":  "目标主网地址",
+  "amount":       "例如 \"0.01\"，支持小数点后最多 8 位",
+  "pin_base64":   "加密后的 PIN",
+  "trace_id":     "用于防止重复支付，可选",
+  "memo":         "备注，可选，最多 140 个字符"
 }
 `}</APIPayload>
 
-## TIP Pin 结构
+## 生成 TIP PIN
 
 ```
 "TIP:TRANSACTION:CREATE:" + assetId + counterUserId + amount + traceId + memo
 
-pin_base64 是上面值的 sha256-256 的结果
+pin_base64 为上述字符串的 sha256-256 摘要
 ```
 
 <APIRequest
@@ -51,21 +51,21 @@ pin_base64 是上面值的 sha256-256 的结果
 
 <RespTransferMainnet />
 
-### Transfer to a Multi-signature Address
+### 转账至多签地址
 
-Transfer to a specified multisig address.
+向指定多签地址转账。
 
 <APIEndpoint url="/transactions" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "asset_id":     "the asset's asset_id which you are transferring",
-  "opponent_multisig":  "the multi-signature object, identify the address which you are transferring",
-  "amount":       "e.g.: "0.01", supports up to 8 digits after the decimal point",
-  "pin":          "Encrypted PIN",
-  "trace_id":     "Used to prevent duplicate payment, optional",
-  "memo":         "Maximally 140 characters, optional",
+  "asset_id":     "转出的资产 ID",
+  "opponent_multisig":  "多签对象，标识收款地址",
+  "amount":       "例如 \"0.01\"，支持小数点后最多 8 位",
+  "pin":          "加密后的 PIN",
+  "trace_id":     "用于防止重复支付，可选",
+  "memo":         "备注，可选，最多 140 个字符"
 }
 `}</APIPayload>
 

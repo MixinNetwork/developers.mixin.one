@@ -1,5 +1,5 @@
 ---
-title: Read Historical Prices
+title: 历史价格
 sidebar_position: 11
 ---
 
@@ -13,16 +13,16 @@ import {
 
 ## GET /network/ticker
 
-Get the historical price of a given asset_id.
+获取指定资产的历史价格。
 
 <APIEndpoint url="/network/ticker?asset=:asset&offset=:offset" />
 
 <APIMetaPanel scope="" scopeNote="" />
 
 <APIParams
-  p-asset="the asset's asset_id are getting"
+  p-asset="资产的 asset_id"
   p-asset-required="true"
-  p-offset="Specify query time in RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`"
+  p-offset="查询时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z`"
 />
 
 <APIRequest
@@ -42,5 +42,5 @@ Get the historical price of a given asset_id.
 ```
 
 :::info
-If no ticker found, `price_usd` and `price_usd` will return 0.
+若未查询到记录，`price_usd` 与 `price_btc` 将返回 0。
 :::

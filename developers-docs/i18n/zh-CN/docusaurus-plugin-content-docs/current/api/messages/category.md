@@ -1,81 +1,76 @@
 ---
-title: Message Category
+title: 消息类型
 sidebar_position: 2
 ---
 
-import MsgCatText from "@site/docs/_partials/_resp.msg.d/text.md";
-import MsgCatAudio from "@site/docs/_partials/_resp.msg.d/audio.md";
-import MsgCatButtons from "@site/docs/_partials/_resp.msg.d/buttons.md";
-import MsgCatCard from "@site/docs/_partials/_resp.msg.d/card.md";
-import MsgCatContact from "@site/docs/_partials/_resp.msg.d/contact.md";
-import MsgCatFile from "@site/docs/_partials/_resp.msg.d/file.md";
-import MsgCatImage from "@site/docs/_partials/_resp.msg.d/image.md";
-import MsgCatLive from "@site/docs/_partials/_resp.msg.d/live.md";
-import MsgCatLocation from "@site/docs/_partials/_resp.msg.d/location.md";
-import MsgCatPost from "@site/docs/_partials/_resp.msg.d/post.md";
-import MsgCatSticker from "@site/docs/_partials/_resp.msg.d/sticker.md";
-import MsgCatTransfer from "@site/docs/_partials/_resp.msg.d/transfer.md";
-import MsgCatVideo from "@site/docs/_partials/_resp.msg.d/video.md";
-import MsgEncrypt from "@site/docs/_partials/_resp.msg.d/encrypt.md";
+import {
+  APIResponse,
+} from "@site/src/components/api";
 
-Mixin Messenger supports texts, images, stickers, files and other message types. Note that bots currently only support message types with the prefix `PLAIN_` and `ENCRYPTED_`.
+Mixin Messenger 支持文本、图片、贴纸、文件等多种消息类型。需要注意，机器人目前仅支持以 `PLAIN_` 为前缀的消息类型。
 
-To send images, files, and videos, you need to upload attachments and obtain attachment_id before sending.
+发送图片、文件和视频前，需要先上传附件并获取 attachment_id。
 
-## Texts
+## 文本
 
-<MsgCatText />
+<APIResponse name="msg_text" />
 
-## Stickers
+## 贴纸
 
-<MsgCatSticker />
+<APIResponse name="msg_sticker" />
 
-## Images
+## 图片
 
-<MsgCatImage />
+<APIResponse name="msg_image" />
 
-## Audios
+## 音频
 
-<MsgCatAudio />
+<APIResponse name="msg_audio" />
 
-## Videos
+## 视频
 
-<MsgCatVideo />
+<APIResponse name="msg_video" />
 
-## Contacts
+## 联系人
 
-<MsgCatContact />
+<APIResponse name="msg_contact" />
 
-## Cards
+## 卡片
 
-<MsgCatCard />
+<APIResponse name="msg_card" />
 
 :::tip
-Card forwarding can be prohibited by setting the `shareable` field to false. This feature is supported by Mixin Messenger 0.31.0 or above, and the default value is true.
+将 `shareable` 字段设置为 false 可以禁止转发卡片。该特性需要 Mixin Messenger 0.31.0 及以上版本，默认值为 true。
 :::
 
-## Files
+:::tip
+数据结构新增了 `cover_url` 与 `actions` 字段。如果结构中仍包含 `action` 字段，客户端会使用旧版卡片样式并忽略与新版样式相关的其它参数。新版卡片样式（包含 `cover_url` 与 `actions`）需要 Mixin Messenger 1.9.0 及以上版本支持。
+:::
 
-<MsgCatFile />
+## 文件
 
-## Live Shows
+<APIResponse name="msg_file" />
 
-<MsgCatLive />
+## 直播
 
-## Locations
+<APIResponse name="msg_live" />
 
-<MsgCatLocation />
+## 位置
 
-## Posts
+<APIResponse name="msg_location" />
 
-<MsgCatPost />
+## 动态
 
-## Buttons
+<APIResponse name="msg_post" />
 
-<MsgCatButtons />
+## 按钮
 
-## Transfers
+<APIResponse name="msg_buttons" />
 
-<MsgCatTransfer />
+## 转账
 
-<MsgEncrypt />
+<APIResponse name="msg_transfer" />
+
+## 置顶消息
+
+<APIResponse name="pin_message" />

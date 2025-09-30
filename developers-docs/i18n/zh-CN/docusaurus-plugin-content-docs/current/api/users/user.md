@@ -1,8 +1,7 @@
 ---
-title: 用户
+title: 查询用户
 sidebar_position: 1
 ---
-
 
 import {
   APIMetaPanel,
@@ -14,16 +13,16 @@ import RespUserExtra from "@site/docs/_partials/_resp.user-extra.md";
 
 ## GET /users/:id
 
-通过 User Id 获取一个用户的基本信息。
+根据用户 ID 获取用户信息。
 
 <APIEndpoint url="/users/:id" />
 
 <APIMetaPanel
   scope="PROFILE:READ"
-  scopeNote="如果用户授权了 `PHONE:READ` 会返回用户的手机号。"
+  scopeNote="如授予 `PHONE:READ` 权限，可获取用户手机号"
 />
 
-<APIParams p-id="用户的 User Id。" p-id-required={true} />
+<APIParams p-id="待查询用户的 UUID" p-id-required={true} />
 
 <APIRequest title="Get User Information by $USER_ID" url="/users/$USER_ID" />
 

@@ -15,29 +15,21 @@ import RespAddress from "@site/docs/_partials/_resp.addr.md";
 
 ## POST /addresses/:addr_id/delete
 
-删除一个提现地址
+根据地址 ID 删除提现地址。
 
 <APIEndpoint url="/addresses/:addr_id/delete" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIParams
-  p-addr_id="the address' id which you are deleting"
+  p-addr_id="要删除的地址 ID"
   p-addr_id-required={true}
 />
 
 <APIPayload>{`{
-  "pin_base64":   "加密后的 PIN",
+  "pin": "加密后的 PIN"
 }
 `}</APIPayload>
-
-## TIP Pin 结构
-
-```
-"TIP:ADDRESS:REMOVE:" + address_id
-
-如果使用 TIP, pin_base64 是上面值的 sha256-256 的结果
-```
 
 <APIRequest
   title="Delete an ETH address"
@@ -45,8 +37,25 @@ import RespAddress from "@site/docs/_partials/_resp.addr.md";
   url='/addresses/ba3a2e33-efde-40b9-9cac-c293f0d1a3f2/delete --data &apos;{"pin":"d2EJy5kmt56d3U5PeKm+TJLBnXBuyxBTcWxytL8pk/LXwJEak9r8iVMcASjgvoO+"}&apos;'
 />
 
-如何删除成功，没有返回值
+<APIPayload>{`{
+  "pin_base64": "加密后的 PIN"
+}
+`}</APIPayload>
+
+## 生成 TIP PIN
+
+```
+"TIP:ADDRESS:REMOVE:" + address_id
+
+pin_base64 为上述字符串的 sha256-256 摘要
+```
+
+```json title="Response"
+{}
+```
+
+成功返回空 JSON。
 
 :::info
-目前没有修改地址信息的 API, 如果需要修改旧的地址，可以先删除，然后再重新添加
+当前没有编辑提现地址的 API。如需实现修改功能，请先删除后重新添加。
 :::

@@ -86,6 +86,6 @@ Mixin 的分布式账本是一个公开透明的去中心化账本，由 35 个�
 
 - 在哪看 Mixin 的区块链浏览器？
 
-  第三方团队 Blockchair：<https://blockchair.com/mixin>
+  第三方团队 Blockchair：[https://blockchair.com/mixin](https://blockchair.com/mixin)
 
-  Mixin 核心开发团队：<https://mixin.one/snapshots>
+  Mixin 核心开发团队：[https://mixin.one/snapshots](https://mixin.one/snapshots)

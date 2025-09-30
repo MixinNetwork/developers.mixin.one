@@ -15,7 +15,7 @@ import RespAssets from "@site/docs/_partials/_resp.assets.md";
 
 ## GET /assets
 
-本 API 返回当前用户的所有加密资产列表。
+获取当前用户的资产列表，需要 `ASSETS:READ` 权限。
 
 <APIEndpoint url="/assets" />
 
@@ -26,5 +26,5 @@ import RespAssets from "@site/docs/_partials/_resp.assets.md";
 <RespAssets />
 
 :::info
-该接口只会返回余额大于 0 的资产列表，新用户没有任何资产，因此会返回空列表。
+该接口仅返回余额大于 0 的资产，新用户没有任何资产时会得到空列表。
 :::

@@ -1,6 +1,6 @@
 ---
-title: 读取资产信息
-sidebar_position: 2
+title: 读取 Top 100 资产
+sidebar_position: 30
 ---
 
 import {
@@ -13,23 +13,23 @@ import {
 
 import RespAssetsNetwork from "@site/docs/_partials/_resp.assets-network.md";
 
-## GET /network/assets/:asset_id
+## GET /network/assets/top
 
-查询指定资产的公开信息。
+查询整个网络排名前 100 的资产，此接口无需授权。
 
-<APIEndpoint url="/network/assets/:asset_id" />
+<APIEndpoint url="/network/assets/top" />
 
 <APIMetaPanel scope="" />
 
-<APIParams p-asset_id="资产 ID" p-asset_id-required={true} />
+<APIParams p-asset_id="资产的 ID" p-asset_id-required={true} />
 
 <APIRequest
-  title="Read an asset"
+  title="读取单个资产"
   isPublic
   url="/network/assets/c94ac88f-4671-3976-b60a-09064f1811e8"
 />
 
-```json title="Response"
+```json title="响应示例"
 {
   "data": {
     "amount": "296369.17400899",
@@ -46,40 +46,32 @@ import RespAssetsNetwork from "@site/docs/_partials/_resp.assets-network.md";
 
 ## GET /network/assets/top
 
-查询网络前 100 名的资产，可通过 `kind` 参数指定排名类别；当值为 `NORMAL` 时不会包含 LP 代币。
+查询网络前 100 名资产列表。
 
-<APIEndpoint url="/network/assets/top?kind=NORMAL" />
+<APIEndpoint url="/network/assets/top" />
 
 <APIMetaPanel scope="" />
 
-<APIParams
-  p-kind="ALL、NORMAL、BARREN，可选，默认为 ALL"
-/>
-
-<APIRequest title="Read top 100 assets" isPublic url="/network/assets/top" />
+<APIRequest title="读取 Top 100 资产" isPublic url="/network/assets/top" />
 
 <RespAssetsNetwork />
 
-## GET /network/assets/search/:q?kind=NORMAL
+## GET /network/assets/search/:q
 
-按符号或名称搜索热门资产。
+根据符号或名称搜索热门资产。
 
 :::info
-仅返回带有图标或价格的资产。
+此接口仅返回带有图标或价格的资产。
 :::
 
 <APIEndpoint url="/network/assets/search/:q" />
 
 <APIMetaPanel scope="" />
 
-<APIParams
-  p-q="搜索关键字"
-  p-q-required={true}
-  p-kind="ALL、NORMAL、BARREN，可选，默认为 ALL"
-/>
+<APIParams p-q="搜索关键字" p-q-required={true} />
 
 <APIRequest
-  title="Search assets by keywords"
+  title="按关键字搜索资产"
   isPublic
   url="/network/assets/search/btc"
 />
@@ -91,7 +83,7 @@ import RespAssetsNetwork from "@site/docs/_partials/_resp.assets-network.md";
 查询支持多重签名的资产列表。
 
 :::caution
-该接口已 **废弃**。
+此接口已经 **废弃**。
 :::
 
 <APIEndpoint url="/network/assets/multisig" />
@@ -99,7 +91,7 @@ import RespAssetsNetwork from "@site/docs/_partials/_resp.assets-network.md";
 <APIMetaPanel scope="" />
 
 <APIRequest
-  title="Query assets that support multisig"
+  title="查询支持多签的资产"
   isPublic
   url="/network/assets/multisig"
 />

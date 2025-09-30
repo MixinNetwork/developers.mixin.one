@@ -1,5 +1,5 @@
 ---
-title: Read Messages
+title: 消息回执
 sidebar_position: 4
 ---
 
@@ -13,15 +13,17 @@ import {
 
 ## POST /acknowledgements
 
-To receive a list of messages from Mixin message service, you need to setup a websocket connection. After receiving the message via WebSocket, you need to call this API to tell Mixin message service that it has been delivered, otherwise it will keep pushing the message.
+接收消息需要先与 Mixin Server 建立 WebSocket 连接。收到消息后需要通知服务器消息已投递或已读，否则服务器会持续推送。
+
+该接口用于批量上报消息状态。
 
 <APIEndpoint url="/acknowledgements" />
 
 <APIMetaPanel scope="Authorized" />
 
 <APIPayload>{`[
-  { "message_id": "message UUID", "status": "READ" },
-  { "message_id": "message UUID", "status": "READ" },
+  { "message_id": "消息 UUID", "status": "READ" },
+  { "message_id": "消息 UUID", "status": "READ" },
   ...
 ]
 `}</APIPayload>
@@ -34,7 +36,7 @@ To receive a list of messages from Mixin message service, you need to setup a we
 
 ```json title="Response"
 [
-  // up to 100 entries each time.
+  // 每次最多 100 条
   { "message_id": "UUID", "status": "READ" },
   ...
 ]

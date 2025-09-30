@@ -1,5 +1,5 @@
 ---
-title: Read Snapshot
+title: 读取快照
 sidebar_position: 5
 ---
 
@@ -15,13 +15,13 @@ import RespSnapshot from "@site/docs/_partials/_resp.snapshot.md";
 
 ## GET /network/snapshots/:snapshot_id
 
-Read public transfer details.
+根据快照 ID 查看详情。
 
 <APIEndpoint url="/network/snapshots/:snapshot_id" />
 
 <APIMetaPanel scope="" />
 
-<APIParams p-snapshot_id="The snapshot's id" p-snapshot_id-required={true} />
+<APIParams p-snapshot_id="快照 ID" p-snapshot_id-required={true} />
 
 <APIRequest
   title="Read snapshot detail"
@@ -32,5 +32,5 @@ Read public transfer details.
 <RespSnapshot />
 
 :::tip
-If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOTS:READ` permission and set correct JWT in the request headers.
+如需获取 `user_id`、`opponent_id`、`trace_id`、`data` 等私有字段，请确保 dApp 具备 `SNAPSHOTS:READ` 权限，并在请求头中携带正确的 JWT。
 :::

@@ -8,8 +8,8 @@ sidebar_position: 8
 ![TODO: English Version Img: OceanONE](./oceanone.png)
 
 - **Name** OceanONE
-- **Website** <https://ocean.one/>
-- **Code** <https://github.com/Mixinnetwork/ocean.one>
+- **Website** [https://ocean.one/](https://ocean.one/)
+- **Code** [https://github.com/Mixinnetwork/ocean.one](https://github.com/Mixinnetwork/ocean.one)
 - **Introduction** Ocean ONE is the next generation decentralized exchange based on Mixin Network, which is the first decentralized exchange that has the same experience as a centralized exchange.
 - **Advantages** Feature-rich and performant.
 

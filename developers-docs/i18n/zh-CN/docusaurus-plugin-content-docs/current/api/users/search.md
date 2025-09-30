@@ -1,5 +1,5 @@
 ---
-title: 搜索
+title: 搜索用户
 sidebar_position: 3
 ---
 
@@ -14,20 +14,16 @@ import RespUser from "@site/docs/_partials/_resp.user.md";
 
 ## GET /search/:q
 
-通过关键词搜索用户。关健词包括：
-
-1. 用户的 Mixin Id  
-1. 手机号
-
+根据关键字 `:q` 搜索用户。
 
 <APIEndpoint url="/search/:q" />
 
 <APIMetaPanel
   scope="PROFILE:READ"
-  limitation="为了避免恶意的抓取行为，该 API 会有访问限制，如果返回了 429 错误，需要过 12 小时，再次访问。"
+  limitation="为避免恶意抓取，接口有频率限制。如遇 429 错误，请等待 12 小时后重试"
 />
 
-<APIParams p-q="用户的 Mixin ID 或者手机号" p-q-required={true} />
+<APIParams p-q="Mixin ID 或手机号" p-q-required={true} />
 
 <APIRequest title="Search User by $KEYWORD" url="/search/$KEYWORD" />
 

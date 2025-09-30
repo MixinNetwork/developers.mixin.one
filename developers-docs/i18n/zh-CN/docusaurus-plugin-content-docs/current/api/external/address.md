@@ -3,36 +3,36 @@ title: Mixin 内部地址
 ---
 
 import {
-  APIMetaPanel,
-  APIRequest,
-  APIEndpoint,
-  APIParams,
-  APIPayload,
+APIMetaPanel,
+APIRequest,
+APIEndpoint,
+APIParams,
+APIPayload,
 } from "@site/src/components/api";
 
 ## GET /external/addresses/check
 
-检查一个提现地址是否合法
+校验提现地址是否有效。
 
 <APIEndpoint url="/external/addresses/check" />
 
 <APIMetaPanel scopeNote="" />
 
 <APIParams
-  p-asset="资产的 uuid"
-  p-asset-required={true}
-  p-destination="资产的提现地址, 例如 btc: bc1qxevhcsrrth0muvnl6x9vry3a0p6pzmz359d3s5, eos: mixinwitheos"
-  p-destination-required={true}
-  p-tag="非必选，例如 eos 的备注 (memo)"
+p-asset="资产 UUID"
+p-asset-required={true}
+p-destination="提现地址，例如 BTC: bc1qxevhcsrrth0muvnl6x9vry3a0p6pzmz359d3s5，EOS: mixinwitheos"
+p-destination-required={true}
+p-tag="可选，例如 EOS 的 memo"
 />
 
-<APIRequest title="Get Mixin Internal Address" isPublic url="/external/addresses/check" />
+<APIRequest title="Get an Address's withdrawal fee" isPublic url="/external/addresses/check" />
 
-```json title="返回值"
+```json title="Response"
 {
   "data": {
     "destination": "bc1qxevhcsrrth0muvnl6x9vry3a0p6pzmz359d3s5",
-    "tag": "",
-  },
+    "tag": ""
+  }
 }
 ```

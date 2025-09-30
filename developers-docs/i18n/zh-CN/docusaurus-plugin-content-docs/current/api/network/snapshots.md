@@ -1,5 +1,5 @@
 ---
-title: Read Snapshots
+title: 快照列表
 sidebar_position: 4
 ---
 
@@ -15,19 +15,19 @@ import RespSnapshots from "@site/docs/_partials/_resp.snapshots.md";
 
 ## GET /network/snapshots
 
-Get public transfer records.
+查询快照公开信息，包括转账、充值、提现等记录。
 
 <APIEndpoint url="/network/snapshots?offset=:offset&limit=:limit&asset=:asset&order=:order" />
 
 <APIMetaPanel scope="" />
 
 <APIParams
-  p-offset="Pagination start time, RFC3339Nano format, e.g. `2020-12-12T12:12:12.999999999Z`"
+  p-offset="分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z`"
   p-offset-required={true}
-  p-limit="Pagination per page data limit, 500 by default, maximally 500. "
+  p-limit="每页数量，默认 500，最大 500"
   p-limit-required={true}
-  p-asset="The asset's id, transfer records of a certain asset."
-  p-order="Sort in `ASC` or `DESC` order, `DESC` by default."
+  p-asset="资产 ID，用于筛选指定资产的快照"
+  p-order="排序方式，`ASC` 或 `DESC`，默认 `DESC`"
 />
 
 <APIRequest
@@ -39,5 +39,5 @@ Get public transfer records.
 <RespSnapshots />
 
 :::tip
-If you need to obtain the private fields like `user_id`, `opponent_id`, `trace_id` and `data`, please make sure the dApp has already grant the `SNAPSHOTS:READ` permission and set correct JWT in the request headers.
+如需获取 `user_id`、`opponent_id`、`trace_id`、`data` 等私有字段，请确保 dApp 拥有 `SNAPSHOTS:READ` 权限，并在请求头中携带正确的 JWT。
 :::

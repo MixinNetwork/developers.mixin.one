@@ -1,5 +1,5 @@
 ---
-title: 多个用户
+title: 批量查询用户
 sidebar_position: 2
 ---
 
@@ -14,24 +14,24 @@ import RespUsers from "@site/docs/_partials/_resp.users.md";
 
 ## POST /users/fetch
 
-获取多个用户的基本信息。
+根据用户 ID 批量获取用户信息。
 
 :::info
-该 API 只会返回存在用户的信息，如果用户不存在并不会报错。
+仅返回已存在的用户，未找到的用户会被忽略。
 :::
 
 <APIEndpoint url="/users/fetch" />
 
 <APIMetaPanel
   scope="PROFILE:READ"
-  scopeNote="如果用户有 `PHONE:READ` 授权，会返回用户的手机号。"
+  scopeNote="如授予 `PHONE:READ` 权限，可获取用户手机号"
 />
 
 <APIPayload>{`[
-  // array of user_id
+  // user_id 数组
   "UUID",
   "UUID",
-  "UUID",
+  "UUID"
 ]
 `}</APIPayload>
 

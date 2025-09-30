@@ -1,9 +1,7 @@
 ---
-title: Codes
+title: Code 信息
 sidebar_position: 51
 ---
-
-Mixin 中可以通过 code 将一个信息公开给别人
 
 import {
   APIMetaPanel,
@@ -11,17 +9,17 @@ import {
   APIEndpoint,
 } from "@site/src/components/api";
 
-import RespUser from "../_partials/_resp.codes-user.md";
-import RespPayment from "../_partials/_resp.codes-payment.md";
-import RespMultisig from "../_partials/_resp.codes-multisig.md";
-import RespConversation from "../_partials/_resp.codes-conversation.md";
-import RespCollectibles from "../_partials/_resp.codes-collectible.md";
+import RespUser from "@site/docs/_partials/_resp.codes-user.md";
+import RespPayment from "@site/docs/_partials/_resp.codes-payment.md";
+import RespMultisig from "@site/docs/_partials/_resp.codes-multisig.md";
+import RespConversation from "@site/docs/_partials/_resp.codes-conversation.md";
+import RespCollectibles from "@site/docs/_partials/_resp.codes-collectible.md";
 
-## Get code 信息
+## 获取 Code 信息
 
 ### GET /codes/:id
 
-Get the code information by code ID.
+根据 code ID 查询对应的信息。
 
 <APIEndpoint url="/codes/:id" />
 
@@ -33,16 +31,15 @@ Get the code information by code ID.
   isPublic="true"
 />
 
-#### Code types
+#### Code 类型
 
-| Type of code            | Description                           |
-| ----------------------- | ------------------------------------- |
-| User                    | Code ID of a user.                    |
-| Conversation            | Code ID of a conversation.            |
-| Payment                 | Code ID of a payment.                 |
-| Multisig Request        | Code ID of a multi-signature request. |
-| Collectible             | Code ID of a collectible transaction. |
-
+| Code 类型         | 说明                         |
+| ----------------- | ---------------------------- |
+| User              | 用户的 code ID               |
+| Conversation      | 会话的 code ID               |
+| Payment           | 支付的 code ID               |
+| Multisig Request  | 多签请求的 code ID           |
+| Collectible       | 藏品交易的 code ID           |
 
 <RespUser />
 <RespConversation />

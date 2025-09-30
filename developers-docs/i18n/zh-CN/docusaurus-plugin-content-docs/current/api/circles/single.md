@@ -1,5 +1,5 @@
 ---
-title: 读取圈子信息
+title: 查看圈子详情
 sidebar_position: 2
 ---
 
@@ -15,13 +15,13 @@ import RespCircle from "@site/docs/_partials/_resp.circle.md";
 
 ## GET /circles/:id
 
-获取某个圈子的详细信息。
+获取指定圈子的详细信息。
 
 <APIEndpoint url="/circles/:id" />
 
 <APIMetaPanel scope="CIRCLES:READ" />
 
-<APIParams p-id="The ID of circle" p-id-required={true} />
+<APIParams p-id="圈子 ID" p-id-required={true} />
 
 <APIRequest
   title="Get circle details"

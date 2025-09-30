@@ -1,5 +1,5 @@
 ---
-title: 获取 NFT Outputs
+title: 读取藏品输出
 ---
 
 import {
@@ -15,17 +15,19 @@ import {
 
 <APIEndpoint url="/collectibles/outputs?state=:state&offset=:offset&limit=:limit&members=:members&threshold=:threshold" />
 
-<APIMetaPanel scope="Authorized" scopeNote=""/>
+<APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-state="可选, UTXO 状态, 例如 unspent, signed, and spent."
-  p-offset="可选, 开始时间, RFC3339Nano 格式, 例如 `2020-12-12T12:12:12.999999999Z`."
-  p-limit="可选, 分页条数限制, 默认 500 , 最大 500"
-  p-members="需要跟 threshold 一起使用, 多签成员的 hash 值"
-  p-threshold="需要跟多签成员的 hash 值一起使用, 比如 2/3, threshold 是 2"
+  p-state="可选，UTXO 状态，如 unspent、signed、spent"
+  p-offset="可选，分页起始时间，RFC3339Nano 格式，例如 `2020-12-12T12:12:12.999999999Z`"
+  p-limit="可选，每页数量，默认 500，最大 500"
+  p-members="与 threshold 搭配使用，用于多签成员的哈希"
+  p-threshold="整数，与 members 搭配使用，多签阈值，例如 2/3 时 threshold = 2"
 />
 
-以下是生成多签成员 hash 的 Golang 示例。
+如果账号参与了藏品多签，可通过 `members` 与 `threshold` 参数筛选数据。
+
+以下为生成多签成员哈希的 Golang 示例：
 
 ```go
 func hashMembers(ids []string) string {
@@ -40,16 +42,16 @@ func hashMembers(ids []string) string {
 
 <APIRequest
   title="Get collectibles Outputs"
-  url="/collectibles/outputs?limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
+  url="/collectibles/outputs?members=:members&threshold=:threshold&limit=500&offset=2006-01-02T15:04:05.999999999Z&state=spent"
 />
 
 <APIResponse name="collectible_output" />
 
-只有 `state` 是 `signed` 的时候, `signed_tx` 跟 `signed_by` 才会有值。
+当状态为 signed 时，`signed_tx` 与 `signed_by` 才会有值。其中 `signed_by` 表示交易哈希，`signed_tx` 是完整的交易内容，`signed_by` 可用于对待签交易进行排序。
 
 ## GET /collectibles/tokens/UUID
 
-获取单个 NFT 的信息
+查询藏品 token 信息。
 
 <APIEndpoint url="/collectibles/tokens/UUID" />
 
@@ -62,7 +64,7 @@ func hashMembers(ids []string) string {
 
 ## GET /collectibles/collections/UUID
 
-获取整个 NFT 的集合信息
+查询收藏品集合的信息。
 
 <APIEndpoint url="/collectibles/collections/UUID" />
 

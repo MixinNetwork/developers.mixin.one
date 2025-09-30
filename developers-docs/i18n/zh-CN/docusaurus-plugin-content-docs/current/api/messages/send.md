@@ -1,5 +1,5 @@
 ---
-title: Send Messages
+title: 发送消息
 sidebar_position: 3
 ---
 
@@ -9,15 +9,15 @@ import {
   APIEndpoint,
   APIParams,
   APIPayload,
+  APIResponse,
 } from "@site/src/components/api";
-import ReqMessages from "@site/docs/_partials/_req.msgs.md";
 
 ## POST /messages
 
-Send messages in bulk.
+批量发送消息。
 
 :::info
-A maximum of 100 messages can be sent in batch each time, and the message body cannot exceed 128Kb.
+每次最多可发送 100 条消息，单条消息体不得超过 128KB。
 :::
 
 <APIEndpoint url="/messages" />
@@ -32,7 +32,7 @@ A maximum of 100 messages can be sent in batch each time, and the message body c
 `}</APIPayload>
 
 :::info
-`message object` is a JSON object, please refer to the [Message Category](./category).
+`message object` 为 JSON 结构，格式请参考 [消息类型](./category)。
 :::
 
 <APIRequest
@@ -41,8 +41,8 @@ A maximum of 100 messages can be sent in batch each time, and the message body c
   url="/messages --data PAYLOAD"
 />
 
-Request body data is a message array:
+请求体为消息数组：
 
-<ReqMessages />
+<APIResponse name="msgs" />
 
-It returns empty JSON on success.
+成功返回空 JSON。

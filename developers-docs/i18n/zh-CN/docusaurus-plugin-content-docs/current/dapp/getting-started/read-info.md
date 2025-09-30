@@ -2,6 +2,8 @@
 title: 读取信息
 ---
 
+import RespAssets from '@site/docs/_partials/_resp.assets.md'
+
 在[上一篇教程文章](./oauth) 中，我们介绍了 OAuth2 流程以及如何使用它来获取 Access Token。本文将向您展示如何读取用户信息。
 
 为了简化叙述，从现在开始，文章中将会提到 Mixin 的 SDK。 Mixin 团队和社区提供了各种 SDK 供开发者使用。 您可以在 [SDK](/docs/resources/sdk) 页面中找到 SDK。
@@ -49,14 +51,12 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/assets
 ```
 
-import RespAssets from '@site/docs/_partials/_resp.assets.md'
-
 <RespAssets />
 
 :::info
 `asset_id` 字段是整个 Mixin 网络中每个资产的唯一 ID。
 
-可以从 <https://mixin.one/snapshots> 通过搜索`btc`等资产代码获取。 您也可以将资产存入 Mixin Messenger 钱包并与机器人 “7000103061” 对话，然后搜索并复制资产信息。
+可以从 [https://mixin.one/snapshots](https://mixin.one/snapshots) 通过搜索`btc`等资产代码获取。 您也可以将资产存入 Mixin Messenger 钱包并与机器人 “7000103061” 对话，然后搜索并复制资产信息。
 :::
 
 ## 读取应用程序的资产

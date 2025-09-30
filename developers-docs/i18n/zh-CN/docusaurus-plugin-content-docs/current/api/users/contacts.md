@@ -1,5 +1,5 @@
 ---
-title: 读取联系人
+title: 获取联系人
 sidebar_position: 4
 ---
 
@@ -14,12 +14,14 @@ import RespUsers from "@site/docs/_partials/_resp.users.md";
 
 ## GET /friends
 
-获取用户的联系人列表。其中联系人，可能是 Messenger 用户，也可能是机器人。
+获取用户的联系人列表。
 
-<APIEndpoint url="/users/friends" />
+结果同时包含用户与机器人，可通过是否存在 app 字段判断是否为机器人。
+
+<APIEndpoint url="/friends" />
 
 <APIMetaPanel scope="CONTACTS:READ" />
 
-<APIRequest title="Read Contacts" url="/users/friends" />
+<APIRequest title="Read Contacts" url="/friends" />
 
 <RespUsers />

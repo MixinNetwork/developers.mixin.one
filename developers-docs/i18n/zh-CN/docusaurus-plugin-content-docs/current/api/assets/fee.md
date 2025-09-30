@@ -14,14 +14,14 @@ import RespFee from "@site/docs/_partials/_resp.fee.md";
 
 ## GET /assets/:asset_id/fee
 
-本 API 返回指定加密货币资产在 Mixin Network 的提现费。
+获取指定资产的提现手续费。
 
 <APIEndpoint url="/assets/:asset_id/fee" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIParams
-  p-asset_id="the asset's asset_id you are getting"
+  p-asset_id="待查询的资产 ID"
   p-asset_id-required="true"
 />
 

@@ -1,5 +1,5 @@
 ---
-title: Read Withdrawal Address List
+title: 提现地址列表
 sidebar_position: 2
 ---
 
@@ -15,14 +15,14 @@ import RespAddresses from "@site/docs/_partials/_resp.addrs.md";
 
 ## GET /assets/:asset_id/addresses
 
-Get a list of withdrawal addresses for the given asset.
+获取指定资产的提现地址列表。
 
 <APIEndpoint url="/assets/:asset_id/addresses" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIParams
-  p-asset_id="the asset's id which you are requesting the withdrawal addresses for"
+  p-asset_id="要查询的资产 ID"
   p-asset_id-required={true}
 />
 

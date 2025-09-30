@@ -1,5 +1,5 @@
 ---
-title: 读取法定货币汇率
+title: 法币汇率
 sidebar_position: 24
 ---
 
@@ -13,13 +13,13 @@ import {
 
 ## GET /external/fiats
 
-本 API 返回一系列法定货币的汇率。
+返回所有基于美元的法币汇率列表。
 
 <APIEndpoint url="/external/fiats" />
 
-<APIMetaPanel scopeNote="" />
+<APIMetaPanel scope="Authorized" scopeNote="" />
 
-<APIRequest title="Get Fiats Rate" isPublic url="/external/fiats" />
+<APIRequest title="Get Fiats Rate" url="/external/fiats" />
 
 ```json title="Response"
 {

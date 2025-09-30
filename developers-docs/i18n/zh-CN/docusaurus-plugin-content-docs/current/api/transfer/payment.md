@@ -1,5 +1,5 @@
 ---
-title: 创建或者检查支持
+title: 生成支付请求
 sidebar_position: 10
 ---
 
@@ -16,45 +16,51 @@ import RespTransfer from "@site/docs/_partials/_resp.transfer.md";
 
 ## POST /payments
 
-这个接口主要实现了两个功能:
+该接口有两个用途：
 
-1. 生成一个多签支付的 code, 相关注意事项  
-  a. 需要授权才能访问  
-  b. 如果 trace_id 不是自己的，会返回 403  
-  c. 如果已经支持 state 值是 paid, 未支付是 pending
+1. 创建多签支付码：  
+   a. 需要携带授权 token  
+   b. 如果 `trace_id` 不正确会返回 403  
+   c. 若支付已存在，state 为 `paid`，否则为 `pending`
 
-1. 或者检查支付参数是否正确。  
-  a. 不需要授权访问  
-  b. 如果已经支持 state 值是 paid, 未支付是 pending
+2. 校验支付参数：  
+   a. 公共接口，无需授权 token  
+   b. 若支付已存在，state 为 `paid`，否则为 `pending`
 
 <APIEndpoint url="/payments" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
-### 生成多签支持的请求参数
-
 <APIPayload>{`{
-  "asset_id":     "资产的 uuid",
-  "amount":       "金额, 例如: "0.01"",
-  "trace_id":     "防止重复转帐或提现",
-  "memo":         "可选，最大 200 字符",
+  "asset_id":     "转出的资产 ID",
+  "amount":       "例如 \"0.01\"，支持小数点后最多 8 位",
+  "trace_id":     "用于防止重复支付，可选",
+  "memo":         "备注，可选，最多 200 个字符",
   "opponent_multisig": {
-    "receivers":    "接收者的数组, 最大 256",
-    "threshold":    "数字，需要小于等于接收者",
-  },
+    "receivers":    "成员 ID 数组，最多 256 人",
+    "threshold":    "数字，不得大于 receivers 数量"
+  }
 }
 `}</APIPayload>
 
-### 检测支付参数及状态
+<APIRequest
+  title="Generate a multisig payment"
+  method="POST"
+  url="/payments --data PAYLOAD"
+/>
+
+<APIResponse name="payment" />
+
+### 校验支付参数
 
 <APIPayload>{`{
-  "asset_id":     "资产的 uuid",
-  "amount":       "金额, 例如: "0.01"",
-  "trace_id":     "防止重复转帐或提现",
-  "opponent_id":  "可选，接收者 uuid",
-  "address_id":   "可选，地址的 uuid",
-  "destination":  "提现地址",
-  "tag":          "可选, 提现备注"
+  "asset_id":     "转出的资产 ID",
+  "amount":       "例如 \"0.01\"，支持小数点后最多 8 位",
+  "trace_id":     "用于防止重复支付，可选",
+  "opponent_id":  "可选，接收方 uuid",
+  "address_id":   "可选，提现地址 uuid",
+  "destination":  "可选，提现地址",
+  "tag":          "可选，提现备注"
 }
 `}</APIPayload>
 

@@ -1,5 +1,5 @@
 ---
-title: Send/Read Transfer
+title: 发送与查询转账
 sidebar_position: 1
 ---
 
@@ -15,19 +15,19 @@ import RespTransfer from "@site/docs/_partials/_resp.transfer.md";
 
 ## POST /transfers
 
-Transfer to specific user.
+向指定用户转账。
 
 <APIEndpoint url="/transfers" />
 
 <APIMetaPanel scope="Authorized" scopeNote="" />
 
 <APIPayload>{`{
-  "asset_id":     "the asset's asset_id which you are transferring",
-  "opponent_id":  "the user's user_id who you are transferring",
-  "amount":       "e.g.: "0.01", supports up to 8 digits after the decimal point",
-  "pin":          "Encrypted PIN",
-  "trace_id":     "Used to prevent duplicate payment, optional",
-  "memo":         "Maximally 200 characters, optional",
+  "asset_id":     "转出的资产 ID",
+  "opponent_id":  "收款方的用户 ID",
+  "amount":       "例如 \"0.01\"，支持小数点后最多 8 位",
+  "pin":          "加密后的 PIN",
+  "trace_id":     "用于防止重复支付，可选",
+  "memo":         "备注，可选，最多 200 个字符"
 }
 `}</APIPayload>
 
@@ -40,14 +40,12 @@ Transfer to specific user.
 <RespTransfer />
 
 :::caution
-
-- Once the transfer API is successfully called, it means that the data has been confirmed by all nodes, and the data is irreversible.
-- One can't transfer money to themself.
-- The encrypted PIN is one-time, and the PIN must be re-encrypted every time you transfer.
-- It is strongly recommended that developers use `trace_id` to handle duplicate transfers, and always attach this parameter to transfers.
-- All you need is to do it over again if you encounter `500` error in a transfer.
-- If you need to process a large number of concurrent transactions and process hundreds or thousands of transfers per second, it is recommended to use multiple accounts to transfer and send transactions.
-- When a transfer error happens, pay attention to the "extra" field in the returned error message.https://api.mixin.one/network/chains
-- If you see the error `20119` password is wrong when you are transferring, do not try again. It is recommended to call the [PIN Verification](/zh-CN/docs/api/pin/pin-verify) API to confirm.
-
+- 转账接口一旦调用成功即表示所有节点已确认，数据不可逆。
+- 不能向自己转账。
+- 加密后的 PIN 只能使用一次，每次转账都需要重新加密。
+- 强烈建议使用 `trace_id` 处理重复转账问题，并在转账时始终携带该参数。
+- 如遇到 500 错误，请重新发起转账。
+- 若需要处理高并发交易（每秒数百到数千笔），建议使用多个账号分担转账并发送交易。
+- 转账失败时请关注返回错误中的 `extra` 字段。
+- 如果出现 `20119`（密码错误），请勿继续重试，建议调用 [PIN 验证](/docs/api/pin/pin-verify) 接口确认。
 :::

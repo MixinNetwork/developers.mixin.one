@@ -1,6 +1,6 @@
 ---
 title: 分享机器人
-sidebar_position: 20
+sidebar_position: 13
 ---
 
 import {
@@ -11,23 +11,21 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-import RespApps from "../_partials/_resp.apps.md";
+import RespApps from "@site/docs/_partials/_resp.apps.md";
 
-用户和机器人都可以在自己的个人页面上配置分享 3 个机器人，这个分享也会出现在聊天界面左下角的+菜单中。
+用户和机器人都可以在个人页面配置最多 3 个分享的机器人，同时会展示在聊天界面左下角的 + 菜单中。借助该功能可以通过口口相传提升机器人传播效率。
 
-此功能有助于机器人通过口耳相传，促进机器人在用户中的传播。
-
-## 获得分享列表
+## 获取分享列表
 
 ### GET /users/:user_id/apps/favorite
 
-返回指定用户分享的机器人的列表
+查询用户分享的机器人列表。
 
 <APIEndpoint url="/users/:user_id/apps/favorite" />
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-user_id="The user's user_id." p-user_id-required={true} />
+<APIParams p-user_id="用户 ID" p-user_id-required={true} />
 
 <APIRequest
   title="Get share list"
@@ -36,7 +34,7 @@ import RespApps from "../_partials/_resp.apps.md";
 
 <RespApps />
 
-## 添加到自己分享列表
+## 添加分享
 
 ### POST /apps/:client_id/favorite
 
@@ -45,7 +43,7 @@ import RespApps from "../_partials/_resp.apps.md";
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-client_id="The application's client_id who you are adding to your share list."
+  p-client_id="要添加到分享列表的应用 client_id"
   p-client_id-required={true}
 />
 
@@ -57,7 +55,7 @@ import RespApps from "../_partials/_resp.apps.md";
 
 <RespApps />
 
-## 从分享列表中移除
+## 移除分享
 
 ### POST /apps/:client_id/unfavorite
 
@@ -66,7 +64,7 @@ import RespApps from "../_partials/_resp.apps.md";
 <APIMetaPanel scope="Authorized" />
 
 <APIParams
-  p-client_id="The application's client_id who you are removing from your share list."
+  p-client_id="要从分享列表移除的应用 client_id"
   p-client_id-required={true}
 />
 
@@ -76,4 +74,4 @@ import RespApps from "../_partials/_resp.apps.md";
   url="/apps/06aed1e3-bd77-4a59-991a-5bb5ae6fbb09/unfavorite"
 />
 
-成功时返回空的 json。
+成功返回空 JSON。
