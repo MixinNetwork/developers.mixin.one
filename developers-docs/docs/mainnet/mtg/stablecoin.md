@@ -77,4 +77,4 @@ The stablecoin [Pando USD](https://pando.im/pusd "Pando USD, pUSD") jointly issu
 - **Number Of Nodes** 5
 
 ---
-MTG reference code: <https://github.com/MixinNetwork/trusted-group> . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).
+MTG reference code: [https://github.com/MixinNetwork/trusted-group](https://github.com/MixinNetwork/trusted-group) . To contact tech support, search for 762532 in [Mixin Messenger](https://w3c.group/c/1609251387450619).

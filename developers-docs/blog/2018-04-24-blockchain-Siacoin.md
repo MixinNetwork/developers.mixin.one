@@ -1,11 +1,13 @@
 ---
 title: Support public chain Siacoin
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Siacoin]
 ---
 
-Mixin Network now supports the 7th public chain Siacoin, the ticker is SC, the official website is <https://sia.tech/>.
+Mixin Network now supports the 7th public chain Siacoin, the ticker is SC, the official website is [https://sia.tech/](https://sia.tech/).
+
+<!-- truncate -->
 
 Sia, decentralized data storage. Cryptography has unleashed the latent power of the Internet by enabling interactions between mutually-distrusting parties. Sia harnesses this power to create a trustless cloud storage marketplace, allowing buyers and sellers to transact directly. No intermediaries, no borders, no vendor lock-in, no spying, no throttling, no walled gardens; it's a return to the Internet we once knew. The future is making a comeback.
 

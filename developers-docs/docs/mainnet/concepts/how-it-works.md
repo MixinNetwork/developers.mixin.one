@@ -87,6 +87,6 @@ Once the assets are in the Mixin network, you can immediately enjoy the experien
 
 - Where is the Mixin blockchain browser?
 
-  Blockchair, third party, <https://blockchair.com/mixin>
+  Blockchair, third party, [https://blockchair.com/mixin](https://blockchair.com/mixin)
 
-  Mixin core team, <https://mixin.one/snapshots>
+  Mixin core team, [https://mixin.one/snapshots](https://mixin.one/snapshots)

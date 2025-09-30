@@ -1,11 +1,13 @@
 ---
 title: Support public chain Dash
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [DASH]
 ---
 
-Mixin Network now supports the 9th public chain Dash, the ticker is DASH, the official website is <https://www.dash.org/>.
+Mixin Network now supports the 9th public chain Dash, the ticker is DASH, the official website is [https://www.dash.org/](https://www.dash.org/).
+
+<!-- truncate -->
 
 Dash gives you the freedom to move your money any way you want. Dash moves money anywhere, to anyone, instantly, for less than a cent.
 

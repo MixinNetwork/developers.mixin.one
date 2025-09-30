@@ -1,11 +1,13 @@
 ---
 title: Support public chain XDC Network
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [XDC]
 ---
 
-Mixin Network now supports the 42nd public chain XDC Network, the token ticker is XDC, the official website is <https://xinfin.org/>.
+Mixin Network now supports the 42nd public chain XDC Network, the token ticker is XDC, the official website is [https://xinfin.org/](https://xinfin.org/).
+
+<!-- truncate -->
 
 The XinFin XDC Network is an open-source, carbon-neutral, enterprise-grade, EVM-compatible, Layer 1 blockchain that has been operationally successful since 2019. The network obtains consensus via a specially delegated proof-of-stake (XDPoS) technique that allows for 2-second transaction times, near-zero gas expenses ($0.0001), over 2000 TPS, and interoperability with ISO 20022 financial messaging standards. The XDC Network powers a wide range of novel blockchain use cases that are secure, scalable, and highly efficient.
 

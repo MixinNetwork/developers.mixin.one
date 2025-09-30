@@ -33,7 +33,7 @@ How to deploy a contract with Remix [gide](/docs/mainnet/mvm/remix)
 
 ## 4. Pubish a MVM APP
 
-Clone Trusted Group to local, url <https://github.com/MixinNetwork/trusted-group>, build ./mvm
+Clone Trusted Group to local, url [https://github.com/MixinNetwork/trusted-group](https://github.com/MixinNetwork/trusted-group), build ./mvm
 
 How to install golang [guide](https://go.dev/doc/install)
 

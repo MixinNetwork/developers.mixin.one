@@ -1,11 +1,13 @@
 ---
 title: Mixin Messenger supports to pin the bot on home page
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [messenger, bot]
 ---
 
 Mixin Messenger has supported to pin the bot on the home page since the version 0.24.0, and all bots could be pinned on the navigation bar at the bottom of the home page. This improvement is significant. The right to edit the navigation bar is directly given to the user, leaving the opportunity of the first-level entrance to the bot developers. Users can put their favorite and most commonly used bots to the home page, and the bots as a first-level entrance will also get more frequency and duration of use.
+
+<!-- truncate -->
 
 ## Function description
 

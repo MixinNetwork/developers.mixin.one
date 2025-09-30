@@ -56,7 +56,7 @@ import RespAssets from '../../_partials/_resp.assets.md'
 :::info
 The `asset_id` field is an unique id for each asset in the entire Mixin Network.
 
-It can be obtained from <https://mixin.one/snapshots> by searching for asset code such as `btc`. You can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information.
+It can be obtained from [https://mixin.one/snapshots](https://mixin.one/snapshots) by searching for asset code such as `btc`. You can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information.
 :::
 
 ## Read Application's Assets

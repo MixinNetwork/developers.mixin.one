@@ -1,11 +1,13 @@
 ---
 title: Support public chain Ethereum Classic
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Ethereum Classic]
 ---
 
-Mixin Network now supports the 6th public chain Ethereum Classic, the ticker is ETC, the official website is <https://ethereumclassic.org/>.
+Mixin Network now supports the 6th public chain Ethereum Classic, the ticker is ETC, the official website is [https://ethereumclassic.org/](https://ethereumclassic.org/).
+
+<!-- truncate -->
 
 Ethereum Classic is an open source, blockchain-based distributed computing platform featuring smart contract functionality. It supports a modified version of Nakamoto consensus via transaction-based state transitions executed on a public Ethereum Virtual Machine.
 

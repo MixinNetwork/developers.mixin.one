@@ -1,11 +1,13 @@
 ---
 title: Support public chain Tron
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [TRX]
 ---
 
-Mixin Network now supports the 13rd public chain Tron, the ticker is TRX, the official website is <https://tron.network/>.
+Mixin Network now supports the 13rd public chain Tron, the ticker is TRX, the official website is [https://tron.network/](https://tron.network/).
+
+<!-- truncate -->
 
 TRON is a decentralized blockchain platform for supporting smart contracts and high throughput. 
 Tron aims to build a TRON ecosystem that everyone can participate in and benefit from. Some of the features of TRON are：

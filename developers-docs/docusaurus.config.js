@@ -1,14 +1,18 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
+/** @type {import('@docusaurus/types').Config} */
 module.exports = {
   title: 'Mixin Developers',
   tagline: 'Mixin Development Documents',
   url: 'https://developers.mixin.one',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'images/favicon.ico',
   organizationName: 'MixinNetwork', // Usually your GitHub org/user name.
   projectName: 'developers.mixin.one', // Usually your repo name.

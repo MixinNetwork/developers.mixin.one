@@ -16,8 +16,8 @@ For HTTP requests:
 
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
-| <https://api.mixin.one>          | Global          |
-| <https://mixin-api.zeromesh.net> | China Or Global |
+| [https://api.mixin.one](https://api.mixin.one)          | Global          |
+| [https://mixin-api.zeromesh.net](https://mixin-api.zeromesh.net) | China Or Global |
 
 For WebSocket requests:
 
@@ -183,7 +183,7 @@ func SignOauthAccessToken(appID, authorizationID, privateKey, method, uri, body,
 ## PIN signature
 
 Mixin Messenger facilitates users to manage private key with TIP protocol and 6 digits PIN.
-For more details of TIP, refer to <https://github.com/MixinNetwork/tip>.
+For more details of TIP, refer to [https://github.com/MixinNetwork/tip](https://github.com/MixinNetwork/tip).
 
 When users try to manage their assets, transfer or withdraw, PIN are required.
 
@@ -247,4 +247,4 @@ Messenger API includes:
 * Public API, e.g.: `GET /network/chains` can obtain the information of all chain supported by Mixin
 * Private API, available for request with signature, for example, `GET /me` can obtain the information of current user
 * Transfer asset API, available for request with signed PIN
-* In addition, some response fields which have the suffix `_base64` is base64 coding of the RFC 4648, please refer to <https://pkg.go.dev/encoding/base64#pkg-variables>
+* In addition, some response fields which have the suffix `_base64` is base64 coding of the RFC 4648, please refer to [https://pkg.go.dev/encoding/base64#pkg-variables](https://pkg.go.dev/encoding/base64#pkg-variables)

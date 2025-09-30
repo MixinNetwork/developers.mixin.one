@@ -25,17 +25,17 @@ If you have questions or advises, please join the Mixin Developers Group, which 
 
 # SDK
 
-1. Golang SDK: <https://github.com/MixinNetwork/bot-api-go-client>
-2. Nodejs SDK: <https://github.com/MixinNetwork/bot-api-nodejs-client>
-3. Kotlin/Java SDK: <https://github.com/MixinNetwork/bot-api-kotlin-client>
-4. Python SDK: <https://github.com/learnforpractice/mixin-python>
-5. Ruby Demo: <https://github.com/an-lee/mixin_bot>
+1. Golang SDK: [https://github.com/MixinNetwork/bot-api-go-client](https://github.com/MixinNetwork/bot-api-go-client)
+2. Nodejs SDK: [https://github.com/MixinNetwork/bot-api-nodejs-client](https://github.com/MixinNetwork/bot-api-nodejs-client)
+3. Kotlin/Java SDK: [https://github.com/MixinNetwork/bot-api-kotlin-client](https://github.com/MixinNetwork/bot-api-kotlin-client)
+4. Python SDK: [https://github.com/learnforpractice/mixin-python](https://github.com/learnforpractice/mixin-python)
+5. Ruby Demo: [https://github.com/an-lee/mixin_bot](https://github.com/an-lee/mixin_bot)
 6. PHP SDK : [Laravel](https://github.com/ExinOne/laravel-mixin-sdk) / [without Laravel](https://github.com/ExinOne/mixin-sdk-php)
-7. C# (CSharp) SDK : <https://github.com/wjfree/mixin-csharp-sdk>
+7. C# (CSharp) SDK : [https://github.com/wjfree/mixin-csharp-sdk](https://github.com/wjfree/mixin-csharp-sdk)
 
 # Open Source
 
-Mixin Messenger is open-sourced in iOS, Android，PC. For more open source projects, can be found in our github <https://github.com/MixinNetwork>
+Mixin Messenger is open-sourced in iOS, Android，PC. For more open source projects, can be found in our github [https://github.com/MixinNetwork](https://github.com/MixinNetwork)
 
 - [API Reference](./api/guide): An API Reference for the Mixin API layer that provides convenient access to the Mixin Message service and the Mixin Wallet service.
 - [Mainnet RPC](./mainnet-rpc): JSON-RPC API for the mainnet.

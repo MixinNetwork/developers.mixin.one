@@ -1,11 +1,13 @@
 ---
 title: Support public chain MobileCoin
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [MOB]
 ---
 
-Mixin Network now supports the 33rd public chain MobileCoin, the token ticker is MOB, the official website is <https://mobilecoin.com/>.
+Mixin Network now supports the 33rd public chain MobileCoin, the token ticker is MOB, the official website is [https://mobilecoin.com/](https://mobilecoin.com/).
+
+<!-- truncate -->
 
 MobileCoin is a peer-to-peer cryptocurrency developed by MobileCoin Inc., which was founded in 2017 by Josh Goldbard and Shane Glynn. It focuses on transactional anonymity, ease of use, transaction speed, low environmental impact and low fees. MobileCoin's mechanics buid on Stellar (for consensus) and Monero (for privacy), using CryptoNote alongside zero-knowledge proofs to hide details of users' transactions.
 

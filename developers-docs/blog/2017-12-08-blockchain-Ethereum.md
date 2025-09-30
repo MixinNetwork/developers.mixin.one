@@ -1,11 +1,13 @@
 ---
 title: Support public chain Ethereum
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [Ethereum]
 ---
 
-Mixin Network now supports the 1st public chain Ethereum, the ticker is ETH, the official website is <https://ethereum.org/>.
+Mixin Network now supports the 1st public chain Ethereum, the ticker is ETH, the official website is [https://ethereum.org/](https://ethereum.org/).
+
+<!-- truncate -->
 
 Ethereum is the community-run technology powering the cryptocurrency ether (ETH) and thousands of decentralized applications. Ethereum is a technology that's home to digital money, global payments, and applications. The community has built a booming digital economy, bold new ways for creators to earn online, and so much more. It's open to everyone, wherever you are in the world – all you need is the internet.
 

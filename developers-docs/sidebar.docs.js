@@ -175,6 +175,7 @@ module.exports = {
         },
         {
           label: 'Guide',
+          key: 'mainnet-guide',
           type: 'category',
           items: [
             'mainnet/guide/full-node-join',
@@ -204,6 +205,7 @@ module.exports = {
         },
         {
           label: 'Guide',
+          key: 'dapp-guide',
           type: 'category',
           items: [
             'dapp/guide/create-network-user',

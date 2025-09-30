@@ -1,11 +1,13 @@
 ---
 title: Support public chain Horizen
-authors:  
-  - name: Team Mixin
+authors:
+  - team-mixin
 tags: [ZEN]
 ---
 
-Mixin Network now supports the 14th public chain Horizen, the ticker is ZEN, the official website is <https://www.horizen.io/>.
+Mixin Network now supports the 14th public chain Horizen, the ticker is ZEN, the official website is [https://www.horizen.io/](https://www.horizen.io/).
+
+<!-- truncate -->
 
 Horizen is the zero-knowledge network of blockchains powered by the largest node system with tools for developers to custom-build blockchains.
 
