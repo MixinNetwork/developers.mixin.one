@@ -1,5 +1,5 @@
 ---
-title: 快照列表
+title: Snapshots列表
 sidebar_position: 4
 ---
 

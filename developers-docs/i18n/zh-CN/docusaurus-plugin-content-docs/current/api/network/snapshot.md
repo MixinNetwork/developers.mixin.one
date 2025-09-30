@@ -1,5 +1,5 @@
 ---
-title: 读取快照
+title: 读取Snapshot
 sidebar_position: 5
 ---
 
@@ -15,13 +15,13 @@ import RespSnapshot from "@site/docs/_partials/_resp.snapshot.md";
 
 ## GET /network/snapshots/:snapshot_id
 
-根据快照 ID 查看详情。
+根据Snapshots ID 查看详情。
 
 <APIEndpoint url="/network/snapshots/:snapshot_id" />
 
 <APIMetaPanel scope="" />
 
-<APIParams p-snapshot_id="快照 ID" p-snapshot_id-required={true} />
+<APIParams p-snapshot_id="snapshots ID" p-snapshot_id-required={true} />
 
 <APIRequest
   title="Read snapshot detail"

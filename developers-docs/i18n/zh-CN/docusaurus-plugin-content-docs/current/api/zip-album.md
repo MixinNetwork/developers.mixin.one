@@ -1,5 +1,5 @@
 ---
-title: 上传相册
+title: 上传表情包
 sidebar_position: 30
 ---
 
@@ -12,7 +12,7 @@ import {
   APIPayload,
 } from "@site/src/components/api";
 
-上传自定义相册，格式要求见 [贴纸相册规范](/docs/dapp/design/sticker)
+上传自定义表情包，格式要求见 [贴纸表情包规范](/docs/dapp/design/sticker)
 
 ## POST /albums
 
@@ -20,7 +20,7 @@ import {
 
 <APIMetaPanel scope="Authorized" />
 
-<APIParams p-data_zip_base64="使用 Base64 编码的相册 zip 文件" p-data_zip_base64-required={true} />
+<APIParams p-data_zip_base64="使用 Base64 编码的表情包 zip 文件" p-data_zip_base64-required={true} />
 
 <APIRequest
   title="POST album"

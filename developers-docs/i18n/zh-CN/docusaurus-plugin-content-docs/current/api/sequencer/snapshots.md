@@ -1,5 +1,5 @@
 ---
-title: 快照
+title: Snapshots
 description: 查询 Sequencer 中用户、机器人或子账号的快照记录。
 ---
 

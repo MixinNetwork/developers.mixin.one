@@ -1,5 +1,5 @@
 ---
-title: 快照列表
+title: Snapshots列表
 sidebar_position: 3
 ---
 
@@ -14,7 +14,7 @@ import RespSnapshots from "@site/docs/_partials/_resp.snapshots.md";
 
 ## GET /snapshots
 
-根据多个条件筛选快照。`opponent` 与 `destination`、`tag` 不能同时使用，并且这些参数不支持 `order` 排序。
+根据多个条件筛选Snapshots。`opponent` 与 `destination`、`tag` 不能同时使用，并且这些参数不支持 `order` 排序。
 
 <APIEndpoint url="/snapshots" />
 
