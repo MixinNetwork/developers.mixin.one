@@ -1,6 +1,7 @@
 ---
 title: Use Remix
 sidebar_position: 3
+comment: Deprecated
 ---
 
 Input [https://remix.ethereum.org/](https://remix.ethereum.org/) in your browser. click 'Environments'，choose Solidity，then open 'File Explorers' like below：

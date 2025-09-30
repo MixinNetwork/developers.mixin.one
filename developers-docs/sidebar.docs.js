@@ -7,33 +7,26 @@ module.exports = {
       collapsed: false,
       items: [
         'api/guide',
-        {
-          label: 'Authentication',
-          type: 'category',
-          items: [
-            'api/oauth/oauth',
-            'api/oauth/scope',
-          ]
-        },
-      ]
-    },
-    {
-      label: 'Sequencer API',
-      type: 'category',
-      collapsed: false,
-      items: [
-        'api/sequencer/overview',
         'api/sequencer/registration',
-        'api/sequencer/utxos',
-        'api/sequencer/snapshots',
-        'api/sequencer/deposit',
-        'api/sequencer/transactions',
-        'api/sequencer/multisigs',
-        'api/sequencer/client-integration',
       ]
     },
+    // {
+    //   label: 'Sequencer API',
+    //   type: 'category',
+    //   collapsed: false,
+    //   items: [
+    //     'api/sequencer/overview',
+    //     'api/sequencer/registration',
+    //     'api/sequencer/outputs',
+    //     'api/sequencer/snapshots',
+    //     'api/sequencer/deposit',
+    //     'api/sequencer/transactions',
+    //     'api/sequencer/multisigs',
+    //     'api/sequencer/client-integration',
+    //   ]
+    // },
     {
-      label: 'Social',
+      label: 'Users',
       type: 'category',
       collapsed: false,
       items: [
@@ -46,6 +39,15 @@ module.exports = {
         'api/users/contacts',
         'api/users/relationships',
         'api/users/network-user',
+        'api/shared-bots',
+        {
+          label: 'Authentication',
+          type: 'category',
+          items: [
+            'api/oauth/oauth',
+            'api/oauth/scope',
+          ]
+        },
         {
           label: 'Circles',
           type: 'category',
@@ -59,7 +61,6 @@ module.exports = {
             'api/circles/delete',
           ]
         },
-        'api/shared-bots',
       ]
     },
     {
@@ -92,10 +93,14 @@ module.exports = {
       ]
     },
     {
-      label: 'Transfers',
+      label: 'Transactions',
       type: 'category',
       collapsed: false,
       items: [
+        'api/sequencer/outputs',
+        'api/sequencer/snapshots',
+        'api/sequencer/transactions',
+        'api/sequencer/deposit',
         {
           label: 'Withdrawal',
           type: 'category',
@@ -106,6 +111,16 @@ module.exports = {
             'api/withdrawal/address-delete',
           ]
         },
+        'api/sequencer/multisigs',
+        'api/inscription',
+        'api/sequencer/client-integration',
+      ]
+    },
+    {
+      label: 'Utilities',
+      type: 'category',
+      collapsed: true,
+      items: [
         {
           label: 'External',
           type: 'category',
@@ -115,25 +130,17 @@ module.exports = {
             'api/external/pending-deposits',
           ]
         },
-        'api/inscription',
-      ]
-    },
-    {
-      label: 'Utilities',
-      type: 'category',
-      collapsed: false,
-      items: [
         'api/codes',
-        'api/error-codes',
         'api/session-secret-migration',
-        'api/pin/logs',
         'api/pin/tip',
+        'api/pin/logs',
+        'api/error-codes',
       ]
     },
     {
       label: 'Legacy network API',
       type: 'category',
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           label: 'Assets',
@@ -221,15 +228,16 @@ module.exports = {
             'mainnet/mtg/wappercoin',
           ]
         },
-        {
-          label: 'MVM',
-          type: 'category',
-          items: [
-            'mainnet/mvm/setup',
-            'mainnet/mvm/metamask',
-            'mainnet/mvm/remix',
-          ]
-        },
+        // Deprecated
+        // {
+        //   label: 'MVM',
+        //   type: 'category',
+        //   items: [
+        //     'mainnet/mvm/setup',
+        //     'mainnet/mvm/metamask',
+        //     'mainnet/mvm/remix',
+        //   ]
+        // },
         {
           label: 'Guide',
           key: 'mainnet-guide',
@@ -257,7 +265,8 @@ module.exports = {
             'dapp/getting-started/oauth',
             'dapp/getting-started/read-info',
             'dapp/getting-started/messages',
-            'dapp/getting-started/transfer',
+            // Deprecated
+            // 'dapp/getting-started/transfer',
           ]
         },
         {

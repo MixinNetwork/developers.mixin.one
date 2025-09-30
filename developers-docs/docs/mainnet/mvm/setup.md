@@ -1,6 +1,7 @@
 ---
 title: MVM setup
 sidebar_position: 1
+comment: Deprecated
 ---
 
 :::info

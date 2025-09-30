@@ -1,6 +1,7 @@
 ---
 title: Setup Metamask
 sidebar_position: 1
+comment: Deprecated
 ---
 
 ## Installation
