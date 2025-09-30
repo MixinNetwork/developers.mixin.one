@@ -15,7 +15,7 @@ import RespUserNet from "@site/docs/_partials/_resp.user-net.md";
 
 ## POST /users
 
-Create a network user.
+Create a network user. Every network user costs 0.5 USD. [(Pricing Link)](https://discuss.mixin.one/questions/D1pB)
 
 <APIEndpoint url="/users" />
 

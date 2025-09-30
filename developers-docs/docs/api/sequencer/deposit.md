@@ -9,7 +9,19 @@ import RespEntry from "@site/docs/_partials/_resp.safe.entry.md";
 import RespDeposits from "@site/docs/_partials/_resp.safe.deposits.md";
 
 The Sequencer can supply deposit addresses for individual users or multisig groups and expose the
-status of pending deposits while they confirm on-chain.
+status of pending deposits while they confirm on-chain. 
+
+When creating a new address, charges apply. The price varies depending on the network. [(Pricing Link)](https://discuss.mixin.one/questions/D1pB):
+
+- Ethereum, Bitcoin：USD 2 per address
+- Polygon, BSC, Base, Litecoin, Dogecoin, Zcash, Solana, Monero, TRON, TON：USD 0.5 per address
+- EOS, MobileCoin, Ripple：USD 0.1 per deposit
+
+A fee is charged for each deposit, and the fee varies by network. This fee is independent of the deposit amount:
+
+- Ethereum, Bitcoin: USD 3 per deposit
+- Polygon, BSC, Base, Litecoin, Dogecoin, Zcash, Solana, Monero, TRON, TON: USD 0.1 per deposit
+- EOS, MobileCoin, Ripple: USD 0.01 per deposit
 
 ## Request a deposit address
 
