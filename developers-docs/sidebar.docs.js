@@ -121,117 +121,12 @@ module.exports = {
         'api/error-codes',
       ]
     },
-    {
-      label: 'Legacy network API',
-      type: 'category',
-      collapsed: true,
-      items: [
-        {
-          label: 'Assets',
-          type: 'category',
-          items: [
-            'api/assets/assets',
-            'api/assets/asset',
-            'api/assets/fee',
-          ]
-        },
-        {
-          label: 'Network',
-          type: 'category',
-          items: [
-            'api/network/chains',
-            'api/network/assets',
-            'api/network/top',
-            'api/network/ticker',
-          ]
-        },
-        {
-          label: 'Transfer',
-          type: 'category',
-          items: [
-            'api/transfer/transfer',
-            'api/transfer/payment',
-            'api/transfer/raw-transfer',
-            'api/transfer/snapshot',
-            'api/transfer/snapshots',
-          ]
-        },
-        {
-          label: 'Snapshots',
-          type: 'category',
-          items: [
-            'api/network/snapshots',
-            'api/network/snapshot',
-          ]
-        },
-        {
-          label: 'Collectibles',
-          type: 'category',
-          items: [
-            'api/collectibles/request',
-            'api/collectibles/outputs',
-          ]
-        },
-        {
-          label: 'Pending Deposits',
-          type: 'category',
-          items: [
-            'api/external/pending-deposits',
-          ]
-        },
-      ]
-    },
     "mainnet-rpc",
     "js-bridge",
     "schema",
   ],
   docs: [
     "introduction",
-    {
-      type: 'category',
-      label: 'Mainnet',
-      collapsed: false,
-      items: [
-        'mainnet/overview',
-        {
-          label: 'Concepts',
-          type: 'category',
-          items: [
-            'mainnet/concepts/how-it-works',
-            'mainnet/concepts/xin',
-            'mainnet/concepts/full-node',
-            'mainnet/concepts/tip',
-            'mainnet/concepts/multisig',
-            'mainnet/concepts/chain',
-            'mainnet/concepts/price',
-          ]
-        },
-        {
-          label: 'MTG',
-          type: 'category',
-          items: [
-            'mainnet/mtg/overview',
-            'mainnet/mtg/chains',
-            'mainnet/mtg/lend',
-            'mainnet/mtg/exchange',
-            'mainnet/mtg/amm',
-            'mainnet/mtg/stablecoin',
-            'mainnet/mtg/wappercoin',
-          ]
-        },
-        {
-          label: 'Guide',
-          key: 'mainnet-guide',
-          type: 'category',
-          items: [
-            'mainnet/guide/full-node-join',
-            'mainnet/guide/sync-full-node',
-            'mainnet/guide/submit-asset-icon',
-            'mainnet/guide/mtg-guide',
-          ]
-        },
-      ],
-    },
     {
       type: 'category',
       label: 'dApp',
@@ -259,7 +154,6 @@ module.exports = {
             'dapp/guide/message-loop',
             'dapp/guide/generate-jwt-token',
             'dapp/guide/pin',
-            'dapp/guide/multisig-guide',
           ]
         },
         {

@@ -1,5 +1,5 @@
 ---
-title: 添加或移除圈子
+title: 添加到圈子/从圈子中删除
 sidebar_position: 6
 ---
 
@@ -27,11 +27,11 @@ import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
-<APIParams p-id="用户 ID" p-id-required={true} />
+<APIParams p-id="The ID of user." p-id-required={true} />
 
 <APIPayload>{`{
-  "circle_id":  "圈子 ID",
-  "action":     "操作类型，'ADD' 或 'REMOVE'"
+  "circle_id":  "the circle's id",
+  "action":     "Update operation, 'ADD' or 'REMOVE'"
 }
 `}</APIPayload>
 
@@ -53,7 +53,7 @@ import RespCircles from "@site/docs/_partials/_resp.circles.md";
 
 <APIMetaPanel scope="CIRCLES:WRITE" />
 
-<APIParams p-id="会话 ID" p-id-required={true} />
+<APIParams p-id="The ID of conversation." p-id-required={true} />
 
 <APIPayload>{`{
   "circle_id":  "圈子 ID",
