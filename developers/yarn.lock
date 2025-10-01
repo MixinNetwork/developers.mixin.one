@@ -620,17 +620,17 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/lodash-es@^4.17.6":
+"@types/lodash-es@^4.17.12":
   version "4.17.12"
   resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.12.tgz#65f6d1e5f80539aa7cfbfc962de5def0cf4f341b"
   integrity sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*", "@types/lodash@^4.14.182":
-  version "4.17.17"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.17.tgz#fb85a04f47e9e4da888384feead0de05f7070355"
-  integrity sha512-RRVJ+J3J+WmyOTqnz3PiBLA501eKwXl2noseKOrNo/6+XEHjTAxO4xHvxQB6QuNm+s4WRbn6rSiap8+EA+ykFQ==
+"@types/lodash@*", "@types/lodash@^4.17.20":
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.20.tgz#1ca77361d7363432d29f5e55950d9ec1e1c6ea93"
+  integrity sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==
 
 "@types/web-bluetooth@^0.0.16":
   version "0.0.16"
@@ -1484,24 +1484,24 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     es-errors "^1.3.0"
     gopd "^1.2.0"
 
-element-plus@^2.11.3:
-  version "2.11.3"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.11.3.tgz#97e94e9aa399e240be5591d3f1c008d965cb9ab3"
-  integrity sha512-769xsjLR4B9Vf9cl5PDXnwTEdmFJvMgAkYtthdJKPhjVjU3hdAwTJ+gXKiO+PUyo2KWFwOYKZd4Ywh6PHfkbJg==
+element-plus@^2.11.4:
+  version "2.11.4"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-2.11.4.tgz#00c7cdec627e8f83f9175aa9a55b00846c58803a"
+  integrity sha512-sLq+Ypd0cIVilv8wGGMEGvzRVBBsRpJjnAS5PsI/1JU1COZXqzH3N1UYMUc/HCdvdjf6dfrBy80Sj7KcACsT7w==
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
     "@element-plus/icons-vue" "^2.3.1"
     "@floating-ui/dom" "^1.0.1"
     "@popperjs/core" "npm:@sxzz/popperjs-es@^2.11.7"
-    "@types/lodash" "^4.14.182"
-    "@types/lodash-es" "^4.17.6"
+    "@types/lodash" "^4.17.20"
+    "@types/lodash-es" "^4.17.12"
     "@vueuse/core" "^9.1.0"
     async-validator "^4.2.5"
     dayjs "^1.11.13"
     escape-html "^1.0.3"
     lodash "^4.17.21"
     lodash-es "^4.17.21"
-    lodash-unified "^1.0.2"
+    lodash-unified "^1.0.3"
     memoize-one "^6.0.0"
     normalize-wheel-es "^1.2.0"
 
@@ -2577,7 +2577,7 @@ lodash-es@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
-lodash-unified@^1.0.2:
+lodash-unified@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/lodash-unified/-/lodash-unified-1.0.3.tgz#80b1eac10ed2eb02ed189f08614a29c27d07c894"
   integrity sha512-WK9qSozxXOD7ZJQlpSqOT+om2ZfcT4yO+03FuzAHD0wF6S0l0090LRPDx3vhTTLZ8cFKpBn+IOcVXK6qOcIlfQ==
