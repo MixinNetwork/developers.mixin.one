@@ -1,45 +1,45 @@
 ---
-title: Send and Receive Messages
+title: 发送与接收消息
 sidebar_position: 6
 ---
 
-## Sending Messages
+## 发送消息
 
-The sending message feature can be used to implement functions like sending announcements and replying to users. Before sending a message, you need to create a message structure.
+发送消息功能可以用于实现发送公告、回复用户等场景。在发送之前，需要先构造消息结构。
 
-Mixin Messenger supports [various message types](/docs/api/messages/category). A plain-text message's structure should look like this:
+Mixin Messenger 支持[多种消息类型](/docs/api/messages/category)。一条纯文本消息的结构如下：
 
 ```json
 {
-  "id":                 "an UUID",
+  "id":                 "一个 UUID",
   "action":             "CREATE_MESSAGE",
   "params": {
-    "conversation_id":  "an UUID",
+    "conversation_id":  "一个 UUID",
     "category":         "PLAIN_TEXT",
     "status":           "SENT",
-    "message_id":       "an UUID",
-    "data":             "Base64 encoded data" ,
+    "message_id":       "一个 UUID",
+    "data":             "Base64 编码的数据",
   }
 }
 ```
 
 :::tip
-The application needs to know the `user_id` of the user to send messages.
+应用需要知道用户的 `user_id` 才能发送消息。
 
-The `user_id` can be obtained in three ways: the user sends messages to the application, adds the bot as a friend, and authorize the application.
+可以通过以下三种方式获取 `user_id`：用户向应用发送消息、将机器人添加为好友、授权应用。
 :::
 
-Here is an example of sending a plain-text message by using the official Golang SDK:
+下面是使用官方 Golang SDK 发送纯文本消息的示例：
 
 ```go
 // @TODO an example.
 ```
 
 :::info
-Before sending a message, you need to make sure that the conversation has been created. You don’t need to create a conversation when users either take the initiative to send messages or add the current bot as a friend. However, if not, you need to call the [Creating Conversations](/docs/api/conversations/create) API to ensure that the conversation has been created.
+在发送消息之前，需要确保会话已经创建。当用户主动发送消息或添加当前机器人为好友时，无需手动创建会话。否则需要调用 [创建会话](/docs/api/conversations/create) API 来确保会话已存在。
 :::
 
-## Receiving Messages
+## 接收消息
 
 ```go
 // @TODO an example.
@@ -47,9 +47,9 @@ Before sending a message, you need to make sure that the conversation has been c
 
 :::info
 
-1. When the user adds the current bot as a friend, the system will automatically send a "Hello" message to the bot.
-2. User messages are only kept on the server for 7 days, and messages that expired will be discarded if the developers do nothing about them.
-3. The message sent by Websocket needs to be compressed with gzip, and the message received will be decompressed accordingly.
-4. Automatic reconnections are highly recommended for Websocket. In the case of 401, the WebSocket connection should be stopped. Note that the time should not exceed 5 minutes, which will also trigger a 401 error.
-5. The bot’s message quota is 100,000 messages per minute.
+1. 当用户添加当前机器人为好友时，系统会自动向机器人发送一条 “Hello” 消息。
+2. 用户消息只在服务器上保留 7 天，如果开发者未处理，过期消息将被丢弃。
+3. 通过 WebSocket 发送的消息需要使用 gzip 压缩，接收到的消息会相应解压。
+4. 强烈建议对 WebSocket 进行自动重连；若出现 401，需要终止 WebSocket 连接。注意时间不应超过 5 分钟，否则同样会触发 401 错误。
+5. 机器人的消息配额为每分钟 100,000 条。
 :::

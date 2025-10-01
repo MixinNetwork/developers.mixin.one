@@ -9,17 +9,7 @@ Users interact with bots through web pages and chats.
 
 ### Web Page Interaction
 
-Users can open the bot homepage for interaction through the following 4 ways:
-
-- Homepage Super Entrance
-
-  Telegram, Facebook Messenger, WeChat, and other chat software all support the function of bots (or mini-programs). As an extension of the basic chat functions, they all attach great importance to it. Mixin further delegates the right to the homepage navigation menu to the user, leaving the first-level entry to the bot development. Users can put their favorite and most commonly used bots on the homepage, and because bots are now first-level entrances, users are very likely to use them more.
-  
-  ![Press and drag](./user-interaction-drag.png)
-
-  Users can press and drag to pin the icon to the menu at the bottom of the homepage, then click the icon to open the bot homepage.
-  
-  **Starting from version 0.28.0, the bottom menu of the homepage supports 3 bot pins (the previous version supports 2).**
+Users can open the bot homepage for interaction through the following 3 ways:
 
 - Chat Bottom Menu
 
