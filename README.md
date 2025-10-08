@@ -8,7 +8,7 @@ This repo is the source code of [https://developers.mixin.one/](https://develope
 
 ## Mixin news
 
-1. Logs: [https://mixin.one/logs](https://mixin.one/logs)
+1. Logs: [https://developers.mixin.one/docs/api/pin/logs](https://developers.mixin.one/docs/api/pin/logs)
 2. Block infomations: [https://mixin.one/snapshots
 ](https://mixin.one/snapshots)
 3. X: [https://x.com/MixinKernel](https://x.com/MixinKernel)
