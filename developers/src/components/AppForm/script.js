@@ -89,6 +89,13 @@ export default {
       if (state.app.description.length < 16 || state.app.description.length > 128) return useNotice('description_length');
     };
 
+    const toRawURLEncoding = (base64Str) {
+      return base64Str
+        .replace(/\+/g, '-')   // '+' → '-'
+        .replace(/\//g, '_')   // '/' → '_'
+          .replace(/=+$/, '');   // 移除尾部 '='
+        }
+
     const useSubmit = async () => {
       const capabilities = ['CONTACT', 'GROUP'];
       if (state.isImmersive) capabilities.push('IMMERSIVE');
@@ -103,7 +110,7 @@ export default {
       resource_patterns = resource_patterns.split('\n').map((r) => r.trim()).filter((r) => !!r);
 
       const params = {
-        icon_base64,
+        toRawURLEncoding(icon_base64),
         name: state.app.name,
         category: state.category,
         home_uri: state.app.home_uri,
