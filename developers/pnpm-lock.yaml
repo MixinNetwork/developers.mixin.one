@@ -68,7 +68,7 @@ importers:
         version: 0.2.2(esbuild@0.25.11)
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
-        version: 6.0.1(vite@7.1.11(sass@1.93.2))(vue@3.5.22)
+        version: 6.0.1(vite@7.1.12(sass@1.93.2))(vue@3.5.22)
       babel-plugin-component:
         specifier: ^1.1.1
         version: 1.1.1
@@ -97,14 +97,14 @@ importers:
         specifier: ^0.27.0
         version: 0.27.5(@babel/parser@7.28.4)(rollup@4.52.5)(vue@3.5.22)
       vite:
-        specifier: ^7.1.11
-        version: 7.1.11(sass@1.93.2)
+        specifier: ^7.1.12
+        version: 7.1.12(sass@1.93.2)
       vite-plugin-mkcert:
         specifier: ^1.17.9
-        version: 1.17.9(vite@7.1.11(sass@1.93.2))
+        version: 1.17.9(vite@7.1.12(sass@1.93.2))
       vite-plugin-node-polyfills:
         specifier: ^0.22.0
-        version: 0.22.0(rollup@4.52.5)(vite@7.1.11(sass@1.93.2))
+        version: 0.22.0(rollup@4.52.5)(vite@7.1.12(sass@1.93.2))
       vue-eslint-parser:
         specifier: ^10.2.0
         version: 10.2.0(eslint@8.57.1)
@@ -2278,8 +2278,8 @@ packages:
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  vite@7.1.11:
-    resolution: {integrity: sha512-uzcxnSDVjAopEUjljkWh8EIrg6tlzrjFUfMcR1EVsRDGwf/ccef0qQPRyOrROwhrTDaApueq+ja+KLPlzR/zdg==}
+  vite@7.1.12:
+    resolution: {integrity: sha512-ZWyE8YXEXqJrrSLvYgrRP7p62OziLW7xI5HYGWFzOvupfAlrLvURSzv/FyGyy0eidogEM3ujU+kUG1zuHgb6Ug==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -2819,10 +2819,10 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-vue@6.0.1(vite@7.1.11(sass@1.93.2))(vue@3.5.22)':
+  '@vitejs/plugin-vue@6.0.1(vite@7.1.12(sass@1.93.2))(vue@3.5.22)':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.29
-      vite: 7.1.11(sass@1.93.2)
+      vite: 7.1.12(sass@1.93.2)
       vue: 3.5.22
 
   '@vue/compiler-core@3.5.22':
@@ -4838,24 +4838,24 @@ snapshots:
 
   validator@13.15.15: {}
 
-  vite-plugin-mkcert@1.17.9(vite@7.1.11(sass@1.93.2)):
+  vite-plugin-mkcert@1.17.9(vite@7.1.12(sass@1.93.2)):
     dependencies:
       axios: 1.12.2(debug@4.4.3)
       debug: 4.4.3
       picocolors: 1.1.1
-      vite: 7.1.11(sass@1.93.2)
+      vite: 7.1.12(sass@1.93.2)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-node-polyfills@0.22.0(rollup@4.52.5)(vite@7.1.11(sass@1.93.2)):
+  vite-plugin-node-polyfills@0.22.0(rollup@4.52.5)(vite@7.1.12(sass@1.93.2)):
     dependencies:
       '@rollup/plugin-inject': 5.0.5(rollup@4.52.5)
       node-stdlib-browser: 1.3.1
-      vite: 7.1.11(sass@1.93.2)
+      vite: 7.1.12(sass@1.93.2)
     transitivePeerDependencies:
       - rollup
 
-  vite@7.1.11(sass@1.93.2):
+  vite@7.1.12(sass@1.93.2):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
