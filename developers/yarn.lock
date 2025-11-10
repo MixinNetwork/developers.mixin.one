@@ -328,15 +328,15 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mixin.dev/mixin-node-sdk@7.4.6":
-  version "7.4.6"
-  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.4.6.tgz#639fa775f4fb2aeb9bf7943c5fc5481fd4fed84f"
-  integrity sha512-lLGAZ5mm1o6zBN5M2E8FKIQ13A778klVKD8h7Ts6pvmHBy+CxHHw0GNzuJPHWPxuukzy5XWOR8lJ3UvkCMzxYg==
+"@mixin.dev/mixin-node-sdk@7.4.7":
+  version "7.4.7"
+  resolved "https://registry.yarnpkg.com/@mixin.dev/mixin-node-sdk/-/mixin-node-sdk-7.4.7.tgz#6aa66a283d9db5b78e918b5eba3f71c2a52d0f54"
+  integrity sha512-p4GKxfxAJT8ZW7a+RWbFmJ8hsMJmQuhknpY9zy6qm6xzn2AtFhyoMUK0Dmf8LkNyDidiyO1rk78egBZthrNFXA==
   dependencies:
     "@noble/ciphers" "^1.0.0"
     "@noble/curves" "^1.2.0"
     "@noble/hashes" "^1.5.0"
-    axios "1.12.1"
+    axios "1.12.2"
     axios-retry "4.5.0"
     bignumber.js "^9.1.2"
     bs58 "^6.0.0"
@@ -945,16 +945,7 @@ axios-retry@4.5.0:
   dependencies:
     is-retry-allowed "^2.2.0"
 
-axios@1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.12.1.tgz#0747b39c5b615f81f93f2c138e6d82a71426937f"
-  integrity sha512-Kn4kbSXpkFHCGE6rBFNwIv0GQs4AvDT80jlveJDKFxjbTYMUeB4QtsdPCv6H8Cm19Je7IU6VFtRl2zWZI0rudQ==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.4"
-    proxy-from-env "^1.1.0"
-
-axios@^1.12.2:
+axios@1.12.2, axios@^1.12.2:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.12.2.tgz#6c307390136cf7a2278d09cec63b136dfc6e6da7"
   integrity sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==
