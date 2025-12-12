@@ -3215,10 +3215,10 @@ safe-regex-test@^1.1.0:
     es-errors "^1.3.0"
     is-regex "^1.2.1"
 
-sass-loader@^14.2.1:
-  version "14.2.1"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-14.2.1.tgz#db9ad96b56dc1c1ea546101e76375d5b008fec70"
-  integrity sha512-G0VcnMYU18a4N7VoNDegg2OuMjYtxnqzQWARVWCIVSZwJeiL9kg8QMsuIZOplsJgTzZLF6jGxI3AClj8I9nRdQ==
+sass-loader@^16.0.6:
+  version "16.0.6"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-16.0.6.tgz#913b05607d06c386bc37870494e1e3a3e091fd3b"
+  integrity sha512-sglGzId5gmlfxNs4gK2U3h7HlVRfx278YK6Ono5lwzuvi1jxig80YiuHkaDBVsYIKFhx8wN7XSCI0M2IDS/3qA==
   dependencies:
     neo-async "^2.6.2"
 
