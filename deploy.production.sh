@@ -6,12 +6,12 @@ mkdir dist
 git pull
 
 cd developers-docs
-yarn install && yarn build
+pnpm install && pnpm build
 cd ..
 mv developers-docs/build dist/developers-docs
 
 cd developers
-yarn install && yarn build
+pnpm install && pnpm build
 cd ..
 mv developers/dist dist/developers
 cp -r dist/developers/assets/* dist/developers-docs/assets/
