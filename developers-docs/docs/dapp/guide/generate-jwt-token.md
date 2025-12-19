@@ -51,7 +51,7 @@ const (
 )
 
 func main() {
-    uri := "https://mixin-api.zeromesh.net"
+  uri := "https://api.mixin.one"
   path := "/me"
   token, err := SignAuthenticationToken(userId, sessionId, privateKey, "POST", path, "")
   if err != nil {

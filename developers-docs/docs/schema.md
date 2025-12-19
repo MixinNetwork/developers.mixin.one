@@ -41,7 +41,7 @@ const data = {
   action: "http://192.168.31.156:3000/circles/9415878/posts/82",
   app_id: "c1412f68-6152-40ad-a193-f7fadf9328a1",
   description: "From debugCircle",
-  icon_url: "https://mixin-images.zeromesh.net/rl_7ufE4eezlZDDjsGz9apzvoa7ULeZLlyixbN04iiaGFng8JL9UtQVZwzHw4Bsh2_7m5WHVPwtWkLKOydGZ4Q=s256",
+  icon_url: "https://images.mixin.one/rl_7ufE4eezlZDDjsGz9apzvoa7ULeZLlyixbN04iiaGFng8JL9UtQVZwzHw4Bsh2_7m5WHVPwtWkLKOydGZ4Q=s256",
   title: "Test"
 };
 window.open("mixin://send?category=app_card&data=" + encodeURIComponent(base64.encode(JSON.stringify(data))))

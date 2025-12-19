@@ -17,14 +17,12 @@ Mixin 中常见的签名类型有三种：
 | 域名                           | 类型            |
 | :----------------------------- | :-------------- |
 | [https://api.mixin.one](https://api.mixin.one)          | Global          |
-| [https://mixin-api.zeromesh.net](https://mixin-api.zeromesh.net) | China Or Global |
 
 对于 WebSocket 请求：
 
 | 域名                           | 类型            |
 | :----------------------------- | :-------------- |
 | wss://blaze.mixin.one          | Global          |
-| wss://mixin-blaze.zeromesh.net | China Or Global |
 
 ## 调用 API
 

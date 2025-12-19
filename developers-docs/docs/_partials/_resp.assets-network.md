@@ -9,7 +9,7 @@
         "mixin_id":       "fe6b7788944d328778f98e3e81588215b5a07de4f9a4a7de4db4535b404e65db",
         "symbol":         "BTC",
         "name":           "Bitcoin",
-        "icon_url":       "https://mixin-images.zeromesh.net/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
+        "icon_url":       "https://images.mixin.one/HvYGJsV5TGeZ-X9Ek3FEQohQZ3fE9LBEBGcOcn4c4BNHovP4fW4YB97Dg5LcXoQ1hUjMEgjbl1DPlKg1TW7kK6XP=s128",
         "amount":         "0.1213",
         "price_btc":      "1",
         "price_usd":      "14996.98",
