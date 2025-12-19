@@ -67,7 +67,7 @@ Mixin Messenger 支持文本、图片、贴纸、文件等多种消息类型。�
 
 <APIResponse name="msg_buttons" />
 
-## 转账
+## 转账 {#transfers}
 
 <APIResponse name="msg_transfer" />
 
