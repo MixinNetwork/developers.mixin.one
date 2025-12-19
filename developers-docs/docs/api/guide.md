@@ -17,14 +17,12 @@ For HTTP requests:
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
 | [https://api.mixin.one](https://api.mixin.one)          | Global          |
-| [https://mixin-api.zeromesh.net](https://mixin-api.zeromesh.net) | China Or Global |
 
 For WebSocket requests:
 
 | Domain                         | Type            |
 | :----------------------------- | :-------------- |
 | wss://blaze.mixin.one          | Global          |
-| wss://mixin-blaze.zeromesh.net | China Or Global |
 
 ## Calling APIs
 
