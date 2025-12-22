@@ -115,7 +115,6 @@ module.exports = {
           ]
         },
         'api/codes',
-        'api/session-secret-migration',
         'api/pin/tip',
         'api/pin/logs',
         'api/error-codes',

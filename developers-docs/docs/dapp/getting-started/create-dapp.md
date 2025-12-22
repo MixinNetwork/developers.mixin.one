@@ -42,8 +42,4 @@ Please save the keystore file and the app secret in a safe place.
 Note that the above generated key information will not be saved by the server and browser, please store it properly.**
 :::
 
-:::tip
-It is recommended to use Ed25519 private key rather than old RSA session. Developers are currently being encouraged to switch from RSA private key to Ed25519 private key. See this [document](/docs/api/session-secret-migration) for more information.
-:::
-
 In the next step, you will understand the oauth process, and get the access token.
