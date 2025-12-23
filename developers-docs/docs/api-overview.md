@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 # Mixin API Overview
 
-Mixin Messenger is a blockchain wallet and an E2EE instant messaging software. 
+Mixin Messenger is a blockchain wallet and an E2EE instant messaging software.
 
 Messenger is provided for users, and the following APIs are provided for developers to build their products based on Messenger.
 
@@ -23,7 +23,7 @@ primary services:
 - **Mixin Sequencer** – an indexer that keeps user data, orders transactions, and exposes a
   simplified API surface on top of Kernel-compatible transactions.
 
-Compared with the legacy Messenger APIs, Sequencer calls are lower level and decentralised. Every
+Sequencer is lower level and decentralised. Every
 operation ultimately proxies to the Kernel JSON-RPC interface, while the Sequencer adds discovery
 and indexing so that dApps can quickly look up users, addresses, UTXOs, and transaction history.
 

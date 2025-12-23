@@ -49,6 +49,17 @@ module.exports = {
       ]
     },
     {
+      label: "Assets",
+      type: 'category',
+      collapsed: true,
+      items: [
+        "api/tokens/intro",
+        "api/tokens/token",
+        "api/tokens/list",
+        "api/tokens/fee",
+      ]
+    },
+    {
       label: 'Messaging',
       type: 'category',
       collapsed: false,

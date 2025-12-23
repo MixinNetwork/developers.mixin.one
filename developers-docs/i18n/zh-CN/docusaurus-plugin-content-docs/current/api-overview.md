@@ -30,7 +30,7 @@ Mixin 群组链接: [https://mixin.one/codes/2db90a85-edff-4ab0-ae89-ce0619e2638
 
 ## 开源
 
-Mixin Messenger 目前包括 iOS, Android，PC 端都已经开源，另外也包含其它的开源项目，地址：https://github.com/MixinNetwork
+Mixin Messenger 目前包括 iOS, Android，PC 端都已经开源，另外也包含其它的开源 SDK，项目等，GitHub 地址：https://github.com/MixinNetwork
 
 ## 目录结构
 
