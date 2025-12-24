@@ -17,37 +17,6 @@ export default {
       ],
       button: ['开始使用', '开发者后台'],
     },
-    documentation: {
-      title: '文档资料',
-      left: [
-        {
-          title: '使用 Golang 快速入门', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。', button: '快速开始', href: '#',
-        },
-        {
-          title: '使用 Golang 快速入门', info: 'F1EX 是 Fox.ONE 的独立交换产品，具有较低的令牌发行成本，高性能，丰富的管理仪表板，多链支持和出色的生态系统。', button: '快速开始', href: '#',
-        },
-      ],
-      right: [
-        { title: '快速开始', info: '如何工作？', href: '' },
-        { title: '练习', info: '常见演练', href: '' },
-        { title: '练习', info: 'API 和其他工具', href: '' },
-        { title: '练习', info: 'API 和其他工具', href: '' },
-      ],
-      github: {
-        view: '点此此处在 github 上查看',
-        edit: '如需编辑，请点击这里',
-      },
-    },
-    nextstep: {
-      title: '下一步',
-      left: [
-        { info: '开始您的下一个项目，探索交互式教程，并管理您的帐户。', button: '前往开发者后台', href: '#' },
-      ],
-      right: [
-        { title: '快速开始', info: '需要入门帮助吗？', href: '#' },
-        { title: '练习', info: '要加入开发者小组吗？', href: '#' },
-      ],
-    },
     footer: {
       community: {
         title: '社区',
@@ -81,16 +50,10 @@ export default {
       readmore: '阅读更多',
     },
   },
-  search: {
-    all: '全部',
-    news: '最新资讯',
-    cases: '用户案例',
-    docs: '文档资料',
-  },
+
 
   news: {
     title: '最新公告',
-    route: '公告',
     list: [
       {
         title: '支持 MobileCoin 公链', filename: 'blockchain-mobilecoin', info: '', date: '2021/03/23', img: '',
@@ -138,7 +101,6 @@ export default {
   },
   cases: {
     title: '用户案例',
-    route: '案例',
     list: [
       {
         title: 'ETF 基金产品 - BOX',
@@ -212,7 +174,7 @@ export default {
       },
     ],
   },
-  documentation: [
+
     {
       name: '主网',
       path: 'mainnet',
