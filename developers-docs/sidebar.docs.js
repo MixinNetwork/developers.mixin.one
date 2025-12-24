@@ -86,7 +86,6 @@ module.exports = {
             'api/circles/delete',
           ]
         },
-        'api/zip-album',
       ]
     },
     {
@@ -119,6 +118,7 @@ module.exports = {
       collapsed: true,
       items: [
         'api/codes',
+        'api/zip-album',
         'api/pin/logs',
         'api/error-codes',
       ]
