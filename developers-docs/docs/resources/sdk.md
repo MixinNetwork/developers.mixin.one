@@ -4,7 +4,7 @@ title: SDK
 
 ## Official SDK
 
-Except restful APIs, Mixin core team also provides several SDKs as a simplified way to build your Mixin based dApps.
+Except restful APIs, Mixin core team also provides several SDKs as a simplified way to build your Mixin based Apps.
 
 - [Golang SDK](https://github.com/MixinNetwork/bot-api-go-client): the official SDK for Golang.
   - [🥰 Examples](https://github.com/MixinNetwork/bot-api-go-client/tree/master/examples), [📖 Documentation](https://pkg.go.dev/github.com/MixinNetwork/bot-api-go-client), [🧑‍🏫 Tutorial](/docs/dapp/getting-started/create-dapp)

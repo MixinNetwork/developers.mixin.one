@@ -30,7 +30,7 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 `}</APIPayload>
 
 :::info
-您创建的会话是机器人/dApp 与普通 Mixin Messenger 用户之间的会话，不能使用用户自身的 `access_token` 来创建，请使用机器人/dApp 的 token。
+您创建的会话是机器人/App 与普通 Mixin Messenger 用户之间的会话，不能使用用户自身的 `access_token` 来创建，请使用机器人/App 的 token。
 :::
 
 :::info

@@ -30,8 +30,8 @@ To create a new group or to have a conversation with a user for the first time, 
 `}</APIPayload>
 
 :::info
-The conversations you created are conversations between your bot/dApp and regular Mixin Messenger users.
-You cannot use the user's `access_token` to create them. Please use the bot/dApp's token to create conversations
+The conversations you created are conversations between your bot/App and regular Mixin Messenger users.
+You cannot use the user's `access_token` to create them. Please use the bot/App's token to create conversations
 :::
 
 :::info

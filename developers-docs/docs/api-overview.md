@@ -25,7 +25,7 @@ primary services:
 
 Sequencer is lower level and decentralised. Every
 operation ultimately proxies to the Kernel JSON-RPC interface, while the Sequencer adds discovery
-and indexing so that dApps can quickly look up users, addresses, UTXOs, and transaction history.
+and indexing so that Apps can quickly look up users, addresses, UTXOs, and transaction history.
 
 Before you adopt the Sequencer APIs, make sure that your user or bot already migrated to the
 latest TIP PIN format. All clients—whether human users or automation bots—must register with the

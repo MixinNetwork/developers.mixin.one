@@ -5,7 +5,7 @@ description: Mixin Network, a free, lightning fast and decentralized network for
 
 Mixin Network is an open network, it's open to the developers at both Kernel (aka, the Mainnet) and Mixin API levels.
 
-According to the business needs and requirements, developers can choose the appropriate way to develop their dApps, chains, and any applications based on Mixin Network.
+According to the business needs and requirements, developers can choose the appropriate way to develop their Apps, chains, and any applications based on Mixin Network.
 
 ## Dive into the Kernel
 

@@ -99,7 +99,7 @@ You can decode it at [jwt.io](https://jwt.io/).
 
 #### Send Requests with Token
 
-Add signed authentication token to the headers of API requests to get current dApp's profile:
+Add signed authentication token to the headers of API requests to get current App's profile:
 
 ```shell
 curl -i -H "Content-Type: application/json" \

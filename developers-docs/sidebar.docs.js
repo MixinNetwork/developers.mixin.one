@@ -33,19 +33,6 @@ module.exports = {
         'api/users/relationships',
         'api/users/network-user',
         'api/shared-bots',
-        {
-          label: 'Circles',
-          type: 'category',
-          items: [
-            'api/circles/list',
-            'api/circles/list-items',
-            'api/circles/create',
-            'api/circles/update',
-            'api/circles/add-to-remove-from-circles',
-            'api/circles/single',
-            'api/circles/delete',
-          ]
-        },
       ]
     },
     {
@@ -86,6 +73,19 @@ module.exports = {
             'api/conversations/group',
           ]
         },
+        {
+          label: 'Circles',
+          type: 'category',
+          items: [
+            'api/circles/list',
+            'api/circles/list-items',
+            'api/circles/create',
+            'api/circles/update',
+            'api/circles/add-to-remove-from-circles',
+            'api/circles/single',
+            'api/circles/delete',
+          ]
+        },
         'api/zip-album',
       ]
     },
@@ -118,21 +118,11 @@ module.exports = {
       type: 'category',
       collapsed: true,
       items: [
-        {
-          label: 'External',
-          type: 'category',
-          items: [
-            'api/external/fiats',
-            'api/external/address',
-          ]
-        },
         'api/codes',
-        'api/pin/tip',
         'api/pin/logs',
         'api/error-codes',
       ]
     },
-    "mainnet-rpc",
     "js-bridge",
     "schema",
   ],
@@ -140,45 +130,42 @@ module.exports = {
     "introduction",
     {
       type: 'category',
-      label: 'dApp',
+      label: 'app',
       collapsed: false,
       items: [
-        "dapp/mixin-applications",
+        "app/mixin-applications",
         {
           label: 'Getting Started',
           type: 'category',
           items: [
-            'dapp/getting-started/create-dapp',
-            'dapp/getting-started/oauth',
-            'dapp/getting-started/read-info',
-            'dapp/getting-started/messages',
+            'app/getting-started/create-app',
+            'app/getting-started/oauth',
+            'app/getting-started/read-info',
+            'app/getting-started/messages',
           ]
         },
         {
           label: 'Guide',
-          key: 'dapp-guide',
+          key: 'app-guide',
           type: 'category',
           items: [
-            'dapp/guide/create-network-user',
-            'dapp/guide/deposit-withdrawal',
-            'dapp/guide/sync-snapshots',
-            'dapp/guide/message-loop',
-            'dapp/guide/generate-jwt-token',
-            'dapp/guide/pin',
+            'app/guide/create-network-user',
+            'app/guide/message-loop',
+            'app/guide/generate-jwt-token',
           ]
         },
         {
           label: 'Design Guide',
           type: 'category',
           items: [
-            'dapp/design/overview',
-            'dapp/design/user-interaction',
-            'dapp/design/title-bar',
-            'dapp/design/floating-menu',
-            'dapp/design/color',
-            'dapp/design/immersive-mode',
-            'dapp/design/dark-mode',
-            'dapp/design/sticker',
+            'app/design/overview',
+            'app/design/user-interaction',
+            'app/design/title-bar',
+            'app/design/floating-menu',
+            'app/design/color',
+            'app/design/immersive-mode',
+            'app/design/dark-mode',
+            'app/design/sticker',
           ]
         }
       ]

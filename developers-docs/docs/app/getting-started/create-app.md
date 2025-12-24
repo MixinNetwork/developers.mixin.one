@@ -1,5 +1,5 @@
 ---
-title: Create a dApp
+title: Create a App
 sidebar_position: 1
 ---
 

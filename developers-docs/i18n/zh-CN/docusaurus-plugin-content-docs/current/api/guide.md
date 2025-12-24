@@ -99,7 +99,7 @@ eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzMwOTY0ODUsImlhdCI6MTUyNTMyMDQ
 
 #### 使用 Token 发送请求
 
-在 API 请求头中添加签名后的 Token，例如获取当前 dApp 的资料：
+在 API 请求头中添加签名后的 Token，例如获取当前 App 的资料：
 
 ```shell
 curl -i -H "Content-Type: application/json" \

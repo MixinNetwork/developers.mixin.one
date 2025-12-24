@@ -19,9 +19,9 @@
     "message": "Tutorials",
     "description": "The label for category Tutorials in sidebar docs"
   },
-  "sidebar.docs.category.dApp": {
-    "message": "dApp",
-    "description": "The label for category dApp in sidebar docs"
+  "sidebar.docs.category.App": {
+    "message": "App",
+    "description": "The label for category App in sidebar docs"
   },
   "sidebar.docs.category.Getting Started": {
     "message": "Getting Started",

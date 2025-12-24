@@ -5,7 +5,7 @@ description: Mixin Network，一个免费、闪电般快速和去中心化的加
 
 Mixin Network 是一个开放的去中心化网络，它在内核（也称为“主网”）和 Mixin API 两个层面对开发者开放。
 
-开发者可以根据业务需求和要求，选择合适的方式来开发自己的 dApp、链以及任何基于 Mixin Network 的应用。
+开发者可以根据业务需求和要求，选择合适的方式来开发自己的 App、链以及任何基于 Mixin Network 的应用。
 
 ## 深入内核
 
