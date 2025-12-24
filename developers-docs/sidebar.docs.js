@@ -74,6 +74,7 @@ module.exports = {
             'api/messages/attachment-download',
             'api/messages/read',
             'api/messages/encrypted',
+            'api/messages/transfer',
           ]
         },
         {
