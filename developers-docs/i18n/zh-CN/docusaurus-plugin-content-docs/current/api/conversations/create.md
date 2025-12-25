@@ -45,7 +45,7 @@ import RespConv from "@site/docs/_partials/_resp.conv.md";
 
 <RespConv />
 
-### 生成唯一的会话 ID
+### 生成双人的会话 ID
 
 **单聊：category = "CONTACT"**
 
@@ -75,6 +75,24 @@ uuid.NewV4().String()
 
 ```swift title="swift"
 UUID().uuidString.lowercased()
+```
+
+### 生成群组的会话 ID
+
+群组会话 ID 由群主 ID、群组名称、随机 ID、成员 ID 组合生成, 防止跟单人 ID 重复，Golang 示例：
+
+```go title="golang"
+func GroupConversationId(ownerId, groupName string, participants []string, randomId string) string {
+	randomId = uuid.Must(uuid.FromString(randomId)).String()
+	gid := UniqueConversationId(ownerId, groupName)
+	gid = UniqueConversationId(gid, randomId)
+
+	slices.Sort(participants)
+	for _, p := range participants {
+		gid = UniqueConversationId(gid, p)
+	}
+	return gid
+}
 ```
 
 **注意：生成的 UUID 字符串应统一转换为小写。**
