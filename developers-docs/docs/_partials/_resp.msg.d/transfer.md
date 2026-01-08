@@ -7,7 +7,7 @@
     "category": "SYSTEM_ACCOUNT_SNAPSHOT",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 ```

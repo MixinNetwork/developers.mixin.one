@@ -18,7 +18,7 @@ Mixin Messenger supports [various message types](/docs/api/messages/category). A
     "category":         "PLAIN_TEXT",
     "status":           "SENT",
     "message_id":       "an UUID",
-    "data":             "Base64 encoded data" ,
+    "data_base64":             "Base64 encoded data" ,
   }
 }
 ```

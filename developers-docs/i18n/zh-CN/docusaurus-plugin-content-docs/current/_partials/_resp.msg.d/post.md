@@ -7,7 +7,7 @@
     "category": "PLAIN_POST",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 ```

@@ -8,7 +8,7 @@ export default {
       "category": "PLAIN_AUDIO",
       "status": "SENT",
       "message_id": "UUID",
-      "data": "Base64 encoded data"
+      "data_base64": "Base64 encoded data"
     }
   }
 
@@ -30,7 +30,7 @@ export default {
     "category": "APP_BUTTON_GROUP",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -52,7 +52,7 @@ export default {
     "category": "APP_CARD",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -83,7 +83,7 @@ export default {
       "category": "PLAIN_CONTACT",
       "status": "SENT",
       "message_id": "UUID",
-      "data": "Base64 encoded data"
+      "data_base64": "Base64 encoded data"
   }
 }
 
@@ -100,7 +100,7 @@ export default {
     "category": "PLAIN_DATA",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -120,7 +120,7 @@ export default {
     "category": "PLAIN_IMAGE",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -142,7 +142,7 @@ export default {
     "category": "PLAIN_LIVE",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -162,7 +162,7 @@ export default {
     "category": "PLAIN_LOCATION",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -182,7 +182,7 @@ export default {
     "category": "PLAIN_POST",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }`,
 
@@ -194,7 +194,7 @@ export default {
     "category": "PLAIN_STICKER",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -211,7 +211,7 @@ export default {
     "category": "PLAIN_TEXT",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }`,
 
@@ -223,7 +223,7 @@ export default {
     "category": "MESSAGE_PIN",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -241,7 +241,7 @@ export default {
     "category": "SYSTEM_ACCOUNT_SNAPSHOT",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -265,7 +265,7 @@ export default {
     "category": "PLAIN_VIDEO",
     "status": "SENT",
     "message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   }
 }
 
@@ -288,13 +288,13 @@ export default {
     "category": "",
     "representative_id": "UUID",
     "quote_message_id": "UUID",
-    "data": "Base64 encoded data"
+    "data_base64": "Base64 encoded data"
   },
   ...
 ]`,
 
   addr: `{
-  "data":{
+  "data_base64":{
     "type":       "address",
     "address_id": "e1524f3c-2e4f-411f-8a06-b5e1b1601308",
     "asset_id":   "43d61dcd-e413-450d-80b8-101d5e903357",
@@ -309,7 +309,7 @@ export default {
 }`,
 
   addrs: `{
-  "data":[
+  "data_base64":[
     {
       "type":       "address",
       "address_id": "e1524f3c-2e4f-411f-8a06-b5e1b1601308",
@@ -327,7 +327,7 @@ export default {
 }`,
 
   apps: `{
-  "data": [
+  "data_base64": [
     {
         "type": "app",
         "user_id": "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
@@ -339,7 +339,7 @@ export default {
 }`,
 
   asset: `{
-  "data":{
+  "data_base64":{
     "type":         "asset",
     "asset_id":     "3596ab64-a575-39ad-964e-43b37f44e8cb",
     "chain_id":     "43d61dcd-e413-450d-80b8-101d5e903357",
@@ -361,7 +361,7 @@ export default {
 }`,
 
   assets_network: `{
-  "data":[{
+  "data_base64":[{
       "type":           "asset",
       "asset_id":       "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
       "chain_id":       "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
@@ -384,7 +384,7 @@ export default {
 }`,
 
   assets: `{
-  "data": [
+  "data_base64": [
     {
       "type":         "asset",
       "asset_id":     "3596ab64-a575-39ad-964e-43b37f44e8cb",
@@ -409,7 +409,7 @@ export default {
 }`,
 
   attachment: `{
-  "data": {
+  "data_base64": {
     "type": "attachment",
     "attachment_id": "7a54e394-1626-4cd4-b967-543932c2a032",
     // the url to view the attachment
@@ -426,7 +426,7 @@ export default {
 }`,
 
   circles: `{
-  "data":[
+  "data_base64":[
     {
       "circle_id":  "a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
       "name":       "Circle Name",
@@ -437,7 +437,7 @@ export default {
 }`,
 
   conv: `{
-  "data": {
+  "data_base64": {
     "type":             "conversation",
     "conversation_id":  "928c5c40-769c-3e97-8387-fb1ae0645311",
     "creator_id":       "8dcf823d-9eb3-4da2-8734-f0aad50c0da6",
@@ -467,7 +467,7 @@ export default {
 }`,
 
   fee: `{
-  "data": {
+  "data_base64": {
     "type":     "fee",
     "asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
     "amount":   "0.01"
@@ -475,7 +475,7 @@ export default {
 }`,
 
   snapshot: `{
-  "data": {
+  "data_base64": {
     "amount":     "-1688168",
     "asset": {
       "asset_id": "965e5c6e-434c-3fa9-b780-c50f43cd955c",
@@ -486,7 +486,7 @@ export default {
       "type":     "asset"
     },
     "created_at": "2018-05-29T09:31:04.202186212Z",
-    "data":       "",
+    "data_base64":       "",
     "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
     "source":     "TRANSFER_INITIALIZED",
     "type":       "snapshot",      // Options only for user (or App) who has access.
@@ -494,12 +494,12 @@ export default {
     "user_id":    "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
     "trace_id":   "7c67e8e8-b142-488b-80a3-61d4d29c90bf",
     "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-    "data":       "Transfer!"
+    "data_base64":       "Transfer!"
   }
 }`,
 
   snapshots: `{
-  "data": [
+  "data_base64": [
     {
       "amount":     "-1688168",
       "asset": {
@@ -511,7 +511,7 @@ export default {
         "type":     "asset"
       },
       "created_at": "2018-05-29T09:31:04.202186212Z",
-      "data":       "",
+      "data_base64":       "",
       "snapshot_id":"529934b0-abfd-43ab-9431-1805773000a4",
       "source":     "TRANSFER_INITIALIZED",
       "type":       "snapshot",      // Options only for user (or App) who has access.
@@ -519,14 +519,14 @@ export default {
       "user_id":    "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",
       "trace_id":   "7c67e8e8-b142-488b-80a3-61d4d29c90bf",
       "opponent_id":"a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
-      "data":       "Transfer!"
+      "data_base64":       "Transfer!"
     },
     ...
   ]
 }`,
 
   transfer_mainnet: `{
-  "data":{
+  "data_base64":{
     "type":         "transfer",
     "snapshot_id":  "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
     "opponent_key": "XINDEhAA8ArWDJBF5fJQvrtKdZQ4X28KmkScm5FtwdJGx9CiB1Hjadk4baMLMRjsGY5L8QDbVKuC7jvep1m8k4zZN7BGvvXP",
@@ -539,7 +539,7 @@ export default {
 }`,
 
   transfer_mainnet: `{
-  "data":{
+  "data_base64":{
     "type":               "transfer",
     "snapshot_id":        "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
     "opponent_receivers": ["00c5a4ae-dcdc-48db-ab8e-a7eef69b441d","087e91ff-7169-451a-aaaa-5b3297411a4b","105f6e8b-d249-4b4d-9beb-e03cefaebc37"],
@@ -553,7 +553,7 @@ export default {
 }`,
 
   transfer: `{
-  "data": {
+  "data_base64": {
     "type":         "transfer",
     "snapshot_id":  "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
     "opponent_id":  "a465ffdb-4441-4cb9-8b45-00cf79dfbc46",
@@ -566,7 +566,7 @@ export default {
 }`,
 
   user_extra: `{
-  "data":{
+  "data_base64":{
     "type":             "user",
     "user_id":          "773e5e77-4107-45c2-b648-8fc722ed77f5",
     "identity_number":  "7000",
@@ -592,7 +592,7 @@ export default {
 }`,
 
   user_net: `{
-  "data":{
+  "data_base64":{
     "user_id":    "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",     // User Id
     "session_id": "a34c07a9-755d-4b54-94c5-e45e9a2dd43e",  // Session Id
     "pin_token":  "",                                       // PIN
@@ -604,7 +604,7 @@ export default {
 }`,
 
   user: `{
-  "data": {
+  "data_base64": {
     "type":             "user",
     "user_id":          "773e5e77-4107-45c2-b648-8fc722ed77f5",
     "identity_number":  "7000",
@@ -620,7 +620,7 @@ export default {
 }`,
 
   users: `{
-  "data": [
+  "data_base64": [
     {
       "type":             "user",
       "user_id":          "773e5e77-4107-45c2-b648-8fc722ed77f5",
@@ -639,7 +639,7 @@ export default {
 }`,
 
   payment: `{
-  "data": {
+  "data_base64": {
     "type": "payment",
     "payment_id": "773e5e77-4107-45c2-b648-8fc722ed77f5",
     "asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
@@ -653,7 +653,7 @@ export default {
 }`,
 
   collectible_request: `{
-    "data": {
+    "data_base64": {
       "type": "non_fungible_request",
       "request_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
       "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
@@ -687,7 +687,7 @@ export default {
 
   collectible_output: `
     {
-      "data": {
+      "data_base64": {
         "user_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
         "output_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
         "token_id": "ab56be4c-5b20-41c6-a9c3-244f9a433f35",
@@ -716,7 +716,7 @@ export default {
   `,
 
   collectible_token: `{
-    "data": {
+    "data_base64": {
       "type": "non_fungible_token",
       "token_id": "43d61dcd-e413-450d-80b8-101d5e903357",
       "group": "",
@@ -737,7 +737,7 @@ export default {
   }`,
 
   collectible_collection: `{
-    "data": {
+    "data_base64": {
       "type": "collection",
       "collection_id": "43d61dcd-e413-450d-80b8-101d5e903357",
       "name": "",
