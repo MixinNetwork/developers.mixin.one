@@ -35,7 +35,7 @@
     "vite": "^7.3.1",
     "vite-plugin-mkcert": "^1.17.9",
     "vite-plugin-node-polyfills": "^0.25.0",
-    "vue-eslint-parser": "^10.2.0"
+    "vue-eslint-parser": "^10.4.0"
   },
   "browserslist": [
     "> 1%",
