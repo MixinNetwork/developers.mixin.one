@@ -57,7 +57,7 @@ Mixin 中常见的签名类型有三种：
 ```go
 /*
 * uid: User Id
-* sid: Session Id
+* sid: Session ID
 * secret: PrivateKey
 * method: HTTP Request method, e.g.: GET, POST
 * url: URL path without hostname, e.g.: /transfers

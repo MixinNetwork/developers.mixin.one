@@ -32,7 +32,7 @@ GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/me
 ```
 
 :::info
-The `user_id` field is an unique id for each "Account" or "User" in the entire Mixin Network.
+The `user_id` field is a unique ID for each "Account" or "User" in the entire Mixin Network.
 
 Additionally, if the user is a Mixin Messenger user, you can send messages to them by using [`POST /messages`](/docs/api/messages/send) with the `user_id` field.
 :::
@@ -43,7 +43,7 @@ Additionally, if the user is a Mixin Messenger user, you can send messages to th
 To obtain the asset balance of a user, the `ASSETS:READ` permission is required.
 :::
 
-Calling `GET /assets` returns assets with a balance greater than 0. When you calls this API with a token which owned by a new user with zero balance, an empty list will be returned.
+Calling `GET /assets` returns assets with a balance greater than 0. When you call this API with a token owned by a new user with a zero balance, an empty list is returned.
 
 ```bash
 GET -H "Authorization: Bearer $ACCESS_TOKEN" https://api.mixin.one/assets
@@ -54,7 +54,7 @@ import RespAssets from '@site/docs/_partials/_resp.assets.md'
 <RespAssets />
 
 :::info
-The `asset_id` field is an unique id for each asset in the entire Mixin Network.
+The `asset_id` field is a unique ID for each asset in the entire Mixin Network.
 
 It can be obtained from [https://mixin.one/snapshots](https://mixin.one/snapshots) by searching for asset code such as `btc`. You can also deposit the asset into the Mixin Messenger wallet and talk to the bot `7000103061`, then search for and copy asset information.
 :::

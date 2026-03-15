@@ -152,7 +152,7 @@ export default {
         return;
       }
       if (state.submitting) {
-        $message.error({ message: 'message.errors.saving' });
+        $message.error({ message: t('message.errors.saving'), showClose: true });
         return;
       }
 

@@ -377,7 +377,7 @@ export default {
       "reserve":        "0",
       "confirmations":  3,
       "capitalization": 144241811.6455701,    // Market cap.
-      "liquidity":      "9618.05721189"            // The amount of this asset in Minxin.
+      "liquidity":      "9618.05721189"            // The amount of this asset in Mixin.
   },
   ...
   ]
@@ -594,7 +594,7 @@ export default {
   user_net: `{
   "data_base64":{
     "user_id":    "06aed1e3-bd77-4a59-991a-5bb5ae6fbb09",     // User Id
-    "session_id": "a34c07a9-755d-4b54-94c5-e45e9a2dd43e",  // Session Id
+    "session_id": "a34c07a9-755d-4b54-94c5-e45e9a2dd43e",  // Session ID
     "pin_token":  "",                                       // PIN
     "full_name":  "Bot User",                               // Nickname
     "biography":  "",                                       // Brief Intro

@@ -3,14 +3,14 @@ title: API Guide
 sidebar_position: 1
 ---
 
-Most API access is available for signed requests with private key, which can be downloaded from [dashboard](https://developers.mixin.one/dashboard).
+Most APIs are accessed through requests signed with a private key, which can be downloaded from the [dashboard](https://developers.mixin.one/dashboard).
 
-There are three kinds of signature in Mixin:
-1. JWT signature of bot to access private API, [details](#calling-apis)
-2. JWT signature of OAuth user to access private API, [details](#oauth-user-signature)
-3. PIN signature to transfer, withdraw and create withdraw addresses, [details](#pin-signature)
+There are three kinds of signatures in Mixin:
+1. JWT signatures for bots to access private APIs, [details](#calling-apis)
+2. JWT signatures for OAuth users to access private APIs, [details](#oauth-user-signature)
+3. PIN signatures for transfers, withdrawals, and creating withdrawal addresses, [details](#pin-signature)
 
-## Choosing An API Server
+## Choosing an API Server
 
 For HTTP requests:
 
@@ -26,12 +26,12 @@ For WebSocket requests:
 
 ## Calling APIs
 
-Most APIs need to signed with a JSON Web Tokens (JWT) to access. They utilize the secure data transmissions between clients and servers.
+Most APIs must be signed with a JSON Web Token (JWT) before they can be accessed. JWTs provide secure data transmission between clients and servers.
 
 ### Signing
 
 :::tip
-Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT generation and verification automatically. For more information, please refer to [SDK section](/docs/resources/sdk).
+Most Mixin SDKs already provide a JWT generator, and they can handle JWT generation and verification automatically. For more information, please refer to the [SDK section](/docs/resources/sdk).
 :::
 
 #### JWT Header
@@ -46,7 +46,7 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 | Parameter | Instruction           |
 |:----------|:----------------------|
 | uid       | User Id               |
-| sid       | Session Id            |
+| sid       | Session ID            |
 | iat       | issued at             |
 | exp       | Expiration Time       |
 | jti       | JWT ID                |
@@ -57,7 +57,7 @@ Most Mixin SDK has already provide a JWT generator, and thet can handle the JWT 
 ```go
 /*
 * uid: User Id
-* sid: Session Id
+* sid: Session ID
 * secret: PrivateKey
 * method: HTTP Request method, e.g.: GET, POST
 * url: URL path without hostname, e.g.: /transfers

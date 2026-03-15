@@ -12,7 +12,7 @@
         <div class="subtitle">{{ `${step}/2` }}</div>
       </div>
       <div class="key-container">
-        <div class="key-title">Spend Key</div>
+        <div class="key-title">{{ t('secret.spend_key') }}</div>
         <div class="key">{{ privateKey }}</div>
       </div>
       <div class="action-container">

@@ -3,15 +3,15 @@
     <div class="main modal">
       <h3>{{ t('wallet.update_token') }}</h3>
       <div class="edit-item">
-        <label>Session ID</label>
+        <label>{{ t('wallet.session_id') }}</label>
         <input v-model="session_id" />
       </div>
       <div class="edit-item">
-        <label>Server Public Key</label>
+        <label>{{ t('wallet.server_public_key') }}</label>
         <input v-model="pin_token" />
       </div>
       <div class="edit-item">
-        <label>Session Private Key</label>
+        <label>{{ t('wallet.session_private_key') }}</label>
         <input v-model="private_key" />
       </div>
       <div class="edit-item intro-container">
