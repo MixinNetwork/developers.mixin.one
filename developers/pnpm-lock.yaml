@@ -33,8 +33,8 @@ importers:
         specifier: ^6.15.0
         version: 6.15.0
       sass:
-        specifier: ^1.97.3
-        version: 1.97.3
+        specifier: ^1.98.0
+        version: 1.98.0
       uuid:
         specifier: ^13.0.0
         version: 13.0.0
@@ -56,7 +56,7 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^6.0.4
-        version: 6.0.4(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.30)
+        version: 6.0.4(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))(vue@3.5.30)
       eslint:
         specifier: ^10.0.3
         version: 10.0.3(jiti@2.6.1)
@@ -77,13 +77,13 @@ importers:
         version: 31.0.0(@nuxt/kit@4.2.2)(vue@3.5.30)
       vite:
         specifier: ^7.3.1
-        version: 7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)
+        version: 7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)
       vite-plugin-mkcert:
         specifier: ^1.17.10
-        version: 1.17.10(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))
+        version: 1.17.10(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))
       vite-plugin-node-polyfills:
         specifier: ^0.25.0
-        version: 0.25.0(rollup@4.59.0)(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))
+        version: 0.25.0(rollup@4.59.0)(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))
       vue-eslint-parser:
         specifier: ^10.4.0
         version: 10.4.0(eslint@10.0.3(jiti@2.6.1))
@@ -1913,8 +1913,8 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sass@1.97.3:
-    resolution: {integrity: sha512-fDz1zJpd5GycprAbu4Q2PV/RprsRtKC/0z82z0JLgdytmcq0+ujJbJ/09bPGDxCLkKY3Np5cRAOcWiVkLXJURg==}
+  sass@1.98.0:
+    resolution: {integrity: sha512-+4N/u9dZ4PrgzGgPlKnaaRQx64RO0JBKs9sDhQ2pLgN6JQZ25uPQZKQYaBJU48Kd5BxgXoJ4e09Dq7nMcOUW3A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -2726,10 +2726,10 @@ snapshots:
 
   '@types/web-bluetooth@0.0.20': {}
 
-  '@vitejs/plugin-vue@6.0.4(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.30)':
+  '@vitejs/plugin-vue@6.0.4(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))(vue@3.5.30)':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-rc.2
-      vite: 7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)
+      vite: 7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)
       vue: 3.5.30
 
   '@vue-macros/common@3.1.2(vue@3.5.30)':
@@ -4349,7 +4349,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sass@1.97.3:
+  sass@1.98.0:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.1.5
@@ -4676,24 +4676,24 @@ snapshots:
 
   validator@13.15.26: {}
 
-  vite-plugin-mkcert@1.17.10(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)):
+  vite-plugin-mkcert@1.17.10(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)):
     dependencies:
       axios: 1.13.6(debug@4.4.3)
       debug: 4.4.3
       picocolors: 1.1.1
-      vite: 7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)
+      vite: 7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-node-polyfills@0.25.0(rollup@4.59.0)(vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)):
+  vite-plugin-node-polyfills@0.25.0(rollup@4.59.0)(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)):
     dependencies:
       '@rollup/plugin-inject': 5.0.5(rollup@4.59.0)
       node-stdlib-browser: 1.3.1
-      vite: 7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2)
+      vite: 7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - rollup
 
-  vite@7.3.1(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2):
+  vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2):
     dependencies:
       esbuild: 0.27.3
       fdir: 6.5.0(picomatch@4.0.3)
@@ -4704,7 +4704,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
       jiti: 2.6.1
-      sass: 1.97.3
+      sass: 1.98.0
       yaml: 2.8.2
 
   vm-browserify@1.1.2: {}
