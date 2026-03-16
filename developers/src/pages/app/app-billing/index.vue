@@ -117,7 +117,7 @@
 
       const useClickPay = () => {
         if (!allowSubmit.value) {
-          $message.error(t('Please enter a valid amount'));
+          $message.error(t('message.errors.amount'));
           return;
         }
         const url = generateMixPayUrl(

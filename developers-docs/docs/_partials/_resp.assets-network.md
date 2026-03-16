@@ -21,7 +21,7 @@
         "fee":            "0.0001",
         "snapshots_count": 100,
         "capitalization": 144241811.6455701, // Market cap.
-        "liquidity":      "9618.05721189" // The amount of this asset in Minxin.
+        "liquidity":      "9618.05721189" // The amount of this asset in Mixin.
     },
     ...
   ]

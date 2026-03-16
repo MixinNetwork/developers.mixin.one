@@ -24,11 +24,11 @@
                 <input v-model.trim="amount"/>
               </li>
               <li>
-                <label>PIN</label>
+                <label>{{ t('wallet.pin_label') }}</label>
                 <input type="password" maxlength="6" v-model="pin"/>
               </li>
               <li>
-                <label>Mixin ID / Mainnet Address</label>
+                <label>{{ t('wallet.opponent') }}</label>
                 <input v-model.trim="opponent_id"/>
               </li>
             </ul>

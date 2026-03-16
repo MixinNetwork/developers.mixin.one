@@ -9,7 +9,7 @@
       <img class="icon" src="@/assets/img/svg/search.svg" alt="">
       <input
         type="text"
-        placeholder="Search"
+        :placeholder="t('search.placeholder')"
         ref="searchInput"
         v-model="search"
         @keydown.enter="useSearch" autofocus />

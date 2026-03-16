@@ -4,7 +4,7 @@
       <div class="meta flex">
         <MInput
           v-if="app.app_number"
-          label="Mixin ID"
+          :label="t('information.mixin_id')"
           disabled
           allow-copy="true"
           v-model:value="app.app_number"
