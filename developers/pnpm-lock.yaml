@@ -58,17 +58,17 @@ importers:
         specifier: ^6.0.5
         version: 6.0.5(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))(vue@3.5.30)
       eslint:
-        specifier: ^10.0.3
-        version: 10.0.3(jiti@2.6.1)
+        specifier: ^10.1.0
+        version: 10.1.0(jiti@2.6.1)
       eslint-config-airbnb-base:
         specifier: ^15.0.0
-        version: 15.0.0(eslint-plugin-import@2.32.0(eslint@10.0.3(jiti@2.6.1)))(eslint@10.0.3(jiti@2.6.1))
+        version: 15.0.0(eslint-plugin-import@2.32.0(eslint@10.1.0(jiti@2.6.1)))(eslint@10.1.0(jiti@2.6.1))
       eslint-import-resolver-alias:
         specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.32.0(eslint@10.0.3(jiti@2.6.1)))
+        version: 1.1.2(eslint-plugin-import@2.32.0(eslint@10.1.0(jiti@2.6.1)))
       eslint-plugin-import:
         specifier: ^2.32.0
-        version: 2.32.0(eslint@10.0.3(jiti@2.6.1))
+        version: 2.32.0(eslint@10.1.0(jiti@2.6.1))
       unplugin-auto-import:
         specifier: ^21.0.0
         version: 21.0.0(@nuxt/kit@4.2.2)(@vueuse/core@12.0.0)
@@ -86,7 +86,7 @@ importers:
         version: 0.25.0(rollup@4.59.0)(vite@7.3.1(jiti@2.6.1)(sass@1.98.0)(yaml@2.8.2))
       vue-eslint-parser:
         specifier: ^10.4.0
-        version: 10.4.0(eslint@10.0.3(jiti@2.6.1))
+        version: 10.4.0(eslint@10.1.0(jiti@2.6.1))
 
 packages:
 
@@ -1169,8 +1169,8 @@ packages:
     resolution: {integrity: sha512-tD40eHxA35h0PEIZNeIjkHoDR4YjjJp34biM0mDvplBe//mB+IHCqHDGV7pxF+7MklTvighcCPPZC7ynWyjdTA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  eslint@10.0.3:
-    resolution: {integrity: sha512-COV33RzXZkqhG9P2rZCFl9ZmJ7WL+gQSCRzE7RhkbclbQPtLAWReL7ysA0Sh4c8Im2U9ynybdR56PV0XcKvqaQ==}
+  eslint@10.1.0:
+    resolution: {integrity: sha512-S9jlY/ELKEUwwQnqWDO+f+m6sercqOPSqXM5Go94l7DOmxHVDgmSFGWEzeE/gwgTAr0W103BWt0QLe/7mabIvA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     hasBin: true
     peerDependencies:
@@ -1252,8 +1252,8 @@ packages:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
 
-  flatted@3.4.0:
-    resolution: {integrity: sha512-kC6Bb+ooptOIvWj5B63EQWkF0FEnNjV2ZNkLMLZRDDduIiWeFF4iKnslwhiWxjAdbg4NzTNo6h0qLuvFrcx+Sw==}
+  flatted@3.4.2:
+    resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
   follow-redirects@1.15.11:
     resolution: {integrity: sha512-deG2P0JfjrTxl50XGCDyfI97ZGVCxIpfKYmfyrQ54n5FO/0gfIES8C/Psl6kWVDolizcaaxZJnTS0QSMxvnsBQ==}
@@ -1642,6 +1642,9 @@ packages:
 
   mlly@1.8.1:
     resolution: {integrity: sha512-SnL6sNutTwRWWR/vcmCYHSADjiEesp5TGQQ0pXyLhW5IoeibRlF/CbSLailbB3CNqJUk9cVJ9dUDnbD7GrcHBQ==}
+
+  mlly@1.8.2:
+    resolution: {integrity: sha512-d+ObxMQFmbt10sretNDytwt85VrbkhhUA/JBGm1MPaWJ65Cl4wOgLaB1NYvJSZ0Ef03MMEU/0xpPMXUIQ29UfA==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -2406,9 +2409,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.3':
     optional: true
 
-  '@eslint-community/eslint-utils@4.9.1(eslint@10.0.3(jiti@2.6.1))':
+  '@eslint-community/eslint-utils@4.9.1(eslint@10.1.0(jiti@2.6.1))':
     dependencies:
-      eslint: 10.0.3(jiti@2.6.1)
+      eslint: 10.1.0(jiti@2.6.1)
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
@@ -2537,7 +2540,7 @@ snapshots:
       ignore: 7.0.5
       jiti: 2.6.1
       klona: 2.0.6
-      mlly: 1.8.1
+      mlly: 1.8.2
       ohash: 2.0.11
       pathe: 2.0.3
       pkg-types: 2.3.0
@@ -3424,18 +3427,18 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.32.0(eslint@10.0.3(jiti@2.6.1)))(eslint@10.0.3(jiti@2.6.1)):
+  eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.32.0(eslint@10.1.0(jiti@2.6.1)))(eslint@10.1.0(jiti@2.6.1)):
     dependencies:
       confusing-browser-globals: 1.0.11
-      eslint: 10.0.3(jiti@2.6.1)
-      eslint-plugin-import: 2.32.0(eslint@10.0.3(jiti@2.6.1))
+      eslint: 10.1.0(jiti@2.6.1)
+      eslint-plugin-import: 2.32.0(eslint@10.1.0(jiti@2.6.1))
       object.assign: 4.1.7
       object.entries: 1.1.9
       semver: 6.3.1
 
-  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0(eslint@10.0.3(jiti@2.6.1))):
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0(eslint@10.1.0(jiti@2.6.1))):
     dependencies:
-      eslint-plugin-import: 2.32.0(eslint@10.0.3(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(eslint@10.1.0(jiti@2.6.1))
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -3445,16 +3448,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(eslint-import-resolver-node@0.3.9)(eslint@10.0.3(jiti@2.6.1)):
+  eslint-module-utils@2.12.1(eslint-import-resolver-node@0.3.9)(eslint@10.1.0(jiti@2.6.1)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      eslint: 10.0.3(jiti@2.6.1)
+      eslint: 10.1.0(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(eslint@10.0.3(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(eslint@10.1.0(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -3463,9 +3466,9 @@ snapshots:
       array.prototype.flatmap: 1.3.3
       debug: 3.2.7
       doctrine: 2.1.0
-      eslint: 10.0.3(jiti@2.6.1)
+      eslint: 10.1.0(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(eslint-import-resolver-node@0.3.9)(eslint@10.0.3(jiti@2.6.1))
+      eslint-module-utils: 2.12.1(eslint-import-resolver-node@0.3.9)(eslint@10.1.0(jiti@2.6.1))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -3499,9 +3502,9 @@ snapshots:
 
   eslint-visitor-keys@5.0.1: {}
 
-  eslint@10.0.3(jiti@2.6.1):
+  eslint@10.1.0(jiti@2.6.1):
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@10.0.3(jiti@2.6.1))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@10.1.0(jiti@2.6.1))
       '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.23.3
       '@eslint/config-helpers': 0.5.3
@@ -3598,10 +3601,10 @@ snapshots:
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.4.0
+      flatted: 3.4.2
       keyv: 4.5.4
 
-  flatted@3.4.0: {}
+  flatted@3.4.2: {}
 
   follow-redirects@1.15.11(debug@4.4.3):
     optionalDependencies:
@@ -3997,6 +4000,14 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.6.3
+
+  mlly@1.8.2:
+    dependencies:
+      acorn: 8.16.0
+      pathe: 2.0.3
+      pkg-types: 1.3.1
+      ufo: 1.6.3
+    optional: true
 
   ms@2.1.3: {}
 
@@ -4713,10 +4724,10 @@ snapshots:
     dependencies:
       croppie: 2.6.5
 
-  vue-eslint-parser@10.4.0(eslint@10.0.3(jiti@2.6.1)):
+  vue-eslint-parser@10.4.0(eslint@10.1.0(jiti@2.6.1)):
     dependencies:
       debug: 4.4.3
-      eslint: 10.0.3(jiti@2.6.1)
+      eslint: 10.1.0(jiti@2.6.1)
       eslint-scope: 9.1.1
       eslint-visitor-keys: 5.0.1
       espree: 11.1.1
