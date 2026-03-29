@@ -24,8 +24,8 @@ importers:
         specifier: ^2.0.5
         version: 2.0.5
       node-forge:
-        specifier: ^1.3.3
-        version: 1.3.3
+        specifier: ^1.4.0
+        version: 1.4.0
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(vue@3.5.30)
@@ -1668,8 +1668,8 @@ packages:
   node-fetch-native@1.6.7:
     resolution: {integrity: sha512-g9yhqoedzIUm0nTnTqAQvueMPVOuIY16bqgAJJC8XOOubYFNwz6IER9qs0Gq2Xd0+CecCKFjtdDTMA4u4xG06Q==}
 
-  node-forge@1.3.3:
-    resolution: {integrity: sha512-rLvcdSyRCyouf6jcOIPe/BgwG/d7hKjzMKOas33/pHEr6gbq18IK9zV7DiPvzsz0oBJPme6qr6H6kGZuI9/DZg==}
+  node-forge@1.4.0:
+    resolution: {integrity: sha512-LarFH0+6VfriEhqMMcLX2F7SwSXeWwnEAJEsYm5QKWchiVYVvJyV9v7UDvUv+w5HO23ZpQTXDv/GxdDdMyOuoQ==}
     engines: {node: '>= 6.13.0'}
 
   node-stdlib-browser@1.3.1:
@@ -4012,7 +4012,7 @@ snapshots:
   node-fetch-native@1.6.7:
     optional: true
 
-  node-forge@1.3.3: {}
+  node-forge@1.4.0: {}
 
   node-stdlib-browser@1.3.1:
     dependencies:
