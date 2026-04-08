@@ -18,7 +18,7 @@
     "qs": "^6.15.0",
     "sass": "^1.98.0",
     "uuid": "^13.0.0",
-    "validator": "^13.15.26",
+    "validator": "^13.15.35",
     "vue": "^3.5.31",
     "vue-croppie": "github:hundredark/vue-croppie#2.0.4",
     "vue-i18n": "^11.3.0",
