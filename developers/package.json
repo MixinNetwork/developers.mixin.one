@@ -8,20 +8,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mixin.dev/mixin-node-sdk": "7.5.0",
+    "@mixin.dev/mixin-node-sdk": "7.5.1",
     "bignumber.js": "^10.0.2",
     "clipboard": "^2.0.11",
     "element-plus": "^2.13.6",
     "file-saver": "^2.0.5",
     "node-forge": "^1.4.0",
     "pinia": "^3.0.4",
-    "qs": "^6.15.0",
+    "qs": "^6.15.1",
     "sass": "^1.99.0",
     "uuid": "^13.0.0",
     "validator": "^13.15.35",
-    "vue": "^3.5.31",
+    "vue": "^3.5.32",
     "vue-croppie": "github:hundredark/vue-croppie#2.0.4",
-    "vue-i18n": "^11.3.0",
+    "vue-i18n": "^11.3.2",
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
@@ -32,9 +32,9 @@
     "eslint-plugin-import": "^2.32.0",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^32.0.0",
-    "vite": "^7.3.2",
-    "vite-plugin-mkcert": "^1.17.10",
-    "vite-plugin-node-polyfills": "^0.25.0",
+    "vite": "^8.0.7",
+    "vite-plugin-mkcert": "^1.17.12",
+    "vite-plugin-node-polyfills": "^0.26.0",
     "vue-eslint-parser": "^10.4.0"
   },
   "browserslist": [
