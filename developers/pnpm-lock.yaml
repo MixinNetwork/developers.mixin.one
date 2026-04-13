@@ -79,8 +79,8 @@ importers:
         specifier: ^8.0.7
         version: 8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3)
       vite-plugin-mkcert:
-        specifier: ^1.17.12
-        version: 1.17.12(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3))
+        specifier: ^2.0.0
+        version: 2.0.0(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3))
       vite-plugin-node-polyfills:
         specifier: ^0.26.0
         version: 0.26.0(rollup@4.60.1)(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3))
@@ -1146,8 +1146,8 @@ packages:
     resolution: {integrity: sha512-IGBwjF7tNk3cwypFNH/7bfzBcgSCbaMOD3GsaY1AU/JRrnHnYgEM0+9kQt52iZxjNsjBtJYtao146V+f8jFZNw==}
     engines: {node: '>=10'}
 
-  dotenv@17.4.1:
-    resolution: {integrity: sha512-k8DaKGP6r1G30Lx8V4+pCsLzKr8vLmV2paqEj1Y55GdAgJuIqpRp5FfajGF8KtwMxCz9qJc6wUIJnm053d/WCw==}
+  dotenv@17.4.2:
+    resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
@@ -2204,6 +2204,10 @@ packages:
     resolution: {integrity: sha512-H+ue8Zo4vJmV2nRjpx86P35lzwDT3nItnIsocgumgr0hHMQ+ZGq5vrERg9kJBo5AWGmxZDhzDo+WVIJqkB0cGA==}
     engines: {node: '>=16'}
 
+  supports-color@10.2.2:
+    resolution: {integrity: sha512-SS+jx45GF1QjgEXQx4NJZV9ImqmO2NPz5FNsIHrsDjh2YsHnawpan7SNQ1o8NuhrbHZy9AZhIoCUiCeaW/C80g==}
+    engines: {node: '>=18'}
+
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
@@ -2261,6 +2265,10 @@ packages:
 
   unctx@2.5.0:
     resolution: {integrity: sha512-p+Rz9x0R7X+CYDkT+Xg8/GhpcShTlU8n+cf9OtOEf7zEQsNcCZO1dPKNRDqvUTaq+P32PMMkxWHwfrxkqfqAYg==}
+
+  undici@8.0.3:
+    resolution: {integrity: sha512-vTLEG/ceXgu/dMTQ8uNE2zgl7I7qEkx9l9tkz2H802AkgbBMvbmHMu4YqsrpGbUAMYKSQhCbmjsWMAeGu1dYXg==}
+    engines: {node: '>=22.19.0'}
 
   unimport@5.7.0:
     resolution: {integrity: sha512-njnL6sp8lEA8QQbZrt+52p/g4X0rw3bnGGmUcJnt1jeG8+iiqO779aGz0PirCtydAIVcuTBRlJ52F0u46z309Q==}
@@ -2325,9 +2333,9 @@ packages:
     resolution: {integrity: sha512-TQ5pAGhd5whStmqWvYF4OjQROlmv9SMFVt37qoCBdqRffuuklWYQlCNnEs2ZaIBD1kZRNnikiZOS1eqgkar0iw==}
     engines: {node: '>= 0.10'}
 
-  vite-plugin-mkcert@1.17.12:
-    resolution: {integrity: sha512-HhLyUZnvkKLuk9o+HBaMlGIa6CqPTfLbVlLFBjrkN4mpZ4saYFRfFx5R12a46UxmzWT9dO8fijmblVvCYvCD3A==}
-    engines: {node: '>=v18.0.0'}
+  vite-plugin-mkcert@2.0.0:
+    resolution: {integrity: sha512-+5roXeOT91WRO3NKFRcDZKEHhze/1uahSSKOIq3vz2w19mJojBcyOo0JyLRHbME31Ym5qPRNJ8CwKO0mu4RJ2Q==}
+    engines: {node: '>=22.19.0'}
     peerDependencies:
       vite: '>=3'
 
@@ -2610,7 +2618,7 @@ snapshots:
   '@eslint/config-array@0.23.5':
     dependencies:
       '@eslint/object-schema': 3.0.5
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       minimatch: 10.2.5
     transitivePeerDependencies:
       - supports-color
@@ -3307,7 +3315,7 @@ snapshots:
       chokidar: 5.0.0
       confbox: 0.2.4
       defu: 6.1.7
-      dotenv: 17.4.1
+      dotenv: 17.4.2
       exsolve: 1.0.8
       giget: 3.2.0
       jiti: 2.6.1
@@ -3462,9 +3470,11 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@10.2.2):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 10.2.2
 
   deep-is@0.1.4: {}
 
@@ -3509,7 +3519,7 @@ snapshots:
 
   domain-browser@4.22.0: {}
 
-  dotenv@17.4.1:
+  dotenv@17.4.2:
     optional: true
 
   dunder-proto@1.0.1:
@@ -3752,7 +3762,7 @@ snapshots:
       '@types/estree': 1.0.8
       ajv: 6.14.0
       cross-spawn: 7.0.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       escape-string-regexp: 4.0.0
       eslint-scope: 9.1.2
       eslint-visitor-keys: 5.0.1
@@ -4800,6 +4810,8 @@ snapshots:
     dependencies:
       copy-anything: 4.0.5
 
+  supports-color@10.2.2: {}
+
   supports-preserve-symlinks-flag@1.0.0: {}
 
   timers-browserify@2.0.12:
@@ -4884,6 +4896,8 @@ snapshots:
       magic-string: 0.30.21
       unplugin: 2.3.11
     optional: true
+
+  undici@8.0.3: {}
 
   unimport@5.7.0:
     dependencies:
@@ -4979,13 +4993,12 @@ snapshots:
 
   validator@13.15.35: {}
 
-  vite-plugin-mkcert@1.17.12(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3)):
+  vite-plugin-mkcert@2.0.0(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3)):
     dependencies:
-      debug: 4.4.3
-      picocolors: 1.1.1
+      debug: 4.4.3(supports-color@10.2.2)
+      supports-color: 10.2.2
+      undici: 8.0.3
       vite: 8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3)
-    transitivePeerDependencies:
-      - supports-color
 
   vite-plugin-node-polyfills@0.26.0(rollup@4.60.1)(vite@8.0.7(esbuild@0.27.7)(jiti@2.6.1)(sass@1.99.0)(yaml@2.8.3)):
     dependencies:
@@ -5019,7 +5032,7 @@ snapshots:
 
   vue-eslint-parser@10.4.0(eslint@10.2.0(jiti@2.6.1)):
     dependencies:
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@10.2.2)
       eslint: 10.2.0(jiti@2.6.1)
       eslint-scope: 9.1.2
       eslint-visitor-keys: 5.0.1
