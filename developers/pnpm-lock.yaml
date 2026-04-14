@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mixin.dev/mixin-node-sdk':
-        specifier: 7.5.1
-        version: 7.5.1
+        specifier: 7.5.2
+        version: 7.5.2
       bignumber.js:
         specifier: ^10.0.2
         version: 10.0.2
@@ -372,8 +372,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mixin.dev/mixin-node-sdk@7.5.1':
-    resolution: {integrity: sha512-dyzp6qG2uMYMgpn4oytKkWxbLHftD++FpuF0DdA6WFHaxZUZUWGuIzXMnvvZp0vPD7SYUCJSP/cVepVaO5m+Fg==}
+  '@mixin.dev/mixin-node-sdk@7.5.2':
+    resolution: {integrity: sha512-QOFoM4wnDL0DGnhjB4m1JBreiLOz0QWTFX/Ds4by02yfRdX65w2zVpC6PQCIK/U9znXmuGUa6mpvGHHp4lki6g==}
     engines: {node: '>=20'}
 
   '@napi-rs/wasm-runtime@1.1.3':
@@ -382,16 +382,16 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@noble/ciphers@2.1.1':
-    resolution: {integrity: sha512-bysYuiVfhxNJuldNXlFEitTVdNnYUc+XNJZd7Qm2a5j1vZHgY+fazadNFWFaMK/2vye0JVlxV3gHmC0WDfAOQw==}
+  '@noble/ciphers@2.2.0':
+    resolution: {integrity: sha512-Z6pjIZ/8IJcCGzb2S/0Px5J81yij85xASuk1teLNeg75bfT07MV3a/O2Mtn1I2se43k3lkVEcFaR10N4cgQcZA==}
     engines: {node: '>= 20.19.0'}
 
-  '@noble/curves@2.0.1':
-    resolution: {integrity: sha512-vs1Az2OOTBiP4q0pwjW5aF0xp9n4MxVrmkFBxc6EKZc6ddYx5gaZiAsZoq0uRRXWbi3AT/sBqn05eRPtn1JCPw==}
+  '@noble/curves@2.2.0':
+    resolution: {integrity: sha512-T/BoHgFXirb0ENSPBquzX0rcjXeM6Lo892a2jlYJkqk83LqZx0l1Of7DzlKJ6jkpvMrkHSnAcgb5JegL8SeIkQ==}
     engines: {node: '>= 20.19.0'}
 
-  '@noble/hashes@2.0.1':
-    resolution: {integrity: sha512-XlOlEbQcE9fmuXxrVTXCTlG2nlRXa9Rj3rr5Ue/+tX+nmkgbX720YHh0VR3hBF9xDvwnb8D2shVGOwNx+ulArw==}
+  '@noble/hashes@2.2.0':
+    resolution: {integrity: sha512-IYqDGiTXab6FniAgnSdZwgWbomxpy9FtYvLKs7wCUs2a8RkITG+DFGO1DM9cr+E3/RgADRpFjrKVaJ1z6sjtEg==}
     engines: {node: '>= 20.19.0'}
 
   '@nuxt/kit@4.2.2':
@@ -896,8 +896,8 @@ packages:
     peerDependencies:
       axios: 0.x || 1.x
 
-  axios@1.13.6:
-    resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
+  axios@1.15.0:
+    resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1351,8 +1351,8 @@ packages:
   flatted@3.4.2:
     resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
-  follow-redirects@1.15.11:
-    resolution: {integrity: sha512-deG2P0JfjrTxl50XGCDyfI97ZGVCxIpfKYmfyrQ54n5FO/0gfIES8C/Psl6kWVDolizcaaxZJnTS0QSMxvnsBQ==}
+  follow-redirects@1.16.0:
+    resolution: {integrity: sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -1985,8 +1985,9 @@ packages:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
 
-  proxy-from-env@1.1.0:
-    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+  proxy-from-env@2.1.0:
+    resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
+    engines: {node: '>=10'}
 
   public-encrypt@4.0.3:
     resolution: {integrity: sha512-zVpa8oKZSz5bTMTFClc1fQOnyyEzpl5ozpi1B5YcvBrdohMjH2rfsBtyXcuNuwjsDIXmBYlF2N5FlJYhR29t8Q==}
@@ -2689,13 +2690,13 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mixin.dev/mixin-node-sdk@7.5.1':
+  '@mixin.dev/mixin-node-sdk@7.5.2':
     dependencies:
-      '@noble/ciphers': 2.1.1
-      '@noble/curves': 2.0.1
-      '@noble/hashes': 2.0.1
-      axios: 1.13.6
-      axios-retry: 4.5.0(axios@1.13.6)
+      '@noble/ciphers': 2.2.0
+      '@noble/curves': 2.2.0
+      '@noble/hashes': 2.2.0
+      axios: 1.15.0
+      axios-retry: 4.5.0(axios@1.15.0)
       bignumber.js: 10.0.2
       bs58: 6.0.0
       int64-buffer: 1.1.0
@@ -2718,13 +2719,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@noble/ciphers@2.1.1': {}
+  '@noble/ciphers@2.2.0': {}
 
-  '@noble/curves@2.0.1':
+  '@noble/curves@2.2.0':
     dependencies:
-      '@noble/hashes': 2.0.1
+      '@noble/hashes': 2.2.0
 
-  '@noble/hashes@2.0.1': {}
+  '@noble/hashes@2.2.0': {}
 
   '@nuxt/kit@4.2.2':
     dependencies:
@@ -3201,16 +3202,16 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios-retry@4.5.0(axios@1.13.6):
+  axios-retry@4.5.0(axios@1.15.0):
     dependencies:
-      axios: 1.13.6
+      axios: 1.15.0
       is-retry-allowed: 2.2.0
 
-  axios@1.13.6:
+  axios@1.15.0:
     dependencies:
-      follow-redirects: 1.15.11
+      follow-redirects: 1.16.0
       form-data: 4.0.5
-      proxy-from-env: 1.1.0
+      proxy-from-env: 2.1.0
     transitivePeerDependencies:
       - debug
 
@@ -3836,7 +3837,7 @@ snapshots:
 
   flatted@3.4.2: {}
 
-  follow-redirects@1.15.11: {}
+  follow-redirects@1.16.0: {}
 
   for-each@0.3.5:
     dependencies:
@@ -4474,7 +4475,7 @@ snapshots:
 
   process@0.11.10: {}
 
-  proxy-from-env@1.1.0: {}
+  proxy-from-env@2.1.0: {}
 
   public-encrypt@4.0.3:
     dependencies:
