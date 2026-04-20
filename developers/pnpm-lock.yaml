@@ -36,8 +36,8 @@ importers:
         specifier: ^1.99.0
         version: 1.99.0
       uuid:
-        specifier: ^13.0.0
-        version: 13.0.0
+        specifier: ^14.0.0
+        version: 14.0.0
       validator:
         specifier: ^13.15.35
         version: 13.15.35
@@ -2331,6 +2331,10 @@ packages:
 
   uuid@13.0.0:
     resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
+
+  uuid@14.0.0:
+    resolution: {integrity: sha512-Qo+uWgilfSmAhXCMav1uYFynlQO7fMFiMVZsQqZRMIXp0O7rR7qjkj+cPvBHLgBqi960QCoo/PH2/6ZtVqKvrg==}
     hasBin: true
 
   validator@13.15.35:
@@ -4997,6 +5001,8 @@ snapshots:
       which-typed-array: 1.1.20
 
   uuid@13.0.0: {}
+
+  uuid@14.0.0: {}
 
   validator@13.15.35: {}
 
