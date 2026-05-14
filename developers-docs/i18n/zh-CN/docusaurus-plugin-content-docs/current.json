@@ -103,6 +103,10 @@
     "message": "资源",
     "description": "The label for category Resources in sidebar docs"
   },
+  "sidebar.docs.category.Skills": {
+    "message": "Skill",
+    "description": "The label for category 'Skills' in sidebar 'docs'"
+  },
   "sidebar.docs.category.Community": {
     "message": "社区",
     "description": "The label for category Community in sidebar docs"
