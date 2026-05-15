@@ -12,8 +12,8 @@ importers:
         specifier: 7.5.2
         version: 7.5.2
       bignumber.js:
-        specifier: ^11.1.0
-        version: 11.1.0
+        specifier: ^11.1.1
+        version: 11.1.1
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
@@ -919,8 +919,8 @@ packages:
   bignumber.js@10.0.2:
     resolution: {integrity: sha512-E8Wp9O06QA6lneJ4aRUXKYf/1GIomqUEmUMwtIOMtDxf1U52ffJY+y7JBk/8wRafA8qOIqLnXQGqonYXZdBnFQ==}
 
-  bignumber.js@11.1.0:
-    resolution: {integrity: sha512-TTVpHgwqPYUP6rLRCsVjBj+WDXCNh9K8D/5kOn9J3ZIGrYeK11LLS11VrqnVIRpXjRpTRKPtFG0sKhbOGCAuTg==}
+  bignumber.js@11.1.1:
+    resolution: {integrity: sha512-LNkCYMieJqAts/Sj5094B92c5q+yRPlXWpABJnHMbUjB/F8AUjELmSmYX5mxbNiY/QnGnJvJIrnRuW5gUqbW5Q==}
 
   birpc@2.9.0:
     resolution: {integrity: sha512-KrayHS5pBi69Xi9JmvoqrIgYGDkD6mcSe/i6YKi3w5kekCLzrX4+nawcXqrj2tIp50Kw/mT/s3p+GVK0A0sKxw==}
@@ -3254,7 +3254,7 @@ snapshots:
 
   bignumber.js@10.0.2: {}
 
-  bignumber.js@11.1.0: {}
+  bignumber.js@11.1.1: {}
 
   birpc@2.9.0: {}
 
