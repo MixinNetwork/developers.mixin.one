@@ -176,6 +176,17 @@ module.exports = {
       collapsed: false,
       items: [
         'resources/sdk',
+        {
+          label: 'Skills',
+          type: 'category',
+          collapsed: false,
+          items: [
+            'resources/ai-agent/introduction',
+            'resources/ai-agent/authentication',
+            'resources/ai-agent/quick-start',
+            'resources/ai-agent/capabilities',
+          ]
+        },
       ]
     },
     {

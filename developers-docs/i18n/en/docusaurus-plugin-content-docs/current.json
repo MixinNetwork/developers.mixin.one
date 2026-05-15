@@ -86,5 +86,9 @@
   "sidebar.api.category.Circles": {
     "message": "Circles",
     "description": "The label for category Circles in sidebar api"
+  },
+  "sidebar.docs.category.Skills": {
+    "message": "Skills",
+    "description": "The label for category 'Skills' in sidebar 'docs'"
   }
 }
