@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Quick Start
