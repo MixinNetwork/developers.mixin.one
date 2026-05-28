@@ -16,10 +16,10 @@
     "node-forge": "^1.4.0",
     "pinia": "^3.0.4",
     "qs": "^6.15.2",
-    "sass": "^1.99.0",
+    "sass": "^1.100.0",
     "uuid": "^14.0.0",
     "validator": "^13.15.35",
-    "vue": "^3.5.34",
+    "vue": "^3.5.35",
     "vue-croppie": "github:hundredark/vue-croppie#2.0.4",
     "vue-i18n": "^11.4.4",
     "vue-router": "^5.0.7"
@@ -31,8 +31,8 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.32.0",
     "unplugin-auto-import": "^21.0.0",
-    "unplugin-vue-components": "^32.0.0",
-    "vite": "^8.0.13",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "^8.0.14",
     "vite-plugin-mkcert": "^2.0.0",
     "vite-plugin-node-polyfills": "^0.28.0",
     "vue-eslint-parser": "^10.4.0"
