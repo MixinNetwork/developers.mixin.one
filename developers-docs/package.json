@@ -25,9 +25,9 @@
     "file-loader": "^6.2.0",
     "github": "link:prism-react-renderer/themes/github",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "sass": "^1.99.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sass": "^1.101.0",
     "url-loader": "^4.1.1"
   },
   "browserslist": {
