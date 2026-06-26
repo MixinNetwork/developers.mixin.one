@@ -653,6 +653,13 @@ export default {
     pay_label: '充值 (USDT)',
     pay_btn: '充值',
   },
+  payment: {
+    select_channel: '选择付款渠道',
+    choose_channel: '请选择一个付款渠道继续支付。',
+    billing_amount: '为当前应用充值 {amount} USDT。',
+    mixpay: 'MixPay',
+    mixin_one: 'mixin.one',
+  },
   button: {
     save: '保存',
     cancel: '取消',

@@ -51,10 +51,13 @@
 <script>
   import { toRefs, reactive, inject, watch, computed } from 'vue';
   import { useI18n } from 'vue-i18n';
-  import { base64RawURLEncode } from '@mixin.dev/mixin-node-sdk';
   import { useUserClient } from '@/api';
-  import { v4 as uuid, parse } from 'uuid';
-  import qs from 'qs';
+  import { usePaymentModalStore } from '@/stores';
+  import {
+    buildPaymentMemo,
+    generateMixinOnePaymentUrl,
+    generateMixPayUrl,
+  } from '@/utils';
 
   export default {
     name: 'app-billing',
@@ -64,6 +67,7 @@
     setup(props) {
       const $message = inject('$message');
       const { t } = useI18n();
+      const { useInitPaymentModal } = usePaymentModalStore();
 
       const state = reactive({
         bill: undefined,
@@ -89,44 +93,33 @@
         return {credit: 0, cost: {users: 0, resources: 0}};
       };
 
-      const generateMixPayUrl = (asset, amount, memo, returnTo) => {
-        const baseUrl = 'https://mixpay.me/pay';
-        const params = {
-          payeeId: "3c2bf6e7-fa74-4764-a4f3-79a24fab814f",
-          settlementAssetId: asset,
-          quoteAssetId: 'usd',
-          quoteAmount: amount,
-          traceId: uuid(),
-          settlementMemo: memo,
-          returnTo,
-        };
-        const query = qs.stringify(params);
-        return `${baseUrl}?${query}`;
-      };
-
-      const buildPaymentMemo = (user_id) => {
-        const extra = JSON.stringify({
-          u: user_id,
-          e: 'buy app credit'
-        });
-        const version = Buffer.from([1]);
-        const payee = Buffer.from(parse("fbd26bc6-3d04-4964-a7fe-a540432b16e2"));
-        const extraBuf = Buffer.from(extra)
-        return base64RawURLEncode(Buffer.concat([version, payee, extraBuf]));
-      };
-
       const useClickPay = () => {
         if (!allowSubmit.value) {
           $message.error(t('message.errors.amount'));
           return;
         }
-        const url = generateMixPayUrl(
-          '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
-          state.amount,
-          buildPaymentMemo(props.appId),
-          window.location.href
-        );
-        window.location.href = url;
+
+        const memo = buildPaymentMemo({
+          targetId: props.appId,
+          event: 'buy app credit',
+        });
+
+        useInitPaymentModal({
+          title: t('payment.select_channel'),
+          description: t('payment.billing_amount', { amount: state.amount }),
+          mixpayUrl: generateMixPayUrl({
+            assetId: '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
+            amount: state.amount,
+            memo,
+            returnTo: window.location.href,
+          }),
+          mixinOneUrl: generateMixinOnePaymentUrl({
+            assetId: '4d8c508b-91c5-375b-92b0-ee702ed2dac5',
+            amount: state.amount,
+            memo,
+            returnTo: window.location.href,
+          }),
+        });
       };
 
       watch(() => props.appId, async (appId) => {
