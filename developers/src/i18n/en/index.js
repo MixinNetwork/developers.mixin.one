@@ -600,6 +600,13 @@ export default {
     pay_label: 'Buy Credits (USDT)',
     pay_btn: 'Deposit',
   },
+  payment: {
+    select_channel: 'Choose Payment Method',
+    choose_channel: 'Select a payment channel to continue.',
+    billing_amount: 'Deposit {amount} USDT to this app.',
+    mixpay: 'MixPay',
+    mixin_one: 'mixin.one',
+  },
   button: {
     save: 'Save',
     cancel: 'Cancel',

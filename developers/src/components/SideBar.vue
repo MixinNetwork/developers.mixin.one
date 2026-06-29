@@ -23,8 +23,11 @@
             @click="useClickApp(item)"
             :class="['app-item', route.params.app_number === item.app_number ? 'app-item-active': '']"
           >
-            <img :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
-            <span>{{ item.name }}</span>
+            <img class="bot-icon" :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
+            <div class="bot-name">
+              <img v-if="item.is_verified" class="verified-icon" :src="verified" alt="verified-logo"/>
+              <span>{{ item.name }}</span>
+            </div>
           </li>
         </ul>
       </div>
@@ -96,7 +99,10 @@
         >
           <img :src="item.icon_url || defaultAppIcon" alt="app-logo"/>
           <div>
-            <div class="item-name">{{ item.name }}</div>
+            <div class="bot-name">
+              <img v-if="item.is_verified" class="verified-icon" :src="verified" alt="verified-logo"/>
+              <div class="item-name">{{ item.name }}</div>
+            </div>
             <div class="item-number">{{ item.app_number }}</div>
           </div>
         </li>
@@ -115,6 +121,7 @@ import { useBuyModalStore, useLayoutStore } from '@/stores';
 import { getImmersive } from '@/utils/tools';
 import defaultAppIcon from '@/assets/img/default_robot.png';
 import defaultAvatar from '@/assets/img/default_avatar.png';
+import verified from '@/assets/img/app-svg/verified.svg';
 
 const dataStore = useLayoutStore();
 const { appList, userInfo } = storeToRefs(dataStore);
@@ -259,15 +266,26 @@ nav {
           display: flex;
           align-items: center;
 
-          img {
+          .bot-icon {
             width: 1.875rem;
             height: 1.875rem;
             border-radius: 50%;
+            margin-right: 1rem;
+          }
+
+          .bot-name {
+            display: flex;
+            align-items: flex-start;
+
+            .verified-icon {
+              width: 1rem;
+              height: 1rem;
+              margin-right: 0.25rem;
+            }
           }
 
           span {
             display: inline-block;
-            margin-left: 1rem;
             max-width: 10.625rem;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -568,6 +586,17 @@ nav {
         font-size: 0.75rem;
         margin-top: 0.3rem;
         color: #a9b0bf;
+      }
+
+      .bot-name {
+        display: flex;
+        align-items: center;
+
+        .verified-icon {
+          width: 1rem;
+          height: 1rem;
+          margin-right: 0.25rem;
+        }
       }
 
       &.has-app-new-app {

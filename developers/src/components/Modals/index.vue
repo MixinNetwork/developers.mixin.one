@@ -1,6 +1,8 @@
 <template>
   <teleport to="body #modal">
     <buy-app-modal />
+    
+    <payment-channel-modal />
 
     <withdrawal-modal />
 
@@ -17,6 +19,7 @@
 <script>
 import BuyAppModal from '@/components/Modals/BuyAppModal.vue';
 import Confirm from '@/components/Modals/ConfirmModal.vue';
+import PaymentChannelModal from '@/components/Modals/PaymentChannelModal.vue';
 import SecretModal from '@/components/Modals/SecretModal.vue';
 import UpdateTokenModal from '@/components/Modals/UpdateTokenModal.vue';
 import WithdrawalModal from '@/components/Modals/WithdrawalModal.vue';
@@ -25,7 +28,13 @@ import AppRegisterModal from '@/components/Modals/AppRegisterModal.vue';
 export default {
   name: 'modals',
   components: {
-    BuyAppModal, Confirm, SecretModal, UpdateTokenModal, WithdrawalModal, AppRegisterModal
+    BuyAppModal,
+    PaymentChannelModal,
+    Confirm,
+    SecretModal,
+    UpdateTokenModal,
+    WithdrawalModal,
+    AppRegisterModal,
   },
 };
 </script>
