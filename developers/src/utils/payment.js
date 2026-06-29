@@ -27,7 +27,7 @@ export const generateMixinOnePaymentUrl = ({ assetId, amount, memo, returnTo }) 
     amount,
     trace: uuid(),
     memo,
-    return_to: encodeURIComponent(returnTo),
+    return_to: returnTo,
   };
 
   return `${baseUrl}?${qs.stringify(params)}`;
