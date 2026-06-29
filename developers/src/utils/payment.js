@@ -3,7 +3,6 @@ import qs from 'qs';
 import { v4 as uuid, parse } from 'uuid';
 
 const MIXPAY_BASE_URL = 'https://mixpay.me/pay';
-const MIXIN_ONE_PAYMENT_URL = '';
 const PAYEE_ID = '3c2bf6e7-fa74-4764-a4f3-79a24fab814f';
 const PAYER_ID = 'fbd26bc6-3d04-4964-a7fe-a540432b16e2';
 

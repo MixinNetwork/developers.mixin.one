@@ -34,7 +34,6 @@ const {
   show,
   title,
   description,
-  mixinOneUrl,
 } = storeToRefs(paymentStore);
 const {
   useClosePaymentModal,

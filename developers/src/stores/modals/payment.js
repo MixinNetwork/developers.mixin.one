@@ -1,11 +1,7 @@
-import { inject, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import { useI18n } from 'vue-i18n';
 
 export const usePaymentModalStore = defineStore('payment', () => {
-  const $message = inject('$message');
-  const { t } = useI18n();
-
   const show = ref(false);
   const title = ref('');
   const description = ref('');
