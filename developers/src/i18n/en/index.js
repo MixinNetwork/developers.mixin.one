@@ -605,7 +605,7 @@ export default {
     choose_channel: 'Select a payment channel to continue.',
     billing_amount: 'Deposit {amount} USDT to this app.',
     mixpay: 'MixPay',
-    mixin_one: 'mixin.one',
+    mixin_one: 'Mixin Pay',
   },
   button: {
     save: 'Save',

@@ -658,7 +658,7 @@ export default {
     choose_channel: '请选择一个付款渠道继续支付。',
     billing_amount: '为当前应用充值 {amount} USDT。',
     mixpay: 'MixPay',
-    mixin_one: 'mixin.one',
+    mixin_one: 'Mixin Pay',
   },
   button: {
     save: '保存',
