@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@mixin.dev/mixin-node-sdk": "7.5.3",
-    "bignumber.js": "^11.1.4",
+    "bignumber.js": "^11.1.5",
     "clipboard": "^2.0.11",
-    "element-plus": "^2.14.2",
+    "element-plus": "^2.14.3",
     "file-saver": "^2.0.5",
     "node-forge": "^1.4.0",
     "pinia": "^3.0.4",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.32.0",
