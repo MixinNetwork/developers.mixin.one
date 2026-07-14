@@ -9,11 +9,10 @@ const commonCallback = ($message, t, err) => {
   }
 
   if (code === 20123) {
-    const max_app_numbers = description.replace(/\D/g, '');
     $message.error({
       showClose: true,
       duration: 2000,
-      message: `${t(`message.errors.${code}`, { count: max_app_numbers })}(${code})`,
+      message: `${t(`message.errors.${code}`)}(${code})`,
     });
   } else {
     let key = 'unknown';
