@@ -640,7 +640,7 @@ export default {
       20112: 'Invalid invitation code.',
       20113: 'Invalid phone verification code.',
       20117: 'Insufficient balance.',
-      20123: 'Too many apps created, the maximum is {count}.',
+      20123: 'Please buy more apps or pay your app bill from Mixin developers dashboard.',
       20119: 'PIN incorrect.',
       20120: 'Transfer amount too small.',
       session_id_format: 'Session ID format error.',
