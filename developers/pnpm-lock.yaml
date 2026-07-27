@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mixin.dev/mixin-node-sdk':
-        specifier: 7.5.3
-        version: 7.5.3
+        specifier: 7.5.4
+        version: 7.5.4
       bignumber.js:
         specifier: ^11.1.5
         version: 11.1.5
@@ -237,8 +237,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mixin.dev/mixin-node-sdk@7.5.3':
-    resolution: {integrity: sha512-gvfEBnvTmCOvOcIZP0vdPqT+ZGFyK3S/fHb3XrnRq2g1gBzRtTHIlVy879smUgk+rYGsBNfRB96KyJ5KlqIzag==}
+  '@mixin.dev/mixin-node-sdk@7.5.4':
+    resolution: {integrity: sha512-ImkV7pN7wAD1ACNPIzSHbatNQCqsuyu7I2jxMuTt3DuN62xR+FdAAcQbdsSC14vWFUg1mpMNGRrJraT4Yh26QA==}
     engines: {node: '>=20'}
 
   '@napi-rs/wasm-runtime@1.1.6':
@@ -786,9 +786,6 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  bignumber.js@10.0.2:
-    resolution: {integrity: sha512-E8Wp9O06QA6lneJ4aRUXKYf/1GIomqUEmUMwtIOMtDxf1U52ffJY+y7JBk/8wRafA8qOIqLnXQGqonYXZdBnFQ==}
-
   bignumber.js@11.1.5:
     resolution: {integrity: sha512-6WmzCNtUnfKpbozq+hOgWaZMMzORmYBwF1xZScyoIX3QRYWeKTtxxwDOW5tIz7C9BdjkIYHGTcelCLkXg0mndw==}
 
@@ -1271,8 +1268,8 @@ packages:
     resolution: {integrity: sha512-w9UMqWwJxHNOvoNzSJ2oPF5wvYcvP7jUvYzhp67yEhTi17ZDBBC1z9pTdGuzjD+EFIqLSYRweZjqfiPzQ06Ebg==}
     engines: {node: '>= 0.4'}
 
-  giget@3.3.0:
-    resolution: {integrity: sha512-gzi2D96p+AMfDcmJHGDj3KJ9NRiwvlFAU5yfa3ROwWZmFUjX4P43x3BcyRaOMMLto1vUo7C+86+MFhYTl6Ryiw==}
+  giget@3.3.1:
+    resolution: {integrity: sha512-r+mvuDjrjMpsdw46Kmeydb8bdHm7wOKw8wNBtTndkjbPjgAp5oUJUxRE76wZFknxIPokfWvep2qSXK37aXE6zg==}
     hasBin: true
 
   glob-parent@6.0.2:
@@ -2373,8 +2370,8 @@ packages:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
 
-  ws@8.21.0:
-    resolution: {integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==}
+  ws@8.21.1:
+    resolution: {integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -2551,14 +2548,14 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mixin.dev/mixin-node-sdk@7.5.3':
+  '@mixin.dev/mixin-node-sdk@7.5.4':
     dependencies:
       '@noble/ciphers': 2.2.0
       '@noble/curves': 2.2.0
       '@noble/hashes': 2.2.0
       axios: 1.18.1
       axios-retry: 4.5.0(axios@1.18.1)
-      bignumber.js: 10.0.2
+      bignumber.js: 11.1.5
       bs58: 6.0.0
       int64-buffer: 1.1.1
       is-retry-allowed: 3.0.0
@@ -2567,7 +2564,7 @@ snapshots:
       pako: 2.2.0
       serialize-javascript: 7.0.7
       uuid: 14.0.1
-      ws: 8.21.0
+      ws: 8.21.1
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -3093,8 +3090,6 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  bignumber.js@10.0.2: {}
-
   bignumber.js@11.1.5: {}
 
   birpc@2.9.0: {}
@@ -3182,7 +3177,7 @@ snapshots:
       defu: 6.1.7
       dotenv: 17.4.2
       exsolve: 1.1.0
-      giget: 3.3.0
+      giget: 3.3.1
       jiti: 2.6.1
       ohash: 2.0.11
       pathe: 2.0.3
@@ -3744,7 +3739,7 @@ snapshots:
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
 
-  giget@3.3.0:
+  giget@3.3.1:
     optional: true
 
   glob-parent@6.0.2:
@@ -5011,7 +5006,7 @@ snapshots:
 
   word-wrap@1.2.5: {}
 
-  ws@8.21.0: {}
+  ws@8.21.1: {}
 
   xtend@4.0.2: {}
 
