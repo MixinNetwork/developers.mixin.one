@@ -32,7 +32,7 @@ By default, every Mixin application that be created at Developers Dashboard will
 
 ## Mixin API
 
-Develop with distributed systems are always complex, therefore, interact with Kernel and Domain is a hard. To simplify the development, Mixin core team provide the Wallet APIs to developers.
+Developing against distributed systems is complex, so the Mixin API provides a simpler interface for application developers.
 
 With the APIs, developers can easily unleash the power of Mixin Network with their Apps. Stand-alone products such as decentralized wallets and decentralized on-chain exchanges can be quickly developed.
 

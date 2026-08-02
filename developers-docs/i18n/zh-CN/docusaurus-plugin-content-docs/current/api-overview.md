@@ -35,6 +35,5 @@ Mixin Messenger 目前包括 iOS, Android，PC 端都已经开源，另外也包
 ## 目录结构
 
 - [API 参考](./api/guide)：Mixin API 层的 API 参考，提供对 Mixin 消息服务和 Mixin 钱包服务的便捷访问。
-- [Mainnet RPC](./mainnet-rpc): 主网的 JSON-RPC API。
 - [JS Bridge](./js-bridge): Mixin Messenger 的 WebView 的 JS 桥。
 - [Schema](./schema): Mixin Messenger 的 Schema 列表。

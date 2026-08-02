@@ -3,25 +3,16 @@ title: 简介
 description: Mixin Network，一个免费、闪电般快速和去中心化的加密资产传输网络。
 ---
 
-Mixin Network 是一个开放的去中心化网络，它在内核（也称为“主网”）和 Mixin API 两个层面对开发者开放。
+Mixin Network 是一个开放网络，开发者可以通过 Mixin API 构建资产和消息应用。
 
-开发者可以根据业务需求和要求，选择合适的方式来开发自己的 App、链以及任何基于 Mixin Network 的应用。
-
-## 深入内核
-
-如果你想用内核构建一些东西，或者通过你喜欢的一些修改创建一个 Mixin Network 的分支，你可以阅读 Mixin Mainnet 的[源代码](https://github.com/MixinNetwork/mixin)。
-
-有一些有用的教程：
-
-- [部署全节点](mainnet/guide/full-node-join) - 在 lcoal 机器上运行 mixin 节点。
-- [同步全节点](mainnet/guide/sync-full-node) - 以同步模式运行混合节点，同步内核中的所有快照。
+开发者可以根据业务需求，构建网站、App、Messenger 机器人以及其他基于 Mixin Network 的集成。
 
 ## 创建 Mixin 应用程序
 
-Mixin 应用程序是使用 Mixin Network 的应用程序。 它可以是一个网站、一个应用程序、一个信使机器人或任何其他形式的使用 Mixin API 或与主网交互的应用程序。
+Mixin 应用程序是使用 Mixin Network 的应用程序。它可以是网站、App、Messenger 机器人或任何其他使用 Mixin API 的应用形式。
 
 :::info
-Mixin 应用程序使用 Mixin API，这是一个为 Mixin 主网提供接口的 API 集，简化了 Mixin 的开发。 更多细节请阅读[Mixin API 参考](api/guide)。
+Mixin 应用程序使用 Mixin API，它为 Mixin 服务提供了更简单的接口。更多细节请阅读 [Mixin API 参考](api/guide)。
 :::
 
 ### Messenger 机器人（Bot）
@@ -30,7 +21,7 @@ Mixin 应用程序使用 Mixin API，这是一个为 Mixin 主网提供接口的
 
 通常，人们在 web 视图中与机器人交互，或者只是与机器人聊天。 因此，机器人应该托管 Web 服务或响应传入的消息以完成其工作。
 
-这里有一份[教程](dapp/getting-started/create-dapp)向您展示如何使用 Mixin API 构建机器人。
+这里有一份[教程](app/getting-started/create-app)，介绍如何使用 Mixin API 构建机器人。
 
 ### 与 Mixin 集成
 
@@ -42,7 +33,7 @@ Mixin 应用程序使用 Mixin API，这是一个为 Mixin 主网提供接口的
 
 例如，如果您有一个供多个用户使用的 CMS，您想在每个帖子的底部放置一个捐赠按钮，并从受众那里获得金钱； 您需要学习为每个作者创建帐户、管理帐户的密钥库、同步和处理 CMS 中每个作者的快照以向他们转移资金。
 
-请阅读[本文档](dapp/mixin-applications)了解更多详情。
+请阅读[这份指南](app/mixin-applications)了解更多详情。
 
 ## 特性
 

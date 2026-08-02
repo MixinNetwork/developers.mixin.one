@@ -58,6 +58,5 @@ If you have questions or advises, please join the Mixin Developers Group, which 
 Mixin Messenger is open-sourced in iOS, Android，PC. For more open source projects, can be found in our github [https://github.com/MixinNetwork](https://github.com/MixinNetwork)
 
 - [API Reference](./api/guide): An API Reference for the Mixin API layer that provides convenient access to the Mixin Message service and the Mixin Wallet service.
-- [Mainnet RPC](./mainnet-rpc): JSON-RPC API for the mainnet.
 - [JS Bridge](./js-bridge): A JS Bridge for Mixin Messenger's WebView.
 - [Schema](./schema): A schema list for Mixin Messenger.

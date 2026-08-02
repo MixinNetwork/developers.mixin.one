@@ -21,7 +21,6 @@ Mixin 开发人员文档基于 [Docusaurus](https://docusaurus.io/docs/en/latest
 - `docs` 目录包含以下子目录：
   - `api` 包含所有 API 文档
   - `dapp` 包含所有 DApp 介绍、教程、指南
-  - `mainnet` 包含所有主网文档
   - `community` 包含所有社区文档
   - `examples` 包含所有示例
 

@@ -3,22 +3,6 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.docs.category.Mainnet": {
-    "message": "Mainnet",
-    "description": "The label for category Mainnet in sidebar docs"
-  },
-  "sidebar.docs.category.Concepts": {
-    "message": "Concepts",
-    "description": "The label for category Concepts in sidebar docs"
-  },
-  "sidebar.docs.category.MTG": {
-    "message": "MTG",
-    "description": "The label for category MTG in sidebar docs"
-  },
-  "sidebar.docs.category.Tutorials": {
-    "message": "Tutorials",
-    "description": "The label for category Tutorials in sidebar docs"
-  },
   "sidebar.docs.category.App": {
     "message": "App",
     "description": "The label for category App in sidebar docs"

@@ -3,25 +3,16 @@ title: Introduction
 description: Mixin Network, a free, lightning fast and decentralized network for transferring digital assets.
 ---
 
-Mixin Network is an open network, it's open to the developers at both Kernel (aka, the Mainnet) and Mixin API levels.
+Mixin Network is an open network for developers building asset and messaging applications with the Mixin API.
 
-According to the business needs and requirements, developers can choose the appropriate way to develop their Apps, chains, and any applications based on Mixin Network.
-
-## Dive into the Kernel
-
-If you want to build something with the kernel, or create a fork of Mixin Network with some modifications you like, you can read the [source code of Mixin Mainnet](https://github.com/MixinNetwork/mixin).
-
-There are some tutorials that are useful:
-
-- [Deploying full node](mainnet/guide/full-node-join) - run mixin node in local machine.
-- [Sync full node](mainnet/guide/sync-full-node) - run mixin node in sync mode, sync all snapshots from the Kernel.
+According to their business needs, developers can build websites, Apps, Messenger bots, and other integrations based on Mixin Network.
 
 ## Create Mixin Applications
 
-Mixin Applications are applications that use the Mixin Network. It could be a website, an App, a messenger bot, or any other form of application that uses Mixin API or interacts with Kernel.
+Mixin Applications are applications that use Mixin Network. They can be websites, Apps, Messenger bots, or any other form of application that uses the Mixin API.
 
 :::info
-Mixin Application uses the Mixin API, an API set that provides the interface for the Mixin Mainnet, simplifies the development of Mixin. Please read [Mixin API Reference](api/guide) for more details.
+Mixin Applications use the Mixin API, which provides a simpler interface to Mixin services. Please read the [Mixin API Reference](api/guide) for more details.
 :::
 
 ### Messenger Bot
@@ -32,7 +23,7 @@ The bot is very similar to Telegram bot. It’s a program running on a server an
 
 Usually, people interacts with bots in a webview, or just chat with bots. Because of that, the bot should host a web service or respond to incoming messages to get its work done.
 
-Here is [a tutorial](dapp/getting-started/create-dapp) that shows you how to build a bot with the Mixin API:
+Here is [a tutorial](app/getting-started/create-app) that shows you how to build a bot with the Mixin API:
 
 ### Integrate with Mixin
 
@@ -44,7 +35,7 @@ The first thing you need to do is same as above, creating a bot. And then, it's 
 
 For example, if you have a CMS for multiple users, you want to put a donate button at the bottom of each post and receive money from audiences; you need to learn to create accounts for each author, manage accounts' keystores, sync and handle snapshots for each author in the CMS to transfer money to them.
 
-Please read [this document](dapp/mixin-applications) guide for more details.
+Please read [this guide](app/mixin-applications) for more details.
 
 ## Features
 

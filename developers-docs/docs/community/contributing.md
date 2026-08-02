@@ -21,7 +21,6 @@ The documentation is organized in the following way:
 - the `docs` directory contains the following subdirectories:
   - `api` contains all the API documentation
   - `dapp` contains all the DApp introduction, tutorials, guides
-  - `mainnet` contains all the mainnet documentation
   - `community` contains all the community documentation
   - `examples` contains all the examples
 

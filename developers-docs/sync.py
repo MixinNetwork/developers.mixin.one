@@ -5,16 +5,11 @@ import demjson
 SRC = {
     "base": "../developers/src/i18n/en",
     "structure": "/index.js",
-    "mainnet": "/document/mainnet",
     "wallet": "/document/wallet",
     "bot": "/document/bot",
 }
 
 DST = {
-    "mainnet": {
-        "path": "./docs/mainnet",
-        "structure_idx": 0,
-    },
     "wallet": {
         "path": "./docs/wallet",
         "structure_idx": 1,
@@ -167,7 +162,7 @@ def arrangeAPIDocs():
 
 if __name__ == "__main__":
     structure = readDocumentStructure()
-    for name in ["mainnet", "wallet", "bot"]:
+    for name in ["wallet", "bot"]:
         src = SRC["base"] + SRC[name]
         copyFiles(src, DST[name]["path"])
         metafiles = []
