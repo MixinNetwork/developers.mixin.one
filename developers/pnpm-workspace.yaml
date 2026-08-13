@@ -1,2 +1,4 @@
 allowBuilds:
   '@parcel/watcher': false
+overrides:
+  nanoid: 3.3.17
