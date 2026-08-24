@@ -39,8 +39,8 @@ importers:
         specifier: ^1.102.0
         version: 1.102.0
       uuid:
-        specifier: ^14.0.1
-        version: 14.0.1
+        specifier: ^14.0.2
+        version: 14.0.2
       validator:
         specifier: ^13.15.35
         version: 13.15.35
@@ -2246,8 +2246,8 @@ packages:
   util@0.12.5:
     resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
 
-  uuid@14.0.1:
-    resolution: {integrity: sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew==}
+  uuid@14.0.2:
+    resolution: {integrity: sha512-xZe/16rV4aa+HGSOCiY2YeLT1OybRLrrkL/Rqaq7p7GMVXjFh+6wN4oMYgjFmnSnhY8t6Xpdl2l9qmnHYuMHwQ==}
     hasBin: true
 
   validator@13.15.35:
@@ -2586,7 +2586,7 @@ snapshots:
       nano-seconds: 1.2.2
       pako: 2.2.0
       serialize-javascript: 7.1.0
-      uuid: 14.0.1
+      uuid: 14.0.2
       ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
@@ -4850,7 +4850,7 @@ snapshots:
       is-typed-array: 1.1.15
       which-typed-array: 1.1.22
 
-  uuid@14.0.1: {}
+  uuid@14.0.2: {}
 
   validator@13.15.35: {}
 
