@@ -515,11 +515,6 @@ export default {
     oauth_url_desc: 'E.g. https://mixin.one/auth',
     description: 'Description',
     description_desc: 'A short description of your app, at least 16 characters and fewer than 128 characters long',
-    resource_patterns: 'Resource Patterns',
-    resource_patterns_desc:
-    'Resource patterns for your app, one per line, with up to 10 items. For example:\n'
-    + 'https://mixin.one/codes/c78233a1-ffa6-453e-8bb3-6282a76bba78 \n'
-    + 'https://mixin.one/codes',
     immersive: 'Immersive',
     encrypted: 'Message Encryption',
     encrypted_tip: 'Message encryption is available after the ED25519 secret is set',
@@ -535,6 +530,19 @@ export default {
       app_name_length: 'Application name length is 2 to 64',
       description_length: 'Description length is 16 to 128',
     },
+  },
+  security: {
+    title: 'Security',
+    allowed_ips: 'Allowed IP addresses',
+    allowed_ips_desc: 'Only requests from these addresses will be accepted. Leave this empty to allow requests from any IP address.',
+    allowed_ips_placeholder: '203.0.113.10\n203.0.113.0/24',
+    allowed_ips_hint: 'Supports individual IPv4 addresses and CIDR ranges. Up to 64 entries.',
+    resource_patterns: 'Resource patterns',
+    resource_patterns_desc: 'Allow your app to access only matching resource URLs. Leave this empty to remove the restriction.',
+    resource_patterns_placeholder: 'https://mixin.one/codes/*\nhttps://mixin.one/users/*',
+    resource_patterns_hint: 'Up to 64 patterns. Use one URL pattern per line.',
+    entry_count: '{count} / 64 entries',
+    max_entries_error: 'Each field can contain at most 64 entries.',
   },
   wallet: {
     title: 'Wallet',

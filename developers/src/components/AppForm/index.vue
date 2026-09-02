@@ -56,13 +56,6 @@
         v-model="app.description"
       ></textarea>
     </div>
-    <div class="des">
-      <label>{{t('information.resource_patterns')}}</label>
-      <textarea
-        :placeholder="t('information.resource_patterns_desc')"
-        v-model="resource_patterns"
-      />
-    </div>
     <div class="flex">
       <div @click="isImmersive=!isImmersive" class="des immersive">
         <i v-if="!isImmersive" />

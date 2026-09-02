@@ -41,7 +41,6 @@ export default {
       showConfirmModal: false,
       app: {},
       category: 'OTHER',
-      resource_patterns: '',
       isImmersive: false,
       isEncrypted: false,
       encryptionAvailable: false,
@@ -51,7 +50,6 @@ export default {
       state.toggle_app++;
       state.app = app;
       state.category = app.category || 'OTHER';
-      state.resource_patterns = app.resource_patterns ? app.resource_patterns.join('\n') : '';
       state.isImmersive = app.capabilities ? app.capabilities.includes('IMMERSIVE') : false;
       state.isEncrypted = app.capabilities ? app.capabilities.includes('ENCRYPTED') : false;
       state.encryptionAvailable = app.session_secret ? Buffer.from(app.session_secret, 'base64').length === 32 : false;
@@ -97,11 +95,6 @@ export default {
       let icon_base64 = await croppie.value.crop();
       icon_base64 = icon_base64 ? icon_base64.substring(icon_base64.indexOf(',') + 1) : '';
 
-      let { resource_patterns } = state;
-      resource_patterns = resource_patterns || '';
-      resource_patterns = resource_patterns.replace(/\r\n/g, '\n');
-      resource_patterns = resource_patterns.split('\n').map((r) => r.trim()).filter((r) => !!r);
-
       const params = {
         icon_base64: icon_base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
         name: state.app.name,
@@ -109,7 +102,6 @@ export default {
         home_uri: state.app.home_uri,
         redirect_uri: state.app.redirect_uri,
         description: state.app.description,
-        resource_patterns,
         capabilities,
       };
 

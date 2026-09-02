@@ -1,0 +1,128 @@
+.security-page {
+  width: 62rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1rem 4rem;
+}
+
+.security-card {
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid #e5eaf4;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(28, 77, 174, 0.08);
+}
+
+.security-field {
+  width: 100%;
+}
+
+.field-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+
+  label {
+    color: #1b2a4a;
+    font-weight: 700;
+  }
+
+  span {
+    color: #a9b0bf;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+  }
+}
+
+.field-description,
+.field-hint {
+  color: #8992a2;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.field-description {
+  margin: 0.625rem 0 1rem;
+}
+
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 8.5rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid #e0e6f0;
+  border-radius: 0.25rem;
+  background: #fbfcff;
+  box-shadow: none;
+  color: #243452;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+
+  &:focus {
+    border-color: #3277ff;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(50, 119, 255, 0.12);
+  }
+}
+
+.field-hint {
+  margin-top: 0.625rem;
+}
+
+.security-divider {
+  height: 1px;
+  margin: 2rem 0;
+  background: #edf0f6;
+}
+
+.security-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #edf0f6;
+
+  p {
+    color: #8992a2;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  button {
+    flex: 0 0 auto;
+    min-width: 8.75rem;
+    margin: 0;
+  }
+
+  button:disabled {
+    background: #a9b0bf;
+    cursor: wait;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .security-page {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .security-card {
+    padding: 1.25rem;
+  }
+
+  .security-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+      width: 100%;
+    }
+  }
+}
