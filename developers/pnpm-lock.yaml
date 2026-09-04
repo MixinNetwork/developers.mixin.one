@@ -36,8 +36,8 @@ importers:
         specifier: ^6.16.0
         version: 6.16.0
       sass:
-        specifier: ^1.102.0
-        version: 1.102.0
+        specifier: ^1.103.1
+        version: 1.103.1
       uuid:
         specifier: ^14.0.2
         version: 14.0.2
@@ -55,11 +55,11 @@ importers:
         version: 11.4.10(vue@3.5.42)
       vue-router:
         specifier: ^5.2.0
-        version: 5.2.0(@vue/compiler-sfc@3.5.42)(pinia@4.0.2(@vue/devtools-api@8.2.1)(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42)
+        version: 5.2.0(@vue/compiler-sfc@3.5.42)(pinia@4.0.2(@vue/devtools-api@8.2.1)(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42)
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^6.0.8
-        version: 6.0.8(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42)
+        version: 6.0.8(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42)
       eslint:
         specifier: ^10.8.0
         version: 10.8.0(jiti@2.6.1)(supports-color@10.2.2)
@@ -74,19 +74,19 @@ importers:
         version: 2.32.0(eslint@10.8.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)
       unplugin-auto-import:
         specifier: ^21.1.0
-        version: 21.1.0(@nuxt/kit@4.2.2)(@vueuse/core@14.3.0(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+        version: 21.1.0(@nuxt/kit@4.2.2)(@vueuse/core@14.3.0(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       unplugin-vue-components:
         specifier: ^32.1.0
-        version: 32.1.0(@nuxt/kit@4.2.2)(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42)
+        version: 32.1.0(@nuxt/kit@4.2.2)(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42)
       vite:
         specifier: ^8.2.2
-        version: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+        version: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
       vite-plugin-mkcert:
         specifier: ^2.1.0
-        version: 2.1.0(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+        version: 2.1.0(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       vite-plugin-node-polyfills:
         specifier: ^0.28.0
-        version: 0.28.0(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+        version: 0.28.0(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       vue-eslint-parser:
         specifier: ^10.4.1
         version: 10.4.1(eslint@10.8.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)
@@ -1907,8 +1907,8 @@ packages:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
     engines: {node: '>= 6'}
 
-  readdirp@5.0.0:
-    resolution: {integrity: sha512-9u/XQ1pvrQtYyMpZe7DXKv2p5CNvyVwzUB6uhLAnQwHMSgKMBR62lc7AHljaeteeHXn11XTAaLLUVZYVZyuRBQ==}
+  readdirp@5.1.1:
+    resolution: {integrity: sha512-Kko+Y5XQ6fM+Ce3dq3m9YGxnacYZYl9cA1wZjaF3Vbry2L3i1qVg8+CAgNPsXRArPMUMCaOR7oa9Nqntc43JKA==}
     engines: {node: '>= 20.19.0'}
 
   reflect.getprototypeof@1.0.10:
@@ -1961,8 +1961,8 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sass@1.102.0:
-    resolution: {integrity: sha512-NSOyTnaQF7rTAEOtI2fwb386vL+akyiQLBZu8Na7hXCb+umJy0GAqlcMIaqACZ6Z1VgTBS4K9PG6B3IdjHGJsw==}
+  sass@1.103.1:
+    resolution: {integrity: sha512-9icZURbP51S6S0QGoyaeqk9uB06GNWxsFYWfH5RgpFgqK5FA8tJcM3AdVxrZEVJ7dz+L87nG95gBKf4VuaMHGw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -2804,10 +2804,10 @@ snapshots:
 
   '@types/web-bluetooth@0.0.21': {}
 
-  '@vitejs/plugin-vue@6.0.8(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42)':
+  '@vitejs/plugin-vue@6.0.8(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42)':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+      vite: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
       vue: 3.5.42
 
   '@vue-macros/common@3.1.4(vue@3.5.42)':
@@ -3146,7 +3146,7 @@ snapshots:
 
   chokidar@5.0.0:
     dependencies:
-      readdirp: 5.0.0
+      readdirp: 5.1.1
 
   cipher-base@1.0.7:
     dependencies:
@@ -4336,7 +4336,7 @@ snapshots:
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
 
-  readdirp@5.0.0: {}
+  readdirp@5.1.1: {}
 
   reflect.getprototypeof@1.0.10:
     dependencies:
@@ -4455,7 +4455,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sass@1.102.0:
+  sass@1.103.1:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -4680,7 +4680,7 @@ snapshots:
 
   undici@8.9.0: {}
 
-  unimport@6.4.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
+  unimport@6.4.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)):
     dependencies:
       acorn: 8.18.0
       escape-string-regexp: 5.0.0
@@ -4694,7 +4694,7 @@ snapshots:
       scule: 1.3.0
       strip-literal: 4.0.0
       tinyglobby: 0.2.17
-      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       unplugin-utils: 0.3.2
     optionalDependencies:
       rolldown: 1.2.6
@@ -4708,13 +4708,13 @@ snapshots:
       - vite
       - webpack
 
-  unplugin-auto-import@21.1.0(@nuxt/kit@4.2.2)(@vueuse/core@14.3.0(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
+  unplugin-auto-import@21.1.0(@nuxt/kit@4.2.2)(@vueuse/core@14.3.0(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)):
     dependencies:
       local-pkg: 1.2.1
       magic-string: 1.2.3
       picomatch: 4.0.7
-      unimport: 6.4.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
-      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+      unimport: 6.4.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
+      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       unplugin-utils: 0.3.2
     optionalDependencies:
       '@nuxt/kit': 4.2.2
@@ -4736,7 +4736,7 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.7
 
-  unplugin-vue-components@32.1.0(@nuxt/kit@4.2.2)(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42):
+  unplugin-vue-components@32.1.0(@nuxt/kit@4.2.2)(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42):
     dependencies:
       chokidar: 5.0.0
       local-pkg: 1.2.1
@@ -4745,7 +4745,7 @@ snapshots:
       obug: 2.1.4
       picomatch: 4.0.5
       tinyglobby: 0.2.17
-      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       unplugin-utils: 0.3.2
       vue: 3.5.42
     optionalDependencies:
@@ -4769,7 +4769,7 @@ snapshots:
       webpack-virtual-modules: 0.6.2
     optional: true
 
-  unplugin@3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
+  unplugin@3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)):
     dependencies:
       '@jridgewell/remapping': 2.3.5
       picomatch: 4.0.7
@@ -4777,7 +4777,7 @@ snapshots:
     optionalDependencies:
       rolldown: 1.2.6
       rollup: 4.60.1
-      vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+      vite: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
 
   untyped@2.0.0:
     dependencies:
@@ -4811,22 +4811,22 @@ snapshots:
 
   validator@13.15.35: {}
 
-  vite-plugin-mkcert@2.1.0(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
+  vite-plugin-mkcert@2.1.0(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)):
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
       supports-color: 10.2.2
       undici: 8.9.0
-      vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+      vite: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
 
-  vite-plugin-node-polyfills@0.28.0(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
+  vite-plugin-node-polyfills@0.28.0(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)):
     dependencies:
       '@rollup/plugin-inject': 5.0.5(rollup@4.60.1)
       node-stdlib-browser: 1.3.1
-      vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+      vite: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
     transitivePeerDependencies:
       - rollup
 
-  vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0):
+  vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -4836,7 +4836,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
       jiti: 2.6.1
-      sass: 1.102.0
+      sass: 1.103.1
       yaml: 2.9.0
 
   vm-browserify@1.1.2: {}
@@ -4867,7 +4867,7 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.42
 
-  vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(pinia@4.0.2(@vue/devtools-api@8.2.1)(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))(vue@3.5.42):
+  vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(pinia@4.0.2(@vue/devtools-api@8.2.1)(vue@3.5.42))(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))(vue@3.5.42):
     dependencies:
       '@babel/generator': 8.0.0
       '@vue-macros/common': 3.1.4(vue@3.5.42)
@@ -4884,14 +4884,14 @@ snapshots:
       picomatch: 4.0.5
       scule: 1.3.0
       tinyglobby: 0.2.17
-      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0))
+      unplugin: 3.3.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0))
       unplugin-utils: 0.3.2
       vue: 3.5.42
       yaml: 2.9.0
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.42
       pinia: 4.0.2(@vue/devtools-api@8.2.1)(vue@3.5.42)
-      vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
+      vite: 8.2.2(jiti@2.6.1)(sass@1.103.1)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@farmfe/core'
       - '@rspack/core'
