@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@mixin.dev/mixin-node-sdk':
-        specifier: 7.5.6
-        version: 7.5.6(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
+        specifier: 7.6.0
+        version: 7.6.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
       bignumber.js:
         specifier: ^11.1.5
         version: 11.1.5
@@ -234,8 +234,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mixin.dev/mixin-node-sdk@7.5.6':
-    resolution: {integrity: sha512-EVnk4+Y5Zt6xR7Snuxj9sfIITjBNsKBhqWJj8wvmtFgSwPxPhYFJQRttlAPL54AHN+JF2jMuf5IWAoDl33lnWg==}
+  '@mixin.dev/mixin-node-sdk@7.6.0':
+    resolution: {integrity: sha512-ib/0LRdVkbSQvZuLltC3+jYTpcfloNLwAOJgQjVyGmjxBFnXGASE7MpYepftYRNlfdorWHSn/t/DvG8ULJmtTQ==}
     engines: {node: '>=20'}
 
   '@noble/ciphers@2.4.0':
@@ -1350,8 +1350,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  int64-buffer@1.1.1:
-    resolution: {integrity: sha512-xp/v0/im2q7n7ISFJXcYsr/aVsUdZKPUZS1uYtoM9I9Cfmm5YuAi7SQts2TrEXwAKIE0wyn3KxJbo35goJgvwQ==}
+  int64-buffer@1.1.2:
+    resolution: {integrity: sha512-ZBb2qDtapL5lWiwgXIoNaCRb/OBPrQ6bK6J4p1AcPXzH/JA/eZmoTVCGGCOIQWIsWwOExGsPu5n8+aBG6itMzA==}
 
   internal-slot@1.1.0:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
@@ -2525,7 +2525,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mixin.dev/mixin-node-sdk@7.5.6(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)':
+  '@mixin.dev/mixin-node-sdk@7.6.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)':
     dependencies:
       '@noble/ciphers': 2.4.0
       '@noble/curves': 2.4.0
@@ -2534,7 +2534,7 @@ snapshots:
       axios-retry: 4.5.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))
       bignumber.js: 11.1.5
       bs58: 6.0.0
-      int64-buffer: 1.1.1
+      int64-buffer: 1.1.2
       is-retry-allowed: 3.0.0
       md5: 2.3.0
       nano-seconds: 1.2.2
@@ -3763,7 +3763,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  int64-buffer@1.1.1: {}
+  int64-buffer@1.1.2: {}
 
   internal-slot@1.1.0:
     dependencies:
