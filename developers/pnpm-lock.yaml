@@ -2127,8 +2127,8 @@ packages:
   unctx@2.5.0:
     resolution: {integrity: sha512-p+Rz9x0R7X+CYDkT+Xg8/GhpcShTlU8n+cf9OtOEf7zEQsNcCZO1dPKNRDqvUTaq+P32PMMkxWHwfrxkqfqAYg==}
 
-  undici@8.9.0:
-    resolution: {integrity: sha512-aWZpUj7XoGonMClx4gdDRfgBjqeA+F473aDmROQQbM9n6PRfK/u1q/a0X4wMTgcHfT8H6fpbt98PFuDUwFg2YA==}
+  undici@8.11.2:
+    resolution: {integrity: sha512-u4UB2/IrKdU6lFxumHmmo1a3fCQO5tzQllRorfoRS63txhrB7xTpSn1PftwC4qEHkOaqP95fCWW4lJzwErwzhQ==}
     engines: {node: '>=22.19.0'}
 
   unimport@6.4.0:
@@ -4678,7 +4678,7 @@ snapshots:
       unplugin: 2.3.11
     optional: true
 
-  undici@8.9.0: {}
+  undici@8.11.2: {}
 
   unimport@6.4.0(rolldown@1.2.6)(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
     dependencies:
@@ -4815,7 +4815,7 @@ snapshots:
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
       supports-color: 10.2.2
-      undici: 8.9.0
+      undici: 8.11.2
       vite: 8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)
 
   vite-plugin-node-polyfills@0.28.0(rollup@4.60.1)(vite@8.2.2(jiti@2.6.1)(sass@1.102.0)(yaml@2.9.0)):
