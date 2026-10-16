@@ -28,7 +28,6 @@
 <script>
 import { reactive, toRefs, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getImageUrl } from '@/utils/tools';
 import BOOKSIcon from '@/assets/img/svg/CategoryBOOKS.svg';
 import BUSINESSIcon from '@/assets/img/svg/CategoryBUSINESS.svg';
 import EDUCATIONIcon from '@/assets/img/svg/CategoryEDUCATION.svg';
@@ -97,9 +96,6 @@ export default {
       tm,
     };
   },
-  methods: {
-    getImageUrl
-  }
 };
 </script>
 

@@ -10,7 +10,7 @@
     <img
       v-if="allowCopy"
       :class="cls"
-      src="@/assets/img/ic_copy.png"
+      :src="copyIcon"
       alt="copy-text-icon"
     />
   </div>
@@ -20,6 +20,7 @@
 import { inject, onBeforeUnmount } from 'vue';
 import ClipboardJS from 'clipboard';
 import { useI18n } from 'vue-i18n';
+import copyIcon from '@/assets/img/ic_copy.png';
 
 export default {
   name: 't-input',
@@ -54,6 +55,7 @@ export default {
     });
 
     return {
+      copyIcon,
       cls,
       change,
     };

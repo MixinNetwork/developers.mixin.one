@@ -24,7 +24,7 @@
         </template>
         <template v-else>
           <div @click="useToggleConfirm" class="confirm-container">
-            <img v-if="confirmed" src="@/assets/img/ic_v.png" alt="option-selected"/>
+            <img v-if="confirmed" :src="selectedIcon" alt="option-selected"/>
             <i v-else></i>
             <span class="confirm">{{ t('secret.key_confirm') }}</span>
           </div>
@@ -46,6 +46,7 @@ import forge from 'node-forge';
 import { newHash, base64RawURLEncode } from '@mixin.dev/mixin-node-sdk';
 import DModal from '@/components/Modals/DModal.vue';
 import { useRegisterModalStore } from '@/stores';
+import selectedIcon from '@/assets/img/ic_v.png';
 
 export default {
   name: 'app-register-modal',
@@ -110,6 +111,7 @@ export default {
     useInit();
 
     return {
+      selectedIcon,
       showRegister,
       loading,
       confirmed,

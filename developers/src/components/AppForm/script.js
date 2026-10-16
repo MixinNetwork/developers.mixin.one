@@ -13,6 +13,7 @@ import { useI18n } from 'vue-i18n';
 import { ElTooltip } from 'element-plus';
 import { useConfirmModalStore, useLayoutStore, useLoadStore } from '@/stores';
 import { useUserClient } from '@/api';
+import selectedIcon from '@/assets/img/ic_v.png';
 import MInput from './input.vue';
 import Croppie from './croppie.vue';
 import CategorySelect from './select.vue';
@@ -167,6 +168,7 @@ export default {
     });
 
     return {
+      selectedIcon,
       croppie,
       ...toRefs(state),
       allowSubmit,

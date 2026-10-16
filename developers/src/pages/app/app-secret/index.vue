@@ -47,7 +47,7 @@
         <div class="secret-item qrcode">
           <div>
             <div>
-              <img src="@/assets/img/ic_qr_code.png" alt="app-qrcode-icon"/>
+              <img :src="qrCodeIcon" alt="app-qrcode-icon"/>
               <span>{{t('secret.qrcode_title')}}</span>
             </div>
             <p>{{t('secret.qrcode_content')}}</p>

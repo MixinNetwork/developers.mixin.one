@@ -59,7 +59,7 @@
     <div class="flex">
       <div @click="isImmersive=!isImmersive" class="des immersive">
         <i v-if="!isImmersive" />
-        <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
+        <img v-else :src="selectedIcon" alt="option-selected"/>
         <span>{{t('information.immersive')}}</span>
       </div>
       <div
@@ -72,7 +72,7 @@
           disabled
         >
         <i v-else-if="!isEncrypted" />
-        <img v-else src="@/assets/img/ic_v.png" alt="option-selected"/>
+        <img v-else :src="selectedIcon" alt="option-selected"/>
         <span>{{t('information.encrypted')}}</span>
         <el-tooltip
           placement="top"

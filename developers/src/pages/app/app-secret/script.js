@@ -10,6 +10,7 @@ import {
 } from '@/stores';
 import { ls } from '@/utils';
 import { useUserClient, useBotClient } from '@/api';
+import qrCodeIcon from '@/assets/img/ic_qr_code.png';
 
 export default {
   name: 'app-secret',
@@ -182,6 +183,7 @@ export default {
     }, { immediate: true });
 
     return {
+      qrCodeIcon,
       ...toRefs(state),
       keyConfig,
       useDoubleCheck,
