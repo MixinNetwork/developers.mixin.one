@@ -21,7 +21,7 @@
     "validator": "^13.15.35",
     "vue": "^3.5.44",
     "vue-croppie": "github:hundredark/vue-croppie#2.0.4",
-    "vue-i18n": "^11.4.14",
+    "vue-i18n": "^11.4.16",
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
