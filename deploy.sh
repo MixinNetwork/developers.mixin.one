@@ -14,8 +14,8 @@ mkdir dist/api
 mv api/_site/* dist/api/
 
 cd developers
-yarn install
-yarn build
+pnpm install --frozen-lockfile
+pnpm build
 cd ..
 mv developers/dist dist/developers
 
