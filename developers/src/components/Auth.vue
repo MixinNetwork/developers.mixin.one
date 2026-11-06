@@ -32,7 +32,10 @@ export default {
     const code = getUrlParameter('code');
     const { seed, publicKey } = getED25519KeyPair();
 
-    const client = useUserClient($message, t);
+    const client = useUserClient($message, t, {
+      app_id: import.meta.env.VITE_APP_CLIENT_ID,
+      session_private_key: seed.toString('hex'),
+    });
     client.oauth.getToken({
       client_id: import.meta.env.VITE_APP_CLIENT_ID,
       code,
