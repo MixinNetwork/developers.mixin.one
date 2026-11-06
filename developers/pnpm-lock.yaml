@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@mixin.dev/mixin-node-sdk':
-        specifier: 7.6.0
-        version: 7.6.0
+        specifier: 7.6.2
+        version: 7.6.2
       bignumber.js:
         specifier: ^11.1.5
         version: 11.1.5
@@ -242,8 +242,8 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@mixin.dev/mixin-node-sdk@7.6.0':
-    resolution: {integrity: sha512-ib/0LRdVkbSQvZuLltC3+jYTpcfloNLwAOJgQjVyGmjxBFnXGASE7MpYepftYRNlfdorWHSn/t/DvG8ULJmtTQ==}
+  '@mixin.dev/mixin-node-sdk@7.6.2':
+    resolution: {integrity: sha512-V3neEW4rNskIPis45uteDg9EH3ljSVTwhfp6hEOCgQ/27XW5lzrwQvel72KvNLcm3p5zCQJZo8uNgoDl2gzefQ==}
     engines: {node: '>=20'}
 
   '@noble/ciphers@2.4.0':
@@ -2550,7 +2550,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@mixin.dev/mixin-node-sdk@7.6.0':
+  '@mixin.dev/mixin-node-sdk@7.6.2':
     dependencies:
       '@noble/ciphers': 2.4.0
       '@noble/curves': 2.4.0

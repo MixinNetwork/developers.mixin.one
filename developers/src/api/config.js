@@ -1,5 +1,10 @@
 import en from '@/i18n/en';
 
+export const redirectToLogin = () => {
+  // eslint-disable-next-line max-len
+  window.location.href = `https://mixin.one/oauth/authorize?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`;
+};
+
 const commonCallback = ($message, t, err) => {
   const { code, description, message } = err;
 
@@ -24,15 +29,13 @@ const commonCallback = ($message, t, err) => {
 };
 
 export const userCbFactory = ($message, t) => (err) => {
-  commonCallback($message, t, err);
-
-  if (err.code === 401) {
-    setTimeout(() => {
-      window.localStorage.clear();
-      // eslint-disable-next-line max-len
-      window.location.href = `https://mixin.one/oauth/authorize?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&scope=PROFILE:READ+APPS:READ+APPS:WRITE&response_type=code`;
-    }, 100);
+  if (err.code === 401 || err.response?.status === 401) {
+    window.localStorage.clear();
+    redirectToLogin();
+    return;
   }
+
+  commonCallback($message, t, err);
 };
 
 export const botCbFactory = ($message, t, onError) => (err) => {
