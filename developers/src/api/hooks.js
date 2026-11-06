@@ -5,7 +5,6 @@ import { userCbFactory, botCbFactory } from './config';
 export const useUserClient = ($message, t, signingKeystore) => {
   const defaultApiConfig = {
     requestConfig: {
-      userAgent: 'mixin developers web',
       responseCallback: userCbFactory($message, t),
     },
   };
@@ -29,7 +28,6 @@ export const useUserClient = ($message, t, signingKeystore) => {
 export const useBotClient = ($message, t, keystore, onError = undefined) => {
   const defaultApiConfig = {
     requestConfig: {
-      userAgent: 'mixin developers web',
       responseCallback: botCbFactory($message, t, onError),
     },
   };
