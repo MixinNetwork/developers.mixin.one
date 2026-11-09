@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { computed, ref, inject } from 'vue';
+import { computed, ref, inject, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import ClipboardJS from 'clipboard';
@@ -80,12 +80,15 @@ export default {
         return $message.success({ message: t('message.success.copy'), showClose: true });
       });
       clipboard.value.on('error', () => $message.error({ message: t('message.errors.copy'), showClose: true }));
-
+    };
+    watch(showRegister, (show) => {
+      if (!show) return;
+      confirmed.value = false;
       const seed = Buffer.from(forge.random.getBytesSync(32), 'binary');
-      const keypair = forge.pki.ed25519.generateKeyPair({ seed: seed });
+      const keypair = forge.pki.ed25519.generateKeyPair({ seed });
       privateKey.value = seed.toString('hex');
       publicKey.value = keypair.publicKey.toString('hex');
-    };
+    });
     const useToggleConfirm = () => confirmed.value = !confirmed.value;
     const useRegister = async () => {
       if (!confirmed.value) return;
