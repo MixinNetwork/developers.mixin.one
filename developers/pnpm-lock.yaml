@@ -88,8 +88,8 @@ importers:
         specifier: ^0.28.0
         version: 0.28.0(rollup@4.60.1)(vite@8.3.5(jiti@2.6.1)(sass@1.107.1)(yaml@2.9.0))
       vue-eslint-parser:
-        specifier: ^10.4.1
-        version: 10.4.1(eslint@10.14.0(jiti@2.6.1))
+        specifier: ^10.4.2
+        version: 10.4.2(eslint@10.14.0(jiti@2.6.1))
 
 packages:
 
@@ -778,6 +778,7 @@ packages:
 
   axios-retry@4.5.0:
     resolution: {integrity: sha512-aR99oXhpEDGo0UuAlYcn2iGRds30k366Zfa05XWScR9QaQD4JYiP3/1Qt1u7YlefUOK+cn0CcwoL1oefavQUlQ==}
+    deprecated: axios-retry is no longer maintained. See https://github.com/softonic/axios-retry for alternatives.
     peerDependencies:
       axios: 0.x || 1.x
 
@@ -2311,8 +2312,8 @@ packages:
     resolution: {tarball: https://codeload.github.com/hundredark/vue-croppie/tar.gz/c882ac92645420282365d48da8a6766bd18298b9}
     version: 2.0.4
 
-  vue-eslint-parser@10.4.1:
-    resolution: {integrity: sha512-Gk6gRDj0n/fkRa3C3l0bBheoBckUq/Rs0F/TvMWIS6nzzx67amAViMe9CkNgsP2tXyQONvGiHQESHwFtZ3aYDA==}
+  vue-eslint-parser@10.4.2:
+    resolution: {integrity: sha512-WMpzulb50kb6snghzoGzS++62wcOszAk/piYcnvzdStM8Wni/BmogYltpoOFv2eK9hDbXxvwFQgnwZGpAoUfpA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
@@ -4891,7 +4892,7 @@ snapshots:
     dependencies:
       croppie: 2.6.5
 
-  vue-eslint-parser@10.4.1(eslint@10.14.0(jiti@2.6.1)):
+  vue-eslint-parser@10.4.2(eslint@10.14.0(jiti@2.6.1)):
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
       eslint: 10.14.0(jiti@2.6.1)
